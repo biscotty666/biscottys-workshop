@@ -10,7 +10,8 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - posts.qmd
+      - href: posts.qmd
+        text: Posts
       - href: resources.qmd
         text: Resources
       - href: documents/gpwh.pdf
