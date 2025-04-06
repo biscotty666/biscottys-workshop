@@ -3,20 +3,23 @@ project:
   output-dir: docs
 
 website:
-  title: "biscottys-workshop"
+  title: "biscotty's Workshop"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: resources.qmd
+        text: Resources
 
 format:
   html:
     theme:
-      - cosmo
-      - brand
+      light: litera
+      dark: superhero
     css: styles.css
     toc: true
+    page-layout: full
 
-
+editor: visual
 

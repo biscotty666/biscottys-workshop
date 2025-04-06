@@ -1,7 +1,23 @@
 ---
-title: "biscottys-workshop"
+image: "images/trunks.png"
+toc: false
+about:
+  template: solana
+  image-shape: rectangle
+  image-width: 10em
+  links: 
+    - icon: github
+      text: GitHub
+      href: https://github.com/biscotty666
+    - text: Other Workshop
+      href: https://biscotty.online
+    - icon: envelope
+      text: Email
+      href: mailto:biscotty666@gmail.com
 ---
 
-This is a Quarto website.
+> For the love of learning
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+I'll write some intro material here. I'll write some intro material here. I'll write some intro material here.
+
+Check out the [current workshop](https://biscotty.online).
