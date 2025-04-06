@@ -9,11 +9,15 @@ about:
     - icon: github
       text: GitHub
       href: https://github.com/biscotty666
-    - text: Other Workshop
+      target: _blank
+    - icon: globe
+      text: Other Workshop
       href: https://biscotty.online
+      target: _blank
     - icon: envelope
       text: Email
       href: mailto:biscotty666@gmail.com
+      target: _blank
 ---
 
 > For the love of learning
