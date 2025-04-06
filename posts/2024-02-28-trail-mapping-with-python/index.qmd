@@ -1,30 +1,16 @@
 ---
-topic:
-  - "[[GIS]]"
-related:
-  - "[[Python]]"
-created: 2025-01-16
-type:
-  - article
-action: false
+title: "Trail Mapping with Python"
+description: "Using your GPX data with geopandas"
+author:
+ - name: Brian Carey
+   url: https://biscotty.online
+date: 02-28-2024
+categories: [GIS, Python, Geopandas]
 citation: 
-modified: 2025-03-31
-fileClass:
-  - default
-  - article
-title: GPX Data
-Stage: published
-Cover: 
-PubDate: 2025-01-29
-Published: true
-Author: "[[Brian Carey]]"
-Published to:
-  - biscotty.online
-  - Medium.com
-  - SubStack
+  url: https://biscotty666.github.io/biscottys-workshop/2024-02-28-trail-mapping-with-python
+image: pr2.png
+draft: false
 ---
-# Trail Mapping with Python
-
 ## Introduction
 In the world of Data Science, I'm most strongly drawn to geographically-linked data. Choropleth maps, for example, are about the most powerful way to convey statistical information and get a point across, if you will forgive the intolerable pun. Attaching data to geography somehow makes information more relatable, more personal, and more easily absorbable. It gives people a reference point, a "you are here", if you will, or maybe "There, but for the grace of God...".
 

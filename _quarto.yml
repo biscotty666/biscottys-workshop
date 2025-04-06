@@ -10,6 +10,7 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - posts.qmd
       - href: resources.qmd
         text: Resources
       - href: documents/gpwh.pdf
@@ -25,9 +26,11 @@ website:
 format:
   html:
     theme:
-      light: litera
+      light: 
+        - litera
+        - styles.scss
       dark: superhero
-    css: styles.css
+    mainfont: Nunito
     toc: true
     page-layout: full
 

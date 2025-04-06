@@ -7,5 +7,17 @@
   },
   "resources.qmd": {
     "resources.html": "efe8cc17"
+  },
+  "temp/practice-md.qmd": {
+    "practice-md.html": "e2b5a7c4"
+  },
+  "posts.qmd": {
+    "posts.html": "ddb07451"
+  },
+  "documents/TDA1.md": {
+    "TDA1.html": "0f0b2b76"
+  },
+  "posts/2024-02-28-trail-mapping-with-python/index.qmd": {
+    "index.html": "bac651de"
   }
 }

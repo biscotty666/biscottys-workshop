@@ -1,0 +1,37 @@
+/*-- scss:defaults --*/
+
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sen:wght@400..800&display=swap');
+
+// Fonts
+$sen: "Sen", sans-serif;
+$nun: "Nunito", sans-serif;
+
+// Colors
+$dark-green: #858E79;
+$light-green: #D1D9CE;
+$cream: #FDFBF7;
+$gray: #64605f;
+$purple: #9158A2;
+$orange: #ad7237;
+
+// Base document colors
+$navbar-bg: $light-green; // navbar
+// $navbar-fg: $dark-green; // navbar foreground elements
+$navbar-hl: $purple; // highlight color when hovering over navbar links
+$body-bg: $cream; // page background 
+$footer-bg: $light-green; // footer 
+$link-color: $purple; // hyperlinks 
+
+// Inline code
+$code-bg: $cream; // inline code background color
+$code-color: $purple; // inline code text color
+
+.font-sen {
+  font-family: $sen;
+}
+
+.font-nun {
+  font-family: $nun;
+  font-size: 8pt;
+}
