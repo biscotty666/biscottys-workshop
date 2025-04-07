@@ -5,6 +5,8 @@ project:
 website:
   title: "biscotty's Workshop"
   favicon: images/BWLogo.png
+  page-navigation: true
+  back-to-top-navigation: true
   navbar:
     right:
       - href: index.qmd
@@ -12,19 +14,27 @@ website:
       - about.qmd
       - href: posts.qmd
         text: Posts
-      - href: resources.qmd
-        text: Resources
-      - href: documents/gpwh.pdf
-        text: Article
-        target: _blank
+      # - href: resources.qmd
+        # text: Resources
+      # - href: documents/gpwh.pdf
+      #   text: Article
+      #   target: _blank
       - icon: github
         href: https://github.com/biscotty666
+    left: 
+      - text: "Home"
+        href: index.qmd
+      - sidebar:posts-side
   page-footer: 
     background: dark
     left: Copyright 2025, Brian Carey
     right: This website is built with {{< fa heart title="a heart" >}}, [{{< fa brands github title="GitHub octocat logo" >}}](https://github.com/samanthacsik/samanthacsik.github.io){target=_blank}, [{{< fa brands r-project title="R Project" >}}](https://www.r-project.org/about.html){target=_blank} and [Quarto](https://quarto.org/){target=_blank}
-  repo-url: https://github.com/biscotty666/biscottys-workshop
-  repo-actions: [edit, source, issue]
+  sidebar: 
+    title: "Posts"
+    id: posts-side
+    style: "docked"
+    search: true
+    contents: posts
 
 format:
   html:
