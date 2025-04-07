@@ -1,18 +1,15 @@
 [
   {
     "listing": "/posts.html",
-    "items": [
-      "/posts/dataviewjs-files-dates/index.html",
-      "/posts/2024-02-28-trail-mapping-with-python/index.html"
-    ]
+    "items": []
   },
   {
     "listing": "/blogs.html",
     "items": [
-      "/blogs/dataviewjs-summaries-statistics/index.html",
+      "/blogs/gpx-gps-data/index.html",
       "/blogs/dataviewjs-files-dates/index.html",
       "/blogs/dataviewjs-interactive-dynamic-tables/index.html",
-      "/blogs/gpx-gps-data/index.html"
+      "/blogs/dataviewjs-summaries-statistics/index.html"
     ]
   }
 ]

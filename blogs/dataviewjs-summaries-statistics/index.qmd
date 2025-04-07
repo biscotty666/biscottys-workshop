@@ -3,6 +3,7 @@ title: "Interactive Tables with DataviewJS"
 description: "Selecting Files, Working with Dates"
 image: "djs-exercise-dashboard.png"
 categories: [Javascript, Obsidian, PKM, DataviewJS]
+date: 10-14-2023
 publishedAt: "2023-10-14"
 updatedAt: "2023-10-14"
 author: "Brian Carey"

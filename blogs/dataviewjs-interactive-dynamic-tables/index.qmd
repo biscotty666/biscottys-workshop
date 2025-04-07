@@ -3,6 +3,7 @@ title: "Summarizing Information with DataviewJS"
 description: "Presenting and analyzing information in Obsidian"
 image: "djs-db-exc.png"
 categories: [Javascript, Obsidian, PKM, DataviewJS]
+date: 10-16-2023
 publishedAt: "2023-10-16"
 updatedAt: "2023-10-16"
 author: "Brian Carey"
