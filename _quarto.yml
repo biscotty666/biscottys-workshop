@@ -23,9 +23,10 @@ website:
     left: 
       - text: "Home"
         href: index.qmd
-      - about.qmd
-      - href: posts.qmd
-        text: Posts
+      - href: about.qmd
+        text: "About"
+      - href: blogs.qmd
+        text: "Posts"
   page-footer: 
     background: dark
     left: Copyright 2025, Brian Carey
@@ -35,7 +36,7 @@ website:
     id: posts-side
     style: "docked"
     search: true
-    contents: posts
+    contents: blogs
   comments: 
     utterances: 
       repo: biscotty666/bw-comments

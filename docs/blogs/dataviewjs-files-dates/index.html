@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Brian Carey">
+<meta name="description" content="Selecting Files, Working with Dates">
 
-<title>biscotty’s Workshop</title>
+<title>DataviewJS: A Gentle Introduction Part 2 – biscotty’s Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,49 +22,31 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/BWLogo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2de8e577f026b16b589cf29efdc21f8e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../blogs/2024-02-28-trail-mapping-with-python/index.html" rel="next">
+<link href="../../images/BWLogo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-2de8e577f026b16b589cf29efdc21f8e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -94,14 +78,14 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">biscotty’s Workshop</span>
     </a>
   </div>
@@ -112,15 +96,15 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blogs.html"> 
+    <a class="nav-link" href="../../blogs.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
 </ul>
@@ -132,12 +116,12 @@ div.csl-indent {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
         <li class="dropdown-header">Blogs</li>
         <li>
-    <a class="dropdown-item" href="./blogs/gpx-gps-data/index.html">
- <span class="dropdown-text">Trail Mapping with Python</span></a>
+    <a class="dropdown-item" href="../../blogs/dataviewjs-files-dates/index.html">
+ <span class="dropdown-text">DataviewJS: A Gentle Introduction Part 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/dataviewjs-files-dates/index.html">
- <span class="dropdown-text">DataviewJS: A Gentle Introduction Part 2</span></a>
+    <a class="dropdown-item" href="../../blogs/2024-02-28-trail-mapping-with-python/index.html">
+ <span class="dropdown-text">Trail Mapping with Python</span></a>
   </li>  
     </ul>
   </li>
@@ -153,38 +137,227 @@ div.csl-indent {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../blogs/dataviewjs-files-dates/index.html">Blogs</a></li><li class="breadcrumb-item"><a href="../../blogs/dataviewjs-files-dates/index.html">DataviewJS: A Gentle Introduction Part 2</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    
-<!-- main -->
-<div class="quarto-about-solana column-page">
-  <div class="about-entity">
-    <div class="entity-contents">
-      <header id="title-block-header" class="quarto-title-block"></header> 
-      <div class="about-contents"><main class="content column-page" id="quarto-document-content">
-<blockquote class="blockquote">
-<p>For the love of learning</p>
-</blockquote>
-<p>I’ll write some intro material here. I’ll write some intro material here. I’ll write some intro material here.</p>
-<p>Check out the <a href="https://biscotty.online">current workshop</a>.</p>
-<p>Thanks to <span class="citation" data-cites="shanny-csik2022">(<a href="#ref-shanny-csik2022" role="doc-biblioref">Shanny-Csik 2022</a>)</span></p>
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-shanny-csik2022" class="csl-entry" role="listitem">
-Shanny-Csik, Samantha. 2022. <span>“Adding a Blog to Your Existing <span>Quarto</span> Website.”</span> October 24, 2022. <a href="https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/">https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/</a>.
-</div>
-</div></section></div></main></div>
-    </div>
-    <img src="images/trunks.png" class="about-image
-  rectangle " style="width: 10em;">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../blogs/dataviewjs-files-dates/index.html">Blogs</a></li><li class="breadcrumb-item"><a href="../../blogs/dataviewjs-files-dates/index.html">DataviewJS: A Gentle Introduction Part 2</a></li></ol></nav>
+      <h1 class="title">DataviewJS: A Gentle Introduction Part 2</h1>
+                  <div>
+        <div class="description">
+          Selecting Files, Working with Dates
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Javascript</div>
+                <div class="quarto-category">Obsidian</div>
+                <div class="quarto-category">PKM</div>
+                <div class="quarto-category">DataviewJS</div>
+              </div>
+                  </div>
   </div>
-</div>
- <!-- /main -->
+    
+  
+  <div class="quarto-title-meta column-body">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://biscotty.online">Brian Carey</a> </p>
+            </div>
+    </div>
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Blogs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../blogs/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">DataviewJS: A Gentle Introduction Part 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../blogs/2024-02-28-trail-mapping-with-python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trail Mapping with Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#dataviewjs-selecting-files-working-with-dates" id="toc-dataviewjs-selecting-files-working-with-dates" class="nav-link active" data-scroll-target="#dataviewjs-selecting-files-working-with-dates">DataviewJS: Selecting Files, Working with Dates</a>
+  <ul class="collapse">
+  <li><a href="#selecting-files" id="toc-selecting-files" class="nav-link" data-scroll-target="#selecting-files">Selecting files</a></li>
+  <li><a href="#sorting" id="toc-sorting" class="nav-link" data-scroll-target="#sorting">Sorting</a></li>
+  <li><a href="#a-first-table" id="toc-a-first-table" class="nav-link" data-scroll-target="#a-first-table">A first table</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+
+
+
+
+
+<section id="dataviewjs-selecting-files-working-with-dates" class="level1">
+<h1>DataviewJS: Selecting Files, Working with Dates</h1>
+<section id="selecting-files" class="level2">
+<h2 class="anchored" data-anchor-id="selecting-files">Selecting files</h2>
+<p>This article follows an <a href="http://biscotty.online/blogs/gentle-introduction-to-dataviewjs">earlier article</a> introducing DataviewJS, which I strongly encourage you to read first. In that article, we learned how to display basic lists with Dataview. In this article, I will cover displaying lists of files in your vault and information in those files. I will also discuss using date ranges in queries and sorting results. Finally I will show how to make a table with multiple fields.</p>
+<p>As a refresher, to show a list with a header you typed something like</p>
+<pre class="{js dataviewjs}"><code>const myList = [
+    "First",
+    "Second",
+    "Third"
+]
+
+dv.header(3, "My List")
+dv.list(myList)</code></pre>
+<p>.</p>
+<p>This creates a <em>variable</em> with a camelCase name. The variable contains a list, surrounded by square brackets, separated by commas, with quotations around strings (text). That was easy.</p>
+<p>Now what if I want to list all the files in my vault? I won’t do this, because the list would be crazy long, but just say I did. I would use</p>
+<pre><code>const fileNameList = dv.pages().file.name
+
+dv.header(3, "Log files")
+dv.list(fileNameList)</code></pre>
+<p>This would give me a bullet-point list of the names of all of the files in my vault. If you don’t have too many files in your vault, go ahead and try. Before narrowing it down to something more specific, let’s look at what is new here. What is <code>pages().file.name</code>? And for that matter, what’s with all the periods?</p>
+<p>Let me explain the periods first. I said that <code>dv</code> is an object. Objects can contain functions, like <code>list()</code>. They can also contain values, often called <em>attributes</em>. The functions and attributes of any object are referred to or accessed by using the name of the object, followed by a period, and then the name of the function or attribute. So the phrase above means: <code>dv</code> is an object that contains a <code>pages()</code> function (the parentheses let you know it is a function). The <code>pages()</code> function selects certain pages and provides attributes for each page, such as the name, links, date created, date modified, etc., in an object called <code>file</code>. In this case I’m choosing to show just the file name. If I wanted links instead, I would do <code>dv.pages().file.link</code>.</p>
+<p>This dot-notation, using periods, is actually quite nice when you get used to it. Recall that “white space”, including line breaks, is not important in JavaScript, so you will see me often using line breaks before these periods, purely for readability and ease of editing.</p>
+<p>So let’s see how to narrow things down a little. For the following examples I will use my exercise logs. All the log files are linked to a file called <code>Logs</code>. I can select files that link to this <code>Logs</code> file by writing <code>pages("[[Logs]]")</code>. Note the quotations AND double square brackets. So I can write:</p>
+<pre><code>const fileNameList = dv.pages("[[Logs]]").file.link
+
+dv.header(3, "Log files")
+dv.list(fileNameList)</code></pre>
+<p>I suggest you create some log files in your vault so that you can follow along. Each file should contain, at least, the following fields, some of which we won’t use until we look at tables:</p>
+<pre><code>topic:: [[Logs]]
+type:: log
+Activity:: 🚶
+Duration:: 60
+Distance:: 3
+ActivityDate:: 2023-10-05</code></pre>
+<p>I use 🚴 as the other activity type. After creating some log files, and the <code>Logs</code> file itself (this file can be empty for now), go ahead and try the JavaScript. You can use this technique to retrieve files on any topic in this way, assuming you have a <code>topic</code> field with the link (really you only need there to be a link).</p>
+</section>
+<section id="sorting" class="level2">
+<h2 class="anchored" data-anchor-id="sorting">Sorting</h2>
+<p>Let’s look at some ways we can modify this snippet to make it more useful. First, if you have tried this, and have created log files with various dates, you may notice that they aren’t necessarily displayed in any particular order. I want to make sure they are ordered by the activity date. The <code>pages()</code> object contains a number of functions allowing us to work with data, and <code>sort()</code> is one. <code>sort()</code> takes two arguments, first the name of the field to sort on, and a second argument specifying the sort order, either <code>"asc"</code> or <code>"desc"</code>, for ascending or descending order, respectively.</p>
+<p>Unfortunately, we can’t just add <code>.sort(ActivityDate, "desc")</code>. When working with <code>pages()</code> we need to use a special JavaScript syntax. We need to type <code>.sort(a =&gt; a.ActivityDate, "desc")</code>. The letter <code>a</code> is arbitrary. I could also write <code>.sort(foo =&gt; foo.ActivityDate, "desc")</code> to achieve the same thing. <code>a</code>, or <code>foo</code>, basically serves as temporary variable name for the object you are working with, in this case the page, or note. Then the command says to use the <code>ActivityDate</code> property on each page for sorting. I know it looks a little confusing at first, but you will see this idiom so frequently you will quickly get used to it.</p>
+<p>So lets sort our logs by date as so:</p>
+<pre><code>const fileNameList = dv.pages("[[Logs]]")                                                                                                                
+    .sort(b =&gt; b.ActivityDate, "desc")                                                                                                                   
+    .ActivityDate
+
+dv.header(3, "Activity Dates")
+dv.list(fileNameList)</code></pre>
+<p>Notice how the dot notation allows us to easily add more conditions to our query. ## Selecting by date</p>
+<p>Next, let’s see how we can select logs only for certain dates. To do that, we use the <code>.where()</code> function supplied by <code>pages()</code>. To see only logs since October 3, 2023, I can write</p>
+<pre><code>const fileNameList = dv.pages("[[Logs]]")
+  .where(b =&gt; b.ActivityDate &gt;= dv.date("2023-10-03"))
+    .sort(b =&gt; b.ActivityDate, "desc")
+    .ActivityDate                
+dv.header(3, "Activity Dates since October 3, 2023")
+dv.list(fileNameList)</code></pre>
+<p>The syntax for <code>where()</code> is similar to the syntax for <code>sort()</code>. There is an important difference though, because here we are comparing two values. <code>&gt;=</code> means “greater than or equal to”, <code>&lt;=</code> would be “less than or equal to”, etc. This <em>evaluates</em> to either true or false, since the date is either earlier or later than 10/3. This type of true/false value has a special name, <em>boolean</em>, which is good to know. <code>dv</code> provides its own <code>.date()</code> function for simple date manipulation, and I use it here.</p>
+<p>Now that you know how to use <code>where()</code>, let’s do one more thing with it. The code currently takes advantage of the fact that all the logs are linked to the <code>Logs</code> note. I don’t like that, because I might create some logs with a different <code>topic</code>. You may have noticed that all of the log notes have a <code>type:: log</code>. This can be used with <code>.where()</code>, so I can instead write:</p>
+<pre><code>const fileNameList = dv.pages()
+ .where(b =&gt; b.type == "log")
+ .where(b =&gt; b.ActivityDate &gt;= dv.date("2023-10-03"))
+ .sort(b =&gt; b.ActivityDate, "desc")
+ .ActivityDate
+                                                             
+dv.header(3, "Activity Dates since October 3, 2023")
+dv.list(fileNameList)</code></pre>
+<p>Many of my queries are based on the type of note, and this is how the note type can be used. Pay attention to the fact that “equal to” requires two equal signs, not one. For completeness, “not equal to” is written <code>!=</code>.</p>
+</section>
+<section id="a-first-table" class="level2">
+<h2 class="anchored" data-anchor-id="a-first-table">A first table</h2>
+<p>Lists aren’t very interesting, though. Usually you want more than just the name, or one bit of information from a file. So let’s make a table instead with <code>dv.table()</code>. For tables, you must supply an additional list with the column headers. Then you specify the fields that you want using a JavaScript function called <code>map()</code>. It works pretty much the same way as <code>.sort</code> and <code>.where()</code>, it just has a seemingly odd name. <code>map()</code> is used to go through each item in a list and do something with it, in this case, select certain fields from each note. This is called <em>iteration</em>.</p>
+<p>This table shows the type of activity, distance in miles, duration in minutes and date. I’ve used emojis for column headings. You can see that the fields I want shown are supplied as a list (between square brackets) of the fields I want in the table.</p>
+<pre><code>
+const headers = ["🚶/🚴", "🗒️", "⏱️", "📅"]
+
+const pages = dv.pages() 
+    .where(b =&gt; b.type == "log")
+    .where(b =&gt; b.ActivityDate &gt;= dv.date("2023-10-03"))
+    .sort(b =&gt; b.ActivityDate, "desc")
+    .map(b =&gt; [
+        b.Activity, 
+        b.Distance, 
+        b.Duration, 
+        b.ActivityDate
+    ])
+                                
+
+dv.header(3, "Activity since October 3, 2023")
+dv.table(headers,   pages)</code></pre>
+<p><img src="djs-part-2.png" class="img-fluid"></p>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<p>In the next article I will look at how to make this table dynamic, allowing you to change values directly in the table. I will also talk about relative dates, eg. activity over the last 10 days, or in the 10 days prior to that, or before a certain day but after another day.</p>
+<p>Before moving on, I strongly encourage you to work with the material covered so far by adding some metadata to your existing notes and creating some queries. I don’t use tags (for now), but if you do, you could do <code>pages("#some/tag")</code> instead of <code>pages("[[Logs]]")</code>. Maybe you have a tag, <code>#fleeting</code>, for example. You could make a list of all your fleeting notes with <code>pages(#fleeting)</code>.</p>
+<p>Finally, if you have been reading my Freeing Your Thinking series you may already be doing these examples on a canvas instead of in a note. If you aren’t I encourage you to do so. You can put the code directly into cards on a canvas. Then you can easily see all of your tables in one place, and convert them into notes if you so desire (but why?). Since the end goal will be to have dashboards to view and manage things, you might as well start now. If you have multiple tables on the same canvas, you might want to increase the Refresh Rate in the Dataview settings to prevent the canvas from being too “jumpy” while you type. The default is 2500ms (2.5 seconds). I find that 5 seconds (5000ms) works pretty well for me and the speed I type.</p>
+<p>Happy coding!</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{carey,
+  author = {Carey, Brian},
+  title = {DataviewJS: {A} {Gentle} {Introduction} {Part} 2},
+  url = {https://biscotty666.github.io/biscottys-workshop/2024-02-28-trail-mapping-with-python},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-carey" class="csl-entry quarto-appendix-citeas" role="listitem">
+Carey, Brian. n.d. <span>“DataviewJS: A Gentle Introduction Part
+2.”</span> <a href="https://biscotty666.github.io/biscottys-workshop/2024-02-28-trail-mapping-with-python">https://biscotty666.github.io/biscottys-workshop/2024-02-28-trail-mapping-with-python</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -349,6 +522,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -739,6 +919,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="biscotty666/bw-comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../blogs/2024-02-28-trail-mapping-with-python/index.html" class="pagination-link" aria-label="Trail Mapping with Python">
+        <span class="nav-page-text">Trail Mapping with Python</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

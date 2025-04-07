@@ -25,5 +25,17 @@
   },
   "posts/dataviewjs-files-dates/index.qmd": {
     "index.html": "693df27e"
+  },
+  "blogs.qmd": {
+    "blogs.html": "fe0f8f76"
+  },
+  "blogs/dataviewjs-files-dates/index.qmd": {
+    "index.html": "4e374203"
+  },
+  "blogs/2024-02-28-trail-mapping-with-python/index.qmd": {
+    "index.html": "bae30b5d"
+  },
+  "blogs/gpx-gps-data/index.qmd": {
+    "index.html": "f4473905"
   }
 }

@@ -5,5 +5,12 @@
       "/posts/dataviewjs-files-dates/index.html",
       "/posts/2024-02-28-trail-mapping-with-python/index.html"
     ]
+  },
+  {
+    "listing": "/blogs.html",
+    "items": [
+      "/blogs/dataviewjs-files-dates/index.html",
+      "/blogs/gpx-gps-data/index.html"
+    ]
   }
 ]

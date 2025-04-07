@@ -1,0 +1,14 @@
+---
+title: "Posts"
+listing:
+  contents: blogs
+  type: grid
+  sort: "date desc"
+  categories: true
+  feed:
+    items: 10
+    type: partial
+sidebar: posts-side
+comments: false
+---
+
