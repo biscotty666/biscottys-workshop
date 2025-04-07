@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Brian Carey">
+<meta name="description" content="Selecting Files, Working with Dates">
 
-<title>Posts – biscotty’s Workshop</title>
+<title>Interactive Tables with DataviewJS – biscotty’s Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,29 +25,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/BWLogo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2de8e577f026b16b589cf29efdc21f8e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../blogs/dataviewjs-files-dates/index.html" rel="next">
+<link href="../../blogs/gpx-gps-data/index.html" rel="prev">
+<link href="../../images/BWLogo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-2de8e577f026b16b589cf29efdc21f8e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,76 +75,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="alternate" type="application/rss+xml" title="biscotty's Workshop" href="blogs.xml" data-external="1"></head>
+</head>
 
 <body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">biscotty’s Workshop</span>
     </a>
   </div>
@@ -153,15 +97,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blogs.html" aria-current="page"> 
+    <a class="nav-link" href="../../blogs.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
 </ul>
@@ -173,19 +117,19 @@ window.Quarto = {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
         <li class="dropdown-header">Blogs</li>
         <li>
-    <a class="dropdown-item" href="./blogs/gpx-gps-data/index.html">
+    <a class="dropdown-item" href="../../blogs/gpx-gps-data/index.html">
  <span class="dropdown-text">Trail Mapping with Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/dataviewjs-summaries-statistics/index.html">
+    <a class="dropdown-item" href="../../blogs/dataviewjs-summaries-statistics/index.html">
  <span class="dropdown-text">Interactive Tables with DataviewJS</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/dataviewjs-files-dates/index.html">
+    <a class="dropdown-item" href="../../blogs/dataviewjs-files-dates/index.html">
  <span class="dropdown-text">DataviewJS: A Gentle Introduction Part 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/dataviewjs-interactive-dynamic-tables/index.html">
+    <a class="dropdown-item" href="../../blogs/dataviewjs-interactive-dynamic-tables/index.html">
  <span class="dropdown-text">Summarizing Information with DataviewJS</span></a>
   </li>  
     </ul>
@@ -207,7 +151,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../blogs/gpx-gps-data/index.html">Blogs</a></li><li class="breadcrumb-item"><a href="../../blogs/dataviewjs-summaries-statistics/index.html">Interactive Tables with DataviewJS</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -217,7 +161,40 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../blogs/gpx-gps-data/index.html">Blogs</a></li><li class="breadcrumb-item"><a href="../../blogs/dataviewjs-summaries-statistics/index.html">Interactive Tables with DataviewJS</a></li></ol></nav>
+      <h1 class="title">Interactive Tables with DataviewJS</h1>
+                  <div>
+        <div class="description">
+          Selecting Files, Working with Dates
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Javascript</div>
+                <div class="quarto-category">Obsidian</div>
+                <div class="quarto-category">PKM</div>
+                <div class="quarto-category">DataviewJS</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-body">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Brian Carey </p>
+            </div>
+    </div>
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -238,25 +215,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../blogs/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trail Mapping with Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/dataviewjs-summaries-statistics/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../blogs/dataviewjs-summaries-statistics/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Interactive Tables with DataviewJS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../blogs/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataviewJS: A Gentle Introduction Part 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/dataviewjs-interactive-dynamic-tables/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../blogs/dataviewjs-interactive-dynamic-tables/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summarizing Information with DataviewJS</span></a>
   </div>
 </li>
@@ -268,185 +245,144 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="RGF0YXZpZXdKUw==">DataviewJS <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R0lT">GIS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2VvcGFuZGFz">Geopandas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SmF2YXNjcmlwdA==">Javascript <span class="quarto-category-count">(3)</span></div><div class="category" data-category="T2JzaWRpYW4=">Obsidian <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UEtN">PKM <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#interactive-tables-with-dataviewjs" id="toc-interactive-tables-with-dataviewjs" class="nav-link active" data-scroll-target="#interactive-tables-with-dataviewjs">Interactive Tables with DataviewJS</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#time-math" id="toc-time-math" class="nav-link" data-scroll-target="#time-math">Time Math</a></li>
+  <li><a href="#metadata-menu" id="toc-metadata-menu" class="nav-link" data-scroll-target="#metadata-menu">Metadata Menu</a></li>
+  <li><a href="#the-table" id="toc-the-table" class="nav-link" data-scroll-target="#the-table">The Table</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Posts</h1>
-</div>
-
-
-
-<div class="quarto-title-meta column-body">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
 
 
 
 
 
+<section id="interactive-tables-with-dataviewjs" class="level1">
+<h1>Interactive Tables with DataviewJS</h1>
+<p><img src="djs-exercise-dashboard.png" class="img-fluid"></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This article is a follow-up to my <a href="http://biscotty.online/blogs/gentle-introduction-to-dataviewjs">Gentle Introduction to DataviewJS</a> articles, and assumes that you have read them. It is written for anglers, but if you just want the fish you can Tldr; your way to the bottom an just grab the code. Even if you are here to learn how to fish, depending on your learning style, you may want to take a look at the complete code first before this walk-through.</p>
+<p>We are now ready to start building a fully dynamic and interactive dashboard to manage the exercise logs. In this case, I’m tracking the following:</p>
+<ul>
+<li>type of activity</li>
+<li>distance</li>
+<li>duration</li>
+<li>date of activity</li>
+<li>route</li>
+</ul>
+<p>I have optional fields for notes and, as you can see, for images. Summary tables are generated using calculated values. The entire canvas updates automatically to the current day.</p>
+<p>This example could easily be extended for tracking anything which includes numerical data and images. Imagine a research project, for example, where observations are taken combining numerical data, textual observations, and photos. Actually creating the log entries, thanks to Metadata Menu and Unique Notes, takes almost no time. You can read about how to do this here.</p>
+<p>In this article, I’ll focus on creating this dynamic table.</p>
+<p><img src="djs-d-cv.png" class="img-fluid"></p>
+<p>Appropriate widgets are provided allowing for direct editing or the use of popup modals for multi-select fields and dates. The list will display all logs over the last 7 days, so different logs will appear depending on the day.</p>
+<p>To do this, we will use the excellent JavaScript functionality provided by Metadata Menu. It would be more interesting were you to create a bunch of logs (notes) covering a date range of at least three months and follow along. They should all contain the following fields:</p>
+<ul>
+<li>topic</li>
+<li>type</li>
+<li>Route</li>
+<li>Activity</li>
+<li>Duration</li>
+<li>Distance</li>
+<li>Note</li>
+<li>Image</li>
+<li>Link</li>
+</ul>
+</section>
+<section id="time-math" class="level2">
+<h2 class="anchored" data-anchor-id="time-math">Time Math</h2>
+<p>Throughout this dashboard I work with time. It is natural to want to look at time periods of weeks and months, and to compare current periods to prior periods of the same length. We, just as naturally, compare a week starting Monday or Sunday to a prior week starting on the same day. And we compare February to January. This is often a good thing, because it fits the way people naturally think.</p>
+<p>But if you are really looking at the numbers, you quickly see the flaw in comparing time periods this way. You can’t compare a <strong>complete</strong> week to the prior week until the end of the week. To get around this, people use week-to-date, or quite commonly month-to-date. For months the problem is worse, as in the case of Feb/Jan comparison that’s 28 days compared to 31 days. That’s more than a 10% difference in days, and therefor in data!</p>
+<p>A simple way around this, and one which provides better analysis, is to use rolling windows of time. Any seven day period contains every day of the week, and so comparing two of any such periods valid (and complete) week-to-week comparisons. For months, you can compare any 30 (or 28) day period to the prior period of equal length, so you get a full, month-long picture with apples-to-apples data (that’s a technical term😉).</p>
+<p>In the first article I introduced <code>moment()</code>, an object provided by Dataview (by MomentJS actually). This makes time math easy. <code>moment()</code> itself means today, now, this very second. If you want the date/time two days ago, you can subtract two days with <code>moment().subtract(2, "days")</code>. I’ll leave it as an exercise to the reader to figure out how to find the date two months ago.</p>
+<p>In order to use <code>moment()</code> for any date other than now, you need to write, eg., <code>moment(new Date("2023-10-20")</code>. We will do this so that we can format the date differently using the <code>format()</code> function in <code>moment()</code>. <code>format()</code> wants an argument, a date format string. I don’t need to see the year, and a 2-digit month is fine and shorter. On the other hand, seeing the day of the week would be useful. The format string to produce “10/10 Tue” is “MM/DD ddd”. ### Challenge As an exercise, you might pause here and think about how to display “two days ago” in the format “10/10 Tue”. You have all the knowledge you need. Think about chaining commands together with the period. ### Solution</p>
+<p>Here is a solution:</p>
+<pre><code>const dateFormat = "MM/DD ddd" const twoDaysAgo =
+moment() .subtract(2, "days") .format(dateFormat)
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDUEtNJTJDRGF0YXZpZXdKUw==" data-listing-file-modified-sort="1744061713512" data-listing-reading-time-sort="8" data-listing-word-count-sort="1540">
-<a href="./blogs/dataviewjs-summaries-statistics/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./blogs/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Interactive Tables with DataviewJS
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SmF2YXNjcmlwdA=='); return false;">
-Javascript
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
-Obsidian
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UEtN'); return false;">
-PKM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YXZpZXdKUw=='); return false;">
-DataviewJS
-</div>
-</div>
-<div class="card-text listing-description">
-Selecting Files, Working with Dates
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-Brian Carey
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDUEtNJTJDRGF0YXZpZXdKUw==" data-listing-file-modified-sort="1744061697554" data-listing-reading-time-sort="8" data-listing-word-count-sort="1548">
-<a href="./blogs/dataviewjs-files-dates/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./blogs/dataviewjs-files-dates/djs-part-2.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-DataviewJS: A Gentle Introduction Part 2
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SmF2YXNjcmlwdA=='); return false;">
-Javascript
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
-Obsidian
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UEtN'); return false;">
-PKM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YXZpZXdKUw=='); return false;">
-DataviewJS
-</div>
-</div>
-<div class="card-text listing-description">
-Selecting Files, Working with Dates
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-Brian Carey
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDUEtNJTJDRGF0YXZpZXdKUw==" data-listing-file-modified-sort="1744061678172" data-listing-reading-time-sort="9" data-listing-word-count-sort="1688">
-<a href="./blogs/dataviewjs-interactive-dynamic-tables/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./blogs/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Summarizing Information with DataviewJS
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SmF2YXNjcmlwdA=='); return false;">
-Javascript
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
-Obsidian
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UEtN'); return false;">
-PKM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YXZpZXdKUw=='); return false;">
-DataviewJS
-</div>
-</div>
-<div class="card-text listing-description">
-Presenting and analyzing information in Obsidian
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-Brian Carey
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="R0lTJTJDUHl0aG9uJTJDR2VvcGFuZGFz" data-listing-date-sort="1709103600000" data-listing-file-modified-sort="1744058810224" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2160">
-<a href="./blogs/gpx-gps-data/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./blogs/gpx-gps-data/pr2.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Trail Mapping with Python
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
-GIS
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">
-Python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2VvcGFuZGFz'); return false;">
-Geopandas
-</div>
-</div>
-<div class="card-text listing-description">
-Using your GPX data with geopandas
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Brian Carey
-</div>
-<div class="listing-date">
-Feb 28, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+dv.paragraph(twoDaysAgo)</code></pre>
+<p>When writing, and especially reading, code, formatting is important. I could have written</p>
+<pre><code>const twoDaysAgo = moment().subtract(2, "days").format(dateFormat)</code></pre>
+<p>but it is much less clear what is going on. If you are trying to understand a piece of code, start by reformatting. ## Asynchronous Functions</p>
+<p>Most computer programs execute line by line, with each line completing before moving on to the next line. Normally this is what you want. However, as the quantity of data commonly worked with increases geometrically, and the fact that it is often distributed widely across the internet, applications which require <em>fetching</em> data can easily grind to a halt due to a slow internet connection, slow servers, large quantities, etc. To overcome this problems, some functions are executed <em>asynchronously</em>. When an asynchronous function is executed, it doesn’t return the actual data. Instead, it returns what is called a <em>promise</em>. That allows the program to continue executing while the data is being fetched. It will continue execution until the data is actually required, at which point it will wait (not freeze).</p>
+<p>In practice this is quite easy, involving the use of two new key words: <code>async</code> and <code>await</code>. The first, <code>async</code>, is added to the function definition, and the second, <code>await</code>, is added before any data fetching. That’s all you need to know so that you will understand the words when you see them.</p>
+</section>
+<section id="metadata-menu" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-menu">Metadata Menu</h2>
+<p>Metadata Menu provides an asynchronous function for making the tables interactive. To use the function, you must import it with</p>
+<pre><code>const {fieldModifier: f} = this.app.plugins.plugins["metadata-menu"].api</code></pre>
+<p>Using the curly braces like this is called deconstructing a variable or function. This means that somewhere there is a function called <code>fieldModifier</code>. The <code>: f</code> is just an alias, so that every time you use the function you don’t need to write out <code>fieldModifier</code>, you can just write <code>f</code>.</p>
+<p>The other part is interesting. Take it step by step. <code>this</code> is the root directory of your vault. <code>app</code> is the hidden <code>obsidian</code> directory, inside of which there is, you guessed it, a <code>plugins</code> directory with an entry called <code>metadata-menu</code>. The rest, <code>plugins["metadata-menu"].api</code> says to look in the <code>metadata-menu</code> directory for something called <code>api</code>. This object will contain a function called <code>fieldModifier</code>, which we can now refer to simply as <code>f</code>.</p>
+<p><code>fieldModifier()</code>, which is <code>f()</code> to us now, is used in <code>map()</code> and takes three arguments: the <code>dv</code> object, whatever temporary variable you are using in <code>map()</code> (we have been using <code>b</code>), and the name of the field we want. Were it a normal function you would write</p>
+<pre><code>dataviewjs dv.pages()     
+  .map(b=&gt;[p.ActivityDate, 
+  f(dv, b, "Activity"),
+  ]</code></pre>
+<p>Since this fetching of date is asynchronous, you have to use the key words <code>async/await</code> here, so</p>
+<pre><code>dataviewjs dv.pages()     
+  .map(async b=&gt;[
+    p.ActivityDate,
+    await f(dv, b, "Activity"),
+    ]</code></pre>
+<p>The entire section containing <code>pages().map</code> needs to be wrapped in an asynchronous function called <code>Promise.all()</code>, which must be (a)waited for and returns, unsurprisingly, a promise.</p>
+<pre><code>await Promise.all(dv.pages()
+  .map(async b=&gt;[
+    p.ActivityDate,
+    await f(dv, b, "Activity"),
+    ])</code></pre>
+</section>
+<section id="the-table" class="level2">
+<h2 class="anchored" data-anchor-id="the-table">The Table</h2>
+<p>Now, lets finally take a look at the entire code that creates the dashboard. Take some time to read through it. Everything should be understandable at this point.</p>
+<pre><code>const {fieldModifier: f} =
+this.app.plugins.plugins\["metadata-menu"\].api
+
+const dateFormat = "MM/DD ddd"
+
+dv.header(3, "7 Day Details")
+
+dv.table(\["🗓️","🚶🚴", "📓", "⏱️", "🗺️"\],
+
+await Promise.all(dv.pages()
+    .where(b =&gt; b.type == "log")
+    .where(b =&gt; b.ActivityDate &gt;= moment().subtract(7, "days"))
+    .sort(p =&gt; p.ActivityDate, "desc")
+    .map(async b=&gt;[
+        moment(new Date(b.ActivityDate)).format(dateFormat),
+        await f(dv, b, "Activity"), 
+        await f(dv, b, "Distance"), 
+        await f(dv, b, "Duration"), 
+        await f(dv, b, "Route"),
+    ]
+  )
+)</code></pre>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>In the next article I will explain how to generate summary information like totals and averages for display on the dashboard. In the mean time I strongly suggest that you do two things:</p>
+<ol type="1">
+<li>Add images to some of your logs and create the table for the Gallery section of the dashboard</li>
+<li>Turn some of your existing Dataview tables into DataviewJS tables. Or, at least, make some new ones from your own information</li>
+<li>Spend some time working with date ranges. In this example, we selected the past seven days. How can you select the seven days prior to that? (Hint: you need to chain together two <code>where()</code> clauses.)</li>
+<li>Can you create a month-to-date view? There are various ways to do it, but it’s helpful to know that you can do <code>moment().startOf('month')</code> to grab the first day of the month. Check out the <a href="https://momentjs.com/docs/#/manipulating/">documentation</a> for more possibilities.</li>
+</ol>
+<p>Happy coding!</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1008,6 +944,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="biscotty666/bw-comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../../blogs/gpx-gps-data/index.html" class="pagination-link" aria-label="Trail Mapping with Python">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Trail Mapping with Python</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../blogs/dataviewjs-files-dates/index.html" class="pagination-link" aria-label="DataviewJS: A Gentle Introduction Part 2">
+        <span class="nav-page-text">DataviewJS: A Gentle Introduction Part 2</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

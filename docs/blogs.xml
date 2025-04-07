@@ -24,6 +24,19 @@
   <media:content url="https://biscotty.online/blogs/gpx-gps-data/pr2.png" medium="image" type="image/png" height="93" width="144"/>
 </item>
 <item>
+  <title>Interactive Tables with DataviewJS</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/dataviewjs-summaries-statistics/</link>
+  <description><![CDATA[ Selecting Files, Working with Dates ]]></description>
+  <category>Javascript</category>
+  <category>Obsidian</category>
+  <category>PKM</category>
+  <category>DataviewJS</category>
+  <guid>https://biscotty.online/blogs/dataviewjs-summaries-statistics/</guid>
+  <pubDate>Mon, 07 Apr 2025 21:37:36 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
   <title>DataviewJS: A Gentle Introduction Part 2</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/blogs/dataviewjs-files-dates/</link>
@@ -33,8 +46,21 @@
   <category>PKM</category>
   <category>DataviewJS</category>
   <guid>https://biscotty.online/blogs/dataviewjs-files-dates/</guid>
-  <pubDate>Mon, 07 Apr 2025 21:02:38 GMT</pubDate>
+  <pubDate>Mon, 07 Apr 2025 21:37:36 GMT</pubDate>
   <media:content url="https://biscotty.online/blogs/dataviewjs-files-dates/djs-part-2.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Summarizing Information with DataviewJS</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/dataviewjs-interactive-dynamic-tables/</link>
+  <description><![CDATA[ Presenting and analyzing information in Obsidian ]]></description>
+  <category>Javascript</category>
+  <category>Obsidian</category>
+  <category>PKM</category>
+  <category>DataviewJS</category>
+  <guid>https://biscotty.online/blogs/dataviewjs-interactive-dynamic-tables/</guid>
+  <pubDate>Mon, 07 Apr 2025 21:37:36 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

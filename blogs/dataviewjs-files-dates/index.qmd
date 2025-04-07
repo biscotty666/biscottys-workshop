@@ -17,8 +17,6 @@ tags:
   - Obsidian
   - PKM
 draft: false
-aliases: 
-  - https://biscotty.online/blogs/gpx-gps-data
 ---
 # DataviewJS: Selecting Files, Working with Dates
 

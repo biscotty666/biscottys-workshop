@@ -37,5 +37,11 @@
   },
   "blogs/gpx-gps-data/index.qmd": {
     "index.html": "f4473905"
+  },
+  "blogs/dataviewjs-interactive-dynamic-tables/index.qmd": {
+    "index.html": "9a9ffdb6"
+  },
+  "blogs/dataviewjs-summaries-statistics/index.qmd": {
+    "index.html": "34bc6064"
   }
 }

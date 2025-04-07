@@ -9,7 +9,9 @@
   {
     "listing": "/blogs.html",
     "items": [
+      "/blogs/dataviewjs-summaries-statistics/index.html",
       "/blogs/dataviewjs-files-dates/index.html",
+      "/blogs/dataviewjs-interactive-dynamic-tables/index.html",
       "/blogs/gpx-gps-data/index.html"
     ]
   }

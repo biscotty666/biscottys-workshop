@@ -32,7 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../blogs/2024-02-28-trail-mapping-with-python/index.html" rel="next">
+<link href="../../blogs/dataviewjs-interactive-dynamic-tables/index.html" rel="next">
+<link href="../../blogs/dataviewjs-summaries-statistics/index.html" rel="prev">
 <link href="../../images/BWLogo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -116,12 +117,20 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
         <li class="dropdown-header">Blogs</li>
         <li>
+    <a class="dropdown-item" href="../../blogs/gpx-gps-data/index.html">
+ <span class="dropdown-text">Trail Mapping with Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../blogs/dataviewjs-summaries-statistics/index.html">
+ <span class="dropdown-text">Interactive Tables with DataviewJS</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../blogs/dataviewjs-files-dates/index.html">
  <span class="dropdown-text">DataviewJS: A Gentle Introduction Part 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/2024-02-28-trail-mapping-with-python/index.html">
- <span class="dropdown-text">Trail Mapping with Python</span></a>
+    <a class="dropdown-item" href="../../blogs/dataviewjs-interactive-dynamic-tables/index.html">
+ <span class="dropdown-text">Summarizing Information with DataviewJS</span></a>
   </li>  
     </ul>
   </li>
@@ -142,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../blogs/dataviewjs-files-dates/index.html">Blogs</a></li><li class="breadcrumb-item"><a href="../../blogs/dataviewjs-files-dates/index.html">DataviewJS: A Gentle Introduction Part 2</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../blogs/gpx-gps-data/index.html">Blogs</a></li><li class="breadcrumb-item"><a href="../../blogs/dataviewjs-files-dates/index.html">DataviewJS: A Gentle Introduction Part 2</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -154,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../blogs/dataviewjs-files-dates/index.html">Blogs</a></li><li class="breadcrumb-item"><a href="../../blogs/dataviewjs-files-dates/index.html">DataviewJS: A Gentle Introduction Part 2</a></li></ol></nav>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../blogs/gpx-gps-data/index.html">Blogs</a></li><li class="breadcrumb-item"><a href="../../blogs/dataviewjs-files-dates/index.html">DataviewJS: A Gentle Introduction Part 2</a></li></ol></nav>
       <h1 class="title">DataviewJS: A Gentle Introduction Part 2</h1>
                   <div>
         <div class="description">
@@ -206,14 +215,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../blogs/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trail Mapping with Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../blogs/dataviewjs-summaries-statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interactive Tables with DataviewJS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../blogs/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">DataviewJS: A Gentle Introduction Part 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/2024-02-28-trail-mapping-with-python/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trail Mapping with Python</span></a>
+  <a href="../../blogs/dataviewjs-interactive-dynamic-tables/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summarizing Information with DataviewJS</span></a>
   </div>
 </li>
       </ul>
@@ -923,10 +944,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
+      <a href="../../blogs/dataviewjs-summaries-statistics/index.html" class="pagination-link" aria-label="Interactive Tables with DataviewJS">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Interactive Tables with DataviewJS</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../blogs/2024-02-28-trail-mapping-with-python/index.html" class="pagination-link" aria-label="Trail Mapping with Python">
-        <span class="nav-page-text">Trail Mapping with Python</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../blogs/dataviewjs-interactive-dynamic-tables/index.html" class="pagination-link" aria-label="Summarizing Information with DataviewJS">
+        <span class="nav-page-text">Summarizing Information with DataviewJS</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
