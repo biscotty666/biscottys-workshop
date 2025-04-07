@@ -1,6 +1,7 @@
 ---
 image: "images/trunks.png"
 toc: false
+comments: false
 about:
   template: solana
   image-shape: rectangle

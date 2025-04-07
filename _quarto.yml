@@ -1,12 +1,15 @@
 project:
   type: website
   output-dir: docs
+  preview: 
+    port: 4326
 
 website:
   title: "biscotty's Workshop"
   favicon: images/BWLogo.png
   page-navigation: true
   back-to-top-navigation: true
+  site-url: "https://biscotty.online"
   navbar:
     right:
       - href: index.qmd
@@ -35,6 +38,9 @@ website:
     style: "docked"
     search: true
     contents: posts
+  comments: 
+    utterances: 
+      repo: biscotty666/bw-comments
 
 format:
   html:
