@@ -1,5 +1,31 @@
 ---
-title: "About"
+image: "images/trunks.png"
+toc: false
+comments: false
+bibliography: references.bib
+about:
+  template: solana
+  image-shape: rectangle
+  image-width: 10em
+  links: 
+    - icon: github
+      text: GitHub
+      href: https://github.com/biscotty666
+      target: _blank
+    - icon: globe
+      text: Other Workshop
+      href: https://biscotty.online
+      target: _blank
+    - icon: envelope
+      text: Email
+      href: mailto:biscotty666@gmail.com
+      target: _blank
 ---
 
-About this site
+> For the love of learning
+
+I'll write some intro material here. I'll write some intro material here. I'll write some intro material here.
+
+Check out the [current workshop](https://biscotty.online).
+
+Thanks to [@shanny-csik2022]

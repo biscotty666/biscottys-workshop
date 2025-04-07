@@ -3,6 +3,8 @@
 // Import fonts
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sen:wght@400..800&display=swap');
 
+$font-size-base: 12pt;
+
 // Fonts
 $sen: "Sen", sans-serif;
 $nun: "Nunito", sans-serif;
@@ -27,6 +29,9 @@ $link-color: $purple; // hyperlinks
 $code-bg: $cream; // inline code background color
 $code-color: $purple; // inline code text color
 
+body {
+  font-size: 10px;
+}
 .font-sen {
   font-family: $sen;
 }
