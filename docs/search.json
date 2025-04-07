@@ -4,14 +4,14 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "About this site\n\n\n\n Back to top"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "biscotty's Workshop",
     "section": "",
-    "text": "For the love of learning\n\nI’ll write some intro material here. I’ll write some intro material here. I’ll write some intro material here.\nCheck out the current workshop."
+    "text": "For the love of learning\n\nI’ll write some intro material here. I’ll write some intro material here. I’ll write some intro material here.\nCheck out the current workshop.\n\n\n Back to top"
   },
   {
     "objectID": "posts/2024-02-28-trail-mapping-with-python/index.html",
@@ -20,7 +20,6 @@
     "section": "",
     "text": "In the world of Data Science, I’m most strongly drawn to geographically-linked data. Choropleth maps, for example, are about the most powerful way to convey statistical information and get a point across, if you will forgive the intolerable pun. Attaching data to geography somehow makes information more relatable, more personal, and more easily absorbable. It gives people a reference point, a “you are here”, if you will, or maybe “There, but for the grace of God…”.\nI am fortunate to live in New Mexico where I can take beautiful and varied walks, hikes and bike rides nearly every day, which I do. I record most of my excursions with an app on my phone, and I realized recently that I must have lots of data that I can play with to do mapping and analysis. I was pleased to discover that the simple app I use on my phone to track my excursions can easily export the data to GPX format. I had no idea what GPX format was then, but assumed it was some standard, so things looked promising, and off I went.\nThe data I use comes from an app called SportActive. Apps like AllTrails and Strava are wonderful, especially when exploring new places, but they are overkill IMO for simple tracking of daily, and largely repetitive, activities. SportActive simply records my walks and rides, without asking if I want to share my walk with my “friends” like a meal on Facebook. (Disclaimer: I have no financial relationship with SportActive, although if you could arrange such a thing I’d happily change this disclaimer.)\nIn this and two following articles, I will show how the data can be used with Python to map and analyze the GPS information. I will show how to do analyses such as profiling elevations, calculating speeds and durations, identifying pauses, and segmenting paths based on various criteria. This type of analysis, which I’m doing for fun, is the very same as could be used to, for example, study bird migrations or the movement of container ships.\nPython provides many libraries based around the pandas ecosystem which make working with geospatial data easy. GeoPandas extends Pandas to incorporate geometries and coordinate reference systems. GPX data is a series of geolocated points, which is easily handled by geopandas. MovingPandas facilitates turning the point geometries into “trajectories”, allowing for calculations of speed, duration and direction.\nThis article will cover parsing the raw GPS data to a csv file, which I then import into a geopandas GeoDataFrame. From that I will create maps and generate some basic statistical information about the trek such as distance and elevation profiles. These articles assume basic familiarity with Python, experience with Pandas being helpful. An expanded version of the code in the articles can be obtained from my GitHub repository at https://github.com/bisotty666/GPX.",
     "crumbs": [
-      "Home",
       "Posts",
       "Trail Mapping with Python"
     ]
@@ -32,7 +31,6 @@
     "section": "",
     "text": "In the world of Data Science, I’m most strongly drawn to geographically-linked data. Choropleth maps, for example, are about the most powerful way to convey statistical information and get a point across, if you will forgive the intolerable pun. Attaching data to geography somehow makes information more relatable, more personal, and more easily absorbable. It gives people a reference point, a “you are here”, if you will, or maybe “There, but for the grace of God…”.\nI am fortunate to live in New Mexico where I can take beautiful and varied walks, hikes and bike rides nearly every day, which I do. I record most of my excursions with an app on my phone, and I realized recently that I must have lots of data that I can play with to do mapping and analysis. I was pleased to discover that the simple app I use on my phone to track my excursions can easily export the data to GPX format. I had no idea what GPX format was then, but assumed it was some standard, so things looked promising, and off I went.\nThe data I use comes from an app called SportActive. Apps like AllTrails and Strava are wonderful, especially when exploring new places, but they are overkill IMO for simple tracking of daily, and largely repetitive, activities. SportActive simply records my walks and rides, without asking if I want to share my walk with my “friends” like a meal on Facebook. (Disclaimer: I have no financial relationship with SportActive, although if you could arrange such a thing I’d happily change this disclaimer.)\nIn this and two following articles, I will show how the data can be used with Python to map and analyze the GPS information. I will show how to do analyses such as profiling elevations, calculating speeds and durations, identifying pauses, and segmenting paths based on various criteria. This type of analysis, which I’m doing for fun, is the very same as could be used to, for example, study bird migrations or the movement of container ships.\nPython provides many libraries based around the pandas ecosystem which make working with geospatial data easy. GeoPandas extends Pandas to incorporate geometries and coordinate reference systems. GPX data is a series of geolocated points, which is easily handled by geopandas. MovingPandas facilitates turning the point geometries into “trajectories”, allowing for calculations of speed, duration and direction.\nThis article will cover parsing the raw GPS data to a csv file, which I then import into a geopandas GeoDataFrame. From that I will create maps and generate some basic statistical information about the trek such as distance and elevation profiles. These articles assume basic familiarity with Python, experience with Pandas being helpful. An expanded version of the code in the articles can be obtained from my GitHub repository at https://github.com/bisotty666/GPX.",
     "crumbs": [
-      "Home",
       "Posts",
       "Trail Mapping with Python"
     ]
@@ -42,6 +40,13 @@
     "href": "posts.html",
     "title": "posts",
     "section": "",
-    "text": "Trail Mapping with Python\n\n\n\nGIS\n\n\nPython\n\n\nGeopandas\n\n\n\nUsing your GPX data with geopandas\n\n\n\nBrian Carey\n\n\nFeb 28, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Trail Mapping with Python\n\n\n\nGIS\n\n\nPython\n\n\nGeopandas\n\n\n\nUsing your GPX data with geopandas\n\n\n\nBrian Carey\n\n\nFeb 28, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "All my favoriate resources",
+    "section": "",
+    "text": "Back to top"
   }
 ]
