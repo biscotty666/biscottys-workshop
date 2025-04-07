@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Brian Carey">
+<meta name="description" content="Selecting Files, Working with Dates">
 
-<title>posts – biscotty’s Workshop</title>
+<title>DataviewJS: A Gentle Introduction Part 2 – biscotty’s Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,29 +25,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/BWLogo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-24895e00f2c934ef8ff888cf4638411a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-202d0010fd2d3e5dc36a6c3414ee50c3.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/BWLogo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-24895e00f2c934ef8ff888cf4638411a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-202d0010fd2d3e5dc36a6c3414ee50c3.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,76 +73,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">biscotty’s Workshop</span>
     </a>
   </div>
@@ -153,23 +95,23 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./posts.html" aria-current="page"> 
+    <a class="nav-link" href="../../posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resources.html"> 
+    <a class="nav-link" href="../../resources.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./documents/gpwh.pdf" target="_blank"> 
+    <a class="nav-link" href="../../documents/gpwh.pdf" target="_blank"> 
 <span class="menu-text">Article</span></a>
   </li>  
   <li class="nav-item compact">
@@ -186,117 +128,177 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">DataviewJS: A Gentle Introduction Part 2</h1>
+                  <div>
+        <div class="description">
+          Selecting Files, Working with Dates
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Javascript</div>
+                <div class="quarto-category">Obsidian</div>
+                <div class="quarto-category">PKM</div>
+                <div class="quarto-category">DataviewJS</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page-left">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://biscotty.online">Brian Carey</a> </p>
+            </div>
+    </div>
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGF0YXZpZXdKUw==">DataviewJS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R0lT">GIS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2VvcGFuZGFz">Geopandas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SmF2YXNjcmlwdA==">Javascript <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T2JzaWRpYW4=">Obsidian <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UEtN">PKM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#dataviewjs-selecting-files-working-with-dates" id="toc-dataviewjs-selecting-files-working-with-dates" class="nav-link active" data-scroll-target="#dataviewjs-selecting-files-working-with-dates">DataviewJS: Selecting Files, Working with Dates</a>
+  <ul class="collapse">
+  <li><a href="#selecting-files" id="toc-selecting-files" class="nav-link" data-scroll-target="#selecting-files">Selecting files</a></li>
+  <li><a href="#sorting" id="toc-sorting" class="nav-link" data-scroll-target="#sorting">Sorting</a></li>
+  <li><a href="#a-first-table" id="toc-a-first-table" class="nav-link" data-scroll-target="#a-first-table">A first table</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">posts</h1>
-</div>
-
-
-
-<div class="quarto-title-meta column-page-left">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
 
 
+<section id="dataviewjs-selecting-files-working-with-dates" class="level1">
+<h1>DataviewJS: Selecting Files, Working with Dates</h1>
+<section id="selecting-files" class="level2">
+<h2 class="anchored" data-anchor-id="selecting-files">Selecting files</h2>
+<p>This article follows an <a href="http://biscotty.online/blogs/gentle-introduction-to-dataviewjs">earlier article</a> introducing DataviewJS, which I strongly encourage you to read first. In that article, we learned how to display basic lists with Dataview. In this article, I will cover displaying lists of files in your vault and information in those files. I will also discuss using date ranges in queries and sorting results. Finally I will show how to make a table with multiple fields.</p>
+<p>As a refresher, to show a list with a header you typed something like</p>
+<pre class="{js dataviewjs}"><code>const myList = [
+    "First",
+    "Second",
+    "Third"
+]
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDUEtNJTJDRGF0YXZpZXdKUw==" data-listing-file-modified-sort="1744044720248" data-listing-reading-time-sort="8" data-listing-word-count-sort="1548">
-<a href="./posts/dataviewjs-files-dates/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/dataviewjs-files-dates/djs-part-2.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-DataviewJS: A Gentle Introduction Part 2
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SmF2YXNjcmlwdA=='); return false;">
-Javascript
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
-Obsidian
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UEtN'); return false;">
-PKM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YXZpZXdKUw=='); return false;">
-DataviewJS
-</div>
-</div>
-<div class="card-text listing-description">
-Selecting Files, Working with Dates
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-Brian Carey
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="R0lTJTJDUHl0aG9uJTJDR2VvcGFuZGFz" data-listing-date-sort="1709103600000" data-listing-file-modified-sort="1744043435041" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2095">
-<a href="./posts/2024-02-28-trail-mapping-with-python/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/2024-02-28-trail-mapping-with-python/pr2.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Trail Mapping with Python
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
-GIS
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">
-Python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2VvcGFuZGFz'); return false;">
-Geopandas
-</div>
-</div>
-<div class="card-text listing-description">
-Using your GPX data with geopandas
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Brian Carey
-</div>
-<div class="listing-date">
-Feb 28, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+dv.header(3, "My List")
+dv.list(myList)</code></pre>
+<p>.</p>
+<p>This creates a <em>variable</em> with a camelCase name. The variable contains a list, surrounded by square brackets, separated by commas, with quotations around strings (text). That was easy.</p>
+<p>Now what if I want to list all the files in my vault? I won’t do this, because the list would be crazy long, but just say I did. I would use</p>
+<pre><code>const fileNameList = dv.pages().file.name
+
+dv.header(3, "Log files")
+dv.list(fileNameList)</code></pre>
+<p>This would give me a bullet-point list of the names of all of the files in my vault. If you don’t have too many files in your vault, go ahead and try. Before narrowing it down to something more specific, let’s look at what is new here. What is <code>pages().file.name</code>? And for that matter, what’s with all the periods?</p>
+<p>Let me explain the periods first. I said that <code>dv</code> is an object. Objects can contain functions, like <code>list()</code>. They can also contain values, often called <em>attributes</em>. The functions and attributes of any object are referred to or accessed by using the name of the object, followed by a period, and then the name of the function or attribute. So the phrase above means: <code>dv</code> is an object that contains a <code>pages()</code> function (the parentheses let you know it is a function). The <code>pages()</code> function selects certain pages and provides attributes for each page, such as the name, links, date created, date modified, etc., in an object called <code>file</code>. In this case I’m choosing to show just the file name. If I wanted links instead, I would do <code>dv.pages().file.link</code>.</p>
+<p>This dot-notation, using periods, is actually quite nice when you get used to it. Recall that “white space”, including line breaks, is not important in JavaScript, so you will see me often using line breaks before these periods, purely for readability and ease of editing.</p>
+<p>So let’s see how to narrow things down a little. For the following examples I will use my exercise logs. All the log files are linked to a file called <code>Logs</code>. I can select files that link to this <code>Logs</code> file by writing <code>pages("[[Logs]]")</code>. Note the quotations AND double square brackets. So I can write:</p>
+<pre><code>const fileNameList = dv.pages("[[Logs]]").file.link
+
+dv.header(3, "Log files")
+dv.list(fileNameList)</code></pre>
+<p>I suggest you create some log files in your vault so that you can follow along. Each file should contain, at least, the following fields, some of which we won’t use until we look at tables:</p>
+<pre><code>topic:: [[Logs]]
+type:: log
+Activity:: 🚶
+Duration:: 60
+Distance:: 3
+ActivityDate:: 2023-10-05</code></pre>
+<p>I use 🚴 as the other activity type. After creating some log files, and the <code>Logs</code> file itself (this file can be empty for now), go ahead and try the JavaScript. You can use this technique to retrieve files on any topic in this way, assuming you have a <code>topic</code> field with the link (really you only need there to be a link).</p>
+</section>
+<section id="sorting" class="level2">
+<h2 class="anchored" data-anchor-id="sorting">Sorting</h2>
+<p>Let’s look at some ways we can modify this snippet to make it more useful. First, if you have tried this, and have created log files with various dates, you may notice that they aren’t necessarily displayed in any particular order. I want to make sure they are ordered by the activity date. The <code>pages()</code> object contains a number of functions allowing us to work with data, and <code>sort()</code> is one. <code>sort()</code> takes two arguments, first the name of the field to sort on, and a second argument specifying the sort order, either <code>"asc"</code> or <code>"desc"</code>, for ascending or descending order, respectively.</p>
+<p>Unfortunately, we can’t just add <code>.sort(ActivityDate, "desc")</code>. When working with <code>pages()</code> we need to use a special JavaScript syntax. We need to type <code>.sort(a =&gt; a.ActivityDate, "desc")</code>. The letter <code>a</code> is arbitrary. I could also write <code>.sort(foo =&gt; foo.ActivityDate, "desc")</code> to achieve the same thing. <code>a</code>, or <code>foo</code>, basically serves as temporary variable name for the object you are working with, in this case the page, or note. Then the command says to use the <code>ActivityDate</code> property on each page for sorting. I know it looks a little confusing at first, but you will see this idiom so frequently you will quickly get used to it.</p>
+<p>So lets sort our logs by date as so:</p>
+<pre><code>const fileNameList = dv.pages("[[Logs]]")                                                                                                                
+    .sort(b =&gt; b.ActivityDate, "desc")                                                                                                                   
+    .ActivityDate
+
+dv.header(3, "Activity Dates")
+dv.list(fileNameList)</code></pre>
+<p>Notice how the dot notation allows us to easily add more conditions to our query. ## Selecting by date</p>
+<p>Next, let’s see how we can select logs only for certain dates. To do that, we use the <code>.where()</code> function supplied by <code>pages()</code>. To see only logs since October 3, 2023, I can write</p>
+<pre><code>const fileNameList = dv.pages("[[Logs]]")
+  .where(b =&gt; b.ActivityDate &gt;= dv.date("2023-10-03"))
+    .sort(b =&gt; b.ActivityDate, "desc")
+    .ActivityDate                
+dv.header(3, "Activity Dates since October 3, 2023")
+dv.list(fileNameList)</code></pre>
+<p>The syntax for <code>where()</code> is similar to the syntax for <code>sort()</code>. There is an important difference though, because here we are comparing two values. <code>&gt;=</code> means “greater than or equal to”, <code>&lt;=</code> would be “less than or equal to”, etc. This <em>evaluates</em> to either true or false, since the date is either earlier or later than 10/3. This type of true/false value has a special name, <em>boolean</em>, which is good to know. <code>dv</code> provides its own <code>.date()</code> function for simple date manipulation, and I use it here.</p>
+<p>Now that you know how to use <code>where()</code>, let’s do one more thing with it. The code currently takes advantage of the fact that all the logs are linked to the <code>Logs</code> note. I don’t like that, because I might create some logs with a different <code>topic</code>. You may have noticed that all of the log notes have a <code>type:: log</code>. This can be used with <code>.where()</code>, so I can instead write:</p>
+<pre><code>const fileNameList = dv.pages()
+ .where(b =&gt; b.type == "log")
+ .where(b =&gt; b.ActivityDate &gt;= dv.date("2023-10-03"))
+ .sort(b =&gt; b.ActivityDate, "desc")
+ .ActivityDate
+                                                             
+dv.header(3, "Activity Dates since October 3, 2023")
+dv.list(fileNameList)</code></pre>
+<p>Many of my queries are based on the type of note, and this is how the note type can be used. Pay attention to the fact that “equal to” requires two equal signs, not one. For completeness, “not equal to” is written <code>!=</code>.</p>
+</section>
+<section id="a-first-table" class="level2">
+<h2 class="anchored" data-anchor-id="a-first-table">A first table</h2>
+<p>Lists aren’t very interesting, though. Usually you want more than just the name, or one bit of information from a file. So let’s make a table instead with <code>dv.table()</code>. For tables, you must supply an additional list with the column headers. Then you specify the fields that you want using a JavaScript function called <code>map()</code>. It works pretty much the same way as <code>.sort</code> and <code>.where()</code>, it just has a seemingly odd name. <code>map()</code> is used to go through each item in a list and do something with it, in this case, select certain fields from each note. This is called <em>iteration</em>.</p>
+<p>This table shows the type of activity, distance in miles, duration in minutes and date. I’ve used emojis for column headings. You can see that the fields I want shown are supplied as a list (between square brackets) of the fields I want in the table.</p>
+<pre><code>
+const headers = ["🚶/🚴", "🗒️", "⏱️", "📅"]
+
+const pages = dv.pages() 
+    .where(b =&gt; b.type == "log")
+    .where(b =&gt; b.ActivityDate &gt;= dv.date("2023-10-03"))
+    .sort(b =&gt; b.ActivityDate, "desc")
+    .map(b =&gt; [
+        b.Activity, 
+        b.Distance, 
+        b.Duration, 
+        b.ActivityDate
+    ])
+                                
+
+dv.header(3, "Activity since October 3, 2023")
+dv.table(headers,   pages)</code></pre>
+<p><img src="djs-part-2.png" class="img-fluid"></p>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<p>In the next article I will look at how to make this table dynamic, allowing you to change values directly in the table. I will also talk about relative dates, eg. activity over the last 10 days, or in the 10 days prior to that, or before a certain day but after another day.</p>
+<p>Before moving on, I strongly encourage you to work with the material covered so far by adding some metadata to your existing notes and creating some queries. I don’t use tags (for now), but if you do, you could do <code>pages("#some/tag")</code> instead of <code>pages("[[Logs]]")</code>. Maybe you have a tag, <code>#fleeting</code>, for example. You could make a list of all your fleeting notes with <code>pages(#fleeting)</code>.</p>
+<p>Finally, if you have been reading my Freeing Your Thinking series you may already be doing these examples on a canvas instead of in a note. If you aren’t I encourage you to do so. You can put the code directly into cards on a canvas. Then you can easily see all of your tables in one place, and convert them into notes if you so desire (but why?). Since the end goal will be to have dashboards to view and manage things, you might as well start now. If you have multiple tables on the same canvas, you might want to increase the Refresh Rate in the Dataview settings to prevent the canvas from being too “jumpy” while you type. The default is 2500ms (2.5 seconds). I find that 5 seconds (5000ms) works pretty well for me and the speed I type.</p>
+<p>Happy coding!</p>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{carey,
+  author = {Carey, Brian},
+  title = {DataviewJS: {A} {Gentle} {Introduction} {Part} 2},
+  url = {https://biscotty666.github.io/biscottys-workshop/2024-02-28-trail-mapping-with-python},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-carey" class="csl-entry quarto-appendix-citeas" role="listitem">
+Carey, Brian. n.d. <span>“DataviewJS: A Gentle Introduction Part
+2.”</span> <a href="https://biscotty666.github.io/biscottys-workshop/2024-02-28-trail-mapping-with-python">https://biscotty666.github.io/biscottys-workshop/2024-02-28-trail-mapping-with-python</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
