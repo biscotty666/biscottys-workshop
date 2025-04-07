@@ -2,6 +2,7 @@
 image: "images/trunks.png"
 toc: false
 comments: false
+bibliography: references.bib
 about:
   template: solana
   image-shape: rectangle
@@ -26,3 +27,5 @@ about:
 I'll write some intro material here. I'll write some intro material here. I'll write some intro material here.
 
 Check out the [current workshop](https://biscotty.online).
+
+Thanks to [@shanny-csik2022]
