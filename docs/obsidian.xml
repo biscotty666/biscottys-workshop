@@ -83,6 +83,36 @@
   <media:content url="https://biscotty.online/blogs/obsidian/freeing-your-thinking-workflow/fyt-walkthrough.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
+  <title>Obsidian Metadata Menu Plugin</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/metadata-menu/</link>
+  <description><![CDATA[ Supercharge your management of properties and in-line Dataview fields ]]></description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/blogs/obsidian/metadata-menu/</guid>
+  <pubDate>Wed, 06 Sep 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/metadata-menu/MMCover.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Obsidian Bookmarks</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/obsidian-bookmarks/</link>
+  <description><![CDATA[ Bookmarks are the key to effectively using obsidian as a non-relational database. ]]></description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/blogs/obsidian/obsidian-bookmarks/</guid>
+  <pubDate>Tue, 05 Sep 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/obsidian-bookmarks/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Obsidian: The mechanics of Graph View</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/graph-view-deets/</link>
+  <description><![CDATA[ Video - Working with Graph View to explore your information network. ]]></description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/blogs/obsidian/graph-view-deets/</guid>
+  <pubDate>Thu, 31 Aug 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/graph-view-deets/GVFull.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
   <title>Obsidian: Stop Wasting Time With Directories and Filenames</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-1/</link>
@@ -92,17 +122,6 @@
   <guid>https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-1/</guid>
   <pubDate>Thu, 24 Aug 2023 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-1/fyt-cover.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
-  <title>Obsidian: Meaningless Names, No Directories, Now What?</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-2/</link>
-  <description><![CDATA[ Freeing Your Thiking Part 2 discusses the use of Graph View and Bookmarks to discover and organize information in your vault ]]></description>
-  <category>Obsidian</category>
-  <category>PKM</category>
-  <guid>https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-2/</guid>
-  <pubDate>Thu, 24 Aug 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-2/fyt-cover.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

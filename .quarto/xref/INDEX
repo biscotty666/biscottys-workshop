@@ -76,5 +76,14 @@
   },
   "blogs/obsidian/git-github-obsidian/index.qmd": {
     "index.html": "89464e9b"
+  },
+  "blogs/obsidian/graph-view-deets/index.qmd": {
+    "index.html": "0e427732"
+  },
+  "blogs/obsidian/obsidian-bookmarks/index.qmd": {
+    "index.html": "2ec74567"
+  },
+  "blogs/obsidian/metadata-menu/index.qmd": {
+    "index.html": "0b58e6d6"
   }
 }
