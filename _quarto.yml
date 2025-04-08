@@ -24,7 +24,7 @@ website:
       - icon: github
         href: https://github.com/biscotty666
       - icon: rss
-        href: index.xml
+        href: blogs.xml
     left: 
       - text: "Home"
         href: index.qmd
