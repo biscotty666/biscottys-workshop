@@ -2,19 +2,25 @@
   {
     "listing": "/data-science.html",
     "items": [
+      "/blogs/data-science/python-movingpandas-points-paths/index.html",
       "/blogs/data-science/gpx-gps-data/index.html"
     ]
   },
   {
     "listing": "/blogs.html",
     "items": [
+      "/blogs/gpx-gps-data/index.html",
+      "/blogs/obsidian-whiteboards/index.html",
+      "/blogs/data-science/python-movingpandas-points-paths/index.html",
       "/blogs/obsidian/obsidian-jupyter/index.html",
       "/blogs/data-science/gpx-gps-data/index.html",
       "/blogs/obsidian/dataviewjs-files-dates/index.html",
+      "/blogs/obsidian/obsidian-whiteboards/index.html",
       "/blogs/obsidian/git-github-obsidian/index.html",
       "/blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html",
       "/blogs/obsidian/dataviewjs-summaries-statistics/index.html",
       "/blogs/obsidian/gentle-introduction-to-dataviewjs/index.html",
+      "/blogs/obsidian/pretty-canvas/index.html",
       "/blogs/obsidian/freeing-your-thinking-workflow/index.html",
       "/blogs/obsidian/metadata-menu/index.html",
       "/blogs/obsidian/obsidian-bookmarks/index.html",
@@ -22,7 +28,8 @@
       "/blogs/obsidian/obsidian-headers/index.html",
       "/blogs/obsidian/obsidian-no-sql-database/index.html",
       "/blogs/obsidian/freeing-your-thinking-part-1/index.html",
-      "/blogs/obsidian/freeing-your-thinking-part-2/index.html"
+      "/blogs/obsidian/freeing-your-thinking-part-2/index.html",
+      "/blogs/obsidian/optimal-notes-with-obsidian/index.html"
     ]
   },
   {
@@ -30,10 +37,12 @@
     "items": [
       "/blogs/obsidian/obsidian-jupyter/index.html",
       "/blogs/obsidian/dataviewjs-files-dates/index.html",
+      "/blogs/obsidian/obsidian-whiteboards/index.html",
       "/blogs/obsidian/git-github-obsidian/index.html",
       "/blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html",
       "/blogs/obsidian/dataviewjs-summaries-statistics/index.html",
       "/blogs/obsidian/gentle-introduction-to-dataviewjs/index.html",
+      "/blogs/obsidian/pretty-canvas/index.html",
       "/blogs/obsidian/freeing-your-thinking-workflow/index.html",
       "/blogs/obsidian/metadata-menu/index.html",
       "/blogs/obsidian/obsidian-bookmarks/index.html",
@@ -41,7 +50,8 @@
       "/blogs/obsidian/obsidian-headers/index.html",
       "/blogs/obsidian/obsidian-no-sql-database/index.html",
       "/blogs/obsidian/freeing-your-thinking-part-1/index.html",
-      "/blogs/obsidian/freeing-your-thinking-part-2/index.html"
+      "/blogs/obsidian/freeing-your-thinking-part-2/index.html",
+      "/blogs/obsidian/optimal-notes-with-obsidian/index.html"
     ]
   }
 ]

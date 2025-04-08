@@ -94,5 +94,20 @@
   },
   "blogs/obsidian/obsidian-no-sql-database/index.qmd": {
     "index.html": "f49f0fa8"
+  },
+  "blogs/obsidian-whiteboards/index.qmd": {
+    "index.html": "2819b256"
+  },
+  "blogs/obsidian/obsidian-whiteboards/index.qmd": {
+    "index.html": "7ad893c6"
+  },
+  "blogs/obsidian/optimal-notes-with-obsidian/index.qmd": {
+    "index.html": "672efe85"
+  },
+  "blogs/obsidian/pretty-canvas/index.qmd": {
+    "index.html": "60b6f681"
+  },
+  "blogs/data-science/python-movingpandas-points-paths/index.qmd": {
+    "index.html": "c386c7f3"
   }
 }

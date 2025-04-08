@@ -29,7 +29,7 @@ This article follows an <a href="http://biscotty.online/blogs/gentle-introductio
 
 As a refresher, to show a list with a header you typed something like
 
-```{js dataviewjs}
+```javascript
 const myList = [
 	"First",
 	"Second",
@@ -45,7 +45,7 @@ This creates a _variable_ with a camelCase name. The variable contains a list, s
 
 Now what if I want to list all the files in my vault? I won't do this, because the list would be crazy long, but just say I did.  I would use 
 
-```
+```javascript
 const fileNameList = dv.pages().file.name
 
 dv.header(3, "Log files")
@@ -60,7 +60,7 @@ This dot-notation, using periods, is actually quite nice when you get used to it
 
 So let's see how to narrow things down a little. For the following examples I will use my exercise logs. All the log files are linked to a file called `Logs`. I can select files that link to this `Logs` file by writing `pages("[[Logs]]")`. Note the quotations AND double square brackets. So I can write:
 
-```
+```javascript
 const fileNameList = dv.pages("[[Logs]]").file.link
 
 dv.header(3, "Log files")
@@ -88,7 +88,7 @@ Unfortunately, we can't just add `.sort(ActivityDate, "desc")`. When working wit
 
 So lets sort our logs by date as so:
 
-```
+```javascript
 const fileNameList = dv.pages("[[Logs]]")																												 
 	.sort(b => b.ActivityDate, "desc")																													 
 	.ActivityDate
@@ -102,7 +102,7 @@ Notice how the dot notation allows us to easily add more conditions to our query
 
 Next, let's see how we can select logs only for certain dates. To do that, we use the `.where()` function supplied by `pages()`. To see only logs since October 3, 2023, I can write
 
-```
+```javascript
 const fileNameList = dv.pages("[[Logs]]")
   .where(b => b.ActivityDate >= dv.date("2023-10-03"))
 	.sort(b => b.ActivityDate, "desc")
@@ -115,7 +115,7 @@ The syntax for `where()` is similar to the syntax for `sort()`. There is an impo
 
 Now that you know how to use `where()`, let's do one more thing with it. The code currently takes advantage of the fact that all the logs are linked to the `Logs` note. I don't like that, because I might create some logs with a different `topic`. You may have noticed that all of the log notes have a `type:: log`. This can be used with `.where()`, so I can instead write:
 
-```
+```javascript
 const fileNameList = dv.pages()
  .where(b => b.type == "log")
  .where(b => b.ActivityDate >= dv.date("2023-10-03"))
@@ -134,8 +134,7 @@ Lists aren't very interesting, though. Usually you want more than just the name,
 
 This table shows the type of activity, distance in miles, duration in minutes and date. I've used emojis for column headings. You can see that the fields I want shown are supplied as a list (between square brackets) of the fields I want in the table.
 
-```
-
+```javascript
 const headers = ["🚶/🚴", "🗒️", "⏱️", "📅"]
 
 const pages = dv.pages() 

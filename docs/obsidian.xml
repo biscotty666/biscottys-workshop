@@ -36,6 +36,16 @@
   <media:content url="https://biscotty.online/blogs/obsidian/dataviewjs-files-dates/djs-part-2.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
+  <title>Obsidian Canvas Work Spaces</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/obsidian-whiteboards/</link>
+  <description><![CDATA[ Visual MOCery ]]></description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/blogs/obsidian/obsidian-whiteboards/</guid>
+  <pubDate>Sat, 20 Jan 2024 07:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/obsidian-whiteboards/VMocery.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
   <title>Git and GitHub for Obsidian Users</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/blogs/obsidian/git-github-obsidian/</link>
@@ -84,6 +94,17 @@
   <media:content url="https://biscotty.online/blogs/obsidian/gentle-introduction-to-dataviewjs/djs-intro-2.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
+  <title>Obsidian: Pretty Canvas</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/pretty-canvas/</link>
+  <description><![CDATA[ Using CSS to make dashboards cleaner and more effective. ]]></description>
+  <category>Obsidian</category>
+  <category>CSS</category>
+  <guid>https://biscotty.online/blogs/obsidian/pretty-canvas/</guid>
+  <pubDate>Thu, 05 Oct 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/pretty-canvas/canvas-pretty-css-composite.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
   <title>Obsidian: Freeing Your Thinking Workflow</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/blogs/obsidian/freeing-your-thinking-workflow/</link>
@@ -103,26 +124,6 @@
   <guid>https://biscotty.online/blogs/obsidian/metadata-menu/</guid>
   <pubDate>Wed, 06 Sep 2023 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/blogs/obsidian/metadata-menu/MMCover.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
-  <title>Obsidian Bookmarks</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/blogs/obsidian/obsidian-bookmarks/</link>
-  <description><![CDATA[ Bookmarks are the key to effectively using obsidian as a non-relational database. ]]></description>
-  <category>Obsidian</category>
-  <guid>https://biscotty.online/blogs/obsidian/obsidian-bookmarks/</guid>
-  <pubDate>Tue, 05 Sep 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/blogs/obsidian/obsidian-bookmarks/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
-  <title>Obsidian: The mechanics of Graph View</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/blogs/obsidian/graph-view-deets/</link>
-  <description><![CDATA[ Video - Working with Graph View to explore your information network. ]]></description>
-  <category>Obsidian</category>
-  <guid>https://biscotty.online/blogs/obsidian/graph-view-deets/</guid>
-  <pubDate>Thu, 31 Aug 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/blogs/obsidian/graph-view-deets/GVFull.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

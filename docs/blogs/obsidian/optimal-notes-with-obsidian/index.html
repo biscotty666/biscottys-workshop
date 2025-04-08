@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Brian Carey">
+<meta name="dcterms.date" content="2023-08-05">
+<meta name="description" content="…a tale in the spirit of Euripides">
 
-<title>Data Science – biscotty’s Workshop</title>
+<title>Optimal Notes with Obsidian – biscotty’s Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,31 +26,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./blogs/obsidian/obsidian-headers/index.html" rel="next">
-<link href="./obsidian.html" rel="prev">
-<link href="./images/BWLogo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f7731fd66d750f73b2faae1885f0d805.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../blogs/obsidian/obsidian-whiteboards/index.html" rel="next">
+<link href="../../../blogs/obsidian/obsidian-headers/index.html" rel="prev">
+<link href="../../../images/BWLogo.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-f7731fd66d750f73b2faae1885f0d805.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,76 +76,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="alternate" type="application/rss+xml" title="biscotty's Workshop" href="data-science.xml" data-external="1"></head>
+</head>
 
 <body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">biscotty’s Workshop</span>
     </a>
   </div>
@@ -155,19 +98,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./obsidian.html" aria-current="page"> 
+    <a class="nav-link active" href="../../../obsidian.html" aria-current="page"> 
 <span class="menu-text">Obsidian</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blogs.html"> 
+    <a class="nav-link" href="../../../blogs.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
 </ul>
@@ -178,91 +121,91 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
         <li>
-    <a class="dropdown-item" href="./obsidian.html">
+    <a class="dropdown-item" href="../../../obsidian.html">
  <span class="dropdown-text">Obsidian</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./data-science.html">
+    <a class="dropdown-item" href="../../../data-science.html">
  <span class="dropdown-text">Data Science</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Obsidian</li>
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/obsidian-headers/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-headers/index.html">
  <span class="dropdown-text">Obsidian Basics - Headers</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/optimal-notes-with-obsidian/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/optimal-notes-with-obsidian/index.html">
  <span class="dropdown-text">Optimal Notes with Obsidian</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/obsidian-whiteboards/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-whiteboards/index.html">
  <span class="dropdown-text">Obsidian Canvas Work Spaces</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/obsidian-bookmarks/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-bookmarks/index.html">
  <span class="dropdown-text">Obsidian Bookmarks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/metadata-menu/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/metadata-menu/index.html">
  <span class="dropdown-text">Obsidian Metadata Menu Plugin</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/dataviewjs-summaries-statistics/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/dataviewjs-summaries-statistics/index.html">
  <span class="dropdown-text">Interactive Tables with DataviewJS</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/graph-view-deets/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/graph-view-deets/index.html">
  <span class="dropdown-text">Obsidian: The mechanics of Graph View</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/obsidian-no-sql-database/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-no-sql-database/index.html">
  <span class="dropdown-text">What does it mean that is a NoSQL Database?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/git-github-obsidian/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/git-github-obsidian/index.html">
  <span class="dropdown-text">Git and GitHub for Obsidian Users</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/dataviewjs-files-dates/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/dataviewjs-files-dates/index.html">
  <span class="dropdown-text">DataviewJS: A Gentle Introduction Part 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/freeing-your-thinking-workflow/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/freeing-your-thinking-workflow/index.html">
  <span class="dropdown-text">Obsidian: Freeing Your Thinking Workflow</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/freeing-your-thinking-part-1/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/freeing-your-thinking-part-1/index.html">
  <span class="dropdown-text">Obsidian: Stop Wasting Time With Directories and Filenames</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/pretty-canvas/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/pretty-canvas/index.html">
  <span class="dropdown-text">Obsidian: Pretty Canvas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/obsidian-jupyter/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-jupyter/index.html">
  <span class="dropdown-text">Obsidian and Jupyter Notebooks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/gentle-introduction-to-dataviewjs/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/gentle-introduction-to-dataviewjs/index.html">
  <span class="dropdown-text">DataviewJS: A Gentle Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/freeing-your-thinking-part-2/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/freeing-your-thinking-part-2/index.html">
  <span class="dropdown-text">Obsidian: Meaningless Names, No Directories, Now What?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html">
  <span class="dropdown-text">Summarizing Information with DataviewJS</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Data Science</li>
         <li>
-    <a class="dropdown-item" href="./blogs/data-science/python-movingpandas-points-paths/index.html">
+    <a class="dropdown-item" href="../../../blogs/data-science/python-movingpandas-points-paths/index.html">
  <span class="dropdown-text">Points to Paths in Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/data-science/gpx-gps-data/index.html">
+    <a class="dropdown-item" href="../../../blogs/data-science/gpx-gps-data/index.html">
  <span class="dropdown-text">Trail Mapping with Python</span></a>
   </li>  
     </ul>
@@ -273,7 +216,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -289,7 +232,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-science.html">Data Science</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-headers/index.html">Obsidian</a></li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/optimal-notes-with-obsidian/index.html">Optimal Notes with Obsidian</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -299,7 +242,44 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-headers/index.html">Obsidian</a></li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/optimal-notes-with-obsidian/index.html">Optimal Notes with Obsidian</a></li></ol></nav>
+      <h1 class="title">Optimal Notes with Obsidian</h1>
+                  <div>
+        <div class="description">
+          …a tale in the spirit of Euripides
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Obsidian</div>
+                <div class="quarto-category">PKM</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-body">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Brian Carey </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 5, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -311,13 +291,13 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./obsidian.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../obsidian.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-science.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../data-science.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Science</span></a>
   </div>
 </li>
@@ -332,103 +312,103 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/obsidian-headers/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/obsidian-headers/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Basics - Headers</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/optimal-notes-with-obsidian/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/optimal-notes-with-obsidian/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Optimal Notes with Obsidian</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/obsidian-whiteboards/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/obsidian-whiteboards/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Canvas Work Spaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Bookmarks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/metadata-menu/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/metadata-menu/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Metadata Menu Plugin</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/dataviewjs-summaries-statistics/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/dataviewjs-summaries-statistics/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Interactive Tables with DataviewJS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/graph-view-deets/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/graph-view-deets/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: The mechanics of Graph View</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/obsidian-no-sql-database/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/obsidian-no-sql-database/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">What does it mean that is a NoSQL Database?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/git-github-obsidian/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/git-github-obsidian/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git and GitHub for Obsidian Users</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataviewJS: A Gentle Introduction Part 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/freeing-your-thinking-workflow/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/freeing-your-thinking-workflow/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Freeing Your Thinking Workflow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/freeing-your-thinking-part-1/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/freeing-your-thinking-part-1/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Stop Wasting Time With Directories and Filenames</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/pretty-canvas/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/pretty-canvas/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Pretty Canvas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian and Jupyter Notebooks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/gentle-introduction-to-dataviewjs/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/gentle-introduction-to-dataviewjs/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataviewJS: A Gentle Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/freeing-your-thinking-part-2/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/freeing-your-thinking-part-2/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Meaningless Names, No Directories, Now What?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summarizing Information with DataviewJS</span></a>
   </div>
 </li>
@@ -445,13 +425,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/data-science/python-movingpandas-points-paths/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/data-science/python-movingpandas-points-paths/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Points to Paths in Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/data-science/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/data-science/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trail Mapping with Python</span></a>
   </div>
 </li>
@@ -463,119 +443,115 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R0lT">GIS <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#optimal-notes-with-obsidian" id="toc-optimal-notes-with-obsidian" class="nav-link active" data-scroll-target="#optimal-notes-with-obsidian">Optimal Notes with Obsidian</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#the-tragedy-of-notes" id="toc-the-tragedy-of-notes" class="nav-link" data-scroll-target="#the-tragedy-of-notes">The Tragedy of Notes</a></li>
+  <li><a href="#deus-ex-machina" id="toc-deus-ex-machina" class="nav-link" data-scroll-target="#deus-ex-machina">Deus Ex Machina</a></li>
+  <li><a href="#working-in-obsidian" id="toc-working-in-obsidian" class="nav-link" data-scroll-target="#working-in-obsidian">Working in Obsidian</a>
+  <ul class="collapse">
+  <li><a href="#fast-powerful-search" id="toc-fast-powerful-search" class="nav-link" data-scroll-target="#fast-powerful-search">Fast, Powerful Search</a></li>
+  <li><a href="#structure-emerges-naturally" id="toc-structure-emerges-naturally" class="nav-link" data-scroll-target="#structure-emerges-naturally">Structure Emerges Naturally</a></li>
+  <li><a href="#information-about-information" id="toc-information-about-information" class="nav-link" data-scroll-target="#information-about-information">Information About Information</a></li>
+  <li><a href="#creativity-beyond-information-retrieval" id="toc-creativity-beyond-information-retrieval" class="nav-link" data-scroll-target="#creativity-beyond-information-retrieval">Creativity: Beyond Information Retrieval</a></li>
+  <li><a href="#freedom-and-privacy" id="toc-freedom-and-privacy" class="nav-link" data-scroll-target="#freedom-and-privacy">Freedom and Privacy</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Data Science</h1>
-</div>
-
-
-
-<div class="quarto-title-meta column-body">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
 
 
 
 
 
+<section id="optimal-notes-with-obsidian" class="level1">
+<h1>Optimal Notes with Obsidian</h1>
+<blockquote class="blockquote">
+<p>…a tale in the spirit of Euripides</p>
+</blockquote>
+</section>
+<section id="motivation" class="level1">
+<h1>Motivation</h1>
+<p>Learning and creativity involve gathering information through our senses and then discovering relationships, mundane or novel, between all those bits of information. The neural network that is our brain is very powerful at relationships, so-so on information storage, and very poor at information retrieval. Over time our brain becomes filled with more and more information which becomes effectively less and less accessible. A number of great thinkers have said that they never remember something that can easily be looked up.</p>
+<p>Obsidian is often referred to as a second brain. This is because it does not work like a database, spreadsheet, or any other typical storage system. It is itself structured more like a neural network. It efficiently and quickly handles information storage and retrieval, and does so in a way that mimics a neural network and facilitates the creative process of identifying relationships between thoughts. A picture is worth a thousand words, so here is an example of a collection of notes (called a vault in Obsidian) with lines which indicate relationships. These linkages develop over time as a vault becomes more mature.</p>
+</section>
+<section id="the-tragedy-of-notes" class="level1">
+<h1>The Tragedy of Notes</h1>
+<p>I never learned how to take notes. When I was a young student I had a “casual” relationship with note-taking. In high school I organized my notes chronologically, ie. I put them on top of a pile 😉. In college I adopted the innovative approach of seperating my notes by subject matter. I did start taking much more detailed notes in Math and Science classes though, thinking that I would want to refer back to this information in future classes.</p>
+<p>When I started my masters program I realized I needed to get serious about my note-taking. Throughout my classes I took meticulous notes on the lectures. I had very experienced doctors and teachers sharing their personal knowledge and clinical experience and I didn’t want to miss a scintilla. By the end of the program I aced my classes and had many binders full of notes. I was ready to move into my profession armed with this awesome resource 😃.</p>
+<p>Reality bites. From time to time a client would present with an unusual group of symptoms and I would remember a teacher suggesting a particular herb or formula for this unusual condition. Happily I’m sure I wrote it down and it’s in my notes. So I just need to find it… somewhere… people are waiting…</p>
+<p><strong>Where? Which notebook?</strong></p>
+<p>Somewhere in all those notes is the one piece of information that I need. Somewhere, in all those beautiful, organized binders full of valuable notes painstakingly gathered over years, now, effectively useless. Sadness and dispair set in 😢.</p>
+</section>
+<section id="deus-ex-machina" class="level1">
+<h1>Deus Ex Machina</h1>
+<p>When I started studying probability and statistics, data analysis and R programming I realized that I needed a radically different approach to my note-taking. I needed a system where I could quickly retrieve discrete pieces of information which may have been gleaned from a variety of sources. I needed dedicated note-taking software. Lot’s of data science students and professionals were/are moving to Obsidian away from more traditionally structured note-taking applications like Notewise, and of course I checked it out. It turned out it is popular not only among data scientists but by all manner of students, teachers, researchers and writers. In fact, anyone concerned with managing personal information.</p>
+<p><strong>And, wow! Obsidian is revolutionary.</strong></p>
+<p>Obsidian is free software unlike any other, focused as much on retrieval of information as on storage of information, although it’s pretty slick there too. In addition Obsidian offers many ways to relate notes through links and add metadata to enrich notes. (Did I mention it’s free?)</p>
+<p>Obsidian provides:</p>
+<ul>
+<li>A feature-rich editor for text files (in Markdown syntax)</li>
+<li>Powerful indexing: every word in every note can be quickly found</li>
+<li>Flexible structure for your information which need not be predefined but evolves naturally over time</li>
+<li>A variety ways to apply and reference metadata, both standard and custom</li>
+<li>No databases or other backend or proprietary formats, just text files</li>
+</ul>
+<p>Let’s look at these points in a bit of detail.</p>
+</section>
+<section id="working-in-obsidian" class="level1">
+<h1>Working in Obsidian</h1>
+<p>Obsidian provides a disarmingly simple but powerful editing experience. The user interface is of modern design. It uses Markdown, a standardized markup language similar to but much simpler than html. With easily-learned syntax you can create beautiful formatted documents enriched with visual elements such as drawings, charts, images, videos and pdf files. Many different themes are available to fit your taste, and if you know some CSS you can fully customize the appearance of notes. (Programmers can even embed JavaScript.)</p>
+<p>Obsidian’s functionality can be extended through the use of the hundreds of community plugins available. For example, I use a program called Todoist for task management. A plugin allows me to create these tasks from within Obsidian and report on them (query them) in my notes. In order to easily consume web content I use a plugin called Surfing, which allows me to open a web page in Obsidian and convert the page to a Markdown text file. I can then easily “clip” parts with a right-click, and these snippets provide the basis and reference for notes I make on the material I’m reading.</p>
+<section id="fast-powerful-search" class="level2">
+<h2 class="anchored" data-anchor-id="fast-powerful-search">Fast, Powerful Search</h2>
+<p>This is where Obsidian directly addresses the Tragedy of Notes. Literally every word in every note can be immediately retrieved thanks to a blazingly fast indexing system. Start typing a word or phrase and you will see all the notes that contain those words or phrases along with their context. With a little practice you can make sophisticated searches involving multiple conditions. Usually just a few words will find the information you are looking for.</p>
+<p>So in the scenario above I could have found the answer to my question in seconds.</p>
+</section>
+<section id="structure-emerges-naturally" class="level2">
+<h2 class="anchored" data-anchor-id="structure-emerges-naturally">Structure Emerges Naturally</h2>
+<p>When think of keeping notes beyond a bunch of Word documents we naturally think of spreadsheets or databases. The structure of our data can be arbitrary in the case of spreadsheets or must be pre-defined for databases. Changing the structure later involves a lot of effort. But for quick retrieval of information you need a database, right?</p>
+<p>Well remember we already dealt with that above. (We don’t need no stinkin’ database.) What we have instead in Obsidian are “backlinks”, which are references from one note to another. This gives us the opportunity for a structure which evolves “organically”. As you make notes and develop them you will begin to connect ideas in one note with another note. A quick search can find all occurences of similar ideas, and relevant notes can be linked to. This cross-linking of information is the neural network, the second brain referred to above.</p>
+</section>
+<section id="information-about-information" class="level2">
+<h2 class="anchored" data-anchor-id="information-about-information">Information About Information</h2>
+<p>Metadata has entered the awareness of most people these days through controversies around the Government’s access to phone records. In these cases, the FBI doesn’t (usually) have access to the actual data, the conversations. What they do have is the metadata. This information includes dates, times, who called whom, where the people were, how long the conversation lasted, etc. Investigators say that they can often learn as much from the metadata than from the actual content.</p>
+<p>Obsidian allows for the flexible and customizable application of metadata to notes, and this metadata can serve many puposes. For example, if I were writing an article which incorporated a series of observations taken over time (in seperate notes), using metadata I can easily pull the information I need into my article. I could use metadata to easily create a list of references for my article. I could use metadata to track the status of my project (draft, in review, final, published).</p>
+</section>
+<section id="creativity-beyond-information-retrieval" class="level2">
+<h2 class="anchored" data-anchor-id="creativity-beyond-information-retrieval">Creativity: Beyond Information Retrieval</h2>
+<p>So far I’ve really focused on information retrieval. And I’ve given a practical example of the usefulness of that quick retrieval. But there is another great value of Obsidian, which is to facilitate the creation of new works.</p>
+<p>Obsidian is ideal for a note-taking approach called Zettelkasten, which is German for a box of index cards. In a zettelkasten system notes are “atomic”, meaning they are independent, self-contained pieces of information which are then coded and correlated for easy retrieval. This is how Carl Linnaeus was able to create the biological classification system we still use today. Another oft-cited example is the sociologist Niklas Luhmann who produced around 70 books and 400 academic papers. He apparently had 90,000 notes in his Zettelkasten.</p>
+<p>This approach to note-taking is widely practiced in Europe but not so in the USA. Obsidian facilitates all kinds of writing, not just academic writing. The recently deceased Joan Rivers, a comedian, author and talk show host, had 60,000 notes. Other famous comediens like Bob Hope and George Carlin did the same.</p>
+<p>Zettelkasten through the centuries</p>
+<p><img src="17thCZ.jpg" class="img-fluid" alt="17th zettle"> <img src="20thCZ.jpg" class="img-fluid" alt="20th century zettlekasten"> <img src="GraphView.png" class="img-fluid" alt="21st centure zettlekasten"></p>
+</section>
+<section id="freedom-and-privacy" class="level2">
+<h2 class="anchored" data-anchor-id="freedom-and-privacy">Freedom and Privacy</h2>
+<p>Finally I’ll mention one more aspect of Obsidian. All of your notes are just text files stored on your own computer. They don’t get transmitted or stored anywhere else (unless you want to). Since they are text files they can be opened and read by any editor like Notepad, LibreOffice or Word. You back up your notes in the same way you back up everything else on your system (which you do, right?). Noone is tracking your notes or any other information about you.</p>
+<p>Obsidian is about Personal Information. It’s your brain!</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>I hope that I have convinced you to download Obsidian and explore it’s potential. Personally I can’t imagine taking notes any other way now. Obsidian is easy to use, and there are many on-line resources to help you out including the Guides on this site. I’ve listed a few below. Resources</p>
+<p>A shout out to these folks who helped me get started:</p>
+<ul>
+<li>From Sergio</li>
+<li>Linking Your Thinking with Nick Milo</li>
+<li>Zsoldt’s Visual Personal Knowledge Management</li>
+<li>Nicole van der Hoeven</li>
+</ul>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="RGF0YSUyMFNjaWVuY2UlMkNHSVMlMkNQeXRob24=" data-listing-date-sort="1738566000000" data-listing-file-modified-sort="1744126594474" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3022">
-<div class="thumbnail">
-<p><a href="./blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external"></a></p><a href="./blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external">
-<p><img loading="lazy" src="./blogs/data-science/python-movingpandas-points-paths/ny6.png" class="thumbnail-image"></p>
-</a><p><a href="./blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external">Points to Paths in Python</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">
-Data Science
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
-GIS
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">
-Python
-</div>
-</div>
-<div class="listing-description">
-<a href="./blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external">Creating trajectories in MovingPandas</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external">
-<div class="listing-date">
-Feb 3, 2025
-</div>
-<div class="listing-author">
-Brian Carey
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="R0lTJTJDUHl0aG9uJTJDRGF0YSUyMFNjaWVuY2U=" data-listing-date-sort="1709103600000" data-listing-file-modified-sort="1744121426505" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2149">
-<div class="thumbnail">
-<p><a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external"></a></p><a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external">
-<p><img loading="lazy" src="./blogs/data-science/gpx-gps-data/pr2.png" class="thumbnail-image"></p>
-</a><p><a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external">Trail Mapping with Python</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
-GIS
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">
-Python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">
-Data Science
-</div>
-</div>
-<div class="listing-description">
-<a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external">Using your GPX data with geopandas</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external">
-<div class="listing-date">
-Feb 28, 2024
-</div>
-<div class="listing-author">
-Brian Carey
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1137,15 +1113,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="biscotty666/bw-comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./obsidian.html" class="pagination-link" aria-label="Obsidian">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Obsidian</span>
+      <a href="../../../blogs/obsidian/obsidian-headers/index.html" class="pagination-link" aria-label="Obsidian Basics - Headers">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Obsidian Basics - Headers</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./blogs/obsidian/obsidian-headers/index.html" class="pagination-link" aria-label="Obsidian Basics - Headers">
-        <span class="nav-page-text">Obsidian Basics - Headers</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../blogs/obsidian/obsidian-whiteboards/index.html" class="pagination-link" aria-label="Obsidian Canvas Work Spaces">
+        <span class="nav-page-text">Obsidian Canvas Work Spaces</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

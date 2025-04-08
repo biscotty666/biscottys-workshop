@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -135,6 +169,14 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Obsidian Basics - Headers</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/optimal-notes-with-obsidian/index.html">
+ <span class="dropdown-text">Optimal Notes with Obsidian</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-whiteboards/index.html">
+ <span class="dropdown-text">Obsidian Canvas Work Spaces</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-bookmarks/index.html">
  <span class="dropdown-text">Obsidian Bookmarks</span></a>
   </li>  
@@ -171,6 +213,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Obsidian: Stop Wasting Time With Directories and Filenames</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/pretty-canvas/index.html">
+ <span class="dropdown-text">Obsidian: Pretty Canvas</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-jupyter/index.html">
  <span class="dropdown-text">Obsidian and Jupyter Notebooks</span></a>
   </li>  
@@ -188,6 +234,10 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Data Science</li>
+        <li>
+    <a class="dropdown-item" href="../../../blogs/data-science/python-movingpandas-points-paths/index.html">
+ <span class="dropdown-text">Points to Paths in Python</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../../blogs/data-science/gpx-gps-data/index.html">
  <span class="dropdown-text">Trail Mapping with Python</span></a>
@@ -303,6 +353,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/optimal-notes-with-obsidian/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimal Notes with Obsidian</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/obsidian-whiteboards/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian Canvas Work Spaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Bookmarks</span></a>
   </div>
@@ -357,6 +419,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/pretty-canvas/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian: Pretty Canvas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../blogs/obsidian/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian and Jupyter Notebooks</span></a>
   </div>
@@ -390,6 +458,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/data-science/python-movingpandas-points-paths/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Points to Paths in Python</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../blogs/data-science/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
@@ -431,29 +505,29 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="selecting-files">Selecting files</h2>
 <p>This article follows an <a href="http://biscotty.online/blogs/gentle-introduction-to-dataviewjs">earlier article</a> introducing DataviewJS, which I strongly encourage you to read first. In that article, we learned how to display basic lists with Dataview. In this article, I will cover displaying lists of files in your vault and information in those files. I will also discuss using date ranges in queries and sorting results. Finally I will show how to make a table with multiple fields.</p>
 <p>As a refresher, to show a list with a header you typed something like</p>
-<pre class="{js dataviewjs}"><code>const myList = [
-    "First",
-    "Second",
-    "Third"
-]
-
-dv.header(3, "My List")
-dv.list(myList)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> myList <span class="op">=</span> [</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"First"</span><span class="op">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Second"</span><span class="op">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Third"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">header</span>(<span class="dv">3</span><span class="op">,</span> <span class="st">"My List"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">list</span>(myList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>.</p>
 <p>This creates a <em>variable</em> with a camelCase name. The variable contains a list, surrounded by square brackets, separated by commas, with quotations around strings (text). That was easy.</p>
 <p>Now what if I want to list all the files in my vault? I won’t do this, because the list would be crazy long, but just say I did. I would use</p>
-<pre><code>const fileNameList = dv.pages().file.name
-
-dv.header(3, "Log files")
-dv.list(fileNameList)</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> fileNameList <span class="op">=</span> dv<span class="op">.</span><span class="fu">pages</span>()<span class="op">.</span><span class="at">file</span><span class="op">.</span><span class="at">name</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">header</span>(<span class="dv">3</span><span class="op">,</span> <span class="st">"Log files"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">list</span>(fileNameList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This would give me a bullet-point list of the names of all of the files in my vault. If you don’t have too many files in your vault, go ahead and try. Before narrowing it down to something more specific, let’s look at what is new here. What is <code>pages().file.name</code>? And for that matter, what’s with all the periods?</p>
 <p>Let me explain the periods first. I said that <code>dv</code> is an object. Objects can contain functions, like <code>list()</code>. They can also contain values, often called <em>attributes</em>. The functions and attributes of any object are referred to or accessed by using the name of the object, followed by a period, and then the name of the function or attribute. So the phrase above means: <code>dv</code> is an object that contains a <code>pages()</code> function (the parentheses let you know it is a function). The <code>pages()</code> function selects certain pages and provides attributes for each page, such as the name, links, date created, date modified, etc., in an object called <code>file</code>. In this case I’m choosing to show just the file name. If I wanted links instead, I would do <code>dv.pages().file.link</code>.</p>
 <p>This dot-notation, using periods, is actually quite nice when you get used to it. Recall that “white space”, including line breaks, is not important in JavaScript, so you will see me often using line breaks before these periods, purely for readability and ease of editing.</p>
 <p>So let’s see how to narrow things down a little. For the following examples I will use my exercise logs. All the log files are linked to a file called <code>Logs</code>. I can select files that link to this <code>Logs</code> file by writing <code>pages("[[Logs]]")</code>. Note the quotations AND double square brackets. So I can write:</p>
-<pre><code>const fileNameList = dv.pages("[[Logs]]").file.link
-
-dv.header(3, "Log files")
-dv.list(fileNameList)</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> fileNameList <span class="op">=</span> dv<span class="op">.</span><span class="fu">pages</span>(<span class="st">"[[Logs]]"</span>)<span class="op">.</span><span class="at">file</span><span class="op">.</span><span class="at">link</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">header</span>(<span class="dv">3</span><span class="op">,</span> <span class="st">"Log files"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">list</span>(fileNameList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>I suggest you create some log files in your vault so that you can follow along. Each file should contain, at least, the following fields, some of which we won’t use until we look at tables:</p>
 <pre><code>topic:: [[Logs]]
 type:: log
@@ -468,53 +542,52 @@ ActivityDate:: 2023-10-05</code></pre>
 <p>Let’s look at some ways we can modify this snippet to make it more useful. First, if you have tried this, and have created log files with various dates, you may notice that they aren’t necessarily displayed in any particular order. I want to make sure they are ordered by the activity date. The <code>pages()</code> object contains a number of functions allowing us to work with data, and <code>sort()</code> is one. <code>sort()</code> takes two arguments, first the name of the field to sort on, and a second argument specifying the sort order, either <code>"asc"</code> or <code>"desc"</code>, for ascending or descending order, respectively.</p>
 <p>Unfortunately, we can’t just add <code>.sort(ActivityDate, "desc")</code>. When working with <code>pages()</code> we need to use a special JavaScript syntax. We need to type <code>.sort(a =&gt; a.ActivityDate, "desc")</code>. The letter <code>a</code> is arbitrary. I could also write <code>.sort(foo =&gt; foo.ActivityDate, "desc")</code> to achieve the same thing. <code>a</code>, or <code>foo</code>, basically serves as temporary variable name for the object you are working with, in this case the page, or note. Then the command says to use the <code>ActivityDate</code> property on each page for sorting. I know it looks a little confusing at first, but you will see this idiom so frequently you will quickly get used to it.</p>
 <p>So lets sort our logs by date as so:</p>
-<pre><code>const fileNameList = dv.pages("[[Logs]]")                                                                                                                
-    .sort(b =&gt; b.ActivityDate, "desc")                                                                                                                   
-    .ActivityDate
-
-dv.header(3, "Activity Dates")
-dv.list(fileNameList)</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> fileNameList <span class="op">=</span> dv<span class="op">.</span><span class="fu">pages</span>(<span class="st">"[[Logs]]"</span>)                                                                                                                </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sort</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">ActivityDate</span><span class="op">,</span> <span class="st">"desc"</span>)                                                                                                                   </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="at">ActivityDate</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">header</span>(<span class="dv">3</span><span class="op">,</span> <span class="st">"Activity Dates"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">list</span>(fileNameList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Notice how the dot notation allows us to easily add more conditions to our query. ## Selecting by date</p>
 <p>Next, let’s see how we can select logs only for certain dates. To do that, we use the <code>.where()</code> function supplied by <code>pages()</code>. To see only logs since October 3, 2023, I can write</p>
-<pre><code>const fileNameList = dv.pages("[[Logs]]")
-  .where(b =&gt; b.ActivityDate &gt;= dv.date("2023-10-03"))
-    .sort(b =&gt; b.ActivityDate, "desc")
-    .ActivityDate                
-dv.header(3, "Activity Dates since October 3, 2023")
-dv.list(fileNameList)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> fileNameList <span class="op">=</span> dv<span class="op">.</span><span class="fu">pages</span>(<span class="st">"[[Logs]]"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">where</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">ActivityDate</span> <span class="op">&gt;=</span> dv<span class="op">.</span><span class="fu">date</span>(<span class="st">"2023-10-03"</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sort</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">ActivityDate</span><span class="op">,</span> <span class="st">"desc"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="at">ActivityDate</span>                </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">header</span>(<span class="dv">3</span><span class="op">,</span> <span class="st">"Activity Dates since October 3, 2023"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">list</span>(fileNameList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The syntax for <code>where()</code> is similar to the syntax for <code>sort()</code>. There is an important difference though, because here we are comparing two values. <code>&gt;=</code> means “greater than or equal to”, <code>&lt;=</code> would be “less than or equal to”, etc. This <em>evaluates</em> to either true or false, since the date is either earlier or later than 10/3. This type of true/false value has a special name, <em>boolean</em>, which is good to know. <code>dv</code> provides its own <code>.date()</code> function for simple date manipulation, and I use it here.</p>
 <p>Now that you know how to use <code>where()</code>, let’s do one more thing with it. The code currently takes advantage of the fact that all the logs are linked to the <code>Logs</code> note. I don’t like that, because I might create some logs with a different <code>topic</code>. You may have noticed that all of the log notes have a <code>type:: log</code>. This can be used with <code>.where()</code>, so I can instead write:</p>
-<pre><code>const fileNameList = dv.pages()
- .where(b =&gt; b.type == "log")
- .where(b =&gt; b.ActivityDate &gt;= dv.date("2023-10-03"))
- .sort(b =&gt; b.ActivityDate, "desc")
- .ActivityDate
-                                                             
-dv.header(3, "Activity Dates since October 3, 2023")
-dv.list(fileNameList)</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> fileNameList <span class="op">=</span> dv<span class="op">.</span><span class="fu">pages</span>()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> <span class="op">.</span><span class="fu">where</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">type</span> <span class="op">==</span> <span class="st">"log"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a> <span class="op">.</span><span class="fu">where</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">ActivityDate</span> <span class="op">&gt;=</span> dv<span class="op">.</span><span class="fu">date</span>(<span class="st">"2023-10-03"</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a> <span class="op">.</span><span class="fu">sort</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">ActivityDate</span><span class="op">,</span> <span class="st">"desc"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> <span class="op">.</span><span class="at">ActivityDate</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                                                             </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">header</span>(<span class="dv">3</span><span class="op">,</span> <span class="st">"Activity Dates since October 3, 2023"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">list</span>(fileNameList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Many of my queries are based on the type of note, and this is how the note type can be used. Pay attention to the fact that “equal to” requires two equal signs, not one. For completeness, “not equal to” is written <code>!=</code>.</p>
 </section>
 <section id="a-first-table" class="level2">
 <h2 class="anchored" data-anchor-id="a-first-table">A first table</h2>
 <p>Lists aren’t very interesting, though. Usually you want more than just the name, or one bit of information from a file. So let’s make a table instead with <code>dv.table()</code>. For tables, you must supply an additional list with the column headers. Then you specify the fields that you want using a JavaScript function called <code>map()</code>. It works pretty much the same way as <code>.sort</code> and <code>.where()</code>, it just has a seemingly odd name. <code>map()</code> is used to go through each item in a list and do something with it, in this case, select certain fields from each note. This is called <em>iteration</em>.</p>
 <p>This table shows the type of activity, distance in miles, duration in minutes and date. I’ve used emojis for column headings. You can see that the fields I want shown are supplied as a list (between square brackets) of the fields I want in the table.</p>
-<pre><code>
-const headers = ["🚶/🚴", "🗒️", "⏱️", "📅"]
-
-const pages = dv.pages() 
-    .where(b =&gt; b.type == "log")
-    .where(b =&gt; b.ActivityDate &gt;= dv.date("2023-10-03"))
-    .sort(b =&gt; b.ActivityDate, "desc")
-    .map(b =&gt; [
-        b.Activity, 
-        b.Distance, 
-        b.Duration, 
-        b.ActivityDate
-    ])
-                                
-
-dv.header(3, "Activity since October 3, 2023")
-dv.table(headers,   pages)</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> headers <span class="op">=</span> [<span class="st">"🚶/🚴"</span><span class="op">,</span> <span class="st">"🗒️"</span><span class="op">,</span> <span class="st">"⏱️"</span><span class="op">,</span> <span class="st">"📅"</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> pages <span class="op">=</span> dv<span class="op">.</span><span class="fu">pages</span>() </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">where</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">type</span> <span class="op">==</span> <span class="st">"log"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">where</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">ActivityDate</span> <span class="op">&gt;=</span> dv<span class="op">.</span><span class="fu">date</span>(<span class="st">"2023-10-03"</span>))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">sort</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">ActivityDate</span><span class="op">,</span> <span class="st">"desc"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">map</span>(b <span class="kw">=&gt;</span> [</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        b<span class="op">.</span><span class="at">Activity</span><span class="op">,</span> </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        b<span class="op">.</span><span class="at">Distance</span><span class="op">,</span> </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        b<span class="op">.</span><span class="at">Duration</span><span class="op">,</span> </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        b<span class="op">.</span><span class="at">ActivityDate</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    ])</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                                </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">header</span>(<span class="dv">3</span><span class="op">,</span> <span class="st">"Activity since October 3, 2023"</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">table</span>(headers<span class="op">,</span>   pages)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="djs-part-2.png" class="img-fluid"></p>
 </section>
 <section id="next-steps" class="level2">
