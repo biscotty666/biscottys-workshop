@@ -13,12 +13,20 @@
     <lastmod>2025-04-08T15:53:49.795Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-2/index.html</loc>
-    <lastmod>2025-04-08T12:09:02.649Z</lastmod>
+    <loc>https://biscotty.online/blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html</loc>
+    <lastmod>2025-04-08T12:09:02.641Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/obsidian/obsidian-jupyter/index.html</loc>
-    <lastmod>2025-04-08T14:19:23.684Z</lastmod>
+    <loc>https://biscotty.online/blogs/obsidian/second-brain/index.html</loc>
+    <lastmod>2025-04-08T16:10:24.051Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian/regex-search-in-line-metadata/index.html</loc>
+    <lastmod>2025-04-08T16:08:02.659Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian/pretty-canvas/index.html</loc>
+    <lastmod>2025-04-08T15:20:44.493Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/blogs/obsidian/freeing-your-thinking-workflow/index.html</loc>
@@ -33,24 +41,48 @@
     <lastmod>2025-04-08T12:28:14.674Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/obsidian/metadata-menu/index.html</loc>
-    <lastmod>2025-04-08T12:31:49.860Z</lastmod>
+    <loc>https://biscotty.online/blogs/obsidian/visual-mocs-with-canvas/index.html</loc>
+    <lastmod>2025-04-08T16:21:52.544Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/obsidian/obsidian-headers/index.html</loc>
-    <lastmod>2025-04-08T13:55:59.389Z</lastmod>
+    <loc>https://biscotty.online/blogs/obsidian/obsidian-bookmarks/index.html</loc>
+    <lastmod>2025-04-08T12:34:15.128Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian/optimal-notes-with-obsidian/index.html</loc>
+    <lastmod>2025-04-08T15:11:41.729Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/data-science/python-movingpandas-speed-segments/index.html</loc>
+    <lastmod>2025-04-08T16:01:10.087Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/data-science/python-movingpandas-points-paths/index.html</loc>
+    <lastmod>2025-04-08T15:36:34.474Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/blogs/gpx-gps-data/index.html</loc>
     <lastmod>2025-04-08T14:37:11.792Z</lastmod>
   </url>
   <url>
+    <loc>https://biscotty.online/blogs/obsidian-whiteboards/index.html</loc>
+    <lastmod>2025-04-08T14:50:03.206Z</lastmod>
+  </url>
+  <url>
     <loc>https://biscotty.online/blogs/data-science/gpx-gps-data/index.html</loc>
     <lastmod>2025-04-08T14:10:26.505Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/obsidian/obsidian-bookmarks/index.html</loc>
-    <lastmod>2025-04-08T12:34:15.128Z</lastmod>
+    <loc>https://biscotty.online/blogs/obsidian/obsidian-headers/index.html</loc>
+    <lastmod>2025-04-08T13:55:59.389Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian/obsidian-whiteboards/index.html</loc>
+    <lastmod>2025-04-08T15:38:26.062Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian/metadata-menu/index.html</loc>
+    <lastmod>2025-04-08T12:31:49.860Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/blogs/obsidian/dataviewjs-summaries-statistics/index.html</loc>
@@ -69,12 +101,20 @@
     <lastmod>2025-04-08T12:09:02.647Z</lastmod>
   </url>
   <url>
+    <loc>https://biscotty.online/blogs/obsidian/obsidian-jupyter/index.html</loc>
+    <lastmod>2025-04-08T14:19:23.684Z</lastmod>
+  </url>
+  <url>
     <loc>https://biscotty.online/blogs/obsidian/gentle-introduction-to-dataviewjs/index.html</loc>
     <lastmod>2025-04-08T12:09:02.653Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html</loc>
-    <lastmod>2025-04-08T12:09:02.641Z</lastmod>
+    <loc>https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-2/index.html</loc>
+    <lastmod>2025-04-08T12:09:02.649Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian/syncing-your-thinking-syncthing/index.html</loc>
+    <lastmod>2025-04-08T16:15:38.335Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/obsidian.html</loc>
@@ -87,45 +127,5 @@
   <url>
     <loc>https://biscotty.online/resources.html</loc>
     <lastmod>2025-04-06T00:08:03.496Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/obsidian-whiteboards/index.html</loc>
-    <lastmod>2025-04-08T15:38:26.062Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian-whiteboards/index.html</loc>
-    <lastmod>2025-04-08T14:50:03.206Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/optimal-notes-with-obsidian/index.html</loc>
-    <lastmod>2025-04-08T15:11:41.729Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/pretty-canvas/index.html</loc>
-    <lastmod>2025-04-08T15:20:44.493Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/data-science/python-movingpandas-points-paths/index.html</loc>
-    <lastmod>2025-04-08T15:36:34.474Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/data-science/python-movingpandas-speed-segments/index.html</loc>
-    <lastmod>2025-04-08T16:01:10.087Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/regex-search-in-line-metadata/index.html</loc>
-    <lastmod>2025-04-08T16:08:02.659Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/syncing-your-thinking-syncthing/index.html</loc>
-    <lastmod>2025-04-08T16:15:38.335Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/second-brain/index.html</loc>
-    <lastmod>2025-04-08T16:10:24.051Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/visual-mocs-with-canvas/index.html</loc>
-    <lastmod>2025-04-08T16:21:52.544Z</lastmod>
   </url>
 </urlset>
