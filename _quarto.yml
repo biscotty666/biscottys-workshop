@@ -3,13 +3,15 @@ project:
   output-dir: docs
   preview: 
     port: 4326
+    browser: false
 
 website:
   title: "biscotty's Workshop"
   favicon: images/BWLogo.png
   page-navigation: true
   back-to-top-navigation: true
-  site-url: "https://biscotty.online"
+  site-url: https://biscotty.online
+  description: "For the love of learning"
   navbar:
     right:
       - sidebar:posts-side
@@ -20,6 +22,8 @@ website:
       #   target: _blank
       - icon: github
         href: https://github.com/biscotty666
+      - icon: rss
+        href: index.xml
     left: 
       - text: "Home"
         href: index.qmd
@@ -36,7 +40,10 @@ website:
     id: posts-side
     style: "docked"
     search: true
-    contents: blogs
+    contents: 
+      - auto: blogs/obsidian
+      - auto: blogs/data-science
+
   comments: 
     utterances: 
       repo: biscotty666/bw-comments

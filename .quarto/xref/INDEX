@@ -43,5 +43,23 @@
   },
   "blogs/dataviewjs-summaries-statistics/index.qmd": {
     "index.html": "34bc6064"
+  },
+  "blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.qmd": {
+    "index.html": "22c28d44"
+  },
+  "blogs/data-science/gpx-gps-data/index.qmd": {
+    "index.html": "e5d0ea12"
+  },
+  "blogs/obsidian/dataviewjs-summaries-statistics/index.qmd": {
+    "index.html": "0ad5bbc6"
+  },
+  "blogs/obsidian/dataviewjs-files-dates/index.qmd": {
+    "index.html": "a0f92696"
+  },
+  "obsidian.qmd": {
+    "obsidian.html": "358398a1"
+  },
+  "data-science.qmd": {
+    "data-science.html": "6962a3ef"
   }
 }

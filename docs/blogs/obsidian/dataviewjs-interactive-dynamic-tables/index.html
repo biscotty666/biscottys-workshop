@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Brian Carey">
+<meta name="dcterms.date" content="2023-10-16">
+<meta name="description" content="Presenting and analyzing information in Obsidian">
 
-<title>Posts – biscotty’s Workshop</title>
+<title>Summarizing Information with DataviewJS – biscotty’s Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,29 +26,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/BWLogo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2de8e577f026b16b589cf29efdc21f8e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../blogs/data-science/gpx-gps-data/index.html" rel="next">
+<link href="../../../blogs/obsidian/dataviewjs-files-dates/index.html" rel="prev">
+<link href="../../../images/BWLogo.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-2de8e577f026b16b589cf29efdc21f8e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,76 +76,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="alternate" type="application/rss+xml" title="biscotty's Workshop" href="blogs.xml" data-external="1"></head>
+</head>
 
 <body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">biscotty’s Workshop</span>
     </a>
   </div>
@@ -153,15 +98,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blogs.html" aria-current="page"> 
+    <a class="nav-link" href="../../../blogs.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
 </ul>
@@ -171,12 +116,15 @@ window.Quarto = {
  <span class="menu-text">Posts</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
+        <li class="dropdown-header">Obsidian</li>
         <li>
-    <a class="dropdown-item" href="./obsidian.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/dataviewjs-summaries-statistics/index.html">
  <span class="dropdown-text">Obsidian</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Data Science</li>
         <li>
-    <a class="dropdown-item" href="./data-science.html">
+    <a class="dropdown-item" href="../../../blogs/data-science/gpx-gps-data/index.html">
  <span class="dropdown-text">Data Science</span></a>
   </li>  
     </ul>
@@ -187,7 +135,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../index.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -203,7 +151,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Obsidian</li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/dataviewjs-summaries-statistics/index.html">Obsidian</a></li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html">Summarizing Information with DataviewJS</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -213,7 +161,46 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Obsidian</li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/dataviewjs-summaries-statistics/index.html">Obsidian</a></li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html">Summarizing Information with DataviewJS</a></li></ol></nav>
+      <h1 class="title">Summarizing Information with DataviewJS</h1>
+                  <div>
+        <div class="description">
+          Presenting and analyzing information in Obsidian
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Javascript</div>
+                <div class="quarto-category">Obsidian</div>
+                <div class="quarto-category">PKM</div>
+                <div class="quarto-category">DataviewJS</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-body">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Brian Carey </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 16, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -223,224 +210,320 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./obsidian.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Obsidian</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Obsidian</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-science.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Science</span></a>
+  <a href="../../../blogs/obsidian/dataviewjs-summaries-statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interactive Tables with DataviewJS</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DataviewJS: A Gentle Introduction Part 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Summarizing Information with DataviewJS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Science</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Data Science</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/data-science/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trail Mapping with Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="RGF0YXZpZXdKUw==">DataviewJS <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R0lT">GIS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2VvcGFuZGFz">Geopandas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SmF2YXNjcmlwdA==">Javascript <span class="quarto-category-count">(3)</span></div><div class="category" data-category="T2JzaWRpYW4=">Obsidian <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UEtN">PKM <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#summarizing-information-with-dataviewjs" id="toc-summarizing-information-with-dataviewjs" class="nav-link active" data-scroll-target="#summarizing-information-with-dataviewjs">Summarizing Information with DataviewJS</a>
+  <ul class="collapse">
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The data</a></li>
+  <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations">Calculations</a>
+  <ul class="collapse">
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
+  <li><a href="#maths" id="toc-maths" class="nav-link" data-scroll-target="#maths">Maths</a></li>
+  </ul></li>
+  <li><a href="#generate-the-output" id="toc-generate-the-output" class="nav-link" data-scroll-target="#generate-the-output">Generate the output</a></li>
+  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts">Final thoughts</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Posts</h1>
-</div>
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-body">
 
+
+<section id="summarizing-information-with-dataviewjs" class="level1">
+<h1>Summarizing Information with DataviewJS</h1>
+<p><img src="djs-db-exc.png" class="img-fluid"></p>
+<p>This article follows up on <a href="https://biscotty.online/blogs/gentle-introduction-to-dataviewjs">earlier articles</a> in which I showed how to create interactive tables which are automatically updated and can be edited directly in the table. This article will describe how to create summary statistics for data. The statistics on the dashboard update based on the current day.</p>
+<p>As you can see, I’ve done a bit of rearranging since the last article to make things even more readable. The statistics tables have been re-sized and reformatted for a cleaner display, and I’ve added more information. There are still some tweaks I want to do, but this is a very useful dashboard.</p>
+<p>A quick comment on canvases: since I started working on canvases it’s hard to go back to the 80 characters wide format of a note. Sure, when I’m writing an article or focusing on a bit of code, that format feels very natural. But when doing pretty much anything else, well, it’s just nice to be able to spread out, and not have to open and close files, or page up and down through documents. Using a canvas is like putting all of your current work on your desk, with everything open to the pages you are interested in. In a future article I will show how a dashboard can be used in place of a Daily Note to manage your day.</p>
+<p>Here is the table I will show how to create in this article. As before, you can just skip to the bottom and grab the code if you want. This article explains everything rather thoroughly and introduces some general programming concepts. I think that, if you spend a little time with the material you will find that it is not, as they say, rocket science.</p>
+<p><img src="djs-db-stats.png" class="img-fluid"></p>
+<p>That’s 22 numbers to calculate! The process isn’t too complicated, but we need to keep track of a lot of things. To avoid a lot of repetition, we will create some custom functions, and you need to learn how to “push” lists into lists.</p>
+<p>Let’s start by writing down what we need to do.</p>
+<ul>
+<li>Create the data sets
+<ul>
+<li>Get the logs for current and prior periods</li>
+<li>Separate by activity</li>
+</ul></li>
+<li>Make a variable and calculate each statistic for current and prior periods
+<ul>
+<li>distance for each activity and total (6 total)</li>
+<li>duration for each activity and total (6 total)</li>
+<li>speed for each activity (4 total)</li>
+<li>counts for each activity (6 total)</li>
+</ul></li>
+<li>Generate the output
+<ul>
+<li>Create the tables’ headers</li>
+<li>Generate the table rows</li>
+<li>Create headers for the with workout totals</li>
+<li>Display the tables with header elements</li>
+</ul></li>
+</ul>
+<section id="the-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-data">The data</h2>
+<p>First, let’s grab the data for the current and prior seven day periods. In the last article I showed how to get the current period. Did you figure out how to get the prior period? One way is to first take the data from the last 14 days, and then remove the most recent 7 days. So we’ll do it like this:</p>
+<pre><code>const priorPages = dv.pages() 
+                    .where(b =&gt; b.type == "log")
+                    .where(b =&gt; b.ActivityDate &gt;= moment().subtract(14, "days"))
+                    .where(b =&gt; b.ActivityDate &lt;= moment().subtract(7, "days")) 
+</code></pre>
+<p>Create the <code>currentPages</code> data set as well. Then each needs to be separated by walking and biking. You can do it like this:</p>
+<pre><code>const currentWalkPages = currentPages
+                    .where(b =&gt; b.Activity == "🚶")</code></pre>
+<p>Go ahead and create the rest of the datasets. You need <code>currentBikePages</code>, <code>priorWalkPages</code> and <code>priorBikePages</code>.</p>
+</section>
+<section id="calculations" class="level2">
+<h2 class="anchored" data-anchor-id="calculations">Calculations</h2>
+<p>Good programming involves avoiding repetitive tasks. Whenever you need to do the same thing more than once or twice, the standard practice is to make a function.</p>
+<section id="functions" class="level3">
+<h3 class="anchored" data-anchor-id="functions">Functions</h3>
+<p>Here is an example of a function we can use. It is arguably overkill to make this a function, but it will provide a good example. A function starts with the keyword <code>function</code> followed by the name you want to use. The name is followed by parentheses which are required, but may be empty. They are used to pass arguments to the function. The function itself is then placed in curly braces. After the function does it’s work, it needs to <code>return</code> some value.</p>
+<p>I have a bunch of numbers in minutes which I want to convert to hours. This is just a matter of dividing by 60 of course, but I also want to round off to one decimal. There is a function <code>toFixed()</code> which can be used on strings. It takes one argument, the number of decimal places you want to round it to. This is the function:</p>
+<pre><code>function toHours (time) {
+ return (time / 60).toFixed(1)
+}</code></pre>
+<p>and I use it like this.</p>
+<pre><code>const totalCurrentTime = toHours( sumStat("duration", pages) )</code></pre>
+<p>Of course, I haven’t created <code>sumStat()</code> yet. To calculate the sum there is a JavaScript function called <code>reduce()</code>. It is used like this:</p>
+<pre><code>reduce(
+    (sum, b) =&gt; sum + b.Distance,
+     0
+)</code></pre>
+<p>The syntax looks a little complicated, but it’s not so bad if you break it down. <code>reduce()</code> takes two arguments. The first argument is <code>(sum, b) =&gt; sum + b.Distance</code>, which is itself a function with two arguments. The second argument here is our old friend <code>b</code>. In this case, we also need temporary variable called an <em>accumulator</em>. The name of this variable is arbitrary, like <code>b</code>. <code>reduce()</code> will go through each log, adding the value of the <code>Distance</code> field to the accumulator. The second argument to <code>reduce()</code> is just the initial value for the accumulator, which is almost always 0.</p>
+<p>Now I can write the function like this</p>
+<pre><code>function sumStat (stat, thePages) {
+    const pageValues = thePages.values
+    if (stat == "duration") {
+        return pageValues
+          .reduce((sum, b) =&gt; sum + b.Duration, 0)
+    }
     
-  
+    if (stat == "distance") {
+        return pageValues
+          .reduce((sum, b) =&gt; sum + b.Distance, 0)
+    }
+}</code></pre>
+<p>I didn’t want to write two separate functions for calculating the sums, instead I use a <em>conditional</em> <code>if</code> statement, which works as you might expect. Notice a few things about this. First, <code>pageValues</code> just saves us adding <code>.values</code> to each <code>if</code> statement. <code>if</code> statements require a condition in parentheses. It must be something that evaluates to a <em>boolean</em> value (true or false, remember). Then, as usual, the block of code you want to execute must be in curly braces. Finally, you almost always want to <code>return</code> something. Once you hit a <code>return</code> statement, nothing else gets executed in the function.</p>
+</section>
+<section id="maths" class="level3">
+<h3 class="anchored" data-anchor-id="maths">Maths</h3>
+<p>Now we can create all of our time and distance variables like this:</p>
+<pre><code>const totalCurrentTime = toHours( sumStat( "duration", currentPages ) )
+const totalCurrentDistance = sumStat( "distance", currentPages ).toFixed(1)</code></pre>
+<p>Speed is just distance over time, so.</p>
+<pre><code>const currentWalkSpeed = (
+    totalCurrentWalkDistance / totalCurrentWalkTime
+    )
+    .toFixed(1)</code></pre>
+<p>Notice that I specified to round to one decimal point. To find the total number of workouts it is necessary merely to count the number of pages in each category, since each represents one workout. <code>pages()</code> is a list, or array. Arrays all have an attribute/property called <code>length</code>. So to count all workouts in the last seven days I can just write <code>const currentCount = currentPages.length</code>.</p>
+<p>Everything else is just repetition, since we need 22 values at the end of the day. Any repetitive activity cries out for a new function to encapsulate this repetition, but I’ll leave that for another day. (This is called <em>refactoring</em>.)</p>
+</section>
+</section>
+<section id="generate-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="generate-the-output">Generate the output</h2>
+<p>The tables from the last article used a <code>dv.pages()</code> object for the table rows. This time I need to create each table row myself. Each table row is itself a list. So I need a list of lists. It is easy to do this with the <code>push()</code> command, which just adds an item to a list. The item being added can be anything, including a list. I will build the table rows like this:</p>
+<pre><code>let rows = []
+rows.push(["Miles", totalCurrentDistance, totalPriorDistance])</code></pre>
+<p>I have to <em>initialize</em> the variable, because I can’t <code>push</code> anything onto a non-existent list. I used <code>let</code> instead of <code>const</code>. The difference is that a <code>const</code> variable cannot change after it has been created, while one declared with <code>var</code> can. (In older code you will see <code>var</code> instead of <code>let</code>. This still works but <code>let</code> is preferred.)</p>
+<p>So all that remains is to <code>push</code> each row of the table into the <code>rows</code> variable, create the <code>headers</code> for the table, and use <code>dv.table()</code> to display it. The final code is at the bottom. I strongly suggest, having reached this point, that you try to do this on your own and don’t simply copy and paste my code.</p>
+</section>
+<section id="final-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="final-thoughts">Final thoughts</h2>
+<p>If you read through both articles, congratulations. Give yourself a pat on the back. You are doing object-oriented programming in the most widely-used language on the internet. And you have all of the knowledge you need to create rich, useful dashboards.</p>
+<p>Happy coding!</p>
+<pre><code>/* Create data sets  */
+
+const currentPages = dv.pages() 
+    .where(b =&gt; b.type == "log")
+    .where(b =&gt; b.ActivityDate &gt;= moment().subtract(7, "days"))
+const priorPages = dv.pages() 
+    .where(b =&gt; b.type == "log")
+    .where(b =&gt; b.ActivityDate &gt;= moment().subtract(14, "days"))
+    .where(b =&gt; b.ActivityDate &lt;= moment().subtract(7, "days")) 
+const currentWalkPages = currentPages
+    .where(b =&gt; b.Activity == "🚶")
+const currentBikePages = currentPages
+    .where(b =&gt; b.Activity == "🚴")
+const priorWalkPages = priorPages
+    .where(b =&gt; b.Activity == "🚶")
+const priorBikePages = priorPages
+    .where(b =&gt; b.Activity == "🚴")
+
+/* Function to sum the distances, duration */
+
+function sumStat (stat, thePages) {
+    const pageValues = thePages.values
     
-  </div>
-  
+    if (stat == "duration") {
+        return pageValues
+          .reduce((sum, b) =&gt; sum + b.Duration, 0)
+    }
+    if (stat == "distance") {
+        return pageValues
+          .reduce((sum, b) =&gt; sum + b.Distance, 0)
+    }
+}
+
+/* Function to convert minutes to hours */
+
+function toHours (time) {
+ return (time / 60).toFixed(1)
+}
 
 
-</header>
+/* Calculate the distances (6 values) */
+
+const totalCurrentDistance = sumStat( "distance", currentPages ).toFixed(1)
+
+const totalCurrentWalkDistance = sumStat("distance",currentWalkPages).toFixed(1)
+const totalCurrentBikeDistance = sumStat("distance", currentBikePages).toFixed(1)
+const totalPriorDistance = sumStat("distance",priorPages).toFixed(1)
+const totalPriorWalkDistance = sumStat("distance",priorWalkPages).toFixed(1)
+const totalPriorBikeDistance = sumStat("distance",priorBikePages).toFixed(1)
+
+/* Calculate the durations (6 values) */
+
+const totalCurrentTime = toHours( sumStat( "duration", currentPages ) )
+
+const totalCurrentWalkTime = toHours(sumStat("duration",currentWalkPages))
+const totalCurrentBikeTime = toHours(sumStat("duration",currentBikePages))
+const totalPriorTime = toHours(sumStat("duration",priorPages))
+const totalPriorWalkTime = toHours(sumStat("duration",priorWalkPages))
+const totalPriorBikeTime = toHours(sumStat("duration",priorBikePages))
+
+/* Calculate the speed (4 values) */
+
+const currentWalkSpeed = (totalCurrentWalkDistance / totalCurrentWalkTime).toFixed(1)
+const priorWalkSpeed = (totalPriorWalkDistance / totalPriorWalkTime).toFixed(1)
+const currentBikeSpeed = (totalCurrentBikeDistance / totalCurrentBikeTime).toFixed(1)
+const priorBikeSpeed = (totalPriorBikeDistance / totalPriorBikeTime).toFixed(1)
+
+/* Count the workouts */
+
+const currentCount = currentPages.length
+const priorCount = priorPages.length
+const currentBikeCount = currentBikePages.length
+const priorBikeCount = priorBikePages.length
+const currentWalkCount = currentWalkPages.length
+const priorWalkCount = priorWalkPages.length
 
 
 
+/* Create an array (list) and add the table rows
+   The first table displays the distance and duration */
+   
+let rows = []
+rows.push(["Miles", totalCurrentDistance, totalPriorDistance])
+rows.push(["🚶", totalCurrentWalkDistance, totalPriorWalkDistance])
+rows.push(["🚴", totalCurrentBikeDistance, totalPriorBikeDistance])
+rows.push(["","",""])
+rows.push(["Hours", totalCurrentTime, totalPriorTime])
+rows.push(["🚶", totalCurrentWalkTime, totalPriorWalkTime])
+rows.push(["🚴", totalCurrentBikeTime, totalPriorBikeTime])
+rows.push(["","",""])
+rows.push(["Speed (m/h)", "", ""])
+rows.push(["🚶", currentWalkSpeed, priorWalkSpeed])
+rows.push(["🚴", currentBikeSpeed, priorBikeSpeed])
+rows.push(["","",""])
+rows.push(["Workouts", currentCount, priorCount])
+rows.push(["🚶", currentWalkCount, priorWalkCount])
+rows.push(["🚴", currentBikeCount, priorBikeCount])
+
+/* Create the table header */
+
+const tableHeader = ["","Current","Prior"]
+
+/* Display the table */
+
+dv.header(3, "7 Day Stats")
+dv.table(tableHeader, rows)</code></pre>
 
 
+</section>
+</section>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R0lTJTJDUHl0aG9uJTJDR2VvcGFuZGFz" data-listing-date-sort="1709103600000" data-listing-file-modified-sort="1744058810224" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2160">
-<div class="thumbnail">
-<p><a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external"></a></p><a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external">
-<p><img loading="lazy" src="./blogs/data-science/gpx-gps-data/pr2.png" class="thumbnail-image"></p>
-</a><p><a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external">Trail Mapping with Python</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
-GIS
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">
-Python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2VvcGFuZGFz'); return false;">
-Geopandas
-</div>
-</div>
-<div class="listing-description">
-<a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external">Using your GPX data with geopandas</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blogs/data-science/gpx-gps-data/index.html" class="no-external">
-<div class="listing-date">
-Feb 28, 2024
-</div>
-<div class="listing-author">
-Brian Carey
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDUEtNJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1709103600000" data-listing-file-modified-sort="1744062106850" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1548">
-<div class="thumbnail">
-<p><a href="./blogs/obsidian/dataviewjs-files-dates/index.html" class="no-external"></a></p><a href="./blogs/obsidian/dataviewjs-files-dates/index.html" class="no-external">
-<p><img loading="lazy" src="./blogs/obsidian/dataviewjs-files-dates/djs-part-2.png" class="thumbnail-image"></p>
-</a><p><a href="./blogs/obsidian/dataviewjs-files-dates/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blogs/obsidian/dataviewjs-files-dates/index.html" class="no-external">DataviewJS: A Gentle Introduction Part 2</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blogs/obsidian/dataviewjs-files-dates/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SmF2YXNjcmlwdA=='); return false;">
-Javascript
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
-Obsidian
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UEtN'); return false;">
-PKM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YXZpZXdKUw=='); return false;">
-DataviewJS
-</div>
-</div>
-<div class="listing-description">
-<a href="./blogs/obsidian/dataviewjs-files-dates/index.html" class="no-external">Selecting Files, Working with Dates</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blogs/obsidian/dataviewjs-files-dates/index.html" class="no-external">
-<div class="listing-date">
-Feb 28, 2024
-</div>
-<div class="listing-author">
-Brian Carey
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDUEtNJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697436000000" data-listing-file-modified-sort="1744062069659" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1688">
-<div class="thumbnail">
-<p><a href="./blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html" class="no-external"></a></p><a href="./blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html" class="no-external">
-<p><img loading="lazy" src="./blogs/obsidian/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" class="thumbnail-image"></p>
-</a><p><a href="./blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html" class="no-external">Summarizing Information with DataviewJS</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SmF2YXNjcmlwdA=='); return false;">
-Javascript
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
-Obsidian
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UEtN'); return false;">
-PKM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YXZpZXdKUw=='); return false;">
-DataviewJS
-</div>
-</div>
-<div class="listing-description">
-<a href="./blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html" class="no-external">Presenting and analyzing information in Obsidian</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html" class="no-external">
-<div class="listing-date">
-Oct 16, 2023
-</div>
-<div class="listing-author">
-Brian Carey
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDUEtNJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697263200000" data-listing-file-modified-sort="1744062025185" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1540">
-<div class="thumbnail">
-<p><a href="./blogs/obsidian/dataviewjs-summaries-statistics/index.html" class="no-external"></a></p><a href="./blogs/obsidian/dataviewjs-summaries-statistics/index.html" class="no-external">
-<p><img loading="lazy" src="./blogs/obsidian/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" class="thumbnail-image"></p>
-</a><p><a href="./blogs/obsidian/dataviewjs-summaries-statistics/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./blogs/obsidian/dataviewjs-summaries-statistics/index.html" class="no-external">Interactive Tables with DataviewJS</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./blogs/obsidian/dataviewjs-summaries-statistics/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SmF2YXNjcmlwdA=='); return false;">
-Javascript
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
-Obsidian
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UEtN'); return false;">
-PKM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YXZpZXdKUw=='); return false;">
-DataviewJS
-</div>
-</div>
-<div class="listing-description">
-<a href="./blogs/obsidian/dataviewjs-summaries-statistics/index.html" class="no-external">Selecting Files, Working with Dates</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./blogs/obsidian/dataviewjs-summaries-statistics/index.html" class="no-external">
-<div class="listing-date">
-Oct 14, 2023
-</div>
-<div class="listing-author">
-Brian Carey
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1002,6 +1085,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="biscotty666/bw-comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../blogs/obsidian/dataviewjs-files-dates/index.html" class="pagination-link" aria-label="DataviewJS: A Gentle Introduction Part 2">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">DataviewJS: A Gentle Introduction Part 2</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../blogs/data-science/gpx-gps-data/index.html" class="pagination-link" aria-label="Trail Mapping with Python">
+        <span class="nav-page-text">Trail Mapping with Python</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

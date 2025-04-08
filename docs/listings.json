@@ -6,10 +6,24 @@
   {
     "listing": "/blogs.html",
     "items": [
-      "/blogs/gpx-gps-data/index.html",
-      "/blogs/dataviewjs-files-dates/index.html",
-      "/blogs/dataviewjs-interactive-dynamic-tables/index.html",
-      "/blogs/dataviewjs-summaries-statistics/index.html"
+      "/blogs/data-science/gpx-gps-data/index.html",
+      "/blogs/obsidian/dataviewjs-files-dates/index.html",
+      "/blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html",
+      "/blogs/obsidian/dataviewjs-summaries-statistics/index.html"
+    ]
+  },
+  {
+    "listing": "/data-science.html",
+    "items": [
+      "/blogs/data-science/gpx-gps-data/index.html"
+    ]
+  },
+  {
+    "listing": "/obsidian.html",
+    "items": [
+      "/blogs/obsidian/dataviewjs-files-dates/index.html",
+      "/blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html",
+      "/blogs/obsidian/dataviewjs-summaries-statistics/index.html"
     ]
   }
 ]
