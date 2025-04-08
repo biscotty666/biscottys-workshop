@@ -1,7 +1,9 @@
 [
   {
-    "listing": "/posts.html",
-    "items": []
+    "listing": "/data-science.html",
+    "items": [
+      "/blogs/data-science/gpx-gps-data/index.html"
+    ]
   },
   {
     "listing": "/blogs.html",
@@ -11,12 +13,6 @@
       "/blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html",
       "/blogs/obsidian/dataviewjs-summaries-statistics/index.html",
       "/blogs/obsidian/gentle-introduction-to-dataviewjs/index.html"
-    ]
-  },
-  {
-    "listing": "/data-science.html",
-    "items": [
-      "/blogs/data-science/gpx-gps-data/index.html"
     ]
   },
   {
