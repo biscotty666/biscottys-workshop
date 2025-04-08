@@ -165,8 +165,7 @@ f, ax = plt.subplots(figsize=(10,10))
 trek_gdf.plot(ax=ax, alpha=0.3, markersize=4, c='b') 
 ctx.add_basemap(ax, crs=trek_gdf.crs, source=ctx.providers.OpenStreetMap.Mapnik);
 ```
-
-\![\[Pasted image 20250118091450.png\]\]
+![](pr3.png)
 
 Sweet. In order to do calculations, however, I'll need to project the data to a crs appropriate for the location, which is New Jersey. A quick visit to `epsg.io` suggests `EPSG:32111`, so I'll use that. It's in meters, not feet, which I personally prefer anyway.:
 
@@ -176,8 +175,7 @@ f, ax = plt.subplots(figsize=(10,10))
 trek_proj.plot(ax=ax, alpha=0.3, markersize=4, c='b') 
 ctx.add_basemap(ax, crs=trek_proj.crs, source=ctx.providers.CartoDB.Voyager);
 ```
-
-\![\[Pasted image 20250118091547.png\]\]
+![](pr4.png)
 
 # Elevations
 
@@ -214,8 +212,7 @@ ax.set_title(f'''
     ''')
 ax.set_ylabel('meters');
 ```
-
-\![\[Pasted image 20250128155755.png\]\]
+![](pr5.png)
 
 Using Seaborn, I can use regression to smooth this out as much or as little as I want:
 
@@ -228,8 +225,7 @@ plot.fig.suptitle(f'''
     Smoothed profile for {trek_gdf.Name[0]} on {trek_gdf.Time[0].strftime('%x')}
     ''', fontsize=18);
 ```
-
-\![\[Pasted image 20250128160020.png\]\]
+![](pr6.png)
 
 And here's smoothing with `lowess`:
 
@@ -242,8 +238,11 @@ plot.fig.suptitle(f'''
     Lowess smoothed profile for {trek_gdf.Name[0]} on {trek_gdf.Time[0].strftime('%x')}
     ''', fontsize=18);
 ```
+![](pr7.png)
 
-\![\[Pasted image 20250129080245.png\]\] \# Next steps I naturally want to be able to make calculations of speed and distance, identify pauses, and do other exploration. Starting from discrete points, the steps to do so manually would be simple but exceedingly tedious. Fortunately there is a wonderful library called `movingpandas` which makes these things all very simple. I'll explore that in the next articles.
+## Next steps 
+
+I naturally want to be able to make calculations of speed and distance, identify pauses, and do other exploration. Starting from discrete points, the steps to do so manually would be simple but exceedingly tedious. Fortunately there is a wonderful library called `movingpandas` which makes these things all very simple. I'll explore that in the next articles.
 
 I'll go ahead and save the `GeoDataFrames` for future use:
 

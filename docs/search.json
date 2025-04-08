@@ -186,6 +186,17 @@
     ]
   },
   {
+    "objectID": "blogs/data-science/gpx-gps-data/index.html#next-steps",
+    "href": "blogs/data-science/gpx-gps-data/index.html#next-steps",
+    "title": "Trail Mapping with Python",
+    "section": "Next steps",
+    "text": "Next steps\nI naturally want to be able to make calculations of speed and distance, identify pauses, and do other exploration. Starting from discrete points, the steps to do so manually would be simple but exceedingly tedious. Fortunately there is a wonderful library called movingpandas which makes these things all very simple. I’ll explore that in the next articles.\nI’ll go ahead and save the GeoDataFrames for future use:\ntrek_gdf.to_file('data/trek_gdf.gpkg', driver='GPKG')\ntrek_projected.to_file('data/trek_projected.gpkg', driver='GPKG')",
+    "crumbs": [
+      "Data Science",
+      "Trail Mapping with Python"
+    ]
+  },
+  {
     "objectID": "blogs/obsidian/dataviewjs-summaries-statistics/index.html",
     "href": "blogs/obsidian/dataviewjs-summaries-statistics/index.html",
     "title": "Interactive Tables with DataviewJS",

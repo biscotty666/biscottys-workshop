@@ -348,7 +348,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#xml-to-csv" id="toc-xml-to-csv" class="nav-link" data-scroll-target="#xml-to-csv">XML to CSV</a></li>
-  <li><a href="#elevations" id="toc-elevations" class="nav-link" data-scroll-target="#elevations">Elevations</a></li>
+  <li><a href="#elevations" id="toc-elevations" class="nav-link" data-scroll-target="#elevations">Elevations</a>
+  <ul class="collapse">
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
+  </ul></li>
   <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
   </ul>
 </nav>
@@ -459,13 +462,13 @@ memory usage: 40.8+ KB</code></pre>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>trek_gdf.plot(ax<span class="op">=</span>ax, alpha<span class="op">=</span><span class="fl">0.3</span>, markersize<span class="op">=</span><span class="dv">4</span>, c<span class="op">=</span><span class="st">'b'</span>) </span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>ctx.add_basemap(ax, crs<span class="op">=</span>trek_gdf.crs, source<span class="op">=</span>ctx.providers.OpenStreetMap.Mapnik)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>![[Pasted image 20250118091450.png]]</p>
+<p><img src="pr3.png" class="img-fluid"></p>
 <p>Sweet. In order to do calculations, however, I’ll need to project the data to a crs appropriate for the location, which is New Jersey. A quick visit to <code>epsg.io</code> suggests <code>EPSG:32111</code>, so I’ll use that. It’s in meters, not feet, which I personally prefer anyway.:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>trek_proj <span class="op">=</span> trek_gdf.to_crs(<span class="dv">32111</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>trek_proj.plot(ax<span class="op">=</span>ax, alpha<span class="op">=</span><span class="fl">0.3</span>, markersize<span class="op">=</span><span class="dv">4</span>, c<span class="op">=</span><span class="st">'b'</span>) </span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>ctx.add_basemap(ax, crs<span class="op">=</span>trek_proj.crs, source<span class="op">=</span>ctx.providers.CartoDB.Voyager)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>![[Pasted image 20250118091547.png]]</p>
+<p><img src="pr4.png" class="img-fluid"></p>
 </section>
 <section id="elevations" class="level1">
 <h1>Elevations</h1>
@@ -492,7 +495,7 @@ memory usage: 40.8+ KB</code></pre>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    Elevation profile for </span><span class="sc">{</span>trek_gdf<span class="sc">.</span>Name[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> on </span><span class="sc">{</span>trek_gdf<span class="sc">.</span>Time[<span class="dv">0</span>]<span class="sc">.</span>strftime(<span class="st">'</span><span class="sc">%x</span><span class="st">'</span>)<span class="sc">}</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    '''</span>)</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'meters'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>![[Pasted image 20250128155755.png]]</p>
+<p><img src="pr5.png" class="img-fluid"></p>
 <p>Using Seaborn, I can use regression to smooth this out as much or as little as I want:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme()</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> sns.lmplot(data<span class="op">=</span>trek_proj, x<span class="op">=</span><span class="st">'Point'</span>, y<span class="op">=</span><span class="st">'Elev'</span>, </span>
@@ -501,7 +504,7 @@ memory usage: 40.8+ KB</code></pre>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>plot.fig.suptitle(<span class="ss">f'''</span></span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    Smoothed profile for </span><span class="sc">{</span>trek_gdf<span class="sc">.</span>Name[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> on </span><span class="sc">{</span>trek_gdf<span class="sc">.</span>Time[<span class="dv">0</span>]<span class="sc">.</span>strftime(<span class="st">'</span><span class="sc">%x</span><span class="st">'</span>)<span class="sc">}</span></span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    '''</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>![[Pasted image 20250128160020.png]]</p>
+<p><img src="pr6.png" class="img-fluid"></p>
 <p>And here’s smoothing with <code>lowess</code>:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(rc<span class="op">=</span>{<span class="st">'figure.figsize'</span>:(<span class="dv">6</span>,<span class="dv">6</span>)})</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> sns.lmplot(data<span class="op">=</span>trek_proj, x<span class="op">=</span><span class="st">'Point'</span>, y<span class="op">=</span><span class="st">'Elev'</span>, </span>
@@ -510,10 +513,14 @@ memory usage: 40.8+ KB</code></pre>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>plot.fig.suptitle(<span class="ss">f'''</span></span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    Lowess smoothed profile for </span><span class="sc">{</span>trek_gdf<span class="sc">.</span>Name[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> on </span><span class="sc">{</span>trek_gdf<span class="sc">.</span>Time[<span class="dv">0</span>]<span class="sc">.</span>strftime(<span class="st">'</span><span class="sc">%x</span><span class="st">'</span>)<span class="sc">}</span></span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    '''</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>![[Pasted image 20250129080245.png]] # Next steps I naturally want to be able to make calculations of speed and distance, identify pauses, and do other exploration. Starting from discrete points, the steps to do so manually would be simple but exceedingly tedious. Fortunately there is a wonderful library called <code>movingpandas</code> which makes these things all very simple. I’ll explore that in the next articles.</p>
+<p><img src="pr7.png" class="img-fluid"></p>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<p>I naturally want to be able to make calculations of speed and distance, identify pauses, and do other exploration. Starting from discrete points, the steps to do so manually would be simple but exceedingly tedious. Fortunately there is a wonderful library called <code>movingpandas</code> which makes these things all very simple. I’ll explore that in the next articles.</p>
 <p>I’ll go ahead and save the <code>GeoDataFrames</code> for future use:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>trek_gdf.to_file(<span class="st">'data/trek_gdf.gpkg'</span>, driver<span class="op">=</span><span class="st">'GPKG'</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>trek_projected.to_file(<span class="st">'data/trek_projected.gpkg'</span>, driver<span class="op">=</span><span class="st">'GPKG'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="code" class="level1">
 <h1>Code</h1>
