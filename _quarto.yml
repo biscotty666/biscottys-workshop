@@ -29,6 +29,8 @@ website:
         href: index.qmd
       - href: about.qmd
         text: "About"
+      - href: obsidian.qmd
+        text: "Obsidian"
       - href: blogs.qmd
         text: "Posts"
   page-footer: 
