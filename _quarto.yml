@@ -41,6 +41,8 @@ website:
     style: "docked"
     search: true
     contents: 
+      - obsidian.qmd
+      - data-science.qmd
       - auto: blogs/obsidian
       - auto: blogs/data-science
 
