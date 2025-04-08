@@ -36,6 +36,18 @@
   <media:content url="https://biscotty.online/blogs/data-science/python-movingpandas-points-paths/ny6.png" medium="image" type="image/png" height="87" width="144"/>
 </item>
 <item>
+  <title>Obsidian and Jupyter Notebooks</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/obsidian-jupyter/</link>
+  <description><![CDATA[ Personal Knowledge Management for Data Science ]]></description>
+  <category>Obsidian</category>
+  <category>Python</category>
+  <category>Data Science</category>
+  <guid>https://biscotty.online/blogs/obsidian/obsidian-jupyter/</guid>
+  <pubDate>Wed, 20 Mar 2024 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
   <title>Trail Mapping with Python</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/blogs/data-science/gpx-gps-data/</link>

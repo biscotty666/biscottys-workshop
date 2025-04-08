@@ -1,7 +1,9 @@
 ---
 title: "Data Science"
 listing:
-  contents: blogs/data-science
+  contents: 
+    - blogs/data-science
+    - blogs/obsidian/obsidian-jupyter
   type: default
   sort: "date desc"
   categories: true

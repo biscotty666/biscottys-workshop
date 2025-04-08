@@ -124,5 +124,26 @@
   },
   "blogs/obsidian/visual-mocs-with-canvas/index.qmd": {
     "index.html": "ee96157e"
+  },
+  "blogs/obsidian/dataview/dataviewjs-files-dates/index.qmd": {
+    "index.html": "1ba50224"
+  },
+  "blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.qmd": {
+    "index.html": "9123f99c"
+  },
+  "blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.qmd": {
+    "index.html": "e0ebb1a5"
+  },
+  "blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.qmd": {
+    "index.html": "98c61838"
+  },
+  "blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.qmd": {
+    "index.html": "3d85551e"
+  },
+  "blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.qmd": {
+    "index.html": "232f8bdc"
+  },
+  "blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.qmd": {
+    "index.html": "781e3cf1"
   }
 }

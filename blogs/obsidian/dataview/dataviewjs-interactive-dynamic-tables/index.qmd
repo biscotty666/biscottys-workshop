@@ -50,7 +50,7 @@ Let's start by writing down what we need to do.
 
 First, let's grab the data for the current and prior seven day periods. In the last article I showed how to get the current period. Did you figure out how to get the prior period? One way is to first take the data from the last 14 days, and then remove the most recent 7 days. So we'll do it like this:
 
-```
+```js
 const priorPages = dv.pages() 
 					.where(b => b.type == "log")
 					.where(b => b.ActivityDate >= moment().subtract(14, "days"))
@@ -60,7 +60,7 @@ const priorPages = dv.pages()
 
 Create the `currentPages` data set as well. Then each needs to be separated by walking and biking. You can do it like this:
 
-```
+```js
 const currentWalkPages = currentPages
 					.where(b => b.Activity == "🚶")
 ```
@@ -77,7 +77,7 @@ Here is an example of a function we can use. It is arguably overkill to make thi
 
 I have a bunch of numbers in minutes which I want to convert to hours. This is just a matter of dividing by 60 of course, but I also want to round off to one decimal. There is a function `toFixed()` which can be used on strings. It takes one argument, the number of decimal places you want to round it to. This is the function:
 
-```
+```js
 function toHours (time) {
  return (time / 60).toFixed(1)
 }
@@ -85,13 +85,13 @@ function toHours (time) {
 
 and I use it like this.
 
-```
+```js
 const totalCurrentTime = toHours( sumStat("duration", pages) )
 ```
 
 Of course, I haven't created `sumStat()` yet. To calculate the sum there is a JavaScript function called `reduce()`. It is used like this:
 
-```
+```js
 reduce(
 	(sum, b) => sum + b.Distance,
 	 0
@@ -102,7 +102,7 @@ The syntax looks a little complicated, but it's not so bad if you break it down.
 
 Now I can write the function like this
 
-```
+```js
 function sumStat (stat, thePages) {
 	const pageValues = thePages.values
 	if (stat == "duration") {
@@ -121,12 +121,14 @@ I didn't want to write two separate functions for calculating the sums, instead 
 
 ### Maths
 Now we can create all of our time and distance variables like this:
-```
+
+```js
 const totalCurrentTime = toHours( sumStat( "duration", currentPages ) )
 const totalCurrentDistance = sumStat( "distance", currentPages ).toFixed(1)
 ```
 Speed is just distance over time, so.
-```
+
+```js
 const currentWalkSpeed = (
 	totalCurrentWalkDistance / totalCurrentWalkTime
 	)
@@ -138,7 +140,7 @@ Everything else is just repetition, since we need 22 values at the end of the da
 
 ## Generate the output
 The tables from the last article used a `dv.pages()` object for the table rows. This time I need to create each table row myself. Each table row is itself a list. So I need a list of lists. It is easy to do this with the `push()` command, which just adds an item to a list. The item being added can be anything, including a list. I will build the table rows like this:
-```
+```js
 let rows = []
 rows.push(["Miles", totalCurrentDistance, totalPriorDistance])
 ```
@@ -155,7 +157,7 @@ Happy coding!
 
 
 
-```
+```js
 /* Create data sets  */
 
 const currentPages = dv.pages() 

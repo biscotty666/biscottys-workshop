@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Brian Carey">
+<meta name="dcterms.date" content="2023-10-11">
+<meta name="description" content="For Obsidian users who are not programmers">
 
-<title>Obsidian – biscotty’s Workshop</title>
+<title>DataviewJS: A Gentle Introduction – biscotty’s Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,30 +26,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./data-science.html" rel="next">
-<link href="./images/BWLogo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-728089a6f0714d59664eafe173cf8d63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" rel="next">
+<link href="../../../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" rel="prev">
+<link href="../../../../images/BWLogo.png" rel="icon" type="image/png">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-728089a6f0714d59664eafe173cf8d63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,76 +76,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="alternate" type="application/rss+xml" title="biscotty's Workshop" href="obsidian.xml" data-external="1"></head>
+</head>
 
 <body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">biscotty’s Workshop</span>
     </a>
   </div>
@@ -154,19 +98,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./obsidian.html" aria-current="page"> 
+    <a class="nav-link active" href="../../../../obsidian.html" aria-current="page"> 
 <span class="menu-text">Obsidian</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blogs.html"> 
+    <a class="nav-link" href="../../../../blogs.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
 </ul>
@@ -177,91 +121,91 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
         <li>
-    <a class="dropdown-item" href="./obsidian.html">
+    <a class="dropdown-item" href="../../../../obsidian.html">
  <span class="dropdown-text">Obsidian</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./data-science.html">
+    <a class="dropdown-item" href="../../../../data-science.html">
  <span class="dropdown-text">Data Science</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Obsidian</li>
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/obsidian-headers/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/obsidian-headers/index.html">
  <span class="dropdown-text">Obsidian Basics - Headers</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/optimal-notes-with-obsidian/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/optimal-notes-with-obsidian/index.html">
  <span class="dropdown-text">Optimal Notes with Obsidian</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/obsidian-whiteboards/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/obsidian-whiteboards/index.html">
  <span class="dropdown-text">Obsidian Canvas Work Spaces</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/obsidian-bookmarks/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/obsidian-bookmarks/index.html">
  <span class="dropdown-text">Obsidian Bookmarks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/metadata-menu/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/metadata-menu/index.html">
  <span class="dropdown-text">Obsidian Metadata Menu Plugin</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/visual-mocs-with-canvas/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/visual-mocs-with-canvas/index.html">
  <span class="dropdown-text">Obsidian Canvas Dashboards</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/graph-view-deets/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/graph-view-deets/index.html">
  <span class="dropdown-text">Obsidian: The mechanics of Graph View</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/obsidian-no-sql-database/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/obsidian-no-sql-database/index.html">
  <span class="dropdown-text">What does it mean that is a NoSQL Database?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/git-github-obsidian/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/git-github-obsidian/index.html">
  <span class="dropdown-text">Git and GitHub for Obsidian Users</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/pretty-canvas/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/pretty-canvas/index.html">
  <span class="dropdown-text">Obsidian: Pretty Canvas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/obsidian-jupyter/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/obsidian-jupyter/index.html">
  <span class="dropdown-text">Obsidian and Jupyter Notebooks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/regex-search-in-line-metadata/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/regex-search-in-line-metadata/index.html">
  <span class="dropdown-text">Regular Expressions for In-Line Fields</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/second-brain/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/second-brain/index.html">
  <span class="dropdown-text">Obsidian: A Second Brain?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/syncing-your-thinking-syncthing/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/syncing-your-thinking-syncthing/index.html">
  <span class="dropdown-text">Syncing your Thinking with Syncthing</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html">
  <span class="dropdown-text">Dataview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html">
+    <a class="dropdown-item" href="../../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html">
  <span class="dropdown-text">Freeing Your Thinking</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Data Science</li>
         <li>
-    <a class="dropdown-item" href="./blogs/data-science/python-movingpandas-points-paths/index.html">
+    <a class="dropdown-item" href="../../../../blogs/data-science/python-movingpandas-points-paths/index.html">
  <span class="dropdown-text">Points to Paths in Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/data-science/gpx-gps-data/index.html">
+    <a class="dropdown-item" href="../../../../blogs/data-science/gpx-gps-data/index.html">
  <span class="dropdown-text">Trail Mapping with Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./blogs/data-science/python-movingpandas-speed-segments/index.html">
+    <a class="dropdown-item" href="../../../../blogs/data-science/python-movingpandas-speed-segments/index.html">
  <span class="dropdown-text">Speed, Simplification and Segments</span></a>
   </li>  
     </ul>
@@ -272,7 +216,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./blogs.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../../blogs.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -289,7 +233,7 @@ window.Quarto = {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Obsidian</h1>
+          <h1 class="quarto-secondary-nav-title">DataviewJS: A Gentle Introduction</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -298,7 +242,45 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">DataviewJS: A Gentle Introduction</h1>
+                  <div>
+        <div class="description">
+          For Obsidian users who are not programmers
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Javascript</div>
+                <div class="quarto-category">Obsidian</div>
+                <div class="quarto-category">DataviewJS</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-body">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Brian Carey </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 11, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -310,13 +292,13 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./obsidian.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../../obsidian.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-science.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../data-science.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Science</span></a>
   </div>
 </li>
@@ -331,118 +313,118 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/obsidian-headers/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/obsidian-headers/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Basics - Headers</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/optimal-notes-with-obsidian/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/optimal-notes-with-obsidian/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Optimal Notes with Obsidian</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/obsidian-whiteboards/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/obsidian-whiteboards/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Canvas Work Spaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Bookmarks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/metadata-menu/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/metadata-menu/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Metadata Menu Plugin</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/visual-mocs-with-canvas/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/visual-mocs-with-canvas/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Canvas Dashboards</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/graph-view-deets/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/graph-view-deets/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: The mechanics of Graph View</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/obsidian-no-sql-database/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/obsidian-no-sql-database/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">What does it mean that is a NoSQL Database?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/git-github-obsidian/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/git-github-obsidian/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git and GitHub for Obsidian Users</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/pretty-canvas/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/pretty-canvas/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Pretty Canvas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian and Jupyter Notebooks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/regex-search-in-line-metadata/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/regex-search-in-line-metadata/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regular Expressions for In-Line Fields</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/second-brain/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/second-brain/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: A Second Brain?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/syncing-your-thinking-syncthing/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/syncing-your-thinking-syncthing/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syncing your Thinking with Syncthing</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Dataview</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Interactive Tables with DataviewJS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataviewJS: A Gentle Introduction Part 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">DataviewJS: A Gentle Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summarizing Information with DataviewJS</span></a>
   </div>
 </li>
@@ -459,19 +441,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Freeing Your Thinking Workflow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Stop Wasting Time With Directories and Filenames</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Meaningless Names, No Directories, Now What?</span></a>
   </div>
 </li>
@@ -490,19 +472,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/data-science/python-movingpandas-points-paths/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/data-science/python-movingpandas-points-paths/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Points to Paths in Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/data-science/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/data-science/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trail Mapping with Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./blogs/data-science/python-movingpandas-speed-segments/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../blogs/data-science/python-movingpandas-speed-segments/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Speed, Simplification and Segments</span></a>
   </div>
 </li>
@@ -514,312 +496,121 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(21)</span></div><div class="category" data-category="Q1NT">CSS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YXZpZXdKUw==">DataviewJS <span class="quarto-category-count">(4)</span></div><div class="category" data-category="SmF2YXNjcmlwdA==">Javascript <span class="quarto-category-count">(4)</span></div><div class="category" data-category="TGludXg=">Linux <span class="quarto-category-count">(2)</span></div><div class="category" data-category="T2JzaWRpYW4=">Obsidian <span class="quarto-category-count">(21)</span></div><div class="category" data-category="UEtN">PKM <span class="quarto-category-count">(5)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div></div></div>
-<!-- main -->
-<main class="content column-body" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block">Obsidian</h1>
-</div>
-
-
-
-<div class="quarto-title-meta column-body">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#dataviewjs-a-gentle-introduction" id="toc-dataviewjs-a-gentle-introduction" class="nav-link active" data-scroll-target="#dataviewjs-a-gentle-introduction">DataviewJS: A Gentle Introduction</a>
+  <ul class="collapse">
+  <li><a href="#javascript" id="toc-javascript" class="nav-link" data-scroll-target="#javascript">JavaScript</a></li>
+  <li><a href="#hello-world" id="toc-hello-world" class="nav-link" data-scroll-target="#hello-world">Hello World</a></li>
+  <li><a href="#introduction-to-dataviewjs" id="toc-introduction-to-dataviewjs" class="nav-link" data-scroll-target="#introduction-to-dataviewjs">Introduction to DataviewJS</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a>
+  <ul class="collapse">
+  <li><a href="#things-brian-learned-on-october-10-2023" id="toc-things-brian-learned-on-october-10-2023" class="nav-link" data-scroll-target="#things-brian-learned-on-october-10-2023">Things Brian learned on October 10, 2023</a></li>
+  </ul></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="T2JzaWRpYW4lMkNQeXRob24lMkNEYXRhJTIwU2NpZW5jZQ==" data-listing-date-sort="1710914400000" data-listing-file-modified-sort="1744121963684" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1102" data-listing-title-sort="Obsidian and Jupyter Notebooks" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Mar 20, 2024</span>
-</td>
-<td>
-<a href="./blogs/obsidian/obsidian-jupyter/index.html" class="title listing-title">Obsidian and Jupyter Notebooks</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1705734000000" data-listing-file-modified-sort="1744126706062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1817" data-listing-title-sort="Obsidian Canvas Work Spaces" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jan 20, 2024</span>
-</td>
-<td>
-<a href="./blogs/obsidian/obsidian-whiteboards/index.html" class="title listing-title">Obsidian Canvas Work Spaces</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="2" data-categories="T2JzaWRpYW4lMkNMaW51eA==" data-listing-date-sort="1705647600000" data-listing-file-modified-sort="1744114142653" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2014" data-listing-title-sort="Git and GitHub for Obsidian Users" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jan 19, 2024</span>
-</td>
-<td>
-<a href="./blogs/obsidian/git-github-obsidian/index.html" class="title listing-title">Git and GitHub for Obsidian Users</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="3" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDUEtNJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697436000000" data-listing-file-modified-sort="1744150324565" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1688" data-listing-title-sort="Summarizing Information with DataviewJS" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Oct 16, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="title listing-title">Summarizing Information with DataviewJS</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="4" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697263200000" data-listing-file-modified-sort="1744114142645" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1540" data-listing-title-sort="Interactive Tables with DataviewJS" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Oct 14, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="title listing-title">Interactive Tables with DataviewJS</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="5" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697004000000" data-listing-file-modified-sort="1744114142653" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1443" data-listing-title-sort="DataviewJS: A Gentle Introduction" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Oct 11, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="title listing-title">DataviewJS: A Gentle Introduction</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="6" data-categories="T2JzaWRpYW4lMkNDU1M=" data-listing-date-sort="1696485600000" data-listing-file-modified-sort="1744125644493" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1097" data-listing-title-sort="Obsidian: Pretty Canvas" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Oct 5, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/pretty-canvas/index.html" class="title listing-title">Obsidian: Pretty Canvas</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="7" data-categories="T2JzaWRpYW4lMkNQS00=" data-listing-date-sort="1695276000000" data-listing-file-modified-sort="1744114142651" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="170" data-listing-title-sort="Obsidian: Freeing Your Thinking Workflow" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 21, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="title listing-title">Obsidian: Freeing Your Thinking Workflow</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="8" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1694671200000" data-listing-file-modified-sort="1744129312544" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="856" data-listing-title-sort="Obsidian Canvas Dashboards" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 14, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/visual-mocs-with-canvas/index.html" class="title listing-title">Obsidian Canvas Dashboards</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="9" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1693980000000" data-listing-file-modified-sort="1744115509860" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="260" data-listing-title-sort="Obsidian Metadata Menu Plugin" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 6, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/metadata-menu/index.html" class="title listing-title">Obsidian Metadata Menu Plugin</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="10" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1693893600000" data-listing-file-modified-sort="1744115655128" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1130" data-listing-title-sort="Obsidian Bookmarks" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 5, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/obsidian-bookmarks/index.html" class="title listing-title">Obsidian Bookmarks</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="11" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1693461600000" data-listing-file-modified-sort="1744115294674" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="180" data-listing-title-sort="Obsidian: The mechanics of Graph View" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 31, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/graph-view-deets/index.html" class="title listing-title">Obsidian: The mechanics of Graph View</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="12" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1693375200000" data-listing-file-modified-sort="1744128624051" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="83" data-listing-title-sort="Obsidian: A Second Brain?" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 30, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/second-brain/index.html" class="title listing-title">Obsidian: A Second Brain?</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="13" data-categories="T2JzaWRpYW4lMkNMaW51eA==" data-listing-date-sort="1693202400000" data-listing-file-modified-sort="1744128938335" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="842" data-listing-title-sort="Syncing your Thinking with Syncthing" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 28, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/syncing-your-thinking-syncthing/index.html" class="title listing-title">Syncing your Thinking with Syncthing</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="14" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1693116000000" data-listing-file-modified-sort="1744120559389" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="895" data-listing-title-sort="Obsidian Basics - Headers" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 27, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/obsidian-headers/index.html" class="title listing-title">Obsidian Basics - Headers</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="15" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1692856800000" data-listing-file-modified-sort="1744122193981" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="767" data-listing-title-sort="What does it mean that is a NoSQL Database?" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 24, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/obsidian-no-sql-database/index.html" class="title listing-title">What does it mean that is a NoSQL Database?</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="16" data-categories="T2JzaWRpYW4lMkNQS00=" data-listing-date-sort="1692856800000" data-listing-file-modified-sort="1744114142647" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1671" data-listing-title-sort="Obsidian: Stop Wasting Time With Directories and Filenames" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 24, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="title listing-title">Obsidian: Stop Wasting Time With Directories and Filenames</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="17" data-categories="T2JzaWRpYW4lMkNQS00=" data-listing-date-sort="1692856800000" data-listing-file-modified-sort="1744114142649" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1380" data-listing-title-sort="Obsidian: Meaningless Names, No Directories, Now What?" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 24, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="title listing-title">Obsidian: Meaningless Names, No Directories, Now What?</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="18" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1692770400000" data-listing-file-modified-sort="1744128482659" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="287" data-listing-title-sort="Regular Expressions for In-Line Fields" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 23, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/regex-search-in-line-metadata/index.html" class="title listing-title">Regular Expressions for In-Line Fields</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="19" data-categories="T2JzaWRpYW4lMkNQS00=" data-listing-date-sort="1691215200000" data-listing-file-modified-sort="1744125101729" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1609" data-listing-title-sort="Optimal Notes with Obsidian" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 5, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/optimal-notes-with-obsidian/index.html" class="title listing-title">Optimal Notes with Obsidian</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="20" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1677567600000" data-listing-file-modified-sort="1744128203558" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1547" data-listing-title-sort="DataviewJS: A Gentle Introduction Part 2" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Feb 28, 2023</span>
-</td>
-<td>
-<a href="./blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="title listing-title">DataviewJS: A Gentle Introduction Part 2</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<!-- main -->
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+
+
+
+
+
+<section id="dataviewjs-a-gentle-introduction" class="level1">
+<h1>DataviewJS: A Gentle Introduction</h1>
+<p>This article is intended for people who are new to programming, but can serve as a jumping off point for experienced programmers new to JavaScript in general or DataviewJS in particular. The documentation can be found <a href="https://blacksmithgu.github.io/obsidian-dataview/">here</a>.</p>
+<p>You may be asking yourself, “Why learn JavaScript since I have Dataview queries to make lists and tables with my data”? You need JavaScript if, for example, you want interactive tables which allow you to edit data directly from the table without opening the associated note (very important in an <a href="http://biscotty.online/blogs/freeing-your-thinking-part-1/">information-first, NoSQL style</a>). Or if you want to work with relative dates, eg. “last week”, without needing to update your queries every week. JavaScript allows you to show things like totals, counts and averages together with your tables. And since you are writing JavaScript anyway, you can fully customize the way everything is displayed.</p>
+<p>JavaScript may seem intimidating, but it’s really not too complex or complicated for what we need to do in Obsidian. The basic examples I start with here won’t display any tables, but will get you comfortable with some of the basic concepts and how to write simple JavaScript code. It is very important that you do these examples yourself in your own vault. Like any language, the only way to learn it is to use it (and make mistakes).</p>
+<section id="javascript" class="level2">
+<h2 class="anchored" data-anchor-id="javascript">JavaScript</h2>
+<p>JavaScript is a general purpose programming language not unlike Python, but quite different from the confusingly-named Java programming language to which it bears no relation. It is responsible for most of the dynamic content on the internet. As happens with human languages spoken widely, JavaScript has evolved a variety of “regional dialects”, sharing a common grammar and basic lexicon, but adding words and idioms to work in specific environments. DataviewJS is one such dialect, one which provides a vocabulary specifically tailored for Obsidian. It does this by giving us a <em>Dataview object</em>, but more on that later.</p>
+<p>This will be a learn-by-example sort of thing, but it’s worth mentioning a few things up front for those totally new to this. In JavaScript, spaces, tabs and line breaks don’t matter. You could write your script on one line, but that would be silly. I suggest that you use spaces and line breaks liberally, because it will make your code much easier to write, read and quickly understand when you look back at it later. You will also see some people using semi-colons at the end of lines. This, too, is optional. Finally, variables can be named however you like, but the convention for multi-word variables is to capitalize the first letter of every word except the first, like <code>theVariableName</code>.</p>
+<p>(Fun fact: this naming convention is called “camel case”, with the capital letters seen as humps protruding from the back of a camel. Two humps can be seen in one form, <code>CamelCase</code>. The form used in JavaScript, <code>camelCase</code> is specifically called “dromedary case” for apparent reasons.)</p>
+<p>One thing about JavaScript which took me a while to get used to at first was all of the curly braces (<code>{}</code>). All that they indicate is that there is a block of JavaScript code inside, usually with multiple lines. While we’re on the subject of braces, the square brackets (<code>[]</code>) are used when you want a list of things. Just separate each item by commas, and put quotations around each item, like <code>["Item 1", "Item2"]</code>. You often want to go through lists item by item (a process called iteration), and we will see later how to do this. Apostrophes (<code>'</code>) and quotations (<code>"</code>) can be used interchangeably to wrap text. Don’t worry, we’ll go over all this later.</p>
+</section>
+<section id="hello-world" class="level2">
+<h2 class="anchored" data-anchor-id="hello-world">Hello World</h2>
+<p>The first program you traditionally write in any programming language is “Hello World”, which displays, not unsurprisingly, “Hello World” as output. Here is such a one in DataviewJS:</p>
+<pre><code>dv.paragraph("Hello World")</code></pre>
+<p>The output looks like this:</p>
+<pre><code>Hello World</code></pre>
+<p>Yeah! You are now a JavaScript programmer! This simple example introduces some important concepts, though.</p>
+<p>First, when you want to write some JavaScript, you must use a code block with the key word <code>dataviewjs</code>. While you are writing code, it can be convenient to start the code block with <code>js dataviewjs</code> rather than simply <code>dataviewjs</code>. You will get nice syntax highlighting that way, and can simply remove the first <code>js</code> when you want to run your code.</p>
+<p>As you might have guessed, <code>paragraph</code> just means to display the text in parentheses as a paragraph. Technically, <code>dv.paragraph()</code> is a command, or <em>function</em>, and the part in parentheses is called the <em>arguments</em>. Note the quotations surrounding the text.</p>
+<p>So what’s this <code>dv</code> thing? Remember when I said that each flavor of JavaScript provides special vocabulary for it’s context? They do this typically by providing an “object” containing the functionality. <code>dv</code> is what is called the <em>Dataview object</em>, and anytime you want to access the functionality of DataviewJS you indicate that by starting your statement or phrase with <code>dv</code> followed by a period. Since displaying a paragraph on a page of markdown is specific to DataviewJS, we write <code>dv.paragraph()</code></p>
+<p>In addition to paragraphs, the <code>dv</code> object allows us to display headers, lists, tables, etc. In fact, the <code>dv</code> object can display any HTML element. You can display multiple elements by putting them one after another in your code.</p>
+<p>Let’s look at another example:</p>
+<pre><code>dv.header(2, "Introduction to DataviewJS")
+dv.paragraph('"Hi, my name is DataviewJS"')</code></pre>
+</section>
+<section id="introduction-to-dataviewjs" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-dataviewjs">Introduction to DataviewJS</h2>
+<p>Hi, my name is DataviewJS</p>
+<p>Since it’s hard to show the result naturally, I’ve included screenshots from my vault with the code on the right and the results on the left.</p>
+<p><img src="djs-intro-1.png" class="img-fluid"></p>
+<p>Here I’m displaying 2 elements. Headers require two arguments, the first indicating the header level. This example is the same as writing <code>## Introduction to DataviewJS</code>. Note that we don’t use quotations around numbers (usually). The <code>dv</code> object also allows us to display lists, like this:</p>
+<pre><code>dv.list(["Item 1", "Item 2", "Item 3"])</code></pre>
+<p>Remember that, when making lists in JavaScript, you use the square brackets and separate each item with a comma. This is also called an <em>array</em>. This is a pretty simple example, but sometimes things get a lot more complicated, and since spaces and new lines don’t matter, it is good practice to write the same code like this:</p>
+<pre><code>dv.list([
+    "Item 1",
+    "Item 2",
+    "Item 3",
+])</code></pre>
+<p>This makes it much easier to see what is going on, and also makes copying and pasting of individual items easier, too.</p>
+</section>
+<section id="variables" class="level2">
+<h2 class="anchored" data-anchor-id="variables">Variables</h2>
+<p>Well, you may not be too impressed so far. Nothing we’ve done yet has been anything we couldn’t have done by simply writing the markdown. Things get more interesting when we start using <em>variables</em>. These allows us to create and manipulate information before displaying it. Variables are usually made (declared) with either <code>const</code> or <code>let</code> in JavaScript. So <code>const myName = "Brian"</code> creates a variable called <code>myName</code> with the value of “Brian”. We can then write this:</p>
+<pre><code>const myName = "Brian"
+dv.paragraph("Hi, my name is " + myName + ".")</code></pre>
+<p>which produces</p>
+<pre><code>Hi, my name is Brian.</code></pre>
+<p>When used with text, called <em>strings</em> in coding lingo, the <code>+</code> puts together (concatenates) multiple strings. You can see that a long string with multiple variables could start to look messy. A more convenient way to combine text and variables is to use back ticks instead of quotes, and put the variable names in curly braces preceded with the dollar sign. So instead we can write:</p>
+<pre><code>const myName = "Brian"
+dv.paragraph(`Hi, my name is ${myName}.`)</code></pre>
+<p>to get the same result.</p>
+<p>You could still object, no pun intended, that we haven’t done anything we couldn’t have done just by writing out the sentence. We’ll get to that in the next article, but before closing this one, I’ll show you something you can only do with JavaScript. DataviewJS comes with another JavaScript flavor baked in called MomentJS. Like DataviewJS provides a <code>dv</code> object, MomentJS provides a <code>moment</code> object which makes it easy to work with dates and times. We’ll talk a lot more about this later, but for now you can use it like this:</p>
+<pre><code>const today = moment(Date.now()).format("MMMM DD, YYYY")
+dv.paragraph(`Today is ${today}`)</code></pre>
+<pre><code>Today is October 10, 2023</code></pre>
+<p>This display’s today’s date in a format specified by argument to the <code>format()</code> function. Every time you open a note or canvas, the current day will be displayed.</p>
+<p>Putting it all together, we can write</p>
+<pre><code>const myName = "Brian"
+const today = moment(Date.now()).format("MMMM DD, YYYY")
+const learnings = [
+    "JavaScript basics",
+    "The dataview object",
+    "Displaying elements with JavaScript",
+    "JavaScript variables",
+]
+dv.header(3, `Things ${myName} learned on ${today}`)
+dv.list(learnings)</code></pre>
+<p>to produce</p>
+<section id="things-brian-learned-on-october-10-2023" class="level3">
+<h3 class="anchored" data-anchor-id="things-brian-learned-on-october-10-2023">Things Brian learned on October 10, 2023</h3>
+<ul>
+<li>JavaScript basics</li>
+<li>The dataview object</li>
+<li>Displaying elements with JavaScript</li>
+<li>JavaScript variables</li>
+</ul>
+<p><img src="djs-intro-2.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<p>In the next article I’ll start looking at using DataviewJS to make lists and tables and otherwise use the information in your vault. Meanwhile, if you want to learn more about working with dates, you can visit the <a href="https://momentjs.com/">Moment.js website</a>. And the DataviewJS documentation can be found <a href="https://blacksmithgu.github.io/obsidian-dataview/">here</a>. Happy coding!</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1381,12 +1172,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="biscotty666/bw-comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
+      <a href="../../../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="pagination-link" aria-label="DataviewJS: A Gentle Introduction Part 2">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">DataviewJS: A Gentle Introduction Part 2</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./data-science.html" class="pagination-link" aria-label="Data Science">
-        <span class="nav-page-text">Data Science</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="pagination-link" aria-label="Summarizing Information with DataviewJS">
+        <span class="nav-page-text">Summarizing Information with DataviewJS</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
