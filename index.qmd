@@ -13,6 +13,10 @@ about:
 
 I'll write some intro material here. I'll write some intro material here. I'll write some intro material here.
 
+[Obsidian Articles](obsidian.html)
+
+[Data Science Articles](data-science.html)
+
 Check out the [current workshop](https://biscotty.online).
 
 Thanks to [@shanny-csik2022]

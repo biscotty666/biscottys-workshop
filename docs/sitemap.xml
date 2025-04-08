@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://biscotty.online/index.html</loc>
-    <lastmod>2025-04-07T20:32:50.551Z</lastmod>
+    <lastmod>2025-04-08T03:44:15.551Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/2024-02-28-trail-mapping-with-python/index.html</loc>
@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>https://biscotty.online/blogs/data-science/gpx-gps-data/index.html</loc>
-    <lastmod>2025-04-07T20:46:50.224Z</lastmod>
+    <lastmod>2025-04-08T03:32:53.618Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/blogs/obsidian/dataviewjs-summaries-statistics/index.html</loc>
@@ -71,5 +71,9 @@
   <url>
     <loc>https://biscotty.online/obsidian.html</loc>
     <lastmod>2025-04-08T03:18:53.304Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian/gentle-introduction-to-dataviewjs/index.html</loc>
+    <lastmod>2025-04-08T04:09:11.130Z</lastmod>
   </url>
 </urlset>

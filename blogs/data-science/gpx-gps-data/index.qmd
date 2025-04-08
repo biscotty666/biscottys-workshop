@@ -5,7 +5,7 @@ author:
  - name: Brian Carey
    url: https://biscotty.online
 date: 02-28-2024
-categories: [GIS, Python, Geopandas]
+categories: [GIS, Python, Data Science]
 citation: 
   url: https://biscotty666.github.io/biscottys-workshop/2024-02-28-trail-mapping-with-python
 image: pr2.png

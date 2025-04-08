@@ -50,5 +50,18 @@
   <pubDate>Sat, 14 Oct 2023 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/blogs/obsidian/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
+<item>
+  <title>DataviewJS: A Gentle Introduction</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/gentle-introduction-to-dataviewjs/</link>
+  <description><![CDATA[ For Obsidian users who are not programmers ]]></description>
+  <category>Javascript</category>
+  <category>Obsidian</category>
+  <category>PKM</category>
+  <category>DataviewJS</category>
+  <guid>https://biscotty.online/blogs/obsidian/gentle-introduction-to-dataviewjs/</guid>
+  <pubDate>Wed, 11 Oct 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/gentle-introduction-to-dataviewjs/djs-intro-2.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
 </channel>
 </rss>
