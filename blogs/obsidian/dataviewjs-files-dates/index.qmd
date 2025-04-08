@@ -3,6 +3,8 @@ title: "DataviewJS: A Gentle Introduction Part 2"
 description: "Selecting Files, Working with Dates"
 image: "djs-part-2.png"
 date: 02-28-2024
+aliases: 
+  - blogs/dataviewjs-files-dates
 publishedAt: "2024-02-28"
 updatedAt: "2024-02-28"
 author:

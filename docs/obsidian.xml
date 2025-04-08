@@ -24,6 +24,17 @@
   <media:content url="https://biscotty.online/blogs/obsidian/dataviewjs-files-dates/djs-part-2.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
+  <title>Git and GitHub for Obsidian Users</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/git-github-obsidian/</link>
+  <description><![CDATA[ And why you probably shouldn’t be using it ]]></description>
+  <category>Obsidian</category>
+  <category>Linux</category>
+  <guid>https://biscotty.online/blogs/obsidian/git-github-obsidian/</guid>
+  <pubDate>Fri, 19 Jan 2024 07:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/git-github-obsidian/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
   <title>Summarizing Information with DataviewJS</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/blogs/obsidian/dataviewjs-interactive-dynamic-tables/</link>

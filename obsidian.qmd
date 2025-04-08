@@ -2,7 +2,7 @@
 title: "Obsidian"
 listing:
   contents: blogs/obsidian
-  type: default
+  type: table
   sort: "date desc"
   categories: true
   feed:
