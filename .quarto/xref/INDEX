@@ -109,5 +109,20 @@
   },
   "blogs/data-science/python-movingpandas-points-paths/index.qmd": {
     "index.html": "c386c7f3"
+  },
+  "blogs/data-science/python-movingpandas-speed-segments/index.qmd": {
+    "index.html": "fa925378"
+  },
+  "blogs/obsidian/regex-search-in-line-metadata/index.qmd": {
+    "index.html": "36f621c8"
+  },
+  "blogs/obsidian/second-brain/index.qmd": {
+    "index.html": "9dcbfa61"
+  },
+  "blogs/obsidian/syncing-your-thinking-syncthing/index.qmd": {
+    "index.html": "856b66af"
+  },
+  "blogs/obsidian/visual-mocs-with-canvas/index.qmd": {
+    "index.html": "ee96157e"
   }
 }

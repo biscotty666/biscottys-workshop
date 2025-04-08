@@ -24,18 +24,6 @@
   <media:content url="https://biscotty.online/blogs/obsidian/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
-  <title>DataviewJS: A Gentle Introduction Part 2</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/blogs/obsidian/dataviewjs-files-dates/</link>
-  <description><![CDATA[ Selecting Files, Working with Dates ]]></description>
-  <category>Javascript</category>
-  <category>Obsidian</category>
-  <category>DataviewJS</category>
-  <guid>https://biscotty.online/blogs/obsidian/dataviewjs-files-dates/</guid>
-  <pubDate>Wed, 28 Feb 2024 07:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/blogs/obsidian/dataviewjs-files-dates/djs-part-2.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
   <title>Obsidian Canvas Work Spaces</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/blogs/obsidian/obsidian-whiteboards/</link>
@@ -114,6 +102,16 @@
   <guid>https://biscotty.online/blogs/obsidian/freeing-your-thinking-workflow/</guid>
   <pubDate>Thu, 21 Sep 2023 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/blogs/obsidian/freeing-your-thinking-workflow/fyt-walkthrough.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Obsidian Canvas Dashboards</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/visual-mocs-with-canvas/</link>
+  <description><![CDATA[ Canvas allows you to build dashboards to organize and interact with your information. ]]></description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/blogs/obsidian/visual-mocs-with-canvas/</guid>
+  <pubDate>Thu, 14 Sep 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/visual-mocs-with-canvas/canvas-publications.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Obsidian Metadata Menu Plugin</title>

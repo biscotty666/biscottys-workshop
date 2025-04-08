@@ -1,7 +1,9 @@
 ---
 title: "Posts"
 listing:
-  contents: blogs
+  contents: 
+    - blogs/obsidian/
+    - blogs/data-science/
   type: default
   sort: "date desc"
   categories: true

@@ -10,7 +10,19 @@
 <atom:link href="https://biscotty.online/data-science.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Mon, 03 Feb 2025 07:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 25 Feb 2025 07:00:00 GMT</lastBuildDate>
+<item>
+  <title>Speed, Simplification and Segments</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/data-science/python-movingpandas-speed-segments/</link>
+  <description><![CDATA[ Working with MovingPandas ]]></description>
+  <category>GIS</category>
+  <category>Python</category>
+  <category>Data Science</category>
+  <guid>https://biscotty.online/blogs/data-science/python-movingpandas-speed-segments/</guid>
+  <pubDate>Tue, 25 Feb 2025 07:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/data-science/python-movingpandas-speed-segments/tda3_3.png" medium="image" type="image/png" height="103" width="144"/>
+</item>
 <item>
   <title>Points to Paths in Python</title>
   <dc:creator>Brian Carey</dc:creator>

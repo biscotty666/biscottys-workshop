@@ -1,0 +1,23 @@
+---
+title: "Obsidian: A Second Brain?"
+description: "Exploring the concepts of graph data and neural networks."
+image: "GVFull.png"
+date: 08-30-2023
+categories: [Obsidian]
+publishedAt: "2023-08-30"
+updatedAt: "2023-08-30"
+author: "Brian Carey"
+isPublished: true
+tags:
+  - obsidian
+---
+
+# Obsidian: A Second Brain?
+
+Obsidian is sometimes called a second brain. This is because the structure of a vault, with notes connected by links, is the way a neural network is structured, with notes as nodes and links as edges. Such data structures are typically represented by [graphs](<https://en.wikipedia.org/wiki/Graph_(abstract_data_type)>), and Obsidian has a built-in Graph View for this purpose.
+
+In this video, I visually explore the concept of Obsidian as a second brain.
+
+
+<iframe src="https://fast.wistia.net/embed/iframe/0e9un8obut?seo=false&videoFoam=false" title="2nd Brain Video" allow="autoplay; fullscreen" allowtransparency="true" frameBorder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="750" height="422"></iframe>
+<script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
