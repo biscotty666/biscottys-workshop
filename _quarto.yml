@@ -12,6 +12,7 @@ website:
   back-to-top-navigation: true
   site-url: https://biscotty.online
   description: "For the love of learning"
+  bread-crumbs: false
   navbar:
     right:
       - sidebar:posts-side
