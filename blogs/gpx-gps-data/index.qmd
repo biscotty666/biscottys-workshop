@@ -1,10 +1,10 @@
  <html xmlns="http://www.w3.org/1999/xhtml">    
   <head>      
     <title>GPS</title>      
-    <meta http-equiv="refresh" content="0;URL='https://biscotty666.github.io/biscottys-workshop/blogs/data-science/gpx-gps-data'" />    
+    <meta http-equiv="refresh" content="0;URL='https://biscotty.online/blogs/data-science/gpx-gps-data'" />    
   </head>    
   <body> 
-    <p>This page has moved to <a href="https://biscotty666.github.io/biscottys-workshop/blogs/data-science/gpx-gps-data">
-      https://biscotty666.github.io/biscottys-workshop/blogs/data-science/gpx-gps-data</a>.</p> 
+    <p>This page has moved to <a href="https://biscotty.online/blogs/data-science/gpx-gps-data">
+      https://biscotty.online/blogs/data-science/gpx-gps-data</a>.</p> 
   </body>  
-</html>    
+</html>
