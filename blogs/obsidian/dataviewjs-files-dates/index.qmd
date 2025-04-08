@@ -9,7 +9,7 @@ author:
  - name: Brian Carey
    url: https://biscotty.online
 isPublished: true
-categories: [Javascript, Obsidian, PKM, DataviewJS]
+categories: [Javascript, Obsidian, DataviewJS]
 citation: 
   url: https://biscotty666.github.io/biscottys-workshop/2024-02-28-trail-mapping-with-python
 tags:

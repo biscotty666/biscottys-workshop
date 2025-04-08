@@ -12,7 +12,6 @@ tags:
   - DataviewJS
   - JavaScript
   - Obsidian
-  - PKM
 ---
 # Summarizing Information with DataviewJS
 

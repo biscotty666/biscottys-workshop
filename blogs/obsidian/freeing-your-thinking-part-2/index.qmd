@@ -2,7 +2,7 @@
 title: "Obsidian: Meaningless Names, No Directories, Now What?"
 description: "Freeing Your Thiking Part 2 discusses the use of Graph View and Bookmarks to discover and organize information in your vault"
 image: "fyt-cover.png"
-categories: [Javascript, Obsidian, PKM, DataviewJS]
+categories: [Obsidian, PKM]
 date: 08-24-2023
 publishedAt: "2023-08-24"
 updatedAt: "2023-08-30"
