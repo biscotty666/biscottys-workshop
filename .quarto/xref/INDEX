@@ -85,5 +85,14 @@
   },
   "blogs/obsidian/metadata-menu/index.qmd": {
     "index.html": "0b58e6d6"
+  },
+  "blogs/obsidian/obsidian-headers/index.qmd": {
+    "index.html": "75419ab5"
+  },
+  "blogs/obsidian/obsidian-jupyter/index.qmd": {
+    "index.html": "0d5ca76a"
+  },
+  "blogs/obsidian/obsidian-no-sql-database/index.qmd": {
+    "index.html": "f49f0fa8"
   }
 }

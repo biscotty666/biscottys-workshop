@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Brian Carey">
-<meta name="dcterms.date" content="2023-09-05">
-<meta name="description" content="Bookmarks are the key to effectively using obsidian as a non-relational database.">
+<meta name="dcterms.date" content="2024-03-20">
+<meta name="description" content="Personal Knowledge Management for Data Science">
 
-<title>Obsidian Bookmarks – biscotty’s Workshop</title>
+<title>Obsidian and Jupyter Notebooks – biscotty’s Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,8 +67,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../blogs/obsidian/metadata-menu/index.html" rel="next">
-<link href="../../../blogs/obsidian/obsidian-headers/index.html" rel="prev">
+<link href="../../../blogs/obsidian/gentle-introduction-to-dataviewjs/index.html" rel="next">
+<link href="../../../blogs/obsidian/freeing-your-thinking-part-1/index.html" rel="prev">
 <link href="../../../images/BWLogo.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -216,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-headers/index.html">Obsidian</a></li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-bookmarks/index.html">Obsidian Bookmarks</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-headers/index.html">Obsidian</a></li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-jupyter/index.html">Obsidian and Jupyter Notebooks</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -228,15 +262,17 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-headers/index.html">Obsidian</a></li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-bookmarks/index.html">Obsidian Bookmarks</a></li></ol></nav>
-      <h1 class="title">Obsidian Bookmarks</h1>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-headers/index.html">Obsidian</a></li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-jupyter/index.html">Obsidian and Jupyter Notebooks</a></li></ol></nav>
+      <h1 class="title">Obsidian and Jupyter Notebooks</h1>
                   <div>
         <div class="description">
-          Bookmarks are the key to effectively using obsidian as a non-relational database.
+          Personal Knowledge Management for Data Science
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">Obsidian</div>
+                <div class="quarto-category">Python</div>
+                <div class="quarto-category">Data Science</div>
               </div>
                   </div>
   </div>
@@ -254,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 5, 2023</p>
+        <p class="date">March 20, 2024</p>
       </div>
     </div>
     
@@ -301,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Bookmarks</span></a>
   </div>
 </li>
@@ -355,7 +391,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Obsidian and Jupyter Notebooks</span></a>
   </div>
 </li>
@@ -406,19 +442,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-mechanics" id="toc-the-mechanics" class="nav-link active" data-scroll-target="#the-mechanics">The Mechanics</a>
+  <li><a href="#obsidian-and-jupyter-notebooks" id="toc-obsidian-and-jupyter-notebooks" class="nav-link active" data-scroll-target="#obsidian-and-jupyter-notebooks">Obsidian and Jupyter Notebooks</a>
   <ul class="collapse">
-  <li><a href="#commands" id="toc-commands" class="nav-link" data-scroll-target="#commands">Commands</a></li>
-  <li><a href="#bookmarks-panel" id="toc-bookmarks-panel" class="nav-link" data-scroll-target="#bookmarks-panel">Bookmarks Panel</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#setting-up-obsidian" id="toc-setting-up-obsidian" class="nav-link" data-scroll-target="#setting-up-obsidian">Setting up Obsidian</a></li>
+  <li><a href="#processing-a-notebook" id="toc-processing-a-notebook" class="nav-link" data-scroll-target="#processing-a-notebook">Processing a notebook</a></li>
   </ul></li>
-  <li><a href="#knowledge-trees" id="toc-knowledge-trees" class="nav-link" data-scroll-target="#knowledge-trees">Knowledge Trees</a>
-  <ul class="collapse">
-  <li><a href="#living" id="toc-living" class="nav-link" data-scroll-target="#living">Living</a></li>
-  <li><a href="#learning" id="toc-learning" class="nav-link" data-scroll-target="#learning">Learning</a></li>
-  <li><a href="#creating" id="toc-creating" class="nav-link" data-scroll-target="#creating">Creating</a></li>
-  <li><a href="#toolbox" id="toc-toolbox" class="nav-link" data-scroll-target="#toolbox">Toolbox</a></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -429,122 +458,42 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>Bookmarks are the key to effectively using obsidian as a non-relational database. The virtues of approaching your notes this way are several and I covered some in [[Freeing Your Thinking]]. In this article I want to develop the idea of using Bookmarks to construct flexible, interactive Knowledge Trees to organize notes. Just as a reminder, we are organizing information, not files.</p>
-<p>The Navigation tab gives at best a static arrangement of information, while the Bookmarks tab provides a dynamic way to interact with, develop and access your information. Here you can create <em>Views</em> of your information which you can organize by domain, subject, activity, etc. Views are saved filters and queries. Your information, unlike your files, can happily exist in multiple places in your Knowledge Tree.</p>
-<p>When you begin to build your Knowledge Tree, you might start by creating <em>Views</em> which map to your current directories using filters. After all, you want to preserve the information you have put into your vault by organizing your notes in a File Tree. Most people have a separate directory for fleeting notes, so you might make a view containing <code>path: "fleeting-note-directory"</code>. But is such a view terribly useful? Browsing through all your fleeting notes is fun if you’ve nothing better to do, but it’s not focused or efficient use of time if you are working on a particular topic. Wouldn’t it be better to just see the fleeting notes related to my topic? So I save the filter <code>Whatever Topic \type:: fleeting\</code> alongside my views of the topic itself and have a list of fleeting notes only on that topic.</p>
-<p>As you start mapping your old directories to views, you might begin to ask yourself at some point why you would ever really want to see all your MOCs in a list? Or Daily Notes? Or Logs? If you want <em>information</em> from these types of notes you typically create a note containing a Dataview query. Bookmarked filters, which I’m calling views, are like virtual Dataview queries. And, since you can do this without referencing file locations, you might question how much useful information was actually embedded in your folder structure. Then you might have a cup of tea.</p>
-<p>One last point to stress: the bookmarks, which I will call views, are ephemeral. They can be created, duplicated, renamed and moved around without affecting the information itself. When focusing on a topic, drag it to the top of the tree and put it back when you are done.</p>
-<section id="the-mechanics" class="level1">
-<h1>The Mechanics</h1>
-<section id="commands" class="level2">
-<h2 class="anchored" data-anchor-id="commands">Commands</h2>
-<p>The following table shows the bookmarks commands with suggested Hotkeys which are most likely unassigned.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 34%">
-<col style="width: 42%">
-<col style="width: 23%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Command</th>
-<th>Description</th>
-<th>Hotkey</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Bookmark…</td>
-<td>Bookmark current file</td>
-<td><code>Ctrl-Cmd-Alt-M</code></td>
-</tr>
-<tr class="even">
-<td>Show Bookmarks</td>
-<td>Open bookmarks panel</td>
-<td><code>Ctrl-B</code></td>
-</tr>
-<tr class="odd">
-<td>Bookmark Current Search</td>
-<td></td>
-<td><code>Ctrl-Cmd-Alt-S</code></td>
-</tr>
-<tr class="even">
-<td>Bookmark Current Block</td>
-<td>Bookmark Block Under Cursor</td>
-<td><code>Ctrl-Cmd-Alt-B</code></td>
-</tr>
-<tr class="odd">
-<td>Bookmark Current Heading</td>
-<td>Bookmark Heading Under Cursor</td>
-<td><code>Ctrl-Cmd-Alt-H</code></td>
-</tr>
-</tbody>
-</table>
+<section id="obsidian-and-jupyter-notebooks" class="level1">
+<h1>Obsidian and Jupyter Notebooks</h1>
+<blockquote class="blockquote">
+<p>Personal Knowledge Management for Data Science</p>
+</blockquote>
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<p>Jupyter notebooks, or more properly iPython notebooks, are fantastic tools for data exploration and modeling. You can run bits of code, interspersed with blocks of markdown, allowing you to easily work with data and present analyses and forecasts in a visual and interactive format. Notebooks can be easily shared via GitHub, or run on-line with Colab.</p>
+<p>The problem with iPython notebooks, from a Personal Knowledge Management perspective, is they end up being “books on the shelf”. For Obsidian users and PKM practitioners, the whole point is to get away from keeping information in notebooks, with all the uselessness that that implies. One could, as you will see, just do data exploration directly in Obsidian instead of in a standard iPython notebook. But Obsidian is not an IDE. The ecosystem around the interactive Python notebook IDEs, be it Jupyter Lab itself, or VS Code, etc, is so useful, that working in Obsidian while exploring data and creating models would be unacceptably tedious. Using fit-for-purpose tools is very important for efficiency.</p>
+<p>We need a painless way to capture all this information in our vault, making <em>notes</em> out of the notebooks. How can we easily make this information future-useful, without repeating/duplicating our efforts or doing a ton of copy/paste? In this article, I’ll explain the solution that works well for me, ensuring Obsidian-speed access to any bits of information I have in my notebooks, as well as making review and study activities so much more pleasant. And, of course, my canvases have all gotten richer as well.</p>
 </section>
-<section id="bookmarks-panel" class="level2">
-<h2 class="anchored" data-anchor-id="bookmarks-panel">Bookmarks Panel</h2>
-<p>The panel lists all bookmarks, which, remember, are saved searches, or views. In the panel you can create, rename and delete bookmark groups to organize your bookmarks. Bookmarks can be dragged around to rearrange them.</p>
+<section id="setting-up-obsidian" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-obsidian">Setting up Obsidian</h2>
+<p>The community plugin needed to accomplish this is called <a href="https://github.com/twibiral/obsidian-execute-code">Execute Code</a>, written by Tim Wibiral together with Jupyter and a library called <code>nbconvert</code>. The latter will convert the notebooks to markdown, and the plugin allows you to execute the code directly within a note. To get started, create a virtual environment for Obsidian to use. If you aren’t using virtual environments, please start now! It’s simple, and you will avoid future problems. From the command line, do:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="va">$HOME</span>/.config/venvs <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> <span class="st">"</span><span class="va">$_</span><span class="st">"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> venv obsidian_venv</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> obsidian_venv/bin/activate</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--upgrade</span> pip</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyterlab nbconvert </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can install other libraries like Pandas and Matplotlib as well into the virtual environment with pip install. Jupyter lab and nbconvert will be necessary to convert the notebooks to markdown. At this point, you could launch <code>jupyter lab</code>, but there is no need to. After installing packages, you can exit the virtual environment with <code>deactivate</code>. Should you need to install more packages later, you can type <code>source $HOME/.config/venvs/obsidian_venv/bin/activate</code> to re-enter the virtual environment and <code>pip install</code> other packages.</p>
+<p>In Obsidian, install the Execute Code plugin. After installing the plugin you must point it to the version of Python you want to use, in this case the one we made in the virtual environment above. In the settings for the plugin, under the language-specific settings, choose Python from the drop down list. For <em>Python Path</em>, enter <code>/home/directory/.config/venvs/obsidian_venv/bin/python</code>.</p>
+<p>With that done, any code block with the keyword <code>python</code> added directly after the opening back ticks of the block can be run in the Note. In Read view, a <em>Run</em> button will appear by each code block, allowing you to execute the code in the block. After execution, there will be a <em>Clear</em> button to clear up output that you want removed from the note. Code can also be executed from Edit view by using the keyword <code>run-python</code> rather than simply <code>python</code>. The plugin offers a command to run all the code in the note, as well as a command to view and kill any active runtimes.</p>
 </section>
-</section>
-<section id="knowledge-trees" class="level1">
-<h1>Knowledge Trees</h1>
-<p>When working with a database, we typically create views. Views are subsets of your information based on queries which have been saved. They can be used passively, as a way to look at certain information on a certain topic. They can also be used interactively, as a basis for more fine-grained queries, which, if interesting, can themselves be saved as views.</p>
-<p>I have my Knowledge Tree organized by the different domains of my life, Living, Learning and Creating. In addition, I have a section with utilities I call the Toolbox.</p>
-<section id="living" class="level2">
-<h2 class="anchored" data-anchor-id="living">Living</h2>
-<p>This is the structure of my Living section:</p>
-<pre><code>- Daily Notes
-- Logs
-    - Exercise
-    - Piano
-    - etc.
-- Daily Notes
-- CV
-- People
-- Leisure</code></pre>
-<p><em>Daily Notes</em> is a view of <code>type:: daily</code>. Exercise and Piano are actual files with interactive Dataview queries. The rest are bookmark groups containing other views.</p>
-</section>
-<section id="learning" class="level2">
-<h2 class="anchored" data-anchor-id="learning">Learning</h2>
-<p>I use <em>Learning</em> for study and research activities. This part of the tree is the most complex in terms of structure.</p>
-<p>By creating multiple views on a given topic and organizing them in folders I can essentially create an outline of my information using views. This kind of outline, again, is very flexible and can be reshaped easily as my knowledge develops.</p>
-<p>This is an excerpt of my section on the normal distribution. It’s “home” is in the bookmark group <code>Learing/Data Science/Probability/</code>.</p>
-<pre><code>Normal Distribution                 # All information on the Normal Distribution
-Normal Distribution                 # The reference note on the topic
-                                      The 2 are distinguished by different icons
-Central Limit Theorem               # A bookmark group containing other views
-68-95-99.7 Rule                     # A view of a block in a note
-R Functions for Normal Distribution # A view of a section of a note</code></pre>
-</section>
-<section id="creating" class="level2">
-<h2 class="anchored" data-anchor-id="creating">Creating</h2>
-<p>is for writing and creation of other content. Creating includes works for external and internal use.</p>
-<pre><code>- Articles
-- Stories
-- Video Scripts
-- Musings</code></pre>
-</section>
-<section id="toolbox" class="level2">
-<h2 class="anchored" data-anchor-id="toolbox">Toolbox</h2>
-<p>In the toolbox I have the following directories, which should be self-explanatory:</p>
-<pre><code>- Templates
-- fileClasses
-    - Class Definitions
-    - Value Lists
-- Fleeting Notes
-- Other
-    - Articles
-    - MOCs
-    - References
-    - Atomics</code></pre>
-<p>Other than templates and fileClasses, I rarely use the Toolbox.</p>
-</section>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>I hope I have adequately conveyed some of the advantages of building Knowledge Trees. Maybe you noticed that the word “tree” is actually a misnomer. The branches of real trees don’t reconnect, but ours can. What we really have is a Knowledge Network. Bookmarks allow us to leverage Obsidian’s NoSQL features to free our Second Brain.</p>
+<section id="processing-a-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="processing-a-notebook">Processing a notebook</h2>
+<p>Jupyter Lab can export an <code>ipynb</code> file directly to markdown! As of writing, VS Code can only export to <code>py</code>, <code>pdf</code> or <code>html</code>. From the file menu, select <em>Export</em> and choose <em>Markdown</em>. This will generate a zipped archive containing a markdown page, along with any image files in the notebook. The problem with this approach is that you will find all of the image files named <code>output</code> something, and so after exporting a few notebooks, there will be name conflicts in your vault.</p>
+<p>Using the command line avoids this problem, and is in any case much more efficient. You will need to activate your virtual environment with <code>source</code> as described above. Then type</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> Markdown your_notebook.ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will generate an <code>md</code> file which can be copied into your vault. If there are images from generated by the output, like graphs and other visuals, these will be put in a directory created by the above command. If you copy this directory, with all the image files into the vault directory that you use for attachments, the new <code>md</code> file will find them. (It is important to copy the directory itself and not just the files, since the new note will expect to find them there.)</p>
+<p>Once in Obsidian you can process your Notebooks as any other file, breaking them into bite-size chunks of information. I rely heavily on “Extract this heading”, available with a right-click on any heading in a note. This replaces the section with a link to a newly-created note containing the section’s content. I find it useful to use a template that loads common libraries, since they will need to be added them at the top of the new files.</p>
+<p>When converting your notebooks to notes, be aware that different notes do not share the same runtime. Be sure to include all the variables/calculations necessary for the part of the code you extracted in the new file, as this will not be available from another file’s state. Also, any images that you link to in the markdown sections of the original notebook will need to be manually copied into the vault, as only images generated from code in the file will be exported. ## Closing Thoughts</p>
+<p>I first started using Obsidian for the specific purpose of studying data science. My use of Obsidian broadened considerably and quickly once I first began with it. However, after some time I realized that, because of the nature of iPython notebooks, and the necessity, or really the pleasure, of using them, I found myself many months later in the very position I was trying to avoid vis-a-vis my notes: information I needed was somewhere in my piles of notebooks, and I turned to Google more often than searching through my notebooks.</p>
+<p>Now I can immerse myself in the Python project or study I am focusing on, knowing that after I’m finished, generating proper atomic notes from the work I’m doing will be a breeze. I hope that you may find this information useful. Happy coding!</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1113,13 +1062,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../../blogs/obsidian/obsidian-headers/index.html" class="pagination-link" aria-label="Obsidian Basics - Headers">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Obsidian Basics - Headers</span>
+      <a href="../../../blogs/obsidian/freeing-your-thinking-part-1/index.html" class="pagination-link" aria-label="Obsidian: Stop Wasting Time With Directories and Filenames">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Obsidian: Stop Wasting Time With Directories and Filenames</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../blogs/obsidian/metadata-menu/index.html" class="pagination-link" aria-label="Obsidian Metadata Menu Plugin">
-        <span class="nav-page-text">Obsidian Metadata Menu Plugin</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../blogs/obsidian/gentle-introduction-to-dataviewjs/index.html" class="pagination-link" aria-label="DataviewJS: A Gentle Introduction">
+        <span class="nav-page-text">DataviewJS: A Gentle Introduction</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

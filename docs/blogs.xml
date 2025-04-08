@@ -10,7 +10,19 @@
 <atom:link href="https://biscotty.online/blogs.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Wed, 28 Feb 2024 07:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 20 Mar 2024 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Obsidian and Jupyter Notebooks</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/obsidian-jupyter/</link>
+  <description><![CDATA[ Personal Knowledge Management for Data Science ]]></description>
+  <category>Obsidian</category>
+  <category>Python</category>
+  <category>Data Science</category>
+  <guid>https://biscotty.online/blogs/obsidian/obsidian-jupyter/</guid>
+  <pubDate>Wed, 20 Mar 2024 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
 <item>
   <title>Trail Mapping with Python</title>
   <dc:creator>Brian Carey</dc:creator>
@@ -113,16 +125,6 @@
   <guid>https://biscotty.online/blogs/obsidian/obsidian-bookmarks/</guid>
   <pubDate>Tue, 05 Sep 2023 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/blogs/obsidian/obsidian-bookmarks/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
-  <title>Obsidian: The mechanics of Graph View</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/blogs/obsidian/graph-view-deets/</link>
-  <description><![CDATA[ Video - Working with Graph View to explore your information network. ]]></description>
-  <category>Obsidian</category>
-  <guid>https://biscotty.online/blogs/obsidian/graph-view-deets/</guid>
-  <pubDate>Thu, 31 Aug 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/blogs/obsidian/graph-view-deets/GVFull.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

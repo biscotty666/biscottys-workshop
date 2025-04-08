@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Brian Carey">
-<meta name="dcterms.date" content="2023-09-05">
-<meta name="description" content="Bookmarks are the key to effectively using obsidian as a non-relational database.">
+<meta name="dcterms.date" content="2023-08-24">
+<meta name="description" content="Obsidian is a non-relational database. This article explains this and the significance of the fact.">
 
-<title>Obsidian Bookmarks – biscotty’s Workshop</title>
+<title>What does it mean that is a NoSQL Database? – biscotty’s Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,8 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../blogs/obsidian/metadata-menu/index.html" rel="next">
-<link href="../../../blogs/obsidian/obsidian-headers/index.html" rel="prev">
+<link href="../../../blogs/obsidian/git-github-obsidian/index.html" rel="next">
+<link href="../../../blogs/obsidian/graph-view-deets/index.html" rel="prev">
 <link href="../../../images/BWLogo.png" rel="icon" type="image/png">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
@@ -216,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-headers/index.html">Obsidian</a></li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-bookmarks/index.html">Obsidian Bookmarks</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-headers/index.html">Obsidian</a></li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-no-sql-database/index.html">What does it mean that is a NoSQL Database?</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -228,11 +228,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-headers/index.html">Obsidian</a></li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-bookmarks/index.html">Obsidian Bookmarks</a></li></ol></nav>
-      <h1 class="title">Obsidian Bookmarks</h1>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-headers/index.html">Obsidian</a></li><li class="breadcrumb-item"><a href="../../../blogs/obsidian/obsidian-no-sql-database/index.html">What does it mean that is a NoSQL Database?</a></li></ol></nav>
+      <h1 class="title">What does it mean that is a NoSQL Database?</h1>
                   <div>
         <div class="description">
-          Bookmarks are the key to effectively using obsidian as a non-relational database.
+          Obsidian is a non-relational database. This article explains this and the significance of the fact.
         </div>
       </div>
                           <div class="quarto-categories">
@@ -254,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 5, 2023</p>
+        <p class="date">August 24, 2023</p>
       </div>
     </div>
     
@@ -301,7 +301,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Bookmarks</span></a>
   </div>
 </li>
@@ -325,7 +325,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/obsidian-no-sql-database/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/obsidian-no-sql-database/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">What does it mean that is a NoSQL Database?</span></a>
   </div>
 </li>
@@ -406,19 +406,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-mechanics" id="toc-the-mechanics" class="nav-link active" data-scroll-target="#the-mechanics">The Mechanics</a>
-  <ul class="collapse">
-  <li><a href="#commands" id="toc-commands" class="nav-link" data-scroll-target="#commands">Commands</a></li>
-  <li><a href="#bookmarks-panel" id="toc-bookmarks-panel" class="nav-link" data-scroll-target="#bookmarks-panel">Bookmarks Panel</a></li>
-  </ul></li>
-  <li><a href="#knowledge-trees" id="toc-knowledge-trees" class="nav-link" data-scroll-target="#knowledge-trees">Knowledge Trees</a>
-  <ul class="collapse">
-  <li><a href="#living" id="toc-living" class="nav-link" data-scroll-target="#living">Living</a></li>
-  <li><a href="#learning" id="toc-learning" class="nav-link" data-scroll-target="#learning">Learning</a></li>
-  <li><a href="#creating" id="toc-creating" class="nav-link" data-scroll-target="#creating">Creating</a></li>
-  <li><a href="#toolbox" id="toc-toolbox" class="nav-link" data-scroll-target="#toolbox">Toolbox</a></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#sql-and-nosql" id="toc-sql-and-nosql" class="nav-link active" data-scroll-target="#sql-and-nosql">SQL and NoSQL</a></li>
+  <li><a href="#on-ontologies" id="toc-on-ontologies" class="nav-link" data-scroll-target="#on-ontologies">On Ontologies</a></li>
+  <li><a href="#interacting-with-nosql-databases" id="toc-interacting-with-nosql-databases" class="nav-link" data-scroll-target="#interacting-with-nosql-databases">Interacting with NoSQL Databases</a></li>
+  <li><a href="#final-words" id="toc-final-words" class="nav-link" data-scroll-target="#final-words">Final words</a></li>
   </ul>
 </nav>
     </div>
@@ -429,120 +420,33 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>Bookmarks are the key to effectively using obsidian as a non-relational database. The virtues of approaching your notes this way are several and I covered some in [[Freeing Your Thinking]]. In this article I want to develop the idea of using Bookmarks to construct flexible, interactive Knowledge Trees to organize notes. Just as a reminder, we are organizing information, not files.</p>
-<p>The Navigation tab gives at best a static arrangement of information, while the Bookmarks tab provides a dynamic way to interact with, develop and access your information. Here you can create <em>Views</em> of your information which you can organize by domain, subject, activity, etc. Views are saved filters and queries. Your information, unlike your files, can happily exist in multiple places in your Knowledge Tree.</p>
-<p>When you begin to build your Knowledge Tree, you might start by creating <em>Views</em> which map to your current directories using filters. After all, you want to preserve the information you have put into your vault by organizing your notes in a File Tree. Most people have a separate directory for fleeting notes, so you might make a view containing <code>path: "fleeting-note-directory"</code>. But is such a view terribly useful? Browsing through all your fleeting notes is fun if you’ve nothing better to do, but it’s not focused or efficient use of time if you are working on a particular topic. Wouldn’t it be better to just see the fleeting notes related to my topic? So I save the filter <code>Whatever Topic \type:: fleeting\</code> alongside my views of the topic itself and have a list of fleeting notes only on that topic.</p>
-<p>As you start mapping your old directories to views, you might begin to ask yourself at some point why you would ever really want to see all your MOCs in a list? Or Daily Notes? Or Logs? If you want <em>information</em> from these types of notes you typically create a note containing a Dataview query. Bookmarked filters, which I’m calling views, are like virtual Dataview queries. And, since you can do this without referencing file locations, you might question how much useful information was actually embedded in your folder structure. Then you might have a cup of tea.</p>
-<p>One last point to stress: the bookmarks, which I will call views, are ephemeral. They can be created, duplicated, renamed and moved around without affecting the information itself. When focusing on a topic, drag it to the top of the tree and put it back when you are done.</p>
-<section id="the-mechanics" class="level1">
-<h1>The Mechanics</h1>
-<section id="commands" class="level2">
-<h2 class="anchored" data-anchor-id="commands">Commands</h2>
-<p>The following table shows the bookmarks commands with suggested Hotkeys which are most likely unassigned.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 34%">
-<col style="width: 42%">
-<col style="width: 23%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Command</th>
-<th>Description</th>
-<th>Hotkey</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Bookmark…</td>
-<td>Bookmark current file</td>
-<td><code>Ctrl-Cmd-Alt-M</code></td>
-</tr>
-<tr class="even">
-<td>Show Bookmarks</td>
-<td>Open bookmarks panel</td>
-<td><code>Ctrl-B</code></td>
-</tr>
-<tr class="odd">
-<td>Bookmark Current Search</td>
-<td></td>
-<td><code>Ctrl-Cmd-Alt-S</code></td>
-</tr>
-<tr class="even">
-<td>Bookmark Current Block</td>
-<td>Bookmark Block Under Cursor</td>
-<td><code>Ctrl-Cmd-Alt-B</code></td>
-</tr>
-<tr class="odd">
-<td>Bookmark Current Heading</td>
-<td>Bookmark Heading Under Cursor</td>
-<td><code>Ctrl-Cmd-Alt-H</code></td>
-</tr>
-</tbody>
-</table>
+<section id="sql-and-nosql" class="level1">
+<h1>SQL and NoSQL</h1>
+<p>There are two different types of databases, relational and non-relational. Relational databases are the kind most people usually think about. Data is kept in tables, with columns for fields and rows for values. The tables have special columns which relate (link) them to other tables. A well-formed table in a spreadsheet is a database. If two are linked by a common column, that is a relational database.</p>
+<p>Obsidian is obviously not a relational database.</p>
+<p>SQL stands for Structured Query Language, and it is the syntax which was designed to work with relational databases. The association of the syntax and data structure is so strong that relational databases came to be referred to as SQL databases, even though SQL, the language, can be used with any type of database.</p>
+<p>An SQL query should look familiar to you if you have used Dataview:</p>
+<p><code>SELECT name FROM users WHERE location = “Earth” ORDER BY age;</code></p>
+<p>It’s just like Dataview queries, yet Obsidian is not an “SQL database”. My point is that we can use SQL queries to access our data even if it isn’t a relational database.</p>
+<p>The other type of database, a non-relational database, is unfortunately called a NoSQL database. SQL, the language, can still be used to query data in a NoSQL database. If I’ve adequately confused you, let’s proceed.</p>
+<p>Rather than storing data in tables, NoSQL databases store data in documents. Documents are text files written in a standard format, usually JSON (JavaScript Object Notation) but frequently YAML, which is the syntax used in frontmatter in Obsidian.</p>
+<p>In a NoSQL database, documents contain information and metadata in key/value pairs. The metadata can be used to make relationships (links) between data (information). NoSQL databases are flexible and new key/value pairs can be added to a document without modifying a whole table. None of the relationships need be pre-defined, nor need they be hierarchical. NoSQL databases are ideal for data structures which consist of nodes (documents) and edges (links). Does any of this sound familiar?</p>
+<p>Obsidian is a NoSQL database.</p>
 </section>
-<section id="bookmarks-panel" class="level2">
-<h2 class="anchored" data-anchor-id="bookmarks-panel">Bookmarks Panel</h2>
-<p>The panel lists all bookmarks, which, remember, are saved searches, or views. In the panel you can create, rename and delete bookmark groups to organize your bookmarks. Bookmarks can be dragged around to rearrange them.</p>
+<section id="on-ontologies" class="level1">
+<h1>On Ontologies</h1>
+<p>Commonly used organizational systems often focus on ontological relationships. Four relationships exist: parent, child, sibling, and friend. First, note that the first three are essentially the same since when a parent is defined, child and sibling relationships are logically specified. So we really only have two categories, which could just as easily be called “directly related” and “indirectly related”. Also, notice that in file-based hierarchical, ontological data structures a note (usually) has, rather unnaturally, only one parent.</p>
+<p>Obsidian offers core functionality that allows me to ignore files and focus on information. I’m referring to Search, Bookmarks and Unique Notes. The latter is effectively invisible in articles and videos, and the other two rarely come up. This is especially surprising with regard to Search because that’s the most efficient and powerful way to find information in your vault. Most presenters use Quick Switcher or the Navigator to create and access files in order to create or access information. This is an extra step, wasting time and energy and impeding the flow of thought.</p>
+<p>SQL databases rely on hierarchy. NoSQL databases don’t. By thinking in hierarchical, ontological terms, we tie ourselves to a table-based way of thinking. By thinking instead about direct and indirect relationships, a note can have multiple “parents” because it can naturally relate directly to more than one topic. (We all have at least two parents in life, and often have other people who fill the role as well.) These articles, for example, have two main topics, two direct relationships: Obsidian and Personal Knowledge Management. I don’t have to choose one or the other. I might decide to write about information processing, in which case these articles could be given another “parent”, the new topic.</p>
 </section>
+<section id="interacting-with-nosql-databases" class="level1">
+<h1>Interacting with NoSQL Databases</h1>
+<p>The word graph is commonly used to refer to many different types of charts, such as bar charts or line graphs. It has a more specific meaning, however, which is the specific type of graph produced by Graph View. This is the normal way that these data structures are visualized, which is why Graph View is the ideal way to visually explore our vault. This is also the way neural networks are visualized.</p>
+<p>Getting information from NoSQL databases is done through queries, not by opening documents. Filters in Obsidian Search have all the capabilities of Dataview queries, with a somewhat simpler syntax.</p>
 </section>
-<section id="knowledge-trees" class="level1">
-<h1>Knowledge Trees</h1>
-<p>When working with a database, we typically create views. Views are subsets of your information based on queries which have been saved. They can be used passively, as a way to look at certain information on a certain topic. They can also be used interactively, as a basis for more fine-grained queries, which, if interesting, can themselves be saved as views.</p>
-<p>I have my Knowledge Tree organized by the different domains of my life, Living, Learning and Creating. In addition, I have a section with utilities I call the Toolbox.</p>
-<section id="living" class="level2">
-<h2 class="anchored" data-anchor-id="living">Living</h2>
-<p>This is the structure of my Living section:</p>
-<pre><code>- Daily Notes
-- Logs
-    - Exercise
-    - Piano
-    - etc.
-- Daily Notes
-- CV
-- People
-- Leisure</code></pre>
-<p><em>Daily Notes</em> is a view of <code>type:: daily</code>. Exercise and Piano are actual files with interactive Dataview queries. The rest are bookmark groups containing other views.</p>
-</section>
-<section id="learning" class="level2">
-<h2 class="anchored" data-anchor-id="learning">Learning</h2>
-<p>I use <em>Learning</em> for study and research activities. This part of the tree is the most complex in terms of structure.</p>
-<p>By creating multiple views on a given topic and organizing them in folders I can essentially create an outline of my information using views. This kind of outline, again, is very flexible and can be reshaped easily as my knowledge develops.</p>
-<p>This is an excerpt of my section on the normal distribution. It’s “home” is in the bookmark group <code>Learing/Data Science/Probability/</code>.</p>
-<pre><code>Normal Distribution                 # All information on the Normal Distribution
-Normal Distribution                 # The reference note on the topic
-                                      The 2 are distinguished by different icons
-Central Limit Theorem               # A bookmark group containing other views
-68-95-99.7 Rule                     # A view of a block in a note
-R Functions for Normal Distribution # A view of a section of a note</code></pre>
-</section>
-<section id="creating" class="level2">
-<h2 class="anchored" data-anchor-id="creating">Creating</h2>
-<p>is for writing and creation of other content. Creating includes works for external and internal use.</p>
-<pre><code>- Articles
-- Stories
-- Video Scripts
-- Musings</code></pre>
-</section>
-<section id="toolbox" class="level2">
-<h2 class="anchored" data-anchor-id="toolbox">Toolbox</h2>
-<p>In the toolbox I have the following directories, which should be self-explanatory:</p>
-<pre><code>- Templates
-- fileClasses
-    - Class Definitions
-    - Value Lists
-- Fleeting Notes
-- Other
-    - Articles
-    - MOCs
-    - References
-    - Atomics</code></pre>
-<p>Other than templates and fileClasses, I rarely use the Toolbox.</p>
-</section>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>I hope I have adequately conveyed some of the advantages of building Knowledge Trees. Maybe you noticed that the word “tree” is actually a misnomer. The branches of real trees don’t reconnect, but ours can. What we really have is a Knowledge Network. Bookmarks allow us to leverage Obsidian’s NoSQL features to free our Second Brain.</p>
+<section id="final-words" class="level1">
+<h1>Final words</h1>
+<p>I hope I have explained what it means to say that Obsidian is a NoSQL and the implications of that. Everything we write, every word, becomes part of a database, and we can use the power of databases to retrieve information. Stop using Obsidian as a file manager!</p>
 
 
 </section>
@@ -1113,13 +1017,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../../blogs/obsidian/obsidian-headers/index.html" class="pagination-link" aria-label="Obsidian Basics - Headers">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Obsidian Basics - Headers</span>
+      <a href="../../../blogs/obsidian/graph-view-deets/index.html" class="pagination-link" aria-label="Obsidian: The mechanics of Graph View">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Obsidian: The mechanics of Graph View</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../blogs/obsidian/metadata-menu/index.html" class="pagination-link" aria-label="Obsidian Metadata Menu Plugin">
-        <span class="nav-page-text">Obsidian Metadata Menu Plugin</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../../blogs/obsidian/git-github-obsidian/index.html" class="pagination-link" aria-label="Git and GitHub for Obsidian Users">
+        <span class="nav-page-text">Git and GitHub for Obsidian Users</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

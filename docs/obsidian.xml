@@ -10,7 +10,19 @@
 <atom:link href="https://biscotty.online/obsidian.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Wed, 28 Feb 2024 07:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 20 Mar 2024 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Obsidian and Jupyter Notebooks</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/obsidian-jupyter/</link>
+  <description><![CDATA[ Personal Knowledge Management for Data Science ]]></description>
+  <category>Obsidian</category>
+  <category>Python</category>
+  <category>Data Science</category>
+  <guid>https://biscotty.online/blogs/obsidian/obsidian-jupyter/</guid>
+  <pubDate>Wed, 20 Mar 2024 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
 <item>
   <title>DataviewJS: A Gentle Introduction Part 2</title>
   <dc:creator>Brian Carey</dc:creator>
@@ -111,17 +123,6 @@
   <guid>https://biscotty.online/blogs/obsidian/graph-view-deets/</guid>
   <pubDate>Thu, 31 Aug 2023 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/blogs/obsidian/graph-view-deets/GVFull.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
-  <title>Obsidian: Stop Wasting Time With Directories and Filenames</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-1/</link>
-  <description><![CDATA[ Freeing Your Thiking Part 1 introduces the idea of of working with Obsidian as a database. This part covers capture and retrieval of information useing Unique Notes, Search and Bookmarks. ]]></description>
-  <category>Obsidian</category>
-  <category>PKM</category>
-  <guid>https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-1/</guid>
-  <pubDate>Thu, 24 Aug 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-1/fyt-cover.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

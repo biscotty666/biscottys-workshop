@@ -8,6 +8,7 @@
   {
     "listing": "/blogs.html",
     "items": [
+      "/blogs/obsidian/obsidian-jupyter/index.html",
       "/blogs/data-science/gpx-gps-data/index.html",
       "/blogs/obsidian/dataviewjs-files-dates/index.html",
       "/blogs/obsidian/git-github-obsidian/index.html",
@@ -18,6 +19,8 @@
       "/blogs/obsidian/metadata-menu/index.html",
       "/blogs/obsidian/obsidian-bookmarks/index.html",
       "/blogs/obsidian/graph-view-deets/index.html",
+      "/blogs/obsidian/obsidian-headers/index.html",
+      "/blogs/obsidian/obsidian-no-sql-database/index.html",
       "/blogs/obsidian/freeing-your-thinking-part-1/index.html",
       "/blogs/obsidian/freeing-your-thinking-part-2/index.html"
     ]
@@ -25,6 +28,7 @@
   {
     "listing": "/obsidian.html",
     "items": [
+      "/blogs/obsidian/obsidian-jupyter/index.html",
       "/blogs/obsidian/dataviewjs-files-dates/index.html",
       "/blogs/obsidian/git-github-obsidian/index.html",
       "/blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html",
@@ -34,6 +38,8 @@
       "/blogs/obsidian/metadata-menu/index.html",
       "/blogs/obsidian/obsidian-bookmarks/index.html",
       "/blogs/obsidian/graph-view-deets/index.html",
+      "/blogs/obsidian/obsidian-headers/index.html",
+      "/blogs/obsidian/obsidian-no-sql-database/index.html",
       "/blogs/obsidian/freeing-your-thinking-part-1/index.html",
       "/blogs/obsidian/freeing-your-thinking-part-2/index.html"
     ]
