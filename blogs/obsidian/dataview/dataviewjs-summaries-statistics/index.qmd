@@ -25,7 +25,7 @@ editor:
 ## Introduction
 
 This article is a follow-up to my
-<a href="http://biscotty.online/blogs/gentle-introduction-to-dataviewjs">Gentle
+<a href="http://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs">Gentle
 Introduction to DataviewJS</a> articles, and assumes that you have read
 them. It is written for anglers, but if you just want the fish you can
 Tldr; your way to the bottom an just grab the code. Even if you are here
@@ -122,7 +122,7 @@ Think about chaining commands together with the period. \### Solution
 
 Here is a solution:
 
-```         
+```js        
 const dateFormat = "MM/DD ddd" const twoDaysAgo =
 moment() .subtract(2, "days") .format(dateFormat)
 
@@ -132,7 +132,7 @@ dv.paragraph(twoDaysAgo)
 When writing, and especially reading, code, formatting is important. I
 could have written
 
-```         
+```js
 const twoDaysAgo = moment().subtract(2, "days").format(dateFormat)
 ```
 
@@ -164,7 +164,7 @@ you see them.
 Metadata Menu provides an asynchronous function for making the tables
 interactive. To use the function, you must import it with
 
-```         
+```fs       
 const {fieldModifier: f} = this.app.plugins.plugins["metadata-menu"].api
 ```
 
@@ -187,7 +187,7 @@ takes three arguments: the `dv` object, whatever temporary variable you
 are using in `map()` (we have been using `b`), and the name of the field
 we want. Were it a normal function you would write
 
-```         
+```js       
 dataviewjs dv.pages()     
   .map(b=>[p.ActivityDate, 
   f(dv, b, "Activity"),
@@ -197,7 +197,7 @@ dataviewjs dv.pages()
 Since this fetching of date is asynchronous, you have to use the key
 words `async/await` here, so
 
-```         
+```js       
 dataviewjs dv.pages()     
   .map(async b=>[
     p.ActivityDate,
@@ -209,7 +209,7 @@ The entire section containing `pages().map` needs to be wrapped in an
 asynchronous function called `Promise.all()`, which must be (a)waited
 for and returns, unsurprisingly, a promise.
 
-```         
+```js       
 await Promise.all(dv.pages()
   .map(async b=>[
     p.ActivityDate,
@@ -223,7 +223,7 @@ Now, lets finally take a look at the entire code that creates the
 dashboard. Take some time to read through it. Everything should be
 understandable at this point.
 
-```         
+```js       
 const {fieldModifier: f} =
 this.app.plugins.plugins\["metadata-menu"\].api
 
@@ -250,7 +250,7 @@ await Promise.all(dv.pages()
 
 ## Next Steps
 
-In the next article I will explain how to generate summary information
+In the [next article](https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/) I will explain how to generate summary information
 like totals and averages for display on the dashboard. In the mean time
 I strongly suggest that you do two things:
 

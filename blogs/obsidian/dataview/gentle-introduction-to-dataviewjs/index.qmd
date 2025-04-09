@@ -18,7 +18,7 @@ tags:
 
 This article is intended for people who are new to programming, but can serve as a jumping off point for experienced programmers new to JavaScript in general or DataviewJS in particular. The documentation can be found <a href="https://blacksmithgu.github.io/obsidian-dataview/">here</a>.
 
-You may be asking yourself, "Why learn JavaScript since I have Dataview queries to make lists and tables with my data"? You need JavaScript if, for example, you want interactive tables which allow you to edit data directly from the table without opening the associated note (very important in an  <a href="http://biscotty.online/blogs/freeing-your-thinking-part-1/">information-first, NoSQL style</a>). Or if you want to work with relative dates, eg. "last week", without needing to update your queries every week. JavaScript allows you to show things like totals, counts and averages together with your tables.  And since you are writing JavaScript anyway, you can fully customize the way everything is displayed.
+You may be asking yourself, "Why learn JavaScript since I have Dataview queries to make lists and tables with my data"? You need JavaScript if, for example, you want interactive tables which allow you to edit data directly from the table without opening the associated note (very important in an  <a href="http://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/">information-first, NoSQL style</a>). Or if you want to work with relative dates, eg. "last week", without needing to update your queries every week. JavaScript allows you to show things like totals, counts and averages together with your tables.  And since you are writing JavaScript anyway, you can fully customize the way everything is displayed.
 
 JavaScript may seem intimidating, but it’s really not too complex or complicated for what we need to do in Obsidian. The basic examples I start with here won't display any tables, but will get you comfortable with some of the basic concepts and how to write simple JavaScript code. It is very important that you do these examples yourself in your own vault. Like any language, the only way to learn it is to use it (and make mistakes).
 
@@ -34,11 +34,11 @@ One thing about JavaScript which took me a while to get used to at first was all
 ## Hello World
 The first program you traditionally write in any programming language is "Hello World", which displays, not unsurprisingly, "Hello World" as output. Here is such a one in DataviewJS:
 
-```
+```js
 dv.paragraph("Hello World")
 ```
 The output looks like this:
-```
+```js
 Hello World
 ```
 Yeah! You are now a JavaScript programmer!  This simple example introduces some important concepts, though. 
@@ -53,7 +53,7 @@ In addition to paragraphs, the `dv` object allows us to display headers, lists, 
 
 Let's look at another example:
 
-```
+```js
 dv.header(2, "Introduction to DataviewJS")
 dv.paragraph('"Hi, my name is DataviewJS"')
 ```
@@ -66,12 +66,12 @@ Since it’s hard to show the result naturally, I’ve included screenshots from
 
 Here I'm displaying 2 elements. Headers require two arguments, the first indicating the header level. This example is the same as writing `## Introduction to DataviewJS`. Note that we don't use quotations around numbers (usually). The `dv` object also allows us to display lists, like this:
 
-```
+```js
 dv.list(["Item 1", "Item 2", "Item 3"])
 ```
 Remember that, when making lists in JavaScript, you use the square brackets and separate each item with a comma. This is also called an *array*. This is a pretty simple example, but sometimes things get a lot more complicated, and since spaces and new lines don't matter, it is good practice to write the same code like this:
 
-```
+```js
 dv.list([
 	"Item 1",
 	"Item 2",
@@ -83,7 +83,7 @@ This makes it much easier to see what is going on, and also makes copying and pa
 ## Variables
 Well, you may not be too impressed so far. Nothing we've done yet has been anything we couldn't have done by simply writing the markdown. Things get more interesting when we start using *variables*. These allows us to create and manipulate information before displaying it. Variables are usually made (declared) with either `const` or `let` in JavaScript. So `const myName = "Brian"` creates a variable called `myName` with the value of "Brian". We can then write this:
 
-```
+```js
 const myName = "Brian"
 dv.paragraph("Hi, my name is " + myName + ".")
 ```
@@ -95,7 +95,7 @@ Hi, my name is Brian.
 
 When used with text, called *strings* in coding lingo, the `+` puts together (concatenates) multiple strings. You can see that a long string with multiple variables could start to look messy. A more convenient way to combine text and variables is to use back ticks instead of quotes, and put the variable names in curly braces preceded with the dollar sign. So instead we can write:
 
-```
+```js
 const myName = "Brian"
 dv.paragraph(`Hi, my name is ${myName}.`)
 ```
@@ -103,7 +103,7 @@ to get the same result.
 
 You could still object, no pun intended, that we haven't done anything we couldn't have done just by writing out the sentence. We'll get to that in the next article, but before closing this one, I'll show you something you can only do with JavaScript. DataviewJS comes with another JavaScript flavor baked in called MomentJS. Like DataviewJS provides a `dv` object, MomentJS provides a `moment` object which makes it easy to work with dates and times. We'll talk a lot more about this later, but for now you can use it like this:
 
-```
+```js
 const today = moment(Date.now()).format("MMMM DD, YYYY")
 dv.paragraph(`Today is ${today}`)
 ```
@@ -114,7 +114,7 @@ This display's today's date in a format specified by argument to the `format()` 
 
 Putting it all together, we can write
 
-```
+```js
 const myName = "Brian"
 const today = moment(Date.now()).format("MMMM DD, YYYY")
 const learnings = [
@@ -138,6 +138,6 @@ to produce
 
 ## Next steps
 
-In the next article I'll start looking at using DataviewJS to make lists and tables and otherwise use the information in your vault. Meanwhile, if you want to learn more about working with dates, you can visit the [Moment.js website](https://momentjs.com/). And the DataviewJS documentation can be found [here](https://blacksmithgu.github.io/obsidian-dataview/). Happy coding!
+In the [next article](http://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/) I'll start looking at using DataviewJS to make lists and tables and otherwise use the information in your vault. Meanwhile, if you want to learn more about working with dates, you can visit the [Moment.js website](https://momentjs.com/). And the DataviewJS documentation can be found [here](https://blacksmithgu.github.io/obsidian-dataview/). Happy coding!
 
 

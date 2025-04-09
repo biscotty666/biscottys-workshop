@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -540,7 +574,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="dataviewjs-a-gentle-introduction" class="level1">
 <h1>DataviewJS: A Gentle Introduction</h1>
 <p>This article is intended for people who are new to programming, but can serve as a jumping off point for experienced programmers new to JavaScript in general or DataviewJS in particular. The documentation can be found <a href="https://blacksmithgu.github.io/obsidian-dataview/">here</a>.</p>
-<p>You may be asking yourself, “Why learn JavaScript since I have Dataview queries to make lists and tables with my data”? You need JavaScript if, for example, you want interactive tables which allow you to edit data directly from the table without opening the associated note (very important in an <a href="http://biscotty.online/blogs/freeing-your-thinking-part-1/">information-first, NoSQL style</a>). Or if you want to work with relative dates, eg. “last week”, without needing to update your queries every week. JavaScript allows you to show things like totals, counts and averages together with your tables. And since you are writing JavaScript anyway, you can fully customize the way everything is displayed.</p>
+<p>You may be asking yourself, “Why learn JavaScript since I have Dataview queries to make lists and tables with my data”? You need JavaScript if, for example, you want interactive tables which allow you to edit data directly from the table without opening the associated note (very important in an <a href="http://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/">information-first, NoSQL style</a>). Or if you want to work with relative dates, eg. “last week”, without needing to update your queries every week. JavaScript allows you to show things like totals, counts and averages together with your tables. And since you are writing JavaScript anyway, you can fully customize the way everything is displayed.</p>
 <p>JavaScript may seem intimidating, but it’s really not too complex or complicated for what we need to do in Obsidian. The basic examples I start with here won’t display any tables, but will get you comfortable with some of the basic concepts and how to write simple JavaScript code. It is very important that you do these examples yourself in your own vault. Like any language, the only way to learn it is to use it (and make mistakes).</p>
 <section id="javascript" class="level2">
 <h2 class="anchored" data-anchor-id="javascript">JavaScript</h2>
@@ -552,17 +586,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="hello-world" class="level2">
 <h2 class="anchored" data-anchor-id="hello-world">Hello World</h2>
 <p>The first program you traditionally write in any programming language is “Hello World”, which displays, not unsurprisingly, “Hello World” as output. Here is such a one in DataviewJS:</p>
-<pre><code>dv.paragraph("Hello World")</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">paragraph</span>(<span class="st">"Hello World"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The output looks like this:</p>
-<pre><code>Hello World</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Hello World</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Yeah! You are now a JavaScript programmer! This simple example introduces some important concepts, though.</p>
 <p>First, when you want to write some JavaScript, you must use a code block with the key word <code>dataviewjs</code>. While you are writing code, it can be convenient to start the code block with <code>js dataviewjs</code> rather than simply <code>dataviewjs</code>. You will get nice syntax highlighting that way, and can simply remove the first <code>js</code> when you want to run your code.</p>
 <p>As you might have guessed, <code>paragraph</code> just means to display the text in parentheses as a paragraph. Technically, <code>dv.paragraph()</code> is a command, or <em>function</em>, and the part in parentheses is called the <em>arguments</em>. Note the quotations surrounding the text.</p>
 <p>So what’s this <code>dv</code> thing? Remember when I said that each flavor of JavaScript provides special vocabulary for it’s context? They do this typically by providing an “object” containing the functionality. <code>dv</code> is what is called the <em>Dataview object</em>, and anytime you want to access the functionality of DataviewJS you indicate that by starting your statement or phrase with <code>dv</code> followed by a period. Since displaying a paragraph on a page of markdown is specific to DataviewJS, we write <code>dv.paragraph()</code></p>
 <p>In addition to paragraphs, the <code>dv</code> object allows us to display headers, lists, tables, etc. In fact, the <code>dv</code> object can display any HTML element. You can display multiple elements by putting them one after another in your code.</p>
 <p>Let’s look at another example:</p>
-<pre><code>dv.header(2, "Introduction to DataviewJS")
-dv.paragraph('"Hi, my name is DataviewJS"')</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">header</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">"Introduction to DataviewJS"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">paragraph</span>(<span class="st">'"Hi, my name is DataviewJS"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="introduction-to-dataviewjs" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-to-dataviewjs">Introduction to DataviewJS</h2>
@@ -570,42 +604,42 @@ dv.paragraph('"Hi, my name is DataviewJS"')</code></pre>
 <p>Since it’s hard to show the result naturally, I’ve included screenshots from my vault with the code on the right and the results on the left.</p>
 <p><img src="djs-intro-1.png" class="img-fluid"></p>
 <p>Here I’m displaying 2 elements. Headers require two arguments, the first indicating the header level. This example is the same as writing <code>## Introduction to DataviewJS</code>. Note that we don’t use quotations around numbers (usually). The <code>dv</code> object also allows us to display lists, like this:</p>
-<pre><code>dv.list(["Item 1", "Item 2", "Item 3"])</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">list</span>([<span class="st">"Item 1"</span><span class="op">,</span> <span class="st">"Item 2"</span><span class="op">,</span> <span class="st">"Item 3"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Remember that, when making lists in JavaScript, you use the square brackets and separate each item with a comma. This is also called an <em>array</em>. This is a pretty simple example, but sometimes things get a lot more complicated, and since spaces and new lines don’t matter, it is good practice to write the same code like this:</p>
-<pre><code>dv.list([
-    "Item 1",
-    "Item 2",
-    "Item 3",
-])</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">list</span>([</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Item 1"</span><span class="op">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Item 2"</span><span class="op">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Item 3"</span><span class="op">,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This makes it much easier to see what is going on, and also makes copying and pasting of individual items easier, too.</p>
 </section>
 <section id="variables" class="level2">
 <h2 class="anchored" data-anchor-id="variables">Variables</h2>
 <p>Well, you may not be too impressed so far. Nothing we’ve done yet has been anything we couldn’t have done by simply writing the markdown. Things get more interesting when we start using <em>variables</em>. These allows us to create and manipulate information before displaying it. Variables are usually made (declared) with either <code>const</code> or <code>let</code> in JavaScript. So <code>const myName = "Brian"</code> creates a variable called <code>myName</code> with the value of “Brian”. We can then write this:</p>
-<pre><code>const myName = "Brian"
-dv.paragraph("Hi, my name is " + myName + ".")</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> myName <span class="op">=</span> <span class="st">"Brian"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">paragraph</span>(<span class="st">"Hi, my name is "</span> <span class="op">+</span> myName <span class="op">+</span> <span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>which produces</p>
 <pre><code>Hi, my name is Brian.</code></pre>
 <p>When used with text, called <em>strings</em> in coding lingo, the <code>+</code> puts together (concatenates) multiple strings. You can see that a long string with multiple variables could start to look messy. A more convenient way to combine text and variables is to use back ticks instead of quotes, and put the variable names in curly braces preceded with the dollar sign. So instead we can write:</p>
-<pre><code>const myName = "Brian"
-dv.paragraph(`Hi, my name is ${myName}.`)</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> myName <span class="op">=</span> <span class="st">"Brian"</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">paragraph</span>(<span class="vs">`Hi, my name is </span><span class="sc">${</span>myName<span class="sc">}</span><span class="vs">.`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>to get the same result.</p>
 <p>You could still object, no pun intended, that we haven’t done anything we couldn’t have done just by writing out the sentence. We’ll get to that in the next article, but before closing this one, I’ll show you something you can only do with JavaScript. DataviewJS comes with another JavaScript flavor baked in called MomentJS. Like DataviewJS provides a <code>dv</code> object, MomentJS provides a <code>moment</code> object which makes it easy to work with dates and times. We’ll talk a lot more about this later, but for now you can use it like this:</p>
-<pre><code>const today = moment(Date.now()).format("MMMM DD, YYYY")
-dv.paragraph(`Today is ${today}`)</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> today <span class="op">=</span> <span class="fu">moment</span>(<span class="bu">Date</span><span class="op">.</span><span class="fu">now</span>())<span class="op">.</span><span class="fu">format</span>(<span class="st">"MMMM DD, YYYY"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">paragraph</span>(<span class="vs">`Today is </span><span class="sc">${</span>today<span class="sc">}</span><span class="vs">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>Today is October 10, 2023</code></pre>
 <p>This display’s today’s date in a format specified by argument to the <code>format()</code> function. Every time you open a note or canvas, the current day will be displayed.</p>
 <p>Putting it all together, we can write</p>
-<pre><code>const myName = "Brian"
-const today = moment(Date.now()).format("MMMM DD, YYYY")
-const learnings = [
-    "JavaScript basics",
-    "The dataview object",
-    "Displaying elements with JavaScript",
-    "JavaScript variables",
-]
-dv.header(3, `Things ${myName} learned on ${today}`)
-dv.list(learnings)</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> myName <span class="op">=</span> <span class="st">"Brian"</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> today <span class="op">=</span> <span class="fu">moment</span>(<span class="bu">Date</span><span class="op">.</span><span class="fu">now</span>())<span class="op">.</span><span class="fu">format</span>(<span class="st">"MMMM DD, YYYY"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> learnings <span class="op">=</span> [</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JavaScript basics"</span><span class="op">,</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"The dataview object"</span><span class="op">,</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Displaying elements with JavaScript"</span><span class="op">,</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"JavaScript variables"</span><span class="op">,</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">header</span>(<span class="dv">3</span><span class="op">,</span> <span class="vs">`Things </span><span class="sc">${</span>myName<span class="sc">}</span><span class="vs"> learned on </span><span class="sc">${</span>today<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">list</span>(learnings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>to produce</p>
 <section id="things-brian-learned-on-october-10-2023" class="level3">
 <h3 class="anchored" data-anchor-id="things-brian-learned-on-october-10-2023">Things Brian learned on October 10, 2023</h3>
@@ -620,7 +654,7 @@ dv.list(learnings)</code></pre>
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
-<p>In the next article I’ll start looking at using DataviewJS to make lists and tables and otherwise use the information in your vault. Meanwhile, if you want to learn more about working with dates, you can visit the <a href="https://momentjs.com/">Moment.js website</a>. And the DataviewJS documentation can be found <a href="https://blacksmithgu.github.io/obsidian-dataview/">here</a>. Happy coding!</p>
+<p>In the <a href="http://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/">next article</a> I’ll start looking at using DataviewJS to make lists and tables and otherwise use the information in your vault. Meanwhile, if you want to learn more about working with dates, you can visit the <a href="https://momentjs.com/">Moment.js website</a>. And the DataviewJS documentation can be found <a href="https://blacksmithgu.github.io/obsidian-dataview/">here</a>. Happy coding!</p>
 
 
 </section>
