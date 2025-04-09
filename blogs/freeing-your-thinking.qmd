@@ -1,7 +1,7 @@
 ---
-title: "Dataview"
+title: "Freeing your thinking"
 listing:
-  contents: obsidian/dataview
+  contents: obsidian/freeing-your-thinking
   type: default
   sort: "date"
   categories: true

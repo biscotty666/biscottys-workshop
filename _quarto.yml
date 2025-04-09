@@ -50,6 +50,7 @@ website:
       - data-science.qmd
       - obsidian.qmd
       - blogs/dataview.qmd
+      - blogs/freeing-your-thinking.qmd
       - auto: blogs/data-science
       - auto: blogs/obsidian
 

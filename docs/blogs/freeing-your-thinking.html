@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Brian Carey">
-<meta name="dcterms.date" content="2023-08-30">
-<meta name="description" content="Exploring the concepts of graph data and neural networks.">
 
-<title>Obsidian: A Second Brain? – biscotty’s Workshop</title>
+<title>Freeing your thinking – biscotty’s Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,29 +23,31 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<link href="../../../blogs/obsidian/syncing-your-thinking-syncthing/index.html" rel="next">
-<link href="../../../blogs/obsidian/regex-search-in-line-metadata/index.html" rel="prev">
-<link href="../../../images/BWLogo.png" rel="icon" type="image/png">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-728089a6f0714d59664eafe173cf8d63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../blogs/data-science/python-movingpandas-points-paths/index.html" rel="next">
+<link href="../blogs/dataview.html" rel="prev">
+<link href="../images/BWLogo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-728089a6f0714d59664eafe173cf8d63.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,14 +75,69 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<meta property="og:title" content="Obsidian: A Second Brain? – biscotty’s Workshop">
-<meta property="og:description" content="Exploring the concepts of graph data and neural networks.">
-<meta property="og:image" content="https://biscotty.online/blogs/obsidian/second-brain/GVFull.png">
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="alternate" type="application/rss+xml" title="biscotty's Workshop" href="freeing-your-thinking.xml" data-external="1"><meta property="og:title" content="Freeing your thinking – biscotty’s Workshop">
+<meta property="og:image" content="https://biscotty.online/blogs/images/trunks.png">
 <meta property="og:site_name" content="biscotty's Workshop">
-<meta property="og:image:height" content="1080">
-<meta property="og:image:width" content="1920">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -93,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">biscotty’s Workshop</span>
     </a>
   </div>
@@ -104,19 +158,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../../obsidian.html" aria-current="page"> 
+    <a class="nav-link active" href="../obsidian.html" aria-current="page"> 
 <span class="menu-text">Obsidian</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blogs.html"> 
+    <a class="nav-link" href="../blogs.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
 </ul>
@@ -127,99 +181,99 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
         <li>
-    <a class="dropdown-item" href="../../../data-science.html">
+    <a class="dropdown-item" href="../data-science.html">
  <span class="dropdown-text">Data Science</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../obsidian.html">
+    <a class="dropdown-item" href="../obsidian.html">
  <span class="dropdown-text">Obsidian</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/dataview.html">
+    <a class="dropdown-item" href="../blogs/dataview.html">
  <span class="dropdown-text">Dataview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/freeing-your-thinking.html">
+    <a class="dropdown-item" href="../blogs/freeing-your-thinking.html">
  <span class="dropdown-text">Freeing your thinking</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Data Science</li>
         <li>
-    <a class="dropdown-item" href="../../../blogs/data-science/python-movingpandas-points-paths/index.html">
+    <a class="dropdown-item" href="../blogs/data-science/python-movingpandas-points-paths/index.html">
  <span class="dropdown-text">Points to Paths in Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/data-science/gpx-gps-data/index.html">
+    <a class="dropdown-item" href="../blogs/data-science/gpx-gps-data/index.html">
  <span class="dropdown-text">Trail Mapping with Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/data-science/python-movingpandas-speed-segments/index.html">
+    <a class="dropdown-item" href="../blogs/data-science/python-movingpandas-speed-segments/index.html">
  <span class="dropdown-text">Speed, Simplification and Segments</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Obsidian</li>
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-headers/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/obsidian-headers/index.html">
  <span class="dropdown-text">Obsidian Basics - Headers</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/optimal-notes-with-obsidian/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/optimal-notes-with-obsidian/index.html">
  <span class="dropdown-text">Optimal Notes with Obsidian</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-whiteboards/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/obsidian-whiteboards/index.html">
  <span class="dropdown-text">Obsidian Canvas Work Spaces</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-bookmarks/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/obsidian-bookmarks/index.html">
  <span class="dropdown-text">Obsidian Bookmarks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/metadata-menu/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/metadata-menu/index.html">
  <span class="dropdown-text">Obsidian Metadata Menu Plugin</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/visual-mocs-with-canvas/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/visual-mocs-with-canvas/index.html">
  <span class="dropdown-text">Obsidian Canvas Dashboards</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/graph-view-deets/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/graph-view-deets/index.html">
  <span class="dropdown-text">Obsidian: The mechanics of Graph View</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-no-sql-database/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/obsidian-no-sql-database/index.html">
  <span class="dropdown-text">What does it mean that is a NoSQL Database?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/git-github-obsidian/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/git-github-obsidian/index.html">
  <span class="dropdown-text">Git and GitHub for Obsidian Users</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/pretty-canvas/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/pretty-canvas/index.html">
  <span class="dropdown-text">Obsidian: Pretty Canvas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-jupyter/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/obsidian-jupyter/index.html">
  <span class="dropdown-text">Obsidian and Jupyter Notebooks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/regex-search-in-line-metadata/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/regex-search-in-line-metadata/index.html">
  <span class="dropdown-text">Regular Expressions for In-Line Fields</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/second-brain/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/second-brain/index.html">
  <span class="dropdown-text">Obsidian: A Second Brain?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/syncing-your-thinking-syncthing/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/syncing-your-thinking-syncthing/index.html">
  <span class="dropdown-text">Syncing your Thinking with Syncthing</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html">
  <span class="dropdown-text">Dataview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html">
+    <a class="dropdown-item" href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html">
  <span class="dropdown-text">Freeing Your Thinking</span></a>
   </li>  
     </ul>
@@ -230,7 +284,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../blogs.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../blogs.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -247,7 +301,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Obsidian: A Second Brain?</h1>
+          <h1 class="quarto-secondary-nav-title">Freeing your thinking</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -259,35 +313,14 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Obsidian: A Second Brain?</h1>
-                  <div>
-        <div class="description">
-          Exploring the concepts of graph data and neural networks.
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">Obsidian</div>
-                <div class="quarto-category">Graphs</div>
-              </div>
-                  </div>
+      <h1 class="title d-none d-lg-block">Freeing your thinking</h1>
+                      </div>
   </div>
     
   
   <div class="quarto-title-meta column-body">
 
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Brian Carey </p>
-            </div>
-    </div>
       
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">August 30, 2023</p>
-      </div>
-    </div>
     
       
     </div>
@@ -305,25 +338,25 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../data-science.html" class="sidebar-item-text sidebar-link">
+  <a href="../data-science.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Science</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../obsidian.html" class="sidebar-item-text sidebar-link">
+  <a href="../obsidian.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/dataview.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/dataview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dataview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/freeing-your-thinking.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/freeing-your-thinking.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Freeing your thinking</span></a>
   </div>
 </li>
@@ -338,19 +371,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/data-science/python-movingpandas-points-paths/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/data-science/python-movingpandas-points-paths/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Points to Paths in Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/data-science/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/data-science/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trail Mapping with Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/data-science/python-movingpandas-speed-segments/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/data-science/python-movingpandas-speed-segments/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Speed, Simplification and Segments</span></a>
   </div>
 </li>
@@ -367,85 +400,85 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/obsidian-headers/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/obsidian-headers/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Basics - Headers</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/optimal-notes-with-obsidian/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/optimal-notes-with-obsidian/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Optimal Notes with Obsidian</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/obsidian-whiteboards/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/obsidian-whiteboards/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Canvas Work Spaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Bookmarks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/metadata-menu/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/metadata-menu/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Metadata Menu Plugin</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/visual-mocs-with-canvas/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/visual-mocs-with-canvas/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Canvas Dashboards</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/graph-view-deets/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/graph-view-deets/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: The mechanics of Graph View</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/obsidian-no-sql-database/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/obsidian-no-sql-database/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">What does it mean that is a NoSQL Database?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/git-github-obsidian/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/git-github-obsidian/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git and GitHub for Obsidian Users</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/pretty-canvas/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/pretty-canvas/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Pretty Canvas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian and Jupyter Notebooks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/regex-search-in-line-metadata/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/regex-search-in-line-metadata/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regular Expressions for In-Line Fields</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/second-brain/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../blogs/obsidian/second-brain/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: A Second Brain?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/syncing-your-thinking-syncthing/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/syncing-your-thinking-syncthing/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syncing your Thinking with Syncthing</span></a>
   </div>
 </li>
@@ -460,25 +493,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Interactive Tables with DataviewJS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataviewJS: A Gentle Introduction Part 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataviewJS: A Gentle Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summarizing Information with DataviewJS</span></a>
   </div>
 </li>
@@ -495,19 +528,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Freeing Your Thinking Workflow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Stop Wasting Time With Directories and Filenames</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Meaningless Names, No Directories, Now What?</span></a>
   </div>
 </li>
@@ -521,14 +554,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#obsidian-a-second-brain" id="toc-obsidian-a-second-brain" class="nav-link active" data-scroll-target="#obsidian-a-second-brain">Obsidian: A Second Brain?</a></li>
-  </ul>
-</nav>
-    </div>
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R3JhcGhz">Graphs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T2JzaWRpYW4=">Obsidian <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UEtN">PKM <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-body" id="quarto-document-content">
 
@@ -536,18 +563,128 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="obsidian-a-second-brain" class="level1">
-<h1>Obsidian: A Second Brain?</h1>
-<p>Obsidian is sometimes called a second brain. This is because the structure of a vault, with notes connected by links, is the way a neural network is structured, with notes as nodes and links as edges. Such data structures are typically represented by <a href="https://en.wikipedia.org/wiki/Graph_(abstract_data_type)">graphs</a>, and Obsidian has a built-in Graph View for this purpose.</p>
-<p>In this video, I visually explore the concept of Obsidian as a second brain.</p>
-<iframe src="https://fast.wistia.net/embed/iframe/0e9un8obut?seo=false&amp;videoFoam=false" title="2nd Brain Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen="" width="750" height="422">
-</iframe>
-<script src="https://fast.wistia.net/assets/external/E-v1.js" async=""></script>
 
 
-</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="T2JzaWRpYW4lMkNQS00=" data-listing-date-sort="1692856800000" data-listing-file-modified-sort="1744215136481" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1671">
+<div class="thumbnail">
+<p><a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="no-external"></a></p><a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="no-external">
+<p><img loading="lazy" src="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/fyt-cover.png" class="thumbnail-image"></p>
+</a><p><a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="no-external">Obsidian: Stop Wasting Time With Directories and Filenames</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
+Obsidian
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('UEtN'); return false;">
+PKM
+</div>
+</div>
+<div class="listing-description">
+<a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="no-external">Freeing Your Thiking Part 1 introduces the idea of of working with Obsidian as a database. This part covers capture and retrieval of information useing Unique Notes, Search and Bookmarks.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="no-external">
+<div class="listing-date">
+Aug 24, 2023
+</div>
+<div class="listing-author">
+Brian Carey
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="T2JzaWRpYW4lMkNQS00lMkNHcmFwaHM=" data-listing-date-sort="1692856800000" data-listing-file-modified-sort="1744215329085" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1380">
+<div class="thumbnail">
+<p><a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="no-external"></a></p><a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="no-external">
+<p><img loading="lazy" src="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/fyt-cover.png" class="thumbnail-image"></p>
+</a><p><a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="no-external">Obsidian: Meaningless Names, No Directories, Now What?</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
+Obsidian
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('UEtN'); return false;">
+PKM
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('R3JhcGhz'); return false;">
+Graphs
+</div>
+</div>
+<div class="listing-description">
+<a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="no-external">Freeing Your Thiking Part 2 discusses the use of Graph View and Bookmarks to discover and organize information in your vault</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="no-external">
+<div class="listing-date">
+Aug 24, 2023
+</div>
+<div class="listing-author">
+Brian Carey
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="T2JzaWRpYW4lMkNQS00=" data-listing-date-sort="1695276000000" data-listing-file-modified-sort="1744215372627" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="170">
+<div class="thumbnail">
+<p><a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="no-external"></a></p><a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="no-external">
+<p><img loading="lazy" src="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/fyt-walkthrough.png" class="thumbnail-image"></p>
+</a><p><a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="no-external">Obsidian: Freeing Your Thinking Workflow</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
+Obsidian
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('UEtN'); return false;">
+PKM
+</div>
+</div>
+<div class="listing-description">
+<a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="no-external">A video showing how to use the information-focused Freeing Your Thinking paradigm.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="no-external">
+<div class="listing-date">
+Sep 21, 2023
+</div>
+<div class="listing-author">
+Brian Carey
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1109,17 +1246,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<script src="https://utteranc.es/client.js" repo="biscotty666/bw-comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
-</script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../../blogs/obsidian/regex-search-in-line-metadata/index.html" class="pagination-link" aria-label="Regular Expressions for In-Line Fields">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Regular Expressions for In-Line Fields</span>
+      <a href="../blogs/dataview.html" class="pagination-link" aria-label="Dataview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Dataview</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../blogs/obsidian/syncing-your-thinking-syncthing/index.html" class="pagination-link" aria-label="Syncing your Thinking with Syncthing">
-        <span class="nav-page-text">Syncing your Thinking with Syncthing</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../blogs/data-science/python-movingpandas-points-paths/index.html" class="pagination-link" aria-label="Points to Paths in Python">
+        <span class="nav-page-text">Points to Paths in Python</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

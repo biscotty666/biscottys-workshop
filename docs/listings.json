@@ -40,10 +40,18 @@
   {
     "listing": "/blogs/dataview.html",
     "items": [
-      "/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html",
-      "/blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html",
+      "/blogs/obsidian/dataview/dataviewjs-files-dates/index.html",
       "/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html",
-      "/blogs/obsidian/dataview/dataviewjs-files-dates/index.html"
+      "/blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html",
+      "/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html"
+    ]
+  },
+  {
+    "listing": "/blogs/freeing-your-thinking.html",
+    "items": [
+      "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html",
+      "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html",
+      "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html"
     ]
   },
   {

@@ -2,7 +2,7 @@
 title: "Obsidian: Meaningless Names, No Directories, Now What?"
 description: "Freeing Your Thiking Part 2 discusses the use of Graph View and Bookmarks to discover and organize information in your vault"
 image: "fyt-cover.png"
-categories: [Obsidian, PKM]
+categories: [Obsidian, PKM, Graphs]
 date: 08-24-2023
 publishedAt: "2023-08-24"
 updatedAt: "2023-08-30"
@@ -30,7 +30,7 @@ There are two different types of databases. Most common are relational databases
 
 The Substack Helper thought my detailed explanation too long for this article, so I moved most of the discussion to Part 3. I encourage you to read that before continuing, but it is not actually necessary
 
-TLDR: Since Obsidian is a non-relational database, I use it as such.
+__TLDR: Since [Obsidian is a non-relational database](http://biscotty.online/blogs/obsidian/obsidian-no-sql-database/), I use it as such.__
 
 Databases are queried for information. We have search filters that we can use for that, and which can be applied to both graphs and searches. We don’t get information from a database by opening a table or navigating to a record in the database. That is effectively the approach you take if you open a note to get its information.
 
@@ -80,4 +80,4 @@ The approaches I’ve outlined allow me to focus almost entirely on my informati
 
 If you’ve made it this far, thank you very much for reading. Constructive Criticism is Always Welcome.
 
-Continue to [Part 3](http://biscotty.online/blogs/obsidian/obsidian-no-sql-database)
+Continue to [Part 3](http://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/)

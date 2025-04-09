@@ -13,7 +13,7 @@ tags:
   - pkm
 ---
 
-I recently published [several articles](https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-1) on using Obsidian’s native database functionality to increase focus and efficiency when working with the information in our vaults. Rather than using Obsidian as a souped-up word processor, we can abandon the file paradigm altogether and use Bookmark and Canvas for accessing, editing, analyzing and organizing our information.
+I recently published [several articles](https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1) on using Obsidian’s native database functionality to increase focus and efficiency when working with the information in our vaults. Rather than using Obsidian as a souped-up word processor, we can abandon the file paradigm altogether and use Bookmark and Canvas for accessing, editing, analyzing and organizing our information.
 
 Given the interest that the articles have generated, and the fact that the concepts may be unfamiliar to some, I thought it would be helpful to make a video demonstrating how it works in practice. It ended up being somewhat long, so this is the second part.
 
