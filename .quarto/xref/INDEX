@@ -160,5 +160,38 @@
   },
   "blogs/optimal-notes-with-obsidian/index.qmd": {
     "index.html": "f0815b67"
+  },
+  "blogs/obsidian-bookmarks/index.qmd": {
+    "index.html": "2989811a"
+  },
+  "blogs/metadata-menu/index.qmd": {
+    "index.html": "dc107056"
+  },
+  "blogs/visual-mocs-with-canvas/index.qmd": {
+    "index.html": "16b92ff5"
+  },
+  "blogs/graph-view-deets/index.qmd": {
+    "index.html": "73d0951f"
+  },
+  "blogs/obsidian-no-sql-database/index.qmd": {
+    "index.html": "3c61dc00"
+  },
+  "blogs/git-github-obsidian/index.qmd": {
+    "index.html": "4d2b45e5"
+  },
+  "blogs/pretty-canvas/index.qmd": {
+    "index.html": "391a6954"
+  },
+  "blogs/obsidian-jupyter/index.qmd": {
+    "index.html": "aa04c1d8"
+  },
+  "blogs/regex-search-in-line-metadata/index.qmd": {
+    "index.html": "60925086"
+  },
+  "blogs/second-brain/index.qmd": {
+    "index.html": "7b897e6e"
+  },
+  "blogs/syncing-your-thinking-syncthing/index.qmd": {
+    "index.html": "c8129944"
   }
 }

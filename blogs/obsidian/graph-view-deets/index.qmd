@@ -3,7 +3,7 @@ title: "Obsidian: The mechanics of Graph View"
 description: "Video - Working with Graph View to explore your information network."
 image: "GVFull.png"
 date: 08-31-2023
-categories: [Obsidian]
+categories: [Obsidian, Graphs]
 publishedAt: "2023-08-31"
 updatedAt: "2023-08-31"
 author: "Brian Carey"

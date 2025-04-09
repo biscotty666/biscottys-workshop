@@ -3,7 +3,7 @@ title: "Obsidian: A Second Brain?"
 description: "Exploring the concepts of graph data and neural networks."
 image: "GVFull.png"
 date: 08-30-2023
-categories: [Obsidian]
+categories: [Obsidian, Graphs]
 publishedAt: "2023-08-30"
 updatedAt: "2023-08-30"
 author: "Brian Carey"

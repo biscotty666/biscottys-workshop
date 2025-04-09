@@ -45,7 +45,7 @@ Once you have created a `css` file in the correct directory you can go to the Ap
 
 With that done, let's start with the background.  Add the following to the file to change the color and remove the dots:
 
-```
+```css
 svg.canvas-background {
 	background: linear-gradient(80deg, #253B0B, #2c0149, #390B1C);
 }
@@ -63,7 +63,7 @@ The background is actually an image of the type svg, which stands for Scalable V
 
 Next we can style the tasks. Adding 
 
-```
+```css
 .task-description {
 	color: cyan;
 }
@@ -79,7 +79,7 @@ will change all of the task descriptions to a consistent and easily readable col
 
 With that done we can turn to the textual elements. For these, you must specify on the canvas which elements you want to apply the styles to. For this you need to use HTML instead of markdown, allowing you to assign a _class_ to an element. Let's style the headings which I will use for titles so they stand out. 
 
-```
+```css
 .markdown-rendered .title-tag-1 {
 	text-align: center;
 	font-size: 4em;
@@ -102,7 +102,7 @@ Notice the units used for the font size. You can use different units for font si
 
 I also like to be able to have certain words jump out on the page, more than can be achieved with bold or italics. So I have a class
 
-```
+```css
 .markdown-rendered .my-emphasis {
 	color: #b7db6f;
 	font-size: 1.2em;
@@ -111,7 +111,7 @@ I also like to be able to have certain words jump out on the page, more than can
 
 I can use this class by wrapping text in a `<span>` element like this:
 
-```
+```css
 In this paragraph <span class="my-emphasis">these words</span> will stand out.
 ```
 
@@ -119,7 +119,7 @@ In this paragraph <span class="cta">these words</span> will stand out.
 
 To change the font, add
 
-```
+```css
 .markdown-rendered {
 	font-family: "Quicksand", sans-serif;
 }
@@ -135,7 +135,7 @@ I like the Quicksand font. It is a [free font](https://fonts.google.com/) from G
 
 Finally, I would like to have the filenames of links on the canvas to be a different color, so 
 
-```
+```css
 .markdown-rendered .internal-link {
 	color: red;
 }
@@ -145,7 +145,7 @@ And that's it. For convenience I provide the complete file below. I hope adding 
 
 # Final File
 
-```
+```css
 svg.canvas-background {
 	background: linear-gradient(80deg, #253B0B, #2c0149, #390B1C);
 }
