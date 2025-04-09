@@ -145,5 +145,14 @@
   },
   "blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.qmd": {
     "index.html": "781e3cf1"
+  },
+  "blogs/dataview.qmd": {
+    "dataview.html": "5c2b1961"
+  },
+  "blogs/python-movingpandas-points-paths/index.qmd": {
+    "index.html": "e683ed90"
+  },
+  "blogs/python-movingpandas-speed-segments/index.qmd": {
+    "index.html": "38d53278"
   }
 }

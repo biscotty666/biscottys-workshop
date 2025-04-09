@@ -10,35 +10,31 @@
   </url>
   <url>
     <loc>https://biscotty.online/blogs.html</loc>
-    <lastmod>2025-04-08T19:32:05.066Z</lastmod>
+    <lastmod>2025-04-08T23:43:19.577Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/obsidian/dataviewjs-interactive-dynamic-tables/index.html</loc>
-    <lastmod>2025-04-08T22:12:04.565Z</lastmod>
+    <loc>https://biscotty.online/blogs/dataviewjs-interactive-dynamic-tables/index.html</loc>
+    <lastmod>2025-04-08T22:14:20.768Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/blogs/obsidian/second-brain/index.html</loc>
     <lastmod>2025-04-08T16:10:24.051Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/obsidian/regex-search-in-line-metadata/index.html</loc>
-    <lastmod>2025-04-08T16:08:02.659Z</lastmod>
+    <loc>https://biscotty.online/blogs/obsidian/obsidian-jupyter/index.html</loc>
+    <lastmod>2025-04-08T14:19:23.684Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html</loc>
+    <lastmod>2025-04-08T12:09:02.647Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/blogs/obsidian/pretty-canvas/index.html</loc>
     <lastmod>2025-04-08T15:20:44.493Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/obsidian/freeing-your-thinking-workflow/index.html</loc>
-    <lastmod>2025-04-08T12:09:02.651Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/git-github-obsidian/index.html</loc>
-    <lastmod>2025-04-08T12:09:02.653Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/graph-view-deets/index.html</loc>
-    <lastmod>2025-04-08T12:28:14.674Z</lastmod>
+    <loc>https://biscotty.online/blogs/obsidian/obsidian-no-sql-database/index.html</loc>
+    <lastmod>2025-04-08T14:23:13.981Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/blogs/obsidian/visual-mocs-with-canvas/index.html</loc>
@@ -47,6 +43,14 @@
   <url>
     <loc>https://biscotty.online/blogs/obsidian/obsidian-bookmarks/index.html</loc>
     <lastmod>2025-04-08T12:34:15.128Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html</loc>
+    <lastmod>2025-04-08T22:12:04.565Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-files-dates/index.html</loc>
+    <lastmod>2025-04-08T16:03:23.558Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/blogs/obsidian/optimal-notes-with-obsidian/index.html</loc>
@@ -61,12 +65,24 @@
     <lastmod>2025-04-08T15:36:34.474Z</lastmod>
   </url>
   <url>
+    <loc>https://biscotty.online/blogs/python-movingpandas-speed-segments/index.html</loc>
+    <lastmod>2025-04-09T14:26:50.331Z</lastmod>
+  </url>
+  <url>
     <loc>https://biscotty.online/blogs/gpx-gps-data/index.html</loc>
     <lastmod>2025-04-08T17:18:27.226Z</lastmod>
   </url>
   <url>
+    <loc>https://biscotty.online/blogs/python-movingpandas-points-paths/index.html</loc>
+    <lastmod>2025-04-09T14:23:31.733Z</lastmod>
+  </url>
+  <url>
     <loc>https://biscotty.online/blogs/obsidian-whiteboards/index.html</loc>
     <lastmod>2025-04-08T17:22:18.835Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/dataviewjs-files-dates/index.html</loc>
+    <lastmod>2025-04-08T22:08:17.775Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/blogs/data-science/gpx-gps-data/index.html</loc>
@@ -77,6 +93,14 @@
     <lastmod>2025-04-08T13:55:59.389Z</lastmod>
   </url>
   <url>
+    <loc>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html</loc>
+    <lastmod>2025-04-08T12:09:02.645Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html</loc>
+    <lastmod>2025-04-08T12:09:02.653Z</lastmod>
+  </url>
+  <url>
     <loc>https://biscotty.online/blogs/obsidian/obsidian-whiteboards/index.html</loc>
     <lastmod>2025-04-08T15:38:26.062Z</lastmod>
   </url>
@@ -85,36 +109,32 @@
     <lastmod>2025-04-08T12:31:49.860Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/obsidian/dataviewjs-summaries-statistics/index.html</loc>
-    <lastmod>2025-04-08T12:09:02.645Z</lastmod>
+    <loc>https://biscotty.online/blogs/obsidian/graph-view-deets/index.html</loc>
+    <lastmod>2025-04-08T12:28:14.674Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/obsidian/obsidian-no-sql-database/index.html</loc>
-    <lastmod>2025-04-08T14:23:13.981Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/dataviewjs-files-dates/index.html</loc>
-    <lastmod>2025-04-08T16:03:23.558Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-1/index.html</loc>
-    <lastmod>2025-04-08T12:09:02.647Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/obsidian-jupyter/index.html</loc>
-    <lastmod>2025-04-08T14:19:23.684Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/gentle-introduction-to-dataviewjs/index.html</loc>
+    <loc>https://biscotty.online/blogs/obsidian/git-github-obsidian/index.html</loc>
     <lastmod>2025-04-08T12:09:02.653Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/obsidian/freeing-your-thinking-part-2/index.html</loc>
+    <loc>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html</loc>
+    <lastmod>2025-04-08T12:09:02.651Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html</loc>
     <lastmod>2025-04-08T12:09:02.649Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian/regex-search-in-line-metadata/index.html</loc>
+    <lastmod>2025-04-08T16:08:02.659Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/blogs/obsidian/syncing-your-thinking-syncthing/index.html</loc>
     <lastmod>2025-04-08T16:15:38.335Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/dataview.html</loc>
+    <lastmod>2025-04-08T23:42:33.468Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/obsidian.html</loc>
@@ -127,41 +147,5 @@
   <url>
     <loc>https://biscotty.online/resources.html</loc>
     <lastmod>2025-04-06T00:08:03.496Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/dataviewjs-files-dates/index.html</loc>
-    <lastmod>2025-04-08T22:08:17.775Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/dataviewjs-interactive-dynamic-tables/index.html</loc>
-    <lastmod>2025-04-08T22:14:20.768Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-files-dates/index.html</loc>
-    <lastmod>2025-04-08T16:03:23.558Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html</loc>
-    <lastmod>2025-04-08T12:09:02.649Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html</loc>
-    <lastmod>2025-04-08T12:09:02.651Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html</loc>
-    <lastmod>2025-04-08T12:09:02.653Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html</loc>
-    <lastmod>2025-04-08T12:09:02.645Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html</loc>
-    <lastmod>2025-04-08T22:12:04.565Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html</loc>
-    <lastmod>2025-04-08T12:09:02.647Z</lastmod>
   </url>
 </urlset>

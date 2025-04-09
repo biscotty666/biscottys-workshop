@@ -13,6 +13,9 @@ website:
   site-url: https://biscotty.online
   description: "For the love of learning"
   bread-crumbs: false
+  open-graph: 
+    site-name: biscotty's Workshop
+    image: images/trunks.png
   navbar:
     right:
       - sidebar:posts-side
@@ -44,10 +47,11 @@ website:
     style: "docked"
     search: true
     contents: 
-      - obsidian.qmd
       - data-science.qmd
-      - auto: blogs/obsidian
+      - obsidian.qmd
+      - blogs/dataview.qmd
       - auto: blogs/data-science
+      - auto: blogs/obsidian
 
   comments: 
     utterances: 
