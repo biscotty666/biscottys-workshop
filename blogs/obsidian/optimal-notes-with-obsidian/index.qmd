@@ -87,9 +87,19 @@ This approach to note-taking is widely practiced in Europe but not so in the USA
 
 Zettelkasten through the centuries
 
-![17th zettle](17thCZ.jpg)
-![20th century zettlekasten](20thCZ.jpg)
-![21st centure zettlekasten](GraphView.png)
+:::: {.columns}
+
+::: {.column width="50%"}
+#### 17th Century
+![](17thCZ.jpg)
+:::
+::: {.column width="50%"}
+#### 20th century
+![](20thCZ.jpg)
+:::
+::::
+#### 21st century
+![](GraphView.png)
 
 ## Freedom and Privacy
 
