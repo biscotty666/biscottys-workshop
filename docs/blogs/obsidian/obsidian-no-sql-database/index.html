@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -534,7 +568,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Obsidian is obviously not a relational database.</p>
 <p>SQL stands for Structured Query Language, and it is the syntax which was designed to work with relational databases. The association of the syntax and data structure is so strong that relational databases came to be referred to as SQL databases, even though SQL, the language, can be used with any type of database.</p>
 <p>An SQL query should look familiar to you if you have used Dataview:</p>
-<p><code>SELECT name FROM users WHERE location = “Earth” ORDER BY age;</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> name <span class="kw">FROM</span> users <span class="kw">WHERE</span> location <span class="op">=</span> “Earth” <span class="kw">ORDER</span> <span class="kw">BY</span> age;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>It’s just like Dataview queries, yet Obsidian is not an “SQL database”. My point is that we can use SQL queries to access our data even if it isn’t a relational database.</p>
 <p>The other type of database, a non-relational database, is unfortunately called a NoSQL database. SQL, the language, can still be used to query data in a NoSQL database. If I’ve adequately confused you, let’s proceed.</p>
 <p>Rather than storing data in tables, NoSQL databases store data in documents. Documents are text files written in a standard format, usually JSON (JavaScript Object Notation) but frequently YAML, which is the syntax used in frontmatter in Obsidian.</p>

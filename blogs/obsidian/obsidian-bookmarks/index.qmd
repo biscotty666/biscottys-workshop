@@ -12,7 +12,7 @@ tags:
   - obsidian
 ---
 
-Bookmarks are the key to effectively using obsidian as a non-relational database. The virtues of approaching your notes this way are several and I covered some in [[Freeing Your Thinking]]. In this article I want to develop the idea of using Bookmarks to construct flexible, interactive Knowledge Trees to organize notes. Just as a reminder, we are organizing information, not files.
+Bookmarks are the key to effectively using obsidian as a non-relational database. The virtues of approaching your notes this way are several and I covered some in the [Freeing Your Thinking](https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/) series. In this article I want to develop the idea of using Bookmarks to construct flexible, interactive Knowledge Trees to organize notes. Just as a reminder, we are organizing information, not files.
 
 The Navigation tab gives at best a static arrangement of information, while the Bookmarks tab provides a dynamic way to interact with, develop and access your information. Here you can create _Views_ of your information which you can organize by domain, subject, activity, etc. Views are saved filters and queries. Your information, unlike your files, can happily exist in multiple places in your Knowledge Tree.
 

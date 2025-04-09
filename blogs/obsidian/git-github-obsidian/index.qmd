@@ -78,10 +78,12 @@ This is obviously a more complex example, involving metadata (properties), Datav
 
 This article is already long, so I can't go into details about using git and GitHub, but I want to show how simple it is for this purpose. You need to install git itself, and I use another program called *gh* (the GitHub Client), which allows me to manage everything from the command line. With these installed and a free GitHub account, all I need to do is create the repository locally with the command `git init`. I then create the repository on GitHub itself with 
 
-```gh repo create my-vault-name --public --source=. --remote=upstream`.
+```bash
+gh repo create my-vault-name --public --source=. --remote=upstream`.
 ```
 After that, whenever I add, delete or change content, I just do
-```
+
+```bash
 git add .
 git commit -m "Some message"
 git push

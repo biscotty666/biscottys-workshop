@@ -4434,10 +4434,38 @@ font-style: inherit;">;</span></span></code></pre></div>
 <section id="usage-of-git-and-github" class="level2">
 <h2 class="anchored" data-anchor-id="usage-of-git-and-github">Usage of git and GitHub</h2>
 <p>This article is already long, so I can’t go into details about using git and GitHub, but I want to show how simple it is for this purpose. You need to install git itself, and I use another program called <em>gh</em> (the GitHub Client), which allows me to manage everything from the command line. With these installed and a free GitHub account, all I need to do is create the repository locally with the command <code>git init</code>. I then create the repository on GitHub itself with</p>
-<p><code>gh repo create my-vault-name --public --source=. --remote=upstream`.</code> After that, whenever I add, delete or change content, I just do</p>
-<pre><code>git add .
-git commit -m "Some message"
-git push</code></pre>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">gh</span> repo create my-vault-name <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--public</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--source</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>. <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--remote</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>upstream<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">`</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">.</span></span></code></pre></div>
+<p>After that, whenever I add, delete or change content, I just do</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> add .</span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> commit <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-m</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Some message"</span></span>
+<span id="cb2-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> push</span></code></pre></div>
 <p>On the GitHub website, under the Settings menu there is a Pages option. Simply go there and you can deploy your vault (with HTML rendered) with a couple of clicks. It will provide you with a live URL, where the content will be kept up to date every time you <code>push</code>.</p>
 <p>That’s all there is to it.</p>
 
@@ -6212,7 +6240,7 @@ svg.canvas-background circle {
 
 <section id="motivation" class="level1">
 <h1>Motivation</h1>
-<p>This is the last in a series of articles, including <a href="https://biscotty.online/obsidian/concepts/freeing-your-thinking">Freeing Your Thinking</a> and <a href="https://biscotty.online/obsidian/guides/bookmarks">Building a Knowledge Tree</a>, where I talk about using Obsidian as a non-relational database. The main idea is to interact with information, not files, and Obsidian’s core plugins facilitate this approach. I have talked about Search, Bookmarks, Unique Notes and Graph View. This article will describe how to use Canvas to create visual maps of content which not only present information in a clear, attractive and flexible way, but also allow you to explore and interact with your information. As usual, our goal is to obviate the need to open files.</p>
+<p>This is the last in a series of articles, including <a href="https://biscotty.online/blogs/obsidian/freeing-your-thinking">Freeing Your Thinking</a> and <a href="https://biscotty.online/blogs/obsidian/bookmarks">Building a Knowledge Tree</a>, where I talk about using Obsidian as a non-relational database. The main idea is to interact with information, not files, and Obsidian’s core plugins facilitate this approach. I have talked about Search, Bookmarks, Unique Notes and Graph View. This article will describe how to use Canvas to create visual maps of content which not only present information in a clear, attractive and flexible way, but also allow you to explore and interact with your information. As usual, our goal is to obviate the need to open files.</p>
 <p>In data science there is a motto “visualize, visualize, visualize.” In the business world, information is commonly presented in the form of a dashboard to allow for visualizing data. A dashboard is a graphical user interface containing views of information. Aside from providing graphical elements and views, a dashboard will typically provide navigational tools and other ways to interact with information and even edit information directly from the dashboard.</p>
 <p>Before discussing canvas, I want to mention <a href="https://github.com/zsviczian/obsidian-excalidraw-plugin">Excalidraw</a>, an excellent Community Plugin by Zsolt Viczián. It is great for creating visual maps of content with many graphical elements easily available. I highly recommend it. Nevertheless, one of the purposes of this series is to highlight Obsidian’s native tools, and Canvas is quite powerful in its own right.</p>
 </section>
@@ -6314,7 +6342,7 @@ svg.canvas-background circle {
 
 
 
-<p>Bookmarks are the key to effectively using obsidian as a non-relational database. The virtues of approaching your notes this way are several and I covered some in [[Freeing Your Thinking]]. In this article I want to develop the idea of using Bookmarks to construct flexible, interactive Knowledge Trees to organize notes. Just as a reminder, we are organizing information, not files.</p>
+<p>Bookmarks are the key to effectively using obsidian as a non-relational database. The virtues of approaching your notes this way are several and I covered some in the <a href="https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/">Freeing Your Thinking</a> series. In this article I want to develop the idea of using Bookmarks to construct flexible, interactive Knowledge Trees to organize notes. Just as a reminder, we are organizing information, not files.</p>
 <p>The Navigation tab gives at best a static arrangement of information, while the Bookmarks tab provides a dynamic way to interact with, develop and access your information. Here you can create <em>Views</em> of your information which you can organize by domain, subject, activity, etc. Views are saved filters and queries. Your information, unlike your files, can happily exist in multiple places in your Knowledge Tree.</p>
 <p>When you begin to build your Knowledge Tree, you might start by creating <em>Views</em> which map to your current directories using filters. After all, you want to preserve the information you have put into your vault by organizing your notes in a File Tree. Most people have a separate directory for fleeting notes, so you might make a view containing <code>path: "fleeting-note-directory"</code>. But is such a view terribly useful? Browsing through all your fleeting notes is fun if you’ve nothing better to do, but it’s not focused or efficient use of time if you are working on a particular topic. Wouldn’t it be better to just see the fleeting notes related to my topic? So I save the filter <code>Whatever Topic \type:: fleeting\</code> alongside my views of the topic itself and have a list of fleeting notes only on that topic.</p>
 <p>As you start mapping your old directories to views, you might begin to ask yourself at some point why you would ever really want to see all your MOCs in a list? Or Daily Notes? Or Logs? If you want <em>information</em> from these types of notes you typically create a note containing a Dataview query. Bookmarked filters, which I’m calling views, are like virtual Dataview queries. And, since you can do this without referencing file locations, you might question how much useful information was actually embedded in your folder structure. Then you might have a cup of tea.</p>
@@ -6671,7 +6699,24 @@ font-style: inherit;">flatpak</span> install flathub com.github.zocker_160.SyncT
 <p>Obsidian is obviously not a relational database.</p>
 <p>SQL stands for Structured Query Language, and it is the syntax which was designed to work with relational databases. The association of the syntax and data structure is so strong that relational databases came to be referred to as SQL databases, even though SQL, the language, can be used with any type of database.</p>
 <p>An SQL query should look familiar to you if you have used Dataview:</p>
-<p><code>SELECT name FROM users WHERE location = “Earth” ORDER BY age;</code></p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">SELECT</span> name <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">FROM</span> users <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">WHERE</span> location <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> “Earth” <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">ORDER</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">BY</span> age;</span></code></pre></div>
 <p>It’s just like Dataview queries, yet Obsidian is not an “SQL database”. My point is that we can use SQL queries to access our data even if it isn’t a relational database.</p>
 <p>The other type of database, a non-relational database, is unfortunately called a NoSQL database. SQL, the language, can still be used to query data in a NoSQL database. If I’ve adequately confused you, let’s proceed.</p>
 <p>Rather than storing data in tables, NoSQL databases store data in documents. Documents are text files written in a standard format, usually JSON (JavaScript Object Notation) but frequently YAML, which is the syntax used in frontmatter in Obsidian.</p>

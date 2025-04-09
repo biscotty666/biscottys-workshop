@@ -23,7 +23,9 @@ SQL stands for Structured Query Language, and it is the syntax which was designe
 
 An SQL query should look familiar to you if you have used Dataview:
 
-`SELECT name FROM users WHERE location = “Earth” ORDER BY age;`
+```sql
+SELECT name FROM users WHERE location = “Earth” ORDER BY age;
+```
 
 It’s just like Dataview queries, yet Obsidian is not an “SQL database”. My point is that we can use SQL queries to access our data even if it isn’t a relational database.
 
