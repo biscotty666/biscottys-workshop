@@ -1,53 +1,6 @@
 [
   {
-    "listing": "/data-science.html",
-    "items": [
-      "/blogs/data-science/python-movingpandas-speed-segments/index.html",
-      "/blogs/data-science/python-movingpandas-points-paths/index.html",
-      "/blogs/obsidian/obsidian-jupyter/index.html",
-      "/blogs/data-science/gpx-gps-data/index.html"
-    ]
-  },
-  {
-    "listing": "/blogs.html",
-    "items": [
-      "/blogs/data-science/python-movingpandas-speed-segments/index.html",
-      "/blogs/data-science/python-movingpandas-points-paths/index.html",
-      "/blogs/obsidian/obsidian-jupyter/index.html",
-      "/blogs/data-science/gpx-gps-data/index.html",
-      "/blogs/obsidian/obsidian-whiteboards/index.html",
-      "/blogs/obsidian/git-github-obsidian/index.html",
-      "/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html",
-      "/blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html",
-      "/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html",
-      "/blogs/obsidian/pretty-canvas/index.html",
-      "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html",
-      "/blogs/obsidian/visual-mocs-with-canvas/index.html",
-      "/blogs/obsidian/metadata-menu/index.html",
-      "/blogs/obsidian/obsidian-bookmarks/index.html",
-      "/blogs/obsidian/graph-view-deets/index.html",
-      "/blogs/obsidian/second-brain/index.html",
-      "/blogs/obsidian/syncing-your-thinking-syncthing/index.html",
-      "/blogs/obsidian/obsidian-headers/index.html",
-      "/blogs/obsidian/obsidian-no-sql-database/index.html",
-      "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html",
-      "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html",
-      "/blogs/obsidian/regex-search-in-line-metadata/index.html",
-      "/blogs/obsidian/optimal-notes-with-obsidian/index.html",
-      "/blogs/obsidian/dataview/dataviewjs-files-dates/index.html"
-    ]
-  },
-  {
-    "listing": "/blogs/dataview.html",
-    "items": [
-      "/blogs/obsidian/dataview/dataviewjs-files-dates/index.html",
-      "/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html",
-      "/blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html",
-      "/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html"
-    ]
-  },
-  {
-    "listing": "/blogs/freeing-your-thinking.html",
+    "listing": "/blogs/obsidian/freeing-your-thinking.html",
     "items": [
       "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html",
       "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html",
@@ -55,29 +8,12 @@
     ]
   },
   {
-    "listing": "/obsidian.html",
+    "listing": "/blogs/data-science.html",
     "items": [
+      "/blogs/data-science/python-movingpandas-speed-segments/index.html",
+      "/blogs/data-science/python-movingpandas-points-paths/index.html",
       "/blogs/obsidian/obsidian-jupyter/index.html",
-      "/blogs/obsidian/obsidian-whiteboards/index.html",
-      "/blogs/obsidian/git-github-obsidian/index.html",
-      "/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html",
-      "/blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html",
-      "/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html",
-      "/blogs/obsidian/pretty-canvas/index.html",
-      "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html",
-      "/blogs/obsidian/visual-mocs-with-canvas/index.html",
-      "/blogs/obsidian/metadata-menu/index.html",
-      "/blogs/obsidian/obsidian-bookmarks/index.html",
-      "/blogs/obsidian/graph-view-deets/index.html",
-      "/blogs/obsidian/second-brain/index.html",
-      "/blogs/obsidian/syncing-your-thinking-syncthing/index.html",
-      "/blogs/obsidian/obsidian-headers/index.html",
-      "/blogs/obsidian/obsidian-no-sql-database/index.html",
-      "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html",
-      "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html",
-      "/blogs/obsidian/regex-search-in-line-metadata/index.html",
-      "/blogs/obsidian/optimal-notes-with-obsidian/index.html",
-      "/blogs/obsidian/dataview/dataviewjs-files-dates/index.html"
+      "/blogs/data-science/gpx-gps-data/index.html"
     ]
   },
   {
@@ -101,10 +37,6 @@
       "/blogs/obsidian/regex-search-in-line-metadata/index.html",
       "/blogs/obsidian/optimal-notes-with-obsidian/index.html"
     ]
-  },
-  {
-    "listing": "/blogs/obsidian/obsidian.html",
-    "items": []
   },
   {
     "listing": "/blogs/obsidian.html",
@@ -141,23 +73,6 @@
       "/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html",
       "/blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html",
       "/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html"
-    ]
-  },
-  {
-    "listing": "/blogs/obsidian/freeing-your-thinking.html",
-    "items": [
-      "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html",
-      "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html",
-      "/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html"
-    ]
-  },
-  {
-    "listing": "/blogs/data-science.html",
-    "items": [
-      "/blogs/data-science/python-movingpandas-speed-segments/index.html",
-      "/blogs/data-science/python-movingpandas-points-paths/index.html",
-      "/blogs/obsidian/obsidian-jupyter/index.html",
-      "/blogs/data-science/gpx-gps-data/index.html"
     ]
   }
 ]
