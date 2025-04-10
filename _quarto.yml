@@ -19,8 +19,8 @@ website:
   navbar:
     right:
       - sidebar:posts-side
-      # - href: resources.qmd
-        # text: Resources
+      - href: resources.qmd
+        text: Resources
       # - href: documents/gpwh.pdf
       #   text: Article
       #   target: _blank
@@ -35,8 +35,10 @@ website:
         text: "About"
       - href: obsidian.qmd
         text: "Obsidian"
+      - href: data-science.qmd
+        text: "Data Science"        
       - href: blogs.qmd
-        text: "Posts"
+        text: "All"
   page-footer: 
     background: dark
     left: Copyright 2025, Brian Carey
@@ -64,7 +66,8 @@ format:
       light: 
         - litera
         - styles.scss
-      dark: superhero
+      dark: 
+        - superhero
     mainfont: Nunito
     toc: true
     page-layout: full

@@ -1,10 +1,12 @@
 ---
+title: "Brian Carey"
+subtitle: "Technology | Education | Philosophy"
 image: "images/trunks.png"
 toc: false
 comments: false
 bibliography: references.bib
 about:
-  template: solana
+  template: jolla
   image-shape: rectangle
   image-width: 10em
   links: 
@@ -22,10 +24,6 @@ about:
       target: _blank
 ---
 
-> For the love of learning
+## Experience
 
-I'll write some intro material here. I'll write some intro material here. I'll write some intro material here.
-
-Check out the [current workshop](https://biscotty.online).
-
-Thanks to [@shanny-csik2022]
+{{< lipsum 1 >}}

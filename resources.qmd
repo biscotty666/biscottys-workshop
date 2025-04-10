@@ -1,4 +1,6 @@
 ---
-title: "All my favoriate resources"
+title: "Resources"
+bibliography: references.bib
+nocite: |
+  @*
 ---
-
