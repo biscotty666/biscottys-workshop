@@ -3,24 +3,20 @@ image: "images/trunks.png"
 toc: false
 comments: false
 bibliography: references.bib
+suppress-bibliography: true
 about:
   template: solana
   image-shape: rectangle
   image-width: 10em
 ---
+# biscotty's Workshop
 
 > For the love of learning
 
-# Welcome to my workshop
+### Welcome
 
 Here you will find articles about things that interest me. Much of the site is devoted to technological topics such as Linux, programming, and data science. There is a "humanities" section as well where I post on a range of topics such as history, linguistics, Chinese medicine, gardening and cooking, and music.
 
-For those returning, this third iteration of my website now allows you to comment on posts, so I look forward to your feedback and ideas. You can still email me as before, of course.
+### What's new
 
-Here you will find articles about [Obsidian](https://obsidian.md)
-
-[Obsidian Articles](obsidian.html)
-
-[Data Science Articles](data-science.html)
-
-Thanks to [@shanny-csik2022]
+For those returning, this third iteration of my website is built in Quatro. I hope you like the new layout. It now allows you to comment on posts, so I look forward to your feedback and ideas. You can still email me as before, of course. Thanks to Samantha Shanny-Csik [@shanny-csik_creating_2022; @shanny-csik2022] and Albert Rapp [@rapp_ultimate_2022].
