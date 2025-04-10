@@ -4,7 +4,7 @@ listing:
   contents: 
     - "obsidian/*/index.qmd"
     - "data-science/*/index.qmd"
-  type: default
+  type: grid
   sort: "date desc"
   categories: true
   feed: true
@@ -12,4 +12,3 @@ listing:
 sidebar: posts-side
 comments: false
 ---
-
