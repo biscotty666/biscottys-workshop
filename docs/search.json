@@ -2,9 +2,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "biscotty's Workshop",
+    "title": "Brian Carey",
     "section": "",
-    "text": "For the love of learning\n\nI’ll write some intro material here. I’ll write some intro material here. I’ll write some intro material here.\nCheck out the current workshop.\nThanks to (Shanny-Csik 2022)\n\n\n\n Back to topReferences\n\nShanny-Csik, Samantha. 2022. “Adding a Blog to Your Existing Quarto Website.” October 24, 2022. https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/."
+    "text": "Duis urna urna, pellentesque eu urna ut, malesuada bibendum dolor. Suspendisse potenti. Vivamus ornare, arcu quis molestie ultrices, magna est accumsan augue, auctor vulputate erat quam quis neque. Nullam scelerisque odio vel ultricies facilisis. Ut porta arcu non magna sagittis lacinia. Cras ornare vulputate lectus a tristique. Pellentesque ac arcu congue, rhoncus mi id, dignissim ligula."
   },
   {
     "objectID": "data-science.html",
@@ -1342,15 +1342,22 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "biscotty's Workshop",
+    "title": "Welcome to my workshop",
     "section": "",
-    "text": "For the love of learning\n\nI’ll write some intro material here. I’ll write some intro material here. I’ll write some intro material here.\nObsidian Articles\nData Science Articles\nCheck out the current workshop.\nThanks to (Shanny-Csik 2022)\n\n\n\n Back to topReferences\n\nShanny-Csik, Samantha. 2022. “Adding a Blog to Your Existing Quarto Website.” October 24, 2022. https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/."
+    "text": "For the love of learning\n\n\nWelcome to my workshop\nHere you will find articles about things that interest me. Much of the site is devoted to technological topics such as Linux, programming, and data science. There is a “humanities” section as well where I post on a range of topics such as history, linguistics, Chinese medicine, gardening and cooking, and music.\nFor those returning, this third iteration of my website now allows you to comment on posts, so I look forward to your feedback and ideas. You can still email me as before, of course.\nHere you will find articles about Obsidian\nObsidian Articles\nData Science Articles\nThanks to (Shanny-Csik 2022)\n\n\n\n\n Back to topReferences\n\nShanny-Csik, Samantha. 2022. “Adding a Blog to Your Existing Quarto Website.” October 24, 2022. https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/."
   },
   {
     "objectID": "resources.html",
     "href": "resources.html",
-    "title": "All my favoriate resources",
+    "title": "Resources",
     "section": "",
-    "text": "Back to top"
+    "text": "Back to topReferences\n\nShanny-Csik, Samantha. 2022. “Adding a Blog to Your Existing Quarto Website.” October 24, 2022. https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/."
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "Brian Carey",
+    "section": "",
+    "text": "Duis urna urna, pellentesque eu urna ut, malesuada bibendum dolor. Suspendisse potenti. Vivamus ornare, arcu quis molestie ultrices, magna est accumsan augue, auctor vulputate erat quam quis neque. Nullam scelerisque odio vel ultricies facilisis. Ut porta arcu non magna sagittis lacinia. Cras ornare vulputate lectus a tristique. Pellentesque ac arcu congue, rhoncus mi id, dignissim ligula."
   }
 ]
