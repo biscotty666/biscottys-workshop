@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>biscotty&#39;s Workshop</title>
+<link>https://biscotty.online/blogs/obsidian.html</link>
+<atom:link href="https://biscotty.online/blogs/obsidian.xml" rel="self" type="application/rss+xml"/>
+<description>For the love of learning</description>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Wed, 20 Mar 2024 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Obsidian and Jupyter Notebooks</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/obsidian-jupyter/</link>
+  <description><![CDATA[ Personal Knowledge Management for Data Science ]]></description>
+  <category>Obsidian</category>
+  <category>Python</category>
+  <category>Data Science</category>
+  <guid>https://biscotty.online/blogs/obsidian/obsidian-jupyter/</guid>
+  <pubDate>Wed, 20 Mar 2024 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Obsidian Canvas Work Spaces</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/obsidian-whiteboards/</link>
+  <description><![CDATA[ Visual MOCery ]]></description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/blogs/obsidian/obsidian-whiteboards/</guid>
+  <pubDate>Sat, 20 Jan 2024 07:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/obsidian-whiteboards/VMocery.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Git and GitHub for Obsidian Users</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/git-github-obsidian/</link>
+  <description><![CDATA[ And why you probably shouldn’t be using it ]]></description>
+  <category>Obsidian</category>
+  <category>Linux</category>
+  <guid>https://biscotty.online/blogs/obsidian/git-github-obsidian/</guid>
+  <pubDate>Fri, 19 Jan 2024 07:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/git-github-obsidian/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Summarizing Information with DataviewJS</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</link>
+  <description><![CDATA[ Presenting and analyzing information in Obsidian ]]></description>
+  <category>Javascript</category>
+  <category>Obsidian</category>
+  <category>PKM</category>
+  <category>DataviewJS</category>
+  <guid>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</guid>
+  <pubDate>Mon, 16 Oct 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Interactive Tables with DataviewJS</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/</link>
+  <description><![CDATA[ Selecting Files, Working with Dates ]]></description>
+  <category>Javascript</category>
+  <category>Obsidian</category>
+  <category>DataviewJS</category>
+  <guid>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/</guid>
+  <pubDate>Sat, 14 Oct 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>DataviewJS: A Gentle Introduction</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/</link>
+  <description><![CDATA[ For Obsidian users who are not programmers ]]></description>
+  <category>Javascript</category>
+  <category>Obsidian</category>
+  <category>DataviewJS</category>
+  <guid>https://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/</guid>
+  <pubDate>Wed, 11 Oct 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-2.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Obsidian: Pretty Canvas</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/pretty-canvas/</link>
+  <description><![CDATA[ Using CSS to make dashboards cleaner and more effective. ]]></description>
+  <category>Obsidian</category>
+  <category>CSS</category>
+  <guid>https://biscotty.online/blogs/obsidian/pretty-canvas/</guid>
+  <pubDate>Thu, 05 Oct 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/pretty-canvas/canvas-pretty-css-composite.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Obsidian: Freeing Your Thinking Workflow</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/</link>
+  <description><![CDATA[ A video showing how to use the information-focused Freeing Your Thinking paradigm. ]]></description>
+  <category>Obsidian</category>
+  <category>PKM</category>
+  <guid>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/</guid>
+  <pubDate>Thu, 21 Sep 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/fyt-walkthrough.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Obsidian Canvas Dashboards</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/visual-mocs-with-canvas/</link>
+  <description><![CDATA[ Canvas allows you to build dashboards to organize and interact with your information. ]]></description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/blogs/obsidian/visual-mocs-with-canvas/</guid>
+  <pubDate>Thu, 14 Sep 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/visual-mocs-with-canvas/canvas-publications.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Obsidian Metadata Menu Plugin</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/metadata-menu/</link>
+  <description><![CDATA[ Supercharge your management of properties and in-line Dataview fields ]]></description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/blogs/obsidian/metadata-menu/</guid>
+  <pubDate>Wed, 06 Sep 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/metadata-menu/MMCover.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+</channel>
+</rss>

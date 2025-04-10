@@ -1,0 +1,14 @@
+---
+title: "Obsidian"
+listing:
+  contents: obsidian
+  type: table
+  sort: "date desc"
+  categories: true
+  feed:
+    items: 10
+    type: partial
+sidebar: posts-side
+comments: false
+---
+

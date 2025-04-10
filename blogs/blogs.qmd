@@ -1,0 +1,15 @@
+---
+title: "All Posts"
+listing:
+  contents: 
+    - "obsidian/*/index.qmd"
+    - data-science
+  type: default
+  sort: "date desc"
+  categories: true
+  feed: true
+
+sidebar: posts-side
+comments: false
+---
+

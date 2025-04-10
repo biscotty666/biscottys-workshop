@@ -1,0 +1,14 @@
+---
+title: "Dataview"
+listing:
+  contents: dataview
+  type: default
+  sort: "date"
+  categories: true
+  feed:
+    items: 10
+    type: partial
+sidebar: posts-side
+comments: false
+---
+

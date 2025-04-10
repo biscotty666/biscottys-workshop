@@ -1,0 +1,14 @@
+---
+title: "Freeing your thinking"
+listing:
+  contents: freeing-your-thinking
+  type: default
+  sort: "date"
+  categories: true
+  feed:
+    items: 10
+    type: partial
+sidebar: posts-side
+comments: false
+---
+

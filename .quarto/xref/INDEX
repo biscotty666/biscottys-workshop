@@ -196,5 +196,23 @@
   },
   "blogs/freeing-your-thinking.qmd": {
     "freeing-your-thinking.html": "a6cc2863"
+  },
+  "blogs/blogs.qmd": {
+    "blogs.html": "5f9ba4fe"
+  },
+  "blogs/obsidian/obsidian.qmd": {
+    "obsidian.html": "5afb70a2"
+  },
+  "blogs/obsidian.qmd": {
+    "obsidian.html": "14b0f87f"
+  },
+  "blogs/obsidian/dataview.qmd": {
+    "dataview.html": "5fd7826f"
+  },
+  "blogs/obsidian/freeing-your-thinking.qmd": {
+    "freeing-your-thinking.html": "4caaae21"
+  },
+  "blogs/data-science.qmd": {
+    "data-science.html": "26e373fc"
   }
 }
