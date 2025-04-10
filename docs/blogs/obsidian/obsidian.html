@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dataview – biscotty’s Workshop</title>
+<title>Obsidian – biscotty’s Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../blogs/obsidian/freeing-your-thinking.html" rel="next">
-<link href="../../blogs/obsidian/obsidian.html" rel="prev">
+<link href="../../blogs/obsidian/dataview.html" rel="next">
 <link href="../../images/BWLogo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-listing/list.min.js"></script>
 <script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
@@ -85,9 +84,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -135,7 +134,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="alternate" type="application/rss+xml" title="biscotty's Workshop" href="dataview.xml" data-external="1"><meta property="og:title" content="Dataview – biscotty’s Workshop">
+<link rel="alternate" type="application/rss+xml" title="biscotty's Workshop" href="obsidian.xml" data-external="1"><meta property="og:title" content="Obsidian – biscotty’s Workshop">
 <meta property="og:image" content="https://biscotty.online/blogs/obsidian/images/trunks.png">
 <meta property="og:site_name" content="biscotty's Workshop">
 </head>
@@ -170,7 +169,7 @@ window.Quarto = {
 <span class="menu-text">Obsidian</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blogs/data-science.html"> 
+    <a class="nav-link" href="../../blogs/data-science/data-science.qmd"> 
 <span class="menu-text">Data Science</span></a>
   </li>  
   <li class="nav-item">
@@ -184,10 +183,6 @@ window.Quarto = {
  <span class="menu-text">Posts</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
-        <li>
-    <a class="dropdown-item" href="../../blogs/data-science.html">
- <span class="dropdown-text">Data Science</span></a>
-  </li>  
         <li>
     <a class="dropdown-item" href="../../blogs/obsidian/obsidian.html">
  <span class="dropdown-text">Obsidian</span></a>
@@ -321,7 +316,7 @@ window.Quarto = {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Dataview</h1>
+          <h1 class="quarto-secondary-nav-title">Obsidian</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -333,7 +328,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Dataview</h1>
+      <h1 class="title d-none d-lg-block">Obsidian</h1>
                       </div>
   </div>
     
@@ -357,20 +352,17 @@ window.Quarto = {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../blogs/data-science.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Science</span></a>
-  </div>
-</li>
+ <span class="menu-text">blogs/data-science/data-science.qmd</span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/obsidian.html" class="sidebar-item-text sidebar-link">
+  <a href="../../blogs/obsidian/obsidian.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Obsidian</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/dataview.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../blogs/obsidian/dataview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dataview</span></a>
   </div>
 </li>
@@ -593,7 +585,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="RGF0YXZpZXdKUw==">DataviewJS <span class="quarto-category-count">(4)</span></div><div class="category" data-category="SmF2YXNjcmlwdA==">Javascript <span class="quarto-category-count">(4)</span></div><div class="category" data-category="T2JzaWRpYW4=">Obsidian <span class="quarto-category-count">(4)</span></div><div class="category" data-category="UEtN">PKM <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(21)</span></div><div class="category" data-category="Q1NT">CSS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YXZpZXdKUw==">DataviewJS <span class="quarto-category-count">(4)</span></div><div class="category" data-category="R3JhcGhz">Graphs <span class="quarto-category-count">(3)</span></div><div class="category" data-category="SmF2YXNjcmlwdA==">Javascript <span class="quarto-category-count">(4)</span></div><div class="category" data-category="TGludXg=">Linux <span class="quarto-category-count">(2)</span></div><div class="category" data-category="T2JzaWRpYW4=">Obsidian <span class="quarto-category-count">(21)</span></div><div class="category" data-category="UEtN">PKM <span class="quarto-category-count">(5)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-body" id="quarto-document-content">
 
@@ -605,168 +597,280 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1677567600000" data-listing-file-modified-sort="1744128203558" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1547">
-<div class="thumbnail">
-<p><a href="../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="no-external"></a></p><a href="../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="no-external">
-<p><img loading="lazy" src="../../blogs/obsidian/dataview/dataviewjs-files-dates/djs-part-2.png" class="thumbnail-image"></p>
-</a><p><a href="../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="no-external"></a></p>
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-title-sort" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-author" data-direction="asc">
+          Author
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="no-external">DataviewJS: A Gentle Introduction Part 2</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SmF2YXNjcmlwdA=='); return false;">
-Javascript
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
-Obsidian
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YXZpZXdKUw=='); return false;">
-DataviewJS
-</div>
-</div>
-<div class="listing-description">
-<a href="../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="no-external">Selecting Files, Working with Dates</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="no-external">
-<div class="listing-date">
-Feb 28, 2023
-</div>
-<div class="listing-author">
-Brian Carey
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697004000000" data-listing-file-modified-sort="1744214514313" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1443">
-<div class="thumbnail">
-<p><a href="../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="no-external"></a></p><a href="../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="no-external">
-<p><img loading="lazy" src="../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-2.png" class="thumbnail-image"></p>
-</a><p><a href="../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="no-external">DataviewJS: A Gentle Introduction</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SmF2YXNjcmlwdA=='); return false;">
-Javascript
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
-Obsidian
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YXZpZXdKUw=='); return false;">
-DataviewJS
-</div>
-</div>
-<div class="listing-description">
-<a href="../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="no-external">For Obsidian users who are not programmers</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="no-external">
-<div class="listing-date">
-Oct 11, 2023
-</div>
-<div class="listing-author">
-Brian Carey
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697263200000" data-listing-file-modified-sort="1744214761626" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1520">
-<div class="thumbnail">
-<p><a href="../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="no-external"></a></p><a href="../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="no-external">
-<p><img loading="lazy" src="../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" class="thumbnail-image"></p>
-</a><p><a href="../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="no-external">Interactive Tables with DataviewJS</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SmF2YXNjcmlwdA=='); return false;">
-Javascript
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
-Obsidian
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YXZpZXdKUw=='); return false;">
-DataviewJS
-</div>
-</div>
-<div class="listing-description">
-<a href="../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="no-external">Selecting Files, Working with Dates</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="no-external">
-<div class="listing-date">
-Oct 14, 2023
-</div>
-<div class="listing-author">
-Brian Carey
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDUEtNJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697436000000" data-listing-file-modified-sort="1744150324565" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1688">
-<div class="thumbnail">
-<p><a href="../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="no-external"></a></p><a href="../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="no-external">
-<p><img loading="lazy" src="../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" class="thumbnail-image"></p>
-</a><p><a href="../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="no-external">Summarizing Information with DataviewJS</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SmF2YXNjcmlwdA=='); return false;">
-Javascript
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('T2JzaWRpYW4='); return false;">
-Obsidian
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UEtN'); return false;">
-PKM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YXZpZXdKUw=='); return false;">
-DataviewJS
-</div>
-</div>
-<div class="listing-description">
-<a href="../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="no-external">Presenting and analyzing information in Obsidian</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="no-external">
-<div class="listing-date">
-Oct 16, 2023
-</div>
-<div class="listing-author">
-Brian Carey
-</div>
-</a>
-</div>
-</div>
-</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+</th>
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+</th>
+<th>
+<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-categories="T2JzaWRpYW4lMkNQeXRob24lMkNEYXRhJTIwU2NpZW5jZQ==" data-listing-date-sort="1710914400000" data-listing-file-modified-sort="1744121963684" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1102" data-listing-title-sort="Obsidian and Jupyter Notebooks" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Mar 20, 2024</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/obsidian-jupyter/index.html" class="title listing-title">Obsidian and Jupyter Notebooks</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="1" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1705734000000" data-listing-file-modified-sort="1744126706062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1817" data-listing-title-sort="Obsidian Canvas Work Spaces" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Jan 20, 2024</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/obsidian-whiteboards/index.html" class="title listing-title">Obsidian Canvas Work Spaces</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="2" data-categories="T2JzaWRpYW4lMkNMaW51eA==" data-listing-date-sort="1705647600000" data-listing-file-modified-sort="1744212155387" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2014" data-listing-title-sort="Git and GitHub for Obsidian Users" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Jan 19, 2024</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/git-github-obsidian/index.html" class="title listing-title">Git and GitHub for Obsidian Users</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="3" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDUEtNJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697436000000" data-listing-file-modified-sort="1744150324565" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1688" data-listing-title-sort="Summarizing Information with DataviewJS" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Oct 16, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="title listing-title">Summarizing Information with DataviewJS</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="4" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697263200000" data-listing-file-modified-sort="1744214761626" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1520" data-listing-title-sort="Interactive Tables with DataviewJS" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Oct 14, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="title listing-title">Interactive Tables with DataviewJS</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="5" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697004000000" data-listing-file-modified-sort="1744214514313" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1443" data-listing-title-sort="DataviewJS: A Gentle Introduction" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Oct 11, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="title listing-title">DataviewJS: A Gentle Introduction</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="6" data-categories="T2JzaWRpYW4lMkNDU1M=" data-listing-date-sort="1696485600000" data-listing-file-modified-sort="1744212451846" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1097" data-listing-title-sort="Obsidian: Pretty Canvas" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Oct 5, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/pretty-canvas/index.html" class="title listing-title">Obsidian: Pretty Canvas</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="7" data-categories="T2JzaWRpYW4lMkNQS00=" data-listing-date-sort="1695276000000" data-listing-file-modified-sort="1744215372627" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="170" data-listing-title-sort="Obsidian: Freeing Your Thinking Workflow" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Sep 21, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="title listing-title">Obsidian: Freeing Your Thinking Workflow</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="8" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1694671200000" data-listing-file-modified-sort="1744211752431" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="856" data-listing-title-sort="Obsidian Canvas Dashboards" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Sep 14, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/visual-mocs-with-canvas/index.html" class="title listing-title">Obsidian Canvas Dashboards</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="9" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1693980000000" data-listing-file-modified-sort="1744115509860" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="260" data-listing-title-sort="Obsidian Metadata Menu Plugin" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Sep 6, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/metadata-menu/index.html" class="title listing-title">Obsidian Metadata Menu Plugin</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="10" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1693893600000" data-listing-file-modified-sort="1744211176699" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1132" data-listing-title-sort="Obsidian Bookmarks" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Sep 5, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/obsidian-bookmarks/index.html" class="title listing-title">Obsidian Bookmarks</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="11" data-categories="T2JzaWRpYW4lMkNHcmFwaHM=" data-listing-date-sort="1693461600000" data-listing-file-modified-sort="1744213021352" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="180" data-listing-title-sort="Obsidian: The mechanics of Graph View" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Aug 31, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/graph-view-deets/index.html" class="title listing-title">Obsidian: The mechanics of Graph View</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="12" data-categories="T2JzaWRpYW4lMkNHcmFwaHM=" data-listing-date-sort="1693375200000" data-listing-file-modified-sort="1744212995846" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="83" data-listing-title-sort="Obsidian: A Second Brain?" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Aug 30, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/second-brain/index.html" class="title listing-title">Obsidian: A Second Brain?</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="13" data-categories="T2JzaWRpYW4lMkNMaW51eA==" data-listing-date-sort="1693202400000" data-listing-file-modified-sort="1744128938335" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="842" data-listing-title-sort="Syncing your Thinking with Syncthing" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Aug 28, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/syncing-your-thinking-syncthing/index.html" class="title listing-title">Syncing your Thinking with Syncthing</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="14" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1693116000000" data-listing-file-modified-sort="1744120559389" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="895" data-listing-title-sort="Obsidian Basics - Headers" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Aug 27, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/obsidian-headers/index.html" class="title listing-title">Obsidian Basics - Headers</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="15" data-categories="T2JzaWRpYW4lMkNQS00=" data-listing-date-sort="1692856800000" data-listing-file-modified-sort="1744215136481" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1671" data-listing-title-sort="Obsidian: Stop Wasting Time With Directories and Filenames" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Aug 24, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="title listing-title">Obsidian: Stop Wasting Time With Directories and Filenames</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="16" data-categories="T2JzaWRpYW4lMkNQS00lMkNHcmFwaHM=" data-listing-date-sort="1692856800000" data-listing-file-modified-sort="1744215329085" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1380" data-listing-title-sort="Obsidian: Meaningless Names, No Directories, Now What?" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Aug 24, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="title listing-title">Obsidian: Meaningless Names, No Directories, Now What?</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="17" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1692856800000" data-listing-file-modified-sort="1744211994311" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="767" data-listing-title-sort="What does it mean that is a NoSQL Database?" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Aug 24, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/obsidian-no-sql-database/index.html" class="title listing-title">What does it mean that is a NoSQL Database?</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="18" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1692770400000" data-listing-file-modified-sort="1744128482659" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="287" data-listing-title-sort="Regular Expressions for In-Line Fields" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Aug 23, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/regex-search-in-line-metadata/index.html" class="title listing-title">Regular Expressions for In-Line Fields</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="19" data-categories="T2JzaWRpYW4lMkNQS00=" data-listing-date-sort="1691215200000" data-listing-file-modified-sort="1744252943751" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1615" data-listing-title-sort="Optimal Notes with Obsidian" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Aug 5, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/optimal-notes-with-obsidian/index.html" class="title listing-title">Optimal Notes with Obsidian</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+<tr data-index="20" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1677567600000" data-listing-file-modified-sort="1744128203558" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1547" data-listing-title-sort="DataviewJS: A Gentle Introduction Part 2" data-listing-filename-sort="index.qmd">
+<td>
+<span class="listing-date">Feb 28, 2023</span>
+</td>
+<td>
+<a href="../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="title listing-title">DataviewJS: A Gentle Introduction Part 2</a>
+</td>
+<td>
+<span class="listing-author">Brian Carey</span>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
@@ -1334,13 +1438,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../blogs/obsidian/obsidian.html" class="pagination-link" aria-label="Obsidian">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Obsidian</span>
-      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../blogs/obsidian/freeing-your-thinking.html" class="pagination-link" aria-label="Freeing your thinking">
-        <span class="nav-page-text">Freeing your thinking</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../blogs/obsidian/dataview.html" class="pagination-link" aria-label="Dataview">
+        <span class="nav-page-text">Dataview</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

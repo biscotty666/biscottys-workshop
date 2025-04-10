@@ -2,8 +2,8 @@
 title: "Data Science"
 listing:
   contents: 
-    - data-science
-    - obsidian/obsidian-jupyter
+    - "*/index.qmd"
+    - "../obsidian/obsidian-jupyter"
   type: default
   sort: "date desc"
   categories: true

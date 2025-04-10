@@ -33,9 +33,9 @@ website:
         href: index.qmd
       - href: about.qmd
         text: "About"
-      - href: blogs/obsidian.qmd
+      - href: blogs/obsidian/obsidian.qmd
         text: "Obsidian"
-      - href: blogs/data-science.qmd
+      - href: blogs/data-science/data-science.qmd
         text: "Data Science"        
       - href: blogs/blogs.qmd
         text: "All"
@@ -49,8 +49,8 @@ website:
     style: "docked"
     search: true
     contents: 
-      - blogs/data-science.qmd
-      - blogs/obsidian.qmd
+      - blogs/data-science/data-science.qmd
+      - blogs/obsidian/obsidian.qmd
       - blogs/obsidian/dataview.qmd
       - blogs/obsidian/freeing-your-thinking.qmd
       - auto: blogs/data-science

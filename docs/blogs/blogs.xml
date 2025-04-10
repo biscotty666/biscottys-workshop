@@ -5752,5 +5752,145 @@ font-style: inherit;">BY</span> age;</span></code></pre></div>
   <pubDate>Sat, 05 Aug 2023 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/blogs/obsidian/optimal-notes-with-obsidian/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
+<item>
+  <title>Data Science</title>
+  <link>https://biscotty.online/blogs/data-science/data-science.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="R0lTJTJDUHl0aG9uJTJDRGF0YSUyMFNjaWVuY2U=" data-listing-date-sort="1740466800000" data-listing-file-modified-sort="1744128070087" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3999">
+<div class="thumbnail">
+<p><a href="../../blogs/data-science/python-movingpandas-speed-segments/index.html" class="no-external"></a></p><a href="../../blogs/data-science/python-movingpandas-speed-segments/index.html" class="no-external">
+<p><img loading="lazy" src="https://biscotty.online/blogs/data-science/python-movingpandas-speed-segments/tda3_3.png" class="thumbnail-image"></p>
+</a><p><a href="../../blogs/data-science/python-movingpandas-speed-segments/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../blogs/data-science/python-movingpandas-speed-segments/index.html" class="no-external">Speed, Simplification and Segments</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../blogs/data-science/python-movingpandas-speed-segments/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
+GIS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">
+Python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">
+Data Science
+</div>
+</div>
+<div class="listing-description">
+<a href="../../blogs/data-science/python-movingpandas-speed-segments/index.html" class="no-external">Working with MovingPandas</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../../blogs/data-science/python-movingpandas-speed-segments/index.html" class="no-external">
+<div class="listing-date">
+Feb 25, 2025
+</div>
+<div class="listing-author">
+Brian Carey
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="RGF0YSUyMFNjaWVuY2UlMkNHSVMlMkNQeXRob24=" data-listing-date-sort="1738566000000" data-listing-file-modified-sort="1744126594474" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3022">
+<div class="thumbnail">
+<p><a href="../../blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external"></a></p><a href="../../blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external">
+<p><img loading="lazy" src="https://biscotty.online/blogs/data-science/python-movingpandas-points-paths/ny6.png" class="thumbnail-image"></p>
+</a><p><a href="../../blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external">Points to Paths in Python</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">
+Data Science
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
+GIS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">
+Python
+</div>
+</div>
+<div class="listing-description">
+<a href="../../blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external">Creating trajectories in MovingPandas</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../../blogs/data-science/python-movingpandas-points-paths/index.html" class="no-external">
+<div class="listing-date">
+Feb 3, 2025
+</div>
+<div class="listing-author">
+Brian Carey
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="R0lTJTJDUHl0aG9uJTJDRGF0YSUyMFNjaWVuY2U=" data-listing-date-sort="1709103600000" data-listing-file-modified-sort="1744121426505" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2149">
+<div class="thumbnail">
+<p><a href="../../blogs/data-science/gpx-gps-data/index.html" class="no-external"></a></p><a href="../../blogs/data-science/gpx-gps-data/index.html" class="no-external">
+<p><img loading="lazy" src="https://biscotty.online/blogs/data-science/gpx-gps-data/pr2.png" class="thumbnail-image"></p>
+</a><p><a href="../../blogs/data-science/gpx-gps-data/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../blogs/data-science/gpx-gps-data/index.html" class="no-external">Trail Mapping with Python</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../blogs/data-science/gpx-gps-data/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
+GIS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">
+Python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">
+Data Science
+</div>
+</div>
+<div class="listing-description">
+<a href="../../blogs/data-science/gpx-gps-data/index.html" class="no-external">Using your GPX data with geopandas</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../../blogs/data-science/gpx-gps-data/index.html" class="no-external">
+<div class="listing-date">
+Feb 28, 2024
+</div>
+<div class="listing-author">
+Brian Carey
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://biscotty.online/blogs/data-science/data-science.html</guid>
+  <pubDate>Thu, 10 Apr 2025 16:52:03 GMT</pubDate>
+</item>
 </channel>
 </rss>

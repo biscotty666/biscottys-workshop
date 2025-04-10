@@ -214,5 +214,8 @@
   },
   "blogs/data-science.qmd": {
     "data-science.html": "26e373fc"
+  },
+  "blogs/data-science/data-science.qmd": {
+    "data-science.html": "67cdaca7"
   }
 }
