@@ -4481,6 +4481,2134 @@ font-style: inherit;">git</span> push</span></code></pre></div>
   <media:content url="https://biscotty.online/blogs/obsidian/git-github-obsidian/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
+  <title>Summarizing Information with DataviewJS</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="summarizing-information-with-dataviewjs" class="level1">
+<h1>Summarizing Information with DataviewJS</h1>
+<p><img src="https://biscotty.online/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" class="img-fluid"></p>
+<p>This article follows up on <a href="https://biscotty.online/blogs/gentle-introduction-to-dataviewjs">earlier articles</a> in which I showed how to create interactive tables which are automatically updated and can be edited directly in the table. This article will describe how to create summary statistics for data. The statistics on the dashboard update based on the current day.</p>
+<p>As you can see, I’ve done a bit of rearranging since the last article to make things even more readable. The statistics tables have been re-sized and reformatted for a cleaner display, and I’ve added more information. There are still some tweaks I want to do, but this is a very useful dashboard.</p>
+<p>A quick comment on canvases: since I started working on canvases it’s hard to go back to the 80 characters wide format of a note. Sure, when I’m writing an article or focusing on a bit of code, that format feels very natural. But when doing pretty much anything else, well, it’s just nice to be able to spread out, and not have to open and close files, or page up and down through documents. Using a canvas is like putting all of your current work on your desk, with everything open to the pages you are interested in. In a future article I will show how a dashboard can be used in place of a Daily Note to manage your day.</p>
+<p>Here is the table I will show how to create in this article. As before, you can just skip to the bottom and grab the code if you want. This article explains everything rather thoroughly and introduces some general programming concepts. I think that, if you spend a little time with the material you will find that it is not, as they say, rocket science.</p>
+<p><img src="https://biscotty.online/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-stats.png" class="img-fluid"></p>
+<p>That’s 22 numbers to calculate! The process isn’t too complicated, but we need to keep track of a lot of things. To avoid a lot of repetition, we will create some custom functions, and you need to learn how to “push” lists into lists.</p>
+<p>Let’s start by writing down what we need to do.</p>
+<ul>
+<li>Create the data sets
+<ul>
+<li>Get the logs for current and prior periods</li>
+<li>Separate by activity</li>
+</ul></li>
+<li>Make a variable and calculate each statistic for current and prior periods
+<ul>
+<li>distance for each activity and total (6 total)</li>
+<li>duration for each activity and total (6 total)</li>
+<li>speed for each activity (4 total)</li>
+<li>counts for each activity (6 total)</li>
+</ul></li>
+<li>Generate the output
+<ul>
+<li>Create the tables’ headers</li>
+<li>Generate the table rows</li>
+<li>Create headers for the with workout totals</li>
+<li>Display the tables with header elements</li>
+</ul></li>
+</ul>
+<section id="the-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-data">The data</h2>
+<p>First, let’s grab the data for the current and prior seven day periods. In the last article I showed how to get the current period. Did you figure out how to get the prior period? One way is to first take the data from the last 14 days, and then remove the most recent 7 days. So we’ll do it like this:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> priorPages <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pages</span>() </span>
+<span id="cb1-2">                    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"log"</span>)</span>
+<span id="cb1-3">                    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ActivityDate</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">moment</span>()<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">subtract</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"days"</span>))</span>
+<span id="cb1-4">                    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ActivityDate</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">moment</span>()<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">subtract</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"days"</span>)) </span></code></pre></div>
+<p>Create the <code>currentPages</code> data set as well. Then each needs to be separated by walking and biking. You can do it like this:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> currentWalkPages <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> currentPages</span>
+<span id="cb2-2">                    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Activity</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚶"</span>)</span></code></pre></div>
+<p>Go ahead and create the rest of the datasets. You need <code>currentBikePages</code>, <code>priorWalkPages</code> and <code>priorBikePages</code>.</p>
+</section>
+<section id="calculations" class="level2">
+<h2 class="anchored" data-anchor-id="calculations">Calculations</h2>
+<p>Good programming involves avoiding repetitive tasks. Whenever you need to do the same thing more than once or twice, the standard practice is to make a function.</p>
+<section id="functions" class="level3">
+<h3 class="anchored" data-anchor-id="functions">Functions</h3>
+<p>Here is an example of a function we can use. It is arguably overkill to make this a function, but it will provide a good example. A function starts with the keyword <code>function</code> followed by the name you want to use. The name is followed by parentheses which are required, but may be empty. They are used to pass arguments to the function. The function itself is then placed in curly braces. After the function does it’s work, it needs to <code>return</code> some value.</p>
+<p>I have a bunch of numbers in minutes which I want to convert to hours. This is just a matter of dividing by 60 of course, but I also want to round off to one decimal. There is a function <code>toFixed()</code> which can be used on strings. It takes one argument, the number of decimal places you want to round it to. This is the function:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toHours</span> (time) {</span>
+<span id="cb3-2"> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> (time <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb3-3">}</span></code></pre></div>
+<p>and I use it like this.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalCurrentTime <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toHours</span>( <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"duration"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> pages) )</span></code></pre></div>
+<p>Of course, I haven’t created <code>sumStat()</code> yet. To calculate the sum there is a JavaScript function called <code>reduce()</code>. It is used like this:</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">reduce</span>(</span>
+<span id="cb5-2">    (sum<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> b) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> sum <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Distance</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb5-3">     <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb5-4">)</span></code></pre></div>
+<p>The syntax looks a little complicated, but it’s not so bad if you break it down. <code>reduce()</code> takes two arguments. The first argument is <code>(sum, b) =&gt; sum + b.Distance</code>, which is itself a function with two arguments. The second argument here is our old friend <code>b</code>. In this case, we also need temporary variable called an <em>accumulator</em>. The name of this variable is arbitrary, like <code>b</code>. <code>reduce()</code> will go through each log, adding the value of the <code>Distance</code> field to the accumulator. The second argument to <code>reduce()</code> is just the initial value for the accumulator, which is almost always 0.</p>
+<p>Now I can write the function like this</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span> (stat<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> thePages) {</span>
+<span id="cb6-2">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> pageValues <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> thePages<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">values</span></span>
+<span id="cb6-3">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (stat <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"duration"</span>) {</span>
+<span id="cb6-4">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> pageValues</span>
+<span id="cb6-5">          <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">reduce</span>((sum<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> b) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> sum <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Duration</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb6-6">    }</span>
+<span id="cb6-7">    </span>
+<span id="cb6-8">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (stat <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"distance"</span>) {</span>
+<span id="cb6-9">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> pageValues</span>
+<span id="cb6-10">          <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">reduce</span>((sum<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> b) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> sum <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Distance</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb6-11">    }</span>
+<span id="cb6-12">}</span></code></pre></div>
+<p>I didn’t want to write two separate functions for calculating the sums, instead I use a <em>conditional</em> <code>if</code> statement, which works as you might expect. Notice a few things about this. First, <code>pageValues</code> just saves us adding <code>.values</code> to each <code>if</code> statement. <code>if</code> statements require a condition in parentheses. It must be something that evaluates to a <em>boolean</em> value (true or false, remember). Then, as usual, the block of code you want to execute must be in curly braces. Finally, you almost always want to <code>return</code> something. Once you hit a <code>return</code> statement, nothing else gets executed in the function.</p>
+</section>
+<section id="maths" class="level3">
+<h3 class="anchored" data-anchor-id="maths">Maths</h3>
+<p>Now we can create all of our time and distance variables like this:</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalCurrentTime <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toHours</span>( <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>( <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"duration"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> currentPages ) )</span>
+<span id="cb7-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalCurrentDistance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>( <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"distance"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> currentPages )<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span></code></pre></div>
+<p>Speed is just distance over time, so.</p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> currentWalkSpeed <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (</span>
+<span id="cb8-2">    totalCurrentWalkDistance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> totalCurrentWalkTime</span>
+<span id="cb8-3">    )</span>
+<span id="cb8-4">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span></code></pre></div>
+<p>Notice that I specified to round to one decimal point. To find the total number of workouts it is necessary merely to count the number of pages in each category, since each represents one workout. <code>pages()</code> is a list, or array. Arrays all have an attribute/property called <code>length</code>. So to count all workouts in the last seven days I can just write <code>const currentCount = currentPages.length</code>.</p>
+<p>Everything else is just repetition, since we need 22 values at the end of the day. Any repetitive activity cries out for a new function to encapsulate this repetition, but I’ll leave that for another day. (This is called <em>refactoring</em>.)</p>
+</section>
+</section>
+<section id="generate-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="generate-the-output">Generate the output</h2>
+<p>The tables from the last article used a <code>dv.pages()</code> object for the table rows. This time I need to create each table row myself. Each table row is itself a list. So I need a list of lists. It is easy to do this with the <code>push()</code> command, which just adds an item to a list. The item being added can be anything, including a list. I will build the table rows like this:</p>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">let</span> rows <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []</span>
+<span id="cb9-2">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Miles"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalCurrentDistance<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalPriorDistance])</span></code></pre></div>
+<p>I have to <em>initialize</em> the variable, because I can’t <code>push</code> anything onto a non-existent list. I used <code>let</code> instead of <code>const</code>. The difference is that a <code>const</code> variable cannot change after it has been created, while one declared with <code>var</code> can. (In older code you will see <code>var</code> instead of <code>let</code>. This still works but <code>let</code> is preferred.)</p>
+<p>So all that remains is to <code>push</code> each row of the table into the <code>rows</code> variable, create the <code>headers</code> for the table, and use <code>dv.table()</code> to display it. The final code is at the bottom. I strongly suggest, having reached this point, that you try to do this on your own and don’t simply copy and paste my code.</p>
+</section>
+<section id="final-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="final-thoughts">Final thoughts</h2>
+<p>If you read through both articles, congratulations. Give yourself a pat on the back. You are doing object-oriented programming in the most widely-used language on the internet. And you have all of the knowledge you need to create rich, useful dashboards.</p>
+<p>Happy coding!</p>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/* Create data sets  */</span></span>
+<span id="cb10-2"></span>
+<span id="cb10-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> currentPages <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pages</span>() </span>
+<span id="cb10-4">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"log"</span>)</span>
+<span id="cb10-5">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ActivityDate</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">moment</span>()<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">subtract</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"days"</span>))</span>
+<span id="cb10-6"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> priorPages <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pages</span>() </span>
+<span id="cb10-7">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"log"</span>)</span>
+<span id="cb10-8">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ActivityDate</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">moment</span>()<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">subtract</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"days"</span>))</span>
+<span id="cb10-9">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ActivityDate</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">moment</span>()<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">subtract</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"days"</span>)) </span>
+<span id="cb10-10"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> currentWalkPages <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> currentPages</span>
+<span id="cb10-11">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Activity</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚶"</span>)</span>
+<span id="cb10-12"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> currentBikePages <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> currentPages</span>
+<span id="cb10-13">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Activity</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚴"</span>)</span>
+<span id="cb10-14"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> priorWalkPages <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> priorPages</span>
+<span id="cb10-15">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Activity</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚶"</span>)</span>
+<span id="cb10-16"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> priorBikePages <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> priorPages</span>
+<span id="cb10-17">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Activity</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚴"</span>)</span>
+<span id="cb10-18"></span>
+<span id="cb10-19"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/* Function to sum the distances, duration */</span></span>
+<span id="cb10-20"></span>
+<span id="cb10-21"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span> (stat<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> thePages) {</span>
+<span id="cb10-22">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> pageValues <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> thePages<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">values</span></span>
+<span id="cb10-23">    </span>
+<span id="cb10-24">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (stat <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"duration"</span>) {</span>
+<span id="cb10-25">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> pageValues</span>
+<span id="cb10-26">          <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">reduce</span>((sum<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> b) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> sum <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Duration</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb10-27">    }</span>
+<span id="cb10-28">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (stat <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"distance"</span>) {</span>
+<span id="cb10-29">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> pageValues</span>
+<span id="cb10-30">          <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">reduce</span>((sum<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> b) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> sum <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Distance</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb10-31">    }</span>
+<span id="cb10-32">}</span>
+<span id="cb10-33"></span>
+<span id="cb10-34"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/* Function to convert minutes to hours */</span></span>
+<span id="cb10-35"></span>
+<span id="cb10-36"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toHours</span> (time) {</span>
+<span id="cb10-37"> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> (time <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb10-38">}</span>
+<span id="cb10-39"></span>
+<span id="cb10-40"></span>
+<span id="cb10-41"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/* Calculate the distances (6 values) */</span></span>
+<span id="cb10-42"></span>
+<span id="cb10-43"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalCurrentDistance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>( <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"distance"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> currentPages )<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb10-44"></span>
+<span id="cb10-45"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalCurrentWalkDistance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"distance"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span>currentWalkPages)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb10-46"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalCurrentBikeDistance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"distance"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> currentBikePages)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb10-47"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalPriorDistance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"distance"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span>priorPages)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb10-48"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalPriorWalkDistance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"distance"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span>priorWalkPages)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb10-49"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalPriorBikeDistance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"distance"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span>priorBikePages)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb10-50"></span>
+<span id="cb10-51"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/* Calculate the durations (6 values) */</span></span>
+<span id="cb10-52"></span>
+<span id="cb10-53"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalCurrentTime <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toHours</span>( <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>( <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"duration"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> currentPages ) )</span>
+<span id="cb10-54"></span>
+<span id="cb10-55"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalCurrentWalkTime <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toHours</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"duration"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span>currentWalkPages))</span>
+<span id="cb10-56"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalCurrentBikeTime <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toHours</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"duration"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span>currentBikePages))</span>
+<span id="cb10-57"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalPriorTime <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toHours</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"duration"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span>priorPages))</span>
+<span id="cb10-58"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalPriorWalkTime <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toHours</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"duration"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span>priorWalkPages))</span>
+<span id="cb10-59"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> totalPriorBikeTime <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toHours</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sumStat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"duration"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span>priorBikePages))</span>
+<span id="cb10-60"></span>
+<span id="cb10-61"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/* Calculate the speed (4 values) */</span></span>
+<span id="cb10-62"></span>
+<span id="cb10-63"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> currentWalkSpeed <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (totalCurrentWalkDistance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> totalCurrentWalkTime)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb10-64"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> priorWalkSpeed <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (totalPriorWalkDistance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> totalPriorWalkTime)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb10-65"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> currentBikeSpeed <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (totalCurrentBikeDistance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> totalCurrentBikeTime)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb10-66"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> priorBikeSpeed <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (totalPriorBikeDistance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> totalPriorBikeTime)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">toFixed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb10-67"></span>
+<span id="cb10-68"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/* Count the workouts */</span></span>
+<span id="cb10-69"></span>
+<span id="cb10-70"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> currentCount <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> currentPages<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length</span></span>
+<span id="cb10-71"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> priorCount <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> priorPages<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length</span></span>
+<span id="cb10-72"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> currentBikeCount <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> currentBikePages<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length</span></span>
+<span id="cb10-73"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> priorBikeCount <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> priorBikePages<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length</span></span>
+<span id="cb10-74"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> currentWalkCount <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> currentWalkPages<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length</span></span>
+<span id="cb10-75"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> priorWalkCount <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> priorWalkPages<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length</span></span>
+<span id="cb10-76"></span>
+<span id="cb10-77"></span>
+<span id="cb10-78"></span>
+<span id="cb10-79"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/* Create an array (list) and add the table rows</span></span>
+<span id="cb10-80"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">   The first table displays the distance and duration */</span></span>
+<span id="cb10-81">   </span>
+<span id="cb10-82"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">let</span> rows <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []</span>
+<span id="cb10-83">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Miles"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalCurrentDistance<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalPriorDistance])</span>
+<span id="cb10-84">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚶"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalCurrentWalkDistance<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalPriorWalkDistance])</span>
+<span id="cb10-85">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚴"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalCurrentBikeDistance<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalPriorBikeDistance])</span>
+<span id="cb10-86">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>])</span>
+<span id="cb10-87">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Hours"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalCurrentTime<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalPriorTime])</span>
+<span id="cb10-88">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚶"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalCurrentWalkTime<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalPriorWalkTime])</span>
+<span id="cb10-89">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚴"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalCurrentBikeTime<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> totalPriorBikeTime])</span>
+<span id="cb10-90">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>])</span>
+<span id="cb10-91">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Speed (m/h)"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>])</span>
+<span id="cb10-92">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚶"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> currentWalkSpeed<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> priorWalkSpeed])</span>
+<span id="cb10-93">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚴"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> currentBikeSpeed<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> priorBikeSpeed])</span>
+<span id="cb10-94">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>])</span>
+<span id="cb10-95">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Workouts"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> currentCount<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> priorCount])</span>
+<span id="cb10-96">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚶"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> currentWalkCount<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> priorWalkCount])</span>
+<span id="cb10-97">rows<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">push</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚴"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> currentBikeCount<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> priorBikeCount])</span>
+<span id="cb10-98"></span>
+<span id="cb10-99"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/* Create the table header */</span></span>
+<span id="cb10-100"></span>
+<span id="cb10-101"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> tableHeader <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Current"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Prior"</span>]</span>
+<span id="cb10-102"></span>
+<span id="cb10-103"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/* Display the table */</span></span>
+<span id="cb10-104"></span>
+<span id="cb10-105">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">header</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"7 Day Stats"</span>)</span>
+<span id="cb10-106">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(tableHeader<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> rows)</span></code></pre></div>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Javascript</category>
+  <category>Obsidian</category>
+  <category>PKM</category>
+  <category>DataviewJS</category>
+  <guid>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</guid>
+  <pubDate>Mon, 16 Oct 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Interactive Tables with DataviewJS</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="interactive-tables-with-dataviewjs" class="level1">
+<h1>Interactive Tables with DataviewJS</h1>
+<p><img src="https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" class="img-fluid"></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This article is a follow-up to my <a href="http://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs">Gentle Introduction to DataviewJS</a> articles, and assumes that you have read them. It is written for anglers, but if you just want the fish you can Tldr; your way to the bottom an just grab the code. Even if you are here to learn how to fish, depending on your learning style, you may want to take a look at the complete code first before this walk-through.</p>
+<p>We are now ready to start building a fully dynamic and interactive dashboard to manage the exercise logs. In this case, I’m tracking the following:</p>
+<ul>
+<li>type of activity</li>
+<li>distance</li>
+<li>duration</li>
+<li>date of activity</li>
+<li>route</li>
+</ul>
+<p>I have optional fields for notes and, as you can see, for images. Summary tables are generated using calculated values. The entire canvas updates automatically to the current day.</p>
+<p>This example could easily be extended for tracking anything which includes numerical data and images. Imagine a research project, for example, where observations are taken combining numerical data, textual observations, and photos. Actually creating the log entries, thanks to Metadata Menu and Unique Notes, takes almost no time. You can read about how to do this here.</p>
+<p>In this article, I’ll focus on creating this dynamic table.</p>
+<p><img src="https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/djs-d-cv.png" class="img-fluid"></p>
+<p>Appropriate widgets are provided allowing for direct editing or the use of popup modals for multi-select fields and dates. The list will display all logs over the last 7 days, so different logs will appear depending on the day.</p>
+<p>To do this, we will use the excellent JavaScript functionality provided by Metadata Menu. It would be more interesting were you to create a bunch of logs (notes) covering a date range of at least three months and follow along. They should all contain the following fields:</p>
+<ul>
+<li>topic</li>
+<li>type</li>
+<li>Route</li>
+<li>Activity</li>
+<li>Duration</li>
+<li>Distance</li>
+<li>Note</li>
+<li>Image</li>
+<li>Link</li>
+</ul>
+</section>
+<section id="time-math" class="level2">
+<h2 class="anchored" data-anchor-id="time-math">Time Math</h2>
+<p>Throughout this dashboard I work with time. It is natural to want to look at time periods of weeks and months, and to compare current periods to prior periods of the same length. We, just as naturally, compare a week starting Monday or Sunday to a prior week starting on the same day. And we compare February to January. This is often a good thing, because it fits the way people naturally think.</p>
+<p>But if you are really looking at the numbers, you quickly see the flaw in comparing time periods this way. You can’t compare a <strong>complete</strong> week to the prior week until the end of the week. To get around this, people use week-to-date, or quite commonly month-to-date. For months the problem is worse, as in the case of Feb/Jan comparison that’s 28 days compared to 31 days. That’s more than a 10% difference in days, and therefor in data!</p>
+<p>A simple way around this, and one which provides better analysis, is to use rolling windows of time. Any seven day period contains every day of the week, and so comparing two of any such periods valid (and complete) week-to-week comparisons. For months, you can compare any 30 (or 28) day period to the prior period of equal length, so you get a full, month-long picture with apples-to-apples data (that’s a technical term😉).</p>
+<p>In the first article I introduced <code>moment()</code>, an object provided by Dataview (by MomentJS actually). This makes time math easy. <code>moment()</code> itself means today, now, this very second. If you want the date/time two days ago, you can subtract two days with <code>moment().subtract(2, "days")</code>. I’ll leave it as an exercise to the reader to figure out how to find the date two months ago.</p>
+<p>In order to use <code>moment()</code> for any date other than now, you need to write, eg., <code>moment(new Date("2023-10-20")</code>. We will do this so that we can format the date differently using the <code>format()</code> function in <code>moment()</code>. <code>format()</code> wants an argument, a date format string. I don’t need to see the year, and a 2-digit month is fine and shorter. On the other hand, seeing the day of the week would be useful. The format string to produce “10/10 Tue” is “MM/DD ddd”. ### Challenge As an exercise, you might pause here and think about how to display “two days ago” in the format “10/10 Tue”. You have all the knowledge you need. Think about chaining commands together with the period. ### Solution</p>
+<p>Here is a solution:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> dateFormat <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"MM/DD ddd"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> twoDaysAgo <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span></span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">moment</span>() <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">subtract</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"days"</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">format</span>(dateFormat)</span>
+<span id="cb1-3"></span>
+<span id="cb1-4">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paragraph</span>(twoDaysAgo)</span></code></pre></div>
+<p>When writing, and especially reading, code, formatting is important. I could have written</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> twoDaysAgo <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">moment</span>()<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">subtract</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"days"</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">format</span>(dateFormat)</span></code></pre></div>
+<p>but it is much less clear what is going on. If you are trying to understand a piece of code, start by reformatting. ## Asynchronous Functions</p>
+<p>Most computer programs execute line by line, with each line completing before moving on to the next line. Normally this is what you want. However, as the quantity of data commonly worked with increases geometrically, and the fact that it is often distributed widely across the internet, applications which require <em>fetching</em> data can easily grind to a halt due to a slow internet connection, slow servers, large quantities, etc. To overcome this problems, some functions are executed <em>asynchronously</em>. When an asynchronous function is executed, it doesn’t return the actual data. Instead, it returns what is called a <em>promise</em>. That allows the program to continue executing while the data is being fetched. It will continue execution until the data is actually required, at which point it will wait (not freeze).</p>
+<p>In practice this is quite easy, involving the use of two new key words: <code>async</code> and <code>await</code>. The first, <code>async</code>, is added to the function definition, and the second, <code>await</code>, is added before any data fetching. That’s all you need to know so that you will understand the words when you see them.</p>
+</section>
+<section id="metadata-menu" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-menu">Metadata Menu</h2>
+<p>Metadata Menu provides an asynchronous function for making the tables interactive. To use the function, you must import it with</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode fs code-with-copy"><code class="sourceCode fsharp"><span id="cb3-1">const <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>fieldModifier: f<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span> = this.app.plugins.plugins<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"metadata-menu"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span>.api</span></code></pre></div>
+<p>Using the curly braces like this is called deconstructing a variable or function. This means that somewhere there is a function called <code>fieldModifier</code>. The <code>: f</code> is just an alias, so that every time you use the function you don’t need to write out <code>fieldModifier</code>, you can just write <code>f</code>.</p>
+<p>The other part is interesting. Take it step by step. <code>this</code> is the root directory of your vault. <code>app</code> is the hidden <code>obsidian</code> directory, inside of which there is, you guessed it, a <code>plugins</code> directory with an entry called <code>metadata-menu</code>. The rest, <code>plugins["metadata-menu"].api</code> says to look in the <code>metadata-menu</code> directory for something called <code>api</code>. This object will contain a function called <code>fieldModifier</code>, which we can now refer to simply as <code>f</code>.</p>
+<p><code>fieldModifier()</code>, which is <code>f()</code> to us now, is used in <code>map()</code> and takes three arguments: the <code>dv</code> object, whatever temporary variable you are using in <code>map()</code> (we have been using <code>b</code>), and the name of the field we want. Were it a normal function you would write</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1">dataviewjs dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pages</span>()     </span>
+<span id="cb4-2">  <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">map</span>(b<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span>[p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ActivityDate</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> </span>
+<span id="cb4-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">f</span>(dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Activity"</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb4-4">  ]</span></code></pre></div>
+<p>Since this fetching of date is asynchronous, you have to use the key words <code>async/await</code> here, so</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1">dataviewjs dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pages</span>()     </span>
+<span id="cb5-2">  <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">map</span>(<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">async</span> b<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span>[</span>
+<span id="cb5-3">    p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ActivityDate</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb5-4">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">await</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">f</span>(dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Activity"</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb5-5">    ]</span></code></pre></div>
+<p>The entire section containing <code>pages().map</code> needs to be wrapped in an asynchronous function called <code>Promise.all()</code>, which must be (a)waited for and returns, unsurprisingly, a promise.</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">await</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Promise</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all</span>(dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pages</span>()</span>
+<span id="cb6-2">  <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">map</span>(<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">async</span> b<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span>[</span>
+<span id="cb6-3">    p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ActivityDate</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb6-4">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">await</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">f</span>(dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Activity"</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb6-5">    ])</span></code></pre></div>
+</section>
+<section id="the-table" class="level2">
+<h2 class="anchored" data-anchor-id="the-table">The Table</h2>
+<p>Now, lets finally take a look at the entire code that creates the dashboard. Take some time to read through it. Everything should be understandable at this point.</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> {<span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">fieldModifier</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> f} <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span></span>
+<span id="cb7-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">this</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">app</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plugins</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plugins</span>\[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"metadata-menu"</span>\]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">api</span></span>
+<span id="cb7-3"></span>
+<span id="cb7-4"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> dateFormat <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"MM/DD ddd"</span></span>
+<span id="cb7-5"></span>
+<span id="cb7-6">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">header</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"7 Day Details"</span>)</span>
+<span id="cb7-7"></span>
+<span id="cb7-8">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(\[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🗓️"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🚶🚴"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"📓"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"⏱️"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"🗺️"</span>\]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb7-9"></span>
+<span id="cb7-10"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">await</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Promise</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all</span>(dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pages</span>()</span>
+<span id="cb7-11">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"log"</span>)</span>
+<span id="cb7-12">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">where</span>(b <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ActivityDate</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">moment</span>()<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">subtract</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"days"</span>))</span>
+<span id="cb7-13">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sort</span>(p <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ActivityDate</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"desc"</span>)</span>
+<span id="cb7-14">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">map</span>(<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">async</span> b<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span>[</span>
+<span id="cb7-15">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">moment</span>(<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">new</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Date</span>(b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ActivityDate</span>))<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">format</span>(dateFormat)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb7-16">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">await</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">f</span>(dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Activity"</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> </span>
+<span id="cb7-17">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">await</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">f</span>(dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Distance"</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> </span>
+<span id="cb7-18">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">await</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">f</span>(dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Duration"</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> </span>
+<span id="cb7-19">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">await</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">f</span>(dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Route"</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb7-20">    ]</span>
+<span id="cb7-21">  )</span>
+<span id="cb7-22">)</span></code></pre></div>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>In the <a href="https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/">next article</a> I will explain how to generate summary information like totals and averages for display on the dashboard. In the mean time I strongly suggest that you do two things:</p>
+<ol type="1">
+<li>Add images to some of your logs and create the table for the Gallery section of the dashboard</li>
+<li>Turn some of your existing Dataview tables into DataviewJS tables. Or, at least, make some new ones from your own information</li>
+<li>Spend some time working with date ranges. In this example, we selected the past seven days. How can you select the seven days prior to that? (Hint: you need to chain together two <code>where()</code> clauses.)</li>
+<li>Can you create a month-to-date view? There are various ways to do it, but it’s helpful to know that you can do <code>moment().startOf('month')</code> to grab the first day of the month. Check out the <a href="https://momentjs.com/docs/#/manipulating/">documentation</a> for more possibilities.</li>
+</ol>
+<p>Happy coding!</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Javascript</category>
+  <category>Obsidian</category>
+  <category>DataviewJS</category>
+  <guid>https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/</guid>
+  <pubDate>Sat, 14 Oct 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>DataviewJS: A Gentle Introduction</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="dataviewjs-a-gentle-introduction" class="level1">
+<h1>DataviewJS: A Gentle Introduction</h1>
+<p>This article is intended for people who are new to programming, but can serve as a jumping off point for experienced programmers new to JavaScript in general or DataviewJS in particular. The documentation can be found <a href="https://blacksmithgu.github.io/obsidian-dataview/">here</a>.</p>
+<p>You may be asking yourself, “Why learn JavaScript since I have Dataview queries to make lists and tables with my data”? You need JavaScript if, for example, you want interactive tables which allow you to edit data directly from the table without opening the associated note (very important in an <a href="http://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/">information-first, NoSQL style</a>). Or if you want to work with relative dates, eg. “last week”, without needing to update your queries every week. JavaScript allows you to show things like totals, counts and averages together with your tables. And since you are writing JavaScript anyway, you can fully customize the way everything is displayed.</p>
+<p>JavaScript may seem intimidating, but it’s really not too complex or complicated for what we need to do in Obsidian. The basic examples I start with here won’t display any tables, but will get you comfortable with some of the basic concepts and how to write simple JavaScript code. It is very important that you do these examples yourself in your own vault. Like any language, the only way to learn it is to use it (and make mistakes).</p>
+<section id="javascript" class="level2">
+<h2 class="anchored" data-anchor-id="javascript">JavaScript</h2>
+<p>JavaScript is a general purpose programming language not unlike Python, but quite different from the confusingly-named Java programming language to which it bears no relation. It is responsible for most of the dynamic content on the internet. As happens with human languages spoken widely, JavaScript has evolved a variety of “regional dialects”, sharing a common grammar and basic lexicon, but adding words and idioms to work in specific environments. DataviewJS is one such dialect, one which provides a vocabulary specifically tailored for Obsidian. It does this by giving us a <em>Dataview object</em>, but more on that later.</p>
+<p>This will be a learn-by-example sort of thing, but it’s worth mentioning a few things up front for those totally new to this. In JavaScript, spaces, tabs and line breaks don’t matter. You could write your script on one line, but that would be silly. I suggest that you use spaces and line breaks liberally, because it will make your code much easier to write, read and quickly understand when you look back at it later. You will also see some people using semi-colons at the end of lines. This, too, is optional. Finally, variables can be named however you like, but the convention for multi-word variables is to capitalize the first letter of every word except the first, like <code>theVariableName</code>.</p>
+<p>(Fun fact: this naming convention is called “camel case”, with the capital letters seen as humps protruding from the back of a camel. Two humps can be seen in one form, <code>CamelCase</code>. The form used in JavaScript, <code>camelCase</code> is specifically called “dromedary case” for apparent reasons.)</p>
+<p>One thing about JavaScript which took me a while to get used to at first was all of the curly braces (<code>{}</code>). All that they indicate is that there is a block of JavaScript code inside, usually with multiple lines. While we’re on the subject of braces, the square brackets (<code>[]</code>) are used when you want a list of things. Just separate each item by commas, and put quotations around each item, like <code>["Item 1", "Item2"]</code>. You often want to go through lists item by item (a process called iteration), and we will see later how to do this. Apostrophes (<code>'</code>) and quotations (<code>"</code>) can be used interchangeably to wrap text. Don’t worry, we’ll go over all this later.</p>
+</section>
+<section id="hello-world" class="level2">
+<h2 class="anchored" data-anchor-id="hello-world">Hello World</h2>
+<p>The first program you traditionally write in any programming language is “Hello World”, which displays, not unsurprisingly, “Hello World” as output. Here is such a one in DataviewJS:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paragraph</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Hello World"</span>)</span></code></pre></div>
+<p>The output looks like this:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1">Hello World</span></code></pre></div>
+<p>Yeah! You are now a JavaScript programmer! This simple example introduces some important concepts, though.</p>
+<p>First, when you want to write some JavaScript, you must use a code block with the key word <code>dataviewjs</code>. While you are writing code, it can be convenient to start the code block with <code>js dataviewjs</code> rather than simply <code>dataviewjs</code>. You will get nice syntax highlighting that way, and can simply remove the first <code>js</code> when you want to run your code.</p>
+<p>As you might have guessed, <code>paragraph</code> just means to display the text in parentheses as a paragraph. Technically, <code>dv.paragraph()</code> is a command, or <em>function</em>, and the part in parentheses is called the <em>arguments</em>. Note the quotations surrounding the text.</p>
+<p>So what’s this <code>dv</code> thing? Remember when I said that each flavor of JavaScript provides special vocabulary for it’s context? They do this typically by providing an “object” containing the functionality. <code>dv</code> is what is called the <em>Dataview object</em>, and anytime you want to access the functionality of DataviewJS you indicate that by starting your statement or phrase with <code>dv</code> followed by a period. Since displaying a paragraph on a page of markdown is specific to DataviewJS, we write <code>dv.paragraph()</code></p>
+<p>In addition to paragraphs, the <code>dv</code> object allows us to display headers, lists, tables, etc. In fact, the <code>dv</code> object can display any HTML element. You can display multiple elements by putting them one after another in your code.</p>
+<p>Let’s look at another example:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">header</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Introduction to DataviewJS"</span>)</span>
+<span id="cb3-2">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paragraph</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'"Hi, my name is DataviewJS"'</span>)</span></code></pre></div>
+</section>
+<section id="introduction-to-dataviewjs" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-dataviewjs">Introduction to DataviewJS</h2>
+<p>Hi, my name is DataviewJS</p>
+<p>Since it’s hard to show the result naturally, I’ve included screenshots from my vault with the code on the right and the results on the left.</p>
+<p><img src="https://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-1.png" class="img-fluid"></p>
+<p>Here I’m displaying 2 elements. Headers require two arguments, the first indicating the header level. This example is the same as writing <code>## Introduction to DataviewJS</code>. Note that we don’t use quotations around numbers (usually). The <code>dv</code> object also allows us to display lists, like this:</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Item 1"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Item 2"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Item 3"</span>])</span></code></pre></div>
+<p>Remember that, when making lists in JavaScript, you use the square brackets and separate each item with a comma. This is also called an <em>array</em>. This is a pretty simple example, but sometimes things get a lot more complicated, and since spaces and new lines don’t matter, it is good practice to write the same code like this:</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>([</span>
+<span id="cb5-2">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Item 1"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb5-3">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Item 2"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb5-4">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Item 3"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb5-5">])</span></code></pre></div>
+<p>This makes it much easier to see what is going on, and also makes copying and pasting of individual items easier, too.</p>
+</section>
+<section id="variables" class="level2">
+<h2 class="anchored" data-anchor-id="variables">Variables</h2>
+<p>Well, you may not be too impressed so far. Nothing we’ve done yet has been anything we couldn’t have done by simply writing the markdown. Things get more interesting when we start using <em>variables</em>. These allows us to create and manipulate information before displaying it. Variables are usually made (declared) with either <code>const</code> or <code>let</code> in JavaScript. So <code>const myName = "Brian"</code> creates a variable called <code>myName</code> with the value of “Brian”. We can then write this:</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> myName <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Brian"</span></span>
+<span id="cb6-2">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paragraph</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Hi, my name is "</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> myName <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"."</span>)</span></code></pre></div>
+<p>which produces</p>
+<pre><code>Hi, my name is Brian.</code></pre>
+<p>When used with text, called <em>strings</em> in coding lingo, the <code>+</code> puts together (concatenates) multiple strings. You can see that a long string with multiple variables could start to look messy. A more convenient way to combine text and variables is to use back ticks instead of quotes, and put the variable names in curly braces preceded with the dollar sign. So instead we can write:</p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> myName <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Brian"</span></span>
+<span id="cb8-2">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paragraph</span>(<span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`Hi, my name is </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>myName<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.`</span>)</span></code></pre></div>
+<p>to get the same result.</p>
+<p>You could still object, no pun intended, that we haven’t done anything we couldn’t have done just by writing out the sentence. We’ll get to that in the next article, but before closing this one, I’ll show you something you can only do with JavaScript. DataviewJS comes with another JavaScript flavor baked in called MomentJS. Like DataviewJS provides a <code>dv</code> object, MomentJS provides a <code>moment</code> object which makes it easy to work with dates and times. We’ll talk a lot more about this later, but for now you can use it like this:</p>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> today <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">moment</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Date</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">now</span>())<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">format</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"MMMM DD, YYYY"</span>)</span>
+<span id="cb9-2">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paragraph</span>(<span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`Today is </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>today<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span>)</span></code></pre></div>
+<pre><code>Today is October 10, 2023</code></pre>
+<p>This display’s today’s date in a format specified by argument to the <code>format()</code> function. Every time you open a note or canvas, the current day will be displayed.</p>
+<p>Putting it all together, we can write</p>
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> myName <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Brian"</span></span>
+<span id="cb11-2"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> today <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">moment</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Date</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">now</span>())<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">format</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"MMMM DD, YYYY"</span>)</span>
+<span id="cb11-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> learnings <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [</span>
+<span id="cb11-4">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"JavaScript basics"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb11-5">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"The dataview object"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb11-6">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Displaying elements with JavaScript"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb11-7">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"JavaScript variables"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb11-8">]</span>
+<span id="cb11-9">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">header</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`Things </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>myName<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> learned on </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>today<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span>)</span>
+<span id="cb11-10">dv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(learnings)</span></code></pre></div>
+<p>to produce</p>
+<section id="things-brian-learned-on-october-10-2023" class="level3">
+<h3 class="anchored" data-anchor-id="things-brian-learned-on-october-10-2023">Things Brian learned on October 10, 2023</h3>
+<ul>
+<li>JavaScript basics</li>
+<li>The dataview object</li>
+<li>Displaying elements with JavaScript</li>
+<li>JavaScript variables</li>
+</ul>
+<p><img src="https://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-2.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<p>In the <a href="http://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/">next article</a> I’ll start looking at using DataviewJS to make lists and tables and otherwise use the information in your vault. Meanwhile, if you want to learn more about working with dates, you can visit the <a href="https://momentjs.com/">Moment.js website</a>. And the DataviewJS documentation can be found <a href="https://blacksmithgu.github.io/obsidian-dataview/">here</a>. Happy coding!</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Javascript</category>
+  <category>Obsidian</category>
+  <category>DataviewJS</category>
+  <guid>https://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/</guid>
+  <pubDate>Wed, 11 Oct 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-2.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
   <title>Obsidian: Pretty Canvas</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/blogs/obsidian/pretty-canvas/</link>
@@ -5093,6 +7221,43 @@ font-style: inherit;">;</span></span>
   <media:content url="https://biscotty.online/blogs/obsidian/pretty-canvas/canvas-pretty-css-composite.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
+  <title>Obsidian: Freeing Your Thinking Workflow</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>I recently published <a href="https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1">several articles</a> on using Obsidian’s native database functionality to increase focus and efficiency when working with the information in our vaults. Rather than using Obsidian as a souped-up word processor, we can abandon the file paradigm altogether and use Bookmark and Canvas for accessing, editing, analyzing and organizing our information.</p>
+<p>Given the interest that the articles have generated, and the fact that the concepts may be unfamiliar to some, I thought it would be helpful to make a video demonstrating how it works in practice. It ended up being somewhat long, so this is the second part.</p>
+<p>If you haven’t read the articles, this may be confusing as I don’t go into depth on the concepts. This isn’t really a how-to video, so it assumes you know your way around Obsidian.</p>
+<hr>
+<section id="part-1" class="level1">
+<h1>Part 1</h1>
+<iframe src="https://fast.wistia.net/embed/iframe/yiot4vgtp3?seo=false&amp;videoFoam=false" title="FYT Demo Part 1 Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen="" width="750" height="422">
+</iframe>
+<script src="https://fast.wistia.net/assets/external/E-v1.js" async=""></script>
+<hr>
+</section>
+<section id="part-2" class="level1">
+<h1>Part 2</h1>
+<iframe src="https://fast.wistia.net/embed/iframe/c5nzx1xanr?seo=true&amp;videoFoam=false" title="FYT Demo Part 2 Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen="" width="750" height="422">
+</iframe>
+<script src="https://fast.wistia.net/assets/external/E-v1.js" async=""></script>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Obsidian</category>
+  <category>PKM</category>
+  <guid>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/</guid>
+  <pubDate>Thu, 21 Sep 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/fyt-walkthrough.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
   <title>Obsidian Canvas Dashboards</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/blogs/obsidian/visual-mocs-with-canvas/</link>
@@ -5550,197 +7715,75 @@ font-style: inherit;">flatpak</span> install flathub com.github.zocker_160.SyncT
   <media:content url="https://biscotty.online/blogs/obsidian/obsidian-headers/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
-  <title>What does it mean that is a NoSQL Database?</title>
+  <title>Obsidian: Stop Wasting Time With Directories and Filenames</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/blogs/obsidian/obsidian-no-sql-database/</link>
+  <link>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/</link>
   <description><![CDATA[ 
 
 
 
 
 
-<section id="sql-and-nosql" class="level1">
-<h1>SQL and NoSQL</h1>
-<p>There are two different types of databases, relational and non-relational. Relational databases are the kind most people usually think about. Data is kept in tables, with columns for fields and rows for values. The tables have special columns which relate (link) them to other tables. A well-formed table in a spreadsheet is a database. If two are linked by a common column, that is a relational database.</p>
-<p>Obsidian is obviously not a relational database.</p>
-<p>SQL stands for Structured Query Language, and it is the syntax which was designed to work with relational databases. The association of the syntax and data structure is so strong that relational databases came to be referred to as SQL databases, even though SQL, the language, can be used with any type of database.</p>
-<p>An SQL query should look familiar to you if you have used Dataview:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">SELECT</span> name <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">FROM</span> users <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">WHERE</span> location <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> “Earth” <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">ORDER</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">BY</span> age;</span></code></pre></div>
-<p>It’s just like Dataview queries, yet Obsidian is not an “SQL database”. My point is that we can use SQL queries to access our data even if it isn’t a relational database.</p>
-<p>The other type of database, a non-relational database, is unfortunately called a NoSQL database. SQL, the language, can still be used to query data in a NoSQL database. If I’ve adequately confused you, let’s proceed.</p>
-<p>Rather than storing data in tables, NoSQL databases store data in documents. Documents are text files written in a standard format, usually JSON (JavaScript Object Notation) but frequently YAML, which is the syntax used in frontmatter in Obsidian.</p>
-<p>In a NoSQL database, documents contain information and metadata in key/value pairs. The metadata can be used to make relationships (links) between data (information). NoSQL databases are flexible and new key/value pairs can be added to a document without modifying a whole table. None of the relationships need be pre-defined, nor need they be hierarchical. NoSQL databases are ideal for data structures which consist of nodes (documents) and edges (links). Does any of this sound familiar?</p>
-<p>Obsidian is a NoSQL database.</p>
+<section id="the-problem" class="level1">
+<h1>The Problem</h1>
+<p>Because we’ve all used computers, when we think of organizing our stuff we naturally think in terms of files and directories, and are aware of the value of descriptive file names. Personally, if I even need to scroll down to see all the files in a single directory, it’s probably time for a subdirectory. And I’m equally unsettled when I see files with meaningless or unclear names. Many people like me explore various systems like PARA, ACCESS, LATCH, etc. to organize our stuff.</p>
+<p>To be explicit, the stuff referred to here is files. But we use Obsidian for information management, not file management.</p>
+<p>Obsidian stores information, but it’s not a database, at least not an SQL database. It is essentially a NoSQL database (more on that in Part 2 and 3). It stores information in text files, but it doesn’t care where the files are nor what they are called. So why should we care?</p>
+<p>I should point out that the word “notes” can mean two different things, really: the file or the information it contains. Decoupling the two meanings, I really only care about the information. The file must exist, of course, but it is not important. What is important is the information in it.</p>
+<p>If I think in terms of files, I need to spend time thinking about file names and locations, both when recording and retrieving information. I need to navigate to files and directories and/or think about and type out file names. This is all wasted time because, again, the files aren’t important, it’s the information in them that I care about.</p>
+<p>Obsidian is powerful and allows us to work with our information in many ways without stopping our flow of thought to worry about files. Stop spending your time in the Navigation pane and start using Search and Bookmarks. That way, you can focus all your attention where it should be, on your information.</p>
 </section>
-<section id="on-ontologies" class="level1">
-<h1>On Ontologies</h1>
-<p>Commonly used organizational systems often focus on ontological relationships. Four relationships exist: parent, child, sibling, and friend. First, note that the first three are essentially the same since when a parent is defined, child and sibling relationships are logically specified. So we really only have two categories, which could just as easily be called “directly related” and “indirectly related”. Also, notice that in file-based hierarchical, ontological data structures a note (usually) has, rather unnaturally, only one parent.</p>
+<section id="information-first" class="level1">
+<h1>Information First</h1>
+<p>Ok, full disclosure, I do use two directories in my vault, one for templates and one for non-md files. Templates would be impractical to use lumped with all the other files. And attachments aren’t native Obsidian formats and raise other maintenance issues.</p>
 <p>Obsidian offers core functionality that allows me to ignore files and focus on information. I’m referring to Search, Bookmarks and Unique Notes. The latter is effectively invisible in articles and videos, and the other two rarely come up. This is especially surprising with regard to Search because that’s the most efficient and powerful way to find information in your vault. Most presenters use Quick Switcher or the Navigator to create and access files in order to create or access information. This is an extra step, wasting time and energy and impeding the flow of thought.</p>
-<p>SQL databases rely on hierarchy. NoSQL databases don’t. By thinking in hierarchical, ontological terms, we tie ourselves to a table-based way of thinking. By thinking instead about direct and indirect relationships, a note can have multiple “parents” because it can naturally relate directly to more than one topic. (We all have at least two parents in life, and often have other people who fill the role as well.) These articles, for example, have two main topics, two direct relationships: Obsidian and Personal Knowledge Management. I don’t have to choose one or the other. I might decide to write about information processing, in which case these articles could be given another “parent”, the new topic.</p>
+<p><code>Ctrl-Shft-F</code> is all I need to do to start querying my information. I don’t need to open any files, I just start typing what I’m looking for. If I think I might look for the same or similar information later, I can bookmark the filter.</p>
+<p>When I want to write something down, I hit <code>Ctrl-U</code> (I’ve got an assigned hotkey), type my thought, then immediately return to my reading. Again, I don’t have to think about files and directories. It’s that simple, fast, and does not impede my thinking with irrelevant considerations and extra keystrokes.</p>
 </section>
-<section id="interacting-with-nosql-databases" class="level1">
-<h1>Interacting with NoSQL Databases</h1>
-<p>The word graph is commonly used to refer to many different types of charts, such as bar charts or line graphs. It has a more specific meaning, however, which is the specific type of graph produced by Graph View. This is the normal way that these data structures are visualized, which is why Graph View is the ideal way to visually explore our vault. This is also the way neural networks are visualized.</p>
-<p>Getting information from NoSQL databases is done through queries, not by opening documents. Filters in Obsidian Search have all the capabilities of Dataview queries, with a somewhat simpler syntax.</p>
+<section id="search" class="level1">
+<h1>Search</h1>
+<p>Simply typing the word or phrase I’m looking for in the search field will bring up all directly relevant notes on my topic. In case of TMI, I can specify that the terms should be in the same section or the same line. With Hover Editor, I can see the contents of each file listed without opening it, and even modify content directly if I want. I don’t need to actually open a file to get the information I’m looking for, or even modify it.</p>
+<p>Search filters are just as powerful as Dataview queries. I can use logical AND, OR and NOT, group them with parentheses and sort by modified date. I can include or exclude based on any criteria (WHERE) and specify source (FROM). And I can save the filters as bookmarks. This way I don’t need to have a file that contains a query. The query results don’t “live” in a file, either. I do use Dataview queries frequently to aggregate information that I want to display information in notes. I do not use it to aggregate files that I want to interact with. That’s what Search is for.</p>
 </section>
-<section id="final-words" class="level1">
-<h1>Final words</h1>
-<p>I hope I have explained what it means to say that Obsidian is a NoSQL and the implications of that. Everything we write, every word, becomes part of a database, and we can use the power of databases to retrieve information. Stop using Obsidian as a file manager!</p>
-
-
+<section id="bookmarks" class="level1">
+<h1>Bookmarks</h1>
+<p>I can bookmark files, of course, but I don’t… instead I bookmark sections or blocks (information, not files). I can also bookmark searches and graphs, and organize bookmarks in directories and subdirectories. In most of the videos I see, people have the Navigator panel open “by default”. For me, it’s the bookmarks panel. The Bookmarks panel provides an information tree, the Navigator panel provides a file tree. I want the information tree.</p>
+<p>I can use bookmarks and metadata to mimic directories if I want. My new notes used to go in a certain directory called +, and I had an “Inbox” note with a Dataview query to display the notes. The default template I now apply to every new note contains a field status:: new. I have also bookmarked a search filter “status:: new”. To see all of my new notes, I don’t need to open a directory or go to a file containing a Dataview query. All I need to do is click on the bookmark.</p>
+<p>Any useful search can be bookmarked. I have a bookmark, “action”, for example, which shows all files requiring attention. I always have many bookmarked searches and graphs related to topics I’m focused on, organized in virtual directories.</p>
 </section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>Obsidian</category>
-  <guid>https://biscotty.online/blogs/obsidian/obsidian-no-sql-database/</guid>
-  <pubDate>Thu, 24 Aug 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/blogs/obsidian/obsidian-no-sql-database/fyt-cover.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
-  <title>Regular Expressions for In-Line Fields</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/blogs/obsidian/regex-search-in-line-metadata/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>If you are like me and use in-line (double colon) fields more than YAML, the improvements to metadata management (Properties) wasn’t much of a help. The new filter syntax, <code>["key":value]</code>, and the glob version, <code>["key":]</code>, don’t search in-line fields.</p>
-<p>Of course, this isn’t unexpected. Obsidian, for what I’m sure are good reasons, resists embracing in-line metadata, even though it is very widely used. Oh well, hope springs eternal… Nevertheless, though I’ve tried many times, I can’t give up on the convenience of in-lines.</p>
-<p>Because in-line fields use two colons, which do not appear together in ordinary writing, it is easy to filter for them. For a glob filter like <code>["key":]</code> in the new Properties, you can simply use <code>"key:: "</code> to achieve the same effect, querying in-line metadata instead of YAML.</p>
-<p>Filtering for specific values is a little trickier, because we must take into account multi-value fields. Fortunately, Obsidian allows us to use regular expressions in filters, and a simple one will achieve our goal. To use regular expressions, use the slash, <code>/</code>, as a delimiter instead of <code>"</code>. (In the example above, we actually could have used <code>/key:: /</code> instead of <code>"key:: "</code>.)</p>
-<p>In regular expressions, a period, <code>.</code>, matches any character, and an asterisk, <code>*</code>, indicates that there can be 0 or more of a character. By putting the combination <code>.*</code> before the value that we are filtering, we are saying that there may or may not be other characters between the field name and the value being searched. In other words, there may be multiple values.</p>
-<p>So, even if the value we are looking for is one among many, to search for a specific key/value, you can use <code>/key:: .*value/</code>, which does the same as <code>["key":value]</code> does for YAML.</p>
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>Obsidian</category>
-  <guid>https://biscotty.online/blogs/obsidian/regex-search-in-line-metadata/</guid>
-  <pubDate>Wed, 23 Aug 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/blogs/obsidian/regex-search-in-line-metadata/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
-  <title>Optimal Notes with Obsidian</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/blogs/obsidian/optimal-notes-with-obsidian/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="optimal-notes-with-obsidian" class="level1">
-<h1>Optimal Notes with Obsidian</h1>
-<blockquote class="blockquote">
-<p>…a tale in the spirit of Euripides</p>
-</blockquote>
+<section id="unique-notes" class="level1">
+<h1>Unique Notes</h1>
+<p>Most people are unfamiliar with Unique Notes, even though it is a core plugin. This plugin will generate a new file with a unique name in a pre-defined location and automatically apply a specified template. The idea of randomly-named files dumped in one directory does seem scary, but don’t worry. The default template is, for me at least, entirely metadata. Metadata can be either frontmatter or double-colon in-line style. My template currently looks like this:</p>
+<pre><code>%%
+topic-ex::
+related-ex::
+created-ex:: &lt;% tp.date.now("YYYY-MM-DD") %&gt;
+last edit-ex::
+type-ex:: article
+status-ex:: 0
+source-ex::
+title-ex::
+link-ex::
+action-ex:: false
+%%</code></pre>
+<p>topic and related take meaningfully named links, possibly to non-existent files (Obsidian doesn’t care about existence either). type can be atomic, moc, log, etc. Everything else should be self-explanatory. I don’t have to fill any of this in when I’m making notes. I can just jot down the thought and keep reading and thinking. And I can get back to them later by opening my bookmarked “status:: new” search. When I revisit the note to make it atomic, I can fill in the rest of the fields.</p>
+<p>With this plugin, as I said earlier, I just press Ctrl-U and start writing my information without ever thinking about file names and directories.</p>
+<p>Efficiency Tip: When I’m reading a book or article, knowing I will take several notes in succession from the same source, I temporarily edit the default template to include basic information like source, title, etc. so I don’t have to type what is essentially boilerplate when I process the note and make it atomic.</p>
 </section>
-<section id="motivation" class="level1">
-<h1>Motivation</h1>
-<p>Learning and creativity involve gathering information through our senses and then discovering relationships, mundane or novel, between all those bits of information. The neural network that is our brain is very powerful at relationships, so-so on information storage, and very poor at information retrieval. Over time our brain becomes filled with more and more information which becomes effectively less and less accessible. A number of great thinkers have said that they never remember something that can easily be looked up.</p>
-<p>Obsidian is often referred to as a second brain. This is because it does not work like a database, spreadsheet, or any other typical storage system. It is itself structured more like a neural network. It efficiently and quickly handles information storage and retrieval, and does so in a way that mimics a neural network and facilitates the creative process of identifying relationships between thoughts. A picture is worth a thousand words, so here is an example of a collection of notes (called a vault in Obsidian) with lines which indicate relationships. These linkages develop over time as a vault becomes more mature.</p>
+<section id="try-it-out-without-commitment" class="level1">
+<h1>Try it out without commitment</h1>
+<p>Since I started with Obsidian, I’ve changed the way I work multiple times. But rarely do I need to “clean up” old notes. For example, as my logging system has evolved, I have left all my old logs and their related Dataview queries in place, adding the newly written queries above them. It just means I have multiple query blocks instead of one in my Exercise Note, for example, but the information displayed remains the same.</p>
+<p>Fuller disclosure: I actually have more directories in my vault than just templates and attachments. I used to use the ACCESS directory structure and have many, many notes. When I switched to this information first way, I stopped caring about files, remember, and I didn’t want to start this journey by launching into a massive exercise of moving files around, and adding metadata to all my old notes. That would be unacceptably ironic.</p>
+<p>Obsidian is truly a compassionate ally. Very little needs to be done. I had to re-write some queries, as mentioned above. But any Dataview queries which aggregated files instead of information are no longer necessary anyway. For example, my Inbox note that displayed my new notes became irrelevant, since I now have a bookmarked filter, “status:: new”. If directory locations were really important in some queries, just add “(path:old-directory) OR” to your filters.</p>
+<p>You could just continue to keep your Calendar notes in the same place as you do now, for that matter, or any other plugin that already has directory locations specified in settings. There is no need to be doctrinaire and rigid, after all, since we don’t care about directories anyway. Keep it simple, flexible, and don’t waste time on things that don’t add value.</p>
+<p>Finally, I’ll point out that I didn’t give up on meaningful file names, just at the point of initially writing down an idea. One step in processing a note to ensure its completion and atomicity is to change the name of the file. At the processing stage, choosing a name does not interrupt the flow of thinking, but complements it, since it helps encapsulate an idea and solidify my understanding. It’s just not something to do when making a fleeting note, that’s all. And the name will be useful later.</p>
 </section>
-<section id="the-tragedy-of-notes" class="level1">
-<h1>The Tragedy of Notes</h1>
-<p>I never learned how to take notes. When I was a young student I had a “casual” relationship with note-taking. In high school I organized my notes chronologically, ie. I put them on top of a pile 😉. In college I adopted the innovative approach of seperating my notes by subject matter. I did start taking much more detailed notes in Math and Science classes though, thinking that I would want to refer back to this information in future classes.</p>
-<p>When I started my masters program I realized I needed to get serious about my note-taking. Throughout my classes I took meticulous notes on the lectures. I had very experienced doctors and teachers sharing their personal knowledge and clinical experience and I didn’t want to miss a scintilla. By the end of the program I aced my classes and had many binders full of notes. I was ready to move into my profession armed with this awesome resource 😃.</p>
-<p>Reality bites. From time to time a client would present with an unusual group of symptoms and I would remember a teacher suggesting a particular herb or formula for this unusual condition. Happily I’m sure I wrote it down and it’s in my notes. So I just need to find it… somewhere… people are waiting…</p>
-<p><strong>Where? Which notebook?</strong></p>
-<p>Somewhere in all those notes is the one piece of information that I need. Somewhere, in all those beautiful, organized binders full of valuable notes painstakingly gathered over years, now, effectively useless. Sadness and dispair set in 😢.</p>
-</section>
-<section id="deus-ex-machina" class="level1">
-<h1>Deus Ex Machina</h1>
-<p>When I started studying probability and statistics, data analysis and R programming I realized that I needed a radically different approach to my note-taking. I needed a system where I could quickly retrieve discrete pieces of information which may have been gleaned from a variety of sources. I needed dedicated note-taking software. Lot’s of data science students and professionals were/are moving to Obsidian away from more traditionally structured note-taking applications like Notewise, and of course I checked it out. It turned out it is popular not only among data scientists but by all manner of students, teachers, researchers and writers. In fact, anyone concerned with managing personal information.</p>
-<p><strong>And, wow! Obsidian is revolutionary.</strong></p>
-<p>Obsidian is free software unlike any other, focused as much on retrieval of information as on storage of information, although it’s pretty slick there too. In addition Obsidian offers many ways to relate notes through links and add metadata to enrich notes. (Did I mention it’s free?)</p>
-<p>Obsidian provides:</p>
-<ul>
-<li>A feature-rich editor for text files (in Markdown syntax)</li>
-<li>Powerful indexing: every word in every note can be quickly found</li>
-<li>Flexible structure for your information which need not be predefined but evolves naturally over time</li>
-<li>A variety ways to apply and reference metadata, both standard and custom</li>
-<li>No databases or other backend or proprietary formats, just text files</li>
-</ul>
-<p>Let’s look at these points in a bit of detail.</p>
-</section>
-<section id="working-in-obsidian" class="level1">
-<h1>Working in Obsidian</h1>
-<p>Obsidian provides a disarmingly simple but powerful editing experience. The user interface is of modern design. It uses Markdown, a standardized markup language similar to but much simpler than html. With easily-learned syntax you can create beautiful formatted documents enriched with visual elements such as drawings, charts, images, videos and pdf files. Many different themes are available to fit your taste, and if you know some CSS you can fully customize the appearance of notes. (Programmers can even embed JavaScript.)</p>
-<p>Obsidian’s functionality can be extended through the use of the hundreds of community plugins available. For example, I use a program called Todoist for task management. A plugin allows me to create these tasks from within Obsidian and report on them (query them) in my notes. In order to easily consume web content I use a plugin called Surfing, which allows me to open a web page in Obsidian and convert the page to a Markdown text file. I can then easily “clip” parts with a right-click, and these snippets provide the basis and reference for notes I make on the material I’m reading.</p>
-<section id="fast-powerful-search" class="level2">
-<h2 class="anchored" data-anchor-id="fast-powerful-search">Fast, Powerful Search</h2>
-<p>This is where Obsidian directly addresses the Tragedy of Notes. Literally every word in every note can be immediately retrieved thanks to a blazingly fast indexing system. Start typing a word or phrase and you will see all the notes that contain those words or phrases along with their context. With a little practice you can make sophisticated searches involving multiple conditions. Usually just a few words will find the information you are looking for.</p>
-<p>So in the scenario above I could have found the answer to my question in seconds.</p>
-</section>
-<section id="structure-emerges-naturally" class="level2">
-<h2 class="anchored" data-anchor-id="structure-emerges-naturally">Structure Emerges Naturally</h2>
-<p>When think of keeping notes beyond a bunch of Word documents we naturally think of spreadsheets or databases. The structure of our data can be arbitrary in the case of spreadsheets or must be pre-defined for databases. Changing the structure later involves a lot of effort. But for quick retrieval of information you need a database, right?</p>
-<p>Well remember we already dealt with that above. (We don’t need no stinkin’ database.) What we have instead in Obsidian are “backlinks”, which are references from one note to another. This gives us the opportunity for a structure which evolves “organically”. As you make notes and develop them you will begin to connect ideas in one note with another note. A quick search can find all occurences of similar ideas, and relevant notes can be linked to. This cross-linking of information is the neural network, the second brain referred to above.</p>
-</section>
-<section id="information-about-information" class="level2">
-<h2 class="anchored" data-anchor-id="information-about-information">Information About Information</h2>
-<p>Metadata has entered the awareness of most people these days through controversies around the Government’s access to phone records. In these cases, the FBI doesn’t (usually) have access to the actual data, the conversations. What they do have is the metadata. This information includes dates, times, who called whom, where the people were, how long the conversation lasted, etc. Investigators say that they can often learn as much from the metadata than from the actual content.</p>
-<p>Obsidian allows for the flexible and customizable application of metadata to notes, and this metadata can serve many puposes. For example, if I were writing an article which incorporated a series of observations taken over time (in seperate notes), using metadata I can easily pull the information I need into my article. I could use metadata to easily create a list of references for my article. I could use metadata to track the status of my project (draft, in review, final, published).</p>
-</section>
-<section id="creativity-beyond-information-retrieval" class="level2">
-<h2 class="anchored" data-anchor-id="creativity-beyond-information-retrieval">Creativity: Beyond Information Retrieval</h2>
-<p>So far I’ve really focused on information retrieval. And I’ve given a practical example of the usefulness of that quick retrieval. But there is another great value of Obsidian, which is to facilitate the creation of new works.</p>
-<p>Obsidian is ideal for a note-taking approach called Zettelkasten, which is German for a box of index cards. In a zettelkasten system notes are “atomic”, meaning they are independent, self-contained pieces of information which are then coded and correlated for easy retrieval. This is how Carl Linnaeus was able to create the biological classification system we still use today. Another oft-cited example is the sociologist Niklas Luhmann who produced around 70 books and 400 academic papers. He apparently had 90,000 notes in his Zettelkasten.</p>
-<p>This approach to note-taking is widely practiced in Europe but not so in the USA. Obsidian facilitates all kinds of writing, not just academic writing. The recently deceased Joan Rivers, a comedian, author and talk show host, had 60,000 notes. Other famous comediens like Bob Hope and George Carlin did the same.</p>
-<p>Zettelkasten through the centuries</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<section id="th-century" class="level4">
-<h4 class="anchored" data-anchor-id="th-century">17th Century</h4>
-<p><img src="https://biscotty.online/blogs/obsidian/optimal-notes-with-obsidian/17thCZ.jpg" class="img-fluid"></p>
-</section>
-</div><div class="column" style="width:50%;">
-<section id="th-century-1" class="level4">
-<h4 class="anchored" data-anchor-id="th-century-1">20th century</h4>
-<p><img src="https://biscotty.online/blogs/obsidian/optimal-notes-with-obsidian/20thCZ.jpg" class="img-fluid"></p>
-</section>
-</div>
-</div>
-<section id="st-century" class="level4">
-<h4 class="anchored" data-anchor-id="st-century">21st century</h4>
-<p><img src="https://biscotty.online/blogs/obsidian/optimal-notes-with-obsidian/GraphView.png" class="img-fluid"></p>
-</section>
-</section>
-<section id="freedom-and-privacy" class="level2">
-<h2 class="anchored" data-anchor-id="freedom-and-privacy">Freedom and Privacy</h2>
-<p>Finally I’ll mention one more aspect of Obsidian. All of your notes are just text files stored on your own computer. They don’t get transmitted or stored anywhere else (unless you want to). Since they are text files they can be opened and read by any editor like Notepad, LibreOffice or Word. You back up your notes in the same way you back up everything else on your system (which you do, right?). Noone is tracking your notes or any other information about you.</p>
-<p>Obsidian is about Personal Information. It’s your brain!</p>
-</section>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>I hope that I have convinced you to download Obsidian and explore it’s potential. Personally I can’t imagine taking notes any other way now. Obsidian is easy to use, and there are many on-line resources to help you out including the Guides on this site. I’ve listed a few below. Resources</p>
-<p>A shout out to these folks who helped me get started:</p>
-<ul>
-<li>From Sergio</li>
-<li>Linking Your Thinking with Nick Milo</li>
-<li>Zsoldt’s Visual Personal Knowledge Management</li>
-<li>Nicole van der Hoeven</li>
-</ul>
+<section id="closing-thoughts" class="level1">
+<h1>Closing Thoughts</h1>
+<p>This article covers recording and retrieval of information. The second part covers how to analyze and synthesize information with this system.</p>
+<p>I hope I have convinced you at least to give it a try. Obsidian offers so many ways for us to free our thinking and focus on information and flow of thought. Keep the file tree closed, instead use the information tree.</p>
+<p>I am aware that this topic may be controversial because it goes so clearly against most of the approaches proposed on the internet. I do not mean any disrespect to the authors and videographers who have helped and inspired my journey with Obsidian, and to whom I am grateful.</p>
+<p>Continue to <a href="http://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2">Part 2</a></p>
 
 
 </section>
@@ -5748,9 +7791,82 @@ font-style: inherit;">BY</span> age;</span></code></pre></div>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>Obsidian</category>
   <category>PKM</category>
-  <guid>https://biscotty.online/blogs/obsidian/optimal-notes-with-obsidian/</guid>
-  <pubDate>Sat, 05 Aug 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/blogs/obsidian/optimal-notes-with-obsidian/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
+  <guid>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/</guid>
+  <pubDate>Thu, 24 Aug 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/fyt-cover.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>Obsidian: Meaningless Names, No Directories, Now What?</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="freeing-your-thinking-part-2" class="level1">
+<h1>Freeing Your Thinking Part 2</h1>
+<section id="analyzing-and-synthesizing-information" class="level2">
+<h2 class="anchored" data-anchor-id="analyzing-and-synthesizing-information">Analyzing and Synthesizing Information</h2>
+<p>Let me state my goal plainly: I want to be able to find all of my relevant information on a given topic and synthesize my understanding of that topic in a document or drawing, maybe for personal use, maybe for sharing or publishing.</p>
+<p>For this purpose, a primary tool I use is Graph View. Yes, Graph View. And, in the process, I rehabilitate file names as a Valuable Thing.</p>
+<p>To explain why Graph View is the best tool for this type of work, I need to re-visit the idea of Obsidian as a database.</p>
+</section>
+<section id="sql-and-nosql-databases" class="level2">
+<h2 class="anchored" data-anchor-id="sql-and-nosql-databases">SQL and NoSQL Databases</h2>
+<p>There are two different types of databases. Most common are relational databases, or SQL databases. These are table-based (think spreadsheets) and depend on pre-defining relationships and hierarchies between tables. But Obsidian is clearly not an SQL database, since it has no underlying table structure. It is, in fact, a NoSQL database, aka non-relational database.</p>
+<p>The Substack Helper thought my detailed explanation too long for this article, so I moved most of the discussion to Part 3. I encourage you to read that before continuing, but it is not actually necessary</p>
+<p><strong>TLDR: Since <a href="http://biscotty.online/blogs/obsidian/obsidian-no-sql-database/">Obsidian is a non-relational database</a>, I use it as such.</strong></p>
+<p>Databases are queried for information. We have search filters that we can use for that, and which can be applied to both graphs and searches. We don’t get information from a database by opening a table or navigating to a record in the database. That is effectively the approach you take if you open a note to get its information.</p>
+</section>
+<section id="filenames-revisited" class="level2">
+<h2 class="anchored" data-anchor-id="filenames-revisited">Filenames revisited</h2>
+<p>In the first part, I talked about a workflow which created files with unique, meaningless names. If you have tried the proposed workflow, however, you will already have a number of meaningfully named notes in your vault. Every note has a topic:: field, which is a link or links, and those linked files have the name of the topic. The file may or may not actually exist. For Graph View, it doesn’t matter. You may have added links to the related:: field as well, thereby creating more meaningfully name notes. In the course of processing your atomic notes, you have given them meaningful names. Now that we are getting visual, meaningful names are useful. All your MOCs, existing or not, are already meaningfully named.</p>
+</section>
+<section id="graph-view" class="level2">
+<h2 class="anchored" data-anchor-id="graph-view">Graph View</h2>
+<p>The most frequent type of comment I see about Graph View is along the lines of “it’s pretty to look at, but when you have a lot of notes it just becomes a useless, chaotic mess”. That’s like complaining that a dataview query listing every note in your vault is just too overwhelming to deal with. Well, yeah! Other than when you are enjoying the eye candy, you would never look at an unfiltered graph any more than use an unfiltered query.</p>
+<p>As described in part one, filters can be just as sophisticated as dataview queries, and graph filters works exactly like filters do in Search. So, if I want to explore the information I have relating to a topic, I start by typing the topic in the graph filter. Now I can see all the files containing the words of the topic, any of which are potentially related. Some may already be linked, but if I show orphans, I can see more files which could or should be linked to the topic. With Hover Editor, it’s easy to look at each document’s contents and decided whether they should be related or not without opening the file. And if they should be, I can add the link directly in Hover Editor. I never need to actually open any files. And I can add or remove words to my filter to find information that is related but perhaps worded differently. Finally, I can bookmark the graph and easily return to it later to discover new, related information using the same filters.</p>
+<p>Assuming I have already created notes on a topic, I will already have a map of content named after the topic. If the file doesn’t yet exist, I can click on the node to create it and manually add the standard template. This Map of Content will already have a list of related files and a graph view which shows them, both accessible in the right sidebar. Now, as I look at potentially relevant notes in Graph View and add links to the topic:: field, my MOC is accumulating the links, and a neural network is developing.</p>
+<p>The right sidebar version of the graph provides an additional feature, the ability to adjust “levels”. This allows you to not only see notes linked to the current note, but also notes that are linked to those notes. In a family tree this is kind of like cousins, cousins once-removed, and so forth. Some of these more distant relations should/could be directly linked to the main topic.</p>
+<p>And remember, thanks to Hover Editor, I never have to open a file except when I create one.</p>
+</section>
+<section id="knowledge-trees" class="level2">
+<h2 class="anchored" data-anchor-id="knowledge-trees">Knowledge Trees</h2>
+<p>Honestly, sometimes my brain just wants a list of things without extra visual stimulation. With Bookmarks, I can build knowledge trees for a topic, basically like a rich outline.</p>
+<p>I create a virtual (bookmark) directory for the topic. As I work with my information, I bookmark interesting blocks with information (I do not bookmark files, just information). These could be sections, paragraphs, images, embedded PDFs…anything really. Bookmarks can be named as well. For complex topics, I can create subdirectories as appropriate.</p>
+<p>This results in what is essentially a detailed outline of all my information on a topic. A virtual Map of Content, if you will.</p>
+</section>
+</section>
+<section id="synthesis" class="level1">
+<h1>Synthesis</h1>
+<p>After all of this, I am ready to write. I have a blank or bare-bones file on a topic I am interested in and about which I have accumulated a bunch of information. While the note may have no content yet, apart from the standard template, all the related information in my vault is ready and available visually in graphs as well as being outlined in my Bookmarks tab. In developing my ideas, I can apply or modify filters to any of these views if necessary. As I write, thanks again to Hover Editor, I don’t need to open any files to access (or even modify) the information in them. I can stay in my document, stay in my head, and not break my thought process.</p>
+<section id="the-elephant-in-the-room" class="level2">
+<h2 class="anchored" data-anchor-id="the-elephant-in-the-room">The Elephant in the Room</h2>
+<p>More advanced users often use the Excalibrain plugin to visualize their vault. It is useful if you are thinking in terms of files and ontological relationships between them. I love the Excalidraw plugin and use it a lot for visual mocs. I had really hoped that I would like Excalibrain, too. But, for my process, it is inferior in a number of ways to Graph View.</p>
+<p>Graph View allows me to easily discover and interact with notes that are not yet linked to my topic. I can see orphans and adjust my filter, asking my questions in different ways, adding and removing search terms to reveal more potential relevant information.</p>
+<p>Visually, Excalibrain is blocky and static. Graph view is multi-form and dynamic. From a visual perspective, this is obviously personal preference. But the dynamism of Graph View is very useful and for me makes it superior.</p>
+<p>As new notes are linked, all the nodes adjust to fit them in place, kind of like in your brain, in which new information shifts your thought patterns. Dragging nodes and changing force levels can emphasize relationships, and I can achieve elegant visual representations of my information this way. Notes can be visually grouped using colors, which is useful for complex topics with multiple sub-topics. The relative size of nodes indicates the information density of a note, suggesting other topics or sub-topics which could be developed. I find all of this useful.</p>
+<p>In short, Graph View is fluid and flexible. Just the way I like my thinking.</p>
+</section>
+</section>
+<section id="closing-thoughts" class="level1">
+<h1>Closing Thoughts</h1>
+<p>The approaches I’ve outlined allow me to focus almost entirely on my information and not my files. I obviously need to open files when I create them, or when working on a Map of Content or Production Note, but when exploring my information I don’t waste any physical or thinking time and energy on them.</p>
+<p>If you’ve made it this far, thank you very much for reading. Constructive Criticism is Always Welcome.</p>
+<p>Continue to <a href="http://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/">Part 3</a></p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Obsidian</category>
+  <category>PKM</category>
+  <category>Graphs</category>
+  <guid>https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/</guid>
+  <pubDate>Thu, 24 Aug 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/fyt-cover.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>
