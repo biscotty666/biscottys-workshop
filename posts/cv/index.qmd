@@ -1,0 +1,13 @@
+---
+title: "Brian Carey"
+listing:
+  contents: "*/index.qmd"
+  type: default
+  sort: "date desc"
+  categories: true
+  feed:
+    items: 10
+    type: partial
+sidebar: posts-side
+comments: false
+---

@@ -349,5 +349,14 @@
   },
   "posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.qmd": {
     "index.html": "863575e0"
+  },
+  "posts/cv/index.qmd": {
+    "index.html": "d114ae12"
+  },
+  "posts/cv/fna/index.qmd": {
+    "index.html": "35c4f925"
+  },
+  "posts/cv/tech/index.qmd": {
+    "index.html": "dc341a48"
   }
 }

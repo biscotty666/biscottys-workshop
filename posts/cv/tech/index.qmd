@@ -1,0 +1,8 @@
+---
+title: "Technology"
+description: "Experience and Training"
+format: html
+---
+# Technology
+
+{{< lipsum 1 >}}
