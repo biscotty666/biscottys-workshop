@@ -346,5 +346,8 @@
   },
   "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.qmd": {
     "index.html": "a2f9c285"
+  },
+  "posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.qmd": {
+    "index.html": "863575e0"
   }
 }

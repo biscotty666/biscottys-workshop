@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://biscotty.online/posts/data-science/python-gpx-mapping.html</loc>
-    <lastmod>2025-04-12T15:50:03.149Z</lastmod>
+    <lastmod>2025-04-12T16:53:51.153Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/data-science/data-science.html</loc>
-    <lastmod>2025-04-12T15:14:09.393Z</lastmod>
+    <lastmod>2025-04-12T16:53:51.151Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html</loc>
-    <lastmod>2025-04-12T15:14:09.391Z</lastmod>
+    <lastmod>2025-04-12T16:53:51.153Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/blogs/syncing-your-thinking-syncthing/index.html</loc>
@@ -90,27 +90,27 @@
   </url>
   <url>
     <loc>https://biscotty.online/posts/obsidian/obsidian.html</loc>
-    <lastmod>2025-04-12T15:31:59.454Z</lastmod>
+    <lastmod>2025-04-12T16:53:51.210Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html</loc>
-    <lastmod>2025-04-12T15:14:09.390Z</lastmod>
+    <lastmod>2025-04-12T16:53:51.157Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/index.html</loc>
-    <lastmod>2025-04-12T16:32:15.909Z</lastmod>
+    <lastmod>2025-04-12T16:53:51.147Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/linux/nixos-linux-different/index.html</loc>
-    <lastmod>2025-04-12T15:14:09.394Z</lastmod>
+    <lastmod>2025-04-12T16:53:51.166Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/linux/linux.html</loc>
-    <lastmod>2025-04-12T16:14:05.973Z</lastmod>
+    <lastmod>2025-04-12T16:53:51.166Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/obsidian/metadata-menu/index.html</loc>
-    <lastmod>2025-04-12T15:14:09.402Z</lastmod>
+    <lastmod>2025-04-12T16:53:51.194Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/resources.html</loc>
@@ -119,5 +119,109 @@
   <url>
     <loc>https://biscotty.online/about.html</loc>
     <lastmod>2025-04-12T16:49:33.978Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/dataview.html</loc>
+    <lastmod>2025-04-12T16:53:51.167Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/regex-search-in-line-metadata/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.224Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.182Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.184Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/pretty-canvas/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.224Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/git-github-obsidian/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.184Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/graph-view-deets/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.192Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/obsidian-whiteboards/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.210Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.178Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/dataview/dataviewjs-summaries-statistics/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.177Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/obsidian-headers/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.199Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/data-science/obsidian-jupyter/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.153Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/posts.html</loc>
+    <lastmod>2025-04-12T16:53:51.263Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/data-science/TrailMappingWithR.html</loc>
+    <lastmod>2025-04-12T16:53:51.149Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.163Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/optimal-notes-with-obsidian/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.213Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/dataview/dataviewjs-files-dates/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.168Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.173Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/obsidian-bookmarks/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.194Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.263Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/obsidian-no-sql-database/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.207Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/freeing-your-thinking.html</loc>
+    <lastmod>2025-04-12T16:53:51.178Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.181Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/obsidian-jupyter/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.205Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/second-brain/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.232Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.242Z</lastmod>
   </url>
 </urlset>
