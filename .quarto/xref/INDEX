@@ -217,5 +217,11 @@
   },
   "blogs/data-science/data-science.qmd": {
     "data-science.html": "67cdaca7"
+  },
+  "blogs/data-science/obsidian-jupyter/index.qmd": {
+    "index.html": "8229890a"
+  },
+  "blogs/data-science/TrailMappingWithR.qmd": {
+    "TrailMappingWithR.html": "188784bb"
   }
 }

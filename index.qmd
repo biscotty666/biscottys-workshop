@@ -1,6 +1,7 @@
 ---
 image: "images/trunks.png"
 toc: false
+freeze: true
 comments: false
 bibliography: references.bib
 suppress-bibliography: true
@@ -9,15 +10,33 @@ about:
   image-shape: rectangle
   image-width: 10em
 ---
+
 # biscotty's Workshop
 
 > For the love of learning
 
-### Welcome
+## Welcome
 
 Here you will find articles about things that interest me. Much of the site is devoted to technological topics such as Linux, programming, and data science. There is a "humanities" section as well where I post on a range of topics such as history, linguistics, Chinese medicine, gardening and cooking, and music.
 
-If this is your first time, check out the all the posts [here](https://biscotty.online/blogs/blogs.html).
+If this is your first time, check out the all the posts [here](https://biscotty.online/blogs/blogs.html), or use the search icon in the upper left.
+
+::: panel-tabset
+
+### Obsidian
+
+[Obsidian](https://obsidian.md) is Personal Knowledge Management software
+
+### Data Science
+
+asdf
+
+data science stuff
+
+### Other topics
+
+other stuff
+:::
 
 ### What's new
 

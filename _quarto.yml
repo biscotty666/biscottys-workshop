@@ -5,6 +5,9 @@ project:
     port: 4326
     browser: false
 
+execute: 
+  freeze: true
+  
 website:
   title: "biscotty's Workshop"
   favicon: images/BWLogo.png
@@ -71,6 +74,10 @@ format:
     mainfont: Nunito
     toc: true
     page-layout: full
+    anchor-sections: true
+    smooth-scroll: true
+    link-external-icon: true
+    link-external-newwindow: true
 
 editor: visual
 
