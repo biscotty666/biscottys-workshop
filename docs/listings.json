@@ -1,10 +1,59 @@
 [
   {
+    "listing": "/posts/obsidian/dataview.html",
+    "items": [
+      "/posts/obsidian/dataview/dataviewjs-files-dates/index.html",
+      "/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html",
+      "/posts/obsidian/dataview/dataviewjs-summaries-statistics/index.html",
+      "/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/linux/linux.html",
+    "items": [
+      "/posts/linux/nixos-linux-different/index.html"
+    ]
+  },
+  {
     "listing": "/posts/data-science/python-gpx-mapping.html",
     "items": [
       "/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
       "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
       "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/posts.html",
+    "items": [
+      "/posts/obsidian/obsidian-jupyter/index.html",
+      "/posts/data-science/obsidian-jupyter/index.html",
+      "/posts/obsidian/obsidian-whiteboards/index.html",
+      "/posts/obsidian/git-github-obsidian/index.html",
+      "/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html",
+      "/posts/obsidian/dataview/dataviewjs-summaries-statistics/index.html",
+      "/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html",
+      "/posts/obsidian/pretty-canvas/index.html",
+      "/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html",
+      "/posts/obsidian/visual-mocs-with-canvas/index.html",
+      "/posts/obsidian/metadata-menu/index.html",
+      "/posts/obsidian/obsidian-bookmarks/index.html",
+      "/posts/obsidian/graph-view-deets/index.html",
+      "/posts/obsidian/second-brain/index.html",
+      "/posts/obsidian/syncing-your-thinking-syncthing/index.html",
+      "/posts/obsidian/obsidian-headers/index.html",
+      "/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html",
+      "/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html",
+      "/posts/obsidian/obsidian-no-sql-database/index.html",
+      "/posts/obsidian/regex-search-in-line-metadata/index.html",
+      "/posts/obsidian/optimal-notes-with-obsidian/index.html",
+      "/posts/obsidian/dataview/dataviewjs-files-dates/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/cv/index.html",
+    "items": [
+      "/posts/cv/fna/index.html",
+      "/posts/cv/tech/index.html"
     ]
   },
   {
@@ -43,60 +92,11 @@
     ]
   },
   {
-    "listing": "/posts/linux/linux.html",
-    "items": [
-      "/posts/linux/nixos-linux-different/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/obsidian/dataview.html",
-    "items": [
-      "/posts/obsidian/dataview/dataviewjs-files-dates/index.html",
-      "/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html",
-      "/posts/obsidian/dataview/dataviewjs-summaries-statistics/index.html",
-      "/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/posts.html",
-    "items": [
-      "/posts/obsidian/obsidian-jupyter/index.html",
-      "/posts/data-science/obsidian-jupyter/index.html",
-      "/posts/obsidian/obsidian-whiteboards/index.html",
-      "/posts/obsidian/git-github-obsidian/index.html",
-      "/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html",
-      "/posts/obsidian/dataview/dataviewjs-summaries-statistics/index.html",
-      "/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html",
-      "/posts/obsidian/pretty-canvas/index.html",
-      "/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html",
-      "/posts/obsidian/visual-mocs-with-canvas/index.html",
-      "/posts/obsidian/metadata-menu/index.html",
-      "/posts/obsidian/obsidian-bookmarks/index.html",
-      "/posts/obsidian/graph-view-deets/index.html",
-      "/posts/obsidian/second-brain/index.html",
-      "/posts/obsidian/syncing-your-thinking-syncthing/index.html",
-      "/posts/obsidian/obsidian-headers/index.html",
-      "/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html",
-      "/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html",
-      "/posts/obsidian/obsidian-no-sql-database/index.html",
-      "/posts/obsidian/regex-search-in-line-metadata/index.html",
-      "/posts/obsidian/optimal-notes-with-obsidian/index.html",
-      "/posts/obsidian/dataview/dataviewjs-files-dates/index.html"
-    ]
-  },
-  {
     "listing": "/posts/obsidian/freeing-your-thinking.html",
     "items": [
       "/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html",
       "/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html",
       "/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/cv/index.html",
-    "items": [
-      "/posts/cv/fna/index.html",
-      "/posts/cv/tech/index.html"
     ]
   }
 ]

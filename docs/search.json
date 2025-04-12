@@ -1,314 +1,10 @@
 [
   {
-    "objectID": "posts/data-science/python-gpx-mapping.html",
-    "href": "posts/data-science/python-gpx-mapping.html",
-    "title": "GPX Trail Mapping in Python",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Brian Carey",
     "section": "",
-    "text": "Trail Mapping with Python\n\n\n\n\n\n\nGIS\n\n\nPython\n\n\nData Science\n\n\n\nUsing your GPX data with geopandas\n\n\n\n\n\nFeb 28, 2024\n\n\nBrian Carey\n\n\n\n\n\n\n\n\n\n\n\n\nPoints to Paths in Python\n\n\n\n\n\n\nData Science\n\n\nGIS\n\n\nPython\n\n\n\nCreating trajectories in MovingPandas\n\n\n\n\n\nFeb 3, 2025\n\n\nBrian Carey\n\n\n\n\n\n\n\n\n\n\n\n\nSpeed, Simplification and Segments\n\n\n\n\n\n\nGIS\n\n\nPython\n\n\nData Science\n\n\n\nWorking with MovingPandas\n\n\n\n\n\nFeb 25, 2025\n\n\nBrian Carey\n\n\n\n\n\n\nNo matching items\n\n Back to top",
-    "crumbs": [
-      "Home",
-      "Data Science",
-      "GPX Trail Mapping in Python"
-    ]
-  },
-  {
-    "objectID": "posts/data-science/data-science.html",
-    "href": "posts/data-science/data-science.html",
-    "title": "Data Science",
-    "section": "",
-    "text": "Trail Mapping with Python\n\n\n\n\n\n\nGIS\n\n\nPython\n\n\nData Science\n\n\n\nUsing your GPX data with geopandas\n\n\n\n\n\nFeb 28, 2024\n\n\nBrian Carey\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian and Jupyter Notebooks\n\n\n\n\n\n\nObsidian\n\n\nPython\n\n\nData Science\n\n\n\nPersonal Knowledge Management for Data Science\n\n\n\n\n\nMar 20, 2024\n\n\nBrian Carey\n\n\n\n\n\n\n\n\n\n\n\n\nPoints to Paths in Python\n\n\n\n\n\n\nData Science\n\n\nGIS\n\n\nPython\n\n\n\nCreating trajectories in MovingPandas\n\n\n\n\n\nFeb 3, 2025\n\n\nBrian Carey\n\n\n\n\n\n\n\n\n\n\n\n\nSpeed, Simplification and Segments\n\n\n\n\n\n\nGIS\n\n\nPython\n\n\nData Science\n\n\n\nWorking with MovingPandas\n\n\n\n\n\nFeb 25, 2025\n\n\nBrian Carey\n\n\n\n\n\n\nNo matching items\n\n Back to top",
-    "crumbs": [
-      "Home",
-      "Data Science"
-    ]
-  },
-  {
-    "objectID": "posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
-    "href": "posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
-    "title": "Trail Mapping with Python",
-    "section": "",
-    "text": "In the world of Data Science, I’m most strongly drawn to geographically-linked data. Choropleth maps, for example, are about the most powerful way to convey statistical information and get a point across, if you will forgive the intolerable pun. Attaching data to geography somehow makes information more relatable, more personal, and more easily absorbable. It gives people a reference point, a “you are here”, if you will, or maybe “There, but for the grace of God…”.\nI am fortunate to live in New Mexico where I can take beautiful and varied walks, hikes and bike rides nearly every day, which I do. I record most of my excursions with an app on my phone, and I realized recently that I must have lots of data that I can play with to do mapping and analysis. I was pleased to discover that the simple app I use on my phone to track my excursions can easily export the data to GPX format. I had no idea what GPX format was then, but assumed it was some standard, so things looked promising, and off I went.\nThe data I use comes from an app called SportActive. Apps like AllTrails and Strava are wonderful, especially when exploring new places, but they are overkill IMO for simple tracking of daily, and largely repetitive, activities. SportActive simply records my walks and rides, without asking if I want to share my walk with my “friends” like a meal on Facebook. (Disclaimer: I have no financial relationship with SportActive, although if you could arrange such a thing I’d happily change this disclaimer.)\nIn this and two following articles, I will show how the data can be used with Python to map and analyze the GPS information. I will show how to do analyses such as profiling elevations, calculating speeds and durations, identifying pauses, and segmenting paths based on various criteria. This type of analysis, which I’m doing for fun, is the very same as could be used to, for example, study bird migrations or the movement of container ships.\nPython provides many libraries based around the pandas ecosystem which make working with geospatial data easy. GeoPandas extends Pandas to incorporate geometries and coordinate reference systems. GPX data is a series of geolocated points, which is easily handled by geopandas. MovingPandas facilitates turning the point geometries into “trajectories”, allowing for calculations of speed, duration and direction.\nThis article will cover parsing the raw GPS data to a csv file, which I then import into a geopandas GeoDataFrame. From that I will create maps and generate some basic statistical information about the trek such as distance and elevation profiles. These articles assume basic familiarity with Python, experience with Pandas being helpful. An expanded version of the code in the articles can be obtained from my GitHub repository at https://github.com/bisotty666/GPX.",
-    "crumbs": [
-      "Data Science",
-      "Python Gpx Mapping",
-      "Trail Mapping with Python"
-    ]
-  },
-  {
-    "objectID": "posts/data-science/python-gpx-mapping/gpx-gps-data/index.html#introduction",
-    "href": "posts/data-science/python-gpx-mapping/gpx-gps-data/index.html#introduction",
-    "title": "Trail Mapping with Python",
-    "section": "",
-    "text": "In the world of Data Science, I’m most strongly drawn to geographically-linked data. Choropleth maps, for example, are about the most powerful way to convey statistical information and get a point across, if you will forgive the intolerable pun. Attaching data to geography somehow makes information more relatable, more personal, and more easily absorbable. It gives people a reference point, a “you are here”, if you will, or maybe “There, but for the grace of God…”.\nI am fortunate to live in New Mexico where I can take beautiful and varied walks, hikes and bike rides nearly every day, which I do. I record most of my excursions with an app on my phone, and I realized recently that I must have lots of data that I can play with to do mapping and analysis. I was pleased to discover that the simple app I use on my phone to track my excursions can easily export the data to GPX format. I had no idea what GPX format was then, but assumed it was some standard, so things looked promising, and off I went.\nThe data I use comes from an app called SportActive. Apps like AllTrails and Strava are wonderful, especially when exploring new places, but they are overkill IMO for simple tracking of daily, and largely repetitive, activities. SportActive simply records my walks and rides, without asking if I want to share my walk with my “friends” like a meal on Facebook. (Disclaimer: I have no financial relationship with SportActive, although if you could arrange such a thing I’d happily change this disclaimer.)\nIn this and two following articles, I will show how the data can be used with Python to map and analyze the GPS information. I will show how to do analyses such as profiling elevations, calculating speeds and durations, identifying pauses, and segmenting paths based on various criteria. This type of analysis, which I’m doing for fun, is the very same as could be used to, for example, study bird migrations or the movement of container ships.\nPython provides many libraries based around the pandas ecosystem which make working with geospatial data easy. GeoPandas extends Pandas to incorporate geometries and coordinate reference systems. GPX data is a series of geolocated points, which is easily handled by geopandas. MovingPandas facilitates turning the point geometries into “trajectories”, allowing for calculations of speed, duration and direction.\nThis article will cover parsing the raw GPS data to a csv file, which I then import into a geopandas GeoDataFrame. From that I will create maps and generate some basic statistical information about the trek such as distance and elevation profiles. These articles assume basic familiarity with Python, experience with Pandas being helpful. An expanded version of the code in the articles can be obtained from my GitHub repository at https://github.com/bisotty666/GPX.",
-    "crumbs": [
-      "Data Science",
-      "Python Gpx Mapping",
-      "Trail Mapping with Python"
-    ]
-  },
-  {
-    "objectID": "posts/data-science/python-gpx-mapping/gpx-gps-data/index.html#next-steps",
-    "href": "posts/data-science/python-gpx-mapping/gpx-gps-data/index.html#next-steps",
-    "title": "Trail Mapping with Python",
-    "section": "Next steps",
-    "text": "Next steps\nI naturally want to be able to make calculations of speed and distance, identify pauses, and do other exploration. Starting from discrete points, the steps to do so manually would be simple but exceedingly tedious. Fortunately there is a wonderful library called movingpandas which makes these things all very simple. I’ll explore that in the next articles.\nI’ll go ahead and save the GeoDataFrames for future use:\ntrek_gdf.to_file('data/trek_gdf.gpkg', driver='GPKG')\ntrek_projected.to_file('data/trek_projected.gpkg', driver='GPKG')",
-    "crumbs": [
-      "Data Science",
-      "Python Gpx Mapping",
-      "Trail Mapping with Python"
-    ]
-  },
-  {
-    "objectID": "blogs/syncing-your-thinking-syncthing/index.html",
-    "href": "blogs/syncing-your-thinking-syncthing/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/syncing-your-thinking-syncthing.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/second-brain/index.html",
-    "href": "blogs/second-brain/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/second-brain.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/obsidian-jupyter/index.html",
-    "href": "blogs/obsidian-jupyter/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/obsidian-jupyter.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/dataviewjs-files-dates/index.html",
-    "href": "blogs/dataviewjs-files-dates/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/dataviewjs-files-dates.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/obsidian-no-sql-database/index.html",
-    "href": "blogs/obsidian-no-sql-database/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/obsidian-no-sql-database.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/visual-mocs-with-canvas/index.html",
-    "href": "blogs/visual-mocs-with-canvas/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/visual-mocs-with-canvas.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/python-movingpandas-speed-segments/index.html",
-    "href": "blogs/python-movingpandas-speed-segments/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/data-science/python-movingpandas-speed-segments/.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/obsidian-whiteboards/index.html",
-    "href": "blogs/obsidian-whiteboards/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/obsidian-whiteboards.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/python-movingpandas-points-paths/index.html",
-    "href": "blogs/python-movingpandas-points-paths/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/data-science/python-movingpandas-points-paths/.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/obsidian-headers/index.html",
-    "href": "blogs/obsidian-headers/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/obsidian-headers.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/optimal-notes-with-obsidian/index.html",
-    "href": "blogs/optimal-notes-with-obsidian/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/optimal-notes-with-obsidian.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/gpx-gps-data/index.html",
-    "href": "blogs/gpx-gps-data/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https://biscotty.online/blogs/data-science/gpx-gps-data.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/obsidian-bookmarks/index.html",
-    "href": "blogs/obsidian-bookmarks/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/obsidian-headers.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/metadata-menu/index.html",
-    "href": "blogs/metadata-menu/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/metadata-menu.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/graph-view-deets/index.html",
-    "href": "blogs/graph-view-deets/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/graph-view-deets.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/git-github-obsidian/index.html",
-    "href": "blogs/git-github-obsidian/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/git-github-obsidian.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/pretty-canvas/index.html",
-    "href": "blogs/pretty-canvas/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/pretty-canvas.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/regex-search-in-line-metadata/index.html",
-    "href": "blogs/regex-search-in-line-metadata/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/regex-search-in-line-metadata.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "blogs/dataviewjs-interactive-dynamic-tables/index.html",
-    "href": "blogs/dataviewjs-interactive-dynamic-tables/index.html",
-    "title": "biscotty's Workshop",
-    "section": "",
-    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/dataviewjs-interactive-dynamic-tables/.\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "posts/obsidian/obsidian.html",
-    "href": "posts/obsidian/obsidian.html",
-    "title": "Obsidian",
-    "section": "",
-    "text": "Obsidian is Personal Knowledge Management PKM software. If you don’t know what Obsidian or PKM are, you could start with this article. I have many articles here about advanced usage, taking full advantage of Obsidian’s design. Freeing your thinking explains how to move beyond directory structures, taking advantage of the no-sql nature of Obsidian. There is also a series about the usage of dataviewjs, written for non-programmers, to create dashboards and interactive tables.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMar 20, 2024\n\n\nObsidian and Jupyter Notebooks\n\n\nBrian Carey\n\n\n\n\nJan 20, 2024\n\n\nObsidian Canvas Work Spaces\n\n\nBrian Carey\n\n\n\n\nJan 19, 2024\n\n\nGit and GitHub for Obsidian Users\n\n\nBrian Carey\n\n\n\n\nOct 16, 2023\n\n\nSummarizing Information with DataviewJS\n\n\nBrian Carey\n\n\n\n\nOct 14, 2023\n\n\nInteractive Tables with DataviewJS\n\n\nBrian Carey\n\n\n\n\nOct 11, 2023\n\n\nDataviewJS: A Gentle Introduction\n\n\nBrian Carey\n\n\n\n\nOct 5, 2023\n\n\nObsidian: Pretty Canvas\n\n\nBrian Carey\n\n\n\n\nSep 21, 2023\n\n\nObsidian: Freeing Your Thinking Workflow\n\n\nBrian Carey\n\n\n\n\nSep 14, 2023\n\n\nObsidian Canvas Dashboards\n\n\nBrian Carey\n\n\n\n\nSep 6, 2023\n\n\nObsidian Metadata Menu Plugin\n\n\nBrian Carey\n\n\n\n\nSep 5, 2023\n\n\nObsidian Bookmarks\n\n\nBrian Carey\n\n\n\n\nAug 31, 2023\n\n\nObsidian: The mechanics of Graph View\n\n\nBrian Carey\n\n\n\n\nAug 30, 2023\n\n\nObsidian: A Second Brain?\n\n\nBrian Carey\n\n\n\n\nAug 28, 2023\n\n\nSyncing your Thinking with Syncthing\n\n\nBrian Carey\n\n\n\n\nAug 27, 2023\n\n\nObsidian Basics - Headers\n\n\nBrian Carey\n\n\n\n\nAug 24, 2023\n\n\nObsidian: Stop Wasting Time With Directories and Filenames\n\n\nBrian Carey\n\n\n\n\nAug 24, 2023\n\n\nObsidian: Meaningless Names, No Directories, Now What?\n\n\nBrian Carey\n\n\n\n\nAug 24, 2023\n\n\nWhat does it mean that is a NoSQL Database?\n\n\nBrian Carey\n\n\n\n\nAug 23, 2023\n\n\nRegular Expressions for In-Line Fields\n\n\nBrian Carey\n\n\n\n\nAug 5, 2023\n\n\nOptimal Notes with Obsidian\n\n\nBrian Carey\n\n\n\n\nFeb 28, 2023\n\n\nDataviewJS: A Gentle Introduction Part 2\n\n\nBrian Carey\n\n\n\n\n\nNo matching items\n\n Back to top",
-    "crumbs": [
-      "Home",
-      "Obsidian"
-    ]
-  },
-  {
-    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
-    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
-    "title": "Points to Paths in Python",
-    "section": "",
-    "text": "In the prior article, I showed how to use raw GPS data generated from a sport tracker to create maps and profile elevations along the path. The GeoDataFrames created were just a collection of point geometries with time, location and elevation data. To profile, for example, speed, requires converting the point geometries to line geometries, calculating distances and time deltas between each point, and converting between coordinate systems and units of measurement. If we were concerned with bearing, we would need to also calculate angles between the line segments we create. None of this is overly complicated, just awfully tedious. But this being Python, there is a dedicated library that makes all of this easy peasy.\nMovingPandas is a library that extends Pandas/Geopandas by taking the list of point geometries and turning them into “trajectories”. It generates directed lines between consecutive points, and provides functions for all of the calculations I mentioned above and more.\nIn this article I will show how to create and work with trajectories. I’ll then show how to use MovingPandas to find locations along the path based on time, find the distance from the path to nearby locations, and finally how to identify locations where I paused or stopped. In the next article, I will show how to simplify and smooth paths, profile speed, and segment the trajectories based on various criteria. As before, an expanded version of the code in this article is available in my repository.\n\n\n\nI’ll start by loading the necessary libraries and creating a helper function for mapping as well as some defaults for annotating points on the maps. Then i will load some data converted from raw GPS data as described in the previous article.\nimport pandas as pd \nimport geopandas as gpd \nimport movingpandas as mpd \nimport matplotlib.pyplot as plt\nimport contextily as ctx\nfrom datetime import datetime, timedelta\nfrom geopandas.tools import reverse_geocode, geocode\nimport warnings\nwarnings.filterwarnings('ignore')\n\ndef t_plot(traj, \n            figsize=(6,8), \n            source=ctx.providers.CartoDB.Voyager, \n            title=None):\n    f, ax = plt.subplots(figsize=figsize)\n    traj.plot(ax=ax, lw=4, color='chartreuse')\n    ctx.add_basemap(ax, crs=traj.crs, \n                    source=source)\n    ax.set_axis_off()\n    if title: \n        ax.set_title(title)\n    else:\n        ax.set_title(\n            f'Walk in {traj.df.Name[0]} on {traj.df.index[0].strftime('%x')}'\n        )\n    return f, ax\n\nannot_props = dict(\n    xytext=(3, 1), \n    textcoords=\"offset fontsize\", \n    c='r', weight='bold', ha='center',\n    arrowprops=dict(arrowstyle='-', ec='orange')\n)\n\ndf = pd.read_csv('data/b3/combined.csv')\ngdf = gpd.GeoDataFrame(\n    df, \n    geometry=gpd.points_from_xy(x=df.Lon, y=df.Lat), \n    crs=4269\n).to_crs(32111)\nMovingPandas requires an integer id for each walk, which I don’t have, so I’ll create one based on the string id. I’ll also convert the Time from a generic object to datetime64.\nidList = list(gdf.groupby(['Id']).nunique().reset_index().Id)\nfor i, track in enumerate(idList):\n    gdf.loc[gdf.Id == track, 'trajectory_id'] = i\ngdf['Time'] = pd.to_datetime(gdf.Time)\ngdf.info()\n&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;\nRangeIndex: 3044 entries, 0 to 3043\nData columns (total 10 columns):\n #   Column         Non-Null Count  Dtype              \n---  ------         --------------  -----              \n 0   Id             3044 non-null   object             \n 1   Name           3044 non-null   object             \n 2   Lat            3044 non-null   float64            \n 3   Lon            3044 non-null   float64            \n 4   Elev           3044 non-null   int64              \n 5   Time           3044 non-null   datetime64[ns, UTC]\n 6   Temp           3044 non-null   float64            \n 7   Weather        3044 non-null   int64              \n 8   geometry       3044 non-null   geometry           \n 9   trajectory_id  3044 non-null   float64            \ndtypes: datetime64[ns, UTC](1), float64(4), geometry(1), int64(2), object(2)\nmemory usage: 237.9+ KB\nOne of the walks in the collection was in New York City, and the rest in New Jersey. Since the locations are pretty far apart, I’ll split out the NYC walk from the others.\ngdf_nj = gdf.loc[gdf.Name != 'New York']\ngdf_ny = gdf.loc[gdf.Name == 'New York']\ngdf_nj.shape, gdf_ny.shape\n((2063, 10), (981, 10))\n\n\n\nNow I’m ready to create the trajectories. The data will be imported as a Trajectory Collection which will contain the individual Trajectories. I’ll first create one from the NJ group, which contains several walks.\ntc_nj = mpd.TrajectoryCollection(\n    gdf_nj, 'trajectory_id', \n    t='Time', x='Lon', y='Lat'\n)\nprint(tc_nj)\nTrajectoryCollection with 6 trajectories\nLet’s see what this looks like.\nax = traj_collection.plot(\n    column='trajectory_id', \n    legend=True, figsize=(9,5), cmap='Set1')\nax.set_title('Walks in NJ, September 2024')\nctx.add_basemap(ax, crs=gdf_proj.crs,\n                source=ctx.providers.Esri.WorldTopoMap);\n\nI can extract a single trajectory and its underlying data frame.\ntraj_nj1 = tc_nj.trajectories[2]\nprint(traj_nj1)\nTrajectory 2.0 (2024-09-07 21:20:23.975000 to 2024-09-07 22:03:42.022000) | Size: 267 | Length: 5173.1m\nBounds: (177912.1946985984, 243124.49067874879, 179216.17084672116, 245408.85808260852)\nLINESTRING (178912.27991325516 244815.1747420021, 178912.27991325516 244815.1747420021, 178903.67850\nThe associated data is stored in the df attribute:\nprint(traj_nj1.df.info())\n&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;\nDatetimeIndex: 267 entries, 2024-09-07 21:20:23.975000 to 2024-09-07 22:03:42.022000\nData columns (total 9 columns):\n #   Column         Non-Null Count  Dtype   \n---  ------         --------------  -----   \n 0   Id             267 non-null    object  \n 1   Name           267 non-null    object  \n 2   Lat            267 non-null    float64 \n 3   Lon            267 non-null    float64 \n 4   Elev           267 non-null    int64   \n 5   Temp           267 non-null    float64 \n 6   Weather        267 non-null    int64   \n 7   geometry       267 non-null    geometry\n 8   trajectory_id  267 non-null    float64 \ndtypes: float64(4), geometry(1), int64(2), object(2)\nmemory usage: 29.0+ KB\nNone\nt_plot(traj_nj1, source=ctx.providers.OpenStreetMap.HOT);\n\nAnother way to extract a specific trajectory is using MovingPandas’ filter function, as so:\nt_plot(\ntc_nj.filter(\"Name\", [\"Park Ridge\"])\n     .trajectories[0]\n);\n\nFor the rest of the article I’ll use the longest trek I have in this data set, the one in New York. I’ll create the Trajectory Collection, extract the single trajectory and find the start and end times and locations.\ntc_ny = mpd.TrajectoryCollection(\n    gdf_ny, 'trajectory_id', \n    t='Time', x='Lon', y='Lat'\n)\ntraj_ny = tc_ny.trajectories[0]\nst = traj_ny.get_start_time()\nsl = traj_ny.to_crs(4269).get_start_location()\net = traj_ny.get_end_time()\nel = traj_ny.to_crs(4269).get_end_location()\nprint(f'''\n            Time         Location (Lon/Lat)\n            \n    Start: {st.strftime('%X')}   {sl.coords[0]} degrees\n    End:   {et.strftime('%X')}   {el.coords[0]}  degrees\n\n    Duration:  {traj_ny.get_duration().seconds/60:.0f} minutes\n    Distance:  {traj_ny.get_length(units='mi'):.2f} miles\n    Direction: {traj_ny.get_direction():.0f} degrees\n''')\n            Time         Location (Lon/Lat)\n            \n    Start: 17:43:42   (-73.991157, 40.752025) degrees\n    End:   20:49:09   (-73.98894, 40.726903)  degrees\n\n    Duration:  185 minutes\n    Distance:  6.69 miles\n    Direction: 176 degrees\nt_plot(traj_ny);\n\n\n\n\nFirst, let me find my position at an arbitrary time, and then 30 minutes later. Where was I, for example, at 18:00, and then 45 minutes later?\nt = datetime(2024, 9, 11, 18)\nt2 = t + timedelta(minutes=45)\nprint(f'''\n    Nearest:      {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='nearest')}\n    Interpolated: {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='interpolated')}\n    Previous row: {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='ffill')}\n    Next row:     {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='bfill')}\n''')\n    Nearest:      POINT (-74.003574 40.756368)\n    Interpolated: POINT (-74.00361304734385 40.75638409846633)\n    Previous row: POINT (-74.003688 40.756415)\n    Next row:     POINT (-74.003574 40.756368)\nI can use the geocode tool provided by geopandas to get the nearest addresses at these points so I can show them on the map. Pay attention to crs, since nominatim expects lat/lon coordinates and we currently have projected coordinates.\npoint = traj_ny.get_position_at(t, method='interpolated')\npoint_up = traj_ny.to_crs(4269).get_position_at(t, method='interpolated')\npoint2 = traj_ny.get_position_at(t2, method='interpolated')\npoint2_up = traj_ny.to_crs(4269).get_position_at(t2, method='interpolated')\n\nrg = reverse_geocode(\n    [point_up, point2_up], \n    provider=\"nominatim\", \n    user_agent=\"your_project\", \n    timeout=10\n).to_crs(32111)\n\nf, ax = t_plot(traj_ny)\ngpd.GeoSeries(point).plot(ax=ax, color='red', markersize=100)\ngpd.GeoSeries(point2).plot(ax=ax, color='red', markersize=100)\nfor x, y, label in zip(rg.geometry.x, rg.geometry.y, rg.address):\n    ax.annotate(f'{label.split(',')[0]}, {label.split(',')[1]}', \n                xy=(x, y), **annot_props)\nax.set_ylim(211500, 214500)\nax.set_xlim(191400, 192500);\n\nIt might be more interesting to plot my location at regular intervals along the walk. What about plotting my location every 30 minutes?\nint_count = (et - st) // timedelta(seconds=(60*30))\nint_length = (et - st) / int_count\nintervals = [st + (i*int_length) for i in range(int_count)]\ninterval_points = [traj_ny.to_crs(4269).get_position_at(\n                    t, method='interpolated') \n                   for t in intervals]\nrg = reverse_geocode(\n    interval_points, \n    provider=\"nominatim\", \n    user_agent=\"your_project\", \n    timeout=10\n).to_crs(32111)\n\nf, ax = t_plot(traj_ny, figsize=(7,11))\nrg.plot(ax=ax, c='r', markersize=100)\nfor x, y, label in zip(rg.geometry.x, rg.geometry.y, rg.address):\n    ax.annotate(f'{label.split(',')[0]}, {label.split(',')[1]}', \n                xy=(x, y), **annot_props)\nax.set_title(ax.get_title() + f'\\nEvery 30 minutes');\n\n\n\n\nNot only can you calculate distances along the path, which we will look at more in the next article, but you can calculate the distance from points along the trajectory to other locations not on the path. It will determine the closest you came to other points, lines or polygons, including, of course, other trajectories. For example, when I’m in New York, I love to visit the Strand and the huge Barnes and Noble on Union Square. I didn’t have time this trip, sadly, but I’m curious how close I was from those stores.\naddresses = [{\n                'id': 1,\n                'name': \"The Strand\", \n                'addr': \"828 Broadway, New York, NY 10003\"\n            }, \n            {\n                'id': 2,\n                'name': \"Barnes and Noble\", \n                'addr': \"33 East 17th Street, 10003, New York\"\n            }]\nadd_df = pd.DataFrame(addresses)\ngeo = geocode(\n    add_df['addr'], \n    provider='nominatim', \n    user_agent='your_project', \n    timeout=10\n)\nbook_stores = geo.join(add_df).to_crs(32111)\nprint(book_stores)\n                        geometry  \\\n0  POINT (192997.822 211055.516)   \n1  POINT (193108.568 211461.041)   \n\n                                             address  id              name  \\\n0  Strand Bookstore, 828, Broadway, University Vi...   1        The Strand   \n1  Barnes & Noble, 33, East 17th Street, Union Sq...   2  Barnes and Noble   \n\n                                   addr  \n0      828 Broadway, New York, NY 10003  \n1  33 East 17th Street, 10003, New York\ndists_to = [traj_ny.distance(book_stores.loc[i, ['geometry']], \n                            units='mi')[0] \n            for i in range(len(book_stores))]\nstore_names = [book_stores.loc[i, 'name'] \n               for i in range(len(book_stores))]\nfor i in range(len(book_stores)):\n    print(f'Closest distance to {store_names[i]} was {dists_to[i]:.1f} miles') \nClosest distance to The Strand was 0.4 miles\nClosest distance to Barnes and Noble was 0.6 miles\nf, ax = t_plot(traj_ny, figsize=(7,11))\nbook_stores.plot(ax=ax, color='red', markersize=100)\nfor x, y, label in zip(book_stores.geometry.x, \n                       book_stores.geometry.y, \n                       book_stores.name):\n    ax.annotate(label, xy=(x,y), **annot_props)\n\n\n\n\nIn this final section I’ll look at stop detection. Here I’ll just be considering stop locations. In the next article, I’ll show how to use the same approach as one method for segmenting the trajectories. Stop detection requires instantiation of a stop detector which will provide the functions needed.\ndetector = mpd.TrajectoryStopDetector(traj_ny)\nThe detector takes parameters to determine how long a pause constitutes a stop, and how far you need to move to constitute movement.\nstop_points = detector.get_stop_points(\n    min_duration=timedelta(seconds=120), max_diameter=100\n)\nlen(stop_points)\n18\nWe can look up the addresses nearest to the stop points, and plot some of them on the map.\nstop_points = stop_points.set_crs(32111)\nrg = reverse_geocode(\n    stop_points.to_crs(4269).geometry, \n    provider=\"nominatim\", \n    user_agent=\"your_project\", timeout=10\n).to_crs(32111)\nf, ax = t_plot(traj_ny)\nstop_points.plot(ax=ax, color='none', markersize=100, ec='r')\npoint_labels = [0,3,7,11,17]\nfor (x, y), label in zip(\n                    rg.iloc[point_labels].geometry.apply(\n                        lambda p: p.coords[0]), \n                    rg.iloc[point_labels].address):\n    ax.annotate(f'{label.split(',')[0]}, {label.split(',')[1]}', \n                xy=(x, y), **annot_props)\nax.set_title(ax.get_title() + f'\\nStop Points');\n\n\n\n\nShowing interactive graphing in the context of a published article is not very useful, but I should point out that MovingPandas supports both hvplot with folium as well as GeoPandas’ explore(), both of which can be useful tools for identifying areas of interest. This is an example with explore().\nm = traj_ny.explore(\n    column=\"trajectory_id\",\n    tooltip=\"t\",\n    popup=True,\n    style_kwds={\"weight\": 4},\n    name=\"Time\",\n)\n\nstop_points.explore(\n    m=m,\n    color=\"red\",\n    tooltip=\"stop_id\",\n    popup=True,\n    marker_kwds={\"radius\": 10},\n    name=\"Stop points\",\n)\n\n\n\n\nIn the third article, I will address issues of generalization and simplification which can be important when working with large data sets. I’ll show how to generate speed, duration and distance information, and how to segment the trajectories based on geometries, stops, and other criteria. I hope that these articles are proving interesting and useful. Please visit my website and repository for more code, articles and updates.",
-    "crumbs": [
-      "Data Science",
-      "Python Gpx Mapping",
-      "Points to Paths in Python"
-    ]
-  },
-  {
-    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#introduction",
-    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#introduction",
-    "title": "Points to Paths in Python",
-    "section": "",
-    "text": "In the prior article, I showed how to use raw GPS data generated from a sport tracker to create maps and profile elevations along the path. The GeoDataFrames created were just a collection of point geometries with time, location and elevation data. To profile, for example, speed, requires converting the point geometries to line geometries, calculating distances and time deltas between each point, and converting between coordinate systems and units of measurement. If we were concerned with bearing, we would need to also calculate angles between the line segments we create. None of this is overly complicated, just awfully tedious. But this being Python, there is a dedicated library that makes all of this easy peasy.\nMovingPandas is a library that extends Pandas/Geopandas by taking the list of point geometries and turning them into “trajectories”. It generates directed lines between consecutive points, and provides functions for all of the calculations I mentioned above and more.\nIn this article I will show how to create and work with trajectories. I’ll then show how to use MovingPandas to find locations along the path based on time, find the distance from the path to nearby locations, and finally how to identify locations where I paused or stopped. In the next article, I will show how to simplify and smooth paths, profile speed, and segment the trajectories based on various criteria. As before, an expanded version of the code in this article is available in my repository.",
-    "crumbs": [
-      "Data Science",
-      "Python Gpx Mapping",
-      "Points to Paths in Python"
-    ]
-  },
-  {
-    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#getting-ready-for-movingpandas",
-    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#getting-ready-for-movingpandas",
-    "title": "Points to Paths in Python",
-    "section": "",
-    "text": "I’ll start by loading the necessary libraries and creating a helper function for mapping as well as some defaults for annotating points on the maps. Then i will load some data converted from raw GPS data as described in the previous article.\nimport pandas as pd \nimport geopandas as gpd \nimport movingpandas as mpd \nimport matplotlib.pyplot as plt\nimport contextily as ctx\nfrom datetime import datetime, timedelta\nfrom geopandas.tools import reverse_geocode, geocode\nimport warnings\nwarnings.filterwarnings('ignore')\n\ndef t_plot(traj, \n            figsize=(6,8), \n            source=ctx.providers.CartoDB.Voyager, \n            title=None):\n    f, ax = plt.subplots(figsize=figsize)\n    traj.plot(ax=ax, lw=4, color='chartreuse')\n    ctx.add_basemap(ax, crs=traj.crs, \n                    source=source)\n    ax.set_axis_off()\n    if title: \n        ax.set_title(title)\n    else:\n        ax.set_title(\n            f'Walk in {traj.df.Name[0]} on {traj.df.index[0].strftime('%x')}'\n        )\n    return f, ax\n\nannot_props = dict(\n    xytext=(3, 1), \n    textcoords=\"offset fontsize\", \n    c='r', weight='bold', ha='center',\n    arrowprops=dict(arrowstyle='-', ec='orange')\n)\n\ndf = pd.read_csv('data/b3/combined.csv')\ngdf = gpd.GeoDataFrame(\n    df, \n    geometry=gpd.points_from_xy(x=df.Lon, y=df.Lat), \n    crs=4269\n).to_crs(32111)\nMovingPandas requires an integer id for each walk, which I don’t have, so I’ll create one based on the string id. I’ll also convert the Time from a generic object to datetime64.\nidList = list(gdf.groupby(['Id']).nunique().reset_index().Id)\nfor i, track in enumerate(idList):\n    gdf.loc[gdf.Id == track, 'trajectory_id'] = i\ngdf['Time'] = pd.to_datetime(gdf.Time)\ngdf.info()\n&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;\nRangeIndex: 3044 entries, 0 to 3043\nData columns (total 10 columns):\n #   Column         Non-Null Count  Dtype              \n---  ------         --------------  -----              \n 0   Id             3044 non-null   object             \n 1   Name           3044 non-null   object             \n 2   Lat            3044 non-null   float64            \n 3   Lon            3044 non-null   float64            \n 4   Elev           3044 non-null   int64              \n 5   Time           3044 non-null   datetime64[ns, UTC]\n 6   Temp           3044 non-null   float64            \n 7   Weather        3044 non-null   int64              \n 8   geometry       3044 non-null   geometry           \n 9   trajectory_id  3044 non-null   float64            \ndtypes: datetime64[ns, UTC](1), float64(4), geometry(1), int64(2), object(2)\nmemory usage: 237.9+ KB\nOne of the walks in the collection was in New York City, and the rest in New Jersey. Since the locations are pretty far apart, I’ll split out the NYC walk from the others.\ngdf_nj = gdf.loc[gdf.Name != 'New York']\ngdf_ny = gdf.loc[gdf.Name == 'New York']\ngdf_nj.shape, gdf_ny.shape\n((2063, 10), (981, 10))",
-    "crumbs": [
-      "Data Science",
-      "Python Gpx Mapping",
-      "Points to Paths in Python"
-    ]
-  },
-  {
-    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#getting-going-with-movingpandas",
-    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#getting-going-with-movingpandas",
-    "title": "Points to Paths in Python",
-    "section": "",
-    "text": "Now I’m ready to create the trajectories. The data will be imported as a Trajectory Collection which will contain the individual Trajectories. I’ll first create one from the NJ group, which contains several walks.\ntc_nj = mpd.TrajectoryCollection(\n    gdf_nj, 'trajectory_id', \n    t='Time', x='Lon', y='Lat'\n)\nprint(tc_nj)\nTrajectoryCollection with 6 trajectories\nLet’s see what this looks like.\nax = traj_collection.plot(\n    column='trajectory_id', \n    legend=True, figsize=(9,5), cmap='Set1')\nax.set_title('Walks in NJ, September 2024')\nctx.add_basemap(ax, crs=gdf_proj.crs,\n                source=ctx.providers.Esri.WorldTopoMap);\n\nI can extract a single trajectory and its underlying data frame.\ntraj_nj1 = tc_nj.trajectories[2]\nprint(traj_nj1)\nTrajectory 2.0 (2024-09-07 21:20:23.975000 to 2024-09-07 22:03:42.022000) | Size: 267 | Length: 5173.1m\nBounds: (177912.1946985984, 243124.49067874879, 179216.17084672116, 245408.85808260852)\nLINESTRING (178912.27991325516 244815.1747420021, 178912.27991325516 244815.1747420021, 178903.67850\nThe associated data is stored in the df attribute:\nprint(traj_nj1.df.info())\n&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;\nDatetimeIndex: 267 entries, 2024-09-07 21:20:23.975000 to 2024-09-07 22:03:42.022000\nData columns (total 9 columns):\n #   Column         Non-Null Count  Dtype   \n---  ------         --------------  -----   \n 0   Id             267 non-null    object  \n 1   Name           267 non-null    object  \n 2   Lat            267 non-null    float64 \n 3   Lon            267 non-null    float64 \n 4   Elev           267 non-null    int64   \n 5   Temp           267 non-null    float64 \n 6   Weather        267 non-null    int64   \n 7   geometry       267 non-null    geometry\n 8   trajectory_id  267 non-null    float64 \ndtypes: float64(4), geometry(1), int64(2), object(2)\nmemory usage: 29.0+ KB\nNone\nt_plot(traj_nj1, source=ctx.providers.OpenStreetMap.HOT);\n\nAnother way to extract a specific trajectory is using MovingPandas’ filter function, as so:\nt_plot(\ntc_nj.filter(\"Name\", [\"Park Ridge\"])\n     .trajectories[0]\n);\n\nFor the rest of the article I’ll use the longest trek I have in this data set, the one in New York. I’ll create the Trajectory Collection, extract the single trajectory and find the start and end times and locations.\ntc_ny = mpd.TrajectoryCollection(\n    gdf_ny, 'trajectory_id', \n    t='Time', x='Lon', y='Lat'\n)\ntraj_ny = tc_ny.trajectories[0]\nst = traj_ny.get_start_time()\nsl = traj_ny.to_crs(4269).get_start_location()\net = traj_ny.get_end_time()\nel = traj_ny.to_crs(4269).get_end_location()\nprint(f'''\n            Time         Location (Lon/Lat)\n            \n    Start: {st.strftime('%X')}   {sl.coords[0]} degrees\n    End:   {et.strftime('%X')}   {el.coords[0]}  degrees\n\n    Duration:  {traj_ny.get_duration().seconds/60:.0f} minutes\n    Distance:  {traj_ny.get_length(units='mi'):.2f} miles\n    Direction: {traj_ny.get_direction():.0f} degrees\n''')\n            Time         Location (Lon/Lat)\n            \n    Start: 17:43:42   (-73.991157, 40.752025) degrees\n    End:   20:49:09   (-73.98894, 40.726903)  degrees\n\n    Duration:  185 minutes\n    Distance:  6.69 miles\n    Direction: 176 degrees\nt_plot(traj_ny);",
-    "crumbs": [
-      "Data Science",
-      "Python Gpx Mapping",
-      "Points to Paths in Python"
-    ]
-  },
-  {
-    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#right-place-right-time",
-    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#right-place-right-time",
-    "title": "Points to Paths in Python",
-    "section": "",
-    "text": "First, let me find my position at an arbitrary time, and then 30 minutes later. Where was I, for example, at 18:00, and then 45 minutes later?\nt = datetime(2024, 9, 11, 18)\nt2 = t + timedelta(minutes=45)\nprint(f'''\n    Nearest:      {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='nearest')}\n    Interpolated: {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='interpolated')}\n    Previous row: {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='ffill')}\n    Next row:     {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='bfill')}\n''')\n    Nearest:      POINT (-74.003574 40.756368)\n    Interpolated: POINT (-74.00361304734385 40.75638409846633)\n    Previous row: POINT (-74.003688 40.756415)\n    Next row:     POINT (-74.003574 40.756368)\nI can use the geocode tool provided by geopandas to get the nearest addresses at these points so I can show them on the map. Pay attention to crs, since nominatim expects lat/lon coordinates and we currently have projected coordinates.\npoint = traj_ny.get_position_at(t, method='interpolated')\npoint_up = traj_ny.to_crs(4269).get_position_at(t, method='interpolated')\npoint2 = traj_ny.get_position_at(t2, method='interpolated')\npoint2_up = traj_ny.to_crs(4269).get_position_at(t2, method='interpolated')\n\nrg = reverse_geocode(\n    [point_up, point2_up], \n    provider=\"nominatim\", \n    user_agent=\"your_project\", \n    timeout=10\n).to_crs(32111)\n\nf, ax = t_plot(traj_ny)\ngpd.GeoSeries(point).plot(ax=ax, color='red', markersize=100)\ngpd.GeoSeries(point2).plot(ax=ax, color='red', markersize=100)\nfor x, y, label in zip(rg.geometry.x, rg.geometry.y, rg.address):\n    ax.annotate(f'{label.split(',')[0]}, {label.split(',')[1]}', \n                xy=(x, y), **annot_props)\nax.set_ylim(211500, 214500)\nax.set_xlim(191400, 192500);\n\nIt might be more interesting to plot my location at regular intervals along the walk. What about plotting my location every 30 minutes?\nint_count = (et - st) // timedelta(seconds=(60*30))\nint_length = (et - st) / int_count\nintervals = [st + (i*int_length) for i in range(int_count)]\ninterval_points = [traj_ny.to_crs(4269).get_position_at(\n                    t, method='interpolated') \n                   for t in intervals]\nrg = reverse_geocode(\n    interval_points, \n    provider=\"nominatim\", \n    user_agent=\"your_project\", \n    timeout=10\n).to_crs(32111)\n\nf, ax = t_plot(traj_ny, figsize=(7,11))\nrg.plot(ax=ax, c='r', markersize=100)\nfor x, y, label in zip(rg.geometry.x, rg.geometry.y, rg.address):\n    ax.annotate(f'{label.split(',')[0]}, {label.split(',')[1]}', \n                xy=(x, y), **annot_props)\nax.set_title(ax.get_title() + f'\\nEvery 30 minutes');",
-    "crumbs": [
-      "Data Science",
-      "Python Gpx Mapping",
-      "Points to Paths in Python"
-    ]
-  },
-  {
-    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#i-was-so-close",
-    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#i-was-so-close",
-    "title": "Points to Paths in Python",
-    "section": "",
-    "text": "Not only can you calculate distances along the path, which we will look at more in the next article, but you can calculate the distance from points along the trajectory to other locations not on the path. It will determine the closest you came to other points, lines or polygons, including, of course, other trajectories. For example, when I’m in New York, I love to visit the Strand and the huge Barnes and Noble on Union Square. I didn’t have time this trip, sadly, but I’m curious how close I was from those stores.\naddresses = [{\n                'id': 1,\n                'name': \"The Strand\", \n                'addr': \"828 Broadway, New York, NY 10003\"\n            }, \n            {\n                'id': 2,\n                'name': \"Barnes and Noble\", \n                'addr': \"33 East 17th Street, 10003, New York\"\n            }]\nadd_df = pd.DataFrame(addresses)\ngeo = geocode(\n    add_df['addr'], \n    provider='nominatim', \n    user_agent='your_project', \n    timeout=10\n)\nbook_stores = geo.join(add_df).to_crs(32111)\nprint(book_stores)\n                        geometry  \\\n0  POINT (192997.822 211055.516)   \n1  POINT (193108.568 211461.041)   \n\n                                             address  id              name  \\\n0  Strand Bookstore, 828, Broadway, University Vi...   1        The Strand   \n1  Barnes & Noble, 33, East 17th Street, Union Sq...   2  Barnes and Noble   \n\n                                   addr  \n0      828 Broadway, New York, NY 10003  \n1  33 East 17th Street, 10003, New York\ndists_to = [traj_ny.distance(book_stores.loc[i, ['geometry']], \n                            units='mi')[0] \n            for i in range(len(book_stores))]\nstore_names = [book_stores.loc[i, 'name'] \n               for i in range(len(book_stores))]\nfor i in range(len(book_stores)):\n    print(f'Closest distance to {store_names[i]} was {dists_to[i]:.1f} miles') \nClosest distance to The Strand was 0.4 miles\nClosest distance to Barnes and Noble was 0.6 miles\nf, ax = t_plot(traj_ny, figsize=(7,11))\nbook_stores.plot(ax=ax, color='red', markersize=100)\nfor x, y, label in zip(book_stores.geometry.x, \n                       book_stores.geometry.y, \n                       book_stores.name):\n    ax.annotate(label, xy=(x,y), **annot_props)",
-    "crumbs": [
-      "Data Science",
-      "Python Gpx Mapping",
-      "Points to Paths in Python"
-    ]
-  },
-  {
-    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#stop-detection",
-    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#stop-detection",
-    "title": "Points to Paths in Python",
-    "section": "",
-    "text": "In this final section I’ll look at stop detection. Here I’ll just be considering stop locations. In the next article, I’ll show how to use the same approach as one method for segmenting the trajectories. Stop detection requires instantiation of a stop detector which will provide the functions needed.\ndetector = mpd.TrajectoryStopDetector(traj_ny)\nThe detector takes parameters to determine how long a pause constitutes a stop, and how far you need to move to constitute movement.\nstop_points = detector.get_stop_points(\n    min_duration=timedelta(seconds=120), max_diameter=100\n)\nlen(stop_points)\n18\nWe can look up the addresses nearest to the stop points, and plot some of them on the map.\nstop_points = stop_points.set_crs(32111)\nrg = reverse_geocode(\n    stop_points.to_crs(4269).geometry, \n    provider=\"nominatim\", \n    user_agent=\"your_project\", timeout=10\n).to_crs(32111)\nf, ax = t_plot(traj_ny)\nstop_points.plot(ax=ax, color='none', markersize=100, ec='r')\npoint_labels = [0,3,7,11,17]\nfor (x, y), label in zip(\n                    rg.iloc[point_labels].geometry.apply(\n                        lambda p: p.coords[0]), \n                    rg.iloc[point_labels].address):\n    ax.annotate(f'{label.split(',')[0]}, {label.split(',')[1]}', \n                xy=(x, y), **annot_props)\nax.set_title(ax.get_title() + f'\\nStop Points');",
-    "crumbs": [
-      "Data Science",
-      "Python Gpx Mapping",
-      "Points to Paths in Python"
-    ]
-  },
-  {
-    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#interactive-graphing",
-    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#interactive-graphing",
-    "title": "Points to Paths in Python",
-    "section": "",
-    "text": "Showing interactive graphing in the context of a published article is not very useful, but I should point out that MovingPandas supports both hvplot with folium as well as GeoPandas’ explore(), both of which can be useful tools for identifying areas of interest. This is an example with explore().\nm = traj_ny.explore(\n    column=\"trajectory_id\",\n    tooltip=\"t\",\n    popup=True,\n    style_kwds={\"weight\": 4},\n    name=\"Time\",\n)\n\nstop_points.explore(\n    m=m,\n    color=\"red\",\n    tooltip=\"stop_id\",\n    popup=True,\n    marker_kwds={\"radius\": 10},\n    name=\"Stop points\",\n)",
-    "crumbs": [
-      "Data Science",
-      "Python Gpx Mapping",
-      "Points to Paths in Python"
-    ]
-  },
-  {
-    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#next-steps",
-    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#next-steps",
-    "title": "Points to Paths in Python",
-    "section": "",
-    "text": "In the third article, I will address issues of generalization and simplification which can be important when working with large data sets. I’ll show how to generate speed, duration and distance information, and how to segment the trajectories based on geometries, stops, and other criteria. I hope that these articles are proving interesting and useful. Please visit my website and repository for more code, articles and updates.",
-    "crumbs": [
-      "Data Science",
-      "Python Gpx Mapping",
-      "Points to Paths in Python"
-    ]
+    "text": "I have a background ranging from international finance and administration, programming, software translation and localization management. I’ve been a medical doctor, business owner and professor. As I look back, the common thread in all of these has been innovation. In each of my jobs, I was able to innovate the role, often introducing new technologies, frameworks and processes to stream-line current practices and address new challenges.\n\nFinance and AdministrationTechnologyMedical Practice and TeachingOther Interests\n\n\nI was senior consolidations accountant at the San Rafael headquarters of Autodesk, before moving to their European headquarters in Switzerland where I was senior financial analyst for the operations and software centers, and subsequently world-wide manager of vendors and translation services. You can read more here\n\n\nMy first programming job was using Clipper, an MS-DOS version of dBase, to write a scheduling module for a private education company. I switched to Linux three decades ago, and wrote my first “web app” in Perl/CGI using PostgreSQL, back when JavaScript was just getting started. I am now very proficient in Python and R, with intermediate skills in Haskell and JavaScript, as well as attendant technologies such as HTML and CSS.\nThe best way to get an idea of my programming and data science skills are to look at some of the projects on the site. You can also find more here\n\n\nI practiced for over 15 years as a Doctor of Oriental Medicine, much of the time teaching at Southwest Acupuncture College. I was most known for teaching the Chinese materia medica, a three-semester sequence covering well over a 1,000 individual medicinal substances. I re-arranged herbs from their traditional order to one more didactically-oriented, providing structure for the students, and developed rich slide presentations with \\(LaTeX\\). Other areas I taught included diagnosis and differentiation as well as basic Chinese medical theory.\nI ran an independent clinic, where I combined TCM style acupuncture, Kiiko style acupuncture, and Daoist style of Jeffrey Yuen. A large part of my practice, as is typical in American acupuncture clinics, involved acute and chronic pain syndromes, but a significant part was also devoted to digestive, emotional, gynecological and sleep disorders. Treatments generally involved a combination of acupuncture, herbal therapy and food therapy.\n\n\nI’m interested in history, languages and linguistics, gardening, cooking and hiking. Look for articles on some of these topics in the near future.\n\n\n\nAll of the posts of my experiences can be found here.\n\n\n Back to top"
   },
   {
     "objectID": "index.html",
@@ -323,115 +19,6 @@
     "title": "biscotty’s Workshop",
     "section": "",
     "text": "Here you will find articles about things that interest me. Much of the site is devoted to technological topics such as Linux, programming, and data science. There is a “humanities” section as well where I post on a range of topics such as history, linguistics, Chinese medicine, gardening and cooking, and music.\nIf this is your first time, check out the all the posts here, or use the search icon in the upper left.\n\nObsidianData ScienceLinuxChinese MedicineAbout me\n\n\nObsidian is Personal Knowledge Management PKM software. If you don’t know what Obsidian or PKM are, you could start with this article. I have many articles here about advanced usage, taking full advantage of Obsidian’s design. Freeing your thinking explains how to move beyond directory structures, taking advantage of the no-sql nature of Obsidian. There is also a series about the usage of dataviewjs, written for non-programmers, to create dashboards and interactive tables.\n\n\nMy current passion is data science, with particular interest in geospatial analyses (GIS). I enjoy working both in both R and Python. Some of articles will explicitly compare the two, as I think that data science Python programmers would find R delightful, such as showing how to do gps trail mapping in R instead of Python.\n\n\nI’ve used Linux almost exclusively for over three decades. The first 20 years or so I used Slackware, the oldest distribution still being developed. Since then I have extensively used Fedora, both mutable and immutable versions, as well as Debian and Ubuntu.\nMy current OS of choice is NixOS, which is unlike any other operating system I’m aware of, and very different conceptually. To get an idea of what I mean, read The Linux Different.\n\n\nI am a retired Doctor of Oriental Medicine, which I practiced for nearly two decades as well as teaching at Southwest Acupuncture College where I specialized in Chinese herbal medicine, medical theory, and diagnosis. I see Chinese herbs all around me when I walk, not to mention those growing in my own yard. Some of these articles will describe the health properties, from a Chinese perspective, of everyday plants.\nI also love to cook, and tried to stress food therapy to my patients as a key aspect of healing. Keeping a proper diet is the most important thing that anyone can do for their health. So I will occasionally post recipes, pointing out the health aspects of the meals.\n\n\nI have a background ranging from international finance and administration, programming, software translation and localization management. I’ve been a medical doctor, business owner and professor. You can find out more about me, my current work, and services here\n\n\n\n\n\nFor those returning, this third iteration of my website is built in Quatro. I hope you like the new layout. It now allows you to comment on posts, so I look forward to your feedback and ideas. You can still email me as before, of course. Thanks to Samantha Shanny-Csik (Sam Shanny-Csik 2022; Samantha Shanny-Csik 2022) and Albert Rapp (Rapp 2022)."
-  },
-  {
-    "objectID": "posts/linux/nixos-linux-different/index.html",
-    "href": "posts/linux/nixos-linux-different/index.html",
-    "title": "NixOS: the Linux different",
-    "section": "",
-    "text": "Toward NixOS - exploring the concepts behind the\n\n\n\nAfter you’ve been working with with Linux long enough, you realize that all distributions are basically the same, at least under the hood. Different but similar package managers and different package repositories, different default desktop environments, and some kernel tweaks perhaps, but given a command line it is almost trivial to move from one distro to another.\nNot so with NixOS. Want to see what software is installed? You won’t find anything in /usr/bin, or any other typical bin or opt directory. Want to add an alias to /etc/hosts? That file, indeed everything in /etc, turns out to be read-only, even to root. Add a user with useradd? Nope. Install some software in a gui “App Store”, or even with a command like apt install? These don’t exist. In fact, many of your basic system administration skills are useless with NixOS without having access to the basics such as the FHS (file heirarchy standard) and the ability to edit configuration files. But, don’t be sad, your Linux skills are still important, because…\n\n\n\nNixOS is, never-the-less, GNU/Linux just as much as is Fedora or Debian. It runs a Linux kernel with a GNU api. It has a large package repository, the largest of any, in fact. It even uses systemd. You can add any software that runs on Linux, and to an ordinary “end user”, the daily experience is the same as on any other distro. They might remark how stable and snappy it is, but their day to day workflow would not be different.\nUnder the hood, though, everything is different on a fundamental level. NixOS has a learning curve more like that of a new operating system than a new Linux distribution. Which leads to an obvious question: why bother? I’ll be looking at many reasons, but one is that, once the Nix way is grokked, all of these admin tasks I mentioned become much simpler and straight-forward, more robust, easier to rollback, and fully reproducible. I guess that’s more than one reason.\n\n\n\nFor me, NixOS is a sort of culmination of why I turned to Linux decades ago. When Windows first came out, it was cool and all, but I felt like a veil had been drawn over the OS, which then became hidden and mysterious. Apple computers seemed even worse in this aspect. For some types of work, the graphical user interface was a great step forward. But for other things, the gui just obscured the underlying workings of the computer and made anything outside of typical usage to be more difficult. On top of that was the mysterious instability. With every system crash, I wanted to understand what was really going on so I could fix it.\nThen I discovered Linux, and more specifically Slackware, which uses a terminal and vi (elvis at the time) for all administrative tasks. The ability to understand exactly what a computer is doing, to configure it with text files, to install, and if necessary, build, software from the command line, was just what I was looking for. I even compiled my own kernel. After I started using other distros, I still never take more than a quick glance at their graphical admin tools like app stores and such. Give me the command line any day.\n\n\n\nAs experienced Linux users know, there are many issues which arise over time on any Linux system, such as software upgrades which create library version conflicts, problems which are made worse on shared systems. Cruft accumulates over time as uninstalls are rarely clean, especially with regard to program data files and directories. If you install and uninstall many programs, after a certain amount of time, it is difficult to be sure exactly what lingers in /etc, /usr/share, ~/.local, or anywhere else, for that matter. After a year of installing, uninstalling and configuring software, how can you be sure what is actually there? And when your new computer arrives, or you finally decide to do a clean install instead of a version upgrade, how much effort will it take to set it up exactly how you like it?\nEnter NixOS, where I can declare the entire operating system with text files! I can write down what I want, and know that that will be all there is on my system, despite what may have been there before. I can, for example, simply grep my configs to see everything installed and all configurations, without needing a special package manager tool. In fact, with NixOS, nothing is every really installed, upgraded, or uninstalled, not in the traditional sense anyway. Any of these activities generates a brand, spankin’ new system which entirely replaces the old one.\n\n\n\nHere be dragons, but they are auspicious Chinese dragons, not scary English ones. The singular power of NixOS lies in the differences, so they are worth exploring. They involve ideas such as declarative, functional programming vs imperative, procedural programming, graphs vs stacks, immutable systems, atomic upgrades and containerized environments. Also, Nix/NixOS isn’t just one thing, it is a programming language (Nix), package manager (Nix), repository (nixpkgs), and operating system (NixOS).\nExploring all these topics would be overwhelming in one article, so it is my intention to write an occasional series on each. None of these will be tutorials, rather they are intended as an introduction to the ideas necessary to understanding NixOS. As a practical matter, Nix the package manager and language can be installed on any computer and be experimented with, or even used as a primary package manager for your current system. NixOS also runs nicely in a virtual machine. To learn NixOS you’ll need to get your hands dirty, and for me at least, getting used to NixOS and configuring my system from the comfort of Fedora made the eventual switch to hardware completely painless, as I just needed to copy my configs to the new partition and build it, not repeat my work. Don’t rush, enjoy the learning.\nNixOS is not for everyone. The imperative paradigm has worked reasonably well for decades, and has the virtue of familiarity, so there is no imperative to change ;-). But if, like me, you prize stability, clarity, and simplicity, if you find change and learning new ways to be stimulating, and if you know that the most interesting things in life are on roads less traveled, you will be delighted by NixOS.",
-    "crumbs": [
-      "Linux",
-      "NixOS: the Linux different"
-    ]
-  },
-  {
-    "objectID": "posts/linux/nixos-linux-different/index.html#how-different-really-different.",
-    "href": "posts/linux/nixos-linux-different/index.html#how-different-really-different.",
-    "title": "NixOS: the Linux different",
-    "section": "",
-    "text": "After you’ve been working with with Linux long enough, you realize that all distributions are basically the same, at least under the hood. Different but similar package managers and different package repositories, different default desktop environments, and some kernel tweaks perhaps, but given a command line it is almost trivial to move from one distro to another.\nNot so with NixOS. Want to see what software is installed? You won’t find anything in /usr/bin, or any other typical bin or opt directory. Want to add an alias to /etc/hosts? That file, indeed everything in /etc, turns out to be read-only, even to root. Add a user with useradd? Nope. Install some software in a gui “App Store”, or even with a command like apt install? These don’t exist. In fact, many of your basic system administration skills are useless with NixOS without having access to the basics such as the FHS (file heirarchy standard) and the ability to edit configuration files. But, don’t be sad, your Linux skills are still important, because…",
-    "crumbs": [
-      "Linux",
-      "NixOS: the Linux different"
-    ]
-  },
-  {
-    "objectID": "posts/linux/nixos-linux-different/index.html#its-still-linux",
-    "href": "posts/linux/nixos-linux-different/index.html#its-still-linux",
-    "title": "NixOS: the Linux different",
-    "section": "",
-    "text": "NixOS is, never-the-less, GNU/Linux just as much as is Fedora or Debian. It runs a Linux kernel with a GNU api. It has a large package repository, the largest of any, in fact. It even uses systemd. You can add any software that runs on Linux, and to an ordinary “end user”, the daily experience is the same as on any other distro. They might remark how stable and snappy it is, but their day to day workflow would not be different.\nUnder the hood, though, everything is different on a fundamental level. NixOS has a learning curve more like that of a new operating system than a new Linux distribution. Which leads to an obvious question: why bother? I’ll be looking at many reasons, but one is that, once the Nix way is grokked, all of these admin tasks I mentioned become much simpler and straight-forward, more robust, easier to rollback, and fully reproducible. I guess that’s more than one reason.",
-    "crumbs": [
-      "Linux",
-      "NixOS: the Linux different"
-    ]
-  },
-  {
-    "objectID": "posts/linux/nixos-linux-different/index.html#getting-a-little-personal",
-    "href": "posts/linux/nixos-linux-different/index.html#getting-a-little-personal",
-    "title": "NixOS: the Linux different",
-    "section": "",
-    "text": "For me, NixOS is a sort of culmination of why I turned to Linux decades ago. When Windows first came out, it was cool and all, but I felt like a veil had been drawn over the OS, which then became hidden and mysterious. Apple computers seemed even worse in this aspect. For some types of work, the graphical user interface was a great step forward. But for other things, the gui just obscured the underlying workings of the computer and made anything outside of typical usage to be more difficult. On top of that was the mysterious instability. With every system crash, I wanted to understand what was really going on so I could fix it.\nThen I discovered Linux, and more specifically Slackware, which uses a terminal and vi (elvis at the time) for all administrative tasks. The ability to understand exactly what a computer is doing, to configure it with text files, to install, and if necessary, build, software from the command line, was just what I was looking for. I even compiled my own kernel. After I started using other distros, I still never take more than a quick glance at their graphical admin tools like app stores and such. Give me the command line any day.",
-    "crumbs": [
-      "Linux",
-      "NixOS: the Linux different"
-    ]
-  },
-  {
-    "objectID": "posts/linux/nixos-linux-different/index.html#aging-systems-and-other-problems",
-    "href": "posts/linux/nixos-linux-different/index.html#aging-systems-and-other-problems",
-    "title": "NixOS: the Linux different",
-    "section": "",
-    "text": "As experienced Linux users know, there are many issues which arise over time on any Linux system, such as software upgrades which create library version conflicts, problems which are made worse on shared systems. Cruft accumulates over time as uninstalls are rarely clean, especially with regard to program data files and directories. If you install and uninstall many programs, after a certain amount of time, it is difficult to be sure exactly what lingers in /etc, /usr/share, ~/.local, or anywhere else, for that matter. After a year of installing, uninstalling and configuring software, how can you be sure what is actually there? And when your new computer arrives, or you finally decide to do a clean install instead of a version upgrade, how much effort will it take to set it up exactly how you like it?\nEnter NixOS, where I can declare the entire operating system with text files! I can write down what I want, and know that that will be all there is on my system, despite what may have been there before. I can, for example, simply grep my configs to see everything installed and all configurations, without needing a special package manager tool. In fact, with NixOS, nothing is every really installed, upgraded, or uninstalled, not in the traditional sense anyway. Any of these activities generates a brand, spankin’ new system which entirely replaces the old one.",
-    "crumbs": [
-      "Linux",
-      "NixOS: the Linux different"
-    ]
-  },
-  {
-    "objectID": "posts/linux/nixos-linux-different/index.html#embrace-the-difference",
-    "href": "posts/linux/nixos-linux-different/index.html#embrace-the-difference",
-    "title": "NixOS: the Linux different",
-    "section": "",
-    "text": "Here be dragons, but they are auspicious Chinese dragons, not scary English ones. The singular power of NixOS lies in the differences, so they are worth exploring. They involve ideas such as declarative, functional programming vs imperative, procedural programming, graphs vs stacks, immutable systems, atomic upgrades and containerized environments. Also, Nix/NixOS isn’t just one thing, it is a programming language (Nix), package manager (Nix), repository (nixpkgs), and operating system (NixOS).\nExploring all these topics would be overwhelming in one article, so it is my intention to write an occasional series on each. None of these will be tutorials, rather they are intended as an introduction to the ideas necessary to understanding NixOS. As a practical matter, Nix the package manager and language can be installed on any computer and be experimented with, or even used as a primary package manager for your current system. NixOS also runs nicely in a virtual machine. To learn NixOS you’ll need to get your hands dirty, and for me at least, getting used to NixOS and configuring my system from the comfort of Fedora made the eventual switch to hardware completely painless, as I just needed to copy my configs to the new partition and build it, not repeat my work. Don’t rush, enjoy the learning.\nNixOS is not for everyone. The imperative paradigm has worked reasonably well for decades, and has the virtue of familiarity, so there is no imperative to change ;-). But if, like me, you prize stability, clarity, and simplicity, if you find change and learning new ways to be stimulating, and if you know that the most interesting things in life are on roads less traveled, you will be delighted by NixOS.",
-    "crumbs": [
-      "Linux",
-      "NixOS: the Linux different"
-    ]
-  },
-  {
-    "objectID": "posts/linux/linux.html",
-    "href": "posts/linux/linux.html",
-    "title": "Linux",
-    "section": "",
-    "text": "I’ve used Linux almost exclusively for over three decades. The first 20 years or so I used Slackware, the oldest distribution still being developed. Since then I have extensively used Fedora, both mutable and immutable versions, as well as Debian and Ubuntu. My current OS of choice is NixOS, which is unlike any other operating system I’m aware of, and very different conceptually. To get an idea of what I mean, read The Linux Different.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNixOS: the Linux different\n\n\n\n\n\n\nLinux\n\n\nDistributions\n\n\n\nGrokking NixOS\n\n\n\n\n\nJun 10, 2024\n\n\nBrian Carey\n\n\n\n\n\n\nNo matching items\n\n Back to top",
-    "crumbs": [
-      "Home",
-      "Linux"
-    ]
-  },
-  {
-    "objectID": "posts/obsidian/metadata-menu/index.html",
-    "href": "posts/obsidian/metadata-menu/index.html",
-    "title": "Obsidian Metadata Menu Plugin",
-    "section": "",
-    "text": "Metadata Menu\nWith the release of Obsidian 1.4.5, many people’s focus has been on metadata, which Obsidian calls Properties. I have written a series of articles (see Freeing Your Thinking) on using Obsidian’s natural database features, and my entire workflow depends heavily on metadata. Naturally, I was anticipating this release with some excitement, having seen some previews on YouTube.\nI was frankly disappointed. It is movement in a positive direction, and has some very nice features for managing metadata. However, its insistence on YAML for properties when many users such as myself prefer in-line metadata for its flexibility, makes some of its features useless to me.\nAnother reason for my disappointment, or feeling underwhelmed, was that I had already discovered a truly amazing plugin for managing metadata which did everything I need and more. Metadata Menu, a Community Plugin by mathieu, provides a full set of features for managing properties. It has a modal, available in multiple places, which allows you to manage literally all aspects of a file’s metadata without opening the file, perfect for my workflow. It even has a file class template system which supports nesting groups of metadata fields. Fields in tables can have actions, allowing for direct editing of metadata in the table itself using standard widgets. And, it is visually clean and attractive\nThis video isn’t a guide to using Metadata Menu. Rather, it’s to show off some of its features. If metadata is important to you, you must check it out.\n\n\n\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Obsidian",
-      "Obsidian Metadata Menu Plugin"
-    ]
-  },
-  {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
-    "section": "",
-    "text": "Back to topReferences\n\nRapp, Albert. 2022. “The Ultimate Guide to Starting a Quarto Blog – Albert Rapp.” July 2022. https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html#closing.\n\n\nShanny-Csik, Sam. 2022. “Creating Your Personal Website Using Quarto.” August 2022. https://ucsb-meds.github.io/creating-quarto-websites/.\n\n\nShanny-Csik, Samantha. 2022. “Adding a Blog to Your Existing Quarto Website.” October 24, 2022. https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Brian Carey",
-    "section": "",
-    "text": "I have a background ranging from international finance and administration, programming, software translation and localization management. I’ve been a medical doctor, business owner and professor. As I look back, the common thread in all of these has been innovation. In each of my jobs, I was able to innovate the role, often introducing new technologies, frameworks and processes to stream-line current practices and address new challenges.\n\nFinance and AdministrationTechnologyMedical Practice and TeachingOther Interests\n\n\nI was senior consolidations accountant at the San Rafael headquarters of Autodesk, before moving to their European headquarters in Switzerland where I was senior financial analyst for the operations and software centers, and subsequently world-wide manager of vendors and translation services. You can read more here\n\n\nMy first programming job was using Clipper, an MS-DOS version of dBase, to write a scheduling module for a private education company. I switched to Linux three decades ago, and wrote my first “web app” in Perl/CGI using PostgreSQL, back when JavaScript was just getting started. I am now very proficient in Python and R, with intermediate skills in Haskell and JavaScript, as well as attendant technologies such as HTML and CSS.\nThe best way to get an idea of my programming and data science skills are to look at some of the projects on the site. You can also find more here\n\n\nI practiced for over 15 years as a Doctor of Oriental Medicine, much of the time teaching at Southwest Acupuncture College. I was most known for teaching the Chinese materia medica, a three-semester sequence covering well over a 1,000 individual medicinal substances. I re-arranged herbs from their traditional order to one more didactically-oriented, providing structure for the students, and developed rich slide presentations with \\(LaTeX\\). Other areas I taught included diagnosis and differentiation as well as basic Chinese medical theory.\nI ran an independent clinic, where I combined TCM style acupuncture, Kiiko style acupuncture, and Daoist style of Jeffrey Yuen. A large part of my practice, as is typical in American acupuncture clinics, involved acute and chronic pain syndromes, but a significant part was also devoted to digestive, emotional, gynecological and sleep disorders. Treatments generally involved a combination of acupuncture, herbal therapy and food therapy.\n\n\nI’m interested in history, languages and linguistics, gardening, cooking and hiking. Look for articles on some of these topics in the near future.\n\n\n\nAll of the posts of my experiences can be found here.\n\n\n Back to top"
-  },
-  {
-    "objectID": "about.html#coming-soon",
-    "href": "about.html#coming-soon",
-    "title": "Brian Carey",
-    "section": "Coming soon",
-    "text": "Coming soon"
   },
   {
     "objectID": "posts/obsidian/dataview.html",
@@ -695,6 +282,17 @@
     ]
   },
   {
+    "objectID": "posts/obsidian/metadata-menu/index.html",
+    "href": "posts/obsidian/metadata-menu/index.html",
+    "title": "Obsidian Metadata Menu Plugin",
+    "section": "",
+    "text": "Metadata Menu\nWith the release of Obsidian 1.4.5, many people’s focus has been on metadata, which Obsidian calls Properties. I have written a series of articles (see Freeing Your Thinking) on using Obsidian’s natural database features, and my entire workflow depends heavily on metadata. Naturally, I was anticipating this release with some excitement, having seen some previews on YouTube.\nI was frankly disappointed. It is movement in a positive direction, and has some very nice features for managing metadata. However, its insistence on YAML for properties when many users such as myself prefer in-line metadata for its flexibility, makes some of its features useless to me.\nAnother reason for my disappointment, or feeling underwhelmed, was that I had already discovered a truly amazing plugin for managing metadata which did everything I need and more. Metadata Menu, a Community Plugin by mathieu, provides a full set of features for managing properties. It has a modal, available in multiple places, which allows you to manage literally all aspects of a file’s metadata without opening the file, perfect for my workflow. It even has a file class template system which supports nesting groups of metadata fields. Fields in tables can have actions, allowing for direct editing of metadata in the table itself using standard widgets. And, it is visually clean and attractive\nThis video isn’t a guide to using Metadata Menu. Rather, it’s to show off some of its features. If metadata is important to you, you must check it out.\n\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Obsidian",
+      "Obsidian Metadata Menu Plugin"
+    ]
+  },
+  {
     "objectID": "posts/obsidian/obsidian-whiteboards/index.html",
     "href": "posts/obsidian/obsidian-whiteboards/index.html",
     "title": "Obsidian Canvas Work Spaces",
@@ -949,6 +547,53 @@
     ]
   },
   {
+    "objectID": "posts/linux/linux.html",
+    "href": "posts/linux/linux.html",
+    "title": "Linux",
+    "section": "",
+    "text": "I’ve used Linux almost exclusively for over three decades. The first 20 years or so I used Slackware, the oldest distribution still being developed. Since then I have extensively used Fedora, both mutable and immutable versions, as well as Debian and Ubuntu. My current OS of choice is NixOS, which is unlike any other operating system I’m aware of, and very different conceptually. To get an idea of what I mean, read The Linux Different.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNixOS: the Linux different\n\n\n\n\n\n\nLinux\n\n\nDistributions\n\n\n\nGrokking NixOS\n\n\n\n\n\nJun 10, 2024\n\n\nBrian Carey\n\n\n\n\n\n\nNo matching items\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Linux"
+    ]
+  },
+  {
+    "objectID": "posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
+    "href": "posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
+    "title": "Trail Mapping with Python",
+    "section": "",
+    "text": "In the world of Data Science, I’m most strongly drawn to geographically-linked data. Choropleth maps, for example, are about the most powerful way to convey statistical information and get a point across, if you will forgive the intolerable pun. Attaching data to geography somehow makes information more relatable, more personal, and more easily absorbable. It gives people a reference point, a “you are here”, if you will, or maybe “There, but for the grace of God…”.\nI am fortunate to live in New Mexico where I can take beautiful and varied walks, hikes and bike rides nearly every day, which I do. I record most of my excursions with an app on my phone, and I realized recently that I must have lots of data that I can play with to do mapping and analysis. I was pleased to discover that the simple app I use on my phone to track my excursions can easily export the data to GPX format. I had no idea what GPX format was then, but assumed it was some standard, so things looked promising, and off I went.\nThe data I use comes from an app called SportActive. Apps like AllTrails and Strava are wonderful, especially when exploring new places, but they are overkill IMO for simple tracking of daily, and largely repetitive, activities. SportActive simply records my walks and rides, without asking if I want to share my walk with my “friends” like a meal on Facebook. (Disclaimer: I have no financial relationship with SportActive, although if you could arrange such a thing I’d happily change this disclaimer.)\nIn this and two following articles, I will show how the data can be used with Python to map and analyze the GPS information. I will show how to do analyses such as profiling elevations, calculating speeds and durations, identifying pauses, and segmenting paths based on various criteria. This type of analysis, which I’m doing for fun, is the very same as could be used to, for example, study bird migrations or the movement of container ships.\nPython provides many libraries based around the pandas ecosystem which make working with geospatial data easy. GeoPandas extends Pandas to incorporate geometries and coordinate reference systems. GPX data is a series of geolocated points, which is easily handled by geopandas. MovingPandas facilitates turning the point geometries into “trajectories”, allowing for calculations of speed, duration and direction.\nThis article will cover parsing the raw GPS data to a csv file, which I then import into a geopandas GeoDataFrame. From that I will create maps and generate some basic statistical information about the trek such as distance and elevation profiles. These articles assume basic familiarity with Python, experience with Pandas being helpful. An expanded version of the code in the articles can be obtained from my GitHub repository at https://github.com/bisotty666/GPX.",
+    "crumbs": [
+      "Data Science",
+      "Python Gpx Mapping",
+      "Trail Mapping with Python"
+    ]
+  },
+  {
+    "objectID": "posts/data-science/python-gpx-mapping/gpx-gps-data/index.html#introduction",
+    "href": "posts/data-science/python-gpx-mapping/gpx-gps-data/index.html#introduction",
+    "title": "Trail Mapping with Python",
+    "section": "",
+    "text": "In the world of Data Science, I’m most strongly drawn to geographically-linked data. Choropleth maps, for example, are about the most powerful way to convey statistical information and get a point across, if you will forgive the intolerable pun. Attaching data to geography somehow makes information more relatable, more personal, and more easily absorbable. It gives people a reference point, a “you are here”, if you will, or maybe “There, but for the grace of God…”.\nI am fortunate to live in New Mexico where I can take beautiful and varied walks, hikes and bike rides nearly every day, which I do. I record most of my excursions with an app on my phone, and I realized recently that I must have lots of data that I can play with to do mapping and analysis. I was pleased to discover that the simple app I use on my phone to track my excursions can easily export the data to GPX format. I had no idea what GPX format was then, but assumed it was some standard, so things looked promising, and off I went.\nThe data I use comes from an app called SportActive. Apps like AllTrails and Strava are wonderful, especially when exploring new places, but they are overkill IMO for simple tracking of daily, and largely repetitive, activities. SportActive simply records my walks and rides, without asking if I want to share my walk with my “friends” like a meal on Facebook. (Disclaimer: I have no financial relationship with SportActive, although if you could arrange such a thing I’d happily change this disclaimer.)\nIn this and two following articles, I will show how the data can be used with Python to map and analyze the GPS information. I will show how to do analyses such as profiling elevations, calculating speeds and durations, identifying pauses, and segmenting paths based on various criteria. This type of analysis, which I’m doing for fun, is the very same as could be used to, for example, study bird migrations or the movement of container ships.\nPython provides many libraries based around the pandas ecosystem which make working with geospatial data easy. GeoPandas extends Pandas to incorporate geometries and coordinate reference systems. GPX data is a series of geolocated points, which is easily handled by geopandas. MovingPandas facilitates turning the point geometries into “trajectories”, allowing for calculations of speed, duration and direction.\nThis article will cover parsing the raw GPS data to a csv file, which I then import into a geopandas GeoDataFrame. From that I will create maps and generate some basic statistical information about the trek such as distance and elevation profiles. These articles assume basic familiarity with Python, experience with Pandas being helpful. An expanded version of the code in the articles can be obtained from my GitHub repository at https://github.com/bisotty666/GPX.",
+    "crumbs": [
+      "Data Science",
+      "Python Gpx Mapping",
+      "Trail Mapping with Python"
+    ]
+  },
+  {
+    "objectID": "posts/data-science/python-gpx-mapping/gpx-gps-data/index.html#next-steps",
+    "href": "posts/data-science/python-gpx-mapping/gpx-gps-data/index.html#next-steps",
+    "title": "Trail Mapping with Python",
+    "section": "Next steps",
+    "text": "Next steps\nI naturally want to be able to make calculations of speed and distance, identify pauses, and do other exploration. Starting from discrete points, the steps to do so manually would be simple but exceedingly tedious. Fortunately there is a wonderful library called movingpandas which makes these things all very simple. I’ll explore that in the next articles.\nI’ll go ahead and save the GeoDataFrames for future use:\ntrek_gdf.to_file('data/trek_gdf.gpkg', driver='GPKG')\ntrek_projected.to_file('data/trek_projected.gpkg', driver='GPKG')",
+    "crumbs": [
+      "Data Science",
+      "Python Gpx Mapping",
+      "Trail Mapping with Python"
+    ]
+  },
+  {
     "objectID": "posts/data-science/obsidian-jupyter/index.html",
     "href": "posts/data-science/obsidian-jupyter/index.html",
     "title": "Obsidian and Jupyter Notebooks",
@@ -993,11 +638,177 @@
     ]
   },
   {
+    "objectID": "posts/data-science/python-gpx-mapping.html",
+    "href": "posts/data-science/python-gpx-mapping.html",
+    "title": "GPX Trail Mapping in Python",
+    "section": "",
+    "text": "Trail Mapping with Python\n\n\n\n\n\n\nGIS\n\n\nPython\n\n\nData Science\n\n\n\nUsing your GPX data with geopandas\n\n\n\n\n\nFeb 28, 2024\n\n\nBrian Carey\n\n\n\n\n\n\n\n\n\n\n\n\nPoints to Paths in Python\n\n\n\n\n\n\nData Science\n\n\nGIS\n\n\nPython\n\n\n\nCreating trajectories in MovingPandas\n\n\n\n\n\nFeb 3, 2025\n\n\nBrian Carey\n\n\n\n\n\n\n\n\n\n\n\n\nSpeed, Simplification and Segments\n\n\n\n\n\n\nGIS\n\n\nPython\n\n\nData Science\n\n\n\nWorking with MovingPandas\n\n\n\n\n\nFeb 25, 2025\n\n\nBrian Carey\n\n\n\n\n\n\nNo matching items\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Data Science",
+      "GPX Trail Mapping in Python"
+    ]
+  },
+  {
     "objectID": "posts/posts.html",
     "href": "posts/posts.html",
     "title": "All Posts",
     "section": "",
     "text": "Obsidian and Jupyter Notebooks\n\n\n\nObsidian\n\n\nPython\n\n\nData Science\n\n\n\nPersonal Knowledge Management for Data Science\n\n\n\nBrian Carey\n\n\nMar 20, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian and Jupyter Notebooks\n\n\n\nObsidian\n\n\nPython\n\n\nData Science\n\n\n\nPersonal Knowledge Management for Data Science\n\n\n\nBrian Carey\n\n\nMar 20, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian Canvas Work Spaces\n\n\n\nObsidian\n\n\n\nVisual MOCery\n\n\n\nBrian Carey\n\n\nJan 20, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGit and GitHub for Obsidian Users\n\n\n\nObsidian\n\n\nLinux\n\n\n\nAnd why you probably shouldn’t be using it\n\n\n\nBrian Carey\n\n\nJan 19, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSummarizing Information with DataviewJS\n\n\n\nJavascript\n\n\nObsidian\n\n\nPKM\n\n\nDataviewJS\n\n\n\nPresenting and analyzing information in Obsidian\n\n\n\nBrian Carey\n\n\nOct 16, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInteractive Tables with DataviewJS\n\n\n\nJavascript\n\n\nObsidian\n\n\nDataviewJS\n\n\n\nSelecting Files, Working with Dates\n\n\n\nBrian Carey\n\n\nOct 14, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDataviewJS: A Gentle Introduction\n\n\n\nJavascript\n\n\nObsidian\n\n\nDataviewJS\n\n\n\nFor Obsidian users who are not programmers\n\n\n\nBrian Carey\n\n\nOct 11, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian: Pretty Canvas\n\n\n\nObsidian\n\n\nCSS\n\n\n\nUsing CSS to make dashboards cleaner and more effective.\n\n\n\nBrian Carey\n\n\nOct 5, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian: Freeing Your Thinking Workflow\n\n\n\nObsidian\n\n\nPKM\n\n\n\nA video showing how to use the information-focused Freeing Your Thinking paradigm.\n\n\n\nBrian Carey\n\n\nSep 21, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian Canvas Dashboards\n\n\n\nObsidian\n\n\n\nCanvas allows you to build dashboards to organize and interact with your information.\n\n\n\nBrian Carey\n\n\nSep 14, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian Metadata Menu Plugin\n\n\n\nObsidian\n\n\n\nSupercharge your management of properties and in-line Dataview fields\n\n\n\nBrian Carey\n\n\nSep 6, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian Bookmarks\n\n\n\nObsidian\n\n\n\nBookmarks are the key to effectively using obsidian as a non-relational database.\n\n\n\nBrian Carey\n\n\nSep 5, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian: The mechanics of Graph View\n\n\n\nObsidian\n\n\nGraphs\n\n\n\nVideo - Working with Graph View to explore your information network.\n\n\n\nBrian Carey\n\n\nAug 31, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian: A Second Brain?\n\n\n\nObsidian\n\n\nGraphs\n\n\n\nExploring the concepts of graph data and neural networks.\n\n\n\nBrian Carey\n\n\nAug 30, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSyncing your Thinking with Syncthing\n\n\n\nObsidian\n\n\nLinux\n\n\n\nFast, secure, private and free way to synchronize your Obsidian vault (and any other direcotries) across multiple devices.\n\n\n\nBrian Carey\n\n\nAug 28, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian Basics - Headers\n\n\n\nObsidian\n\n\n\nHeaders add more than visual appeal. They are important for structuring your document and enabling atomic embeds.\n\n\n\nBrian Carey\n\n\nAug 27, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian: Stop Wasting Time With Directories and Filenames\n\n\n\nObsidian\n\n\nPKM\n\n\n\nFreeing Your Thiking Part 1 introduces the idea of of working with Obsidian as a database. This part covers capture and retrieval of information useing Unique Notes, Search…\n\n\n\nBrian Carey\n\n\nAug 24, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian: Meaningless Names, No Directories, Now What?\n\n\n\nObsidian\n\n\nPKM\n\n\nGraphs\n\n\n\nFreeing Your Thiking Part 2 discusses the use of Graph View and Bookmarks to discover and organize information in your vault\n\n\n\nBrian Carey\n\n\nAug 24, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat does it mean that is a NoSQL Database?\n\n\n\nObsidian\n\n\n\nObsidian is a non-relational database. This article explains this and the significance of the fact.\n\n\n\nBrian Carey\n\n\nAug 24, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRegular Expressions for In-Line Fields\n\n\n\nObsidian\n\n\n\nObsidian doesn’t support search filters for in-line Dataview fields, but regex makes it easy\n\n\n\nBrian Carey\n\n\nAug 23, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptimal Notes with Obsidian\n\n\n\nObsidian\n\n\nPKM\n\n\n\n…a tale in the spirit of Euripides\n\n\n\nBrian Carey\n\n\nAug 5, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDataviewJS: A Gentle Introduction Part 2\n\n\n\nJavascript\n\n\nObsidian\n\n\nDataviewJS\n\n\n\nSelecting Files, Working with Dates\n\n\n\nBrian Carey\n\n\nFeb 28, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n\n  \n\n Back to top"
+  },
+  {
+    "objectID": "posts/cv/fna/index.html",
+    "href": "posts/cv/fna/index.html",
+    "title": "Finance and Administration",
+    "section": "",
+    "text": "Finance and Administration\nPraesent ornare dolor turpis, sed tincidunt nisl pretium eget. Curabitur sed iaculis ex, vitae tristique sapien. Quisque nec ex dolor. Quisque ut nisl a libero egestas molestie. Nulla vel porta nulla. Phasellus id pretium arcu. Etiam sed mi pellentesque nibh scelerisque elementum sed at urna. Ut congue molestie nibh, sit amet pretium ligula consectetur eu. Integer consectetur augue justo, at placerat erat posuere at. Ut elementum urna lectus, vitae bibendum neque pulvinar quis. Suspendisse vulputate cursus eros id maximus. Duis pulvinar facilisis massa, et condimentum est viverra congue. Curabitur ornare convallis nisl. Morbi dictum scelerisque turpis quis pellentesque. Etiam lectus risus, luctus lobortis risus ut, rutrum vulputate justo. Nulla facilisi.\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/dataviewjs-interactive-dynamic-tables/index.html",
+    "href": "blogs/dataviewjs-interactive-dynamic-tables/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/dataviewjs-interactive-dynamic-tables/.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/regex-search-in-line-metadata/index.html",
+    "href": "blogs/regex-search-in-line-metadata/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/regex-search-in-line-metadata.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/pretty-canvas/index.html",
+    "href": "blogs/pretty-canvas/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/pretty-canvas.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/git-github-obsidian/index.html",
+    "href": "blogs/git-github-obsidian/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/git-github-obsidian.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/graph-view-deets/index.html",
+    "href": "blogs/graph-view-deets/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/graph-view-deets.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/metadata-menu/index.html",
+    "href": "blogs/metadata-menu/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/metadata-menu.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/obsidian-bookmarks/index.html",
+    "href": "blogs/obsidian-bookmarks/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/obsidian-headers.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/gpx-gps-data/index.html",
+    "href": "blogs/gpx-gps-data/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https://biscotty.online/blogs/data-science/gpx-gps-data.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/optimal-notes-with-obsidian/index.html",
+    "href": "blogs/optimal-notes-with-obsidian/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/optimal-notes-with-obsidian.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/obsidian-headers/index.html",
+    "href": "blogs/obsidian-headers/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/obsidian-headers.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/python-movingpandas-points-paths/index.html",
+    "href": "blogs/python-movingpandas-points-paths/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/data-science/python-movingpandas-points-paths/.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/obsidian-whiteboards/index.html",
+    "href": "blogs/obsidian-whiteboards/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/obsidian-whiteboards.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/python-movingpandas-speed-segments/index.html",
+    "href": "blogs/python-movingpandas-speed-segments/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/data-science/python-movingpandas-speed-segments/.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/visual-mocs-with-canvas/index.html",
+    "href": "blogs/visual-mocs-with-canvas/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/visual-mocs-with-canvas.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/obsidian-no-sql-database/index.html",
+    "href": "blogs/obsidian-no-sql-database/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/obsidian-no-sql-database.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/dataviewjs-files-dates/index.html",
+    "href": "blogs/dataviewjs-files-dates/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/dataviewjs-files-dates.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/obsidian-jupyter/index.html",
+    "href": "blogs/obsidian-jupyter/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/obsidian-jupyter.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/second-brain/index.html",
+    "href": "blogs/second-brain/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/second-brain.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blogs/syncing-your-thinking-syncthing/index.html",
+    "href": "blogs/syncing-your-thinking-syncthing/index.html",
+    "title": "biscotty's Workshop",
+    "section": "",
+    "text": "GPS\n\n\n\n\n\nThis page has moved to  https:/biscotty.online/blogs/obsidian/syncing-your-thinking-syncthing.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "posts/cv/index.html",
+    "href": "posts/cv/index.html",
+    "title": "Brian Carey",
+    "section": "",
+    "text": "Finance and Administration\n\n\n\n\n\nSignificant Achievements\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTechnology\n\n\n\n\n\nExperience and Training\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "posts/cv/tech/index.html",
+    "href": "posts/cv/tech/index.html",
+    "title": "Technology",
+    "section": "",
+    "text": "Technology\nPraesent ornare dolor turpis, sed tincidunt nisl pretium eget. Curabitur sed iaculis ex, vitae tristique sapien. Quisque nec ex dolor. Quisque ut nisl a libero egestas molestie. Nulla vel porta nulla. Phasellus id pretium arcu. Etiam sed mi pellentesque nibh scelerisque elementum sed at urna. Ut congue molestie nibh, sit amet pretium ligula consectetur eu. Integer consectetur augue justo, at placerat erat posuere at. Ut elementum urna lectus, vitae bibendum neque pulvinar quis. Suspendisse vulputate cursus eros id maximus. Duis pulvinar facilisis massa, et condimentum est viverra congue. Curabitur ornare convallis nisl. Morbi dictum scelerisque turpis quis pellentesque. Etiam lectus risus, luctus lobortis risus ut, rutrum vulputate justo. Nulla facilisi.\n\n\n\n\n Back to top"
   },
   {
     "objectID": "posts/data-science/TrailMappingWithR.html",
@@ -1030,6 +841,125 @@
     "crumbs": [
       "Data Science",
       "Trail Mapping with R"
+    ]
+  },
+  {
+    "objectID": "posts/data-science/data-science.html",
+    "href": "posts/data-science/data-science.html",
+    "title": "Data Science",
+    "section": "",
+    "text": "Trail Mapping with Python\n\n\n\n\n\n\nGIS\n\n\nPython\n\n\nData Science\n\n\n\nUsing your GPX data with geopandas\n\n\n\n\n\nFeb 28, 2024\n\n\nBrian Carey\n\n\n\n\n\n\n\n\n\n\n\n\nObsidian and Jupyter Notebooks\n\n\n\n\n\n\nObsidian\n\n\nPython\n\n\nData Science\n\n\n\nPersonal Knowledge Management for Data Science\n\n\n\n\n\nMar 20, 2024\n\n\nBrian Carey\n\n\n\n\n\n\n\n\n\n\n\n\nPoints to Paths in Python\n\n\n\n\n\n\nData Science\n\n\nGIS\n\n\nPython\n\n\n\nCreating trajectories in MovingPandas\n\n\n\n\n\nFeb 3, 2025\n\n\nBrian Carey\n\n\n\n\n\n\n\n\n\n\n\n\nSpeed, Simplification and Segments\n\n\n\n\n\n\nGIS\n\n\nPython\n\n\nData Science\n\n\n\nWorking with MovingPandas\n\n\n\n\n\nFeb 25, 2025\n\n\nBrian Carey\n\n\n\n\n\n\nNo matching items\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Data Science"
+    ]
+  },
+  {
+    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
+    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
+    "title": "Points to Paths in Python",
+    "section": "",
+    "text": "In the prior article, I showed how to use raw GPS data generated from a sport tracker to create maps and profile elevations along the path. The GeoDataFrames created were just a collection of point geometries with time, location and elevation data. To profile, for example, speed, requires converting the point geometries to line geometries, calculating distances and time deltas between each point, and converting between coordinate systems and units of measurement. If we were concerned with bearing, we would need to also calculate angles between the line segments we create. None of this is overly complicated, just awfully tedious. But this being Python, there is a dedicated library that makes all of this easy peasy.\nMovingPandas is a library that extends Pandas/Geopandas by taking the list of point geometries and turning them into “trajectories”. It generates directed lines between consecutive points, and provides functions for all of the calculations I mentioned above and more.\nIn this article I will show how to create and work with trajectories. I’ll then show how to use MovingPandas to find locations along the path based on time, find the distance from the path to nearby locations, and finally how to identify locations where I paused or stopped. In the next article, I will show how to simplify and smooth paths, profile speed, and segment the trajectories based on various criteria. As before, an expanded version of the code in this article is available in my repository.\n\n\n\nI’ll start by loading the necessary libraries and creating a helper function for mapping as well as some defaults for annotating points on the maps. Then i will load some data converted from raw GPS data as described in the previous article.\nimport pandas as pd \nimport geopandas as gpd \nimport movingpandas as mpd \nimport matplotlib.pyplot as plt\nimport contextily as ctx\nfrom datetime import datetime, timedelta\nfrom geopandas.tools import reverse_geocode, geocode\nimport warnings\nwarnings.filterwarnings('ignore')\n\ndef t_plot(traj, \n            figsize=(6,8), \n            source=ctx.providers.CartoDB.Voyager, \n            title=None):\n    f, ax = plt.subplots(figsize=figsize)\n    traj.plot(ax=ax, lw=4, color='chartreuse')\n    ctx.add_basemap(ax, crs=traj.crs, \n                    source=source)\n    ax.set_axis_off()\n    if title: \n        ax.set_title(title)\n    else:\n        ax.set_title(\n            f'Walk in {traj.df.Name[0]} on {traj.df.index[0].strftime('%x')}'\n        )\n    return f, ax\n\nannot_props = dict(\n    xytext=(3, 1), \n    textcoords=\"offset fontsize\", \n    c='r', weight='bold', ha='center',\n    arrowprops=dict(arrowstyle='-', ec='orange')\n)\n\ndf = pd.read_csv('data/b3/combined.csv')\ngdf = gpd.GeoDataFrame(\n    df, \n    geometry=gpd.points_from_xy(x=df.Lon, y=df.Lat), \n    crs=4269\n).to_crs(32111)\nMovingPandas requires an integer id for each walk, which I don’t have, so I’ll create one based on the string id. I’ll also convert the Time from a generic object to datetime64.\nidList = list(gdf.groupby(['Id']).nunique().reset_index().Id)\nfor i, track in enumerate(idList):\n    gdf.loc[gdf.Id == track, 'trajectory_id'] = i\ngdf['Time'] = pd.to_datetime(gdf.Time)\ngdf.info()\n&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;\nRangeIndex: 3044 entries, 0 to 3043\nData columns (total 10 columns):\n #   Column         Non-Null Count  Dtype              \n---  ------         --------------  -----              \n 0   Id             3044 non-null   object             \n 1   Name           3044 non-null   object             \n 2   Lat            3044 non-null   float64            \n 3   Lon            3044 non-null   float64            \n 4   Elev           3044 non-null   int64              \n 5   Time           3044 non-null   datetime64[ns, UTC]\n 6   Temp           3044 non-null   float64            \n 7   Weather        3044 non-null   int64              \n 8   geometry       3044 non-null   geometry           \n 9   trajectory_id  3044 non-null   float64            \ndtypes: datetime64[ns, UTC](1), float64(4), geometry(1), int64(2), object(2)\nmemory usage: 237.9+ KB\nOne of the walks in the collection was in New York City, and the rest in New Jersey. Since the locations are pretty far apart, I’ll split out the NYC walk from the others.\ngdf_nj = gdf.loc[gdf.Name != 'New York']\ngdf_ny = gdf.loc[gdf.Name == 'New York']\ngdf_nj.shape, gdf_ny.shape\n((2063, 10), (981, 10))\n\n\n\nNow I’m ready to create the trajectories. The data will be imported as a Trajectory Collection which will contain the individual Trajectories. I’ll first create one from the NJ group, which contains several walks.\ntc_nj = mpd.TrajectoryCollection(\n    gdf_nj, 'trajectory_id', \n    t='Time', x='Lon', y='Lat'\n)\nprint(tc_nj)\nTrajectoryCollection with 6 trajectories\nLet’s see what this looks like.\nax = traj_collection.plot(\n    column='trajectory_id', \n    legend=True, figsize=(9,5), cmap='Set1')\nax.set_title('Walks in NJ, September 2024')\nctx.add_basemap(ax, crs=gdf_proj.crs,\n                source=ctx.providers.Esri.WorldTopoMap);\n\nI can extract a single trajectory and its underlying data frame.\ntraj_nj1 = tc_nj.trajectories[2]\nprint(traj_nj1)\nTrajectory 2.0 (2024-09-07 21:20:23.975000 to 2024-09-07 22:03:42.022000) | Size: 267 | Length: 5173.1m\nBounds: (177912.1946985984, 243124.49067874879, 179216.17084672116, 245408.85808260852)\nLINESTRING (178912.27991325516 244815.1747420021, 178912.27991325516 244815.1747420021, 178903.67850\nThe associated data is stored in the df attribute:\nprint(traj_nj1.df.info())\n&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;\nDatetimeIndex: 267 entries, 2024-09-07 21:20:23.975000 to 2024-09-07 22:03:42.022000\nData columns (total 9 columns):\n #   Column         Non-Null Count  Dtype   \n---  ------         --------------  -----   \n 0   Id             267 non-null    object  \n 1   Name           267 non-null    object  \n 2   Lat            267 non-null    float64 \n 3   Lon            267 non-null    float64 \n 4   Elev           267 non-null    int64   \n 5   Temp           267 non-null    float64 \n 6   Weather        267 non-null    int64   \n 7   geometry       267 non-null    geometry\n 8   trajectory_id  267 non-null    float64 \ndtypes: float64(4), geometry(1), int64(2), object(2)\nmemory usage: 29.0+ KB\nNone\nt_plot(traj_nj1, source=ctx.providers.OpenStreetMap.HOT);\n\nAnother way to extract a specific trajectory is using MovingPandas’ filter function, as so:\nt_plot(\ntc_nj.filter(\"Name\", [\"Park Ridge\"])\n     .trajectories[0]\n);\n\nFor the rest of the article I’ll use the longest trek I have in this data set, the one in New York. I’ll create the Trajectory Collection, extract the single trajectory and find the start and end times and locations.\ntc_ny = mpd.TrajectoryCollection(\n    gdf_ny, 'trajectory_id', \n    t='Time', x='Lon', y='Lat'\n)\ntraj_ny = tc_ny.trajectories[0]\nst = traj_ny.get_start_time()\nsl = traj_ny.to_crs(4269).get_start_location()\net = traj_ny.get_end_time()\nel = traj_ny.to_crs(4269).get_end_location()\nprint(f'''\n            Time         Location (Lon/Lat)\n            \n    Start: {st.strftime('%X')}   {sl.coords[0]} degrees\n    End:   {et.strftime('%X')}   {el.coords[0]}  degrees\n\n    Duration:  {traj_ny.get_duration().seconds/60:.0f} minutes\n    Distance:  {traj_ny.get_length(units='mi'):.2f} miles\n    Direction: {traj_ny.get_direction():.0f} degrees\n''')\n            Time         Location (Lon/Lat)\n            \n    Start: 17:43:42   (-73.991157, 40.752025) degrees\n    End:   20:49:09   (-73.98894, 40.726903)  degrees\n\n    Duration:  185 minutes\n    Distance:  6.69 miles\n    Direction: 176 degrees\nt_plot(traj_ny);\n\n\n\n\nFirst, let me find my position at an arbitrary time, and then 30 minutes later. Where was I, for example, at 18:00, and then 45 minutes later?\nt = datetime(2024, 9, 11, 18)\nt2 = t + timedelta(minutes=45)\nprint(f'''\n    Nearest:      {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='nearest')}\n    Interpolated: {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='interpolated')}\n    Previous row: {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='ffill')}\n    Next row:     {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='bfill')}\n''')\n    Nearest:      POINT (-74.003574 40.756368)\n    Interpolated: POINT (-74.00361304734385 40.75638409846633)\n    Previous row: POINT (-74.003688 40.756415)\n    Next row:     POINT (-74.003574 40.756368)\nI can use the geocode tool provided by geopandas to get the nearest addresses at these points so I can show them on the map. Pay attention to crs, since nominatim expects lat/lon coordinates and we currently have projected coordinates.\npoint = traj_ny.get_position_at(t, method='interpolated')\npoint_up = traj_ny.to_crs(4269).get_position_at(t, method='interpolated')\npoint2 = traj_ny.get_position_at(t2, method='interpolated')\npoint2_up = traj_ny.to_crs(4269).get_position_at(t2, method='interpolated')\n\nrg = reverse_geocode(\n    [point_up, point2_up], \n    provider=\"nominatim\", \n    user_agent=\"your_project\", \n    timeout=10\n).to_crs(32111)\n\nf, ax = t_plot(traj_ny)\ngpd.GeoSeries(point).plot(ax=ax, color='red', markersize=100)\ngpd.GeoSeries(point2).plot(ax=ax, color='red', markersize=100)\nfor x, y, label in zip(rg.geometry.x, rg.geometry.y, rg.address):\n    ax.annotate(f'{label.split(',')[0]}, {label.split(',')[1]}', \n                xy=(x, y), **annot_props)\nax.set_ylim(211500, 214500)\nax.set_xlim(191400, 192500);\n\nIt might be more interesting to plot my location at regular intervals along the walk. What about plotting my location every 30 minutes?\nint_count = (et - st) // timedelta(seconds=(60*30))\nint_length = (et - st) / int_count\nintervals = [st + (i*int_length) for i in range(int_count)]\ninterval_points = [traj_ny.to_crs(4269).get_position_at(\n                    t, method='interpolated') \n                   for t in intervals]\nrg = reverse_geocode(\n    interval_points, \n    provider=\"nominatim\", \n    user_agent=\"your_project\", \n    timeout=10\n).to_crs(32111)\n\nf, ax = t_plot(traj_ny, figsize=(7,11))\nrg.plot(ax=ax, c='r', markersize=100)\nfor x, y, label in zip(rg.geometry.x, rg.geometry.y, rg.address):\n    ax.annotate(f'{label.split(',')[0]}, {label.split(',')[1]}', \n                xy=(x, y), **annot_props)\nax.set_title(ax.get_title() + f'\\nEvery 30 minutes');\n\n\n\n\nNot only can you calculate distances along the path, which we will look at more in the next article, but you can calculate the distance from points along the trajectory to other locations not on the path. It will determine the closest you came to other points, lines or polygons, including, of course, other trajectories. For example, when I’m in New York, I love to visit the Strand and the huge Barnes and Noble on Union Square. I didn’t have time this trip, sadly, but I’m curious how close I was from those stores.\naddresses = [{\n                'id': 1,\n                'name': \"The Strand\", \n                'addr': \"828 Broadway, New York, NY 10003\"\n            }, \n            {\n                'id': 2,\n                'name': \"Barnes and Noble\", \n                'addr': \"33 East 17th Street, 10003, New York\"\n            }]\nadd_df = pd.DataFrame(addresses)\ngeo = geocode(\n    add_df['addr'], \n    provider='nominatim', \n    user_agent='your_project', \n    timeout=10\n)\nbook_stores = geo.join(add_df).to_crs(32111)\nprint(book_stores)\n                        geometry  \\\n0  POINT (192997.822 211055.516)   \n1  POINT (193108.568 211461.041)   \n\n                                             address  id              name  \\\n0  Strand Bookstore, 828, Broadway, University Vi...   1        The Strand   \n1  Barnes & Noble, 33, East 17th Street, Union Sq...   2  Barnes and Noble   \n\n                                   addr  \n0      828 Broadway, New York, NY 10003  \n1  33 East 17th Street, 10003, New York\ndists_to = [traj_ny.distance(book_stores.loc[i, ['geometry']], \n                            units='mi')[0] \n            for i in range(len(book_stores))]\nstore_names = [book_stores.loc[i, 'name'] \n               for i in range(len(book_stores))]\nfor i in range(len(book_stores)):\n    print(f'Closest distance to {store_names[i]} was {dists_to[i]:.1f} miles') \nClosest distance to The Strand was 0.4 miles\nClosest distance to Barnes and Noble was 0.6 miles\nf, ax = t_plot(traj_ny, figsize=(7,11))\nbook_stores.plot(ax=ax, color='red', markersize=100)\nfor x, y, label in zip(book_stores.geometry.x, \n                       book_stores.geometry.y, \n                       book_stores.name):\n    ax.annotate(label, xy=(x,y), **annot_props)\n\n\n\n\nIn this final section I’ll look at stop detection. Here I’ll just be considering stop locations. In the next article, I’ll show how to use the same approach as one method for segmenting the trajectories. Stop detection requires instantiation of a stop detector which will provide the functions needed.\ndetector = mpd.TrajectoryStopDetector(traj_ny)\nThe detector takes parameters to determine how long a pause constitutes a stop, and how far you need to move to constitute movement.\nstop_points = detector.get_stop_points(\n    min_duration=timedelta(seconds=120), max_diameter=100\n)\nlen(stop_points)\n18\nWe can look up the addresses nearest to the stop points, and plot some of them on the map.\nstop_points = stop_points.set_crs(32111)\nrg = reverse_geocode(\n    stop_points.to_crs(4269).geometry, \n    provider=\"nominatim\", \n    user_agent=\"your_project\", timeout=10\n).to_crs(32111)\nf, ax = t_plot(traj_ny)\nstop_points.plot(ax=ax, color='none', markersize=100, ec='r')\npoint_labels = [0,3,7,11,17]\nfor (x, y), label in zip(\n                    rg.iloc[point_labels].geometry.apply(\n                        lambda p: p.coords[0]), \n                    rg.iloc[point_labels].address):\n    ax.annotate(f'{label.split(',')[0]}, {label.split(',')[1]}', \n                xy=(x, y), **annot_props)\nax.set_title(ax.get_title() + f'\\nStop Points');\n\n\n\n\nShowing interactive graphing in the context of a published article is not very useful, but I should point out that MovingPandas supports both hvplot with folium as well as GeoPandas’ explore(), both of which can be useful tools for identifying areas of interest. This is an example with explore().\nm = traj_ny.explore(\n    column=\"trajectory_id\",\n    tooltip=\"t\",\n    popup=True,\n    style_kwds={\"weight\": 4},\n    name=\"Time\",\n)\n\nstop_points.explore(\n    m=m,\n    color=\"red\",\n    tooltip=\"stop_id\",\n    popup=True,\n    marker_kwds={\"radius\": 10},\n    name=\"Stop points\",\n)\n\n\n\n\nIn the third article, I will address issues of generalization and simplification which can be important when working with large data sets. I’ll show how to generate speed, duration and distance information, and how to segment the trajectories based on geometries, stops, and other criteria. I hope that these articles are proving interesting and useful. Please visit my website and repository for more code, articles and updates.",
+    "crumbs": [
+      "Data Science",
+      "Python Gpx Mapping",
+      "Points to Paths in Python"
+    ]
+  },
+  {
+    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#introduction",
+    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#introduction",
+    "title": "Points to Paths in Python",
+    "section": "",
+    "text": "In the prior article, I showed how to use raw GPS data generated from a sport tracker to create maps and profile elevations along the path. The GeoDataFrames created were just a collection of point geometries with time, location and elevation data. To profile, for example, speed, requires converting the point geometries to line geometries, calculating distances and time deltas between each point, and converting between coordinate systems and units of measurement. If we were concerned with bearing, we would need to also calculate angles between the line segments we create. None of this is overly complicated, just awfully tedious. But this being Python, there is a dedicated library that makes all of this easy peasy.\nMovingPandas is a library that extends Pandas/Geopandas by taking the list of point geometries and turning them into “trajectories”. It generates directed lines between consecutive points, and provides functions for all of the calculations I mentioned above and more.\nIn this article I will show how to create and work with trajectories. I’ll then show how to use MovingPandas to find locations along the path based on time, find the distance from the path to nearby locations, and finally how to identify locations where I paused or stopped. In the next article, I will show how to simplify and smooth paths, profile speed, and segment the trajectories based on various criteria. As before, an expanded version of the code in this article is available in my repository.",
+    "crumbs": [
+      "Data Science",
+      "Python Gpx Mapping",
+      "Points to Paths in Python"
+    ]
+  },
+  {
+    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#getting-ready-for-movingpandas",
+    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#getting-ready-for-movingpandas",
+    "title": "Points to Paths in Python",
+    "section": "",
+    "text": "I’ll start by loading the necessary libraries and creating a helper function for mapping as well as some defaults for annotating points on the maps. Then i will load some data converted from raw GPS data as described in the previous article.\nimport pandas as pd \nimport geopandas as gpd \nimport movingpandas as mpd \nimport matplotlib.pyplot as plt\nimport contextily as ctx\nfrom datetime import datetime, timedelta\nfrom geopandas.tools import reverse_geocode, geocode\nimport warnings\nwarnings.filterwarnings('ignore')\n\ndef t_plot(traj, \n            figsize=(6,8), \n            source=ctx.providers.CartoDB.Voyager, \n            title=None):\n    f, ax = plt.subplots(figsize=figsize)\n    traj.plot(ax=ax, lw=4, color='chartreuse')\n    ctx.add_basemap(ax, crs=traj.crs, \n                    source=source)\n    ax.set_axis_off()\n    if title: \n        ax.set_title(title)\n    else:\n        ax.set_title(\n            f'Walk in {traj.df.Name[0]} on {traj.df.index[0].strftime('%x')}'\n        )\n    return f, ax\n\nannot_props = dict(\n    xytext=(3, 1), \n    textcoords=\"offset fontsize\", \n    c='r', weight='bold', ha='center',\n    arrowprops=dict(arrowstyle='-', ec='orange')\n)\n\ndf = pd.read_csv('data/b3/combined.csv')\ngdf = gpd.GeoDataFrame(\n    df, \n    geometry=gpd.points_from_xy(x=df.Lon, y=df.Lat), \n    crs=4269\n).to_crs(32111)\nMovingPandas requires an integer id for each walk, which I don’t have, so I’ll create one based on the string id. I’ll also convert the Time from a generic object to datetime64.\nidList = list(gdf.groupby(['Id']).nunique().reset_index().Id)\nfor i, track in enumerate(idList):\n    gdf.loc[gdf.Id == track, 'trajectory_id'] = i\ngdf['Time'] = pd.to_datetime(gdf.Time)\ngdf.info()\n&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;\nRangeIndex: 3044 entries, 0 to 3043\nData columns (total 10 columns):\n #   Column         Non-Null Count  Dtype              \n---  ------         --------------  -----              \n 0   Id             3044 non-null   object             \n 1   Name           3044 non-null   object             \n 2   Lat            3044 non-null   float64            \n 3   Lon            3044 non-null   float64            \n 4   Elev           3044 non-null   int64              \n 5   Time           3044 non-null   datetime64[ns, UTC]\n 6   Temp           3044 non-null   float64            \n 7   Weather        3044 non-null   int64              \n 8   geometry       3044 non-null   geometry           \n 9   trajectory_id  3044 non-null   float64            \ndtypes: datetime64[ns, UTC](1), float64(4), geometry(1), int64(2), object(2)\nmemory usage: 237.9+ KB\nOne of the walks in the collection was in New York City, and the rest in New Jersey. Since the locations are pretty far apart, I’ll split out the NYC walk from the others.\ngdf_nj = gdf.loc[gdf.Name != 'New York']\ngdf_ny = gdf.loc[gdf.Name == 'New York']\ngdf_nj.shape, gdf_ny.shape\n((2063, 10), (981, 10))",
+    "crumbs": [
+      "Data Science",
+      "Python Gpx Mapping",
+      "Points to Paths in Python"
+    ]
+  },
+  {
+    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#getting-going-with-movingpandas",
+    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#getting-going-with-movingpandas",
+    "title": "Points to Paths in Python",
+    "section": "",
+    "text": "Now I’m ready to create the trajectories. The data will be imported as a Trajectory Collection which will contain the individual Trajectories. I’ll first create one from the NJ group, which contains several walks.\ntc_nj = mpd.TrajectoryCollection(\n    gdf_nj, 'trajectory_id', \n    t='Time', x='Lon', y='Lat'\n)\nprint(tc_nj)\nTrajectoryCollection with 6 trajectories\nLet’s see what this looks like.\nax = traj_collection.plot(\n    column='trajectory_id', \n    legend=True, figsize=(9,5), cmap='Set1')\nax.set_title('Walks in NJ, September 2024')\nctx.add_basemap(ax, crs=gdf_proj.crs,\n                source=ctx.providers.Esri.WorldTopoMap);\n\nI can extract a single trajectory and its underlying data frame.\ntraj_nj1 = tc_nj.trajectories[2]\nprint(traj_nj1)\nTrajectory 2.0 (2024-09-07 21:20:23.975000 to 2024-09-07 22:03:42.022000) | Size: 267 | Length: 5173.1m\nBounds: (177912.1946985984, 243124.49067874879, 179216.17084672116, 245408.85808260852)\nLINESTRING (178912.27991325516 244815.1747420021, 178912.27991325516 244815.1747420021, 178903.67850\nThe associated data is stored in the df attribute:\nprint(traj_nj1.df.info())\n&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;\nDatetimeIndex: 267 entries, 2024-09-07 21:20:23.975000 to 2024-09-07 22:03:42.022000\nData columns (total 9 columns):\n #   Column         Non-Null Count  Dtype   \n---  ------         --------------  -----   \n 0   Id             267 non-null    object  \n 1   Name           267 non-null    object  \n 2   Lat            267 non-null    float64 \n 3   Lon            267 non-null    float64 \n 4   Elev           267 non-null    int64   \n 5   Temp           267 non-null    float64 \n 6   Weather        267 non-null    int64   \n 7   geometry       267 non-null    geometry\n 8   trajectory_id  267 non-null    float64 \ndtypes: float64(4), geometry(1), int64(2), object(2)\nmemory usage: 29.0+ KB\nNone\nt_plot(traj_nj1, source=ctx.providers.OpenStreetMap.HOT);\n\nAnother way to extract a specific trajectory is using MovingPandas’ filter function, as so:\nt_plot(\ntc_nj.filter(\"Name\", [\"Park Ridge\"])\n     .trajectories[0]\n);\n\nFor the rest of the article I’ll use the longest trek I have in this data set, the one in New York. I’ll create the Trajectory Collection, extract the single trajectory and find the start and end times and locations.\ntc_ny = mpd.TrajectoryCollection(\n    gdf_ny, 'trajectory_id', \n    t='Time', x='Lon', y='Lat'\n)\ntraj_ny = tc_ny.trajectories[0]\nst = traj_ny.get_start_time()\nsl = traj_ny.to_crs(4269).get_start_location()\net = traj_ny.get_end_time()\nel = traj_ny.to_crs(4269).get_end_location()\nprint(f'''\n            Time         Location (Lon/Lat)\n            \n    Start: {st.strftime('%X')}   {sl.coords[0]} degrees\n    End:   {et.strftime('%X')}   {el.coords[0]}  degrees\n\n    Duration:  {traj_ny.get_duration().seconds/60:.0f} minutes\n    Distance:  {traj_ny.get_length(units='mi'):.2f} miles\n    Direction: {traj_ny.get_direction():.0f} degrees\n''')\n            Time         Location (Lon/Lat)\n            \n    Start: 17:43:42   (-73.991157, 40.752025) degrees\n    End:   20:49:09   (-73.98894, 40.726903)  degrees\n\n    Duration:  185 minutes\n    Distance:  6.69 miles\n    Direction: 176 degrees\nt_plot(traj_ny);",
+    "crumbs": [
+      "Data Science",
+      "Python Gpx Mapping",
+      "Points to Paths in Python"
+    ]
+  },
+  {
+    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#right-place-right-time",
+    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#right-place-right-time",
+    "title": "Points to Paths in Python",
+    "section": "",
+    "text": "First, let me find my position at an arbitrary time, and then 30 minutes later. Where was I, for example, at 18:00, and then 45 minutes later?\nt = datetime(2024, 9, 11, 18)\nt2 = t + timedelta(minutes=45)\nprint(f'''\n    Nearest:      {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='nearest')}\n    Interpolated: {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='interpolated')}\n    Previous row: {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='ffill')}\n    Next row:     {traj_ny.to_crs(4269)\n                    .get_position_at(t, method='bfill')}\n''')\n    Nearest:      POINT (-74.003574 40.756368)\n    Interpolated: POINT (-74.00361304734385 40.75638409846633)\n    Previous row: POINT (-74.003688 40.756415)\n    Next row:     POINT (-74.003574 40.756368)\nI can use the geocode tool provided by geopandas to get the nearest addresses at these points so I can show them on the map. Pay attention to crs, since nominatim expects lat/lon coordinates and we currently have projected coordinates.\npoint = traj_ny.get_position_at(t, method='interpolated')\npoint_up = traj_ny.to_crs(4269).get_position_at(t, method='interpolated')\npoint2 = traj_ny.get_position_at(t2, method='interpolated')\npoint2_up = traj_ny.to_crs(4269).get_position_at(t2, method='interpolated')\n\nrg = reverse_geocode(\n    [point_up, point2_up], \n    provider=\"nominatim\", \n    user_agent=\"your_project\", \n    timeout=10\n).to_crs(32111)\n\nf, ax = t_plot(traj_ny)\ngpd.GeoSeries(point).plot(ax=ax, color='red', markersize=100)\ngpd.GeoSeries(point2).plot(ax=ax, color='red', markersize=100)\nfor x, y, label in zip(rg.geometry.x, rg.geometry.y, rg.address):\n    ax.annotate(f'{label.split(',')[0]}, {label.split(',')[1]}', \n                xy=(x, y), **annot_props)\nax.set_ylim(211500, 214500)\nax.set_xlim(191400, 192500);\n\nIt might be more interesting to plot my location at regular intervals along the walk. What about plotting my location every 30 minutes?\nint_count = (et - st) // timedelta(seconds=(60*30))\nint_length = (et - st) / int_count\nintervals = [st + (i*int_length) for i in range(int_count)]\ninterval_points = [traj_ny.to_crs(4269).get_position_at(\n                    t, method='interpolated') \n                   for t in intervals]\nrg = reverse_geocode(\n    interval_points, \n    provider=\"nominatim\", \n    user_agent=\"your_project\", \n    timeout=10\n).to_crs(32111)\n\nf, ax = t_plot(traj_ny, figsize=(7,11))\nrg.plot(ax=ax, c='r', markersize=100)\nfor x, y, label in zip(rg.geometry.x, rg.geometry.y, rg.address):\n    ax.annotate(f'{label.split(',')[0]}, {label.split(',')[1]}', \n                xy=(x, y), **annot_props)\nax.set_title(ax.get_title() + f'\\nEvery 30 minutes');",
+    "crumbs": [
+      "Data Science",
+      "Python Gpx Mapping",
+      "Points to Paths in Python"
+    ]
+  },
+  {
+    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#i-was-so-close",
+    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#i-was-so-close",
+    "title": "Points to Paths in Python",
+    "section": "",
+    "text": "Not only can you calculate distances along the path, which we will look at more in the next article, but you can calculate the distance from points along the trajectory to other locations not on the path. It will determine the closest you came to other points, lines or polygons, including, of course, other trajectories. For example, when I’m in New York, I love to visit the Strand and the huge Barnes and Noble on Union Square. I didn’t have time this trip, sadly, but I’m curious how close I was from those stores.\naddresses = [{\n                'id': 1,\n                'name': \"The Strand\", \n                'addr': \"828 Broadway, New York, NY 10003\"\n            }, \n            {\n                'id': 2,\n                'name': \"Barnes and Noble\", \n                'addr': \"33 East 17th Street, 10003, New York\"\n            }]\nadd_df = pd.DataFrame(addresses)\ngeo = geocode(\n    add_df['addr'], \n    provider='nominatim', \n    user_agent='your_project', \n    timeout=10\n)\nbook_stores = geo.join(add_df).to_crs(32111)\nprint(book_stores)\n                        geometry  \\\n0  POINT (192997.822 211055.516)   \n1  POINT (193108.568 211461.041)   \n\n                                             address  id              name  \\\n0  Strand Bookstore, 828, Broadway, University Vi...   1        The Strand   \n1  Barnes & Noble, 33, East 17th Street, Union Sq...   2  Barnes and Noble   \n\n                                   addr  \n0      828 Broadway, New York, NY 10003  \n1  33 East 17th Street, 10003, New York\ndists_to = [traj_ny.distance(book_stores.loc[i, ['geometry']], \n                            units='mi')[0] \n            for i in range(len(book_stores))]\nstore_names = [book_stores.loc[i, 'name'] \n               for i in range(len(book_stores))]\nfor i in range(len(book_stores)):\n    print(f'Closest distance to {store_names[i]} was {dists_to[i]:.1f} miles') \nClosest distance to The Strand was 0.4 miles\nClosest distance to Barnes and Noble was 0.6 miles\nf, ax = t_plot(traj_ny, figsize=(7,11))\nbook_stores.plot(ax=ax, color='red', markersize=100)\nfor x, y, label in zip(book_stores.geometry.x, \n                       book_stores.geometry.y, \n                       book_stores.name):\n    ax.annotate(label, xy=(x,y), **annot_props)",
+    "crumbs": [
+      "Data Science",
+      "Python Gpx Mapping",
+      "Points to Paths in Python"
+    ]
+  },
+  {
+    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#stop-detection",
+    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#stop-detection",
+    "title": "Points to Paths in Python",
+    "section": "",
+    "text": "In this final section I’ll look at stop detection. Here I’ll just be considering stop locations. In the next article, I’ll show how to use the same approach as one method for segmenting the trajectories. Stop detection requires instantiation of a stop detector which will provide the functions needed.\ndetector = mpd.TrajectoryStopDetector(traj_ny)\nThe detector takes parameters to determine how long a pause constitutes a stop, and how far you need to move to constitute movement.\nstop_points = detector.get_stop_points(\n    min_duration=timedelta(seconds=120), max_diameter=100\n)\nlen(stop_points)\n18\nWe can look up the addresses nearest to the stop points, and plot some of them on the map.\nstop_points = stop_points.set_crs(32111)\nrg = reverse_geocode(\n    stop_points.to_crs(4269).geometry, \n    provider=\"nominatim\", \n    user_agent=\"your_project\", timeout=10\n).to_crs(32111)\nf, ax = t_plot(traj_ny)\nstop_points.plot(ax=ax, color='none', markersize=100, ec='r')\npoint_labels = [0,3,7,11,17]\nfor (x, y), label in zip(\n                    rg.iloc[point_labels].geometry.apply(\n                        lambda p: p.coords[0]), \n                    rg.iloc[point_labels].address):\n    ax.annotate(f'{label.split(',')[0]}, {label.split(',')[1]}', \n                xy=(x, y), **annot_props)\nax.set_title(ax.get_title() + f'\\nStop Points');",
+    "crumbs": [
+      "Data Science",
+      "Python Gpx Mapping",
+      "Points to Paths in Python"
+    ]
+  },
+  {
+    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#interactive-graphing",
+    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#interactive-graphing",
+    "title": "Points to Paths in Python",
+    "section": "",
+    "text": "Showing interactive graphing in the context of a published article is not very useful, but I should point out that MovingPandas supports both hvplot with folium as well as GeoPandas’ explore(), both of which can be useful tools for identifying areas of interest. This is an example with explore().\nm = traj_ny.explore(\n    column=\"trajectory_id\",\n    tooltip=\"t\",\n    popup=True,\n    style_kwds={\"weight\": 4},\n    name=\"Time\",\n)\n\nstop_points.explore(\n    m=m,\n    color=\"red\",\n    tooltip=\"stop_id\",\n    popup=True,\n    marker_kwds={\"radius\": 10},\n    name=\"Stop points\",\n)",
+    "crumbs": [
+      "Data Science",
+      "Python Gpx Mapping",
+      "Points to Paths in Python"
+    ]
+  },
+  {
+    "objectID": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#next-steps",
+    "href": "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html#next-steps",
+    "title": "Points to Paths in Python",
+    "section": "",
+    "text": "In the third article, I will address issues of generalization and simplification which can be important when working with large data sets. I’ll show how to generate speed, duration and distance information, and how to segment the trajectories based on geometries, stops, and other criteria. I hope that these articles are proving interesting and useful. Please visit my website and repository for more code, articles and updates.",
+    "crumbs": [
+      "Data Science",
+      "Python Gpx Mapping",
+      "Points to Paths in Python"
     ]
   },
   {
@@ -1102,6 +1032,72 @@
       "Data Science",
       "Python Gpx Mapping",
       "Speed, Simplification and Segments"
+    ]
+  },
+  {
+    "objectID": "posts/linux/nixos-linux-different/index.html",
+    "href": "posts/linux/nixos-linux-different/index.html",
+    "title": "NixOS: the Linux different",
+    "section": "",
+    "text": "Toward NixOS - exploring the concepts behind the\n\n\n\nAfter you’ve been working with with Linux long enough, you realize that all distributions are basically the same, at least under the hood. Different but similar package managers and different package repositories, different default desktop environments, and some kernel tweaks perhaps, but given a command line it is almost trivial to move from one distro to another.\nNot so with NixOS. Want to see what software is installed? You won’t find anything in /usr/bin, or any other typical bin or opt directory. Want to add an alias to /etc/hosts? That file, indeed everything in /etc, turns out to be read-only, even to root. Add a user with useradd? Nope. Install some software in a gui “App Store”, or even with a command like apt install? These don’t exist. In fact, many of your basic system administration skills are useless with NixOS without having access to the basics such as the FHS (file heirarchy standard) and the ability to edit configuration files. But, don’t be sad, your Linux skills are still important, because…\n\n\n\nNixOS is, never-the-less, GNU/Linux just as much as is Fedora or Debian. It runs a Linux kernel with a GNU api. It has a large package repository, the largest of any, in fact. It even uses systemd. You can add any software that runs on Linux, and to an ordinary “end user”, the daily experience is the same as on any other distro. They might remark how stable and snappy it is, but their day to day workflow would not be different.\nUnder the hood, though, everything is different on a fundamental level. NixOS has a learning curve more like that of a new operating system than a new Linux distribution. Which leads to an obvious question: why bother? I’ll be looking at many reasons, but one is that, once the Nix way is grokked, all of these admin tasks I mentioned become much simpler and straight-forward, more robust, easier to rollback, and fully reproducible. I guess that’s more than one reason.\n\n\n\nFor me, NixOS is a sort of culmination of why I turned to Linux decades ago. When Windows first came out, it was cool and all, but I felt like a veil had been drawn over the OS, which then became hidden and mysterious. Apple computers seemed even worse in this aspect. For some types of work, the graphical user interface was a great step forward. But for other things, the gui just obscured the underlying workings of the computer and made anything outside of typical usage to be more difficult. On top of that was the mysterious instability. With every system crash, I wanted to understand what was really going on so I could fix it.\nThen I discovered Linux, and more specifically Slackware, which uses a terminal and vi (elvis at the time) for all administrative tasks. The ability to understand exactly what a computer is doing, to configure it with text files, to install, and if necessary, build, software from the command line, was just what I was looking for. I even compiled my own kernel. After I started using other distros, I still never take more than a quick glance at their graphical admin tools like app stores and such. Give me the command line any day.\n\n\n\nAs experienced Linux users know, there are many issues which arise over time on any Linux system, such as software upgrades which create library version conflicts, problems which are made worse on shared systems. Cruft accumulates over time as uninstalls are rarely clean, especially with regard to program data files and directories. If you install and uninstall many programs, after a certain amount of time, it is difficult to be sure exactly what lingers in /etc, /usr/share, ~/.local, or anywhere else, for that matter. After a year of installing, uninstalling and configuring software, how can you be sure what is actually there? And when your new computer arrives, or you finally decide to do a clean install instead of a version upgrade, how much effort will it take to set it up exactly how you like it?\nEnter NixOS, where I can declare the entire operating system with text files! I can write down what I want, and know that that will be all there is on my system, despite what may have been there before. I can, for example, simply grep my configs to see everything installed and all configurations, without needing a special package manager tool. In fact, with NixOS, nothing is every really installed, upgraded, or uninstalled, not in the traditional sense anyway. Any of these activities generates a brand, spankin’ new system which entirely replaces the old one.\n\n\n\nHere be dragons, but they are auspicious Chinese dragons, not scary English ones. The singular power of NixOS lies in the differences, so they are worth exploring. They involve ideas such as declarative, functional programming vs imperative, procedural programming, graphs vs stacks, immutable systems, atomic upgrades and containerized environments. Also, Nix/NixOS isn’t just one thing, it is a programming language (Nix), package manager (Nix), repository (nixpkgs), and operating system (NixOS).\nExploring all these topics would be overwhelming in one article, so it is my intention to write an occasional series on each. None of these will be tutorials, rather they are intended as an introduction to the ideas necessary to understanding NixOS. As a practical matter, Nix the package manager and language can be installed on any computer and be experimented with, or even used as a primary package manager for your current system. NixOS also runs nicely in a virtual machine. To learn NixOS you’ll need to get your hands dirty, and for me at least, getting used to NixOS and configuring my system from the comfort of Fedora made the eventual switch to hardware completely painless, as I just needed to copy my configs to the new partition and build it, not repeat my work. Don’t rush, enjoy the learning.\nNixOS is not for everyone. The imperative paradigm has worked reasonably well for decades, and has the virtue of familiarity, so there is no imperative to change ;-). But if, like me, you prize stability, clarity, and simplicity, if you find change and learning new ways to be stimulating, and if you know that the most interesting things in life are on roads less traveled, you will be delighted by NixOS.",
+    "crumbs": [
+      "Linux",
+      "NixOS: the Linux different"
+    ]
+  },
+  {
+    "objectID": "posts/linux/nixos-linux-different/index.html#how-different-really-different.",
+    "href": "posts/linux/nixos-linux-different/index.html#how-different-really-different.",
+    "title": "NixOS: the Linux different",
+    "section": "",
+    "text": "After you’ve been working with with Linux long enough, you realize that all distributions are basically the same, at least under the hood. Different but similar package managers and different package repositories, different default desktop environments, and some kernel tweaks perhaps, but given a command line it is almost trivial to move from one distro to another.\nNot so with NixOS. Want to see what software is installed? You won’t find anything in /usr/bin, or any other typical bin or opt directory. Want to add an alias to /etc/hosts? That file, indeed everything in /etc, turns out to be read-only, even to root. Add a user with useradd? Nope. Install some software in a gui “App Store”, or even with a command like apt install? These don’t exist. In fact, many of your basic system administration skills are useless with NixOS without having access to the basics such as the FHS (file heirarchy standard) and the ability to edit configuration files. But, don’t be sad, your Linux skills are still important, because…",
+    "crumbs": [
+      "Linux",
+      "NixOS: the Linux different"
+    ]
+  },
+  {
+    "objectID": "posts/linux/nixos-linux-different/index.html#its-still-linux",
+    "href": "posts/linux/nixos-linux-different/index.html#its-still-linux",
+    "title": "NixOS: the Linux different",
+    "section": "",
+    "text": "NixOS is, never-the-less, GNU/Linux just as much as is Fedora or Debian. It runs a Linux kernel with a GNU api. It has a large package repository, the largest of any, in fact. It even uses systemd. You can add any software that runs on Linux, and to an ordinary “end user”, the daily experience is the same as on any other distro. They might remark how stable and snappy it is, but their day to day workflow would not be different.\nUnder the hood, though, everything is different on a fundamental level. NixOS has a learning curve more like that of a new operating system than a new Linux distribution. Which leads to an obvious question: why bother? I’ll be looking at many reasons, but one is that, once the Nix way is grokked, all of these admin tasks I mentioned become much simpler and straight-forward, more robust, easier to rollback, and fully reproducible. I guess that’s more than one reason.",
+    "crumbs": [
+      "Linux",
+      "NixOS: the Linux different"
+    ]
+  },
+  {
+    "objectID": "posts/linux/nixos-linux-different/index.html#getting-a-little-personal",
+    "href": "posts/linux/nixos-linux-different/index.html#getting-a-little-personal",
+    "title": "NixOS: the Linux different",
+    "section": "",
+    "text": "For me, NixOS is a sort of culmination of why I turned to Linux decades ago. When Windows first came out, it was cool and all, but I felt like a veil had been drawn over the OS, which then became hidden and mysterious. Apple computers seemed even worse in this aspect. For some types of work, the graphical user interface was a great step forward. But for other things, the gui just obscured the underlying workings of the computer and made anything outside of typical usage to be more difficult. On top of that was the mysterious instability. With every system crash, I wanted to understand what was really going on so I could fix it.\nThen I discovered Linux, and more specifically Slackware, which uses a terminal and vi (elvis at the time) for all administrative tasks. The ability to understand exactly what a computer is doing, to configure it with text files, to install, and if necessary, build, software from the command line, was just what I was looking for. I even compiled my own kernel. After I started using other distros, I still never take more than a quick glance at their graphical admin tools like app stores and such. Give me the command line any day.",
+    "crumbs": [
+      "Linux",
+      "NixOS: the Linux different"
+    ]
+  },
+  {
+    "objectID": "posts/linux/nixos-linux-different/index.html#aging-systems-and-other-problems",
+    "href": "posts/linux/nixos-linux-different/index.html#aging-systems-and-other-problems",
+    "title": "NixOS: the Linux different",
+    "section": "",
+    "text": "As experienced Linux users know, there are many issues which arise over time on any Linux system, such as software upgrades which create library version conflicts, problems which are made worse on shared systems. Cruft accumulates over time as uninstalls are rarely clean, especially with regard to program data files and directories. If you install and uninstall many programs, after a certain amount of time, it is difficult to be sure exactly what lingers in /etc, /usr/share, ~/.local, or anywhere else, for that matter. After a year of installing, uninstalling and configuring software, how can you be sure what is actually there? And when your new computer arrives, or you finally decide to do a clean install instead of a version upgrade, how much effort will it take to set it up exactly how you like it?\nEnter NixOS, where I can declare the entire operating system with text files! I can write down what I want, and know that that will be all there is on my system, despite what may have been there before. I can, for example, simply grep my configs to see everything installed and all configurations, without needing a special package manager tool. In fact, with NixOS, nothing is every really installed, upgraded, or uninstalled, not in the traditional sense anyway. Any of these activities generates a brand, spankin’ new system which entirely replaces the old one.",
+    "crumbs": [
+      "Linux",
+      "NixOS: the Linux different"
+    ]
+  },
+  {
+    "objectID": "posts/linux/nixos-linux-different/index.html#embrace-the-difference",
+    "href": "posts/linux/nixos-linux-different/index.html#embrace-the-difference",
+    "title": "NixOS: the Linux different",
+    "section": "",
+    "text": "Here be dragons, but they are auspicious Chinese dragons, not scary English ones. The singular power of NixOS lies in the differences, so they are worth exploring. They involve ideas such as declarative, functional programming vs imperative, procedural programming, graphs vs stacks, immutable systems, atomic upgrades and containerized environments. Also, Nix/NixOS isn’t just one thing, it is a programming language (Nix), package manager (Nix), repository (nixpkgs), and operating system (NixOS).\nExploring all these topics would be overwhelming in one article, so it is my intention to write an occasional series on each. None of these will be tutorials, rather they are intended as an introduction to the ideas necessary to understanding NixOS. As a practical matter, Nix the package manager and language can be installed on any computer and be experimented with, or even used as a primary package manager for your current system. NixOS also runs nicely in a virtual machine. To learn NixOS you’ll need to get your hands dirty, and for me at least, getting used to NixOS and configuring my system from the comfort of Fedora made the eventual switch to hardware completely painless, as I just needed to copy my configs to the new partition and build it, not repeat my work. Don’t rush, enjoy the learning.\nNixOS is not for everyone. The imperative paradigm has worked reasonably well for decades, and has the virtue of familiarity, so there is no imperative to change ;-). But if, like me, you prize stability, clarity, and simplicity, if you find change and learning new ways to be stimulating, and if you know that the most interesting things in life are on roads less traveled, you will be delighted by NixOS.",
+    "crumbs": [
+      "Linux",
+      "NixOS: the Linux different"
     ]
   },
   {
@@ -1412,6 +1408,17 @@
     ]
   },
   {
+    "objectID": "posts/obsidian/obsidian.html",
+    "href": "posts/obsidian/obsidian.html",
+    "title": "Obsidian",
+    "section": "",
+    "text": "Obsidian is Personal Knowledge Management PKM software. If you don’t know what Obsidian or PKM are, you could start with this article. I have many articles here about advanced usage, taking full advantage of Obsidian’s design. Freeing your thinking explains how to move beyond directory structures, taking advantage of the no-sql nature of Obsidian. There is also a series about the usage of dataviewjs, written for non-programmers, to create dashboards and interactive tables.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMar 20, 2024\n\n\nObsidian and Jupyter Notebooks\n\n\nBrian Carey\n\n\n\n\nJan 20, 2024\n\n\nObsidian Canvas Work Spaces\n\n\nBrian Carey\n\n\n\n\nJan 19, 2024\n\n\nGit and GitHub for Obsidian Users\n\n\nBrian Carey\n\n\n\n\nOct 16, 2023\n\n\nSummarizing Information with DataviewJS\n\n\nBrian Carey\n\n\n\n\nOct 14, 2023\n\n\nInteractive Tables with DataviewJS\n\n\nBrian Carey\n\n\n\n\nOct 11, 2023\n\n\nDataviewJS: A Gentle Introduction\n\n\nBrian Carey\n\n\n\n\nOct 5, 2023\n\n\nObsidian: Pretty Canvas\n\n\nBrian Carey\n\n\n\n\nSep 21, 2023\n\n\nObsidian: Freeing Your Thinking Workflow\n\n\nBrian Carey\n\n\n\n\nSep 14, 2023\n\n\nObsidian Canvas Dashboards\n\n\nBrian Carey\n\n\n\n\nSep 6, 2023\n\n\nObsidian Metadata Menu Plugin\n\n\nBrian Carey\n\n\n\n\nSep 5, 2023\n\n\nObsidian Bookmarks\n\n\nBrian Carey\n\n\n\n\nAug 31, 2023\n\n\nObsidian: The mechanics of Graph View\n\n\nBrian Carey\n\n\n\n\nAug 30, 2023\n\n\nObsidian: A Second Brain?\n\n\nBrian Carey\n\n\n\n\nAug 28, 2023\n\n\nSyncing your Thinking with Syncthing\n\n\nBrian Carey\n\n\n\n\nAug 27, 2023\n\n\nObsidian Basics - Headers\n\n\nBrian Carey\n\n\n\n\nAug 24, 2023\n\n\nObsidian: Stop Wasting Time With Directories and Filenames\n\n\nBrian Carey\n\n\n\n\nAug 24, 2023\n\n\nObsidian: Meaningless Names, No Directories, Now What?\n\n\nBrian Carey\n\n\n\n\nAug 24, 2023\n\n\nWhat does it mean that is a NoSQL Database?\n\n\nBrian Carey\n\n\n\n\nAug 23, 2023\n\n\nRegular Expressions for In-Line Fields\n\n\nBrian Carey\n\n\n\n\nAug 5, 2023\n\n\nOptimal Notes with Obsidian\n\n\nBrian Carey\n\n\n\n\nFeb 28, 2023\n\n\nDataviewJS: A Gentle Introduction Part 2\n\n\nBrian Carey\n\n\n\n\n\nNo matching items\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Obsidian"
+    ]
+  },
+  {
     "objectID": "posts/obsidian/freeing-your-thinking.html",
     "href": "posts/obsidian/freeing-your-thinking.html",
     "title": "Freeing your thinking",
@@ -1534,31 +1541,10 @@
     ]
   },
   {
-    "objectID": "about.html#finance-and-administration",
-    "href": "about.html#finance-and-administration",
-    "title": "Brian Carey",
-    "section": "Finance and Administration",
-    "text": "Finance and Administration\nI was senior consolidations accountant at the San Rafael headquarters of Autodesk, before moving to their European headquarters in Switzerland where I was senior financial analyst for the operations and software centers, and subsequently world-wide manager of vendors and translation services.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
-  },
-  {
-    "objectID": "posts/cv/fna/index.html",
-    "href": "posts/cv/fna/index.html",
-    "title": "Finance and Administration",
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
     "section": "",
-    "text": "Finance and Administration\nVestibulum ultrices, tortor at mattis porta, odio nisi rutrum nulla, sit amet tincidunt eros quam facilisis tellus. Fusce eleifend lectus in elementum lacinia. Nam auctor nunc in massa ullamcorper, sit amet auctor ante accumsan. Nam ut varius metus. Curabitur eget tristique leo. Cras finibus euismod erat eget elementum. Integer vel placerat ex. Ut id eros quis lectus lacinia venenatis hendrerit vel ante.\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "posts/cv/index.html",
-    "href": "posts/cv/index.html",
-    "title": "Brian Carey",
-    "section": "",
-    "text": "Finance and Administration\n\n\n\n\n\nSignificant Achievements\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTechnology\n\n\n\n\n\nExperience and Training\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
-  },
-  {
-    "objectID": "posts/cv/tech/index.html",
-    "href": "posts/cv/tech/index.html",
-    "title": "Technology",
-    "section": "",
-    "text": "Technology\nUt ut condimentum augue, nec eleifend nisl. Sed facilisis egestas odio ac pretium. Pellentesque consequat magna sed venenatis sagittis. Vivamus feugiat lobortis magna vitae accumsan. Pellentesque euismod malesuada hendrerit. Ut non mauris non arcu condimentum sodales vitae vitae dolor. Nullam dapibus, velit eget lacinia rutrum, ipsum justo malesuada odio, et lobortis sapien magna vel lacus. Nulla purus neque, hendrerit non malesuada eget, mattis vel erat. Suspendisse potenti.\n\n\n\n\n Back to top"
+    "text": "Back to topReferences\n\nRapp, Albert. 2022. “The Ultimate Guide to Starting a Quarto Blog – Albert Rapp.” July 2022. https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html#closing.\n\n\nShanny-Csik, Sam. 2022. “Creating Your Personal Website Using Quarto.” August 2022. https://ucsb-meds.github.io/creating-quarto-websites/.\n\n\nShanny-Csik, Samantha. 2022. “Adding a Blog to Your Existing Quarto Website.” October 24, 2022. https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/."
   }
 ]
