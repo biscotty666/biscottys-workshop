@@ -18,13 +18,14 @@ about:
 
 Here you will find articles about things that interest me. Much of the site is devoted to technological topics such as Linux, programming, and data science. There is a "humanities" section as well where I post on a range of topics such as history, linguistics, Chinese medicine, gardening and cooking, and music.
 
+
 If this is your first time, check out the all the posts [here](https://biscotty.online/blogs/blogs.html), or use the search icon in the upper left.
 
 ::: panel-tabset
 
 ### Obsidian
 
-[Obsidian](https://obsidian.md) is Personal Knowledge Management software
+[Obsidian](https://obsidian.md) is *Personal Knowledge Management* [PKM](https://en.wikipedia.org/wiki/Personal_knowledge_management) software. If you don't know what Obsidian or PKM are, you could start with [this article](blogs/obsidian/optimal-notes-with-obsidian/index.qmd). I have many articles here about advanced usage, taking full advantage of Obsidian's design. [Freeing your thinking](blogs/obsidian/freeing-your-thinking.qmd) explains how to move beyond directory structures, taking advantage of the [no-sql](blogs/obsidian/obsidian-no-sql-database/index.qmd) nature of Obsidian. There is also a series about the usage of [dataviewjs](blogs/obsidian/dataview.qmd), written for non-programmers, to create dashboards and interactive tables.
 
 ### Data Science
 

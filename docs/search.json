@@ -18,14 +18,14 @@
     "href": "index.html",
     "title": "biscotty’s Workshop",
     "section": "",
-    "text": "For the love of learning\n\n\n\nHere you will find articles about things that interest me. Much of the site is devoted to technological topics such as Linux, programming, and data science. There is a “humanities” section as well where I post on a range of topics such as history, linguistics, Chinese medicine, gardening and cooking, and music.\nIf this is your first time, check out the all the posts here, or use the search icon in the upper left.\n\nObsidianData ScienceOther topics\n\n\nObsidian is Personal Knowledge Management software\n\n\nasdf\ndata science stuff\n\n\nother stuff\n\n\n\n\n\nFor those returning, this third iteration of my website is built in Quatro. I hope you like the new layout. It now allows you to comment on posts, so I look forward to your feedback and ideas. You can still email me as before, of course. Thanks to Samantha Shanny-Csik (Sam Shanny-Csik 2022; Samantha Shanny-Csik 2022) and Albert Rapp (Rapp 2022)."
+    "text": "For the love of learning\n\n\n\nHere you will find articles about things that interest me. Much of the site is devoted to technological topics such as Linux, programming, and data science. There is a “humanities” section as well where I post on a range of topics such as history, linguistics, Chinese medicine, gardening and cooking, and music.\nIf this is your first time, check out the all the posts here, or use the search icon in the upper left.\n\nObsidianData ScienceOther topics\n\n\nObsidian is Personal Knowledge Management PKM software. If you don’t know what Obsidian or PKM are, you could start with this article. I have many articles here about advanced usage, taking full advantage of Obsidian’s design. Freeing your thinking explains how to move beyond directory structures, taking advantage of the no-sql nature of Obsidian. There is also a series about the usage of dataviewjs, written for non-programmers, to create dashboards and interactive tables.\n\n\nasdf\ndata science stuff\n\n\nother stuff\n\n\n\n\n\nFor those returning, this third iteration of my website is built in Quatro. I hope you like the new layout. It now allows you to comment on posts, so I look forward to your feedback and ideas. You can still email me as before, of course. Thanks to Samantha Shanny-Csik (Sam Shanny-Csik 2022; Samantha Shanny-Csik 2022) and Albert Rapp (Rapp 2022)."
   },
   {
     "objectID": "index.html#welcome",
     "href": "index.html#welcome",
     "title": "biscotty’s Workshop",
     "section": "",
-    "text": "Here you will find articles about things that interest me. Much of the site is devoted to technological topics such as Linux, programming, and data science. There is a “humanities” section as well where I post on a range of topics such as history, linguistics, Chinese medicine, gardening and cooking, and music.\nIf this is your first time, check out the all the posts here, or use the search icon in the upper left.\n\nObsidianData ScienceOther topics\n\n\nObsidian is Personal Knowledge Management software\n\n\nasdf\ndata science stuff\n\n\nother stuff\n\n\n\n\n\nFor those returning, this third iteration of my website is built in Quatro. I hope you like the new layout. It now allows you to comment on posts, so I look forward to your feedback and ideas. You can still email me as before, of course. Thanks to Samantha Shanny-Csik (Sam Shanny-Csik 2022; Samantha Shanny-Csik 2022) and Albert Rapp (Rapp 2022)."
+    "text": "Here you will find articles about things that interest me. Much of the site is devoted to technological topics such as Linux, programming, and data science. There is a “humanities” section as well where I post on a range of topics such as history, linguistics, Chinese medicine, gardening and cooking, and music.\nIf this is your first time, check out the all the posts here, or use the search icon in the upper left.\n\nObsidianData ScienceOther topics\n\n\nObsidian is Personal Knowledge Management PKM software. If you don’t know what Obsidian or PKM are, you could start with this article. I have many articles here about advanced usage, taking full advantage of Obsidian’s design. Freeing your thinking explains how to move beyond directory structures, taking advantage of the no-sql nature of Obsidian. There is also a series about the usage of dataviewjs, written for non-programmers, to create dashboards and interactive tables.\n\n\nasdf\ndata science stuff\n\n\nother stuff\n\n\n\n\n\nFor those returning, this third iteration of my website is built in Quatro. I hope you like the new layout. It now allows you to comment on posts, so I look forward to your feedback and ideas. You can still email me as before, of course. Thanks to Samantha Shanny-Csik (Sam Shanny-Csik 2022; Samantha Shanny-Csik 2022) and Albert Rapp (Rapp 2022)."
   },
   {
     "objectID": "blogs/syncing-your-thinking-syncthing/index.html",
@@ -1450,5 +1450,88 @@
     "title": "Resources",
     "section": "",
     "text": "Back to topReferences\n\nRapp, Albert. 2022. “The Ultimate Guide to Starting a Quarto Blog – Albert Rapp.” July 2022. https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html#closing.\n\n\nShanny-Csik, Sam. 2022. “Creating Your Personal Website Using Quarto.” August 2022. https://ucsb-meds.github.io/creating-quarto-websites/.\n\n\nShanny-Csik, Samantha. 2022. “Adding a Blog to Your Existing Quarto Website.” October 24, 2022. https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/."
+  },
+  {
+    "objectID": "blogs/linux/linux.html",
+    "href": "blogs/linux/linux.html",
+    "title": "Linux",
+    "section": "",
+    "text": "NixOS: the Linux different\n\n\n\n\n\n\nLinux\n\n\nDistributions\n\n\n\nGrokking NixOS\n\n\n\n\n\nJun 10, 2024\n\n\nBrian Carey\n\n\n\n\n\n\nNo matching items\n\n Back to top",
+    "crumbs": [
+      "Home",
+      "Linux"
+    ]
+  },
+  {
+    "objectID": "blogs/linux/nixos-linux-different/index.html",
+    "href": "blogs/linux/nixos-linux-different/index.html",
+    "title": "NixOS: the Linux different",
+    "section": "",
+    "text": "Toward NixOS - exploring the concepts behind the\n\n\n\nAfter you’ve been working with with Linux long enough, you realize that all distributions are basically the same, at least under the hood. Different but similar package managers and different package repositories, different default desktop environments, and some kernel tweaks perhaps, but given a command line it is almost trivial to move from one distro to another.\nNot so with NixOS. Want to see what software is installed? You won’t find anything in /usr/bin, or any other typical bin or opt directory. Want to add an alias to /etc/hosts? That file, indeed everything in /etc, turns out to be read-only, even to root. Add a user with useradd? Nope. Install some software in a gui “App Store”, or even with a command like apt install? These don’t exist. In fact, many of your basic system administration skills are useless with NixOS without having access to the basics such as the FHS (file heirarchy standard) and the ability to edit configuration files. But, don’t be sad, your Linux skills are still important, because…\n\n\n\nNixOS is, never-the-less, GNU/Linux just as much as is Fedora or Debian. It runs a Linux kernel with a GNU api. It has a large package repository, the largest of any, in fact. It even uses systemd. You can add any software that runs on Linux, and to an ordinary “end user”, the daily experience is the same as on any other distro. They might remark how stable and snappy it is, but their day to day workflow would not be different.\nUnder the hood, though, everything is different on a fundamental level. NixOS has a learning curve more like that of a new operating system than a new Linux distribution. Which leads to an obvious question: why bother? I’ll be looking at many reasons, but one is that, once the Nix way is grokked, all of these admin tasks I mentioned become much simpler and straight-forward, more robust, easier to rollback, and fully reproducible. I guess that’s more than one reason.\n\n\n\nFor me, NixOS is a sort of culmination of why I turned to Linux decades ago. When Windows first came out, it was cool and all, but I felt like a veil had been drawn over the OS, which then became hidden and mysterious. Apple computers seemed even worse in this aspect. For some types of work, the graphical user interface was a great step forward. But for other things, the gui just obscured the underlying workings of the computer and made anything outside of typical usage to be more difficult. On top of that was the mysterious instability. With every system crash, I wanted to understand what was really going on so I could fix it.\nThen I discovered Linux, and more specifically Slackware, which uses a terminal and vi (elvis at the time) for all administrative tasks. The ability to understand exactly what a computer is doing, to configure it with text files, to install, and if necessary, build, software from the command line, was just what I was looking for. I even compiled my own kernel. After I started using other distros, I still never take more than a quick glance at their graphical admin tools like app stores and such. Give me the command line any day.\n\n\n\nAs experienced Linux users know, there are many issues which arise over time on any Linux system, such as software upgrades which create library version conflicts, problems which are made worse on shared systems. Cruft accumulates over time as uninstalls are rarely clean, especially with regard to program data files and directories. If you install and uninstall many programs, after a certain amount of time, it is difficult to be sure exactly what lingers in /etc, /usr/share, ~/.local, or anywhere else, for that matter. After a year of installing, uninstalling and configuring software, how can you be sure what is actually there? And when your new computer arrives, or you finally decide to do a clean install instead of a version upgrade, how much effort will it take to set it up exactly how you like it?\nEnter NixOS, where I can declare the entire operating system with text files! I can write down what I want, and know that that will be all there is on my system, despite what may have been there before. I can, for example, simply grep my configs to see everything installed and all configurations, without needing a special package manager tool. In fact, with NixOS, nothing is every really installed, upgraded, or uninstalled, not in the traditional sense anyway. Any of these activities generates a brand, spankin’ new system which entirely replaces the old one.\n\n\n\nHere be dragons, but they are auspicious Chinese dragons, not scary English ones. The singular power of NixOS lies in the differences, so they are worth exploring. They involve ideas such as declarative, functional programming vs imperative, procedural programming, graphs vs stacks, immutable systems, atomic upgrades and containerized environments. Also, Nix/NixOS isn’t just one thing, it is a programming language (Nix), package manager (Nix), repository (nixpkgs), and operating system (NixOS).\nExploring all these topics would be overwhelming in one article, so it is my intention to write an occasional series on each. None of these will be tutorials, rather they are intended as an introduction to the ideas necessary to understanding NixOS. As a practical matter, Nix the package manager and language can be installed on any computer and be experimented with, or even used as a primary package manager for your current system. NixOS also runs nicely in a virtual machine. To learn NixOS you’ll need to get your hands dirty, and for me at least, getting used to NixOS and configuring my system from the comfort of Fedora made the eventual switch to hardware completely painless, as I just needed to copy my configs to the new partition and build it, not repeat my work. Don’t rush, enjoy the learning.\nNixOS is not for everyone. The imperative paradigm has worked reasonably well for decades, and has the virtue of familiarity, so there is no imperative to change ;-). But if, like me, you prize stability, clarity, and simplicity, if you find change and learning new ways to be stimulating, and if you know that the most interesting things in life are on roads less traveled, you will be delighted by NixOS.",
+    "crumbs": [
+      "Obsidian",
+      "Linux",
+      "NixOS: the Linux different"
+    ]
+  },
+  {
+    "objectID": "blogs/linux/nixos-linux-different/index.html#how-different-really-different.",
+    "href": "blogs/linux/nixos-linux-different/index.html#how-different-really-different.",
+    "title": "NixOS: the Linux different",
+    "section": "",
+    "text": "After you’ve been working with with Linux long enough, you realize that all distributions are basically the same, at least under the hood. Different but similar package managers and different package repositories, different default desktop environments, and some kernel tweaks perhaps, but given a command line it is almost trivial to move from one distro to another.\nNot so with NixOS. Want to see what software is installed? You won’t find anything in /usr/bin, or any other typical bin or opt directory. Want to add an alias to /etc/hosts? That file, indeed everything in /etc, turns out to be read-only, even to root. Add a user with useradd? Nope. Install some software in a gui “App Store”, or even with a command like apt install? These don’t exist. In fact, many of your basic system administration skills are useless with NixOS without having access to the basics such as the FHS (file heirarchy standard) and the ability to edit configuration files. But, don’t be sad, your Linux skills are still important, because…",
+    "crumbs": [
+      "Obsidian",
+      "Linux",
+      "NixOS: the Linux different"
+    ]
+  },
+  {
+    "objectID": "blogs/linux/nixos-linux-different/index.html#its-still-linux",
+    "href": "blogs/linux/nixos-linux-different/index.html#its-still-linux",
+    "title": "NixOS: the Linux different",
+    "section": "",
+    "text": "NixOS is, never-the-less, GNU/Linux just as much as is Fedora or Debian. It runs a Linux kernel with a GNU api. It has a large package repository, the largest of any, in fact. It even uses systemd. You can add any software that runs on Linux, and to an ordinary “end user”, the daily experience is the same as on any other distro. They might remark how stable and snappy it is, but their day to day workflow would not be different.\nUnder the hood, though, everything is different on a fundamental level. NixOS has a learning curve more like that of a new operating system than a new Linux distribution. Which leads to an obvious question: why bother? I’ll be looking at many reasons, but one is that, once the Nix way is grokked, all of these admin tasks I mentioned become much simpler and straight-forward, more robust, easier to rollback, and fully reproducible. I guess that’s more than one reason.",
+    "crumbs": [
+      "Obsidian",
+      "Linux",
+      "NixOS: the Linux different"
+    ]
+  },
+  {
+    "objectID": "blogs/linux/nixos-linux-different/index.html#getting-a-little-personal",
+    "href": "blogs/linux/nixos-linux-different/index.html#getting-a-little-personal",
+    "title": "NixOS: the Linux different",
+    "section": "",
+    "text": "For me, NixOS is a sort of culmination of why I turned to Linux decades ago. When Windows first came out, it was cool and all, but I felt like a veil had been drawn over the OS, which then became hidden and mysterious. Apple computers seemed even worse in this aspect. For some types of work, the graphical user interface was a great step forward. But for other things, the gui just obscured the underlying workings of the computer and made anything outside of typical usage to be more difficult. On top of that was the mysterious instability. With every system crash, I wanted to understand what was really going on so I could fix it.\nThen I discovered Linux, and more specifically Slackware, which uses a terminal and vi (elvis at the time) for all administrative tasks. The ability to understand exactly what a computer is doing, to configure it with text files, to install, and if necessary, build, software from the command line, was just what I was looking for. I even compiled my own kernel. After I started using other distros, I still never take more than a quick glance at their graphical admin tools like app stores and such. Give me the command line any day.",
+    "crumbs": [
+      "Obsidian",
+      "Linux",
+      "NixOS: the Linux different"
+    ]
+  },
+  {
+    "objectID": "blogs/linux/nixos-linux-different/index.html#aging-systems-and-other-problems",
+    "href": "blogs/linux/nixos-linux-different/index.html#aging-systems-and-other-problems",
+    "title": "NixOS: the Linux different",
+    "section": "",
+    "text": "As experienced Linux users know, there are many issues which arise over time on any Linux system, such as software upgrades which create library version conflicts, problems which are made worse on shared systems. Cruft accumulates over time as uninstalls are rarely clean, especially with regard to program data files and directories. If you install and uninstall many programs, after a certain amount of time, it is difficult to be sure exactly what lingers in /etc, /usr/share, ~/.local, or anywhere else, for that matter. After a year of installing, uninstalling and configuring software, how can you be sure what is actually there? And when your new computer arrives, or you finally decide to do a clean install instead of a version upgrade, how much effort will it take to set it up exactly how you like it?\nEnter NixOS, where I can declare the entire operating system with text files! I can write down what I want, and know that that will be all there is on my system, despite what may have been there before. I can, for example, simply grep my configs to see everything installed and all configurations, without needing a special package manager tool. In fact, with NixOS, nothing is every really installed, upgraded, or uninstalled, not in the traditional sense anyway. Any of these activities generates a brand, spankin’ new system which entirely replaces the old one.",
+    "crumbs": [
+      "Obsidian",
+      "Linux",
+      "NixOS: the Linux different"
+    ]
+  },
+  {
+    "objectID": "blogs/linux/nixos-linux-different/index.html#embrace-the-difference",
+    "href": "blogs/linux/nixos-linux-different/index.html#embrace-the-difference",
+    "title": "NixOS: the Linux different",
+    "section": "",
+    "text": "Here be dragons, but they are auspicious Chinese dragons, not scary English ones. The singular power of NixOS lies in the differences, so they are worth exploring. They involve ideas such as declarative, functional programming vs imperative, procedural programming, graphs vs stacks, immutable systems, atomic upgrades and containerized environments. Also, Nix/NixOS isn’t just one thing, it is a programming language (Nix), package manager (Nix), repository (nixpkgs), and operating system (NixOS).\nExploring all these topics would be overwhelming in one article, so it is my intention to write an occasional series on each. None of these will be tutorials, rather they are intended as an introduction to the ideas necessary to understanding NixOS. As a practical matter, Nix the package manager and language can be installed on any computer and be experimented with, or even used as a primary package manager for your current system. NixOS also runs nicely in a virtual machine. To learn NixOS you’ll need to get your hands dirty, and for me at least, getting used to NixOS and configuring my system from the comfort of Fedora made the eventual switch to hardware completely painless, as I just needed to copy my configs to the new partition and build it, not repeat my work. Don’t rush, enjoy the learning.\nNixOS is not for everyone. The imperative paradigm has worked reasonably well for decades, and has the virtue of familiarity, so there is no imperative to change ;-). But if, like me, you prize stability, clarity, and simplicity, if you find change and learning new ways to be stimulating, and if you know that the most interesting things in life are on roads less traveled, you will be delighted by NixOS.",
+    "crumbs": [
+      "Obsidian",
+      "Linux",
+      "NixOS: the Linux different"
+    ]
   }
 ]

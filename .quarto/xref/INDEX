@@ -223,5 +223,11 @@
   },
   "blogs/data-science/TrailMappingWithR.qmd": {
     "TrailMappingWithR.html": "188784bb"
+  },
+  "blogs/linux/linux.qmd": {
+    "linux.html": "3b709692"
+  },
+  "blogs/linux/nixos-linux-different/index.qmd": {
+    "index.html": "ee562411"
   }
 }

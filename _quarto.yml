@@ -6,7 +6,7 @@ project:
     browser: false
 
 execute: 
-  freeze: true
+  freeze: auto
   
 website:
   title: "biscotty's Workshop"
@@ -24,9 +24,6 @@ website:
       - sidebar:posts-side
       - href: resources.qmd
         text: Resources
-      # - href: documents/gpwh.pdf
-      #   text: Article
-      #   target: _blank
       - icon: github
         href: https://github.com/biscotty666
       - icon: rss
@@ -39,7 +36,9 @@ website:
       - href: blogs/obsidian/obsidian.qmd
         text: "Obsidian"
       - href: blogs/data-science/data-science.qmd
-        text: "Data Science"        
+        text: "Data Science" 
+      - href: blogs/linux/linux.qmd
+        text: Linux
       - href: blogs/blogs.qmd
         text: "All"
   page-footer: 
@@ -54,10 +53,12 @@ website:
     contents: 
       - blogs/data-science/data-science.qmd
       - blogs/obsidian/obsidian.qmd
+      - blogs/linux/linux.qmd
       - blogs/obsidian/dataview.qmd
       - blogs/obsidian/freeing-your-thinking.qmd
       - auto: blogs/data-science
       - auto: blogs/obsidian
+      - auto: blogs/linux
 
   comments: 
     utterances: 

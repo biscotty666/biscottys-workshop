@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Brian Carey">
+<meta name="dcterms.date" content="2024-06-10">
+<meta name="description" content="Grokking NixOS">
 
-<title>Obsidian – biscotty’s Workshop</title>
+<title>NixOS: the Linux different – biscotty’s Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,31 +26,28 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../blogs/linux/linux.html" rel="next">
-<link href="../../blogs/data-science/data-science.html" rel="prev">
-<link href="../../images/BWLogo.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-039d7a0e7773b12663fe263aa10a41ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" rel="prev">
+<link href="../../../images/BWLogo.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-039d7a0e7773b12663fe263aa10a41ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,69 +75,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="alternate" type="application/rss+xml" title="biscotty's Workshop" href="obsidian.xml" data-external="1"><meta property="og:title" content="Obsidian – biscotty’s Workshop">
-<meta property="og:image" content="https://biscotty.online/blogs/obsidian/images/trunks.png">
+<meta property="og:title" content="NixOS: the Linux different – biscotty’s Workshop">
+<meta property="og:description" content="Grokking NixOS">
+<meta property="og:image" content="https://biscotty.online/blogs/linux/nixos-linux-different/images/trunks.png">
 <meta property="og:site_name" content="biscotty's Workshop">
 </head>
 
@@ -148,7 +91,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">biscotty’s Workshop</span>
     </a>
   </div>
@@ -159,27 +102,27 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../blogs/obsidian/obsidian.html" aria-current="page"> 
+    <a class="nav-link active" href="../../../blogs/obsidian/obsidian.html" aria-current="page"> 
 <span class="menu-text">Obsidian</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blogs/data-science/data-science.html"> 
+    <a class="nav-link" href="../../../blogs/data-science/data-science.html"> 
 <span class="menu-text">Data Science</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blogs/linux/linux.html"> 
+    <a class="nav-link" href="../../../blogs/linux/linux.html"> 
 <span class="menu-text">Linux</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blogs/blogs.html"> 
+    <a class="nav-link" href="../../../blogs/blogs.html"> 
 <span class="menu-text">All</span></a>
   </li>  
 </ul>
@@ -190,143 +133,143 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
         <li>
-    <a class="dropdown-item" href="../../blogs/data-science/data-science.html">
+    <a class="dropdown-item" href="../../../blogs/data-science/data-science.html">
  <span class="dropdown-text">Data Science</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/obsidian.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian.html">
  <span class="dropdown-text">Obsidian</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/linux/linux.html">
+    <a class="dropdown-item" href="../../../blogs/linux/linux.html">
  <span class="dropdown-text">Linux</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/dataview.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/dataview.html">
  <span class="dropdown-text">Dataview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/freeing-your-thinking.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/freeing-your-thinking.html">
  <span class="dropdown-text">Freeing your thinking</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Data Science</li>
         <li>
-    <a class="dropdown-item" href="../../blogs/data-science/data-science.html">
+    <a class="dropdown-item" href="../../../blogs/data-science/data-science.html">
  <span class="dropdown-text">Data Science</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/data-science/python-movingpandas-points-paths/index.html">
+    <a class="dropdown-item" href="../../../blogs/data-science/python-movingpandas-points-paths/index.html">
  <span class="dropdown-text">Points to Paths in Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/data-science/gpx-gps-data/index.html">
+    <a class="dropdown-item" href="../../../blogs/data-science/gpx-gps-data/index.html">
  <span class="dropdown-text">Trail Mapping with Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/data-science/python-movingpandas-speed-segments/index.html">
+    <a class="dropdown-item" href="../../../blogs/data-science/python-movingpandas-speed-segments/index.html">
  <span class="dropdown-text">Speed, Simplification and Segments</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/data-science/obsidian-jupyter/index.html">
+    <a class="dropdown-item" href="../../../blogs/data-science/obsidian-jupyter/index.html">
  <span class="dropdown-text">Obsidian and Jupyter Notebooks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/data-science/TrailMappingWithR.html">
+    <a class="dropdown-item" href="../../../blogs/data-science/TrailMappingWithR.html">
  <span class="dropdown-text">Trail Mapping with R</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Obsidian</li>
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/dataview.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/dataview.html">
  <span class="dropdown-text">Dataview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/freeing-your-thinking.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/freeing-your-thinking.html">
  <span class="dropdown-text">Freeing your thinking</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/obsidian-headers/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-headers/index.html">
  <span class="dropdown-text">Obsidian Basics - Headers</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/optimal-notes-with-obsidian/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/optimal-notes-with-obsidian/index.html">
  <span class="dropdown-text">Optimal Notes with Obsidian</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/obsidian-whiteboards/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-whiteboards/index.html">
  <span class="dropdown-text">Obsidian Canvas Work Spaces</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/obsidian-bookmarks/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-bookmarks/index.html">
  <span class="dropdown-text">Obsidian Bookmarks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/metadata-menu/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/metadata-menu/index.html">
  <span class="dropdown-text">Obsidian Metadata Menu Plugin</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/visual-mocs-with-canvas/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/visual-mocs-with-canvas/index.html">
  <span class="dropdown-text">Obsidian Canvas Dashboards</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/graph-view-deets/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/graph-view-deets/index.html">
  <span class="dropdown-text">Obsidian: The mechanics of Graph View</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/obsidian-no-sql-database/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-no-sql-database/index.html">
  <span class="dropdown-text">What does it mean that is a NoSQL Database?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/git-github-obsidian/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/git-github-obsidian/index.html">
  <span class="dropdown-text">Git and GitHub for Obsidian Users</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/pretty-canvas/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/pretty-canvas/index.html">
  <span class="dropdown-text">Obsidian: Pretty Canvas</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/obsidian-jupyter/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-jupyter/index.html">
  <span class="dropdown-text">Obsidian and Jupyter Notebooks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/regex-search-in-line-metadata/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/regex-search-in-line-metadata/index.html">
  <span class="dropdown-text">Regular Expressions for In-Line Fields</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/second-brain/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/second-brain/index.html">
  <span class="dropdown-text">Obsidian: A Second Brain?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/syncing-your-thinking-syncthing/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/syncing-your-thinking-syncthing/index.html">
  <span class="dropdown-text">Syncing your Thinking with Syncthing</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/obsidian.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian.html">
  <span class="dropdown-text">Obsidian</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html">
  <span class="dropdown-text">Dataview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html">
+    <a class="dropdown-item" href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html">
  <span class="dropdown-text">Freeing Your Thinking</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Linux</li>
         <li>
-    <a class="dropdown-item" href="../../blogs/linux/nixos-linux-different/index.html">
+    <a class="dropdown-item" href="../../../blogs/linux/nixos-linux-different/index.html">
  <span class="dropdown-text">NixOS: the Linux different</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../blogs/linux/linux.html">
+    <a class="dropdown-item" href="../../../blogs/linux/linux.html">
  <span class="dropdown-text">Linux</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../resources.html"> 
+    <a class="nav-link" href="../../../resources.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
   <li class="nav-item compact">
@@ -335,7 +278,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../blogs.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../blogs.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -352,7 +295,7 @@ window.Quarto = {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Obsidian</h1>
+          <h1 class="quarto-secondary-nav-title">NixOS: the Linux different</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -364,14 +307,35 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Obsidian</h1>
-                      </div>
+      <h1 class="title d-none d-lg-block">NixOS: the Linux different</h1>
+                  <div>
+        <div class="description">
+          Grokking NixOS
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Linux</div>
+                <div class="quarto-category">Distributions</div>
+              </div>
+                  </div>
   </div>
     
   
   <div class="quarto-title-meta column-body">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Brian Carey </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 10, 2024</p>
+      </div>
+    </div>
     
       
     </div>
@@ -389,31 +353,31 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/data-science/data-science.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/data-science/data-science.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Science</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/obsidian.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../blogs/obsidian/obsidian.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/linux/linux.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/linux/linux.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linux</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/dataview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/dataview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dataview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/freeing-your-thinking.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/freeing-your-thinking.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Freeing your thinking</span></a>
   </div>
 </li>
@@ -428,37 +392,37 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/data-science/data-science.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/data-science/data-science.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Science</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/data-science/python-movingpandas-points-paths/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/data-science/python-movingpandas-points-paths/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Points to Paths in Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/data-science/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/data-science/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trail Mapping with Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/data-science/python-movingpandas-speed-segments/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/data-science/python-movingpandas-speed-segments/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Speed, Simplification and Segments</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/data-science/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/data-science/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian and Jupyter Notebooks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/data-science/TrailMappingWithR.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/data-science/TrailMappingWithR.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trail Mapping with R</span></a>
   </div>
 </li>
@@ -475,103 +439,103 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/dataview.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/dataview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dataview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/freeing-your-thinking.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/freeing-your-thinking.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Freeing your thinking</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/obsidian-headers/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/obsidian-headers/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Basics - Headers</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/optimal-notes-with-obsidian/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/optimal-notes-with-obsidian/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Optimal Notes with Obsidian</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/obsidian-whiteboards/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/obsidian-whiteboards/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Canvas Work Spaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Bookmarks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/metadata-menu/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/metadata-menu/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Metadata Menu Plugin</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/visual-mocs-with-canvas/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/visual-mocs-with-canvas/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian Canvas Dashboards</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/graph-view-deets/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/graph-view-deets/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: The mechanics of Graph View</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/obsidian-no-sql-database/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/obsidian-no-sql-database/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">What does it mean that is a NoSQL Database?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/git-github-obsidian/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/git-github-obsidian/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git and GitHub for Obsidian Users</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/pretty-canvas/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/pretty-canvas/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Pretty Canvas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian and Jupyter Notebooks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/regex-search-in-line-metadata/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/regex-search-in-line-metadata/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regular Expressions for In-Line Fields</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/second-brain/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/second-brain/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: A Second Brain?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/syncing-your-thinking-syncthing/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/syncing-your-thinking-syncthing/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syncing your Thinking with Syncthing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/obsidian.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/obsidian.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian</span></a>
   </div>
 </li>
@@ -586,25 +550,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Interactive Tables with DataviewJS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataviewJS: A Gentle Introduction Part 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataviewJS: A Gentle Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summarizing Information with DataviewJS</span></a>
   </div>
 </li>
@@ -621,19 +585,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Freeing Your Thinking Workflow</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Stop Wasting Time With Directories and Filenames</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Obsidian: Meaningless Names, No Directories, Now What?</span></a>
   </div>
 </li>
@@ -652,13 +616,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/linux/nixos-linux-different/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/linux/nixos-linux-different/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">NixOS: the Linux different</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../blogs/linux/linux.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../blogs/linux/linux.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linux</span></a>
   </div>
 </li>
@@ -670,8 +634,21 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(21)</span></div><div class="category" data-category="Q1NT">CSS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YXZpZXdKUw==">DataviewJS <span class="quarto-category-count">(4)</span></div><div class="category" data-category="R3JhcGhz">Graphs <span class="quarto-category-count">(3)</span></div><div class="category" data-category="SmF2YXNjcmlwdA==">Javascript <span class="quarto-category-count">(4)</span></div><div class="category" data-category="TGludXg=">Linux <span class="quarto-category-count">(2)</span></div><div class="category" data-category="T2JzaWRpYW4=">Obsidian <span class="quarto-category-count">(21)</span></div><div class="category" data-category="UEtN">PKM <span class="quarto-category-count">(5)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#nixos-the-linux-different" id="toc-nixos-the-linux-different" class="nav-link active" data-scroll-target="#nixos-the-linux-different">NixOS: The Linux Different</a>
+  <ul class="collapse">
+  <li><a href="#how-different-really-different." id="toc-how-different-really-different." class="nav-link" data-scroll-target="#how-different-really-different.">How different? Really different.</a></li>
+  <li><a href="#its-still-linux" id="toc-its-still-linux" class="nav-link" data-scroll-target="#its-still-linux">It’s still Linux</a></li>
+  <li><a href="#getting-a-little-personal" id="toc-getting-a-little-personal" class="nav-link" data-scroll-target="#getting-a-little-personal">Getting a little personal</a></li>
+  <li><a href="#aging-systems-and-other-problems" id="toc-aging-systems-and-other-problems" class="nav-link" data-scroll-target="#aging-systems-and-other-problems">Aging systems and other problems</a></li>
+  <li><a href="#embrace-the-difference" id="toc-embrace-the-difference" class="nav-link" data-scroll-target="#embrace-the-difference">Embrace the difference</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-body" id="quarto-document-content">
 
@@ -679,288 +656,42 @@ window.Quarto = {
 
 
 
+<section id="nixos-the-linux-different" class="level1">
+<h1>NixOS: The Linux Different</h1>
+<blockquote class="blockquote">
+<p>Toward NixOS - exploring the concepts behind the</p>
+</blockquote>
+<section id="how-different-really-different." class="level2">
+<h2 class="anchored" data-anchor-id="how-different-really-different.">How different? Really different.</h2>
+<p>After you’ve been working with with Linux long enough, you realize that all distributions are basically the same, at least under the hood. Different but similar package managers and different package repositories, different default desktop environments, and some kernel tweaks perhaps, but given a command line it is almost trivial to move from one distro to another.</p>
+<p>Not so with NixOS. Want to see what software is installed? You won’t find anything in <code>/usr/bin</code>, or any other typical <code>bin</code> or <code>opt</code> directory. Want to add an alias to <code>/etc/hosts</code>? That file, indeed everything in <code>/etc</code>, turns out to be read-only, even to root. Add a user with <code>useradd</code>? Nope. Install some software in a gui “App Store”, or even with a command like <code>apt install</code>? These don’t exist. In fact, many of your basic system administration skills are useless with NixOS without having access to the basics such as the FHS (file heirarchy standard) and the ability to edit configuration files. But, don’t be sad, your Linux skills are still important, because…</p>
+</section>
+<section id="its-still-linux" class="level2">
+<h2 class="anchored" data-anchor-id="its-still-linux">It’s still Linux</h2>
+<p>NixOS is, never-the-less, GNU/Linux just as much as is Fedora or Debian. It runs a Linux kernel with a GNU api. It has a large package repository, the largest of any, in fact. It even uses systemd. You can add any software that runs on Linux, and to an ordinary “end user”, the daily experience is the same as on any other distro. They might remark how stable and snappy it is, but their day to day workflow would not be different.</p>
+<p>Under the hood, though, everything is different on a fundamental level. NixOS has a learning curve more like that of a new operating system than a new Linux distribution. Which leads to an obvious question: why bother? I’ll be looking at many reasons, but one is that, once the Nix way is grokked, all of these admin tasks I mentioned become much simpler and straight-forward, more robust, easier to rollback, and fully reproducible. I guess that’s more than one reason.</p>
+</section>
+<section id="getting-a-little-personal" class="level2">
+<h2 class="anchored" data-anchor-id="getting-a-little-personal">Getting a little personal</h2>
+<p>For me, NixOS is a sort of culmination of why I turned to Linux decades ago. When Windows first came out, it was cool and all, but I felt like a veil had been drawn over the OS, which then became hidden and mysterious. Apple computers seemed even worse in this aspect. For some types of work, the graphical user interface was a great step forward. But for other things, the gui just obscured the underlying workings of the computer and made anything outside of typical usage to be more difficult. On top of that was the mysterious instability. With every system crash, I wanted to understand what was really going on so I could fix it.</p>
+<p>Then I discovered Linux, and more specifically Slackware, which uses a terminal and vi (elvis at the time) for all administrative tasks. The ability to understand exactly what a computer is doing, to configure it with text files, to install, and if necessary, build, software from the command line, was just what I was looking for. I even compiled my own kernel. After I started using other distros, I still never take more than a quick glance at their graphical admin tools like app stores and such. Give me the command line any day.</p>
+</section>
+<section id="aging-systems-and-other-problems" class="level2">
+<h2 class="anchored" data-anchor-id="aging-systems-and-other-problems">Aging systems and other problems</h2>
+<p>As experienced Linux users know, there are many issues which arise over time on any Linux system, such as software upgrades which create library version conflicts, problems which are made worse on shared systems. Cruft accumulates over time as uninstalls are rarely clean, especially with regard to program data files and directories. If you install and uninstall many programs, after a certain amount of time, it is difficult to be sure exactly what lingers in /etc, /usr/share, ~/.local, or anywhere else, for that matter. After a year of installing, uninstalling and configuring software, how can you be sure what is actually there? And when your new computer arrives, or you finally decide to do a clean install instead of a version upgrade, how much effort will it take to set it up exactly how you like it?</p>
+<p>Enter NixOS, where I can declare the entire operating system with text files! I can write down what I want, and know that that will be all there is on my system, despite what may have been there before. I can, for example, simply grep my configs to see everything installed and all configurations, without needing a special package manager tool. In fact, with NixOS, nothing is every really installed, upgraded, or uninstalled, not in the traditional sense anyway. Any of these activities generates a brand, spankin’ new system which entirely replaces the old one.</p>
+</section>
+<section id="embrace-the-difference" class="level2">
+<h2 class="anchored" data-anchor-id="embrace-the-difference">Embrace the difference</h2>
+<p>Here be dragons, but they are auspicious Chinese dragons, not scary English ones. The singular power of NixOS lies in the differences, so they are worth exploring. They involve ideas such as declarative, functional programming vs imperative, procedural programming, graphs vs stacks, immutable systems, atomic upgrades and containerized environments. Also, Nix/NixOS isn’t just one thing, it is a programming language (Nix), package manager (Nix), repository (nixpkgs), and operating system (NixOS).</p>
+<p>Exploring all these topics would be overwhelming in one article, so it is my intention to write an occasional series on each. None of these will be tutorials, rather they are intended as an introduction to the ideas necessary to understanding NixOS. As a practical matter, Nix the package manager and language can be installed on any computer and be experimented with, or even used as a primary package manager for your current system. NixOS also runs nicely in a virtual machine. To learn NixOS you’ll need to get your hands dirty, and for me at least, getting used to NixOS and configuring my system from the comfort of Fedora made the eventual switch to hardware completely painless, as I just needed to copy my configs to the new partition and build it, not repeat my work. Don’t rush, enjoy the learning.</p>
+<p>NixOS is not for everyone. The imperative paradigm has worked reasonably well for decades, and has the virtue of familiarity, so there is no imperative to change ;-). But if, like me, you prize stability, clarity, and simplicity, if you find change and learning new ways to be stimulating, and if you know that the most interesting things in life are on roads less traveled, you will be delighted by NixOS.</p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="T2JzaWRpYW4lMkNQeXRob24lMkNEYXRhJTIwU2NpZW5jZQ==" data-listing-date-sort="1710914400000" data-listing-file-modified-sort="1744121963684" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1102" data-listing-title-sort="Obsidian and Jupyter Notebooks" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Mar 20, 2024</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/obsidian-jupyter/index.html" class="title listing-title">Obsidian and Jupyter Notebooks</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1705734000000" data-listing-file-modified-sort="1744126706062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1817" data-listing-title-sort="Obsidian Canvas Work Spaces" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jan 20, 2024</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/obsidian-whiteboards/index.html" class="title listing-title">Obsidian Canvas Work Spaces</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="2" data-categories="T2JzaWRpYW4lMkNMaW51eA==" data-listing-date-sort="1705647600000" data-listing-file-modified-sort="1744212155387" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2014" data-listing-title-sort="Git and GitHub for Obsidian Users" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Jan 19, 2024</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/git-github-obsidian/index.html" class="title listing-title">Git and GitHub for Obsidian Users</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="3" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDUEtNJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697436000000" data-listing-file-modified-sort="1744150324565" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1688" data-listing-title-sort="Summarizing Information with DataviewJS" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Oct 16, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="title listing-title">Summarizing Information with DataviewJS</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="4" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697263200000" data-listing-file-modified-sort="1744214761626" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1520" data-listing-title-sort="Interactive Tables with DataviewJS" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Oct 14, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="title listing-title">Interactive Tables with DataviewJS</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="5" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1697004000000" data-listing-file-modified-sort="1744214514313" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1443" data-listing-title-sort="DataviewJS: A Gentle Introduction" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Oct 11, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="title listing-title">DataviewJS: A Gentle Introduction</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="6" data-categories="T2JzaWRpYW4lMkNDU1M=" data-listing-date-sort="1696485600000" data-listing-file-modified-sort="1744212451846" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1097" data-listing-title-sort="Obsidian: Pretty Canvas" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Oct 5, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/pretty-canvas/index.html" class="title listing-title">Obsidian: Pretty Canvas</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="7" data-categories="T2JzaWRpYW4lMkNQS00=" data-listing-date-sort="1695276000000" data-listing-file-modified-sort="1744215372627" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="170" data-listing-title-sort="Obsidian: Freeing Your Thinking Workflow" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 21, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="title listing-title">Obsidian: Freeing Your Thinking Workflow</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="8" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1694671200000" data-listing-file-modified-sort="1744211752431" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="856" data-listing-title-sort="Obsidian Canvas Dashboards" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 14, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/visual-mocs-with-canvas/index.html" class="title listing-title">Obsidian Canvas Dashboards</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="9" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1693980000000" data-listing-file-modified-sort="1744115509860" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="260" data-listing-title-sort="Obsidian Metadata Menu Plugin" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 6, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/metadata-menu/index.html" class="title listing-title">Obsidian Metadata Menu Plugin</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="10" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1693893600000" data-listing-file-modified-sort="1744211176699" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1132" data-listing-title-sort="Obsidian Bookmarks" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Sep 5, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/obsidian-bookmarks/index.html" class="title listing-title">Obsidian Bookmarks</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="11" data-categories="T2JzaWRpYW4lMkNHcmFwaHM=" data-listing-date-sort="1693461600000" data-listing-file-modified-sort="1744213021352" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="180" data-listing-title-sort="Obsidian: The mechanics of Graph View" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 31, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/graph-view-deets/index.html" class="title listing-title">Obsidian: The mechanics of Graph View</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="12" data-categories="T2JzaWRpYW4lMkNHcmFwaHM=" data-listing-date-sort="1693375200000" data-listing-file-modified-sort="1744212995846" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="83" data-listing-title-sort="Obsidian: A Second Brain?" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 30, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/second-brain/index.html" class="title listing-title">Obsidian: A Second Brain?</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="13" data-categories="T2JzaWRpYW4lMkNMaW51eA==" data-listing-date-sort="1693202400000" data-listing-file-modified-sort="1744128938335" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="842" data-listing-title-sort="Syncing your Thinking with Syncthing" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 28, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/syncing-your-thinking-syncthing/index.html" class="title listing-title">Syncing your Thinking with Syncthing</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="14" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1693116000000" data-listing-file-modified-sort="1744120559389" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="895" data-listing-title-sort="Obsidian Basics - Headers" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 27, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/obsidian-headers/index.html" class="title listing-title">Obsidian Basics - Headers</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="15" data-categories="T2JzaWRpYW4lMkNQS00=" data-listing-date-sort="1692856800000" data-listing-file-modified-sort="1744215136481" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1671" data-listing-title-sort="Obsidian: Stop Wasting Time With Directories and Filenames" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 24, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="title listing-title">Obsidian: Stop Wasting Time With Directories and Filenames</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="16" data-categories="T2JzaWRpYW4lMkNQS00lMkNHcmFwaHM=" data-listing-date-sort="1692856800000" data-listing-file-modified-sort="1744215329085" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1380" data-listing-title-sort="Obsidian: Meaningless Names, No Directories, Now What?" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 24, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="title listing-title">Obsidian: Meaningless Names, No Directories, Now What?</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="17" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1692856800000" data-listing-file-modified-sort="1744211994311" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="767" data-listing-title-sort="What does it mean that is a NoSQL Database?" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 24, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/obsidian-no-sql-database/index.html" class="title listing-title">What does it mean that is a NoSQL Database?</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="18" data-categories="T2JzaWRpYW4=" data-listing-date-sort="1692770400000" data-listing-file-modified-sort="1744128482659" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="287" data-listing-title-sort="Regular Expressions for In-Line Fields" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 23, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/regex-search-in-line-metadata/index.html" class="title listing-title">Regular Expressions for In-Line Fields</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="19" data-categories="T2JzaWRpYW4lMkNQS00=" data-listing-date-sort="1691215200000" data-listing-file-modified-sort="1744252943751" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1615" data-listing-title-sort="Optimal Notes with Obsidian" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Aug 5, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/optimal-notes-with-obsidian/index.html" class="title listing-title">Optimal Notes with Obsidian</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-<tr data-index="20" data-categories="SmF2YXNjcmlwdCUyQ09ic2lkaWFuJTJDRGF0YXZpZXdKUw==" data-listing-date-sort="1677567600000" data-listing-file-modified-sort="1744128203558" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1547" data-listing-title-sort="DataviewJS: A Gentle Introduction Part 2" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Feb 28, 2023</span>
-</td>
-<td>
-<a href="../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="title listing-title">DataviewJS: A Gentle Introduction Part 2</a>
-</td>
-<td>
-<span class="listing-author">Brian Carey</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1529,16 +1260,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="biscotty666/bw-comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../blogs/data-science/data-science.html" class="pagination-link" aria-label="Data Science">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data Science</span>
+      <a href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="pagination-link" aria-label="Obsidian: Meaningless Names, No Directories, Now What?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Obsidian: Meaningless Names, No Directories, Now What?</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../blogs/linux/linux.html" class="pagination-link" aria-label="Linux">
-        <span class="nav-page-text">Linux</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1559,5 +1289,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
