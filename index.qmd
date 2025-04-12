@@ -1,7 +1,6 @@
 ---
 image: "images/trunks.png"
 toc: false
-freeze: true
 comments: false
 bibliography: references.bib
 suppress-bibliography: true

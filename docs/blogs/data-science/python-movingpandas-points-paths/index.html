@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Brian Carey">
+<meta name="dcterms.date" content="2025-02-03">
+<meta name="description" content="Creating trajectories in MovingPandas">
+
+<title>Points to Paths in Python – biscotty’s Workshop</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../blogs/data-science/gpx-gps-data/index.html" rel="next">
+<link href="../../../blogs/obsidian/freeing-your-thinking.html" rel="prev">
+<link href="../../../images/BWLogo.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-039d7a0e7773b12663fe263aa10a41ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<meta property="og:title" content="Points to Paths in Python – biscotty’s Workshop">
+<meta property="og:description" content="Creating trajectories in MovingPandas">
+<meta property="og:image" content="https://biscotty.online/blogs/data-science/python-movingpandas-points-paths/ny6.png">
+<meta property="og:site_name" content="biscotty's Workshop">
+<meta property="og:image:height" content="436">
+<meta property="og:image:width" content="719">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">biscotty’s Workshop</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../blogs/obsidian/obsidian.html" aria-current="page"> 
+<span class="menu-text">Obsidian</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blogs/data-science/data-science.html"> 
+<span class="menu-text">Data Science</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blogs/blogs.html"> 
+<span class="menu-text">All</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-posts" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Posts</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
+        <li>
+    <a class="dropdown-item" href="../../../blogs/data-science/data-science.html">
+ <span class="dropdown-text">Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian.html">
+ <span class="dropdown-text">Obsidian</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/dataview.html">
+ <span class="dropdown-text">Dataview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/freeing-your-thinking.html">
+ <span class="dropdown-text">Freeing your thinking</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Data Science</li>
+        <li>
+    <a class="dropdown-item" href="../../../blogs/data-science/data-science.html">
+ <span class="dropdown-text">Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/data-science/python-movingpandas-points-paths/index.html">
+ <span class="dropdown-text">Points to Paths in Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/data-science/gpx-gps-data/index.html">
+ <span class="dropdown-text">Trail Mapping with Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/data-science/python-movingpandas-speed-segments/index.html">
+ <span class="dropdown-text">Speed, Simplification and Segments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/data-science/obsidian-jupyter/index.html">
+ <span class="dropdown-text">Obsidian and Jupyter Notebooks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/data-science/TrailMappingWithR.html">
+ <span class="dropdown-text">Trail Mapping with R</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Obsidian</li>
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/dataview.html">
+ <span class="dropdown-text">Dataview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/freeing-your-thinking.html">
+ <span class="dropdown-text">Freeing your thinking</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-headers/index.html">
+ <span class="dropdown-text">Obsidian Basics - Headers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/optimal-notes-with-obsidian/index.html">
+ <span class="dropdown-text">Optimal Notes with Obsidian</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-whiteboards/index.html">
+ <span class="dropdown-text">Obsidian Canvas Work Spaces</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-bookmarks/index.html">
+ <span class="dropdown-text">Obsidian Bookmarks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/metadata-menu/index.html">
+ <span class="dropdown-text">Obsidian Metadata Menu Plugin</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/visual-mocs-with-canvas/index.html">
+ <span class="dropdown-text">Obsidian Canvas Dashboards</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/graph-view-deets/index.html">
+ <span class="dropdown-text">Obsidian: The mechanics of Graph View</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-no-sql-database/index.html">
+ <span class="dropdown-text">What does it mean that is a NoSQL Database?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/git-github-obsidian/index.html">
+ <span class="dropdown-text">Git and GitHub for Obsidian Users</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/pretty-canvas/index.html">
+ <span class="dropdown-text">Obsidian: Pretty Canvas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian-jupyter/index.html">
+ <span class="dropdown-text">Obsidian and Jupyter Notebooks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/regex-search-in-line-metadata/index.html">
+ <span class="dropdown-text">Regular Expressions for In-Line Fields</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/second-brain/index.html">
+ <span class="dropdown-text">Obsidian: A Second Brain?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/syncing-your-thinking-syncthing/index.html">
+ <span class="dropdown-text">Syncing your Thinking with Syncthing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/obsidian.html">
+ <span class="dropdown-text">Obsidian</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html">
+ <span class="dropdown-text">Dataview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html">
+ <span class="dropdown-text">Freeing Your Thinking</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../resources.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/biscotty666"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../../blogs.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+          <h1 class="quarto-secondary-nav-title">Points to Paths in Python</h1>
+        </a>     
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">Points to Paths in Python</h1>
+                  <div>
+        <div class="description">
+          Creating trajectories in MovingPandas
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Data Science</div>
+                <div class="quarto-category">GIS</div>
+                <div class="quarto-category">Python</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-body">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Brian Carey </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 3, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/data-science/data-science.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Science</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/obsidian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/dataview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dataview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/freeing-your-thinking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Freeing your thinking</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Science</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/data-science/data-science.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Science</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/data-science/python-movingpandas-points-paths/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Points to Paths in Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/data-science/gpx-gps-data/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trail Mapping with Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/data-science/python-movingpandas-speed-segments/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Speed, Simplification and Segments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/data-science/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian and Jupyter Notebooks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/data-science/TrailMappingWithR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trail Mapping with R</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Obsidian</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/dataview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dataview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/freeing-your-thinking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Freeing your thinking</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/obsidian-headers/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian Basics - Headers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/optimal-notes-with-obsidian/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimal Notes with Obsidian</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/obsidian-whiteboards/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian Canvas Work Spaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/obsidian-bookmarks/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian Bookmarks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/metadata-menu/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian Metadata Menu Plugin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/visual-mocs-with-canvas/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian Canvas Dashboards</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/graph-view-deets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian: The mechanics of Graph View</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/obsidian-no-sql-database/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What does it mean that is a NoSQL Database?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/git-github-obsidian/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git and GitHub for Obsidian Users</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/pretty-canvas/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian: Pretty Canvas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/obsidian-jupyter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian and Jupyter Notebooks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/regex-search-in-line-metadata/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regular Expressions for In-Line Fields</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/second-brain/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian: A Second Brain?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/syncing-your-thinking-syncthing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syncing your Thinking with Syncthing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/obsidian.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Dataview</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/dataview/dataviewjs-summaries-statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interactive Tables with DataviewJS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/dataview/dataviewjs-files-dates/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DataviewJS: A Gentle Introduction Part 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DataviewJS: A Gentle Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summarizing Information with DataviewJS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Freeing Your Thinking</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian: Freeing Your Thinking Workflow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian: Stop Wasting Time With Directories and Filenames</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Obsidian: Meaningless Names, No Directories, Now What?</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#from-points-to-paths" id="toc-from-points-to-paths" class="nav-link active" data-scroll-target="#from-points-to-paths">From Points to Paths</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#getting-ready-for-movingpandas" id="toc-getting-ready-for-movingpandas" class="nav-link" data-scroll-target="#getting-ready-for-movingpandas">Getting ready for MovingPandas</a></li>
+  <li><a href="#getting-going-with-movingpandas" id="toc-getting-going-with-movingpandas" class="nav-link" data-scroll-target="#getting-going-with-movingpandas">Getting going with MovingPandas</a></li>
+  <li><a href="#right-place-right-time" id="toc-right-place-right-time" class="nav-link" data-scroll-target="#right-place-right-time">Right place, right time</a></li>
+  <li><a href="#i-was-so-close" id="toc-i-was-so-close" class="nav-link" data-scroll-target="#i-was-so-close">I was so close</a></li>
+  <li><a href="#stop-detection" id="toc-stop-detection" class="nav-link" data-scroll-target="#stop-detection">Stop detection</a></li>
+  <li><a href="#interactive-graphing" id="toc-interactive-graphing" class="nav-link" data-scroll-target="#interactive-graphing">Interactive graphing</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+
+
+
+
+
+<section id="from-points-to-paths" class="level1">
+<h1>From Points to Paths</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In the <a href="https://biscotty.online/blogs/gpx-gps-data">prior article</a>, I showed how to use raw GPS data generated from a sport tracker to create maps and profile elevations along the path. The GeoDataFrames created were just a collection of point geometries with time, location and elevation data. To profile, for example, speed, requires converting the point geometries to line geometries, calculating distances and time deltas between each point, and converting between coordinate systems and units of measurement. If we were concerned with bearing, we would need to also calculate angles between the line segments we create. None of this is overly complicated, just awfully tedious. But this being Python, there is a dedicated library that makes all of this easy peasy.</p>
+<p>MovingPandas is a library that extends Pandas/Geopandas by taking the list of point geometries and turning them into “trajectories”. It generates directed lines between consecutive points, and provides functions for all of the calculations I mentioned above and more.</p>
+<p>In this article I will show how to create and work with trajectories. I’ll then show how to use MovingPandas to find locations along the path based on time, find the distance from the path to nearby locations, and finally how to identify locations where I paused or stopped. In the next article, I will show how to simplify and smooth paths, profile speed, and segment the trajectories based on various criteria. As before, an expanded version of the code in this article is available in my <a href="https://github.com/biscotty666/GPX">repository</a>.</p>
+</section>
+<section id="getting-ready-for-movingpandas" class="level2">
+<h2 class="anchored" data-anchor-id="getting-ready-for-movingpandas">Getting ready for MovingPandas</h2>
+<p>I’ll start by loading the necessary libraries and creating a helper function for mapping as well as some defaults for annotating points on the maps. Then i will load some data converted from raw GPS data as described in the previous article.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> movingpandas <span class="im">as</span> mpd </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> contextily <span class="im">as</span> ctx</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime, timedelta</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geopandas.tools <span class="im">import</span> reverse_geocode, geocode</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> t_plot(traj, </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">8</span>), </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            source<span class="op">=</span>ctx.providers.CartoDB.Voyager, </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            title<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>figsize)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    traj.plot(ax<span class="op">=</span>ax, lw<span class="op">=</span><span class="dv">4</span>, color<span class="op">=</span><span class="st">'chartreuse'</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    ctx.add_basemap(ax, crs<span class="op">=</span>traj.crs, </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                    source<span class="op">=</span>source)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    ax.set_axis_off()</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> title: </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        ax.set_title(title)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        ax.set_title(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f'Walk in </span><span class="sc">{</span>traj<span class="sc">.</span>df<span class="sc">.</span>Name[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> on </span><span class="sc">{</span>traj<span class="sc">.</span>df<span class="sc">.</span>index[<span class="dv">0</span>]<span class="sc">.</span>strftime(<span class="st">'</span><span class="sc">%x</span><span class="st">'</span>)<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f, ax</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>annot_props <span class="op">=</span> <span class="bu">dict</span>(</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    xytext<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">1</span>), </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    textcoords<span class="op">=</span><span class="st">"offset fontsize"</span>, </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    c<span class="op">=</span><span class="st">'r'</span>, weight<span class="op">=</span><span class="st">'bold'</span>, ha<span class="op">=</span><span class="st">'center'</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-'</span>, ec<span class="op">=</span><span class="st">'orange'</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data/b3/combined.csv'</span>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> gpd.GeoDataFrame(</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    df, </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    geometry<span class="op">=</span>gpd.points_from_xy(x<span class="op">=</span>df.Lon, y<span class="op">=</span>df.Lat), </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    crs<span class="op">=</span><span class="dv">4269</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>).to_crs(<span class="dv">32111</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>MovingPandas requires an integer id for each walk, which I don’t have, so I’ll create one based on the string id. I’ll also convert the <code>Time</code> from a generic object to <code>datetime64</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>idList <span class="op">=</span> <span class="bu">list</span>(gdf.groupby([<span class="st">'Id'</span>]).nunique().reset_index().Id)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, track <span class="kw">in</span> <span class="bu">enumerate</span>(idList):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    gdf.loc[gdf.Id <span class="op">==</span> track, <span class="st">'trajectory_id'</span>] <span class="op">=</span> i</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>gdf[<span class="st">'Time'</span>] <span class="op">=</span> pd.to_datetime(gdf.Time)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>gdf.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;
+RangeIndex: 3044 entries, 0 to 3043
+Data columns (total 10 columns):
+ #   Column         Non-Null Count  Dtype              
+---  ------         --------------  -----              
+ 0   Id             3044 non-null   object             
+ 1   Name           3044 non-null   object             
+ 2   Lat            3044 non-null   float64            
+ 3   Lon            3044 non-null   float64            
+ 4   Elev           3044 non-null   int64              
+ 5   Time           3044 non-null   datetime64[ns, UTC]
+ 6   Temp           3044 non-null   float64            
+ 7   Weather        3044 non-null   int64              
+ 8   geometry       3044 non-null   geometry           
+ 9   trajectory_id  3044 non-null   float64            
+dtypes: datetime64[ns, UTC](1), float64(4), geometry(1), int64(2), object(2)
+memory usage: 237.9+ KB</code></pre>
+<p>One of the walks in the collection was in New York City, and the rest in New Jersey. Since the locations are pretty far apart, I’ll split out the NYC walk from the others.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gdf_nj <span class="op">=</span> gdf.loc[gdf.Name <span class="op">!=</span> <span class="st">'New York'</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>gdf_ny <span class="op">=</span> gdf.loc[gdf.Name <span class="op">==</span> <span class="st">'New York'</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>gdf_nj.shape, gdf_ny.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>((2063, 10), (981, 10))</code></pre>
+</section>
+<section id="getting-going-with-movingpandas" class="level2">
+<h2 class="anchored" data-anchor-id="getting-going-with-movingpandas">Getting going with MovingPandas</h2>
+<p>Now I’m ready to create the trajectories. The data will be imported as a <em>Trajectory Collection</em> which will contain the individual <em>Trajectories</em>. I’ll first create one from the NJ group, which contains several walks.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tc_nj <span class="op">=</span> mpd.TrajectoryCollection(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    gdf_nj, <span class="st">'trajectory_id'</span>, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    t<span class="op">=</span><span class="st">'Time'</span>, x<span class="op">=</span><span class="st">'Lon'</span>, y<span class="op">=</span><span class="st">'Lat'</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tc_nj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>TrajectoryCollection with 6 trajectories</code></pre>
+<p>Let’s see what this looks like.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> traj_collection.plot(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'trajectory_id'</span>, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span>, figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">5</span>), cmap<span class="op">=</span><span class="st">'Set1'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Walks in NJ, September 2024'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>ctx.add_basemap(ax, crs<span class="op">=</span>gdf_proj.crs,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                source<span class="op">=</span>ctx.providers.Esri.WorldTopoMap)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="nj1.png" class="img-fluid"></p>
+<p>I can extract a single trajectory and its underlying data frame.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>traj_nj1 <span class="op">=</span> tc_nj.trajectories[<span class="dv">2</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(traj_nj1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Trajectory 2.0 (2024-09-07 21:20:23.975000 to 2024-09-07 22:03:42.022000) | Size: 267 | Length: 5173.1m
+Bounds: (177912.1946985984, 243124.49067874879, 179216.17084672116, 245408.85808260852)
+LINESTRING (178912.27991325516 244815.1747420021, 178912.27991325516 244815.1747420021, 178903.67850</code></pre>
+<p>The associated data is stored in the <code>df</code> attribute:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(traj_nj1.df.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;
+DatetimeIndex: 267 entries, 2024-09-07 21:20:23.975000 to 2024-09-07 22:03:42.022000
+Data columns (total 9 columns):
+ #   Column         Non-Null Count  Dtype   
+---  ------         --------------  -----   
+ 0   Id             267 non-null    object  
+ 1   Name           267 non-null    object  
+ 2   Lat            267 non-null    float64 
+ 3   Lon            267 non-null    float64 
+ 4   Elev           267 non-null    int64   
+ 5   Temp           267 non-null    float64 
+ 6   Weather        267 non-null    int64   
+ 7   geometry       267 non-null    geometry
+ 8   trajectory_id  267 non-null    float64 
+dtypes: float64(4), geometry(1), int64(2), object(2)
+memory usage: 29.0+ KB
+None</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>t_plot(traj_nj1, source<span class="op">=</span>ctx.providers.OpenStreetMap.HOT)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="nj2.png" class="img-fluid"></p>
+<p>Another way to extract a specific trajectory is using MovingPandas’ <code>filter</code> function, as so:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>t_plot(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>tc_nj.<span class="bu">filter</span>(<span class="st">"Name"</span>, [<span class="st">"Park Ridge"</span>])</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>     .trajectories[<span class="dv">0</span>]</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="nj3.png" class="img-fluid"></p>
+<p>For the rest of the article I’ll use the longest trek I have in this data set, the one in New York. I’ll create the Trajectory Collection, extract the single trajectory and find the start and end times and locations.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tc_ny <span class="op">=</span> mpd.TrajectoryCollection(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    gdf_ny, <span class="st">'trajectory_id'</span>, </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    t<span class="op">=</span><span class="st">'Time'</span>, x<span class="op">=</span><span class="st">'Lon'</span>, y<span class="op">=</span><span class="st">'Lat'</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>traj_ny <span class="op">=</span> tc_ny.trajectories[<span class="dv">0</span>]</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>st <span class="op">=</span> traj_ny.get_start_time()</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>sl <span class="op">=</span> traj_ny.to_crs(<span class="dv">4269</span>).get_start_location()</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>et <span class="op">=</span> traj_ny.get_end_time()</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>el <span class="op">=</span> traj_ny.to_crs(<span class="dv">4269</span>).get_end_location()</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'''</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="ss">            Time         Location (Lon/Lat)</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="ss">            </span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="ss">    Start: </span><span class="sc">{</span>st<span class="sc">.</span>strftime(<span class="st">'</span><span class="sc">%X</span><span class="st">'</span>)<span class="sc">}</span><span class="ss">   </span><span class="sc">{</span>sl<span class="sc">.</span>coords[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> degrees</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    End:   </span><span class="sc">{</span>et<span class="sc">.</span>strftime(<span class="st">'</span><span class="sc">%X</span><span class="st">'</span>)<span class="sc">}</span><span class="ss">   </span><span class="sc">{</span>el<span class="sc">.</span>coords[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">  degrees</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="ss">    Duration:  </span><span class="sc">{</span>traj_ny<span class="sc">.</span>get_duration()<span class="sc">.</span>seconds<span class="op">/</span><span class="dv">60</span><span class="sc">:.0f}</span><span class="ss"> minutes</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    Distance:  </span><span class="sc">{</span>traj_ny<span class="sc">.</span>get_length(units<span class="op">=</span><span class="st">'mi'</span>)<span class="sc">:.2f}</span><span class="ss"> miles</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="ss">    Direction: </span><span class="sc">{</span>traj_ny<span class="sc">.</span>get_direction()<span class="sc">:.0f}</span><span class="ss"> degrees</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="ss">'''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>            Time         Location (Lon/Lat)
+            
+    Start: 17:43:42   (-73.991157, 40.752025) degrees
+    End:   20:49:09   (-73.98894, 40.726903)  degrees
+
+    Duration:  185 minutes
+    Distance:  6.69 miles
+    Direction: 176 degrees</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>t_plot(traj_ny)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="ny1.png" class="img-fluid"></p>
+</section>
+<section id="right-place-right-time" class="level2">
+<h2 class="anchored" data-anchor-id="right-place-right-time">Right place, right time</h2>
+<p>First, let me find my position at an arbitrary time, and then 30 minutes later. Where was I, for example, at 18:00, and then 45 minutes later?</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> datetime(<span class="dv">2024</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">18</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>t2 <span class="op">=</span> t <span class="op">+</span> timedelta(minutes<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'''</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    Nearest:      </span><span class="sc">{</span>traj_ny<span class="sc">.</span>to_crs(<span class="dv">4269</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                    <span class="sc">.</span>get_position_at(t, method<span class="op">=</span><span class="st">'nearest'</span>)<span class="sc">}</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    Interpolated: </span><span class="sc">{</span>traj_ny<span class="sc">.</span>to_crs(<span class="dv">4269</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>                    <span class="sc">.</span>get_position_at(t, method<span class="op">=</span><span class="st">'interpolated'</span>)<span class="sc">}</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ss">    Previous row: </span><span class="sc">{</span>traj_ny<span class="sc">.</span>to_crs(<span class="dv">4269</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>                    <span class="sc">.</span>get_position_at(t, method<span class="op">=</span><span class="st">'ffill'</span>)<span class="sc">}</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="ss">    Next row:     </span><span class="sc">{</span>traj_ny<span class="sc">.</span>to_crs(<span class="dv">4269</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>                    <span class="sc">.</span>get_position_at(t, method<span class="op">=</span><span class="st">'bfill'</span>)<span class="sc">}</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="ss">'''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>    Nearest:      POINT (-74.003574 40.756368)
+    Interpolated: POINT (-74.00361304734385 40.75638409846633)
+    Previous row: POINT (-74.003688 40.756415)
+    Next row:     POINT (-74.003574 40.756368)</code></pre>
+<p>I can use the <code>geocode</code> tool provided by geopandas to get the nearest addresses at these points so I can show them on the map. Pay attention to crs, since nominatim expects lat/lon coordinates and we currently have projected coordinates.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> traj_ny.get_position_at(t, method<span class="op">=</span><span class="st">'interpolated'</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>point_up <span class="op">=</span> traj_ny.to_crs(<span class="dv">4269</span>).get_position_at(t, method<span class="op">=</span><span class="st">'interpolated'</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>point2 <span class="op">=</span> traj_ny.get_position_at(t2, method<span class="op">=</span><span class="st">'interpolated'</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>point2_up <span class="op">=</span> traj_ny.to_crs(<span class="dv">4269</span>).get_position_at(t2, method<span class="op">=</span><span class="st">'interpolated'</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>rg <span class="op">=</span> reverse_geocode(</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    [point_up, point2_up], </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    provider<span class="op">=</span><span class="st">"nominatim"</span>, </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    user_agent<span class="op">=</span><span class="st">"your_project"</span>, </span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    timeout<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>).to_crs(<span class="dv">32111</span>)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> t_plot(traj_ny)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>gpd.GeoSeries(point).plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'red'</span>, markersize<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>gpd.GeoSeries(point2).plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'red'</span>, markersize<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x, y, label <span class="kw">in</span> <span class="bu">zip</span>(rg.geometry.x, rg.geometry.y, rg.address):</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    ax.annotate(<span class="ss">f'</span><span class="sc">{</span>label<span class="sc">.</span>split(<span class="st">','</span>)[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>label<span class="sc">.</span>split(<span class="st">','</span>)[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'</span>, </span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>                xy<span class="op">=</span>(x, y), <span class="op">**</span>annot_props)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">211500</span>, <span class="dv">214500</span>)</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">191400</span>, <span class="dv">192500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="ny2.png" class="img-fluid"></p>
+<p>It might be more interesting to plot my location at regular intervals along the walk. What about plotting my location every 30 minutes?</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>int_count <span class="op">=</span> (et <span class="op">-</span> st) <span class="op">//</span> timedelta(seconds<span class="op">=</span>(<span class="dv">60</span><span class="op">*</span><span class="dv">30</span>))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>int_length <span class="op">=</span> (et <span class="op">-</span> st) <span class="op">/</span> int_count</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>intervals <span class="op">=</span> [st <span class="op">+</span> (i<span class="op">*</span>int_length) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(int_count)]</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>interval_points <span class="op">=</span> [traj_ny.to_crs(<span class="dv">4269</span>).get_position_at(</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                    t, method<span class="op">=</span><span class="st">'interpolated'</span>) </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>                   <span class="cf">for</span> t <span class="kw">in</span> intervals]</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>rg <span class="op">=</span> reverse_geocode(</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    interval_points, </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    provider<span class="op">=</span><span class="st">"nominatim"</span>, </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    user_agent<span class="op">=</span><span class="st">"your_project"</span>, </span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    timeout<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>).to_crs(<span class="dv">32111</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> t_plot(traj_ny, figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">11</span>))</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>rg.plot(ax<span class="op">=</span>ax, c<span class="op">=</span><span class="st">'r'</span>, markersize<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x, y, label <span class="kw">in</span> <span class="bu">zip</span>(rg.geometry.x, rg.geometry.y, rg.address):</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    ax.annotate(<span class="ss">f'</span><span class="sc">{</span>label<span class="sc">.</span>split(<span class="st">','</span>)[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>label<span class="sc">.</span>split(<span class="st">','</span>)[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'</span>, </span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>                xy<span class="op">=</span>(x, y), <span class="op">**</span>annot_props)</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>ax.set_title(ax.get_title() <span class="op">+</span> <span class="ss">f'</span><span class="ch">\n</span><span class="ss">Every 30 minutes'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="ny3.png" class="img-fluid"></p>
+</section>
+<section id="i-was-so-close" class="level2">
+<h2 class="anchored" data-anchor-id="i-was-so-close">I was so close</h2>
+<p>Not only can you calculate distances along the path, which we will look at more in the next article, but you can calculate the distance from points along the trajectory to other locations not on the path. It will determine the closest you came to other points, lines or polygons, including, of course, other trajectories. For example, when I’m in New York, I love to visit the Strand and the huge Barnes and Noble on Union Square. I didn’t have time this trip, sadly, but I’m curious how close I was from those stores.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>addresses <span class="op">=</span> [{</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                <span class="st">'id'</span>: <span class="dv">1</span>,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">'name'</span>: <span class="st">"The Strand"</span>, </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">'addr'</span>: <span class="st">"828 Broadway, New York, NY 10003"</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>            }, </span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>            {</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">'id'</span>: <span class="dv">2</span>,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">'name'</span>: <span class="st">"Barnes and Noble"</span>, </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>                <span class="st">'addr'</span>: <span class="st">"33 East 17th Street, 10003, New York"</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>            }]</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>add_df <span class="op">=</span> pd.DataFrame(addresses)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>geo <span class="op">=</span> geocode(</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    add_df[<span class="st">'addr'</span>], </span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    provider<span class="op">=</span><span class="st">'nominatim'</span>, </span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    user_agent<span class="op">=</span><span class="st">'your_project'</span>, </span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    timeout<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>book_stores <span class="op">=</span> geo.join(add_df).to_crs(<span class="dv">32111</span>)</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(book_stores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>                        geometry  \
+0  POINT (192997.822 211055.516)   
+1  POINT (193108.568 211461.041)   
+
+                                             address  id              name  \
+0  Strand Bookstore, 828, Broadway, University Vi...   1        The Strand   
+1  Barnes &amp; Noble, 33, East 17th Street, Union Sq...   2  Barnes and Noble   
+
+                                   addr  
+0      828 Broadway, New York, NY 10003  
+1  33 East 17th Street, 10003, New York</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dists_to <span class="op">=</span> [traj_ny.distance(book_stores.loc[i, [<span class="st">'geometry'</span>]], </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                            units<span class="op">=</span><span class="st">'mi'</span>)[<span class="dv">0</span>] </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(book_stores))]</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>store_names <span class="op">=</span> [book_stores.loc[i, <span class="st">'name'</span>] </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>               <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(book_stores))]</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(book_stores)):</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Closest distance to </span><span class="sc">{</span>store_names[i]<span class="sc">}</span><span class="ss"> was </span><span class="sc">{</span>dists_to[i]<span class="sc">:.1f}</span><span class="ss"> miles'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Closest distance to The Strand was 0.4 miles
+Closest distance to Barnes and Noble was 0.6 miles</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> t_plot(traj_ny, figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">11</span>))</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>book_stores.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'red'</span>, markersize<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x, y, label <span class="kw">in</span> <span class="bu">zip</span>(book_stores.geometry.x, </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                       book_stores.geometry.y, </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                       book_stores.name):</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    ax.annotate(label, xy<span class="op">=</span>(x,y), <span class="op">**</span>annot_props)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="ny4.png" class="img-fluid"></p>
+</section>
+<section id="stop-detection" class="level2">
+<h2 class="anchored" data-anchor-id="stop-detection">Stop detection</h2>
+<p>In this final section I’ll look at stop detection. Here I’ll just be considering stop locations. In the next article, I’ll show how to use the same approach as one method for segmenting the trajectories. Stop detection requires instantiation of a stop detector which will provide the functions needed.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>detector <span class="op">=</span> mpd.TrajectoryStopDetector(traj_ny)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The detector takes parameters to determine how long a pause constitutes a <code>stop</code>, and how far you need to move to constitute movement.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>stop_points <span class="op">=</span> detector.get_stop_points(</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    min_duration<span class="op">=</span>timedelta(seconds<span class="op">=</span><span class="dv">120</span>), max_diameter<span class="op">=</span><span class="dv">100</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(stop_points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>18</code></pre>
+<p>We can look up the addresses nearest to the stop points, and plot some of them on the map.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>stop_points <span class="op">=</span> stop_points.set_crs(<span class="dv">32111</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>rg <span class="op">=</span> reverse_geocode(</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    stop_points.to_crs(<span class="dv">4269</span>).geometry, </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    provider<span class="op">=</span><span class="st">"nominatim"</span>, </span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    user_agent<span class="op">=</span><span class="st">"your_project"</span>, timeout<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>).to_crs(<span class="dv">32111</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> t_plot(traj_ny)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>stop_points.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'none'</span>, markersize<span class="op">=</span><span class="dv">100</span>, ec<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>point_labels <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">17</span>]</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x, y), label <span class="kw">in</span> <span class="bu">zip</span>(</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                    rg.iloc[point_labels].geometry.<span class="bu">apply</span>(</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>                        <span class="kw">lambda</span> p: p.coords[<span class="dv">0</span>]), </span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>                    rg.iloc[point_labels].address):</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    ax.annotate(<span class="ss">f'</span><span class="sc">{</span>label<span class="sc">.</span>split(<span class="st">','</span>)[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>label<span class="sc">.</span>split(<span class="st">','</span>)[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'</span>, </span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>                xy<span class="op">=</span>(x, y), <span class="op">**</span>annot_props)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(ax.get_title() <span class="op">+</span> <span class="ss">f'</span><span class="ch">\n</span><span class="ss">Stop Points'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="ny5.png" class="img-fluid"></p>
+</section>
+<section id="interactive-graphing" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-graphing">Interactive graphing</h2>
+<p>Showing interactive graphing in the context of a published article is not very useful, but I should point out that MovingPandas supports both <code>hvplot</code> with <code>folium</code> as well as GeoPandas’ <code>explore()</code>, both of which can be useful tools for identifying areas of interest. This is an example with <code>explore()</code>.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> traj_ny.explore(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"trajectory_id"</span>,</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span><span class="st">"t"</span>,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    popup<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    style_kwds<span class="op">=</span>{<span class="st">"weight"</span>: <span class="dv">4</span>},</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Time"</span>,</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>stop_points.explore(</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    m<span class="op">=</span>m,</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"red"</span>,</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span><span class="st">"stop_id"</span>,</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    popup<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    marker_kwds<span class="op">=</span>{<span class="st">"radius"</span>: <span class="dv">10</span>},</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Stop points"</span>,</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="ny6.png" class="img-fluid"></p>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<p>In the third article, I will address issues of generalization and simplification which can be important when working with large data sets. I’ll show how to generate speed, duration and distance information, and how to segment the trajectories based on geometries, stops, and other criteria. I hope that these articles are proving interesting and useful. Please visit my <a href="https://biscotty.online">website</a> and <a href="https://github.com/biscotty666/GPX">repository</a> for more code, articles and updates.</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/biscotty\.online");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="biscotty666/bw-comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../blogs/obsidian/freeing-your-thinking.html" class="pagination-link" aria-label="Freeing your thinking">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Freeing your thinking</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../blogs/data-science/gpx-gps-data/index.html" class="pagination-link" aria-label="Trail Mapping with Python">
+        <span class="nav-page-text">Trail Mapping with Python</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2025, Brian Carey</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This website is built with <i class="fa-solid fa-heart" title="a heart" aria-label="heart"></i>, <a href="https://github.com/samanthacsik/samanthacsik.github.io" target="_blank"><i class="fa-brands fa-github" title="GitHub octocat logo" aria-label="github"></i></a>, <a href="https://www.r-project.org/about.html" target="_blank"><i class="fa-brands fa-r-project" title="R Project" aria-label="r-project"></i></a> and <a href="https://quarto.org/" target="_blank">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
