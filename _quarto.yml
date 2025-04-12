@@ -20,6 +20,21 @@ website:
     site-name: biscotty's Workshop
     image: images/trunks.png
   navbar:
+    left: 
+      - text: "Home"
+        href: index.qmd
+      - href: about.qmd
+        text: "About"
+      - text: "Technology"
+        menu:
+          - href: posts/obsidian/obsidian.qmd
+            text: "Obsidian"
+          - href: posts/data-science/data-science.qmd
+            text: "Data Science" 
+          - href: posts/linux/linux.qmd
+            text: Linux
+      - href: posts/posts.qmd
+        text: "All posts"
     right:
       - sidebar:posts-side
       - href: resources.qmd
@@ -27,20 +42,8 @@ website:
       - icon: github
         href: https://github.com/biscotty666
       - icon: rss
-        href: blogs.xml
-    left: 
-      - text: "Home"
-        href: index.qmd
-      - href: about.qmd
-        text: "About"
-      - href: posts/obsidian/obsidian.qmd
-        text: "Obsidian"
-      - href: posts/data-science/data-science.qmd
-        text: "Data Science" 
-      - href: posts/linux/linux.qmd
-        text: Linux
-      - href: posts/posts.qmd
-        text: "All"
+        href: posts.xml
+
   page-footer: 
     background: dark
     left: Copyright 2025, Brian Carey

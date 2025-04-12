@@ -12,3 +12,4 @@ sidebar: posts-side
 comments: false
 ---
 
+I've used [Linux](https://www.linux.org/) almost exclusively for over three decades. The first 20 years or so I used [Slackware](http://www.slackware.com/), the oldest distribution still being developed. Since then I have extensively used [Fedora](https://fedoraproject.org/), both mutable and immutable versions, as well as [Debian](https://www.debian.org/) and [Ubuntu](https://ubuntu.com/). My current OS of choice is [NixOS](https://nixos.org/), which is unlike any other [operating system](https://en.wikipedia.org/wiki/Operating_system) I'm aware of, and very different conceptually. To get an idea of what I mean, read [The Linux Different](nixos-linux-different/).

@@ -29,13 +29,22 @@ If this is your first time, check out the all the posts [here](posts/posts.qmd),
 
 ### Data Science
 
-asdf
+My current passion is data science, with particular interest in geospatial analyses (GIS). I enjoy working both in both [R](https://www.r-project.org/) and [Python](https://www.python.org/). Some of articles will explicitly compare the two, as I think that data science Python programmers would find R delightful, such as showing how to do [gps trail mapping](posts/data-science/python-gpx-mapping.qmd) in R instead of Python.
 
-data science stuff
+### Linux
 
-### Other topics
+I've used [Linux](https://www.linux.org/) almost exclusively for over three decades. The first 20 years or so I used [Slackware](http://www.slackware.com/), the oldest distribution still being developed. Since then I have extensively used [Fedora](https://fedoraproject.org/), both mutable and immutable versions, as well as [Debian](https://www.debian.org/) and [Ubuntu](https://ubuntu.com/). My current OS of choice is [NixOS](https://nixos.org/), which is unlike any other [operating system](https://en.wikipedia.org/wiki/Operating_system) I'm aware of, and very different conceptually. To get an idea of what I mean, read [The Linux Different](posts/linux/nixos-linux-different/).
 
-other stuff
+### Chinese Medicine
+
+I am a retired Doctor of Oriental Medicine, which I practiced for nearly two decades as well as teaching at Southwest Acupuncture College where I specialized in Chinese herbal medicine, medical theory, and diagnosis. I see Chinese herbs all around me when I walk, not to mention those growing in my own yard. Some of these articles will describe the health properties, from a Chinese perspective, of everyday plants.
+
+I also love to cook, and tried to stress food therapy to my patients as a key aspect of healing. Keeping a proper diet is the most important thing that anyone can do for their health. So I will occasionally post recipes, pointing out the health aspects of the meals.
+
+### About me
+
+I have a background ranging from international finance and administration, programming, software translation and localization management. I've been a medical doctor, business owner and professor. You can find out more about me, my current work, and services [here](about.qmd)
+
 :::
 
 ### What's new

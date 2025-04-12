@@ -343,5 +343,8 @@
   },
   "posts/data-science/python-gpx-mapping/gpx-gps-data/index.qmd": {
     "index.html": "2db16511"
+  },
+  "posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.qmd": {
+    "index.html": "a2f9c285"
   }
 }

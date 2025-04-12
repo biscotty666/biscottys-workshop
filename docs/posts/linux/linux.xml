@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>biscotty&#39;s Workshop</title>
+<link>https://biscotty.online/posts/linux/linux.html</link>
+<atom:link href="https://biscotty.online/posts/linux/linux.xml" rel="self" type="application/rss+xml"/>
+<description>For the love of learning</description>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Mon, 10 Jun 2024 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>NixOS: the Linux different</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/linux/nixos-linux-different/</link>
+  <description><![CDATA[ Grokking NixOS ]]></description>
+  <category>Linux</category>
+  <category>Distributions</category>
+  <guid>https://biscotty.online/posts/linux/nixos-linux-different/</guid>
+  <pubDate>Mon, 10 Jun 2024 06:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
