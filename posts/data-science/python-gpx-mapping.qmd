@@ -1,0 +1,13 @@
+---
+title: "GPX Trail Mapping in Python"
+listing:
+  contents: python-gpx-mapping
+  type: default
+  sort: "date"
+  categories: true
+  feed:
+    items: 10
+    type: partial
+sidebar: posts-side
+comments: false
+---

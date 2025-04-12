@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>biscotty&#39;s Workshop</title>
+<link>https://biscotty.online/posts/posts.html</link>
+<atom:link href="https://biscotty.online/posts/posts.xml" rel="self" type="application/rss+xml"/>
+<description>For the love of learning</description>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Wed, 20 Mar 2024 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>{B4F502887207:/posts/obsidian/obsidian-jupyter/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/obsidian-jupyter/</link>
+  <description>{B4F502887207:/posts/obsidian/obsidian-jupyter/index.html}</description>
+  <category>Obsidian</category>
+  <category>Python</category>
+  <category>Data Science</category>
+  <guid>https://biscotty.online/posts/obsidian/obsidian-jupyter/</guid>
+  <pubDate>Wed, 20 Mar 2024 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/data-science/obsidian-jupyter/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/data-science/obsidian-jupyter/</link>
+  <description>{B4F502887207:/posts/data-science/obsidian-jupyter/index.html}</description>
+  <category>Obsidian</category>
+  <category>Python</category>
+  <category>Data Science</category>
+  <guid>https://biscotty.online/posts/data-science/obsidian-jupyter/</guid>
+  <pubDate>Wed, 20 Mar 2024 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/data-science/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/obsidian-whiteboards/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/obsidian-whiteboards/</link>
+  <description>{B4F502887207:/posts/obsidian/obsidian-whiteboards/index.html}</description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/posts/obsidian/obsidian-whiteboards/</guid>
+  <pubDate>Sat, 20 Jan 2024 07:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/obsidian-whiteboards/VMocery.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/git-github-obsidian/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/git-github-obsidian/</link>
+  <description>{B4F502887207:/posts/obsidian/git-github-obsidian/index.html}</description>
+  <category>Obsidian</category>
+  <category>Linux</category>
+  <guid>https://biscotty.online/posts/obsidian/git-github-obsidian/</guid>
+  <pubDate>Fri, 19 Jan 2024 07:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/git-github-obsidian/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</link>
+  <description>{B4F502887207:/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html}</description>
+  <category>Javascript</category>
+  <category>Obsidian</category>
+  <category>PKM</category>
+  <category>DataviewJS</category>
+  <guid>https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</guid>
+  <pubDate>Mon, 16 Oct 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/dataview/dataviewjs-summaries-statistics/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/dataview/dataviewjs-summaries-statistics/</link>
+  <description>{B4F502887207:/posts/obsidian/dataview/dataviewjs-summaries-statistics/index.html}</description>
+  <category>Javascript</category>
+  <category>Obsidian</category>
+  <category>DataviewJS</category>
+  <guid>https://biscotty.online/posts/obsidian/dataview/dataviewjs-summaries-statistics/</guid>
+  <pubDate>Sat, 14 Oct 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/dataview/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/</link>
+  <description>{B4F502887207:/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/index.html}</description>
+  <category>Javascript</category>
+  <category>Obsidian</category>
+  <category>DataviewJS</category>
+  <guid>https://biscotty.online/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/</guid>
+  <pubDate>Wed, 11 Oct 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-2.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/pretty-canvas/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/pretty-canvas/</link>
+  <description>{B4F502887207:/posts/obsidian/pretty-canvas/index.html}</description>
+  <category>Obsidian</category>
+  <category>CSS</category>
+  <guid>https://biscotty.online/posts/obsidian/pretty-canvas/</guid>
+  <pubDate>Thu, 05 Oct 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/pretty-canvas/canvas-pretty-css-composite.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/</link>
+  <description>{B4F502887207:/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html}</description>
+  <category>Obsidian</category>
+  <category>PKM</category>
+  <guid>https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/</guid>
+  <pubDate>Thu, 21 Sep 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/fyt-walkthrough.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/visual-mocs-with-canvas/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/</link>
+  <description>{B4F502887207:/posts/obsidian/visual-mocs-with-canvas/index.html}</description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/</guid>
+  <pubDate>Thu, 14 Sep 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/canvas-publications.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/metadata-menu/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/metadata-menu/</link>
+  <description>{B4F502887207:/posts/obsidian/metadata-menu/index.html}</description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/posts/obsidian/metadata-menu/</guid>
+  <pubDate>Wed, 06 Sep 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/metadata-menu/MMCover.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/obsidian-bookmarks/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/obsidian-bookmarks/</link>
+  <description>{B4F502887207:/posts/obsidian/obsidian-bookmarks/index.html}</description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/posts/obsidian/obsidian-bookmarks/</guid>
+  <pubDate>Tue, 05 Sep 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/obsidian-bookmarks/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/graph-view-deets/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/graph-view-deets/</link>
+  <description>{B4F502887207:/posts/obsidian/graph-view-deets/index.html}</description>
+  <category>Obsidian</category>
+  <category>Graphs</category>
+  <guid>https://biscotty.online/posts/obsidian/graph-view-deets/</guid>
+  <pubDate>Thu, 31 Aug 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/graph-view-deets/GVFull.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/second-brain/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/second-brain/</link>
+  <description>{B4F502887207:/posts/obsidian/second-brain/index.html}</description>
+  <category>Obsidian</category>
+  <category>Graphs</category>
+  <guid>https://biscotty.online/posts/obsidian/second-brain/</guid>
+  <pubDate>Wed, 30 Aug 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/second-brain/GVFull.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/syncing-your-thinking-syncthing/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/</link>
+  <description>{B4F502887207:/posts/obsidian/syncing-your-thinking-syncthing/index.html}</description>
+  <category>Obsidian</category>
+  <category>Linux</category>
+  <guid>https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/</guid>
+  <pubDate>Mon, 28 Aug 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/SyncThing.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/obsidian-headers/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/obsidian-headers/</link>
+  <description>{B4F502887207:/posts/obsidian/obsidian-headers/index.html}</description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/posts/obsidian/obsidian-headers/</guid>
+  <pubDate>Sun, 27 Aug 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/obsidian-headers/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/</link>
+  <description>{B4F502887207:/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html}</description>
+  <category>Obsidian</category>
+  <category>PKM</category>
+  <guid>https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/</guid>
+  <pubDate>Thu, 24 Aug 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/fyt-cover.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/</link>
+  <description>{B4F502887207:/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html}</description>
+  <category>Obsidian</category>
+  <category>PKM</category>
+  <category>Graphs</category>
+  <guid>https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/</guid>
+  <pubDate>Thu, 24 Aug 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/fyt-cover.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/obsidian-no-sql-database/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/obsidian-no-sql-database/</link>
+  <description>{B4F502887207:/posts/obsidian/obsidian-no-sql-database/index.html}</description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/posts/obsidian/obsidian-no-sql-database/</guid>
+  <pubDate>Thu, 24 Aug 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/obsidian-no-sql-database/fyt-cover.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/posts/obsidian/regex-search-in-line-metadata/index.html}</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/obsidian/regex-search-in-line-metadata/</link>
+  <description>{B4F502887207:/posts/obsidian/regex-search-in-line-metadata/index.html}</description>
+  <category>Obsidian</category>
+  <guid>https://biscotty.online/posts/obsidian/regex-search-in-line-metadata/</guid>
+  <pubDate>Wed, 23 Aug 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/obsidian/regex-search-in-line-metadata/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
+</item>
+</channel>
+</rss>

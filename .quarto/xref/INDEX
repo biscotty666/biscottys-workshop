@@ -229,5 +229,119 @@
   },
   "blogs/linux/nixos-linux-different/index.qmd": {
     "index.html": "ee562411"
+  },
+  "posts/posts.qmd": {
+    "posts.html": "2a3b746f"
+  },
+  "posts/data-science/TrailMappingWithR.qmd": {
+    "TrailMappingWithR.html": "71f4acb4"
+  },
+  "posts/data-science/python-movingpandas-points-paths/index.qmd": {
+    "index.html": "71fbcb42"
+  },
+  "posts/data-science/gpx-gps-data/index.qmd": {
+    "index.html": "ed094b71"
+  },
+  "posts/data-science/python-movingpandas-speed-segments/index.qmd": {
+    "index.html": "02b0dca6"
+  },
+  "posts/data-science/data-science.qmd": {
+    "data-science.html": "c6aace4c"
+  },
+  "posts/data-science/obsidian-jupyter/index.qmd": {
+    "index.html": "965ed7a4"
+  },
+  "posts/linux/linux.qmd": {
+    "linux.html": "3ad90999"
+  },
+  "posts/linux/nixos-linux-different/index.qmd": {
+    "index.html": "5c66dc97"
+  },
+  "posts/obsidian/obsidian-headers/index.qmd": {
+    "index.html": "2d0ad86c"
+  },
+  "posts/obsidian/optimal-notes-with-obsidian/index.qmd": {
+    "index.html": "ca1536d4"
+  },
+  "posts/obsidian/dataview/dataviewjs-summaries-statistics/index.qmd": {
+    "index.html": "f7f09735"
+  },
+  "posts/obsidian/dataview/dataviewjs-files-dates/index.qmd": {
+    "index.html": "f1f2c673"
+  },
+  "posts/obsidian/dataview/gentle-introduction-to-dataviewjs/index.qmd": {
+    "index.html": "9cb395fd"
+  },
+  "posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.qmd": {
+    "index.html": "829adffd"
+  },
+  "posts/obsidian/obsidian-whiteboards/index.qmd": {
+    "index.html": "071ebabe"
+  },
+  "posts/obsidian/obsidian-bookmarks/index.qmd": {
+    "index.html": "848c5f51"
+  },
+  "posts/obsidian/metadata-menu/index.qmd": {
+    "index.html": "334526ad"
+  },
+  "posts/obsidian/visual-mocs-with-canvas/index.qmd": {
+    "index.html": "3a02fe15"
+  },
+  "posts/obsidian/graph-view-deets/index.qmd": {
+    "index.html": "f39f639d"
+  },
+  "posts/obsidian/obsidian-no-sql-database/index.qmd": {
+    "index.html": "1249047e"
+  },
+  "posts/obsidian/git-github-obsidian/index.qmd": {
+    "index.html": "4f8dddbd"
+  },
+  "posts/obsidian/obsidian.qmd": {
+    "obsidian.html": "730c4d48"
+  },
+  "posts/obsidian/pretty-canvas/index.qmd": {
+    "index.html": "9f02ef43"
+  },
+  "posts/obsidian/freeing-your-thinking.qmd": {
+    "freeing-your-thinking.html": "1e283dc3"
+  },
+  "posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.qmd": {
+    "index.html": "d6074626"
+  },
+  "posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.qmd": {
+    "index.html": "9bc232ea"
+  },
+  "posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.qmd": {
+    "index.html": "52269bd9"
+  },
+  "posts/obsidian/obsidian-jupyter/index.qmd": {
+    "index.html": "b682635b"
+  },
+  "posts/obsidian/regex-search-in-line-metadata/index.qmd": {
+    "index.html": "d92d8c7f"
+  },
+  "posts/obsidian/second-brain/index.qmd": {
+    "index.html": "6686e4b6"
+  },
+  "posts/obsidian/dataview.qmd": {
+    "dataview.html": "14722a56"
+  },
+  "posts/obsidian/syncing-your-thinking-syncthing/index.qmd": {
+    "index.html": "65a5fb30"
+  },
+  "posts/data-science/python-gpx-mapping.qmd": {
+    "python-gpx-mapping.html": "fb8c64c4"
+  },
+  "posts/data-science/python-qpx-mapping/python-movingpandas-points-paths/index.qmd": {
+    "index.html": "e2a8c8e6"
+  },
+  "posts/data-science/python-qpx-mapping/gpx-gps-data/index.qmd": {
+    "index.html": "298dda89"
+  },
+  "posts/data-science/python-qpx-mapping/python-movingpandas-speed-segments/index.qmd": {
+    "index.html": "c201d34e"
+  },
+  "posts/data-science/python-gpx-mapping/gpx-gps-data/index.qmd": {
+    "index.html": "2db16511"
   }
 }

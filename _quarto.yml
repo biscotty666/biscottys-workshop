@@ -33,13 +33,13 @@ website:
         href: index.qmd
       - href: about.qmd
         text: "About"
-      - href: blogs/obsidian/obsidian.qmd
+      - href: posts/obsidian/obsidian.qmd
         text: "Obsidian"
-      - href: blogs/data-science/data-science.qmd
+      - href: posts/data-science/data-science.qmd
         text: "Data Science" 
-      - href: blogs/linux/linux.qmd
+      - href: posts/linux/linux.qmd
         text: Linux
-      - href: blogs/blogs.qmd
+      - href: posts/posts.qmd
         text: "All"
   page-footer: 
     background: dark
@@ -51,14 +51,14 @@ website:
     style: "docked"
     search: true
     contents: 
-      - blogs/data-science/data-science.qmd
-      - blogs/obsidian/obsidian.qmd
-      - blogs/linux/linux.qmd
-      - blogs/obsidian/dataview.qmd
-      - blogs/obsidian/freeing-your-thinking.qmd
-      - auto: blogs/data-science
-      - auto: blogs/obsidian
-      - auto: blogs/linux
+      - posts/data-science/data-science.qmd
+      - posts/obsidian/obsidian.qmd
+      - posts/linux/linux.qmd
+      - posts/obsidian/dataview.qmd
+      - posts/obsidian/freeing-your-thinking.qmd
+      - auto: posts/data-science
+      - auto: posts/obsidian
+      - auto: posts/linux
 
   comments: 
     utterances: 

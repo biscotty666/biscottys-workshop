@@ -1,0 +1,14 @@
+---
+title: "Obsidian"
+listing:
+  contents: "*/index.qmd"
+  type: table
+  sort: "date desc"
+  categories: true
+  feed:
+    items: 10
+    type: partial
+sidebar: posts-side
+comments: false
+---
+[Obsidian](https://obsidian.md) is *Personal Knowledge Management* [PKM](https://en.wikipedia.org/wiki/Personal_knowledge_management) software. If you don't know what Obsidian or PKM are, you could start with [this article](optimal-notes-with-obsidian/index.qmd). I have many articles here about advanced usage, taking full advantage of Obsidian's design. [Freeing your thinking](freeing-your-thinking.qmd) explains how to move beyond directory structures, taking advantage of the [no-sql](obsidian-no-sql-database/index.qmd) nature of Obsidian. There is also a series about the usage of [dataviewjs](dataview.qmd), written for non-programmers, to create dashboards and interactive tables.
