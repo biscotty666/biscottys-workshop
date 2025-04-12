@@ -414,17 +414,35 @@
     ]
   },
   {
+    "objectID": "posts/obsidian/metadata-menu/index.html",
+    "href": "posts/obsidian/metadata-menu/index.html",
+    "title": "Obsidian Metadata Menu Plugin",
+    "section": "",
+    "text": "Metadata Menu\nWith the release of Obsidian 1.4.5, many people’s focus has been on metadata, which Obsidian calls Properties. I have written a series of articles (see Freeing Your Thinking) on using Obsidian’s natural database features, and my entire workflow depends heavily on metadata. Naturally, I was anticipating this release with some excitement, having seen some previews on YouTube.\nI was frankly disappointed. It is movement in a positive direction, and has some very nice features for managing metadata. However, its insistence on YAML for properties when many users such as myself prefer in-line metadata for its flexibility, makes some of its features useless to me.\nAnother reason for my disappointment, or feeling underwhelmed, was that I had already discovered a truly amazing plugin for managing metadata which did everything I need and more. Metadata Menu, a Community Plugin by mathieu, provides a full set of features for managing properties. It has a modal, available in multiple places, which allows you to manage literally all aspects of a file’s metadata without opening the file, perfect for my workflow. It even has a file class template system which supports nesting groups of metadata fields. Fields in tables can have actions, allowing for direct editing of metadata in the table itself using standard widgets. And, it is visually clean and attractive\nThis video isn’t a guide to using Metadata Menu. Rather, it’s to show off some of its features. If metadata is important to you, you must check it out.\n\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Obsidian",
+      "Obsidian Metadata Menu Plugin"
+    ]
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Back to topReferences\n\nRapp, Albert. 2022. “The Ultimate Guide to Starting a Quarto Blog – Albert Rapp.” July 2022. https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html#closing.\n\n\nShanny-Csik, Sam. 2022. “Creating Your Personal Website Using Quarto.” August 2022. https://ucsb-meds.github.io/creating-quarto-websites/.\n\n\nShanny-Csik, Samantha. 2022. “Adding a Blog to Your Existing Quarto Website.” October 24, 2022. https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Brian Carey",
     "section": "",
-    "text": "Ut ut condimentum augue, nec eleifend nisl. Sed facilisis egestas odio ac pretium. Pellentesque consequat magna sed venenatis sagittis. Vivamus feugiat lobortis magna vitae accumsan. Pellentesque euismod malesuada hendrerit. Ut non mauris non arcu condimentum sodales vitae vitae dolor. Nullam dapibus, velit eget lacinia rutrum, ipsum justo malesuada odio, et lobortis sapien magna vel lacus. Nulla purus neque, hendrerit non malesuada eget, mattis vel erat. Suspendisse potenti."
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
   },
   {
-    "objectID": "about.html#experience",
-    "href": "about.html#experience",
+    "objectID": "about.html#coming-soon",
+    "href": "about.html#coming-soon",
     "title": "Brian Carey",
     "section": "",
-    "text": "Ut ut condimentum augue, nec eleifend nisl. Sed facilisis egestas odio ac pretium. Pellentesque consequat magna sed venenatis sagittis. Vivamus feugiat lobortis magna vitae accumsan. Pellentesque euismod malesuada hendrerit. Ut non mauris non arcu condimentum sodales vitae vitae dolor. Nullam dapibus, velit eget lacinia rutrum, ipsum justo malesuada odio, et lobortis sapien magna vel lacus. Nulla purus neque, hendrerit non malesuada eget, mattis vel erat. Suspendisse potenti."
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
   }
 ]
