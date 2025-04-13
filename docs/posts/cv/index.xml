@@ -10,20 +10,20 @@
 <atom:link href="https://biscotty.online/posts/cv/index.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Sat, 12 Apr 2025 18:41:57 GMT</lastBuildDate>
+<lastBuildDate>Sun, 13 Apr 2025 17:23:33 GMT</lastBuildDate>
 <item>
   <title>Finance and Administration</title>
   <link>https://biscotty.online/posts/cv/fna/</link>
-  <description><![CDATA[ Significant Achievements ]]></description>
+  <description><![CDATA[ Overview of my experiences ]]></description>
   <guid>https://biscotty.online/posts/cv/fna/</guid>
-  <pubDate>Sat, 12 Apr 2025 18:41:57 GMT</pubDate>
+  <pubDate>Sun, 13 Apr 2025 17:23:33 GMT</pubDate>
 </item>
 <item>
   <title>Technology</title>
   <link>https://biscotty.online/posts/cv/tech/</link>
-  <description><![CDATA[ Experience and Training ]]></description>
+  <description><![CDATA[ Overview of my technological background ]]></description>
   <guid>https://biscotty.online/posts/cv/tech/</guid>
-  <pubDate>Sat, 12 Apr 2025 18:41:57 GMT</pubDate>
+  <pubDate>Sun, 13 Apr 2025 17:23:33 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -50,4 +50,7 @@ I'm interested in history, languages and linguistics, gardening, cooking and hik
 
 :::
 
+::: {.hide}
+|# echo: false
 All of the posts of my experiences can be found [here](posts/cv/index.qmd).
+:::

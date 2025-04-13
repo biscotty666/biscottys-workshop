@@ -28,15 +28,13 @@ $body-bg: $minty; // page background
 $footer-bg: $light-green; // footer 
 $link-color: $purple; // hyperlinks 
 $breadcrumb-active-color: white;
-
+$font-size-base: 16pt;
 
 // Inline code
 $code-bg: $cream; // inline code background color
 $code-color: $purple; // inline code text color
 
-body {
-  font-size: 10px;
-}
+
 .font-sen {
   font-family: $sen;
 }
@@ -44,4 +42,8 @@ body {
 .font-nun {
   font-family: $nun;
   font-size: 8pt;
+}
+
+.hide {
+  display: none;
 }

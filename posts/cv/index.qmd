@@ -2,12 +2,13 @@
 title: "Brian Carey"
 listing:
   contents: "*/index.qmd"
-  type: default
+  type: table
   sort: "date desc"
   categories: true
   feed:
     items: 10
     type: partial
+  fields: [title, subtitle, description]
 sidebar: posts-side
 comments: false
 ---

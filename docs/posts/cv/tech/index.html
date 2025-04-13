@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Experience and Training">
+<meta name="description" content="Overview of my technological background">
 
 <title>Technology – biscotty’s Workshop</title>
 <style>
@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-039d7a0e7773b12663fe263aa10a41ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-8a8729137f3ec4f9c3e78d6baf068eac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/bootstrap/bootstrap-dark-c07311489390e5ad4807bac47e5c5422.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
@@ -74,9 +74,38 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Technology – biscotty’s Workshop">
-<meta property="og:description" content="Experience and Training">
+<meta property="og:description" content="Overview of my technological background">
 <meta property="og:image" content="https://biscotty.online/posts/cv/tech/images/trunks.png">
 <meta property="og:site_name" content="biscotty's Workshop">
 </head>
@@ -131,143 +160,6 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-posts" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Posts</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
-        <li>
-    <a class="dropdown-item" href="../../../posts/data-science/data-science.html">
- <span class="dropdown-text">Data Science</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/obsidian.html">
- <span class="dropdown-text">Obsidian</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/linux/linux.html">
- <span class="dropdown-text">Linux</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/dataview.html">
- <span class="dropdown-text">Dataview</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/freeing-your-thinking.html">
- <span class="dropdown-text">Freeing your thinking</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Data Science</li>
-        <li>
-    <a class="dropdown-item" href="../../../posts/data-science/data-science.html">
- <span class="dropdown-text">Data Science</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/data-science/obsidian-jupyter/index.html">
- <span class="dropdown-text">Obsidian and Jupyter Notebooks</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/data-science/python-gpx-mapping.html">
- <span class="dropdown-text">GPX Trail Mapping in Python</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/data-science/TrailMappingWithR.html">
- <span class="dropdown-text">Trail Mapping with R</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html">
- <span class="dropdown-text">Python Gpx Mapping</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Obsidian</li>
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/dataview.html">
- <span class="dropdown-text">Dataview</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/freeing-your-thinking.html">
- <span class="dropdown-text">Freeing your thinking</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/obsidian-headers/index.html">
- <span class="dropdown-text">Obsidian Basics - Headers</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/optimal-notes-with-obsidian/index.html">
- <span class="dropdown-text">Optimal Notes with Obsidian</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/obsidian-whiteboards/index.html">
- <span class="dropdown-text">Obsidian Canvas Work Spaces</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/obsidian-bookmarks/index.html">
- <span class="dropdown-text">Obsidian Bookmarks</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/metadata-menu/index.html">
- <span class="dropdown-text">Obsidian Metadata Menu Plugin</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/visual-mocs-with-canvas/index.html">
- <span class="dropdown-text">Obsidian Canvas Dashboards</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/graph-view-deets/index.html">
- <span class="dropdown-text">Obsidian: The mechanics of Graph View</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/obsidian-no-sql-database/index.html">
- <span class="dropdown-text">What does it mean that is a NoSQL Database?</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/git-github-obsidian/index.html">
- <span class="dropdown-text">Git and GitHub for Obsidian Users</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/pretty-canvas/index.html">
- <span class="dropdown-text">Obsidian: Pretty Canvas</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/obsidian-jupyter/index.html">
- <span class="dropdown-text">Obsidian and Jupyter Notebooks</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/regex-search-in-line-metadata/index.html">
- <span class="dropdown-text">Regular Expressions for In-Line Fields</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/second-brain/index.html">
- <span class="dropdown-text">Obsidian: A Second Brain?</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/syncing-your-thinking-syncthing/index.html">
- <span class="dropdown-text">Syncing your Thinking with Syncthing</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/obsidian.html">
- <span class="dropdown-text">Obsidian</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/dataview/dataviewjs-summaries-statistics/index.html">
- <span class="dropdown-text">Dataview</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html">
- <span class="dropdown-text">Freeing Your Thinking</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Linux</li>
-        <li>
-    <a class="dropdown-item" href="../../../posts/linux/nixos-linux-different/index.html">
- <span class="dropdown-text">NixOS: the Linux different</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../../posts/linux/linux.html">
- <span class="dropdown-text">Linux</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../../resources.html"> 
 <span class="menu-text">Resources</span></a>
@@ -278,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../../posts.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../../posts/posts.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -293,18 +185,19 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
+    <div class="quarto-title column-page">
       <h1 class="title">Technology</h1>
+            <p class="subtitle lead">Experience and Training</p>
                   <div>
         <div class="description">
-          Experience and Training
+          Overview of my technological background
         </div>
       </div>
                 </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta column-page">
 
       
     
@@ -315,25 +208,67 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#technology" id="toc-technology" class="nav-link active" data-scroll-target="#technology">Technology</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
 
 
-<section id="technology" class="level1">
-<h1>Technology</h1>
-<p>Praesent ornare dolor turpis, sed tincidunt nisl pretium eget. Curabitur sed iaculis ex, vitae tristique sapien. Quisque nec ex dolor. Quisque ut nisl a libero egestas molestie. Nulla vel porta nulla. Phasellus id pretium arcu. Etiam sed mi pellentesque nibh scelerisque elementum sed at urna. Ut congue molestie nibh, sit amet pretium ligula consectetur eu. Integer consectetur augue justo, at placerat erat posuere at. Ut elementum urna lectus, vitae bibendum neque pulvinar quis. Suspendisse vulputate cursus eros id maximus. Duis pulvinar facilisis massa, et condimentum est viverra congue. Curabitur ornare convallis nisl. Morbi dictum scelerisque turpis quis pellentesque. Etiam lectus risus, luctus lobortis risus ut, rutrum vulputate justo. Nulla facilisi.</p>
+<section id="technology-and-computing" class="level1">
+<h1>Technology and Computing</h1>
+<p>I’ve been engaged with computers since I started learning BASIC on a Commodore64 in the 1970s. Since then, the universe of computing has exploded, and I have remained constantly engaged with emerging technologies, learning new languages, operating systems, database systems, web applications, and more. Most of my work is available in my <a href="https://github.com/biscotty666">GitHub repository</a>. If you have questions or want details you can send me an <a href="mailto:biscotty666@gmail.com">email</a>.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Programming</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Data Science</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Other</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Using Linux I have run web servers and web apps, done system administration, programming in half a dozen languages, managed databases and APIs, built custom kernels, and many other things including day-to-day desktop applications. The answer to the common question “How do I learn Linux?” is simply “use it”.</p>
+<p>I adopted Linux in the early ’90s when desktop it was just beginning to explode and chose Slackware, the oldest currently-maintaned distribution, as my distro of choice, which I kept with for two decades. Slackware had a reputation for rock-solid stability and configuration through text-file editing, meaning you must get under the hood and learn how everything works. At the time, it ran a large portion of the web servers on the internet.</p>
+<p>I spent a year each with Debian and Ubuntu, and stuck with Fedora for a while after that, both the mutable and immutable versions.</p>
+<p>Currently I run NixOS, a Linux entirely different in design than all of the others, based on graph storage for packages rather than relying on the FHS, and which is configured with a functional programming language. I have a number of articles on this site about why this is good and a major advance for Linux systems.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>I began programming 40 years ago, and have learned and used many languages, including functional ones.</p>
+<section id="current" class="level3">
+<h3 class="anchored" data-anchor-id="current">Current</h3>
+<ul>
+<li><p><strong>Python</strong></p>
+<p>My strongest language, I have used it primarily for data science with the pandas/numpy ecosystem, web sites and applications in the Django framework, and hosting APIs. I am comfortable with most of the advanced features, many having been ported from functional programming, which I also know.</p></li>
+<li><p><strong>R</strong></p>
+<p>The first language I used for data science, and still my preferred for data science work</p></li>
+<li><p><strong>Haskell</strong></p>
+<p>I learned Haskell in order to understand functional programming, and stuck with it because I found it to be perhaps the best language I have used. My experience here is purely academic, beyond designing a web site, and I would rate my skills as intermediate</p></li>
+<li><p><strong>JavaScript</strong></p>
+<p>I have used JavaScript primarily via frameworks including React/React Router, Svelte/Sveltekit and NextJS, as well as NodeJS. Beyond using it for websites and apps, my first data visualization projects used D3 with React and later Svelte.</p></li>
+</ul>
+</section>
+<section id="historical" class="level3">
+<h3 class="anchored" data-anchor-id="historical">Historical</h3>
+<ul>
+<li><p><strong>Perl</strong></p>
+<p>I learned Perl and CGI to design a browser-based, application for the local public schools. This was prior to JavaScript becoming dominant in web applications.</p></li>
+<li><p><strong>Other</strong></p>
+<p>My first programming job used Clipper, a dBase variant, in which I wrote a scheduling module for a chain of learning centers. The only computer class I ever took was in Pascal.</p></li>
+</ul>
+</section>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>I have been working with data analysis and modeling for two years, with a focus on geospatial applications. I am comfortable working in both R and Python, and am thoroughly familiar with a wide range of libraries and modules.</p>
+<p>My primary focus is on comparative demographic and structural analysis such as income distribution, access to services, environmental and land use issues, and am currently working on projects for the Albuquerque area.</p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<ul>
+<li><p><strong>Databases</strong></p>
+<p>Comfortable with database design and interaction with relational databases including PostgreSQL, mariadb, and Sqlite. I designed a system in Paradox to process raw shipping data into consolidated sales and unit reports. I have also worked with non-relational databases.</p></li>
+<li><p><strong><span class="math inline">\(LaTeX\)</span></strong></p>
+<p>I have used <span class="math inline">\(LaTeX\)</span> for many purposes, including designing a 3 semester course covering over 1,000 medicinal substances.</p></li>
+<li><p><strong>HTML/CSS</strong></p>
+<p>I am comfortable and proficient in both.</p></li>
+</ul>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -907,8 +842,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<script src="https://utteranc.es/client.js" repo="biscotty666/bw-comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
-</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -916,10 +849,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Copyright 2025, Brian Carey</p>
 </div>   
     <div class="nav-footer-center">
-      &nbsp;
-    </div>
+<p>built with FOSS</p>
+</div>
     <div class="nav-footer-right">
-<p>This website is built with <i class="fa-solid fa-heart" title="a heart" aria-label="heart"></i>, <a href="https://github.com/samanthacsik/samanthacsik.github.io" target="_blank"><i class="fa-brands fa-github" title="GitHub octocat logo" aria-label="github"></i></a>, <a href="https://www.r-project.org/about.html" target="_blank"><i class="fa-brands fa-r-project" title="R Project" aria-label="r-project"></i></a> and <a href="https://quarto.org/" target="_blank">Quarto</a></p>
+<p>powered by <a href="https://quarto.org/" target="_blank">Quarto</a>, <a href="https://github.com/biscotty666/biscottys-workshop" target="_blank"><i class="fa-brands fa-github" title="GitHub octocat logo" aria-label="github"></i></a>, <a href="https://www.r-project.org/about.html" target="_blank"><i class="fa-brands fa-r-project" title="R Project" aria-label="r-project"></i></a>, <a href="https://nixos.org">NixOS</a>, <a href="https://nginx.org">NGINX</a></p>
 </div>
   </div>
 </footer>

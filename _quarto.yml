@@ -36,7 +36,6 @@ website:
       - href: posts/posts.qmd
         text: "All posts"
     right:
-      - sidebar:posts-side
       - href: resources.qmd
         text: Resources
       - icon: github
@@ -47,7 +46,9 @@ website:
   page-footer: 
     background: dark
     left: Copyright 2025, Brian Carey
-    right: This website is built with {{< fa heart title="a heart" >}}, [{{< fa brands github title="GitHub octocat logo" >}}](https://github.com/samanthacsik/samanthacsik.github.io){target=_blank}, [{{< fa brands r-project title="R Project" >}}](https://www.r-project.org/about.html){target=_blank} and [Quarto](https://quarto.org/){target=_blank}
+    right: powered by [Quarto](https://quarto.org/){target=_blank}, [{{< fa brands github title="GitHub octocat logo" >}}](https://github.com/biscotty666/biscottys-workshop){target=_blank}, [{{< fa brands r-project title="R Project" >}}](https://www.r-project.org/about.html){target=_blank}, [NixOS](https://nixos.org), [NGINX](https://nginx.org) 
+    center: built with FOSS
+    
   sidebar: 
     title: "Posts"
     id: posts-side
