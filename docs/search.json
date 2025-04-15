@@ -834,7 +834,7 @@
     "href": "posts/cv/index.html",
     "title": "Brian Carey",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nSubtitle\n\n\nDescription\n\n\n\n\n\n\nFinance and Administration\n\n\nSignificant Achievements\n\n\nOverview of my experiences\n\n\n\n\nTechnology\n\n\nExperience and Training\n\n\nOverview of my technological background\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nSubtitle\n\n\nDescription\n\n\n\n\n\n\nFinance and Administration\n\n\nSignificant Achievements\n\n\nOverview of my experiences\n\n\n\n\nTechnology\n\n\nExperience and Training\n\n\nOverview of my technological background\n\n\n\n\nManaging Change\n\n\n \n\n\nMotivating people in times of disruption\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "posts/cv/fna/index.html",
@@ -1641,5 +1641,12 @@
     "title": "Resources",
     "section": "",
     "text": "Back to topReferences\n\nRapp, Albert. 2022. “The Ultimate Guide to Starting a Quarto Blog – Albert Rapp.” July 2022. https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html#closing.\n\n\nShanny-Csik, Sam. 2022. “Creating Your Personal Website Using Quarto.” August 2022. https://ucsb-meds.github.io/creating-quarto-websites/.\n\n\nShanny-Csik, Samantha. 2022. “Adding a Blog to Your Existing Quarto Website.” October 24, 2022. https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/."
+  },
+  {
+    "objectID": "posts/cv/fna/managing-change/index.html",
+    "href": "posts/cv/fna/managing-change/index.html",
+    "title": "Managing Change",
+    "section": "",
+    "text": "I joined Autodesk’s European Software Center in the course of a reorganization. Before that I had been the Sr. Financial Analyst in charge of budgeting and forecasting for the Center, which was responsible for all localization and internationalization activities for Europe, the Americas, and later Asia as well. As the finance partner for the organization I was closely involved in the planning of the reorganization.\nThe reorganization was meant to parallel a corporate-wide restructuring into market sectors, each with specific products, so it entailed assigning engineers to each group. Translation work would be almost entirely outsourced, and engineering work maintained largely in-house, with supplemental engineers, primarily QA related, provided by external vendors as well. In the eventuality, only a skeleton crew of translators remained to cover the big four European languages.\nIn addition to managing all of the vendors, I was given the group of five translators and an administrative assistant. In the software industry, engineers are kings and queens, everyone else an afterthought. On a personal level, these were people who had had a “place” on assigned teams, and were now grouped together in a separate, bare-bones department with an ill-defined mission. Of course the laying off of many of their colleagues only exacerbated their emotional distress.\nI decided to make the translators into vendor managers for their languages.\nMy team was composed of translators, not vendor managers. The skills necessary for translation work are not the same as managing a group of translators. The team needed to acquire these skills, and the opportunity to do so provided the motivation to be “all-in”. I didn’t lose a single employee.\n\n\n\n Back to top"
   }
 ]

@@ -10,20 +10,28 @@
 <atom:link href="https://biscotty.online/posts/cv/index.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Tue, 15 Apr 2025 17:56:50 GMT</lastBuildDate>
+<lastBuildDate>Mon, 14 Apr 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Managing Change</title>
+  <link>https://biscotty.online/posts/cv/fna/managing-change/</link>
+  <description><![CDATA[ Motivating people in times of disruption ]]></description>
+  <category>Management</category>
+  <guid>https://biscotty.online/posts/cv/fna/managing-change/</guid>
+  <pubDate>Mon, 14 Apr 2025 06:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Finance and Administration</title>
   <link>https://biscotty.online/posts/cv/fna/</link>
   <description><![CDATA[ Overview of my experiences ]]></description>
   <guid>https://biscotty.online/posts/cv/fna/</guid>
-  <pubDate>Tue, 15 Apr 2025 17:56:50 GMT</pubDate>
+  <pubDate>Tue, 15 Apr 2025 18:00:45 GMT</pubDate>
 </item>
 <item>
   <title>Technology</title>
   <link>https://biscotty.online/posts/cv/tech/</link>
   <description><![CDATA[ Overview of my technological background ]]></description>
   <guid>https://biscotty.online/posts/cv/tech/</guid>
-  <pubDate>Tue, 15 Apr 2025 17:56:50 GMT</pubDate>
+  <pubDate>Tue, 15 Apr 2025 18:00:45 GMT</pubDate>
 </item>
 </channel>
 </rss>
