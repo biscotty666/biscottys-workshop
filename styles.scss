@@ -47,3 +47,7 @@ $code-color: $purple; // inline code text color
 .hide {
   display: none;
 }
+
+nav.quarto-secondary-nav h1 {
+  color: darken($blue, 30%);
+}
