@@ -1,6 +1,6 @@
 ---
 title: "Brian Carey"
-subtitle: "Technology | Education"
+subtitle: "Technology | Research | Education"
 image: "images/trunks.png"
 toc: false
 comments: false
