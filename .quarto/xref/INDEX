@@ -358,5 +358,11 @@
   },
   "posts/cv/tech/index.qmd": {
     "index.html": "dc341a48"
+  },
+  "posts/cv/fna/managing-change/index.qmd": {
+    "index.html": "e6939b8d"
+  },
+  "posts/data-science/trail-mapping-with-r/index.qmd": {
+    "index.html": "98ac4519"
   }
 }

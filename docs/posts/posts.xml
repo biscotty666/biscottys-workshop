@@ -10,7 +10,722 @@
 <atom:link href="https://biscotty.online/posts/posts.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Wed, 20 Mar 2024 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 30 Mar 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>GPS Mapping with R</title>
+  <link>https://biscotty.online/posts/data-science/trail-mapping-with-r/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>I recently published a series of articles on analyzing GPS data from personal sport tracking software using Python. I’ve started using R again lately and, while I like Python, I really like R. R is not a general-purpose language like Python, and is therefore far less commonly studied. It was mission-built for this type of work, and, as is often the case with custom-built tools, it is powerful, comfortable, and, frankly, fun to work with. I thought it might be interesting to compare the process in Python described in the <a href="../../../posts/data-science/python-gpx-mapping/gpx-gps-data/index.html">previous articles</a> with the process in R.</p>
+<section id="libraries" class="level2">
+<h2 class="anchored" data-anchor-id="libraries">Libraries</h2>
+<p>Python data frames are built on the <code>pandas</code> and <code>numpy</code> libraries, with <code>matplotlib</code> as the primary plotting tool. Data frames and vector processing are native to R. The <code>dplyr</code> library provides convenience functions for manipulating data. The amazing <code>gplot2</code> provides the functionality of <code>matplotlib</code> and <code>seaborn</code> and more, with simple syntax. The <code>sf</code> package, which stands for <em>Simple Features</em>, provides the geometry and geospatial functionality which <code>geopandas</code> and <code>shapely</code> do in Python. I’ll use <code>ggspatial</code> here for basemap tiles where I used <code>contextily</code> in Python, and I’ll add <code>patchwork</code> for convenient side-by-side display.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(gpx)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(sf)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dplyr)</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggspatial)</span>
+<span id="cb1-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(patchwork)</span></code></pre></div>
+</div>
+</section>
+<section id="syntax" class="level2">
+<h2 class="anchored" data-anchor-id="syntax">Syntax</h2>
+<p>A few notes about syntax to start off: R uses the <code>&lt;-</code> arrow for assignment, but accepts <code>=</code> as well. Data frame slicing uses the same <code>[row,column]</code> approach with explicit or boolean values. Unlike <code>pandas</code>, which distinguishes between <code>df.loc</code> and <code>df.iloc</code>, in R you can slice using numeric indices or strings without distinction. On a similar topic, R uses one-indexing, but is inclusive of the end, so <code>df[1:2]</code> in R is equivalent to Python’s <code>df.iloc[:2]</code>, or more explicitly <code>df.iloc[0:2]</code>, and the second element is directly accessed with <code>df[2]</code> instead of <code>df.iloc[1]</code>.</p>
+<p>There’s an important twist to this which will catch you multiple times. Even though the syntax is <code>[row,column]</code>, if you supply only one numeric index, without a comma, it will be interpreted as a column index. So <code>df[1]</code> gets the first column, while <code>df[1, ]</code> gets the first row.</p>
+<p>The main syntactical difference is R’s extensive use of piping, using the pipe operator <code>|&gt;</code>, sometimes written as <code>%&gt;%</code>. This looks similar to accessing a series of an object’s methods through a chain of <code>.</code>s in Python, but it isn’t. The pipe in R works like the pipe in a Linux shell, simply passing the output of one function to the next function as its first argument. This is one of my personal favorite aspects of working in R, since it allows for natural expression of a series of steps which constitue a workflow. <code>ggplot2</code> takes a similar <em>syntactical</em> approach, layering elements of the plot by chaining using the <code>+</code> operator.</p>
+</section>
+<section id="loading-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="loading-the-data">Loading the data</h2>
+<p>Let’s get started. With Python, we needed to parse the raw <code>gpx</code> data, which is in an XML format, to a CSV formatted file, which could then be imported into a <code>pandas</code> data frame, and then turned that into a <code>geopandas</code> data frame. I used <code>beautifulsoup</code> to do so. R, fortunately, has a <code>gpx</code> library that allows us to go straight from <code>gpx</code> into a data frame. Let’s see what that looks like. The <code>str()</code> command will let us know what’s inside.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">trek_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_gpx</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"data/b3/Workout-2024-09-06-16-29-37.gpx"</span>)</span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>(trek_data)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 3
+ $ routes   :List of 1
+  ..$ :'data.frame':    0 obs. of  4 variables:
+  .. ..$ Elevation: logi(0) 
+  .. ..$ Time     : logi(0) 
+  .. ..$ Latitude : logi(0) 
+  .. ..$ Longitude: logi(0) 
+ $ tracks   :List of 1
+  ..$ River Vale:'data.frame':  137 obs. of  6 variables:
+  .. ..$ Elevation : num [1:137] -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 ...
+  .. ..$ Time      : POSIXct[1:137], format: "2024-09-06 16:29:37" "2024-09-06 16:29:37" ...
+  .. ..$ Latitude  : num [1:137] 41 41 41 41 41 ...
+  .. ..$ Longitude : num [1:137] -74 -74 -74 -74 -74 ...
+  .. ..$ extensions: logi [1:137] NA NA NA NA NA NA ...
+  .. ..$ Segment ID: int [1:137] 1 1 1 1 1 1 1 1 1 1 ...
+ $ waypoints:List of 1
+  ..$ :'data.frame':    0 obs. of  4 variables:
+  .. ..$ Elevation: logi(0) 
+  .. ..$ Time     : logi(0) 
+  .. ..$ Latitude : logi(0) 
+  .. ..$ Longitude: logi(0) </code></pre>
+</div>
+</div>
+<p>The result is not a data frame, but a list of lists. The second one, called tracks, is the only one with observations, so we can start with that. Don’t forget that R does not zero-index lists, so we use <code>2</code> not <code>1</code>, and extract it with double square brackets.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">trek_tracks <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> trek_data[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]]</span>
+<span id="cb4-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>(trek_tracks)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 1
+ $ River Vale:'data.frame': 137 obs. of  6 variables:
+  ..$ Elevation : num [1:137] -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 ...
+  ..$ Time      : POSIXct[1:137], format: "2024-09-06 16:29:37" "2024-09-06 16:29:37" ...
+  ..$ Latitude  : num [1:137] 41 41 41 41 41 ...
+  ..$ Longitude : num [1:137] -74 -74 -74 -74 -74 ...
+  ..$ extensions: logi [1:137] NA NA NA NA NA NA ...
+  ..$ Segment ID: int [1:137] 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+</div>
+<p>This gets us closer, now we have list of one. Let’s pull that out and display the first two rows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">trek <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> trek_tracks[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]]</span>
+<span id="cb6-2">trek[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,]</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Elevation                Time Latitude Longitude extensions Segment ID
+1        -4 2024-09-06 16:29:37 41.01128  -74.0101         NA          1
+2        -4 2024-09-06 16:29:37 41.01128  -74.0101         NA          1</code></pre>
+</div>
+</div>
+<p>Note the comma, which is very important. If only one value is supplied, it chooses columns instead of rows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(trek[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>], <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Elevation                Time
+1        -4 2024-09-06 16:29:37
+2        -4 2024-09-06 16:29:37</code></pre>
+</div>
+</div>
+<p>And the final frame looks like:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>(trek)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   137 obs. of  6 variables:
+ $ Elevation : num  -4 -4 -4 -4 -4 -4 -4 -4 -4 -4 ...
+ $ Time      : POSIXct, format: "2024-09-06 16:29:37" "2024-09-06 16:29:37" ...
+ $ Latitude  : num  41 41 41 41 41 ...
+ $ Longitude : num  -74 -74 -74 -74 -74 ...
+ $ extensions: logi  NA NA NA NA NA NA ...
+ $ Segment ID: int  1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+</div>
+</section>
+<section id="importing-a-collection-of-treks" class="level2">
+<h2 class="anchored" data-anchor-id="importing-a-collection-of-treks">Importing a collection of treks</h2>
+<p>Now that I know “where” the information is, I can go ahead and import a series of files and combine them into a single data frame. As I did with Python, I will assign a unique identifier to each trek, and then combine them. The R equivalent of <code>df.append</code> in <code>pandas</code> is the aptly-named <code>bind_rows()</code> from the <code>dplyr</code> library.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">files <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list.files</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">path =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"data/b3/"</span>, </span>
+<span id="cb12-2">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pattern =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.gpx$"</span>,</span>
+<span id="cb12-3">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">full.names =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb12-4">data_list <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>()</span>
+<span id="cb12-5">i <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb12-6"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> (file <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> files) {</span>
+<span id="cb12-7">  data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_gpx</span>(file)[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]][[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]]</span>
+<span id="cb12-8">  data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>id <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> i</span>
+<span id="cb12-9">  i <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> i <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb12-10">  data_list[[file]] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> data</span>
+<span id="cb12-11">}</span>
+<span id="cb12-12">tracks_df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>(data_list)</span>
+<span id="cb12-13"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>(tracks_df)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   3044 obs. of  7 variables:
+ $ Elevation : num  79 79 77 76 75 74 72 71 70 70 ...
+ $ Time      : POSIXct, format: "2024-09-05 15:25:13" "2024-09-05 15:25:13" ...
+ $ Latitude  : num  41 41 41 41 41 ...
+ $ Longitude : num  -74.1 -74.1 -74.1 -74.1 -74.1 ...
+ $ extensions: logi  NA NA NA NA NA NA ...
+ $ Segment ID: int  1 1 1 1 1 1 1 1 1 1 ...
+ $ id        : num  1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+</div>
+<p>Note the use of <code>$</code> to access the columns. An alternate syntax, <code>data['id']</code> is available for column names with spaces. This is like <code>pandas</code> use of the <code>.</code> operator.</p>
+</section>
+<section id="data-frame-to-geo-data" class="level2">
+<h2 class="anchored" data-anchor-id="data-frame-to-geo-data">Data frame to geo-data</h2>
+<p>In Python, we turned this into a geo-enabled data frame with:</p>
+<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">```{python}</span></span>
+<span id="cb14-2"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">trek_gdf = gpd.GeoDataFrame( </span></span>
+<span id="cb14-3"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    trek_df, </span></span>
+<span id="cb14-4"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    geometry=gpd.points_from_xy(x=trek_df.Lon, y=trek_df.Lat)</span></span>
+<span id="cb14-5"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">).set_crs(4269)</span></span>
+<span id="cb14-6"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">trek_gdf.info()</span></span>
+<span id="cb14-7"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">```</span></span></code></pre></div>
+<p>R uses the <code>sf::st_as_sf()</code> for this purpose, with much less verbose syntax.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1">treks <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> tracks_df <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb15-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">st_as_sf</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">coords =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Longitude"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Latitude"</span>),</span>
+<span id="cb15-3">           <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">crs =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4326</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>(treks)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Classes 'sf' and 'data.frame':  3044 obs. of  6 variables:
+ $ Elevation : num  79 79 77 76 75 74 72 71 70 70 ...
+ $ Time      : POSIXct, format: "2024-09-05 15:25:13" "2024-09-05 15:25:13" ...
+ $ extensions: logi  NA NA NA NA NA NA ...
+ $ Segment ID: int  1 1 1 1 1 1 1 1 1 1 ...
+ $ id        : num  1 1 1 1 1 1 1 1 1 1 ...
+ $ geometry  :sfc_POINT of length 3044; first list element:  'XY' num  -74.1 41
+ - attr(*, "sf_column")= chr "geometry"
+ - attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA NA NA NA
+  ..- attr(*, "names")= chr [1:5] "Elevation" "Time" "extensions" "Segment ID" ...</code></pre>
+</div>
+</div>
+<p>As you can see, we now have a <code>geometry</code> column and the <code>Time</code> column was assigned the appropriate type, which we had to do as an additional step in Python. I’ll grab the first trek, then plot it with <code>ggplot</code>. Using <code>ggplot</code> entails adding elements one by one.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">trek <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> treks[treks<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>id <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,]</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> trek) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb19-2">  ggspatial<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">annotation_map_tile</span>(      </span>
+<span id="cb19-3">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"osm"</span>,</span>
+<span id="cb19-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cachedir =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"maps/"</span>,</span>
+<span id="cb19-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">zoomin =</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb19-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_sf</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> Elevation)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb19-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_color_viridis_c</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb19-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_void</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb19-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb19-10">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Elevation Profile: Park Ridge"</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.Date</span>(trek[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Time)),</span>
+<span id="cb19-11">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Tiles © OpenStreetMap (ODBL license)"</span></span>
+<span id="cb19-12">  )</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://biscotty.online/posts/data-science/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In this case, we pass the data frame (actually an <code>sf</code> object) to <code>ggplot</code>, then layer on the basemap and the actual points using <code>geom_sf</code>, passing it the column we want to color using the <code>aes()</code> funtion. “aes” is short for aesthetics, and it is where you specify columns to be used for that element. The details of this vary depending on the geometry. <code>theme_void()</code> removes axis ticks, and the rest should be self-explanatory.</p>
+<p>We still must change the coordinate system to get appropriate distances. In R, this is</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1">trek_proj <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> trek <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">st_transform</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">crs =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">32113</span>)</span></code></pre></div>
+</div>
+<p>In Python, we did</p>
+<div class="sourceCode" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">```{python}</span></span>
+<span id="cb21-2"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">trek_proj = trek_gdf.to_crs(32111)</span></span>
+<span id="cb21-3"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">```</span></span></code></pre></div>
+<p>While the syntax looks similar, Python is accessing a method of the <code>trek</code> object, while R is simply passing the output of one function to another.</p>
+</section>
+<section id="elevations" class="level2">
+<h2 class="anchored" data-anchor-id="elevations">Elevations</h2>
+<p>I won’t move beyond points until the next article, but in the first Python one I did calculate the distance, so to be fair I will do so here. I’ll explain the code later, but it is a good example of piping in R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">distance <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> trek <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb22-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">st_transform</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">crs =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">32113</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb22-3">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarise</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">do_union =</span> F) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb22-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">st_cast</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LINESTRING"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb22-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">st_length</span>()</span>
+<span id="cb22-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Total distance"</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(distance<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">digits =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"kilometers"</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Total distance 7.7 kilometers"</code></pre>
+</div>
+</div>
+<p>Let’s see the other basic information. I will put it in a data frame for a nice printout.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb24-2">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Elevation"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Maximum"</span>,</span>
+<span id="cb24-3">             <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Minimum"</span>,</span>
+<span id="cb24-4">             <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Average"</span>,</span>
+<span id="cb24-5">             <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Initial"</span>,</span>
+<span id="cb24-6">             <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Final"</span>),</span>
+<span id="cb24-7">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Meters"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">max</span>(trek<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Elevation),</span>
+<span id="cb24-8">               <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">min</span>(trek<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Elevation),</span>
+<span id="cb24-9">               <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(trek<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Elevation)),</span>
+<span id="cb24-10">               trek[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Elevation,</span>
+<span id="cb24-11">               trek[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(trek),]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Elevation)</span>
+<span id="cb24-12">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Elevation Meters
+1   Maximum     81
+2   Minimum     11
+3   Average     45
+4   Initial     79
+5     Final     74</code></pre>
+</div>
+</div>
+<p>The <code>c()</code> function is used to create a vector (not a list), so I specify each column name and assign it a vector with data, ensuring that each vector has the same length, of course. Note how I access the last row of <code>trek</code>. There are multiple ways of doing this in R, but sadly negative indexing is not one. This is the most efficient. I will say that I miss Python’s f-string, especially with literals (<code>f""" """</code>).</p>
+<p>Now we can use <code>ggplot</code> for a line chart of the elevation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(trek, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> Time, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> Elevation)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb26-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_line</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb26-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggtitle</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Elevation Profile for Park Ridge Walk on"</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.Date</span>(trek[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Time)))</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://biscotty.online/posts/data-science/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And here are the smoothed profiles using two different methods, and display them side by side with the <code>patchwork</code> library.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(patchwork)</span>
+<span id="cb27-2">gam_plot <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(trek, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> Time, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> Elevation)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb27-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_line</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb27-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"gam"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb27-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggtitle</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"NJ (gam smoothing)"</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.Date</span>(trek[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Time)))</span>
+<span id="cb27-6"></span>
+<span id="cb27-7">loess_plot <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(trek, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> Time, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> Elevation)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb27-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_line</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb27-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"loess"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb27-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggtitle</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"NJ (loess smoothing)"</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.Date</span>(trek[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Time)))</span>
+<span id="cb27-11"></span>
+<span id="cb27-12">gam_plot <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> loess_plot</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://biscotty.online/posts/data-science/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><code>ggplot2</code>’s approach of adding layers makes code clear and easy to write, and does not have the odd <code>fig, ax</code> mechanism which can be confusing. I’ll use the <code>ggspatial</code> library this time to get a basemap.</p>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<p>I hope you enjoyed this exercise, no pun intended. The code for this is on my websites <a href="https://github/biscotty666/biscottys-workshop">GitHub repository</a>. I’ll come out with part 2 soon. Happy coding!</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>GIS</category>
+  <category>R</category>
+  <category>Python</category>
+  <category>Data Science</category>
+  <guid>https://biscotty.online/posts/data-science/trail-mapping-with-r/</guid>
+  <pubDate>Sun, 30 Mar 2025 06:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Obsidian and Jupyter Notebooks</title>
   <dc:creator>Brian Carey</dc:creator>
@@ -4065,31 +4780,6 @@ font-style: inherit;">BY</span> age;</span></code></pre></div>
   <guid>https://biscotty.online/posts/obsidian/obsidian-no-sql-database/</guid>
   <pubDate>Thu, 24 Aug 2023 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/posts/obsidian/obsidian-no-sql-database/fyt-cover.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
-  <title>Regular Expressions for In-Line Fields</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/regex-search-in-line-metadata/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>If you are like me and use in-line (double colon) fields more than YAML, the improvements to metadata management (Properties) wasn’t much of a help. The new filter syntax, <code>["key":value]</code>, and the glob version, <code>["key":]</code>, don’t search in-line fields.</p>
-<p>Of course, this isn’t unexpected. Obsidian, for what I’m sure are good reasons, resists embracing in-line metadata, even though it is very widely used. Oh well, hope springs eternal… Nevertheless, though I’ve tried many times, I can’t give up on the convenience of in-lines.</p>
-<p>Because in-line fields use two colons, which do not appear together in ordinary writing, it is easy to filter for them. For a glob filter like <code>["key":]</code> in the new Properties, you can simply use <code>"key:: "</code> to achieve the same effect, querying in-line metadata instead of YAML.</p>
-<p>Filtering for specific values is a little trickier, because we must take into account multi-value fields. Fortunately, Obsidian allows us to use regular expressions in filters, and a simple one will achieve our goal. To use regular expressions, use the slash, <code>/</code>, as a delimiter instead of <code>"</code>. (In the example above, we actually could have used <code>/key:: /</code> instead of <code>"key:: "</code>.)</p>
-<p>In regular expressions, a period, <code>.</code>, matches any character, and an asterisk, <code>*</code>, indicates that there can be 0 or more of a character. By putting the combination <code>.*</code> before the value that we are filtering, we are saying that there may or may not be other characters between the field name and the value being searched. In other words, there may be multiple values.</p>
-<p>So, even if the value we are looking for is one among many, to search for a specific key/value, you can use <code>/key:: .*value/</code>, which does the same as <code>["key":value]</code> does for YAML.</p>
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>Obsidian</category>
-  <guid>https://biscotty.online/posts/obsidian/regex-search-in-line-metadata/</guid>
-  <pubDate>Wed, 23 Aug 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/regex-search-in-line-metadata/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

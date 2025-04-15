@@ -10,7 +10,18 @@
 <atom:link href="https://biscotty.online/posts/data-science/data-science.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Tue, 25 Feb 2025 07:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 30 Mar 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>GPS Mapping with R</title>
+  <link>https://biscotty.online/posts/data-science/trail-mapping-with-r/</link>
+  <description><![CDATA[ I recently published a series of articles on analyzing GPS data from personal sport tracking software using Python. I’ve started using R again lately and, while I like Python, I really like R. R is not a general-purpose language like Python, and is therefore far less commonly studied. It was mission-built for this type of work, and, as is often the case with custom-built tools, it is powerful, comfortable, and, frankly, fun to work with. I thought it might be interesting to compare the process in Python described in the <a href="../../../posts/data-science/python-gpx-mapping/gpx-gps-data/index.html">previous articles</a> with the process in R. ]]></description>
+  <category>GIS</category>
+  <category>R</category>
+  <category>Python</category>
+  <category>Data Science</category>
+  <guid>https://biscotty.online/posts/data-science/trail-mapping-with-r/</guid>
+  <pubDate>Sun, 30 Mar 2025 06:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Speed, Simplification and Segments</title>
   <dc:creator>Brian Carey</dc:creator>
