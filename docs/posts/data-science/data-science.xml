@@ -47,18 +47,6 @@
   <media:content url="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny6.png" medium="image" type="image/png" height="87" width="144"/>
 </item>
 <item>
-  <title>Obsidian and Jupyter Notebooks</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/data-science/obsidian-jupyter/</link>
-  <description><![CDATA[ Personal Knowledge Management for Data Science ]]></description>
-  <category>Obsidian</category>
-  <category>Python</category>
-  <category>Data Science</category>
-  <guid>https://biscotty.online/posts/data-science/obsidian-jupyter/</guid>
-  <pubDate>Wed, 20 Mar 2024 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/data-science/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
   <title>Trail Mapping with Python</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/</link>
@@ -69,6 +57,18 @@
   <guid>https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/</guid>
   <pubDate>Wed, 28 Feb 2024 07:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/pr2.png" medium="image" type="image/png" height="93" width="144"/>
+</item>
+<item>
+  <title>Obsidian and Jupyter Notebooks</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/data-science/obsidian-jupyter/</link>
+  <description><![CDATA[ Personal Knowledge Management for Data Science ]]></description>
+  <category>Obsidian</category>
+  <category>Python</category>
+  <category>Data Science</category>
+  <guid>https://biscotty.online/posts/data-science/obsidian-jupyter/</guid>
+  <pubDate>Mon, 20 Mar 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/data-science/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

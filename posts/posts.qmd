@@ -3,7 +3,7 @@ title: "All Posts"
 listing:
   contents: 
     - "obsidian/**/index.qmd"
-    - "data-science/*/index.qmd"
+    - "data-science/**/index.qmd"
   type: grid
   sort: "date desc"
   categories: true

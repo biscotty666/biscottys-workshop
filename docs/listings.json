@@ -33,8 +33,10 @@
     "listing": "/posts/posts.html",
     "items": [
       "/posts/data-science/trail-mapping-with-r/index.html",
+      "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html",
+      "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
       "/posts/obsidian/obsidian-jupyter/index.html",
-      "/posts/data-science/obsidian-jupyter/index.html",
+      "/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
       "/posts/obsidian/obsidian-whiteboards/index.html",
       "/posts/obsidian/git-github-obsidian/index.html",
       "/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/index.html",
@@ -54,14 +56,15 @@
       "/posts/obsidian/obsidian-no-sql-database/index.html",
       "/posts/obsidian/regex-search-in-line-metadata/index.html",
       "/posts/obsidian/optimal-notes-with-obsidian/index.html",
+      "/posts/data-science/obsidian-jupyter/index.html",
       "/posts/obsidian/dataview/dataviewjs-files-dates/index.html"
     ]
   },
   {
     "listing": "/posts/data-science/data-science.html",
     "items": [
-      "/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
       "/posts/data-science/obsidian-jupyter/index.html",
+      "/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
       "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
       "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html",
       "/posts/data-science/trail-mapping-with-r/index.html"
