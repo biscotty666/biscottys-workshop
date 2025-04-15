@@ -59,7 +59,8 @@ I began programming 40 years ago, and have learned and used many languages, incl
 I have been working with data analysis and modeling for two years, with a focus on geospatial applications. I am comfortable working in both R and Python, and am thoroughly familiar with a wide range of libraries and modules.
 
 My primary focus is on comparative demographic and structural analysis such as income distribution, access to services, environmental and land use issues, and am currently working on projects for the Albuquerque area. 
-  
+
+I'm currently writing a [series](../../data-science/trail-mapping-with-r/index.qmd) comparing the use of R and Python for working with GPS data.
 
 ## Other
 

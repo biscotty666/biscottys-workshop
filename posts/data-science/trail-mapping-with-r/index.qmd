@@ -1,6 +1,6 @@
 ---
 title: "GPS Mapping with R"
-subtitle: "A Comparison with Python"
+description: "A Comparison with Python"
 output: html_document
 date: 2025-03-30
 categories: [GIS, R, Python, Data Science]
