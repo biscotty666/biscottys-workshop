@@ -36,7 +36,7 @@ If this is your first time, you can see all the posts [here](posts/posts.qmd), o
 
 ### Data Science
 
-My current passion is data science, with particular interest in geospatial analyses (GIS). I enjoy working both in both [R](https://www.r-project.org/) and [Python](https://www.python.org/). Some of articles will explicitly compare the two, as I think that data science Python programmers would find R delightful, such as showing how to do [gps trail mapping](posts/data-science/python-gpx-mapping.qmd) in R instead of Python.
+My current passion is data science, with particular interest in geospatial analyses (GIS). I enjoy working both in both [R](https://www.r-project.org/) and [Python](https://www.python.org/). Some of articles will explicitly compare the two, as I think that data science Python programmers would find R delightful, such as showing how to do [gps trail mapping](posts/data-science/trail-mapping-with-r/index.qmd) in R instead of Python.
 
 ### Linux
 

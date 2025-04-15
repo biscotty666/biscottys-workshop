@@ -214,7 +214,7 @@ loess_plot <- ggplot(trek, aes(x = Time, y = Elevation)) +
 gam_plot | loess_plot
 ```
 
-`ggplot2`'s approach of adding layers makes code clear and easy to write, and does not have the odd `fig, ax` mechanism which can be confusing. I'll use the `ggspatial` library this time to get a basemap.
+`ggplot2`'s approach of adding layers makes code clear and easy to write, and does not have the odd `fig, ax` mechanism which can be confusing.
 
 ## Next steps
 

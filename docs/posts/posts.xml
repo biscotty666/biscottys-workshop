@@ -709,7 +709,7 @@ font-style: inherit;">|</span> loess_plot</span></code></pre></div>
 </div>
 </div>
 </div>
-<p><code>ggplot2</code>’s approach of adding layers makes code clear and easy to write, and does not have the odd <code>fig, ax</code> mechanism which can be confusing. I’ll use the <code>ggspatial</code> library this time to get a basemap.</p>
+<p><code>ggplot2</code>’s approach of adding layers makes code clear and easy to write, and does not have the odd <code>fig, ax</code> mechanism which can be confusing.</p>
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
