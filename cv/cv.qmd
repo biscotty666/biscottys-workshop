@@ -1,0 +1,21 @@
+---
+title: "Brian Carey"
+sidebar: posts-side
+comments: false
+toc: false
+---
+# Skills and Experience
+
+
+::: panel-tabset
+
+## Finance and Administration
+
+{{< include _fna.qmd >}}
+
+## Technology
+
+{{< include _tech.qmd >}}
+
+
+:::

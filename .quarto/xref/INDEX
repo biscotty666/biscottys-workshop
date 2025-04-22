@@ -364,5 +364,23 @@
   },
   "posts/data-science/trail-mapping-with-r/index.qmd": {
     "index.html": "98ac4519"
+  },
+  "posts/cv/fna/motivating-change/index.qmd": {
+    "index.html": "740ae213"
+  },
+  "posts/data-science/r-gpx-mapping/points-to-paths/index.qmd": {
+    "index.html": "0f1d679f"
+  },
+  "posts/cv/vignettes/motivating-change/index.qmd": {
+    "index.html": "6f28a6bf"
+  },
+  "cv/index.qmd": {
+    "index.html": "530dabca"
+  },
+  "cv/vignettes/motivating-change/index.qmd": {
+    "index.html": "2898c2c5"
+  },
+  "cv/cv.qmd": {
+    "cv.html": "79310560"
   }
 }

@@ -1,14 +1,10 @@
 ---
-title: "Technology"
-subtitle: "Experience and Training"
-description: "Overview of my technological background"
 format: html
 comments: false
 toc: false
 ---
-# Technology and Computing
-
 I've been engaged with computers since I started learning BASIC on a Commodore64 in the 1970s. Since then, the universe of computing has exploded, and I have remained constantly engaged with emerging technologies, learning new languages, operating systems, database systems, web applications, and more. Most of my work is available in my [GitHub repository](https://github.com/biscotty666). If you have questions or want details you can send me an [email](mailto:biscotty666@gmail.com).
+
 
 ::: {.panel-tabset}
 ## Linux
@@ -60,7 +56,7 @@ I have been working with data analysis and modeling for two years, with a focus 
 
 My primary focus is on comparative demographic and structural analysis such as income distribution, access to services, environmental and land use issues, and am currently working on projects for the Albuquerque area. 
 
-I'm currently writing a [series](../../data-science/trail-mapping-with-r/index.qmd) comparing the use of R and Python for working with GPS data.
+I'm currently writing a [series](../posts/data-science/trail-mapping-with-r/index.qmd) comparing the use of R and Python for working with GPS data.
 
 ## Other
 

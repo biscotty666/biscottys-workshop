@@ -1,0 +1,16 @@
+---
+title: "GPS Mapping with R Part 2"
+description: "A Comparison with Python"
+output: 
+  html_document:
+    keep_md: true
+    self_contained: true
+date: 2025-03-30
+categories: [GIS, R, Python, Data Science]
+execute:
+  cache: true
+draft: true
+draft-mode: visible
+---
+
+# Hello

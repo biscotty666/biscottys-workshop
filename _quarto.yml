@@ -38,6 +38,8 @@ website:
     right:
       - href: resources.qmd
         text: Resources
+      - href: cv/cv.qmd
+        text: CV
       - icon: github
         href: https://github.com/biscotty666
       - icon: rss

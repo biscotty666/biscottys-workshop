@@ -1,0 +1,30 @@
+---
+title: "Motivating through change"
+description: "Forging effective teams in turbulent times"
+date: 04-14-2025
+categories: [Management]
+comments: false
+draft: true
+draft-mode: visible
+format: html
+---
+
+It's a truism that most people don't like change. Yet change, often internally disruptive, is constant in business. Individuals can feel that they have lost their identity as they assume new roles, in new teams, with new ways of doing things. The old ways, no matter how they were criticized before, become the golden age, lost forever. The management challenge is to forge effective teams who are motivated and empowered, and take ownership of their job. 
+
+
+## Context
+
+I was Sr. Financial Analyst in charge of budgeting and forecasting for the European Software and Operations Centers in Neuchâtel, Switzerland during a major reorganization, for which I provided the finance support. Subsequently, I took a management role in the newly organized group, responsible for world-wide translations and the vendors who provided localization services.
+
+Without going into detail, engineering and QA were prioritized, and translation entirely outsourced. Five linguists were retained to cover the primary European languages, although their role was unclear. They had been translators embedded in project teams, and now they were not to be translators, yet to have responsibility across product lines.
+
+Not only was their job to change in nature, but on a personal level, these were people who had had a "place" on assigned teams, and were now grouped together in a separate, bare-bones department with an ill-defined mission. Of course the laying off of a number of their colleagues only exacerbated their emotional distress. They had lost their identity in the organization, and risked either becoming zombie workers, or worse, subversive, or just wait to be fired. In any case, not energized and productive employees.
+
+In their eyes, of course, I was perceived as responsible for their predicament, at least at some level. I was the outsider, which gave me an over-sized share of the blame. I had no experience in translation and localization. The first staff meeting was to be challenging.
+
+My plan was to make the translators into vendor managers for their languages. But my team was composed of translators, not vendor managers. The skills necessary for translation work are not the same as managing a group of translators, and the team needed to learn these skills.
+
+## First meeting
+
+My first priority was to call attention to the elephant in the room, namely me. Obviously I didn't know, beyond a general sense, the translation and localization process, I was the classic "clueless" manager and my reliance on them for education and guidance in all technical areas. I discussed the ambiguity or their roles throughout the organization, and our role and identity as a department, something that we would need to develop together. And I told them they were no longer translators.
+

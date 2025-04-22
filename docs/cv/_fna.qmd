@@ -1,0 +1,24 @@
+---
+title: "Finance and Administration"
+subtitle: "Significant Achievements"
+description: Overview of my experiences
+format: html
+toc: false
+draft: false
+draft-mode: visible
+---
+My experiences here come from working at Autodesk in the 1990s, where I was first hired as Sr. Consolidations Account at the corporate headquarters in Marin County, California. There I was responsible for the consolidated financial statements and world-wide sales reporting. I then moved to the European Operations and Software Center in Neuchâtel, Switzerland where I first served as Sr. Financial Analyst, primarily responsible, among other things, for budgeting and forecasting. Subsequently I took a role in software development where I was world-wide manager of translation services, much of which was done through external vendors.
+
+
+For context, Autodesk was a fast growing company with around $250 million in revenue when I joined in the early 1990's and growing to nearly a billion when I left at the end of the decade. A new chairman and CEO, Carol Bartz, had just been hired, and systems and processes were rapidly changing and developing. In each position, there were initial challenges in designing these processes and selecting appropriate tools for each challenge. 
+
+These are some significant work and achievements during this time. Most involved both people management and technological challenges, all required novel solutions.
+
+- Reduced the time to close the corporate books each month by nearly half by providing subsidiaries, each with separate financial systems and local currencies, with appropriate tools for monthly reporting
+- Developed a Paradox database system to process raw data from operational software and produce the monthly, world-wide sales reporting book containing summary and detailed unit and revenue sales and tracked the installed base of each product
+- Instituted a collaborative budgeting and forecasting process in Europe to empower managers to both meet targets and not miss opportunities
+- Wrote the successful business plan which was submitted to the Neuchâtel government to obtain a renewal of favorable tax treatment for research and development and operations. When I ultimately resigned, I was asked to do the same in Singapore before leaving
+- Successfully negotiated millions of dollars of refunds from and payments to external vendors providing translation and engineering services while maintaining and improving the pool of available vendors
+- Streamlined and rationalized the internal vendor selection process while developing a standard contract and bidding process for the vendors themselves
+- Created a team of Switzerland-based linguists responsible for glossaries and quality for the key languages German, French, Italian and Spanish. This presented significant motivational challenges due to internal reorganization, which I have written about [here](vignettes/motivating-change/index.qmd)
+- Developed documentation for ISO 9000 certification and internal implementation of SAP
