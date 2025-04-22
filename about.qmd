@@ -30,13 +30,13 @@ I have a background ranging from international finance and administration, progr
 
 ## Finance and Administration
 
-I was senior consolidations accountant at the San Rafael headquarters of [Autodesk](https://www.autodesk.com/), before moving to their European headquarters in Switzerland where I was senior financial analyst for the operations and software centers, and subsequently world-wide manager of vendors and translation services. You can read more [here](cv/_fna.qmd)
+I was senior consolidations accountant at the San Rafael headquarters of [Autodesk](https://www.autodesk.com/), before moving to their European headquarters in Switzerland where I was senior financial analyst for the operations and software centers, and subsequently world-wide manager of vendors and translation services. You can read more [here](cv/cv.qmd)
 
 ## Technology
 
 My first programming job was using Clipper, an MS-DOS version of dBase, to write a scheduling module for a private education company. I switched to Linux three decades ago, and wrote my first "web app" in Perl/CGI using PostgreSQL, back when JavaScript was just getting started.  I am now very proficient in Python and R, with intermediate skills in Haskell and JavaScript, as well as attendant technologies such as HTML and CSS.
 
-The best way to get an idea of my programming and data science skills are to look at some of the projects on the site. You can also find more [here](cv/_tech.qmd)
+The best way to get an idea of my programming and data science skills are to look at some of the projects on the site. You can also find more [here](cv/cv.qmd)
 
 ## Medical Practice and Teaching
 
