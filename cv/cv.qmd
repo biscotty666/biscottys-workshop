@@ -17,5 +17,4 @@ toc: false
 
 {{< include _tech.qmd >}}
 
-
 :::

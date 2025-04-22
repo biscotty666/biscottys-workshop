@@ -4,27 +4,37 @@ description: "Forging effective teams in turbulent times"
 date: 04-14-2025
 categories: [Management]
 comments: false
-draft: true
-draft-mode: visible
+draft: false
 format: html
 ---
 
-It's a truism that most people don't like change. Yet change, often internally disruptive, is constant in business. Individuals can feel that they have lost their identity as they assume new roles, in new teams, with new ways of doing things. The old ways, no matter how they were criticized before, become the golden age, lost forever. The management challenge is to forge effective teams who are motivated and empowered, and take ownership of their job. 
-
+It's a truism that most people don't like change. Yet change, often internally disruptive, is constant in business. Individuals can feel that they have lost their identity as they assume new roles, in new teams, with new ways of doing things. The old ways, no matter how they were criticized before, become the golden age, lost forever. The management challenge is to forge effective teams who are motivated and empowered, and take ownership of their job. In my experience, straight-forwardness and respect are the keys to doing this.
 
 ## Context
 
-I was Sr. Financial Analyst in charge of budgeting and forecasting for the European Software and Operations Centers in Neuchâtel, Switzerland during a major reorganization, for which I provided the finance support. Subsequently, I took a management role in the newly organized group, responsible for world-wide translations and the vendors who provided localization services.
+I was Sr. Financial Analyst in charge of budgeting and forecasting for the European Software and Operations Centers in Neuchâtel, Switzerland during a major reorganization, for which I provided the finance support. Subsequently, I took a management role in the newly organized group, responsible for world-wide translations and the vendors who provided localization and translation services.
 
 Without going into detail, engineering and QA were prioritized, and translation entirely outsourced. Five linguists were retained to cover the primary European languages, although their role was unclear. They had been translators embedded in project teams, and now they were not to be translators, yet to have responsibility across product lines.
 
 Not only was their job to change in nature, but on a personal level, these were people who had had a "place" on assigned teams, and were now grouped together in a separate, bare-bones department with an ill-defined mission. Of course the laying off of a number of their colleagues only exacerbated their emotional distress. They had lost their identity in the organization, and risked either becoming zombie workers, or worse, subversive, or just wait to be fired. In any case, not energized and productive employees.
 
-In their eyes, of course, I was perceived as responsible for their predicament, at least at some level. I was the outsider, which gave me an over-sized share of the blame. I had no experience in translation and localization. The first staff meeting was to be challenging.
+In their eyes, I was naturally perceived as responsible for their predicament, at least at some level. I was the outsider, which gave me an over-sized share of the blame. I had no experience in translation and localization, and they knew it, yet they would be working for me. The first staff meeting was to be challenging, to say the least.
 
-My plan was to make the translators into vendor managers for their languages. But my team was composed of translators, not vendor managers. The skills necessary for translation work are not the same as managing a group of translators, and the team needed to learn these skills.
+My plan was to make the translators into vendor managers for their languages. But my team was composed of translators, not vendor managers. The skills necessary for translation work are not the same as managing a group of translators, and the team needed to learn these skills and, just as importantly, they needed to _want_ to learn the skills.
 
 ## First meeting
 
-My first priority was to call attention to the elephant in the room, namely me. Obviously I didn't know, beyond a general sense, the translation and localization process, I was the classic "clueless" manager and my reliance on them for education and guidance in all technical areas. I discussed the ambiguity or their roles throughout the organization, and our role and identity as a department, something that we would need to develop together. And I told them they were no longer translators.
+My first priority was to call attention to the elephant in the room, namely me. Obviously I didn't know, beyond a general sense, the translation and localization process, I was the classic "clueless" manager. I appealed to their knowledge and experience, reassuring them that they would make decisions on all the technical aspects of their work. Aside from being true, it was the first step in letting them know that they were valued and important to the organization.
+
+I discussed the ambiguity of their jobs with respect to the organization as a whole, and our role and identity as a department, and that we would need to develop together. I told them they could no longer be translators, but that we would need to re-envision their jobs, using my financial experience and their technical knowledge. I pointed out that this meant they would have roles on all major projects, not just one, with much greater visibility in the Center.
+
+Throughout this, expressions gradually changed from hostility to skepticism, with questions of an increasingly constructive nature, and even ideas about moving forward. By the end there was buy-in all around, ranging from clearly tentative but sincere to frankly enthusiastic.
+
+## Follow up
+
+Over the next week or so, through many one-on-one and group meetings, some held without me, details were worked out. Working with the management team, I ensured that they would be welcomed in their new roles on the project teams, and their interactions there built self-confidence. I arranged for them to visit key in-country vendors on their own to discuss past issues and future requirements. This gave them a strong sense of ownership and independence.
+
+We did hold the obligatory off-site team-building exercises, which were pleasant but motivation came much more from the day-to-day work and the empowerment they felt as they developed their roles and identities.
+
+By the end of the first month, the attitude change was clear. They were working hard, and they began coming to me less with problems and more frequently with ideas for improvements to our developing processes. By the end of the first year, all of my team was intact and respected internally and externally. Later, one enjoyed the new kind of work that she transitioned to project management.
 
