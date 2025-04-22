@@ -10,7 +10,6 @@ categories: [GIS, R, Python, Data Science]
 execute:
   cache: true
 draft: true
-draft-mode: visible
 ---
 
 # Hello

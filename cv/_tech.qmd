@@ -3,17 +3,17 @@ format: html
 comments: false
 toc: false
 ---
+
 I've been engaged with computers since I started learning BASIC on a Commodore64 in the 1970s. Since then, the universe of computing has exploded, and I have remained constantly engaged with emerging technologies, learning new languages, operating systems, database systems, web applications, and more. Most of my work is available in my [GitHub repository](https://github.com/biscotty666). If you have questions or want details you can send me an [email](mailto:biscotty666@gmail.com).
 
-
-::: {.panel-tabset}
+::: panel-tabset
 ## Linux
 
 Using Linux I have run web servers and web apps, done system administration, programming in half a dozen languages, managed databases and APIs, built custom kernels, and many other things including day-to-day desktop applications. The answer to the common question "How do I learn Linux?" is simply "use it".
 
 I adopted Linux in the early '90s when desktop it was just beginning to explode and chose Slackware, the oldest currently-maintaned distribution, as my distro of choice, which I kept with for two decades. Slackware had a reputation for rock-solid stability and configuration through text-file editing, meaning you must get under the hood and learn how everything works. At the time, it ran a large portion of the web servers on the internet.
 
-I spent a year each with Debian and Ubuntu, and stuck with Fedora for a while after that, both the mutable and immutable versions. 
+I spent a year each with Debian and Ubuntu, and stuck with Fedora for a while after that, both the mutable and immutable versions.
 
 Currently I run NixOS, a Linux entirely different in design than all of the others, based on graph storage for packages rather than relying on the FHS, and which is configured with a functional programming language. I have a number of articles on this site about why this is good and a major advance for Linux systems.
 
@@ -23,53 +23,56 @@ I began programming 40 years ago, and have learned and used many languages, incl
 
 ### Current
 
-* __Python__
+-   **Python**
 
-  My strongest language, I have used it primarily for data science with the pandas/numpy ecosystem, web sites and applications in the Django framework, and hosting APIs. I am comfortable with most of the advanced features, many having been ported from functional programming, which I also know.
-  
-* __R__
+    My strongest language, I have used it primarily for data science with the pandas/numpy ecosystem, web sites and applications in the Django framework, and hosting APIs. I am comfortable with most of the advanced features, many having been ported from functional programming, which I also know.
 
-  The first language I used for data science, and still my preferred for data science work
-  
-* __Haskell__
+-   **R**
 
-  I learned Haskell in order to understand functional programming, and stuck with it because I found it to be perhaps the best language I have used. My experience here is purely academic, beyond designing a web site, and I would rate my skills as intermediate
-  
-* __JavaScript__
+    The first language I used for data science, and still my preferred for data science work
 
-  I have used JavaScript primarily via frameworks including React/React Router, Svelte/Sveltekit and NextJS, as well as NodeJS. Beyond using it for websites and apps, my first data visualization projects used D3 with React and later Svelte.
+-   **Haskell**
+
+    I learned Haskell in order to understand functional programming, and stuck with it because I found it to be perhaps the best language I have used. My experience here is purely academic, beyond designing a web site, and I would rate my skills as intermediate
+
+-   **JavaScript**
+
+    I have used JavaScript primarily via frameworks including React/React Router, Svelte/Sveltekit and NextJS, as well as NodeJS. Beyond using it for websites and apps, my first data visualization projects used D3 with React and later Svelte.
 
 ### Historical
 
-* __Perl__
+-   **Perl**
 
-  I learned Perl and CGI to design a browser-based, application for the local public schools. This was prior to JavaScript becoming dominant in web applications.
-  
-* __Other__
+    I learned Perl and CGI to design a browser-based, application for the local public schools. This was prior to JavaScript becoming dominant in web applications.
 
-  My first programming job used Clipper, a dBase variant, in which I wrote a scheduling module for a chain of learning centers. The only computer class I ever took was in Pascal. 
+-   **Other**
 
+    My first programming job used Clipper, a dBase variant, in which I wrote a scheduling module for a chain of learning centers. The only computer class I ever took was in Pascal.
 
 ## Data Science
 
 I have been working with data analysis and modeling for two years, with a focus on geospatial applications. I am comfortable working in both R and Python, and am thoroughly familiar with a wide range of libraries and modules.
 
-My primary focus is on comparative demographic and structural analysis such as income distribution, access to services, environmental and land use issues, and am currently working on projects for the Albuquerque area. 
+My primary focus is on comparative demographic and structural analysis such as income distribution, access to services, environmental and land use issues, and am currently working on projects for the Albuquerque area.
 
 I'm currently writing a [series](../posts/data-science/trail-mapping-with-r/index.qmd) comparing the use of R and Python for working with GPS data.
 
 ## Other
 
-* __Databases__
+-   **Databases**
 
-  Comfortable with database design and interaction with relational databases including PostgreSQL, mariadb, and Sqlite. I designed a system in Paradox to process raw shipping data into consolidated sales and unit reports. I have also worked with non-relational databases.
-  
-* __$LaTeX$__
+    Comfortable with database design and interaction with relational databases including PostgreSQL, mariadb, and Sqlite. For example, I designed a system in Paradox to process raw shipping data into consolidated sales and unit reports, and a system in PostgreSQL to process testing data. I have used PostgreSQL for big data, and have also worked with non-relational databases.
 
-  I have used $LaTeX$ for many purposes, including designing a 3 semester course covering over 1,000 medicinal substances.
+-   $LaTeX$
 
-* __HTML/CSS__
+    I have used $LaTeX$ for many purposes, including designing a 3 semester course covering over 1,000 medicinal substances.
 
-  I am comfortable and proficient in both.
-  
+-   **HTML/CSS**
+
+    I am comfortable and proficient in both, although CSS is changing so fast it is hard to keep up.
+
+-   **Multimedia**
+
+    I work with GIMP, Krita, Inkscape, Audacity, Openshot and OBS Studio.
+
 :::

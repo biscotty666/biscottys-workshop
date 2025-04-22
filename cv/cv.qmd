@@ -1,6 +1,5 @@
 ---
 title: "Brian Carey"
-sidebar: posts-side
 comments: false
 toc: false
 ---
@@ -16,5 +15,9 @@ toc: false
 ## Technology
 
 {{< include _tech.qmd >}}
+
+## Education
+
+{{< include _edu.qmd >}}
 
 :::

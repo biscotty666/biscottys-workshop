@@ -1,0 +1,12 @@
+---
+title: "Teaching Chinese Herbs"
+description: "Memorizing a vocabulary of 1,200 words"
+date: 04-14-2025
+categories: [Education, Chinese Medicine]
+comments: false
+draft: false
+format: html
+---
+
+# Herb class
+

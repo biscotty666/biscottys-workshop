@@ -382,5 +382,8 @@
   },
   "cv/cv.qmd": {
     "cv.html": "79310560"
+  },
+  "cv/vignettes/chinese-herb-class/index.qmd": {
+    "index.html": "530cc392"
   }
 }
