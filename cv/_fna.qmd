@@ -11,8 +11,8 @@ For context, Autodesk was a fast growing company with around $250 million in rev
 
 These are some significant work and achievements during this time. Most involved both people management and technological challenges, all required novel solutions.
 
-- Reduced the time to close the corporate books each month by nearly half by providing subsidiaries, each having separate financial systems and local currencies, with appropriate tools for monthly reporting. [Read more](vignettes/closing-the-books/index.qmd)
-- Developed a Paradox database system to process raw data from operational software and produce the monthly, world-wide sales reporting book containing summary and detailed unit and revenue sales and tracked the installed base of each product
+- [Reduced the time](vignettes/closing-the-books/index.qmd) to close the corporate books each month by nearly half by providing subsidiaries, each having separate financial systems and local currencies, with appropriate tools for monthly reporting.
+- Developed a database system to process raw data from operational software and produce the monthly, world-wide sales reporting book containing summary and detailed unit and revenue sales and tracked the installed base of each product
 - Instituted a collaborative budgeting and forecasting process in Europe to empower managers to both meet targets and not miss opportunities
 - Wrote the successful business plan which was submitted to the Neuchâtel government to obtain a renewal of favorable tax treatment for research and development and operations. When I ultimately resigned, I was asked to do the same in Singapore before leaving
 - Successfully negotiated millions of dollars of refunds from and payments to external vendors providing translation and engineering services while maintaining and improving the pool of available vendors

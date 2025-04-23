@@ -1,0 +1,12 @@
+---
+title: "Sales Reporting"
+description: "The limits of spreadsheets"
+date: 04-23-2025
+categories: [Management]
+comments: false
+draft: true
+draft-mode: unliked
+format: html
+---
+
+## Context

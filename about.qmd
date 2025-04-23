@@ -26,6 +26,8 @@ about:
 
 I have a background ranging from international finance and administration, programming, software translation and localization management. I’ve been a medical doctor, business owner and professor. As I look back, the common thread in all of these has been innovation. In each of my jobs, I was able to innovate the role, often introducing new technologies, frameworks and processes to stream-line current practices and address new challenges. 
 
+All of the posts of my experiences can be found [here](cv/cv.qmd).
+
 ::: {.panel-tabset}
 
 ## Finance and Administration
@@ -48,9 +50,4 @@ I ran an independent clinic, where I combined TCM style acupuncture, Kiiko style
 
 I'm interested in history, languages and linguistics, gardening, cooking and hiking. Look for articles on some of these topics in the near future.
 
-:::
-
-::: {.hide}
-|# echo: false
-All of the posts of my experiences can be found [here](cv/cv.qmd).
 :::
