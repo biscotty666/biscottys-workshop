@@ -2,6 +2,7 @@
 title: "Brian Carey"
 comments: false
 toc: false
+sidebar: cv-side
 ---
 # Skills and Experience
 

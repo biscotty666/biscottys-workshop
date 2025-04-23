@@ -6,8 +6,9 @@ toc: false
 
 I have taught a wide variety of topics in settings large and small.
 
--   For over 10 years I taught Chinese Medicine at Southwest Acupuncture College, specializing in herbal medicine, diagnosis and differentiation. Most known for a three-semester cycle covering over 1,000 herbs, widely considered the most challenging classes in the curriculum. I describe the course in detail [here](vignettes/chinese-herb-class/index.qmd).
+-   For over 10 years I taught Chinese Medicine at Southwest Acupuncture College, specializing in herbal medicine, diagnosis and differentiation. Most known for a three-semester cycle covering over 1,000 herbs, widely considered the most challenging classes in the curriculum. I describe the course in detail [here](vignettes/chinese-herb-class/index.qmd)
 -   Conducted individual and small group trainings and workshops on topics including Linux, mathematics, literacy. Both in-person and on-line.
+-   Written numerous articles on software use and programming, some aimed at beginners, some more advanced
 -   Developed and delivered training materials for in-house use of both general and specialized software
 -   Conducted on-going Qi Gong and Tai Chi classes at a local community center
 -   Taught English at a language school Guatemala in a small-group setting

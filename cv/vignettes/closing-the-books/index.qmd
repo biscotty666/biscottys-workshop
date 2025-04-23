@@ -1,0 +1,30 @@
+---
+title: "Closing the books"
+description: "Solving problems with communication and technology"
+date: 04-23-2025
+categories: [Management]
+comments: false
+draft: false
+format: html
+---
+## Context
+
+I first joined Autodesk as Sr. Consolidations Account, responsible for the corporate financial statements. At the time, the company had a couple dozen foreign subsidiaries, each with their own currencies, statutory requirements, and accounting software. Closing the month end was slow, frustrating the corporate leadership. The situation resulted from a combination of dealing with reports in multiple formats and poor communication around timing and expectations, all within a relatively young company adjusting to corporate governance. My task was to reliably reduce the time to close the corporate books and have consolidated financial statements within a few days of month end.
+
+Fortunately for me, very soon after I was hired, the finance managers from all the subsidiaries gathered in California for a conference, so timing was perfect for immediately implementing this. The face-to-face interactions, socially as well as in the context of meetings, was particularly important to me because I had no formal training in accounting, and needed to quickly build their confidence.
+
+## The People
+
+There seemed to be two different challenges here, one being tools and technology, the other being communication, particularly around expectations. The first would be straight-forward, the second required more consideration. In the first day or two, I was able to interact with all of the managers to both gauge their frustrations and establish myself in their eyes. I was also able to get a good sense of their own thinking.
+
+I believe that people commit themselves most actively to self-established goals. When it came time for me to introduce the new schedule and requirements for month end reporting, I first passed a hat around the room, asking each manager to write down how many days they found reasonable for both subsidiaries and corporate to close at the end of the month. The results of the poll were either equal to or shorter than the schedule I was to impose, so I was able to introduce the schedule as a mutually-agreed one rather than a corporate imposition, and the meeting was able to quickly move to other topics.
+
+## The Tools
+
+Along with their commitment to the schedule, I made a commitment to providing easy reporting tools, both for them to prepare and for me to process on receipt. The solution was rather simple, looking back from today. While it is hard to imagine these days, Excel was not ubiquitous as it is now. In fact, many were still using Lotus 1-2-3 for spreadsheets. As accountants, of course, the finance managers all had basic spreadsheet skills, but were unaware of more advanced (for the era) features.
+
+Excel had recently introduced workbooks, allowing for linking between spreadsheets. I provided each subsidiary with a workbook with a couple sheets for reporting in their local currency, and locked all the cells except those for input. I had a master workbook containing the corporate financial statements, linked to each of the subsidiaries' reports. When I received the reports, I simply had to copy the submission into my workbook, do a sanity check, and that's it. 
+
+## The Result
+
+The new process worked well, and deadlines were consistently met or exceeded. In fact, the subsidiaries' efficiency put pressure on corporate accounting to improve their end of the close processes.

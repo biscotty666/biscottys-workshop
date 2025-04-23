@@ -52,20 +52,28 @@ website:
     center: built with FOSS
     
   sidebar: 
-    title: "Posts"
-    id: posts-side
-    style: "docked"
-    search: true
-    contents: 
-      - posts/data-science/data-science.qmd
-      - posts/obsidian/obsidian.qmd
-      - posts/linux/linux.qmd
-      - posts/obsidian/dataview.qmd
-      - posts/obsidian/freeing-your-thinking.qmd
-      - auto: posts/data-science
-      - auto: posts/obsidian
-      - auto: posts/linux
+    - title: "Posts"
+      id: posts-side
+      style: "docked"
+      search: true
+      contents: 
+        - posts/data-science/data-science.qmd
+        - posts/obsidian/obsidian.qmd
+        - posts/linux/linux.qmd
+        - posts/obsidian/dataview.qmd
+        - posts/obsidian/freeing-your-thinking.qmd
+        - auto: posts/data-science
+        - auto: posts/obsidian
+        - auto: posts/linux
 
+    - title: "CV"
+      id: cv-side
+      style: "docked"
+      search: true
+      contents: 
+        - cv/cv.qmd
+        - auto: cv/vignettes
+      
   comments: 
     utterances: 
       repo: biscotty666/bw-comments
