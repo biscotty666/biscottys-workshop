@@ -391,5 +391,11 @@
   },
   "cv/vignettes/paradox/index.qmd": {
     "index.html": "8d655d44"
+  },
+  "posts/chinese-medicine/chinese-medicine.qmd": {
+    "chinese-medicine.html": "3cf9bca0"
+  },
+  "posts/chinese-medicine/chinese-herbal-language/index.qmd": {
+    "index.html": "c35901e5"
   }
 }

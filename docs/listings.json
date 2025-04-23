@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/posts/chinese-medicine/chinese-medicine.html",
+    "items": [
+      "/posts/chinese-medicine/chinese-herbal-language/index.html"
+    ]
+  },
+  {
     "listing": "/posts/obsidian/dataview.html",
     "items": [
       "/posts/obsidian/dataview/dataviewjs-files-dates/index.html",

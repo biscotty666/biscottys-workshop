@@ -4,9 +4,17 @@ description: "The limits of spreadsheets"
 date: 04-23-2025
 categories: [Management]
 comments: false
-draft: true
+draft: false
 draft-mode: unliked
 format: html
 ---
 
 ## Context
+
+The second major responsibility I had as Sr. Consolidations Accountant at Autodesk's corporate headquarters was the monthly production of the Sales Book, a publication internally referred to as "the bible". This listed unit sales for all geographies, with summary tables and the critical *installed base* for all products. The software used by operations had no built-in reporting capabilities, they could only dump shipment information to a text file, which the consolidations accountant would import into Excel. Once in Excel, the consolidations accountant would embark on a long, laborious task of sorting, totaling, subtotaling, calculating installed base and upgrades, etc. I remember watching my predecessor do this when I was being trained, immediately deciding I would not do this.
+
+I had familiarity with databases, having programmed applications in Clipper, a version of dBase, which was itself a major database platform at the time, and it was evident that this was a database job, not a spreadsheet one. For this task, I decided on a database system called Paradox, and started explaining to my boss what databases were, why they could be useful, and why he should get me a license. I was fortunate to have an open-minded boss, and he agreed.
+
+Using Paradox, I was able to define the queries necessary for preparing the Sales Book and produce the reports immediately on receipt of the monthly shipping information. I could use the same method to produce interim reports, and was able to respond quickly to ad hoc questions from people about unit sales, questions which came frequently around quarter end.
+
+Choosing the appropriate tool for a task is very important. It can reduce work and increase efficiency by orders of magnitude.
