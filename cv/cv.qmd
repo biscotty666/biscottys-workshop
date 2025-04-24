@@ -14,6 +14,7 @@ sidebar: cv-side
 
 ## Technology
 
+
 {{< include _tech.qmd >}}
 
 ## Education
@@ -28,6 +29,6 @@ Regarding human languages, I am particularly interested, for example in the dist
 
 I speak Python and R with ease, and am proficient in Haskell and JavaScript. I have programmed in Perl, and have a working knowledge of Rust. Linguistically, I am interested in functional programming versus imperative programming, and in the linguistic borrowings between languages, Python's increasing inclusion of functional paradigms being an example.
 
-I am also interested in non-linguistic fields which have strong linguistic aspects. In particular, as a former professor of Chinese Herbal Medicine, I think that a didactic approach which recognizes the linguistic aspects of the field would be beneficial. I'm writing about it [here](../posts/) 
+I am also interested in non-linguistic fields which have strong linguistic aspects. In particular, as a former professor of Chinese Herbal Medicine, I think that a didactic approach which recognizes the linguistic aspects of the field would be beneficial. I'm writing about it [here](../posts/chinese-medicine/chinese-herbal-language/index.qmd) 
 
 :::

@@ -25,7 +25,7 @@ I began programming 40 years ago, and have learned and used many languages, incl
 
 -   **Python**
 
-    My strongest language, I have used it primarily for data science with the pandas/numpy ecosystem, web sites and applications in the Django framework, and hosting APIs. I am comfortable with most of the advanced features, many having been ported from functional programming, which I also know.
+    My strongest language, I have used it for data science with the pandas/numpy ecosystem, web sites and applications in the Django framework, hosting APIs, and writing discord bots. I am comfortable with most of the advanced features, many having been ported from functional programming, which I also know. There are many examples of Python here on the site.
 
 -   **R**
 
@@ -38,8 +38,6 @@ I began programming 40 years ago, and have learned and used many languages, incl
 -   **JavaScript**
 
     I have used JavaScript primarily via frameworks including React/React Router, Svelte/Sveltekit and NextJS, as well as NodeJS. Beyond using it for websites and apps, my first data visualization projects used D3 with React and later Svelte.
-
-### Historical
 
 -   **Perl**
 

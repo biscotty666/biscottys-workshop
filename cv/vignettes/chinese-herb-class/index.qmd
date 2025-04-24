@@ -9,5 +9,22 @@ draft-mode: unlinked
 format: html
 ---
 
-# Herb class
+<br />
 
+The herbal part of a Chinese Medicine program begins with three consecutive semesters of *materia medica*, in which over 1,000 herbs and other medicinal substances are studied in detail. Students are expected to memorize the Chinese name, pharmaceutical name, functions, indications, taste, nature, channels entered, and contraindications for each medicinal. American, and other non-Chinese speakers, have the additional hurdle of learning names in a foreign language.
+
+As you might imagine, this is a daunting task, and is the main cause of student withdrawals from the program. Even after having passed the program, not all are able to pass the board examinations for herbology.
+
+A big part of the difficulty in learning herbal medicine is the way in which it is taught. It is important to realize that teaching Chinese medicine in a college or university setting is a modern practice. Traditionally, Chinese doctors learned through apprenticeships. (In China, even in university programs, students spend a large part of their time at the side of their teachers, observing and assisting.) The institutionalization and standardization of instruction came with an instructional sequence which is absurd on its face.
+
+Chinese formulas are full sentences, often composed of multiple clauses, both dependent and independent. The basic unit, the word, is the herb. The standard approach to teaching in the collegiate setting is essentially to have students memorize the dictionary for a year, and then learn how to make sentences.
+
+I was not in a position to change the system, obviously, so I could only work within it.
+
+-   keywords
+-   colors
+-   pictures
+-   local associations
+-   grouping
+-   techniques for memorizing lists
+-   

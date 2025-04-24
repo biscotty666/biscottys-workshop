@@ -1,7 +1,28 @@
 ---
-title: Teaching Chinese Herbal Medicine
+title: The Languag of Chinese Herbal Medicine
 subtitle: A linguistic approach
 date: 04-23-2025
 categories: [Chinese Medicine, Linguistics]
 ---
+
 # Teaching herbal medicine
+
+## Background
+
+Chinese Medicine consists of five branches: Herbs, Acupuncture, *Tui Na* (massage), *Qi Gong* (movement and meditation) and Food Therapy, the first three being regularly practiced in a clinical setting. In China, and other countries around the world, they are different tracks, and practitioners and students focus on one only. Among them, Herbs are considered the most difficult to master, primarily due to the volume of information which must be memorized.
+
+In the US, all students study both herbs and acupuncture, and in most states can practice either. Some states, and the national board, has two separate certifications and licensing requirements.
+
+## Standard didactic method
+
+The core curriculum consists of three semesters of *materia medica*, in which over 1,000 herbs are studied. Following that are two semesters of study of formulas. Of course, herbs and prescriptions are referenced in many other classes subsequent to these, but this is the core.
+
+## The language of Chinese herbs
+
+Chinese herbs are not traditionally dispensed singly. They are inevitably composed of multiple herbs, ranging from five or so, with many more in some prescriptions. Chinese medicine, and the philosophy on which is based, is primarily concerned with relationships between things, and be it herbs or acupuncture points, the therapeutic interaction is important.
+
+Additionally, aside from some simple, acute conditions, herbal therapy usually has multiple goals, as formulas are designed not only to relieve the symptoms, but more importantly, to address the underlying disease mechanisms both directly and indirectly through systemic regulation.
+
+## Grammatical units
+
+The analogue to the word is the herb.
