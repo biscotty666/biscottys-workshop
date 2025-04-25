@@ -2,7 +2,10 @@
 title: "Closing the books"
 description: "Solving problems with communication and technology"
 date: 04-23-2025
-categories: [Management]
+categories:
+  - Management
+  - Technology
+  - Financial
 comments: false
 draft: false
 format: html

@@ -2,7 +2,9 @@
 title: "Sales Reporting"
 description: "The limits of spreadsheets"
 date: 04-23-2025
-categories: [Management]
+categories: 
+  - Financial
+  - Technology
 comments: false
 draft: false
 draft-mode: unliked

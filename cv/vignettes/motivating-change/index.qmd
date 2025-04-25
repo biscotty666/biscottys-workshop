@@ -2,7 +2,7 @@
 title: "Motivating through change"
 description: "Forging effective teams in turbulent times"
 date: 04-14-2025
-categories: [Management]
+categories: Management
 comments: false
 draft: false
 format: html

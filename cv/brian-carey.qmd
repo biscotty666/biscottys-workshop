@@ -1,5 +1,14 @@
 ---
 title: "Brian Carey"
+listing:
+  contents: 
+    - "vignettes/**/index.qmd"
+  type: table
+  categories: true
+  fields: 
+    - title
+    - description
+    - categories
 comments: false
 toc: false
 sidebar: cv-side
@@ -14,12 +23,12 @@ sidebar: cv-side
 
 ## Technology
 
-
 {{< include _tech.qmd >}}
 
 ## Education
 
 {{< include _edu.qmd >}}
+
 
 ## Languages and Linguistics
 

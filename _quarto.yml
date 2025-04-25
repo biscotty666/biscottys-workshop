@@ -38,7 +38,7 @@ website:
     right:
       - href: resources.qmd
         text: Resources
-      - href: cv/cv.qmd
+      - href: cv/brian-carey.qmd
         text: CV
       - icon: github
         href: https://github.com/biscotty666
@@ -71,7 +71,7 @@ website:
       style: "docked"
       search: true
       contents: 
-        - cv/cv.qmd
+        - cv/brian-carey.qmd
         - auto: cv/vignettes
       
   comments: 

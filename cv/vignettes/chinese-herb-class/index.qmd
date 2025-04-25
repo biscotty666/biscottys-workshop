@@ -2,29 +2,36 @@
 title: "Teaching Chinese Herbs"
 description: "Memorizing a vocabulary of 1,200 words"
 date: 04-14-2025
-categories: [Education, Chinese Medicine]
+categories: 
+  - Education
+  - Chinese Medicine
+  - Technology
 comments: false
-draft: true
+draft: false
 draft-mode: unlinked
 format: html
 ---
 
 <br />
 
-The herbal part of a Chinese Medicine program begins with three consecutive semesters of *materia medica*, in which over 1,000 herbs and other medicinal substances are studied in detail. Students are expected to memorize the Chinese name, pharmaceutical name, functions, indications, taste, nature, channels entered, and contraindications for each medicinal. American, and other non-Chinese speakers, have the additional hurdle of learning names in a foreign language.
+The herbal part of a Chinese Medicine program begins with three consecutive semesters of *Materia Medica*, in which over 1,000 herbs and other medicinal substances are studied in detail. Students are expected to memorize the Chinese name, pharmaceutical name, functions, indications, taste, nature, channels entered, and contraindications for each medicinal. American, and other non-Chinese speakers, have the additional hurdle of learning names in a foreign language.
 
 As you might imagine, this is a daunting task, and is the main cause of student withdrawals from the program. Even after having passed the program, not all are able to pass the board examinations for herbology.
 
 A big part of the difficulty in learning herbal medicine is the way in which it is taught. It is important to realize that teaching Chinese medicine in a college or university setting is a modern practice. Traditionally, Chinese doctors learned through apprenticeships. (In China, even in university programs, students spend a large part of their time at the side of their teachers, observing and assisting.) The institutionalization and standardization of instruction came with an instructional sequence which is absurd on its face.
 
-Chinese formulas are full sentences, often composed of multiple clauses, both dependent and independent. The basic unit, the word, is the herb. The standard approach to teaching in the collegiate setting is essentially to have students memorize the dictionary for a year, and then learn how to make sentences.
+Chinese formulas are full sentences, often composed of multiple clauses, both dependent and independent. The basic unit, the word, is the herb. The standard approach to teaching in the collegiate setting is essentially to have students memorize the dictionary for a year, and then learn how to make sentences. I was not in a position to change the system, obviously, so I could only work within it. Here are some things I did to help my students.
 
-I was not in a position to change the system, obviously, so I could only work within it.
+-   Considerable time was spent early on discussing and sharing study and memorization strategies. There is a considerable amount of rote learning required, made more difficult since the names that need to be memorized are in foreign languages (Chinese Pinyin and Latin).
 
--   keywords
--   colors
--   pictures
--   local associations
--   grouping
--   techniques for memorizing lists
--   
+-   I provided consistent, graphically enriched course materials with slide presentations for all herbs covered, a matching pdf with notes, and quizzes and tests in consistent format. Color coding was used for key words. I used $LaTeX$ for this, a typesetting system commonly used for textbook and journal publications.
+
+-   I was clear on the distinctions between required material and supplementary material to reduce student stress. (I remember one of my Chinese professors of formulas being asked by a student what we should study for the final, and he replied only "You know everything, you do perfect.")
+
+-   Chunked down and re-organized the material into smaller, logical groupings and progressions or spectra where possible.
+
+-   Taught herbal combinations, which is not required but very useful for associative learning and repetition of more important herbs. This is actually a separate course in Chinese universities
+
+-   Students identified and reported on common, local plants which are also Chinese herbs.
+
+-   Held potlucks where students brought in food with a description of the health properties of the dish using both Chinese herbal theory and also Chinese food therapy, a different branch of medicine.

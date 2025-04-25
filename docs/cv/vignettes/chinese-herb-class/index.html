@@ -75,8 +75,36 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
-<meta name="quarto:status" content="draft">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Teaching Chinese Herbs – biscotty’s Workshop">
 <meta property="og:description" content="Memorizing a vocabulary of 1,200 words">
@@ -87,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -139,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Resources</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../../cv/cv.html" aria-current="page"> 
+    <a class="nav-link active" href="../../../cv/brian-carey.html" aria-current="page"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
@@ -186,7 +214,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../cv/cv.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../cv/brian-carey.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Brian Carey</span></a>
   </div>
 </li>
@@ -223,6 +251,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Sales Reporting</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../cv/vignettes/chinese-herb-class/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Teaching Chinese Herbs</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -242,6 +276,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-categories">
     <div class="quarto-category">Education</div>
     <div class="quarto-category">Chinese Medicine</div>
+    <div class="quarto-category">Technology</div>
   </div>
   </div>
 
@@ -271,19 +306,18 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><br></p>
-<p>The herbal part of a Chinese Medicine program begins with three consecutive semesters of <em>materia medica</em>, in which over 1,000 herbs and other medicinal substances are studied in detail. Students are expected to memorize the Chinese name, pharmaceutical name, functions, indications, taste, nature, channels entered, and contraindications for each medicinal. American, and other non-Chinese speakers, have the additional hurdle of learning names in a foreign language.</p>
+<p>The herbal part of a Chinese Medicine program begins with three consecutive semesters of <em>Materia Medica</em>, in which over 1,000 herbs and other medicinal substances are studied in detail. Students are expected to memorize the Chinese name, pharmaceutical name, functions, indications, taste, nature, channels entered, and contraindications for each medicinal. American, and other non-Chinese speakers, have the additional hurdle of learning names in a foreign language.</p>
 <p>As you might imagine, this is a daunting task, and is the main cause of student withdrawals from the program. Even after having passed the program, not all are able to pass the board examinations for herbology.</p>
 <p>A big part of the difficulty in learning herbal medicine is the way in which it is taught. It is important to realize that teaching Chinese medicine in a college or university setting is a modern practice. Traditionally, Chinese doctors learned through apprenticeships. (In China, even in university programs, students spend a large part of their time at the side of their teachers, observing and assisting.) The institutionalization and standardization of instruction came with an instructional sequence which is absurd on its face.</p>
-<p>Chinese formulas are full sentences, often composed of multiple clauses, both dependent and independent. The basic unit, the word, is the herb. The standard approach to teaching in the collegiate setting is essentially to have students memorize the dictionary for a year, and then learn how to make sentences.</p>
-<p>I was not in a position to change the system, obviously, so I could only work within it.</p>
+<p>Chinese formulas are full sentences, often composed of multiple clauses, both dependent and independent. The basic unit, the word, is the herb. The standard approach to teaching in the collegiate setting is essentially to have students memorize the dictionary for a year, and then learn how to make sentences. I was not in a position to change the system, obviously, so I could only work within it. Here are some things I did to help my students.</p>
 <ul>
-<li>keywords</li>
-<li>colors</li>
-<li>pictures</li>
-<li>local associations</li>
-<li>grouping</li>
-<li>techniques for memorizing lists</li>
-<li></li>
+<li><p>Considerable time was spent early on discussing and sharing study and memorization strategies. There is a considerable amount of rote learning required, made more difficult since the names that need to be memorized are in foreign languages (Chinese Pinyin and Latin).</p></li>
+<li><p>I provided consistent, graphically enriched course materials with slide presentations for all herbs covered, a matching pdf with notes, and quizzes and tests in consistent format. Color coding was used for key words. I used <span class="math inline">\(LaTeX\)</span> for this, a typesetting system commonly used for textbook and journal publications.</p></li>
+<li><p>I was clear on the distinctions between required material and supplementary material to reduce student stress. (I remember one of my Chinese professors of formulas being asked by a student what we should study for the final, and he replied only “You know everything, you do perfect.”)</p></li>
+<li><p>Chunked down and re-organized the material into smaller, logical groupings and progressions or spectra where possible.</p></li>
+<li><p>Taught herbal combinations, which is not required but very useful for associative learning and repetition of more important herbs. This is actually a separate course in Chinese universities</p></li>
+<li><p>Students identified and reported on common, local plants which are also Chinese herbs.</p></li>
+<li><p>Held potlucks where students brought in food with a description of the health properties of the dish using both Chinese herbal theory and also Chinese food therapy, a different branch of medicine.</p></li>
 </ul>
 
 

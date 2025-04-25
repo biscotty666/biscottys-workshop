@@ -22,7 +22,7 @@ Here you will find articles about things that interest me. Much of the site is d
 
 A new [post](posts/data-science/trail-mapping-with-r/index.qmd) comparing the use of R with Python for working with GPX data.
 
-I have added, and am updating, a [section](cv/cv.qmd) about myself, for those who are interested in my background and experience.
+I have added, and am updating, a [section](cv/brian-carey.qmd) about myself, for those who are interested in my background and experience.
 
 For those returning, this third iteration of my website is built in Quatro. I hope you like the new layout. It now allows you to comment on posts, so I look forward to your feedback and ideas. You can still email me as before, of course. Thanks to Samantha Shanny-Csik [@shanny-csik_creating_2022; @shanny-csik2022] and Albert Rapp [@rapp_ultimate_2022].
 

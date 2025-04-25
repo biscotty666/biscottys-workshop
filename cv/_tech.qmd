@@ -21,31 +21,29 @@ Currently I run NixOS, a Linux entirely different in design than all of the othe
 
 I began programming 40 years ago, and have learned and used many languages, including functional ones.
 
-### Current
+**Python**
 
--   **Python**
+ My strongest language, I have used it for data science with the pandas/numpy ecosystem, web sites and applications in the Django framework, hosting APIs, and writing discord bots. I am comfortable with most of the advanced features, many having been ported from functional programming, which I also know. There are many examples of Python here on the site.
 
-    My strongest language, I have used it for data science with the pandas/numpy ecosystem, web sites and applications in the Django framework, hosting APIs, and writing discord bots. I am comfortable with most of the advanced features, many having been ported from functional programming, which I also know. There are many examples of Python here on the site.
+**R**
 
--   **R**
+The first language I used for data science, and still my preferred for data science work. The `pipe` paradigm in particular allows for natural expression and clear workflows, and `ggplot2` is fantastic.
 
-    The first language I used for data science, and still my preferred for data science work
+**Haskell**
 
--   **Haskell**
+I learned Haskell in order to understand functional programming, and stuck with it because I found it to be perhaps the best language I have used. My experience here is purely academic, beyond designing a web site, and I would rate my skills as intermediate
 
-    I learned Haskell in order to understand functional programming, and stuck with it because I found it to be perhaps the best language I have used. My experience here is purely academic, beyond designing a web site, and I would rate my skills as intermediate
+**JavaScript**
 
--   **JavaScript**
+I have used JavaScript primarily via frameworks including React/React Router, Svelte/Sveltekit and NextJS, as well as NodeJS. Beyond using it for websites and apps, my first data visualization projects used D3 with React and later Svelte. Examples can be found in my [repository](https:github.com/biscotty666).
 
-    I have used JavaScript primarily via frameworks including React/React Router, Svelte/Sveltekit and NextJS, as well as NodeJS. Beyond using it for websites and apps, my first data visualization projects used D3 with React and later Svelte.
+**Perl**
 
--   **Perl**
+I learned Perl and CGI to design a browser-based, application for the local public schools. This was prior to JavaScript becoming dominant in web applications.
 
-    I learned Perl and CGI to design a browser-based, application for the local public schools. This was prior to JavaScript becoming dominant in web applications.
+**Other**
 
--   **Other**
-
-    My first programming job used Clipper, a dBase variant, in which I wrote a scheduling module for a chain of learning centers. The only computer class I ever took was in Pascal.
+My first programming job used Clipper, a dBase variant, in which I wrote a scheduling module for a chain of learning centers. The only computer class I ever took was in Pascal.
 
 ## Data Science
 
@@ -57,20 +55,21 @@ I'm currently writing a [series](../posts/data-science/trail-mapping-with-r/inde
 
 ## Other
 
--   **Databases**
+**Databases**
 
-    Comfortable with database design and interaction with relational databases including PostgreSQL, mariadb, and Sqlite. For example, I designed a system in Paradox to process raw shipping data into consolidated sales and unit reports, and a system in PostgreSQL to process testing data. I have used PostgreSQL for big data, and have also worked with non-relational databases.
+Comfortable with database design and interaction with relational databases including PostgreSQL, mariadb, and Sqlite. For example, I designed a system in Paradox to process raw shipping data into consolidated sales and unit reports, and a system in PostgreSQL to process testing data. I have used PostgreSQL for big data, and have also worked with non-relational databases.
 
--   $LaTeX$
+$LaTeX$
 
-    I have used $LaTeX$ for many purposes, including designing a 3 semester course covering over 1,000 medicinal substances.
+I have used $LaTeX$ for many purposes, including designing a [3 semester course](vignettes/chinese-herb-class/index.qmd) covering over 1,000 medicinal substances.
 
--   **HTML/CSS**
 
-    I am comfortable and proficient in both, although CSS is changing so fast it is hard to keep up.
+**HTML/CSS**
 
--   **Multimedia**
+I am comfortable and proficient in both, although CSS is changing so fast it is hard to keep up.
 
-    I work with GIMP, Krita, Inkscape, Audacity, Openshot and OBS Studio.
+**Multimedia**
 
+I work with GIMP, Krita, Inkscape, Audacity, Openshot and OBS Studio.
 :::
+

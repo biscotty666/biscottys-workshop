@@ -26,19 +26,19 @@ about:
 
 I have a background ranging from international finance and administration, programming, software translation and localization management. I’ve been a medical doctor, business owner and professor. As I look back, the common thread in all of these has been innovation. In each of my jobs, I was able to innovate the role, often introducing new technologies, frameworks and processes to stream-line current practices and address new challenges. 
 
-All of the posts of my experiences can be found [here](cv/cv.qmd).
+All of the posts of my experiences can be found [here](cv/brian-carey.qmd).
 
 ::: {.panel-tabset}
 
 ## Finance and Administration
 
-I was senior consolidations accountant at the San Rafael headquarters of [Autodesk](https://www.autodesk.com/), before moving to their European headquarters in Switzerland where I was senior financial analyst for the operations and software centers, and subsequently world-wide manager of vendors and translation services. You can read more [here](cv/cv.qmd)
+I was senior consolidations accountant at the San Rafael headquarters of [Autodesk](https://www.autodesk.com/), before moving to their European headquarters in Switzerland where I was senior financial analyst for the operations and software centers, and subsequently world-wide manager of vendors and translation services. You can read more [here](cv/brian-carey.qmd)
 
 ## Technology
 
 My first programming job was using Clipper, an MS-DOS version of dBase, to write a scheduling module for a private education company. I switched to Linux three decades ago, and wrote my first "web app" in Perl/CGI using PostgreSQL, back when JavaScript was just getting started.  I am now very proficient in Python and R, with intermediate skills in Haskell and JavaScript, as well as attendant technologies such as HTML and CSS.
 
-The best way to get an idea of my programming and data science skills are to look at some of the projects on the site. You can also find more [here](cv/cv.qmd)
+The best way to get an idea of my programming and data science skills are to look at some of the projects on the site. You can also find more [here](cv/brian-carey.qmd)
 
 ## Medical Practice and Teaching
 

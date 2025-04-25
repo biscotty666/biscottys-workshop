@@ -32,6 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <link href="../cv/vignettes/collective-forecasting/index.html" rel="next">
 <link href="../images/BWLogo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,6 +74,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -164,7 +195,7 @@ window.Quarto = {
 <span class="menu-text">Resources</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../cv/cv.html" aria-current="page"> 
+    <a class="nav-link active" href="../cv/brian-carey.html" aria-current="page"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
@@ -211,7 +242,7 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cv/cv.html" class="sidebar-item-text sidebar-link active">
+  <a href="../cv/brian-carey.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Brian Carey</span></a>
   </div>
 </li>
@@ -248,6 +279,12 @@ window.Quarto = {
  <span class="menu-text">Sales Reporting</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cv/vignettes/chinese-herb-class/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teaching Chinese Herbs</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -255,9 +292,10 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Q2hpbmVzZSUyME1lZGljaW5l">Chinese Medicine <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RWR1Y2F0aW9u">Education <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RmluYW5jaWFs">Financial <span class="quarto-category-count">(3)</span></div><div class="category" data-category="TWFuYWdlbWVudA==">Management <span class="quarto-category-count">(3)</span></div><div class="category" data-category="VGVjaG5vbG9neQ==">Technology <span class="quarto-category-count">(4)</span></div></div></div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -266,7 +304,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -311,23 +349,18 @@ window.Quarto = {
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>I began programming 40 years ago, and have learned and used many languages, including functional ones.</p>
-<section id="current" class="level3">
-<h3 class="anchored" data-anchor-id="current">Current</h3>
-<ul>
-<li><p><strong>Python</strong></p>
-<p>My strongest language, I have used it for data science with the pandas/numpy ecosystem, web sites and applications in the Django framework, hosting APIs, and writing discord bots. I am comfortable with most of the advanced features, many having been ported from functional programming, which I also know. There are many examples of Python here on the site.</p></li>
-<li><p><strong>R</strong></p>
-<p>The first language I used for data science, and still my preferred for data science work</p></li>
-<li><p><strong>Haskell</strong></p>
-<p>I learned Haskell in order to understand functional programming, and stuck with it because I found it to be perhaps the best language I have used. My experience here is purely academic, beyond designing a web site, and I would rate my skills as intermediate</p></li>
-<li><p><strong>JavaScript</strong></p>
-<p>I have used JavaScript primarily via frameworks including React/React Router, Svelte/Sveltekit and NextJS, as well as NodeJS. Beyond using it for websites and apps, my first data visualization projects used D3 with React and later Svelte.</p></li>
-<li><p><strong>Perl</strong></p>
-<p>I learned Perl and CGI to design a browser-based, application for the local public schools. This was prior to JavaScript becoming dominant in web applications.</p></li>
-<li><p><strong>Other</strong></p>
-<p>My first programming job used Clipper, a dBase variant, in which I wrote a scheduling module for a chain of learning centers. The only computer class I ever took was in Pascal.</p></li>
-</ul>
-</section>
+<p><strong>Python</strong></p>
+<p>My strongest language, I have used it for data science with the pandas/numpy ecosystem, web sites and applications in the Django framework, hosting APIs, and writing discord bots. I am comfortable with most of the advanced features, many having been ported from functional programming, which I also know. There are many examples of Python here on the site.</p>
+<p><strong>R</strong></p>
+<p>The first language I used for data science, and still my preferred for data science work. The <code>pipe</code> paradigm in particular allows for natural expression and clear workflows, and <code>ggplot2</code> is fantastic.</p>
+<p><strong>Haskell</strong></p>
+<p>I learned Haskell in order to understand functional programming, and stuck with it because I found it to be perhaps the best language I have used. My experience here is purely academic, beyond designing a web site, and I would rate my skills as intermediate</p>
+<p><strong>JavaScript</strong></p>
+<p>I have used JavaScript primarily via frameworks including React/React Router, Svelte/Sveltekit and NextJS, as well as NodeJS. Beyond using it for websites and apps, my first data visualization projects used D3 with React and later Svelte. Examples can be found in my <a href="https:github.com/biscotty666">repository</a>.</p>
+<p><strong>Perl</strong></p>
+<p>I learned Perl and CGI to design a browser-based, application for the local public schools. This was prior to JavaScript becoming dominant in web applications.</p>
+<p><strong>Other</strong></p>
+<p>My first programming job used Clipper, a dBase variant, in which I wrote a scheduling module for a chain of learning centers. The only computer class I ever took was in Pascal.</p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>I have been working with data analysis and modeling for two years, with a focus on geospatial applications. I am comfortable working in both R and Python, and am thoroughly familiar with a wide range of libraries and modules.</p>
@@ -335,16 +368,14 @@ window.Quarto = {
 <p>I’m currently writing a <a href="../posts/data-science/trail-mapping-with-r/index.html">series</a> comparing the use of R and Python for working with GPS data.</p>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<ul>
-<li><p><strong>Databases</strong></p>
-<p>Comfortable with database design and interaction with relational databases including PostgreSQL, mariadb, and Sqlite. For example, I designed a system in Paradox to process raw shipping data into consolidated sales and unit reports, and a system in PostgreSQL to process testing data. I have used PostgreSQL for big data, and have also worked with non-relational databases.</p></li>
-<li><p><span class="math inline">\(LaTeX\)</span></p>
-<p>I have used <span class="math inline">\(LaTeX\)</span> for many purposes, including designing a 3 semester course covering over 1,000 medicinal substances.</p></li>
-<li><p><strong>HTML/CSS</strong></p>
-<p>I am comfortable and proficient in both, although CSS is changing so fast it is hard to keep up.</p></li>
-<li><p><strong>Multimedia</strong></p>
-<p>I work with GIMP, Krita, Inkscape, Audacity, Openshot and OBS Studio.</p></li>
-</ul>
+<p><strong>Databases</strong></p>
+<p>Comfortable with database design and interaction with relational databases including PostgreSQL, mariadb, and Sqlite. For example, I designed a system in Paradox to process raw shipping data into consolidated sales and unit reports, and a system in PostgreSQL to process testing data. I have used PostgreSQL for big data, and have also worked with non-relational databases.</p>
+<p><span class="math inline">\(LaTeX\)</span></p>
+<p>I have used <span class="math inline">\(LaTeX\)</span> for many purposes, including designing a <a href="../cv/vignettes/chinese-herb-class/index.html">3 semester course</a> covering over 1,000 medicinal substances.</p>
+<p><strong>HTML/CSS</strong></p>
+<p>I am comfortable and proficient in both, although CSS is changing so fast it is hard to keep up.</p>
+<p><strong>Multimedia</strong></p>
+<p>I work with GIMP, Krita, Inkscape, Audacity, Openshot and OBS Studio.</p>
 </div>
 </div>
 </div>
@@ -352,7 +383,7 @@ window.Quarto = {
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p>I have taught a wide variety of topics in settings large and small.</p>
 <ul>
-<li>For over 10 years I taught Chinese Medicine at Southwest Acupuncture College, specializing in herbal medicine, diagnosis and differentiation. Most known for a three-semester cycle covering over 1,000 herbs, widely considered the most challenging classes in the curriculum. I describe the course in detail here</li>
+<li>For over 10 years I taught Chinese Medicine at Southwest Acupuncture College, specializing in herbal medicine, diagnosis and differentiation. Most known for a three-semester cycle covering over 1,000 herbs, widely considered the most challenging classes in the curriculum. I describe the course in detail <a href="../cv/vignettes/chinese-herb-class/index.html">here</a></li>
 <li>Conducted individual and small group trainings and workshops on topics including Linux, mathematics, literacy. Both in-person and on-line.</li>
 <li>Wrote numerous articles on software use and programming, some aimed at beginners, some more advanced</li>
 <li>Developed and delivered training materials for in-house use of both general and specialized software</li>
@@ -370,9 +401,102 @@ window.Quarto = {
 </div>
 
 
+
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title-sort" data-direction="asc">
+          Title
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+</th>
+<th>
+Description
+</th>
+<th>
+Categories
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-categories="TWFuYWdlbWVudCUyQ1RlY2hub2xvZ3klMkNGaW5hbmNpYWw=" data-listing-date-sort="1745388000000" data-listing-file-modified-sort="1745588172700" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="530" data-listing-title-sort="Closing the books" data-listing-filename-sort="index.qmd">
+<td>
+<a href="../cv/vignettes/closing-the-books/index.html" class="title listing-title">Closing the books</a>
+</td>
+<td>
+<span class="listing-description">Solving problems with communication and technology</span>
+</td>
+<td>
+<span class="listing-categories">Management, Technology, Financial</span>
+</td>
+</tr>
+<tr data-index="1" data-categories="TWFuYWdlbWVudCUyQ1RlY2hub2xvZ3klMkNGaW5hbmNpYWw=" data-listing-date-sort="1744610400000" data-listing-file-modified-sort="1745588205757" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="276" data-listing-title-sort="Collaborative Forecasts" data-listing-filename-sort="index.qmd">
+<td>
+<a href="../cv/vignettes/collective-forecasting/index.html" class="title listing-title">Collaborative Forecasts</a>
+</td>
+<td>
+<span class="listing-description">Always on target</span>
+</td>
+<td>
+<span class="listing-categories">Management, Technology, Financial</span>
+</td>
+</tr>
+<tr data-index="2" data-categories="TWFuYWdlbWVudA==" data-listing-date-sort="1744610400000" data-listing-file-modified-sort="1745588008504" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="767" data-listing-title-sort="Motivating through change" data-listing-filename-sort="index.qmd">
+<td>
+<a href="../cv/vignettes/motivating-change/index.html" class="title listing-title">Motivating through change</a>
+</td>
+<td>
+<span class="listing-description">Forging effective teams in turbulent times</span>
+</td>
+<td>
+<span class="listing-categories">Management</span>
+</td>
+</tr>
+<tr data-index="3" data-categories="RmluYW5jaWFsJTJDVGVjaG5vbG9neQ==" data-listing-date-sort="1745388000000" data-listing-file-modified-sort="1745588096062" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="277" data-listing-title-sort="Sales Reporting" data-listing-filename-sort="index.qmd">
+<td>
+<a href="../cv/vignettes/paradox/index.html" class="title listing-title">Sales Reporting</a>
+</td>
+<td>
+<span class="listing-description">The limits of spreadsheets</span>
+</td>
+<td>
+<span class="listing-categories">Financial, Technology</span>
+</td>
+</tr>
+<tr data-index="4" data-categories="RWR1Y2F0aW9uJTJDQ2hpbmVzZSUyME1lZGljaW5lJTJDVGVjaG5vbG9neQ==" data-listing-date-sort="1744610400000" data-listing-file-modified-sort="1745589596377" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="500" data-listing-title-sort="Teaching Chinese Herbs" data-listing-filename-sort="index.qmd">
+<td>
+<a href="../cv/vignettes/chinese-herb-class/index.html" class="title listing-title">Teaching Chinese Herbs</a>
+</td>
+<td>
+<span class="listing-description">Memorizing a vocabulary of 1,200 words</span>
+</td>
+<td>
+<span class="listing-categories">Education, Chinese Medicine, Technology</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -941,7 +1065,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
