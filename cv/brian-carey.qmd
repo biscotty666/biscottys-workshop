@@ -29,7 +29,6 @@ sidebar: cv-side
 
 {{< include _edu.qmd >}}
 
-
 ## Languages and Linguistics
 
 I am interested in linguistic studies including, but not limited to, human languages. 
