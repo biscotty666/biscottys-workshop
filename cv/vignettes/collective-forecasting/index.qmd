@@ -1,6 +1,7 @@
 ---
 title: "Collaborative Forecasts"
-description: "Always on target"
+subtitle: "Always on target"
+description: "Fostering financial literacy among department heads so as not to miss opportunities, and never miss targets."
 date: 04-14-2025
 categories: 
  - Management

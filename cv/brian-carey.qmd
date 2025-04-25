@@ -41,3 +41,5 @@ I speak Python and R with ease, and am proficient in Haskell and JavaScript. I h
 I am also interested in non-linguistic fields which have strong linguistic aspects. In particular, as a former professor of Chinese Herbal Medicine, I think that a didactic approach which recognizes the linguistic aspects of the field would be beneficial. I'm writing about it [here](../posts/chinese-medicine/chinese-herbal-language/index.qmd) 
 
 :::
+
+Here are some significant achievements from my professional life.

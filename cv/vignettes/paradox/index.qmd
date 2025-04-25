@@ -1,6 +1,7 @@
 ---
 title: "Sales Reporting"
-description: "The limits of spreadsheets"
+subtitle: "The limits of spreadsheets"
+decription: "The importance of choosing the right tool for the right task cannot be understated. Tens of thousands of sales records were be sifted and sorted using Excel, where database technolgy was needed."
 date: 04-23-2025
 categories: 
   - Financial

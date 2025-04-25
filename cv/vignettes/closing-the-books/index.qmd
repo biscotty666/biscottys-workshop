@@ -1,6 +1,7 @@
 ---
 title: "Closing the books"
-description: "Solving problems with communication and technology"
+subtitle: "Solving problems with communication and technology"
+description: "Getting enthusiastic buy-in from international subsidiaries for new, aggressive reporting requirements."
 date: 04-23-2025
 categories:
   - Management

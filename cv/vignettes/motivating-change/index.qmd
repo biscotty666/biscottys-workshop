@@ -1,6 +1,7 @@
 ---
 title: "Motivating through change"
-description: "Forging effective teams in turbulent times"
+subtitle: "Forging effective teams in turbulent times"
+description: "Major corporate reorganizations can be devastating to teams and individuals. I describe such a situation, and how I forged a highly-functioning team."
 date: 04-14-2025
 categories: Management
 comments: false
