@@ -16,7 +16,7 @@ These are some significant professional achievements. Most involved both people 
 - [Developed a database system](vignettes/paradox/index.qmd) to process raw data from operational software and produce the monthly, world-wide sales reporting book containing summary and detailed unit and revenue sales and tracked the installed base of each product
 - [Instituted a collaborative budgeting and forecasting process](vignettes/collective-forecasting/index.qmd) in Europe to empower managers to both meet targets and not miss opportunities
 - Wrote the successful business plan which was submitted to the Neuchâtel government to obtain a renewal of favorable tax treatment for research and development and operations. When I ultimately resigned, I was asked to do the same in Singapore before leaving
-- Successfully negotiated millions of dollars of refunds from and payments to external vendors providing translation and engineering services while maintaining and improving the pool of available vendors
+- Successfully negotiated millions of dollars of refunds from and payments to external vendors who provided translation and engineering services while maintaining important relationships
 - Streamlined and rationalized the internal vendor selection process while developing a standard contract and bidding process for the vendors themselves
 - [Created a team](vignettes/motivating-change/index.qmd) of Switzerland-based linguists responsible for glossaries and quality for the key languages German, French, Italian and Spanish. This presented significant motivational challenges due to internal reorganization.
 - Developed documentation for ISO 9000 certification and internal implementation of SAP

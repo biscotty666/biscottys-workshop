@@ -1,0 +1,15 @@
+---
+title: "High stakes negotiation"
+subtitle: "Obtaining reparations without losing partnerships"
+description: "Reigning."
+date: 04-23-2025
+categories: 
+  - Financial
+  - Technology
+draft: true
+draft-mode: unliked
+format: html
+---
+
+---
+

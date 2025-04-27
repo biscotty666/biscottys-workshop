@@ -1,0 +1,24 @@
+---
+title: "Managing External Partnerships"
+subtitle: "Streamlining translation and localization services."
+description: "Developing a framework for externally-supplied translation and localzatin services at Autodesk required creating new internal processes and both controlling and cultivating vendors."
+date: 04-26-2025
+categories: 
+  - Financial
+  - Management
+format: html
+reading-time: true
+---
+
+---
+
+
+When I assumed responsibility for all localization vendors at Autodesk, it was the first time the role had been centralized. Prior to this time, vendors were selected by project teams through an *ad hoc* process. Some groups approached the selection methodically, but most were chosen for vague reasons and, frankly, familiarity. Even when things go badly, there is a strong natural tendency to stick with the devil you know.
+
+Of course, there were numerous problems with this approach. First, there were significant pricing inconsistencies, due both to lack of real competition and variations in terms for pricing across proposals. Additionally, expectations of vendor responsibilities varied from team to team, which led to confusion when one vendor worked on multiple projects. Project budgets and forecasts were difficult to prepare, and vendor costs varied significantly from project to project.
+
+There are many providers of translation services in Europe, ranging from small two or three person in-country operations to international companies like Berlitz operating centrally out of London. Obviously, the larger the shop, the more expensive the services. Smaller operations often did not offer engineering services, so if that was part of the requirements, the larger companies were necessary, of which there were only a few. I set out to expand our pool of vendors in order to leverage less expensive suppliers (who were usually the most responsive), while keeping check on the big partners on whom we were dependent. I also worked with some of the single-language companies to help them develop engineering resources, allowing them to compete for more projects.
+
+I imposed two hard requirements for all vendors in order to submit project proposals. First, I provided them with a template which they needed use for their bid, ensuring that all comparisons between vendors be "apples to apples" and that costs, pricing and expectations were standardized. Additionally, I developed a standard contract, which vendors needed to accept without modification. This meant no legal issues would arise after vendor selection, and that, should problems arise during the contract, our legal position in all cases was clear. The companies with legal departments fussed a bit, but the contract was not unreasonable and so all agreed.
+
+Internally, my task was to regularize the vendor selection process. Initially, project teams assumed I was going to impose vendors on them, or that I would take away their preferred partners. What I did impose was a transparent decision-making process, where project requirements were clearly specified in advance. I then provided proposals from several vendors (including the team favoriate) and all were then evaluated against the pre-defined requirements. Since all proposals were in the same format, and the team did not need to concern themselves with contractual issues, the final selection were generally quick and highly collaborative meetings.

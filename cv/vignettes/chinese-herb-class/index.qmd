@@ -7,11 +7,12 @@ categories:
   - Education
   - Chinese Medicine
   - Technology
-comments: false
 draft: false
 draft-mode: unlinked
 format: html
 ---
+
+------------------------------------------------------------------------
 
 The herbal part of a Chinese Medicine program begins with three consecutive semesters of *Materia Medica*, in which over 1,000 herbs and other medicinal substances are studied in detail. Students are expected to memorize the Chinese name, pharmaceutical name, functions, indications, taste, nature, channels entered, and contraindications for each medicinal. American, and other non-Chinese speakers, have the additional hurdle of learning names in a foreign language.
 

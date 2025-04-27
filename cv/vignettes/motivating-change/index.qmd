@@ -4,9 +4,10 @@ subtitle: "Forging effective teams in turbulent times"
 description: "Major corporate reorganizations can be devastating to teams and individuals. I describe such a situation, and how I forged a highly-functioning team."
 date: 04-14-2025
 categories: Management
-comments: false
 draft: false
 format: html
+---
+
 ---
 
 It's a truism that most people don't like change. Yet change, often internally disruptive, is constant in business. Individuals can feel that they have lost their identity as they assume new roles, in new teams, with new ways of doing things. The old ways, no matter how they were criticized before, become the golden age, lost forever. The management challenge is to forge effective teams who are motivated and empowered, and take ownership of their job. In my experience, straight-forwardness and respect are the keys to doing this.

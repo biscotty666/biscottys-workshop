@@ -1,0 +1,24 @@
+---
+title: "Business Plan for Neuchâtel Government"
+subtitle: "Explaining technology to tax authorities"
+description: "To obtain a new agreement for favorable tax treatment from the cantonal government, it was necessary to convince them that our activites were truly research and development."
+date: 04-23-2025
+categories: 
+  - Financial
+  - Technology
+comments: false
+format: html
+---
+
+---
+
+Autodesk chose to base its European center for research and development and for operations in Neuchâtel, Switzerland, in large part due to tax incentives provided by the cantonal government. During my time in Neuchâtel, the agreement was expiring, and a new proposal was required to extend the credits.
+
+
+The original agreement included production and shipping to all European customers, in addition to research and development activities related to translation and localization. All other European subsidiaries were commissionaires of the Neuchâtel subsidiary, so most European revenue was able to be recognized in Switzerland thereby obtaining favorable tax treatment along with R&D credits.. 
+
+We were aggressively outsourcing all operations to Dublin, which did not make the government happy, and they were not convinced that the localization activities with regard to product upgrades, which were carried out in Neuchâtel, actually constituted research and development. 
+
+The Swiss officials had a lot of experience with traditional production, which is to say, production of tangible things, and research and development activities were understood to be aimed at creating a new physical product, whose novelty was readily apparent. In software, we don't sell boxes, we sell intangible goods, software licenses. The localization activities were always focused on the upcoming upgrade releases, and the tax authorities were skeptical that these upgrades constituted truly new R&D or simply maintenance. Put simply, was a new release of a product a new product?
+
+The task was then to explain the software development process to the tax authorities, and convince them that each relase contained not only significant new and innovative features, but large amounts of new code. In the end, we secured a new tax agreement with the cantonal government.

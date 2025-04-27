@@ -9,7 +9,7 @@ listing:
     - title
     - description
     - categories
-comments: false
+    - reading-time
 toc: false
 sidebar: cv-side
 ---

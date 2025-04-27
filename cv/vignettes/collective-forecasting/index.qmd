@@ -7,9 +7,10 @@ categories:
  - Management
  - Technology
  - Financial
-comments: false
 draft: false
 format: html
+---
+
 ---
 
 It was important to me that the department managers at Autodesk's European Operations and Software Center were closely involved in the budgeting and monthly forecasting, for which I was responsible. I had a number of goals, one being, of course, to always be on target. But beyond that, I wanted to make the entire process tangible to the managers, some of whom were savvy, but most of whom saw the process initially as a painful exercise distracting them from their "real work".

@@ -7,7 +7,6 @@ categories:
   - Management
   - Technology
   - Financial
-comments: false
 draft: false
 format: html
 ---
