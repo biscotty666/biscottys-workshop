@@ -14,7 +14,6 @@ format: html
 
 Autodesk chose to base its European center for research and development and for operations in Neuchâtel, Switzerland, in large part due to tax incentives provided by the cantonal government. During my time in Neuchâtel, the agreement was expiring, and a new proposal was required to extend the credits.
 
-
 The original agreement included production and shipping to all European customers, in addition to research and development activities related to translation and localization. All other European subsidiaries were commissionaires of the Neuchâtel subsidiary, so most European revenue was able to be recognized in Switzerland thereby obtaining favorable tax treatment along with R&D credits.. 
 
 We were aggressively outsourcing all operations to Dublin, which did not make the government happy, and they were not convinced that the localization activities with regard to product upgrades, which were carried out in Neuchâtel, actually constituted research and development. 

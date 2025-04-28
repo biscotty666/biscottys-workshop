@@ -13,4 +13,8 @@ draft: true
 draft-mode: unlinked
 ---
 
-# Hello
+# Points to Paths
+
+In the second Python article, we took the point geometries and used `movingpandas` to generate line geometries and trajectories, facilitation calculations of speed, distance and duration, as well as segmentation based on various criteria.
+
+A number of R packages would be useful for our purposes. There is even a
