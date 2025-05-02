@@ -19,7 +19,6 @@ sidebar: cv-side
 
 ## Finance and Administration
 
-
 {{< include _fna.qmd >}}
 
 ## Technology
