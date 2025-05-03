@@ -1,10 +1,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">    
   <head>      
     <title>GPS</title>      
-    <meta http-equiv="refresh" content="0;URL='https://biscotty.online/blogs/obsidian/obsidian-no-sql-database'" />    
+    <meta http-equiv="refresh" content="0;URL='https://biscotty.online/posts/obsidian/obsidian-no-sql-database'" />    
   </head>    
   <body> 
-    <p>This page has moved to <a href="https://biscotty.online/blogs/obsidian/obsidian-no-sql-database">
-      https:/biscotty.online/blogs/obsidian/obsidian-no-sql-database</a>.</p> 
+    <p>This page has moved to <a href="https://biscotty.online/posts/obsidian/obsidian-no-sql-database">
+      https:/biscotty.online/posts/obsidian/obsidian-no-sql-database</a>.</p> 
   </body>  
 </html>

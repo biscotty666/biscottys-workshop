@@ -1,10 +1,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">    
   <head>      
     <title>GPS</title>      
-    <meta http-equiv="refresh" content="0;URL='https://biscotty.online/blogs/obsidian/syncing-your-thinking-syncthing'" />    
+    <meta http-equiv="refresh" content="0;URL='https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing'" />    
   </head>    
   <body> 
-    <p>This page has moved to <a href="https://biscotty.online/blogs/obsidian/syncing-your-thinking-syncthing">
-      https:/biscotty.online/blogs/obsidian/syncing-your-thinking-syncthing</a>.</p> 
+    <p>This page has moved to <a href="https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing">
+      https:/biscotty.online/posts/obsidian/syncing-your-thinking-syncthing</a>.</p> 
   </body>  
 </html>

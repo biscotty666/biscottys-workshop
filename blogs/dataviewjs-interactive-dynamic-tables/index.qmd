@@ -1,10 +1,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">    
   <head>      
     <title>GPS</title>      
-    <meta http-equiv="refresh" content="0;URL='https://biscotty.online/blogs/obsidian/dataviewjs-interactive-dynamic-tables/'" />    
+    <meta http-equiv="refresh" content="0;URL='https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/'" />    
   </head>    
   <body> 
-    <p>This page has moved to <a href="https://biscotty.online/blogs/obsidian/dataviewjs-interactive-dynamic-tables/">
-      https:/biscotty.online/blogs/obsidian/dataviewjs-interactive-dynamic-tables/</a>.</p> 
+    <p>This page has moved to <a href="https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/">
+      https:/biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</a>.</p> 
   </body>  
 </html>
