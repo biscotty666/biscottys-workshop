@@ -418,5 +418,8 @@
   },
   "cv/vignettes/clinic/index.qmd": {
     "index.html": "2326cd5e"
+  },
+  "posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.qmd": {
+    "index.html": "b4dd174a"
   }
 }

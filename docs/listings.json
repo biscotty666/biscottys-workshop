@@ -21,6 +21,14 @@
     ]
   },
   {
+    "listing": "/posts/data-science/python-gpx-mapping.html",
+    "items": [
+      "/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
+      "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
+      "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html"
+    ]
+  },
+  {
     "listing": "/cv/brian-carey.html",
     "items": [
       "/cv/vignettes/swiss-business-plan/index.html",
@@ -37,7 +45,7 @@
   {
     "listing": "/posts/posts.html",
     "items": [
-      "/posts/data-science/trail-mapping-with-r/index.html",
+      "/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.html",
       "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html",
       "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
       "/posts/obsidian/obsidian-jupyter/index.html",
@@ -66,17 +74,9 @@
     ]
   },
   {
-    "listing": "/posts/data-science/python-gpx-mapping.html",
-    "items": [
-      "/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
-      "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
-      "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html"
-    ]
-  },
-  {
     "listing": "/posts/data-science/data-science.html",
     "items": [
-      "/posts/data-science/trail-mapping-with-r/index.html",
+      "/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.html",
       "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html",
       "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
       "/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",

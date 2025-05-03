@@ -13,14 +13,14 @@
 <lastBuildDate>Sun, 30 Mar 2025 06:00:00 GMT</lastBuildDate>
 <item>
   <title>GPS Mapping with R</title>
-  <link>https://biscotty.online/posts/data-science/trail-mapping-with-r/</link>
+  <link>https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</link>
   <description><![CDATA[ 
 
 
 
 
 
-<p>I recently published a series of articles on analyzing GPS data from personal sport tracking software using Python. I’ve started using R again lately and, while I like Python, I really like R. R is not a general-purpose language like Python, and is therefore far less commonly studied. It was mission-built for this type of work, and, as is often the case with custom-built tools, it is powerful, comfortable, and, frankly, fun to work with. I thought it might be interesting to compare the process in Python described in the <a href="../../../posts/data-science/python-gpx-mapping/gpx-gps-data/index.html">previous articles</a> with the process in R.</p>
+<p>I recently published a series of articles on analyzing GPS data from personal sport tracking software using Python. I’ve started using R again lately and, while I like Python, I really like R. R is not a general-purpose language like Python, and is therefore far less commonly studied. It was mission-built for this type of work, and, as is often the case with custom-built tools, it is powerful, comfortable, and, frankly, fun to work with. I thought it might be interesting to compare the process in Python described in the <a href="../../../../posts/data-science/python-gpx-mapping/gpx-gps-data/index.html">previous articles</a> with the process in R.</p>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries">Libraries</h2>
 <p>Python data frames are built on the <code>pandas</code> and <code>numpy</code> libraries, with <code>matplotlib</code> as the primary plotting tool. Data frames and vector processing are native to R. The <code>dplyr</code> library provides convenience functions for manipulating data. The amazing <code>gplot2</code> provides the functionality of <code>matplotlib</code> and <code>seaborn</code> and more, with simple syntax. The <code>sf</code> package, which stands for <em>Simple Features</em>, provides the geometry and geospatial functionality which <code>geopandas</code> and <code>shapely</code> do in Python. I’ll use <code>ggspatial</code> here for basemap tiles where I used <code>contextily</code> in Python, and I’ll add <code>patchwork</code> for convenient side-by-side display.</p>
@@ -410,7 +410,7 @@ font-style: inherit;">"Tiles © OpenStreetMap (ODBL license)"</span></span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -606,7 +606,7 @@ font-style: inherit;">$</span>Time)))</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -704,7 +704,7 @@ font-style: inherit;">|</span> loess_plot</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -723,7 +723,7 @@ font-style: inherit;">|</span> loess_plot</span></code></pre></div>
   <category>R</category>
   <category>Python</category>
   <category>Data Science</category>
-  <guid>https://biscotty.online/posts/data-science/trail-mapping-with-r/</guid>
+  <guid>https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</guid>
   <pubDate>Sun, 30 Mar 2025 06:00:00 GMT</pubDate>
 </item>
 <item>

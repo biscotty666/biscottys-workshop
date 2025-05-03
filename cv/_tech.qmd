@@ -51,7 +51,7 @@ I have been working with data analysis and modeling for two years, with a focus 
 
 My primary focus is on comparative demographic and structural analysis such as income distribution, access to services, environmental and land use issues, and am currently working on projects for the Albuquerque area.
 
-I'm currently writing a [series](../posts/data-science/trail-mapping-with-r/index.qmd) comparing the use of R and Python for working with GPS data.
+I'm currently writing a [series](../posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.qmd) comparing the use of R and Python for working with GPS data.
 
 ## Other
 
