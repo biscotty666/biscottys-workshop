@@ -2,6 +2,7 @@
 title: The FHS Problem
 subtitle: Docker vs Nix
 description: Two different approaches to the problem of the Filesystem Heirarchy Standard
+image: NixosWinter.png
 date: 05-04-2025
 categories: [Linux, Distributions, Nix]
 author: Brian Carey

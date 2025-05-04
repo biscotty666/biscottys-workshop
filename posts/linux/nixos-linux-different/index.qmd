@@ -5,6 +5,7 @@ date: 06-10-2024
 categories: [Linux, Distributions]
 id: Linux Different
 author: Brian Carey
+image: NixosWinter.png
 Published: false
 Stage: beta
 action: true
