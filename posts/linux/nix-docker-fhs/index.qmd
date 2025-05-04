@@ -1,39 +1,45 @@
 ---
 title: The FHS Problem
 subtitle: Docker vs Nix
-description: Two different approaches to the problem of the File Heirarchy standard
+description: Two different approaches to the problem of the File Heirarchy Standard
 date: 05-04-2025
 categories: [Linux, Distributions, Nix]
 author: Brian Carey
 ---
 
+---
+
+I have been using NixOS for a year and a half. It is conceptually different from other Linuxes, and is notoriously difficult to explain. Unfortunately, the strange concepts and ugly configuration language mask an underlying simplicity which I think is superior to the traditional approach. I will try, in this article, to explain a few of these concepts, and how they relate to a development problem caused by the fundamental design of traditional Linux.
+
 # The problem with the FHS
 
-The *File Hierarchy Standard* would seem to be a basic part of Linux. Indeed, it is one of the first things everyone learns about when starting to use Linux. The FHS simply defines where different types of files should be located: executable files in /`bin` or `/usr/bin`, libraries in `/lib`, configurations in `/etc`, and so on. Most people assume this to be a fundamental aspect of Linux, but it is not.
+The *Filesystem Hierarchy Standard* seems to be a basic part of Linux. Indeed, it is one of the first things everyone learns about when starting to use Linux, though they are usually unaware that it is the FHS. The FHS simply defines where different types of files should be located: executable files in /`bin` or `/usr/bin`, libraries in `/lib`, configurations in `/etc`, and so on. Most people assume this to be a fundamental aspect of Linux, but it is not.
 
 On a Linux system, everything is a file, and files can be located anywhere, in any directory. As long as you know where your executables are, and they know where their libraries are, everything can be in one directory, or split across multiple paths. Linux doesn't care.
 
-On the other hand, in an ecosystem in which code is widely shared among projects, the arbitrary placement of various components made life difficult, so a group of *wise men* proposed a standard which defined locations for the various types of files, one which was quickly adopted by everyone.
+On the other hand, in an ecosystem in which code is widely shared among projects, the arbitrary placement of various components made life difficult, so, early on in the life of Linux, a group of people proposed a standard (firstly the FSSTND, followed by FHS) which defined locations for the various types of files, a proposal which was quickly adopted by just about everybody.
 
-The problem with this approach is that, in modern programming, multiple versions of programming languages and libraries are necessary, not all of which are compatible. With only one `/lib` directory, only one `/usr/bin` directory, etc. how do you manage multiple versions of all the packages? A program might be dependent on a specific version of Python, while another program might require another.
+The problem with this approach is its hierarchical tree structure. It would appear an obvious way to organize files, but it is by nature limiting. in modern programming, multiple versions of programming languages and libraries are necessary, not all of which are compatible. With only one `/lib` directory, only one `/usr/bin` directory, etc. how do you manage multiple versions of all the packages? A program might be dependent on a specific version of Python, while another program might require another. In development, this is particularly problematic, as version bumps can break programs, so version consistency is crucial. But on any given Linux system, ensuring such consistency is effectively impossible.
 
-In development, this is particularly problematic, as version bumps can break programs, so version consistency is crucial. But on any given Linux system, ensuring such consistency is effectively impossible.
+There is an entirely different approach, an organizational structure unfamiliar to many: a graph.
 
 # The Docker solution: Containers
 
-The most common solution to this problem is Docker containers. A variation on virtual machines, containers contain full Linux installations which are isolated from the system on which they run, with their own file structure and libraries. In order to accomplish this, these containers need to be loaded as processes managed by a Docker process.
+The most common solution to this problem is Docker containers. A variation on virtual machines, containers contain full Linux installations which are isolated from the system on which they run, with their own root file structure and all libraries. In order to be used, these containers need to be loaded as processes managed by another process.
 
-This seems like an obvious, if complex, solution. Just have multiple Linuxes all happily doing their own thing. However, while this does solve the initial problem, and has become nearly a *de facto* standard in software development, this approach has definite drawbacks: it is not reproducible, there is no guarantee of library versions, most of the container's contents are unneeded bloat, and it requires a separate mechanism to be run and maintained.
+This is a simple idea but a complex solution: just have multiple Linuxes all happily doing their own thing on the same piece of hardware. However, while this does solve the initial problem, and has become nearly a *de facto* standard in software development, this approach has definite drawbacks: it is not reproducible, there is no guarantee of library versions, most of the container's contents are unneeded bloat, and it requires a separate mechanism to be run and maintained.
 
 # The Nix solution: Graphs
 
 Instead of working around the FHS, Nix chose to abandon it. The FHS, and Docker, are layered, imperative approaches to system structural organization. A Dockerfile is a series of commands which result in the container environment, just as a typical computer system is installed through a series of commands, layering one package on another, highly dependent on file paths. This isn't the only way, however.
 
-Nix is not imperative, nor is it layered. It is declarative, and uses graphs to install software. On a Nix system, all executables and dependencies live in a single directory. Every file in this directory has a name which includes the hash value of the program or library (derivation in Nix lingo), uniquely identifying each package/version. When a program is installed, all necessary files are placed in the same directory, and a graph is used to connect all of the relevant bits based on their unique identifiers.
+Nix is not imperative, nor is it layered. It is declarative, and uses graphs to install software. On a Nix system, the desired environment is described in a configuration file (actually itself a functional program). When an application is installed, all necessary files are placed in a common directory, and a graph is used to connect all of the relevant bits. Every file in this directory has a name which includes a hash of the program or library itself, uniquely identifying each package/version.
 
-With the Nix approach, environments are fully reproducible. Furthermore, they only contain necessary libraries, not an entire installation. They do not require a separate sub-system to be running.
+People are comfortable with hierarchical structures. The are used in many areas of life, and can be easily visualized as an upside-down tree. Graphs, on the other hand, are not familiar. A graph consists of objects and lines connecting them. Visually, graphs can appear chaotic, given the arbitrary locations of the objects. However, when using visualization tools which draw together linked objects (force-directed graphs), structure emerges.
 
-In practice, using Nix makes life simpler, and development more secure and consistent. Since environments are declared, they are easily shared, and all versions of each file are locked, unlike with Docker. In order to enter any project environment, *all you need do is enter the directory*, and all tools and libraries are available. There is no need to start a separate process and enter the container. To top it all off, creating an OCI container for use with Kubernetes or, if absolutely necessary, Docker itself, is trivial.
+Furthermore, with the Nix approach, environments are fully reproducible, unlike with Docker and it is efficient, as only required libraries are installed, not entire OSs, and a seperate sub-system need not be running to manage anything.
+
+In practice, using Nix makes life simpler, and development more secure and consistent. Since environments are declared, they are easily shared, and all versions of each file are locked in a file which is also shared. In order to enter any project environment, *all you need do is enter the directory*, and all tools and libraries declared are just there, without the need to start a separate process and enter the container. To top it all off, should you need an OCI container for use with Kubernetes or, if absolutely necessary, Docker itself, creating one from a Nix definition is trivial.
 
 # Reflection
 
