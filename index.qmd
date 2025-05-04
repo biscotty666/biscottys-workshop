@@ -20,6 +20,8 @@ Here you will find articles about things that interest me. Much of the site is d
 
 ## What's new
 
+[A new article](posts/linux/nix-docker-fhs/index.qmd) about the drawbacks of Docker and superiority of Nix for software development and management.
+
 A new [post](posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.qmd) comparing the use of R with Python for working with GPX data.
 
 I have added, and am updating, a [section](cv/brian-carey.qmd) about myself, for those who are interested in my background and experience.
