@@ -421,5 +421,8 @@
   },
   "posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.qmd": {
     "index.html": "b4dd174a"
+  },
+  "posts/linux/nix-docker-fhs/index.qmd": {
+    "index.html": "490e5294"
   }
 }

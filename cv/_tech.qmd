@@ -4,9 +4,10 @@ comments: false
 toc: false
 ---
 
-I've been engaged with computers since I started learning BASIC on a Commodore64 in the 1970s. Since then, the universe of computing has exploded, and I have remained constantly engaged with emerging technologies, learning new languages, operating systems, database systems, web applications, and more. Most of my work is available in my [GitHub repository](https://github.com/biscotty666). If you have questions or want details you can send me an [email](mailto:biscotty666@gmail.com).
+I've been engaged with computers since I started learning BASIC on a Commodore64 in the 1970s. Since then, the universe of computing has exploded, and I have remained constantly engaged with emerging technologies, learning new languages, operating systems, database systems, web applications, and more. Most of my work over the past few years is available in my [GitHub repository](https://github.com/biscotty666). If you have questions or want details you can send me an [email](mailto:biscotty666@gmail.com).
 
 ::: panel-tabset
+
 ## Linux
 
 Using Linux I have run web servers and web apps, done system administration, programming in half a dozen languages, managed databases and APIs, built custom kernels, and many other things including day-to-day desktop applications. The answer to the common question "How do I learn Linux?" is simply "use it".
@@ -23,11 +24,11 @@ I began programming 40 years ago, and have learned and used many languages, incl
 
 **Python**
 
- My strongest language, I have used it for data science with the pandas/numpy ecosystem, web sites and applications in the Django framework, hosting APIs, and writing discord bots. I am comfortable with most of the advanced features, many having been ported from functional programming, which I also know. There are many examples of Python here on the site.
+My strongest language, I have used it for data science with the pandas/numpy ecosystem, web sites and applications in the Django framework, hosting APIs, and writing discord bots. I am comfortable with most of the advanced features, many having been ported from functional programming, which I also know. There are many examples of Python here on the site.
 
 **R**
 
-The first language I used for data science, and still my preferred for data science work. The `pipe` paradigm in particular allows for natural expression and clear workflows, and `ggplot2` is fantastic.
+The first language I used for data science, and still my preferred for data science work. The "pipe" paradigm in particular allows for natural expression and clear workflows, and `ggplot2` is fantastic. Using R is like using a tool very much fit-to-purpose. 
 
 **Haskell**
 
@@ -43,7 +44,7 @@ I learned Perl and CGI to design a browser-based, application for the local publ
 
 **Other**
 
-My first programming job used Clipper, a dBase variant, in which I wrote a scheduling module for a chain of learning centers. The only computer class I ever took was in Pascal.
+My first programming job used Clipper, a dBase variant, in which I wrote a scheduling module for a chain of learning centers. The only computer class I ever took was in Pascal. I have a general knowledge of Rust.
 
 ## Data Science
 

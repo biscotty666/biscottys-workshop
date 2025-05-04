@@ -10,7 +10,18 @@
 <atom:link href="https://biscotty.online/posts/linux/linux.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.6.43</generator>
-<lastBuildDate>Mon, 10 Jun 2024 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 04 May 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>The FHS Problem</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/linux/nix-docker-fhs/</link>
+  <description><![CDATA[ Two different approaches to the problem of the File Heirarchy standard ]]></description>
+  <category>Linux</category>
+  <category>Distributions</category>
+  <category>Nix</category>
+  <guid>https://biscotty.online/posts/linux/nix-docker-fhs/</guid>
+  <pubDate>Sun, 04 May 2025 06:00:00 GMT</pubDate>
+</item>
 <item>
   <title>NixOS: the Linux different</title>
   <dc:creator>Brian Carey</dc:creator>

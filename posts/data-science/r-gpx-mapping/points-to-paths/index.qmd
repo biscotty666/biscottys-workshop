@@ -13,8 +13,79 @@ draft: true
 draft-mode: unlinked
 ---
 
-# Points to Paths
+```{r setup, include=FALSE, paged.print=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-In the second Python article, we took the point geometries and used `movingpandas` to generate line geometries and trajectories, facilitation calculations of speed, distance and duration, as well as segmentation based on various criteria.
+# Trail Mapping with R
 
-A number of R packages would be useful for our purposes. There is even a
+In the [second](../../python-gpx-mapping/python-movingpandas-points-paths/) Python article, we used `GeoPandas` to convert our list of points to trajectories, which then allowed us to calculate, for example, speeds and durations, path segmentation, etc. Various R libraries exist which I could choose, such as `trajectories` and `trajR` . I will use the `trackeR` library. It is specifically designed to work with sports and activity trackers, and contains functionality far beyond my purpose here, such as biometric analysis.
+
+```{r message=FALSE}
+library(trackeR)
+library(sf)
+library(dplyr)
+library(ggplot2)
+library(htmlwidgets)
+library(zoo)
+DATPAT <- "../../../../data/GPX/"
+```
+
+## Conversion to trajectories
+
+The `trackeR` library doesn't natively import .`gpx` files, but it does import `.tcx` files, another common XML format for sports data. After re-exporting my data from my tracker in `.tcx` format, I can use `trackeR`'s `read_directory()` to import everything
+
+adsf
+
+```{r results='hide'}
+treks <- read_directory(paste0(DATPAT, "b3/tcx/"), timezone = "GMT")
+```
+
+```{r}
+plot(treks)
+```
+
+```{r}
+plot(treks, session = 3, what = c("altitude", "pace"))
+```
+
+```{r message=FALSE}
+routes_all <- leaflet_route(treks, session = c(1:7))
+tryCatch(routes_all, error = function(x) "Failed to donwload map data")
+saveWidget(routes_all, "routes_all.html", selfcontained = T)
+```
+
+```{r message=FALSE}
+tryCatch(leaflet_route(treks, session = c(8)),
+         error = function(x) "Failed to donwload map data")
+```
+
+```{r}
+summary(treks) |> 
+  plot(group = c("total", "moving"),
+       what = c("avgSpeed", "distance", "duration", "avgAltitude"))
+```
+
+## Where at a certain time
+
+```{r}
+treks_sf <- st_as_sf(fortify.zoo(treks[[8]]),
+         coords = c("longitude", "latitude"),
+         crs = st_crs(4326))
+treks_sf
+```
+
+```{r eval=FALSE}
+i <- as.POSIXct('20240911 124341')
+treks_sf
+```
+
+```{r eval=FALSE}
+plot(zones(treks[1:3], what = "speed", breaks = c(0, 2:6, 13)))
+```
+
+## Distance from book stores
+
+## Stop detection
+
+asdflkj

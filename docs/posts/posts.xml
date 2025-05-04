@@ -10,7 +10,52 @@
 <atom:link href="https://biscotty.online/posts/posts.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.6.43</generator>
-<lastBuildDate>Sun, 30 Mar 2025 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 04 May 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>The FHS Problem</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/linux/nix-docker-fhs/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="the-problem-with-the-fhs" class="level1">
+<h1>The problem with the FHS</h1>
+<p>The <em>File Hierarchy Standard</em> would seem to be a basic part of Linux. Indeed, it is one of the first things everyone learns about when starting to use Linux. The FHS simply defines where different types of files should be located: executable files in /<code>bin</code> or <code>/usr/bin</code>, libraries in <code>/lib</code>, configurations in <code>/etc</code>, and so on. Most people assume this to be a fundamental aspect of Linux, but it is not.</p>
+<p>On a Linux system, everything is a file, and files can be located anywhere, in any directory. As long as you know where your executables are, and they know where their libraries are, everything can be in one directory, or split across multiple paths. Linux doesn’t care.</p>
+<p>On the other hand, in an ecosystem in which code is widely shared among projects, the arbitrary placement of various components made life difficult, so a group of <em>wise men</em> proposed a standard which defined locations for the various types of files, one which was quickly adopted by everyone.</p>
+<p>The problem with this approach is that, in modern programming, multiple versions of programming languages and libraries are necessary, not all of which are compatible. With only one <code>/lib</code> directory, only one <code>/usr/bin</code> directory, etc. how do you manage multiple versions of all the packages? A program might be dependent on a specific version of Python, while another program might require another.</p>
+<p>In development, this is particularly problematic, as version bumps can break programs, so version consistency is crucial. But on any given Linux system, ensuring such consistency is effectively impossible.</p>
+</section>
+<section id="the-docker-solution-containers" class="level1">
+<h1>The Docker solution: Containers</h1>
+<p>The most common solution to this problem is Docker containers. A variation on virtual machines, containers contain full Linux installations which are isolated from the system on which they run, with their own file structure and libraries. In order to accomplish this, these containers need to be loaded as processes managed by a Docker process.</p>
+<p>This seems like an obvious, if complex, solution. Just have multiple Linuxes all happily doing their own thing. However, while this does solve the initial problem, and has become nearly a <em>de facto</em> standard in software development, this approach has definite drawbacks: it is not reproducible, there is no guarantee of library versions, most of the container’s contents are unneeded bloat, and it requires a separate mechanism to be run and maintained.</p>
+</section>
+<section id="the-nix-solution-graphs" class="level1">
+<h1>The Nix solution: Graphs</h1>
+<p>Instead of working around the FHS, Nix chose to abandon it. The FHS, and Docker, are layered, imperative approaches to system structural organization. A Dockerfile is a series of commands which result in the container environment, just as a typical computer system is installed through a series of commands, layering one package on another, highly dependent on file paths. This isn’t the only way, however.</p>
+<p>Nix is not imperative, nor is it layered. It is declarative, and uses graphs to install software. On a Nix system, all executables and dependencies live in a single directory. Every file in this directory has a name which includes the hash value of the program or library (derivation in Nix lingo), uniquely identifying each package/version. When a program is installed, all necessary files are placed in the same directory, and a graph is used to connect all of the relevant bits based on their unique identifiers.</p>
+<p>With the Nix approach, environments are fully reproducible. Furthermore, they only contain necessary libraries, not an entire installation. They do not require a separate sub-system to be running.</p>
+<p>In practice, using Nix makes life simpler, and development more secure and consistent. Since environments are declared, they are easily shared, and all versions of each file are locked, unlike with Docker. In order to enter any project environment, <em>all you need do is enter the directory</em>, and all tools and libraries are available. There is no need to start a separate process and enter the container. To top it all off, creating an OCI container for use with Kubernetes or, if absolutely necessary, Docker itself, is trivial.</p>
+</section>
+<section id="reflection" class="level1">
+<h1>Reflection</h1>
+<p>From a technical perspective, it seems clear that the Nix approach is simpler and more efficient than the container approach. On the other hand, it relies on concepts which are unfamiliar to most programmers and system administration. Graphs, and especially functional programming, are not widely understood. People like to stay in their comfort zone, and programmers are surprisingly resistant to learning new things. The controversy around Rust and the Linux kernel is a good example of this. Rust can make the kernel safer, and has already created far superior replacements for much of GNU, but many C programmers find Rust daunting.</p>
+<p>Docker itself has become a sprawling enterprise with a large variety of offerings, and an economy which has developed around it. Never-the-less, I think that the future of Linux, both as a development platform and an operating system, lies in Nix.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Linux</category>
+  <category>Distributions</category>
+  <category>Nix</category>
+  <guid>https://biscotty.online/posts/linux/nix-docker-fhs/</guid>
+  <pubDate>Sun, 04 May 2025 06:00:00 GMT</pubDate>
+</item>
 <item>
   <title>GPS Mapping with R</title>
   <link>https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</link>
@@ -3653,6 +3698,57 @@ font-style: inherit;">"Stop points"</span>,</span>
   <guid>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/</guid>
   <pubDate>Mon, 03 Feb 2025 07:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny6.png" medium="image" type="image/png" height="87" width="144"/>
+</item>
+<item>
+  <title>NixOS: the Linux different</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/linux/nixos-linux-different/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="nixos-the-linux-different" class="level1">
+<h1>NixOS: The Linux Different</h1>
+<blockquote class="blockquote">
+<p>Toward NixOS - exploring the concepts behind the</p>
+</blockquote>
+<section id="how-different-really-different." class="level2">
+<h2 class="anchored" data-anchor-id="how-different-really-different.">How different? Really different.</h2>
+<p>After you’ve been working with with Linux long enough, you realize that all distributions are basically the same, at least under the hood. Different but similar package managers and different package repositories, different default desktop environments, and some kernel tweaks perhaps, but given a command line it is almost trivial to move from one distro to another.</p>
+<p>Not so with NixOS. Want to see what software is installed? You won’t find anything in <code>/usr/bin</code>, or any other typical <code>bin</code> or <code>opt</code> directory. Want to add an alias to <code>/etc/hosts</code>? That file, indeed everything in <code>/etc</code>, turns out to be read-only, even to root. Add a user with <code>useradd</code>? Nope. Install some software in a gui “App Store”, or even with a command like <code>apt install</code>? These don’t exist. In fact, many of your basic system administration skills are useless with NixOS without having access to the basics such as the FHS (file heirarchy standard) and the ability to edit configuration files. But, don’t be sad, your Linux skills are still important, because…</p>
+</section>
+<section id="its-still-linux" class="level2">
+<h2 class="anchored" data-anchor-id="its-still-linux">It’s still Linux</h2>
+<p>NixOS is, never-the-less, GNU/Linux just as much as is Fedora or Debian. It runs a Linux kernel with a GNU api. It has a large package repository, the largest of any, in fact. It even uses systemd. You can add any software that runs on Linux, and to an ordinary “end user”, the daily experience is the same as on any other distro. They might remark how stable and snappy it is, but their day to day workflow would not be different.</p>
+<p>Under the hood, though, everything is different on a fundamental level. NixOS has a learning curve more like that of a new operating system than a new Linux distribution. Which leads to an obvious question: why bother? I’ll be looking at many reasons, but one is that, once the Nix way is grokked, all of these admin tasks I mentioned become much simpler and straight-forward, more robust, easier to rollback, and fully reproducible. I guess that’s more than one reason.</p>
+</section>
+<section id="getting-a-little-personal" class="level2">
+<h2 class="anchored" data-anchor-id="getting-a-little-personal">Getting a little personal</h2>
+<p>For me, NixOS is a sort of culmination of why I turned to Linux decades ago. When Windows first came out, it was cool and all, but I felt like a veil had been drawn over the OS, which then became hidden and mysterious. Apple computers seemed even worse in this aspect. For some types of work, the graphical user interface was a great step forward. But for other things, the gui just obscured the underlying workings of the computer and made anything outside of typical usage to be more difficult. On top of that was the mysterious instability. With every system crash, I wanted to understand what was really going on so I could fix it.</p>
+<p>Then I discovered Linux, and more specifically Slackware, which uses a terminal and vi (elvis at the time) for all administrative tasks. The ability to understand exactly what a computer is doing, to configure it with text files, to install, and if necessary, build, software from the command line, was just what I was looking for. I even compiled my own kernel. After I started using other distros, I still never take more than a quick glance at their graphical admin tools like app stores and such. Give me the command line any day.</p>
+</section>
+<section id="aging-systems-and-other-problems" class="level2">
+<h2 class="anchored" data-anchor-id="aging-systems-and-other-problems">Aging systems and other problems</h2>
+<p>As experienced Linux users know, there are many issues which arise over time on any Linux system, such as software upgrades which create library version conflicts, problems which are made worse on shared systems. Cruft accumulates over time as uninstalls are rarely clean, especially with regard to program data files and directories. If you install and uninstall many programs, after a certain amount of time, it is difficult to be sure exactly what lingers in /etc, /usr/share, ~/.local, or anywhere else, for that matter. After a year of installing, uninstalling and configuring software, how can you be sure what is actually there? And when your new computer arrives, or you finally decide to do a clean install instead of a version upgrade, how much effort will it take to set it up exactly how you like it?</p>
+<p>Enter NixOS, where I can declare the entire operating system with text files! I can write down what I want, and know that that will be all there is on my system, despite what may have been there before. I can, for example, simply grep my configs to see everything installed and all configurations, without needing a special package manager tool. In fact, with NixOS, nothing is every really installed, upgraded, or uninstalled, not in the traditional sense anyway. Any of these activities generates a brand, spankin’ new system which entirely replaces the old one.</p>
+</section>
+<section id="embrace-the-difference" class="level2">
+<h2 class="anchored" data-anchor-id="embrace-the-difference">Embrace the difference</h2>
+<p>Here be dragons, but they are auspicious Chinese dragons, not scary English ones. The singular power of NixOS lies in the differences, so they are worth exploring. They involve ideas such as declarative, functional programming vs imperative, procedural programming, graphs vs stacks, immutable systems, atomic upgrades and containerized environments. Also, Nix/NixOS isn’t just one thing, it is a programming language (Nix), package manager (Nix), repository (nixpkgs), and operating system (NixOS).</p>
+<p>Exploring all these topics would be overwhelming in one article, so it is my intention to write an occasional series on each. None of these will be tutorials, rather they are intended as an introduction to the ideas necessary to understanding NixOS. As a practical matter, Nix the package manager and language can be installed on any computer and be experimented with, or even used as a primary package manager for your current system. NixOS also runs nicely in a virtual machine. To learn NixOS you’ll need to get your hands dirty, and for me at least, getting used to NixOS and configuring my system from the comfort of Fedora made the eventual switch to hardware completely painless, as I just needed to copy my configs to the new partition and build it, not repeat my work. Don’t rush, enjoy the learning.</p>
+<p>NixOS is not for everyone. The imperative paradigm has worked reasonably well for decades, and has the virtue of familiarity, so there is no imperative to change ;-). But if, like me, you prize stability, clarity, and simplicity, if you find change and learning new ways to be stimulating, and if you know that the most interesting things in life are on roads less traveled, you will be delighted by NixOS.</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Linux</category>
+  <category>Distributions</category>
+  <guid>https://biscotty.online/posts/linux/nixos-linux-different/</guid>
+  <pubDate>Mon, 10 Jun 2024 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Obsidian and Jupyter Notebooks</title>
@@ -8341,174 +8437,6 @@ font-style: inherit;">flatpak</span> install flathub com.github.zocker_160.SyncT
   <guid>https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/</guid>
   <pubDate>Mon, 28 Aug 2023 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/SyncThing.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
-  <title>Obsidian Basics - Headers</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/obsidian-headers/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Besides the actual content of a note, the most important elements in notes are the headers. More than just enhancing visual presentation of your information, headers give access to a variety of useful functionality. In this article, I will discuss the value of headers as well as the mechanics of using them.</p>
-<section id="creating-headers" class="level1">
-<h1>Creating Headers</h1>
-<p>A Header is created by starting a line with from 1 to 6 pound signs (<code>#</code>) followed by a space. (When you enter your first <code>#</code> sign, Obsidian will think you are entering a tag and will present you with a drop-down suggesting tags. Just ignore this, type <code>Space</code> or another <code>#</code>, and it will go away.)</p>
-<p>There are six levels of headers available, determined by how many # signs you use. Headers can be nested, allowing them to function like an outline. They create sections in your document.</p>
-<p>As an example, an outline like:</p>
-<pre><code>I. Main Subject
-  A. First topic
-    1. Point 1
-    2. Point 2
-  B. Second topic
-    1. Point 1
-    2. Point 2</code></pre>
-<p>would be represented in your note with Headers like this:</p>
-<pre><code># Main Subject
-## First topic
-### Point 1
-### Point 2
-## Second topic
-### Point 1
-### Point 2</code></pre>
-<p>If you are familiar with html, this is the same as</p>
-<pre><code>&lt;h1&gt;Main Subject&lt;/h1&gt;
-&lt;h2&gt;First topic&lt;/h2&gt;
-&lt;h3&gt;Point 1&lt;/h3&gt;
-&lt;h3&gt;Point 2&lt;/h3&gt;
-&lt;h2&gt;Second topic&lt;/h2&gt;
-&lt;h3&gt;Point 1&lt;/h3&gt;
-&lt;h3&gt;Point 2&lt;/h3&gt;</code></pre>
-<p>NB. Obsidian can read HTML just fine. Try entering the HTML above into a note and, in Read or Preview Mode, you will see that the result is the same as when using the pound signs.</p>
-</section>
-<section id="value-of-headers" class="level1">
-<h1>Value of Headers</h1>
-<p>The mechanics of using Headers are pretty simple, but I’d like to explain what Headers are good for besides just looking pretty. They provide:</p>
-<ol type="1">
-<li><strong>Structure</strong></li>
-<li><strong>Navigational aid</strong> via an auto-generated table of contents</li>
-<li><strong>Folding</strong> as a way to easily hide sections of text</li>
-<li><strong>Reference hooks</strong> which can be directly linked to from other notes</li>
-</ol>
-<section id="structure" class="level2">
-<h2 class="anchored" data-anchor-id="structure">Structure</h2>
-<p>Headers allow you to divide your note in logical sections. You can use them like you would an outline, as described above. Every note should, at a minimum, a level one header at the beginning with a title for the note.</p>
-<p>Obsidian helps me organize my thoughts. A note often “starts life” as a sentence or two that I “jotted down” when the thought came to me. When I return to the note, if I still find it interesting, the first thing I do is give it a title (level one header). It summarizes the purpose of the note succinctly, and for a simple, atomic note, that may be all I need, although I might want to include some reference information, in which case I create two level-two headers, one for content, one for references. And so on…</p>
-<p>However, for more complex notes which are not atomic, developing the note almost always involves breaking down the idea into parts. This is the purpose of headers. If you’re one of those people who like to start with an outline, start a new document with a bunch of headers. Even if you don’t, as you work on documents you will naturally need to break things down into smaller ideas…headers help you structure your thinking.</p>
-</section>
-<section id="navigation" class="level2">
-<h2 class="anchored" data-anchor-id="navigation">Navigation</h2>
-<p>If you open your right sidebar and click on the Outline icon, you will see the table of contents panel with an outline created by your headers. Clicking on any item will take you to that section of the document. Subsections can be folded in the panel by clicking on the down arrow to the left of the section. This is very useful for long documents.</p>
-</section>
-<section id="folding" class="level2">
-<h2 class="anchored" data-anchor-id="folding">Folding</h2>
-<p>If you move your cursor over a header in your document, you will see a down arrow to the left of the header. This is a toggle which allows you to collapse (hide) or expand (show) a section’s content.</p>
-<p>A section includes all content up to the next Header of the same level or higher. So a level 3 section would include all content up until the next level 3 Header, or a level 2 or 1 Header. This can be confusing to explain, but if you experiment a little it should be clear.</p>
-<p>There are commands that allow you to work more easily with folds. If you go into the command palette (Ctrl-P) you will see four commands which allow you to expand and collapse folds.</p>
-<p><img src="https://biscotty.online/posts/obsidian/obsidian-headers/ScreenForHeaders.png" class="img-fluid"></p>
-<p>These commands are really only useful if you assign them hotkeys. If you do so you will find that navigating long documents becomes very quick, assuming that Headers are well-used.</p>
-</section>
-<section id="hooks-for-links" class="level2">
-<h2 class="anchored" data-anchor-id="hooks-for-links">Hooks for Links</h2>
-<p>The final aspect of headers I’d like to mention is their use as reference hooks for links. When linking to another note, you can directly link to a header and therefore to a section. When creating a link, directly after the name of the note and inside the square brackets, you can type <code>#</code> and you will get a drop-down list of all the headers in the note. You can select one of these headers. Then the embedded document will only display that section in your current note. Similarly, hovering over the link and pressing <code>Ctrl</code> (if using the Hover Editor plugin) will display that section. More advanced plugins like dataview can also reference Headers.</p>
-<p>NB. You can also link directly to paragraphs by using <code>#^</code> after the note’s name.</p>
-</section>
-</section>
-<section id="closing-thoughts" class="level1">
-<h1>Closing Thoughts</h1>
-<p>Headers are simple yet powerful. They help me organize and structure my thoughts and ideas. They are the first step in working with Obsidian.</p>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>Obsidian</category>
-  <guid>https://biscotty.online/posts/obsidian/obsidian-headers/</guid>
-  <pubDate>Sun, 27 Aug 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/obsidian-headers/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
-  <title>Obsidian: Stop Wasting Time With Directories and Filenames</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="the-problem" class="level1">
-<h1>The Problem</h1>
-<p>Because we’ve all used computers, when we think of organizing our stuff we naturally think in terms of files and directories, and are aware of the value of descriptive file names. Personally, if I even need to scroll down to see all the files in a single directory, it’s probably time for a subdirectory. And I’m equally unsettled when I see files with meaningless or unclear names. Many people like me explore various systems like PARA, ACCESS, LATCH, etc. to organize our stuff.</p>
-<p>To be explicit, the stuff referred to here is files. But we use Obsidian for information management, not file management.</p>
-<p>Obsidian stores information, but it’s not a database, at least not an SQL database. It is essentially a NoSQL database (more on that in Part 2 and 3). It stores information in text files, but it doesn’t care where the files are nor what they are called. So why should we care?</p>
-<p>I should point out that the word “notes” can mean two different things, really: the file or the information it contains. Decoupling the two meanings, I really only care about the information. The file must exist, of course, but it is not important. What is important is the information in it.</p>
-<p>If I think in terms of files, I need to spend time thinking about file names and locations, both when recording and retrieving information. I need to navigate to files and directories and/or think about and type out file names. This is all wasted time because, again, the files aren’t important, it’s the information in them that I care about.</p>
-<p>Obsidian is powerful and allows us to work with our information in many ways without stopping our flow of thought to worry about files. Stop spending your time in the Navigation pane and start using Search and Bookmarks. That way, you can focus all your attention where it should be, on your information.</p>
-</section>
-<section id="information-first" class="level1">
-<h1>Information First</h1>
-<p>Ok, full disclosure, I do use two directories in my vault, one for templates and one for non-md files. Templates would be impractical to use lumped with all the other files. And attachments aren’t native Obsidian formats and raise other maintenance issues.</p>
-<p>Obsidian offers core functionality that allows me to ignore files and focus on information. I’m referring to Search, Bookmarks and Unique Notes. The latter is effectively invisible in articles and videos, and the other two rarely come up. This is especially surprising with regard to Search because that’s the most efficient and powerful way to find information in your vault. Most presenters use Quick Switcher or the Navigator to create and access files in order to create or access information. This is an extra step, wasting time and energy and impeding the flow of thought.</p>
-<p><code>Ctrl-Shft-F</code> is all I need to do to start querying my information. I don’t need to open any files, I just start typing what I’m looking for. If I think I might look for the same or similar information later, I can bookmark the filter.</p>
-<p>When I want to write something down, I hit <code>Ctrl-U</code> (I’ve got an assigned hotkey), type my thought, then immediately return to my reading. Again, I don’t have to think about files and directories. It’s that simple, fast, and does not impede my thinking with irrelevant considerations and extra keystrokes.</p>
-</section>
-<section id="search" class="level1">
-<h1>Search</h1>
-<p>Simply typing the word or phrase I’m looking for in the search field will bring up all directly relevant notes on my topic. In case of TMI, I can specify that the terms should be in the same section or the same line. With Hover Editor, I can see the contents of each file listed without opening it, and even modify content directly if I want. I don’t need to actually open a file to get the information I’m looking for, or even modify it.</p>
-<p>Search filters are just as powerful as Dataview queries. I can use logical AND, OR and NOT, group them with parentheses and sort by modified date. I can include or exclude based on any criteria (WHERE) and specify source (FROM). And I can save the filters as bookmarks. This way I don’t need to have a file that contains a query. The query results don’t “live” in a file, either. I do use Dataview queries frequently to aggregate information that I want to display information in notes. I do not use it to aggregate files that I want to interact with. That’s what Search is for.</p>
-</section>
-<section id="bookmarks" class="level1">
-<h1>Bookmarks</h1>
-<p>I can bookmark files, of course, but I don’t… instead I bookmark sections or blocks (information, not files). I can also bookmark searches and graphs, and organize bookmarks in directories and subdirectories. In most of the videos I see, people have the Navigator panel open “by default”. For me, it’s the bookmarks panel. The Bookmarks panel provides an information tree, the Navigator panel provides a file tree. I want the information tree.</p>
-<p>I can use bookmarks and metadata to mimic directories if I want. My new notes used to go in a certain directory called +, and I had an “Inbox” note with a Dataview query to display the notes. The default template I now apply to every new note contains a field status:: new. I have also bookmarked a search filter “status:: new”. To see all of my new notes, I don’t need to open a directory or go to a file containing a Dataview query. All I need to do is click on the bookmark.</p>
-<p>Any useful search can be bookmarked. I have a bookmark, “action”, for example, which shows all files requiring attention. I always have many bookmarked searches and graphs related to topics I’m focused on, organized in virtual directories.</p>
-</section>
-<section id="unique-notes" class="level1">
-<h1>Unique Notes</h1>
-<p>Most people are unfamiliar with Unique Notes, even though it is a core plugin. This plugin will generate a new file with a unique name in a pre-defined location and automatically apply a specified template. The idea of randomly-named files dumped in one directory does seem scary, but don’t worry. The default template is, for me at least, entirely metadata. Metadata can be either frontmatter or double-colon in-line style. My template currently looks like this:</p>
-<pre><code>%%
-topic-ex::
-related-ex::
-created-ex:: &lt;% tp.date.now("YYYY-MM-DD") %&gt;
-last edit-ex::
-type-ex:: article
-status-ex:: 0
-source-ex::
-title-ex::
-link-ex::
-action-ex:: false
-%%</code></pre>
-<p>topic and related take meaningfully named links, possibly to non-existent files (Obsidian doesn’t care about existence either). type can be atomic, moc, log, etc. Everything else should be self-explanatory. I don’t have to fill any of this in when I’m making notes. I can just jot down the thought and keep reading and thinking. And I can get back to them later by opening my bookmarked “status:: new” search. When I revisit the note to make it atomic, I can fill in the rest of the fields.</p>
-<p>With this plugin, as I said earlier, I just press Ctrl-U and start writing my information without ever thinking about file names and directories.</p>
-<p>Efficiency Tip: When I’m reading a book or article, knowing I will take several notes in succession from the same source, I temporarily edit the default template to include basic information like source, title, etc. so I don’t have to type what is essentially boilerplate when I process the note and make it atomic.</p>
-</section>
-<section id="try-it-out-without-commitment" class="level1">
-<h1>Try it out without commitment</h1>
-<p>Since I started with Obsidian, I’ve changed the way I work multiple times. But rarely do I need to “clean up” old notes. For example, as my logging system has evolved, I have left all my old logs and their related Dataview queries in place, adding the newly written queries above them. It just means I have multiple query blocks instead of one in my Exercise Note, for example, but the information displayed remains the same.</p>
-<p>Fuller disclosure: I actually have more directories in my vault than just templates and attachments. I used to use the ACCESS directory structure and have many, many notes. When I switched to this information first way, I stopped caring about files, remember, and I didn’t want to start this journey by launching into a massive exercise of moving files around, and adding metadata to all my old notes. That would be unacceptably ironic.</p>
-<p>Obsidian is truly a compassionate ally. Very little needs to be done. I had to re-write some queries, as mentioned above. But any Dataview queries which aggregated files instead of information are no longer necessary anyway. For example, my Inbox note that displayed my new notes became irrelevant, since I now have a bookmarked filter, “status:: new”. If directory locations were really important in some queries, just add “(path:old-directory) OR” to your filters.</p>
-<p>You could just continue to keep your Calendar notes in the same place as you do now, for that matter, or any other plugin that already has directory locations specified in settings. There is no need to be doctrinaire and rigid, after all, since we don’t care about directories anyway. Keep it simple, flexible, and don’t waste time on things that don’t add value.</p>
-<p>Finally, I’ll point out that I didn’t give up on meaningful file names, just at the point of initially writing down an idea. One step in processing a note to ensure its completion and atomicity is to change the name of the file. At the processing stage, choosing a name does not interrupt the flow of thinking, but complements it, since it helps encapsulate an idea and solidify my understanding. It’s just not something to do when making a fleeting note, that’s all. And the name will be useful later.</p>
-</section>
-<section id="closing-thoughts" class="level1">
-<h1>Closing Thoughts</h1>
-<p>This article covers recording and retrieval of information. The second part covers how to analyze and synthesize information with this system.</p>
-<p>I hope I have convinced you at least to give it a try. Obsidian offers so many ways for us to free our thinking and focus on information and flow of thought. Keep the file tree closed, instead use the information tree.</p>
-<p>I am aware that this topic may be controversial because it goes so clearly against most of the approaches proposed on the internet. I do not mean any disrespect to the authors and videographers who have helped and inspired my journey with Obsidian, and to whom I am grateful.</p>
-<p>Continue to <a href="http://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-2">Part 2</a></p>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>Obsidian</category>
-  <category>PKM</category>
-  <guid>https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/</guid>
-  <pubDate>Thu, 24 Aug 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/fyt-cover.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

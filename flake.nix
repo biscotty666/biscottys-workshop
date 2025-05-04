@@ -31,6 +31,8 @@
             rPackages.maps
             rPackages.leafsync
             rPackages.elevatr
+            rPackages.trackeR
+            rPackages.zoo
             rPackages.patchwork
             rPackages.postcards
             rPackages.XML
