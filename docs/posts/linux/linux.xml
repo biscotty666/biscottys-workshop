@@ -15,7 +15,7 @@
   <title>The FHS Problem</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/posts/linux/nix-docker-fhs/</link>
-  <description><![CDATA[ Two different approaches to the problem of the File Heirarchy Standard ]]></description>
+  <description><![CDATA[ Two different approaches to the problem of the Filesystem Heirarchy Standard ]]></description>
   <category>Linux</category>
   <category>Distributions</category>
   <category>Nix</category>
