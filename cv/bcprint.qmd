@@ -1,0 +1,12 @@
+---
+title: "Brian Carey"
+format:
+  pdf: 
+    toc: true
+    number-sections: true
+    colorlinks: true
+---
+
+{{< include brian-carey.qmd >}}
+
+{{< include vignettes/closing-the-books/index.qmd >}}
