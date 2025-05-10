@@ -9,13 +9,1321 @@
 <link>https://biscotty.online/posts/posts.html</link>
 <atom:link href="https://biscotty.online/posts/posts.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
-<generator>quarto-1.6.43</generator>
-<lastBuildDate>Sun, 04 May 2025 06:00:00 GMT</lastBuildDate>
+<generator>quarto-1.7.30</generator>
+<lastBuildDate>Fri, 09 May 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Segregation and diversity in Albuquerque</title>
+  <link>https://biscotty.online/posts/data-science/diversity/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<section id="modeling-segregation-and-diversity" class="level1">
+<h1>Modeling segregation and diversity</h1>
+<p>Albuquerque had 565K citizens according to the 2020 census<sup>1</sup>, with an estimated 2023 population of 560K, representing a slight decline. As a comparison, Atlanta, Georgia, with a population under 500K in 2020, is estimated to have grown nearly 2.43% to 511K in 2023. This article will compare these two cities of comparable size and geography in terms of income, segregation, and racial diversity. Both cities are the largest in their states.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidycensus)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(segregation)</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tigris)</span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(sf)</span>
+<span id="cb1-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">options</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">tigris_use_cache=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="data-preparation" class="level1">
+<h1>Data Preparation</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">nm_acs_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">get_acs</span>(</span>
+<span id="cb2-2">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">geography =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"tract"</span>,</span>
+<span id="cb2-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">variables =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(</span>
+<span id="cb2-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">white =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B03002_003"</span>,</span>
+<span id="cb2-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">black =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B03002_004"</span>,</span>
+<span id="cb2-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">native =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B03002_005"</span>,</span>
+<span id="cb2-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">asian =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B03002_006"</span>,</span>
+<span id="cb2-8">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">hispanic =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B03002_012"</span></span>
+<span id="cb2-9">  ),</span>
+<span id="cb2-10">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">state =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"NM"</span>,</span>
+<span id="cb2-11">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">geometry =</span> T,</span>
+<span id="cb2-12">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">year =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2023</span></span>
+<span id="cb2-13">)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Getting data from the 2019-2023 5-year ACS</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Downloading feature geometry from the Census website.  To cache shapefiles for use in future sessions, set `options(tigris_use_cache = TRUE)`.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">ga_acs_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">get_acs</span>(</span>
+<span id="cb5-2">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">geography =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"tract"</span>,</span>
+<span id="cb5-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">variables =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(</span>
+<span id="cb5-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">white =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B03002_003"</span>,</span>
+<span id="cb5-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">black =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B03002_004"</span>,</span>
+<span id="cb5-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">native =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B03002_005"</span>,</span>
+<span id="cb5-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">asian =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B03002_006"</span>,</span>
+<span id="cb5-8">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">hispanic =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B03002_012"</span></span>
+<span id="cb5-9">  ),</span>
+<span id="cb5-10">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">state =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"GA"</span>,</span>
+<span id="cb5-11">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">geometry =</span> T,</span>
+<span id="cb5-12">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">year =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2023</span></span>
+<span id="cb5-13">)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Getting data from the 2019-2023 5-year ACS
+Downloading feature geometry from the Census website.  To cache shapefiles for use in future sessions, set `options(tigris_use_cache = TRUE)`.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">us_urban_areas <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">get_acs</span>(</span>
+<span id="cb7-2">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">geography =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"urban area"</span>,</span>
+<span id="cb7-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">variables =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B01001_001"</span>,</span>
+<span id="cb7-4">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">geometry =</span> T,</span>
+<span id="cb7-5">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">year =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2019</span>,</span>
+<span id="cb7-6">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">survey =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"acs1"</span></span>
+<span id="cb7-7">) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb7-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(estimate <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">500000</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb7-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">transmute</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">urban_name =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_remove</span>(NAME,</span>
+<span id="cb7-10">                                    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fixed</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">", NM Urbanized Area (2010)"</span>)))</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Getting data from the 2019 1-year ACS</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The 1-year ACS provides data for geographies with populations of 65,000 and greater.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Downloading feature geometry from the Census website.  To cache shapefiles for use in future sessions, set `options(tigris_use_cache = TRUE)`.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |                                                                      |   1%
+  |                                                                            
+  |=                                                                     |   1%
+  |                                                                            
+  |=                                                                     |   2%
+  |                                                                            
+  |==                                                                    |   2%
+  |                                                                            
+  |==                                                                    |   3%
+  |                                                                            
+  |===                                                                   |   4%
+  |                                                                            
+  |===                                                                   |   5%
+  |                                                                            
+  |====                                                                  |   5%
+  |                                                                            
+  |====                                                                  |   6%
+  |                                                                            
+  |=====                                                                 |   7%
+  |                                                                            
+  |=====                                                                 |   8%
+  |                                                                            
+  |======                                                                |   8%
+  |                                                                            
+  |======                                                                |   9%
+  |                                                                            
+  |=======                                                               |   9%
+  |                                                                            
+  |=======                                                               |  10%
+  |                                                                            
+  |=======                                                               |  11%
+  |                                                                            
+  |========                                                              |  11%
+  |                                                                            
+  |========                                                              |  12%
+  |                                                                            
+  |=========                                                             |  12%
+  |                                                                            
+  |=========                                                             |  13%
+  |                                                                            
+  |==========                                                            |  14%
+  |                                                                            
+  |==========                                                            |  15%
+  |                                                                            
+  |===========                                                           |  15%
+  |                                                                            
+  |===========                                                           |  16%
+  |                                                                            
+  |============                                                          |  17%
+  |                                                                            
+  |============                                                          |  18%
+  |                                                                            
+  |=============                                                         |  18%
+  |                                                                            
+  |=============                                                         |  19%
+  |                                                                            
+  |==============                                                        |  19%
+  |                                                                            
+  |==============                                                        |  20%
+  |                                                                            
+  |==============                                                        |  21%
+  |                                                                            
+  |===============                                                       |  21%
+  |                                                                            
+  |===============                                                       |  22%
+  |                                                                            
+  |================                                                      |  22%
+  |                                                                            
+  |================                                                      |  23%
+  |                                                                            
+  |================                                                      |  24%
+  |                                                                            
+  |=================                                                     |  24%
+  |                                                                            
+  |=================                                                     |  25%
+  |                                                                            
+  |==================                                                    |  25%
+  |                                                                            
+  |==================                                                    |  26%
+  |                                                                            
+  |===================                                                   |  26%
+  |                                                                            
+  |===================                                                   |  27%
+  |                                                                            
+  |===================                                                   |  28%
+  |                                                                            
+  |====================                                                  |  28%
+  |                                                                            
+  |====================                                                  |  29%
+  |                                                                            
+  |=====================                                                 |  29%
+  |                                                                            
+  |=====================                                                 |  30%
+  |                                                                            
+  |=====================                                                 |  31%
+  |                                                                            
+  |======================                                                |  31%
+  |                                                                            
+  |======================                                                |  32%
+  |                                                                            
+  |=======================                                               |  32%
+  |                                                                            
+  |=======================                                               |  33%
+  |                                                                            
+  |=======================                                               |  34%
+  |                                                                            
+  |========================                                              |  34%
+  |                                                                            
+  |========================                                              |  35%
+  |                                                                            
+  |=========================                                             |  35%
+  |                                                                            
+  |=========================                                             |  36%
+  |                                                                            
+  |==========================                                            |  36%
+  |                                                                            
+  |==========================                                            |  37%
+  |                                                                            
+  |==========================                                            |  38%
+  |                                                                            
+  |===========================                                           |  38%
+  |                                                                            
+  |===========================                                           |  39%
+  |                                                                            
+  |============================                                          |  39%
+  |                                                                            
+  |============================                                          |  40%
+  |                                                                            
+  |============================                                          |  41%
+  |                                                                            
+  |=============================                                         |  41%
+  |                                                                            
+  |=============================                                         |  42%
+  |                                                                            
+  |==============================                                        |  42%
+  |                                                                            
+  |==============================                                        |  43%
+  |                                                                            
+  |==============================                                        |  44%
+  |                                                                            
+  |===============================                                       |  44%
+  |                                                                            
+  |===============================                                       |  45%
+  |                                                                            
+  |================================                                      |  45%
+  |                                                                            
+  |================================                                      |  46%
+  |                                                                            
+  |=================================                                     |  46%
+  |                                                                            
+  |=================================                                     |  47%
+  |                                                                            
+  |=================================                                     |  48%
+  |                                                                            
+  |==================================                                    |  48%
+  |                                                                            
+  |==================================                                    |  49%
+  |                                                                            
+  |===================================                                   |  49%
+  |                                                                            
+  |===================================                                   |  50%
+  |                                                                            
+  |===================================                                   |  51%
+  |                                                                            
+  |====================================                                  |  51%
+  |                                                                            
+  |====================================                                  |  52%
+  |                                                                            
+  |=====================================                                 |  52%
+  |                                                                            
+  |=====================================                                 |  53%
+  |                                                                            
+  |=====================================                                 |  54%
+  |                                                                            
+  |======================================                                |  54%
+  |                                                                            
+  |======================================                                |  55%
+  |                                                                            
+  |=======================================                               |  55%
+  |                                                                            
+  |=======================================                               |  56%
+  |                                                                            
+  |========================================                              |  56%
+  |                                                                            
+  |========================================                              |  57%
+  |                                                                            
+  |========================================                              |  58%
+  |                                                                            
+  |=========================================                             |  58%
+  |                                                                            
+  |=========================================                             |  59%
+  |                                                                            
+  |==========================================                            |  59%
+  |                                                                            
+  |==========================================                            |  60%
+  |                                                                            
+  |==========================================                            |  61%
+  |                                                                            
+  |===========================================                           |  61%
+  |                                                                            
+  |===========================================                           |  62%
+  |                                                                            
+  |============================================                          |  62%
+  |                                                                            
+  |============================================                          |  63%
+  |                                                                            
+  |============================================                          |  64%
+  |                                                                            
+  |=============================================                         |  64%
+  |                                                                            
+  |=============================================                         |  65%
+  |                                                                            
+  |==============================================                        |  65%
+  |                                                                            
+  |==============================================                        |  66%
+  |                                                                            
+  |===============================================                       |  66%
+  |                                                                            
+  |===============================================                       |  67%
+  |                                                                            
+  |===============================================                       |  68%
+  |                                                                            
+  |================================================                      |  68%
+  |                                                                            
+  |================================================                      |  69%
+  |                                                                            
+  |=================================================                     |  69%
+  |                                                                            
+  |=================================================                     |  70%
+  |                                                                            
+  |=================================================                     |  71%
+  |                                                                            
+  |==================================================                    |  71%
+  |                                                                            
+  |==================================================                    |  72%
+  |                                                                            
+  |===================================================                   |  72%
+  |                                                                            
+  |===================================================                   |  73%
+  |                                                                            
+  |===================================================                   |  74%
+  |                                                                            
+  |====================================================                  |  74%
+  |                                                                            
+  |====================================================                  |  75%
+  |                                                                            
+  |=====================================================                 |  75%
+  |                                                                            
+  |=====================================================                 |  76%
+  |                                                                            
+  |======================================================                |  76%
+  |                                                                            
+  |======================================================                |  77%
+  |                                                                            
+  |======================================================                |  78%
+  |                                                                            
+  |=======================================================               |  78%
+  |                                                                            
+  |=======================================================               |  79%
+  |                                                                            
+  |========================================================              |  79%
+  |                                                                            
+  |========================================================              |  80%
+  |                                                                            
+  |========================================================              |  81%
+  |                                                                            
+  |=========================================================             |  81%
+  |                                                                            
+  |=========================================================             |  82%
+  |                                                                            
+  |==========================================================            |  82%
+  |                                                                            
+  |==========================================================            |  83%
+  |                                                                            
+  |==========================================================            |  84%
+  |                                                                            
+  |===========================================================           |  84%
+  |                                                                            
+  |===========================================================           |  85%
+  |                                                                            
+  |============================================================          |  85%
+  |                                                                            
+  |============================================================          |  86%
+  |                                                                            
+  |=============================================================         |  87%
+  |                                                                            
+  |=============================================================         |  88%
+  |                                                                            
+  |==============================================================        |  88%
+  |                                                                            
+  |==============================================================        |  89%
+  |                                                                            
+  |===============================================================       |  89%
+  |                                                                            
+  |===============================================================       |  90%
+  |                                                                            
+  |===============================================================       |  91%
+  |                                                                            
+  |================================================================      |  91%
+  |                                                                            
+  |================================================================      |  92%
+  |                                                                            
+  |=================================================================     |  92%
+  |                                                                            
+  |=================================================================     |  93%
+  |                                                                            
+  |==================================================================    |  94%
+  |                                                                            
+  |==================================================================    |  95%
+  |                                                                            
+  |===================================================================   |  95%
+  |                                                                            
+  |===================================================================   |  96%
+  |                                                                            
+  |====================================================================  |  97%
+  |                                                                            
+  |====================================================================  |  98%
+  |                                                                            
+  |===================================================================== |  98%
+  |                                                                            
+  |===================================================================== |  99%
+  |                                                                            
+  |======================================================================|  99%
+  |                                                                            
+  |======================================================================| 100%</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Join tracts and urbanized areas</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">nm_urban_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> nm_acs_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb12-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">st_join</span>(us_urban_areas, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">left =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb12-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>NAME) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb12-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">st_drop_geometry</span>()</span>
+<span id="cb12-5">ga_urban_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ga_acs_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb12-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">st_join</span>(us_urban_areas, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">left =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb12-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>NAME) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb12-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">st_drop_geometry</span>()</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(nm_urban_data)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         GEOID variable estimate moe  urban_name
+11 35001002402    white      502 156 Albuquerque
+12 35001002402    black      300 342 Albuquerque
+13 35001002402   native      483 409 Albuquerque
+14 35001002402    asian       24  41 Albuquerque
+15 35001002402 hispanic     6373 880 Albuquerque
+31 35001000712    white     1868 295 Albuquerque</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(ga_urban_data)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         GEOID variable estimate moe                        urban_name
+31 13089023212    white       76  58 Atlanta, GA Urbanized Area (2010)
+32 13089023212    black     3253 888 Atlanta, GA Urbanized Area (2010)
+33 13089023212   native        0  14 Atlanta, GA Urbanized Area (2010)
+34 13089023212    asian        0  14 Atlanta, GA Urbanized Area (2010)
+35 13089023212 hispanic       78  77 Atlanta, GA Urbanized Area (2010)
+36 13089020500    white     1893 479 Atlanta, GA Urbanized Area (2010)</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">us_urban_areas <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span>   </span>
+<span id="cb17-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">transmute</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">urban_name =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_remove</span>(urban_name,</span>
+<span id="cb17-3">                                    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fixed</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">", GA Urbanized Area (2010)"</span>))) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb17-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(</span></code></pre></div>
+</div>
+</section>
+<section id="income-race" class="level1">
+<h1>Income, Race</h1>
+</section>
+<section id="immigration---domestic-international" class="level1">
+<h1>Immigration - domestic, international</h1>
+</section>
+<section id="dissimilarity-index" class="level1">
+<h1>Dissimilarity index</h1>
+<p><img src="https://latex.codecogs.com/png.latex?%0AD%20=%20%5Cfrac%7B1%7D%7B2%7D%5Csum_%7Bi=1%7D%5EN%5Cleft%7C%20%5Cfrac%7Ba_i%7D%7BA%7D-%5Cfrac%7Bb_i%7D%7BB%7D%20%5Cright%7C%0A"></p>
+<p>where ai represents the population of group A in a given areal unit i; A is the total population of that group in the study region (e.g.&nbsp;a metropolitan area); and bi and B are the equivalent metrics for the second group. The index ranges from a low of 0 to a high of 1, where 0 represents perfect integration between the two groups and 1 represents complete segregation. This index is implemented in the <strong>segregation</strong> package with the <a href="https://elbersb.github.io/segregation/reference/dissimilarity.html"><code>dissimilarity()</code></a> function.</p>
+<blockquote class="blockquote">
+<p>Dissimilarity White and Hispanic in Albuquerque</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">nm_urban_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> nm_urban_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb18-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">urban_name =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_remove</span>(urban_name,</span>
+<span id="cb18-3">                                    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fixed</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">", TX--NM Urbanized Area (2010)"</span>)))</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1">nm_urban_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb19-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(variable <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"white"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hispanic"</span>),</span>
+<span id="cb19-3">         urban_name <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Albuquerque"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb19-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dissimilarity</span>(</span>
+<span id="cb19-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">group =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"variable"</span>,</span>
+<span id="cb19-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">unit =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"GEOID"</span>,</span>
+<span id="cb19-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">weight =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"estimate"</span></span>
+<span id="cb19-8">  )</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     stat       est
+   &lt;char&gt;     &lt;num&gt;
+1:      D 0.3456209</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>The same exercise for SF-Oakland gives D = 0.5135526</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1">nm_urban_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb21-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(variable <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"white"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hispanic"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb21-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(urban_name) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb21-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_modify</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span></span>
+<span id="cb21-5">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dissimilarity</span>(.x,</span>
+<span id="cb21-6">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">group =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"variable"</span>,</span>
+<span id="cb21-7">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">unit =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"GEOID"</span>,</span>
+<span id="cb21-8">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">weight =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"estimate"</span></span>
+<span id="cb21-9">    )</span>
+<span id="cb21-10">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb21-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">arrange</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">desc</span>(est))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+# Groups:   urban_name [2]
+  urban_name  stat    est
+  &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt;
+1 El Paso     D     0.379
+2 Albuquerque D     0.346</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>El Paso is much more segregated than Albuquerque</p>
+</blockquote>
+</section>
+<section id="multigroup-segregation-indices" class="level1">
+<h1>Multigroup segregation indices</h1>
+<p>Mutual Information Index <img src="https://latex.codecogs.com/png.latex?M">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AM(%5Ctext%7BT%7D)%20=%20%5Csum_%7Bu=1%7D%5EU%20%5Csum_%7Bg=1%7D%5EG%20p_%7Bug%7D%5Clog%5Cfrac%7Bp_%7Bug%7D%7D%7Bp_u%20p_g%7D%0A"></p>
+<p>where U is the total number of units u, G is the total number of groups g, and pug is the joint probability of being in unit u and group g, with pu and pg referring to unit and group probabilities.</p>
+<p>Theil’s H:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AH(%5Ctext%7BT%7D)%20=%20%5Cfrac%7BM(%5Ctext%7BT%7D)%7D%7BE(%5Ctext%7BT%7D)%7D%0A"></p>
+<p>where E(T) is the entropy of T, normalizing H to range between values of 0 and 1.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutual_within</span>(</span>
+<span id="cb23-2">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> nm_urban_data,</span>
+<span id="cb23-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">group =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"variable"</span>,</span>
+<span id="cb23-4">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">unit =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"GEOID"</span>,</span>
+<span id="cb23-5">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">weight =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"estimate"</span>,</span>
+<span id="cb23-6">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">within =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"urban_name"</span>,</span>
+<span id="cb23-7">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">wide =</span> T</span>
+<span id="cb23-8">)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Key: &lt;urban_name&gt;
+    urban_name          M          p         H ent_ratio
+        &lt;char&gt;      &lt;num&gt;      &lt;num&gt;     &lt;num&gt;     &lt;num&gt;
+1: Albuquerque 0.16086148 0.94979329 0.1536902 1.0166363
+2:     El Paso 0.03164876 0.05020671 0.1117530 0.2750789</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Why are these results seemingly opposite of the single-group comparison?</p>
+<p><code>mutual_local</code> breaks down the M into unit-level scores</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">abq_local_seg <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span>  nm_urban_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb25-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(urban_name <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Albuquerque"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb25-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutual_local</span>(</span>
+<span id="cb25-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">group =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"variable"</span>,</span>
+<span id="cb25-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">unit =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"GEOID"</span>,</span>
+<span id="cb25-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">weight =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"estimate"</span>,</span>
+<span id="cb25-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">wide =</span> T</span>
+<span id="cb25-8">  )</span>
+<span id="cb25-9"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(abq_local_seg)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Key: &lt;GEOID&gt;
+         GEOID         ls           p
+        &lt;char&gt;      &lt;num&gt;       &lt;num&gt;
+1: 35001000107 0.21556847 0.003364880
+2: 35001000108 0.19278193 0.003226740
+3: 35001000109 0.04803853 0.003106845
+4: 35001000110 0.08410854 0.004274518
+5: 35001000111 0.10492105 0.003953929
+6: 35001000112 0.30237019 0.002378352</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1">abq_tracts_seg <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tracts</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"NM"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cb =</span> T, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">year =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2019</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb27-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">inner_join</span>(abq_local_seg, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"GEOID"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |==                                                                    |   3%
+  |                                                                            
+  |====                                                                  |   6%
+  |                                                                            
+  |======                                                                |   9%
+  |                                                                            
+  |========                                                              |  11%
+  |                                                                            
+  |========                                                              |  12%
+  |                                                                            
+  |==========                                                            |  15%
+  |                                                                            
+  |============                                                          |  17%
+  |                                                                            
+  |==============                                                        |  20%
+  |                                                                            
+  |================                                                      |  23%
+  |                                                                            
+  |==================                                                    |  26%
+  |                                                                            
+  |====================                                                  |  29%
+  |                                                                            
+  |======================                                                |  32%
+  |                                                                            
+  |========================                                              |  35%
+  |                                                                            
+  |==========================                                            |  38%
+  |                                                                            
+  |============================                                          |  40%
+  |                                                                            
+  |==============================                                        |  43%
+  |                                                                            
+  |================================                                      |  46%
+  |                                                                            
+  |==================================                                    |  49%
+  |                                                                            
+  |====================================                                  |  52%
+  |                                                                            
+  |======================================                                |  55%
+  |                                                                            
+  |=========================================                             |  58%
+  |                                                                            
+  |===========================================                           |  61%
+  |                                                                            
+  |=============================================                         |  64%
+  |                                                                            
+  |===============================================                       |  67%
+  |                                                                            
+  |=================================================                     |  69%
+  |                                                                            
+  |===================================================                   |  72%
+  |                                                                            
+  |=====================================================                 |  75%
+  |                                                                            
+  |=======================================================               |  78%
+  |                                                                            
+  |=========================================================             |  81%
+  |                                                                            
+  |===========================================================           |  84%
+  |                                                                            
+  |=============================================================         |  87%
+  |                                                                            
+  |===============================================================       |  90%
+  |                                                                            
+  |=================================================================     |  93%
+  |                                                                            
+  |===================================================================   |  96%
+  |                                                                            
+  |===================================================================== |  99%
+  |                                                                            
+  |======================================================================| 100%</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1">abq_tracts_seg <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb29-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> ls)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb29-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_sf</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb29-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coord_sf</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">crs =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">32113</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb29-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_fill_viridis_c</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">option =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"inferno"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb29-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_void</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb29-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Local</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">segregation</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">index"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://biscotty.online/posts/data-science/diversity/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="diversity-gradient" class="level1">
+<h1>Diversity gradient</h1>
+<p>Expectation is that diversity decreases with distance from urban center. The entropy index is</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AE=%5Csum_%7Br=1%7D%5En%20Q_r%20%5Cln%5Cfrac%7B1%7D%7BQ_r%7D%0A"></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?Q_r"> is the proportion of group <img src="https://latex.codecogs.com/png.latex?r">’s proportion of the population in the geographic unit.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">abq_entropy <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> nm_urban_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb30-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(urban_name <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Albuquerque"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb30-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(GEOID) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb30-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_modify</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">entropy =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">entropy</span>(</span>
+<span id="cb30-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> .x,</span>
+<span id="cb30-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">group =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"variable"</span>,</span>
+<span id="cb30-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">weight =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"estimate"</span>,</span>
+<span id="cb30-8">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">base =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># number of groups in the calculation</span></span>
+<span id="cb30-9">  )))</span>
+<span id="cb30-10"></span>
+<span id="cb30-11">abq_entropy_geo <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tracts</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"NM"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cb =</span> T, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">year =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2019</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb30-12">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">inner_join</span>(abq_entropy, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"GEOID"</span>)</span></code></pre></div>
+</div>
+<blockquote class="blockquote">
+<p>get driving times</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(mapboxapi)</span>
+<span id="cb31-2"></span>
+<span id="cb31-3">abq_city_hall <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mb_geocode</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"City Hall, Albuquerque NM"</span>)</span>
+<span id="cb31-4"></span>
+<span id="cb31-5">minutes_to_downtown <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mb_matrix</span>(abq_entropy_geo, abq_city_hall)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Splitting your matrix request into smaller chunks and re-assembling the result.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using feature centroids for origins</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> ■■■■■■■■■■■■■■■■                  50% |  ETA:  3s</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> ■■■■■■■■■■■■■■■■■■■■■■■■■■        83% |  ETA:  1s</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1">abq_entropy_geo<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>minutes <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.numeric</span>(minutes_to_downtown)</span>
+<span id="cb36-2"></span>
+<span id="cb36-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(abq_entropy_geo, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> minutes_to_downtown, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> entropy)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb36-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb36-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"loess"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb36-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb36-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_x_continuous</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">limits =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">80</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb36-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Diversity gradient, ABQ urbanized area"</span>,</span>
+<span id="cb36-9">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Travel time to downtown in minutes"</span>,</span>
+<span id="cb36-10">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Entropy index"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing non-finite outside the scale range
+(`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://biscotty.online/posts/data-science/diversity/index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There seems to be no relationship to diversity and travel time.!</p>
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population" class="uri">https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population</a>↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>GIS</category>
+  <category>R</category>
+  <category>Data Science</category>
+  <guid>https://biscotty.online/posts/data-science/diversity/</guid>
+  <pubDate>Fri, 09 May 2025 06:00:00 GMT</pubDate>
+</item>
 <item>
   <title>The FHS Problem</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/posts/linux/nix-docker-fhs/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -64,6 +1372,7 @@
   <title>GPS Mapping with R</title>
   <link>https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -312,21 +1621,21 @@ font-style: inherit;">str</span>(tracks_df)</span></code></pre></div>
 <div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```{python}</span></span>
-<span id="cb14-2"><span class="in" style="color: #5E5E5E;
+<span id="cb14-2">trek_gdf <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">trek_gdf = gpd.GeoDataFrame( </span></span>
-<span id="cb14-3"><span class="in" style="color: #5E5E5E;
+font-style: inherit;">=</span> gpd.GeoDataFrame( </span>
+<span id="cb14-3">    trek_df, </span>
+<span id="cb14-4">    geometry<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">    trek_df, </span></span>
-<span id="cb14-4"><span class="in" style="color: #5E5E5E;
+font-style: inherit;">=</span>gpd.points_from_xy(x<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">    geometry=gpd.points_from_xy(x=trek_df.Lon, y=trek_df.Lat)</span></span>
-<span id="cb14-5"><span class="in" style="color: #5E5E5E;
+font-style: inherit;">=</span>trek_df.Lon, y<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">).set_crs(4269)</span></span>
-<span id="cb14-6"><span class="in" style="color: #5E5E5E;
+font-style: inherit;">=</span>trek_df.Lat)</span>
+<span id="cb14-5">).set_crs(<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">trek_gdf.info()</span></span>
+font-style: inherit;">4269</span>)</span>
+<span id="cb14-6">trek_gdf.info()</span>
 <span id="cb14-7"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
@@ -483,9 +1792,11 @@ font-style: inherit;">32113</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```{python}</span></span>
-<span id="cb21-2"><span class="in" style="color: #5E5E5E;
+<span id="cb21-2">trek_proj <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">trek_proj = trek_gdf.to_crs(32111)</span></span>
+font-style: inherit;">=</span> trek_gdf.to_crs(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">32111</span>)</span>
 <span id="cb21-3"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
@@ -3708,6 +5019,7 @@ font-style: inherit;">"Stop points"</span>,</span>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/posts/linux/nixos-linux-different/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -8376,72 +9688,6 @@ R Functions for Normal Distribution # A view of a section of a note</code></pre>
   <guid>https://biscotty.online/posts/obsidian/second-brain/</guid>
   <pubDate>Wed, 30 Aug 2023 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/posts/obsidian/second-brain/GVFull.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
-  <title>Syncing your Thinking with Syncthing</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Obsidian loses a lot of power if you can’t take notes from anywhere at anytime on any device you are using. Obsidian offers a subscription syncing service about which I’ve seen no complaints.</p>
-<p>But there is an awesome <em>free, open source</em> project called <a href="https://syncthing.net">Syncthing</a> which is ideal for Obsidian. It’s easy to install on any OS or device, with almost instantaneous syncing, and it’s 100% private.</p>
-<section id="device-to-device-sync" class="level1">
-<h1>Device-to-Device Sync</h1>
-<p>Most people are familiar with synchronization approaches which involve a central server, or at least a central, usually cloud-based, directory. This approach is commonly used to keep both multiple people and potentially multiple directories, and even development environments, synchronized.</p>
-<p>In Obsidian we don’t need something so fancy. If you aren’t sharing (collaborating) on your vault, and if you don’t use two devices simultaneously 😉, the device-to-device synchronization is what you need. It is rapid, secure and private. Your information never sits anywhere other than on your own devices.</p>
-<p>Device-to-device connections use a protocol called Universal Plug and Play, or UPnP. These do use a central server, but only for the purposes of locating and connecting devices, not for file transfer. When a device with Syncthing running connects to the internet it announces it’s location to the server and retrieves the location of your other on-line devices, to which they make a direct connection.</p>
-<p>Once connected the devices share data directly with each other. Synchronization is very rapid. For example, sometimes I like to dictate my notes on my phone. I can have the note open on both my phone and my computer, dictate into my phone, and the text appears almost instantly in the note open on my computer.</p>
-</section>
-<section id="setup" class="level1">
-<h1>Setup</h1>
-<p>Syncthing is available on all common operating systems. I use a Linux operating system with an Android phone, but setup should be the same on any devices. On Linux the easiest and probably best way is with the flatpak. Most distros have <code>flatpak</code> installed by default, so:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">flatpak</span> install flathub com.github.zocker_160.SyncThingy</span></code></pre></div>
-<p>On other OSs and devices you can use the normal installation process by going to their <a href="https:%20syncthing.net">website</a>. (Isn’t Linux easier?)</p>
-<p>Getting you vault synchronized is a two-step process:</p>
-<ol type="1">
-<li>Connecting the devices</li>
-<li>Sharing the directories</li>
-</ol>
-<section id="connecting-devices" class="level2">
-<h2 class="anchored" data-anchor-id="connecting-devices">Connecting Devices</h2>
-<p>Devices are connected by exchanging Device IDs, which are long alphanumeric strings. The connection can be initiated from either the computer or the phone. Syncthing will display a QR code containing the Device ID, so the most convenient way is to display the computer’s code, scan it with a phone and initiate the connection from the phone.</p>
-<p>The Syncthing interface can be accessed using your web browser (localhost:8384). From the browser interface, show the QR code on the computer.</p>
-<p><img src="https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/SyncthingShowQR.jpg" class="img-fluid"></p>
-<p>On the phone, in the devices tab, click on the <code>+</code> to add a device, and then the QR symbol to scan the code. After that, give the device a meaningful name and save the new device. <img src="https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/ST-Phone-Device.png" class="img-fluid"></p>
-<p>Back on your computer you will see an alert asking if you want to add the phone device. Accept this and give the device a name.</p>
-<p><img src="https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/ST-add-device-1.jpg" class="img-fluid"></p>
-<p>After accepting the device and after a short period the devices will display connected. This may take a few minutes the first time, but don’t worry…if you scanned the QR code nothing can really go wrong.</p>
-</section>
-<section id="sharing-directories" class="level2">
-<h2 class="anchored" data-anchor-id="sharing-directories">Sharing Directories</h2>
-<p>The first thing to do is create a directory on your phone for your Obsidian vault.</p>
-<p>Once the devices are connected you can start to share directories. Since this is an Obsidian tutorial we only need to share the vault directory, but you can use the same process to share, for example, your photo or image directories on your phone so that you automatically get copies on your computer.</p>
-<p>When we add (and delete) Syncthing directories, we aren’t really adding or removing any directories or files. We are adding an identifier which points to a directory on your device or system. So deleting a Syncthing directory is an entirely safe process.</p>
-<p>That said, go ahead and add a Syncthing directory on your computer. Give the directory a specific name (Obsidian, maybe) and point it to the directory on your computer which contains your vault. <img src="https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/SyncthingAddFolders2-1.jpg" class="img-fluid"></p>
-<p>In the sharing tab, select your phone or other device. <img src="https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/SynthingLappyAddDevice-1.jpg" class="img-fluid"></p>
-<p>As when we added a device earlier, an alert will appear, this time on your phone. Accept to add the offered directory, and you will be prompted to give the directory a name and location. The name may or may not be the same as the one on the computer, since Syncthing is actually using the long, auto-generated string in the middle which you left alone, right?</p>
-<p>Then select the new directory we created earlier as the location, and that’s it. Depending on the size of the files in the directory the initial sync can take a while. Since Obsidian files are just text files even the initial sync should be rapid. If you are syncing your phone images, the initial sync can take hours. Once they are synced, though, images from your phone will appear on your computer in seconds.</p>
-</section>
-<section id="closing-thoughts" class="level2">
-<h2 class="anchored" data-anchor-id="closing-thoughts">Closing Thoughts</h2>
-<p>From the wonderful world of FOSS we have a synchronization tool ideal for keeping directories in sync across personal devices. Perfect for Obsidian!</p>
-
-
-</section>
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>Obsidian</category>
-  <category>Linux</category>
-  <guid>https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/</guid>
-  <pubDate>Mon, 28 Aug 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/syncing-your-thinking-syncthing/SyncThing.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

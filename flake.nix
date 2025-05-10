@@ -38,6 +38,8 @@
             rPackages.XML
             rPackages.xml2
             rPackages.gpx
+            rPackages.mapboxapi
+            rPackages.segregation
             rPackages.tidygeocoder
             rPackages.crsuggest
             rPackages.stplanr

@@ -1,0 +1,261 @@
+---
+title: Segregation and diversity in Albuquerque
+subtitle: Modeling with R and tidycensus
+categories:
+  - GIS
+  - R
+  - Data Science
+execute:
+  cache: true
+date: "2025-05-09"
+---
+
+# Modeling segregation and diversity
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, paged.print = FALSE)
+```
+
+Albuquerque had 565K citizens according to the 2020 census[^1], with an estimated 2023 population of 560K, representing a slight decline. As a comparison, Atlanta, Georgia, with a population under 500K in 2020, is estimated to have grown nearly 2.43% to 511K in 2023. This article will compare these two cities of comparable size and geography in terms of income, segregation, and racial diversity. Both cities are the largest in their states.
+
+[^1]: <https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population>
+
+```{r message=FALSE}
+library(tidycensus)
+library(tidyverse)
+library(segregation)
+library(tigris)
+library(sf)
+options(tigris_use_cache=TRUE)
+```
+
+# Data Preparation
+
+```{r results='hide'}
+nm_acs_data <- get_acs(
+  geography = "tract",
+  variables = c(
+    white = "B03002_003",
+    black = "B03002_004",
+    native = "B03002_005",
+    asian = "B03002_006",
+    hispanic = "B03002_012"
+  ),
+  state = "NM",
+  geometry = T,
+  year = 2023
+)
+ga_acs_data <- get_acs(
+  geography = "tract",
+  variables = c(
+    white = "B03002_003",
+    black = "B03002_004",
+    native = "B03002_005",
+    asian = "B03002_006",
+    hispanic = "B03002_012"
+  ),
+  state = "GA",
+  geometry = T,
+  year = 2023
+)
+```
+
+```{r}
+us_urban_areas <- get_acs(
+  geography = "urban area",
+  variables = "B01001_001",
+  geometry = T,
+  year = 2019,
+  survey = "acs1"
+) |> 
+  filter(estimate >= 500000) |> 
+  transmute(urban_name = str_remove(NAME,
+                                    fixed(", NM Urbanized Area (2010)")))
+```
+
+> Join tracts and urbanized areas
+
+```{r}
+nm_urban_data <- nm_acs_data |> 
+  st_join(us_urban_areas, left = FALSE) |> 
+  select(-NAME) |> 
+  st_drop_geometry()
+ga_urban_data <- ga_acs_data |> 
+  st_join(us_urban_areas, left = FALSE) |> 
+  select(-NAME) |> 
+  st_drop_geometry()
+```
+
+```{r}
+head(nm_urban_data)
+```
+
+```{r}
+head(ga_urban_data)
+```
+
+```{r eval=FALSE}
+us_urban_areas |>   
+  transmute(urban_name = str_remove(urban_name,
+                                    fixed(", GA Urbanized Area (2010)"))) |> 
+  filter(
+```
+
+# Income, Race
+
+# Immigration - domestic, international
+
+# Dissimilarity index
+
+$$
+D = \frac{1}{2}\sum_{i=1}^N\left| \frac{a_i}{A}-\frac{b_i}{B} \right|
+$$
+
+where ai represents the population of group A in a given areal unit i; A is the total population of that group in the study region (e.g. a metropolitan area); and bi and B are the equivalent metrics for the second group. The index ranges from a low of 0 to a high of 1, where 0 represents perfect integration between the two groups and 1 represents complete segregation. This index is implemented in the **segregation** package with the [`dissimilarity()`](https://elbersb.github.io/segregation/reference/dissimilarity.html) function.
+
+> Dissimilarity White and Hispanic in Albuquerque
+
+```{r}
+nm_urban_data <- nm_urban_data |> 
+  mutate(urban_name = str_remove(urban_name,
+                                    fixed(", TX--NM Urbanized Area (2010)")))
+```
+
+```{r}
+nm_urban_data |> 
+  filter(variable %in% c("white", "hispanic"),
+         urban_name == "Albuquerque") |> 
+  dissimilarity(
+    group = "variable",
+    unit = "GEOID",
+    weight = "estimate"
+  )
+```
+
+> The same exercise for SF-Oakland gives D = 0.5135526
+
+```{r}
+nm_urban_data |> 
+  filter(variable %in% c("white", "hispanic")) |>
+  group_by(urban_name) |> 
+  group_modify(~
+    dissimilarity(.x,
+      group = "variable",
+      unit = "GEOID",
+      weight = "estimate"
+    )
+  ) |> 
+  arrange(desc(est))
+```
+
+> El Paso is much more segregated than Albuquerque
+
+# Multigroup segregation indices
+
+Mutual Information Index $M$:
+
+$$
+M(\text{T}) = \sum_{u=1}^U \sum_{g=1}^G p_{ug}\log\frac{p_{ug}}{p_u p_g}
+$$
+
+where U is the total number of units u, G is the total number of groups g, and pug is the joint probability of being in unit u and group g, with pu and pg referring to unit and group probabilities.
+
+Theil's H:
+
+$$
+H(\text{T}) = \frac{M(\text{T})}{E(\text{T})}
+$$
+
+where E(T) is the entropy of T, normalizing H to range between values of 0 and 1.
+
+```{r}
+mutual_within(
+  data = nm_urban_data,
+  group = "variable",
+  unit = "GEOID",
+  weight = "estimate",
+  within = "urban_name",
+  wide = T
+)
+```
+
+> Why are these results seemingly opposite of the single-group comparison?
+>
+> `mutual_local` breaks down the M into unit-level scores
+
+```{r}
+abq_local_seg <-  nm_urban_data |> 
+  filter(urban_name == "Albuquerque") |> 
+  mutual_local(
+    group = "variable",
+    unit = "GEOID",
+    weight = "estimate",
+    wide = T
+  )
+head(abq_local_seg)
+```
+
+```{r}
+abq_tracts_seg <- tracts("NM", cb = T, year = 2019) |> 
+  inner_join(abq_local_seg, by = "GEOID")
+```
+
+```{r}
+abq_tracts_seg |> 
+  ggplot(aes(fill = ls)) +
+  geom_sf(color = NA) +
+  coord_sf(crs = 32113) +
+  scale_fill_viridis_c(option = "inferno") +
+  theme_void() +
+  labs(fill = "Local\nsegregation\nindex")
+```
+
+# Diversity gradient
+
+Expectation is that diversity decreases with distance from urban center. The entropy index is
+
+$$
+E=\sum_{r=1}^n Q_r \ln\frac{1}{Q_r}
+$$
+
+where $Q_r$ is the proportion of group $r$'s proportion of the population in the geographic unit.
+
+```{r}
+abq_entropy <- nm_urban_data |> 
+  filter(urban_name == "Albuquerque") |> 
+  group_by(GEOID) |> 
+  group_modify(~data.frame(entropy = entropy(
+    data = .x,
+    group = "variable",
+    weight = "estimate",
+    base = 5 # number of groups in the calculation
+  )))
+
+abq_entropy_geo <- tracts("NM", cb = T, year = 2019) |> 
+  inner_join(abq_entropy, by = "GEOID")
+```
+
+> get driving times
+
+```{r}
+library(mapboxapi)
+
+abq_city_hall <- mb_geocode("City Hall, Albuquerque NM")
+
+minutes_to_downtown <- mb_matrix(abq_entropy_geo, abq_city_hall)
+```
+
+```{r}
+abq_entropy_geo$minutes <- as.numeric(minutes_to_downtown)
+
+ggplot(abq_entropy_geo, aes(x = minutes_to_downtown, y = entropy)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "loess") +
+  theme_minimal() +
+  scale_x_continuous(limits = c(0, 80)) +
+  labs(title = "Diversity gradient, ABQ urbanized area",
+       x = "Travel time to downtown in minutes",
+       y = "Entropy index")
+```
+
+There seems to be no relationship to diversity and travel time.!

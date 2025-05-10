@@ -9,8 +9,18 @@
 <link>https://biscotty.online/posts/data-science/data-science.html</link>
 <atom:link href="https://biscotty.online/posts/data-science/data-science.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
-<generator>quarto-1.6.43</generator>
-<lastBuildDate>Sun, 30 Mar 2025 06:00:00 GMT</lastBuildDate>
+<generator>quarto-1.7.30</generator>
+<lastBuildDate>Fri, 09 May 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Segregation and diversity in Albuquerque</title>
+  <link>https://biscotty.online/posts/data-science/diversity/</link>
+  <description><![CDATA[ Albuquerque had 565K citizens according to the 2020 census<sup>1</sup>, with an estimated 2023 population of 560K, representing a slight decline. As a comparison, Atlanta, Georgia, with a population under 500K in 2020, is estimated to have grown nearly 2.43% to 511K in 2023. This article will compare these two cities of comparable size and geography in terms of income, segregation, and racial diversity. Both cities are the largest in their states. ]]></description>
+  <category>GIS</category>
+  <category>R</category>
+  <category>Data Science</category>
+  <guid>https://biscotty.online/posts/data-science/diversity/</guid>
+  <pubDate>Fri, 09 May 2025 06:00:00 GMT</pubDate>
+</item>
 <item>
   <title>GPS Mapping with R</title>
   <link>https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</link>

@@ -424,5 +424,8 @@
   },
   "posts/linux/nix-docker-fhs/index.qmd": {
     "index.html": "490e5294"
+  },
+  "posts/data-science/diversity/index.qmd": {
+    "index.html": "a1f51485"
   }
 }

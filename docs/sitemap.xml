@@ -6,11 +6,11 @@
   </url>
   <url>
     <loc>https://biscotty.online/index.html</loc>
-    <lastmod>2025-05-04T08:34:52.623Z</lastmod>
+    <lastmod>2025-05-09T15:20:36.125Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/chinese-medicine/chinese-medicine.html</loc>
-    <lastmod>2025-04-23T20:20:56.538Z</lastmod>
+    <lastmod>2025-05-09T15:20:36.126Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/obsidian/dataview.html</loc>
@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://biscotty.online/posts/linux/nix-docker-fhs/index.html</loc>
-    <lastmod>2025-05-04T14:55:59.207Z</lastmod>
+    <lastmod>2025-05-09T15:20:36.157Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html</loc>
@@ -74,15 +74,15 @@
   </url>
   <url>
     <loc>https://biscotty.online/posts/data-science/data-science.html</loc>
-    <lastmod>2025-04-15T19:01:35.583Z</lastmod>
+    <lastmod>2025-05-09T15:20:36.126Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.html</loc>
-    <lastmod>2025-05-03T00:42:30.085Z</lastmod>
+    <lastmod>2025-05-09T15:20:36.136Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/posts.html</loc>
-    <lastmod>2025-05-04T07:50:28.460Z</lastmod>
+    <lastmod>2025-05-09T15:20:36.167Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/blogs/syncing-your-thinking-syncthing/index.html</loc>
@@ -206,7 +206,7 @@
   </url>
   <url>
     <loc>https://biscotty.online/posts/data-science/obsidian-jupyter/index.html</loc>
-    <lastmod>2025-04-15T18:38:33.719Z</lastmod>
+    <lastmod>2025-05-09T15:20:36.128Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html</loc>
@@ -218,7 +218,7 @@
   </url>
   <url>
     <loc>https://biscotty.online/posts/linux/nixos-linux-different/index.html</loc>
-    <lastmod>2025-05-04T14:56:42.180Z</lastmod>
+    <lastmod>2025-05-09T15:20:36.166Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/obsidian/optimal-notes-with-obsidian/index.html</loc>
@@ -270,10 +270,14 @@
   </url>
   <url>
     <loc>https://biscotty.online/posts/chinese-medicine/chinese-herbal-language/index.html</loc>
-    <lastmod>2025-04-24T02:09:15.654Z</lastmod>
+    <lastmod>2025-05-09T15:20:36.125Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/resources.html</loc>
     <lastmod>2025-04-10T15:47:42.662Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/data-science/diversity/index.html</loc>
+    <lastmod>2025-05-10T04:33:42.997Z</lastmod>
   </url>
 </urlset>
