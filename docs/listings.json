@@ -1,9 +1,7 @@
 [
   {
     "listing": "/posts/chinese-medicine/chinese-medicine.html",
-    "items": [
-      "/posts/chinese-medicine/chinese-herbal-language/index.html"
-    ]
+    "items": []
   },
   {
     "listing": "/posts/obsidian/dataview.html",
@@ -118,6 +116,12 @@
       "/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/index.html",
       "/posts/obsidian/freeing-your-thinking/freeing-your-thinking-part-2/index.html",
       "/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/chinese-medicine/index.html",
+    "items": [
+      "/posts/chinese-medicine/eating-in-spring/index.html"
     ]
   }
 ]

@@ -3,6 +3,8 @@ title: The Languag of Chinese Herbal Medicine
 subtitle: A linguistic approach
 date: 04-23-2025
 categories: [Chinese Medicine, Linguistics]
+draft: true
+draft-mode: unlinked
 ---
 
 # Teaching herbal medicine

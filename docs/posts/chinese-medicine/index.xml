@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>biscotty&#39;s Workshop</title>
+<link>https://biscotty.online/posts/chinese-medicine/</link>
+<atom:link href="https://biscotty.online/posts/chinese-medicine/index.xml" rel="self" type="application/rss+xml"/>
+<description>For the love of learning</description>
+<generator>quarto-1.7.30</generator>
+<lastBuildDate>Sat, 10 May 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Food and the qi of spring</title>
+  <link>https://biscotty.online/posts/chinese-medicine/eating-in-spring/</link>
+  <description><![CDATA[ The <em>Huáng dì nèi jīng</em> (黃帝內經) is the oldest extant Chinese medical text, and before it discusses disease and its treatment, it talks about disease prevention, how to stay healthy. In fact, it states that those who maintain an appropriate diet and activity level, together with rest and relaxation, should rarely fall ill, and quickly recover when they do, and moderation is necessary in all things. These things seem somewhat obvious, but the <em>nèi jīng</em> adds and emphasizes another element, which may seem strange to Westerners: everything should be done in accordance with the season. ]]></description>
+  <category>Chinese Medicine</category>
+  <category>Food</category>
+  <guid>https://biscotty.online/posts/chinese-medicine/eating-in-spring/</guid>
+  <pubDate>Sat, 10 May 2025 06:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
