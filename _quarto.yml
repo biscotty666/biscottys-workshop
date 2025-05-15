@@ -64,13 +64,13 @@ website:
       style: "docked"
       contents: 
         - posts/data-science/data-science.qmd
-        - posts/obsidian/obsidian.qmd
         - posts/linux/linux.qmd
+        - posts/obsidian/obsidian.qmd
         - posts/obsidian/dataview.qmd
         - posts/obsidian/freeing-your-thinking.qmd
         - auto: posts/data-science
-        - auto: posts/obsidian
         - auto: posts/linux
+        - auto: posts/obsidian
         - auto: posts/chinese-medicine
 
     - title: "CV"
