@@ -87,9 +87,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description','listing-categories','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -765,13 +765,7 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#gi" id="toc-gi" class="nav-link active" data-scroll-target="#gi">gi</a></li>
-  </ul>
-</nav>
+        
     <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2hpbmVzZSUyME1lZGljaW5l">Chinese Medicine <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Rm9vZA==">Food <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-body" id="quarto-document-content">
@@ -781,73 +775,46 @@ window.Quarto = {
 
 
 
-<section id="gi" class="level2">
-<h2 class="anchored" data-anchor-id="gi">gi</h2>
-<p>title: “Chinese Medicine” listing: contents: “*/index.qmd” type: table sort: “date desc” categories: true fields: - title - description - categories - reading-time feed: items: 10 type: partial sidebar: posts-side comments: false — I practiced Chinese Medicine for over 20 years, and taught for over half that time. My specialty at the college was herbal medicine and diagnosis, and in practice I mixed acupuncture, herbal medicine, and food therapy. This is an occasional series on food, herbs, and Chinese medicine.</p>
+<p>I practiced Chinese Medicine for over 20 years, and taught for over half that time. My specialty at the college was herbal medicine and diagnosis, and in practice I mixed acupuncture, herbal medicine, and food therapy. This is an occasional series on food, herbs, and Chinese medicine.</p>
 
 
 
-</section>
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title-sort" data-direction="asc">
-        Title
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Q2hpbmVzZSUyME1lZGljaW5lJTJDRm9vZA==" data-listing-date-sort="1747288800000" data-listing-file-modified-sort="1747346795307" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2954">
+<div class="thumbnail"><a href="../../posts/chinese-medicine/eating-in-spring/index.html" class="no-external">
+
+<img loading="lazy" src="../../posts/chinese-medicine/eating-in-spring/goji.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../posts/chinese-medicine/eating-in-spring/index.html" class="no-external">Eating in spring</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../posts/chinese-medicine/eating-in-spring/index.html" class="no-external">Chinese medicine food therapy</a>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<div class="listing-categories">
 
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('Q2hpbmVzZSUyME1lZGljaW5l'); return false;">Chinese Medicine</div>
 
-<th>
-Description
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('Rm9vZA=='); return false;">Food</div>
 
-<th>
-Categories
-</th>
-
-<th>
-Reading Time
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-categories="Q2hpbmVzZSUyME1lZGljaW5lJTJDRm9vZA==" data-listing-date-sort="1747288800000" data-listing-file-modified-sort="1747346795307" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2954" data-listing-title-sort="Eating in spring" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../posts/chinese-medicine/eating-in-spring/index.html" class="title listing-title">Eating in spring</a>
-</td>
-<td>
-<span class="listing-description">Foods and recipes appropriate for the spring season</span>
-</td>
-<td>
-<span class="listing-categories">Chinese Medicine, Food</span>
-</td>
-<td>
-<span class="listing-reading-time">15 min</span>
-</td>
-
-</tr>
-
-</tbody>
-</table>
+</div>
+<div class="delink listing-description"><a href="../../posts/chinese-medicine/eating-in-spring/index.html" class="no-external">
+<p>Foods and recipes appropriate for the spring season</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../../posts/chinese-medicine/eating-in-spring/index.html" class="no-external">
+<div class="listing-date">
+May 15, 2025
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

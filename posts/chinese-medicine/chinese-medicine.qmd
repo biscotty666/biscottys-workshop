@@ -1,16 +1,10 @@
-gi 
 ---
 title: "Chinese Medicine"
 listing:
   contents: "*/index.qmd"
-  type: table
+  type: default
   sort: "date desc"
   categories: true
-  fields: 
-    - title
-    - description
-    - categories
-    - reading-time
   feed:
     items: 10
     type: partial

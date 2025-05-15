@@ -1981,7 +1981,7 @@
     "href": "posts/chinese-medicine/chinese-medicine.html",
     "title": "Chinese Medicine",
     "section": "",
-    "text": "title: “Chinese Medicine” listing: contents: “*/index.qmd” type: table sort: “date desc” categories: true fields: - title - description - categories - reading-time feed: items: 10 type: partial sidebar: posts-side comments: false — I practiced Chinese Medicine for over 20 years, and taught for over half that time. My specialty at the college was herbal medicine and diagnosis, and in practice I mixed acupuncture, herbal medicine, and food therapy. This is an occasional series on food, herbs, and Chinese medicine.",
+    "text": "I practiced Chinese Medicine for over 20 years, and taught for over half that time. My specialty at the college was herbal medicine and diagnosis, and in practice I mixed acupuncture, herbal medicine, and food therapy. This is an occasional series on food, herbs, and Chinese medicine.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEating in spring\n\n\nChinese medicine food therapy\n\n\n\nChinese Medicine\n\nFood\n\n\n\nFoods and recipes appropriate for the spring season\n\n\n\n\n\nMay 15, 2025\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Home",
       "Chinese Medicine",
@@ -1993,7 +1993,7 @@
     "href": "posts/chinese-medicine/chinese-medicine.html#gi",
     "title": "Chinese Medicine",
     "section": "",
-    "text": "title: “Chinese Medicine” listing: contents: “*/index.qmd” type: table sort: “date desc” categories: true fields: - title - description - categories - reading-time feed: items: 10 type: partial sidebar: posts-side comments: false — I practiced Chinese Medicine for over 20 years, and taught for over half that time. My specialty at the college was herbal medicine and diagnosis, and in practice I mixed acupuncture, herbal medicine, and food therapy. This is an occasional series on food, herbs, and Chinese medicine.",
+    "text": "title: “Chinese Medicine” listing: contents: “*/index.qmd” type: default sort: “date desc” categories: true fields: - title - description - categories - reading-time feed: items: 10 type: partial sidebar: posts-side comments: false — I practiced Chinese Medicine for over 20 years, and taught for over half that time. My specialty at the college was herbal medicine and diagnosis, and in practice I mixed acupuncture, herbal medicine, and food therapy. This is an occasional series on food, herbs, and Chinese medicine.",
     "crumbs": [
       "Home",
       "Chinese Medicine",
