@@ -1,7 +1,7 @@
 ---
 title: Eating in spring
 subtitle: Chinese medicine food therapy
-description: Foods and recipes appropriate for the spring seaxon
+description: Foods and recipes appropriate for the spring season
 bibliography: ../../../references.bib
 image: "goji.png"
 date: 05-15-2025
