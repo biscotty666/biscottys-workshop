@@ -16,6 +16,9 @@ website:
   site-url: https://biscotty.online
   description: "For the love of learning"
   bread-crumbs: false
+  search: 
+    location: navbar
+    type: overlay
   open-graph: 
     site-name: biscotty's Workshop
     image: images/trunks.png
@@ -59,7 +62,6 @@ website:
     - title: "Posts"
       id: posts-side
       style: "docked"
-      search: true
       contents: 
         - posts/data-science/data-science.qmd
         - posts/obsidian/obsidian.qmd
@@ -73,7 +75,6 @@ website:
     - title: "CV"
       id: cv-side
       style: "docked"
-      search: true
       contents: 
         - cv/brian-carey.qmd
         - auto: cv/vignettes
