@@ -1,85 +1,158 @@
 ---
-title: Food and the _qi_ of spring
+title: Eating in spring
 subtitle: Chinese medicine food therapy
 bibliography: ../../../references.bib
 date: 05-10-2025
 categories: [Chinese Medicine, Food]
+toc: true
+toc-depth: 4
 ---
 
-The *Huáng dì nèi jīng* (黃帝內經) is the oldest extant Chinese medical text, and before addressing disease and its treatment, it discusses disease prevention: how to stay healthy. In fact, it states that those who maintain an appropriate diet and activity level, together with rest and relaxation, should rarely fall ill, and quickly recover when they do, with moderation necessary in all things. This seem somewhat obvious, but the *nèi jīng* adds, and emphasizes, another element, which may seem strange to Westerners: everything should be done in accordance with the season.
+The *Huáng dì nèi jīng* (黃帝內經) is the oldest extant Chinese medical text, dated to around the 2^nd^ century B.C.E. It lays out the foundational concepts on which all Chinese medicine is based. Before addressing disease, pathology  and treatment, it discusses disease _prevention_: how to stay healthy. In fact, it posits that those who maintain an appropriate diet and activity level, together with rest and relaxation, with moderation in all things, should rarely fall ill, and quickly recover when they do. The elements of this advice are hardly surprising, but the *nèi jīng* does add, and emphasizes, an element, which may seem strange to Westerners: everything should be done in accordance with the season.
 
-In practice, attention to the season is critical in treating patients. A fever in summer is, in nearly all respects, different from an fever in winter, with regard to etiology, pathology, treatment and prognosis. In day-to-day living, it is equally important to pay attention to the season, if one is to maintain maximal health.
+In the clinic, attention to the season is important in diagnosing and treating patients. A fever in summer, for example, is, in nearly all respects, different from an fever in winter, with regard to etiology, pathology, treatment and prognosis. In day-to-day living, it is equally important to pay attention to the season, especially with regard to diet, if one is to maintain optimal health.
 
 It should be recognized that humans today have much less regular exposure to the progression of seasons than in the vast history of our evolution. Air conditioning and cars allow people to avoid being outside almost entirely, thus limiting their exposure to environmental conditions. Those who do not spend time outside, or otherwise expose themselves to seasonal changes, tend to be more subject to seasonal illnesses in my experience.
 
-Spring is upon us, and in this article, I will explain how to maintain an optimal diet for the spring season, foods to seek out and to avoid, and end with some spring meal ideas.
+Spring is upon us, and in this article, I will explain how to maintain an optimal diet for the spring season, foods to seek out and to avoid, and give some spring meal ideas.
 
 # The *qi* of spring
 
-The *nèi jīng* describes how to live in accordance with each season.
+The *nèi jīng* describes how to live in accordance with each season. For the spring, it says:
 
 > "...the spring season brings about the revitalization of all things in nature. It is the time of birth. (...) During this season it is advisable to retire early. Arise early also and go walking in order to absorb the fresh, invigorating energy...\[O\]ne should attempt to correspond to it directly by being open and unsuppressed, both physically and emotionally. (...) \[E\]xercise more frequently..do stretching exercises to loosen up the tendons and muscles. Emotionally, it is good to develop equanimity. This is because spring is the season of the liver, and indulgence in anger, frustration, depression sadness, or any excess emotion can injure the liver."[@Ni_1995, pp. 5]
 
-The exortation to exercise early is particularly valuable. Note the association with the Liver. Each organ system, of which there are five^[Liver, Kidney, Spleen, Lung, Heart], are associated with a season. Therapeutically, disorder in an organ system is most easily treated in its corresponding season. With regard to disease prevention and diet, foods should be chosen that promote the natural functioning of the Liver system.
+As you see, physiology and psychology are equally important and inseparable in Chinese medicine. Note the association with the *Liver System*. Each organ system, of which there are five[^1], are associated with a season. Therapeutically, disorder in an organ system is most easily treated in its corresponding season, and this is also the time when it is easiest to strengthen the respective organ system. In spring, foods should be chosen that promote the natural functioning of the *Liver System*. The exhortation to exercise early is particularly valuable in the case of the *Liver System*, as movement is highly therapeutic in this system..
 
-# The Liver
+[^1]: Liver, Kidney, Spleen, Lung, Heart
 
-Chinese medicine assigns to the _Liver System_ a range of anatomical structures and physiological functions far beyond that of the Liver organ. Anatomically, it includes the muscles, tendons and ligaments, psychologically it is an emotional regulator, in both cases ensuring free movement and flexibility. It is related to the eyes and responsible for vision. It has many other functions as well.
+# The *Liver System*
 
-Disorders of the _Liver System_ 
-Importantly from a dietary perspective, it ensures that the digestive
+Chinese medicine assigns to the *Liver System* (from now on I'll just write _Liver_) a range of anatomical structures and physiological functions far beyond that of the liver organ. Anatomically, it includes the muscles, tendons and ligaments, psychologically it is an emotional regulator, in both cases ensuring free movement and flexibility. The _Liver_ regulates the menstrual cycle. It is related to the eyes and responsible for vision. And it is associated with Spring. In Chinese medicine terminology: "the *Liver* ensures the free flow of *qi* and blood".
 
-The _nàn jīng_ describes many aspects of the Liver system:
+Disorders of the *Liver* manifests emotionally as depression or anger, and physically as migraines, numbness and tingling, spasms, stiffness, dizziness, fainting and poor vision. It is often the root of menstrual disorders such as dysmenorrhea and PMS. It can cause insomnia, depression, and rage, and can leave people feeling "stuck" (an important cause of procrastination). Importantly from a dietary perspective, it often causes indigestion.
+
+The *nàn jīng* describes many aspects of the _Liver_, and how it relates to the seasons:
 
 > "During spring, the subtlety and vastness of the universe, the intelligence and intention of the human being, the ability of the earth to produce the ten thousand things, the natural movement of the wind, and the upward motion of all plants, collectively produce the movement of the tendons, the color green, the shouting of the voice, the spasms and convlusions, the eys, the sour taste, and the angry emotions. These are all associated with the liver, since the liver is responsible for mantaining the patency of the flow of energy, and its nature is movement and expansion."
 
-It also warns against the dangers particular to the Liver system:
+It also warns against the dangers particular to the *Liver*:
 
 > "Anger can injure the liver, but sadness can relieve anger. When wind invades with dampness, it can injure the tendons, although dryness may eliminate the dmapness and wind.\
 > Excessive consumption of sour foods can mke the tendons flaccid, but this can be neutralized by the pungent taste."
 >
 > [@Ni_1995, pp. 20]
 
+# Feeding the _Liver_
 
+Food therapy is a branch of Chinese medicine, used clinically usually to assist herbal and/or acupuncture treatment. Should you suffer chronically from any of the disorders above, merely changing dietary habits is unlikely to effect a cure, and professional treatment should be sought. The suggestions here are for maintaining physical and emotional health and preventing disorders from arising.
 
-# Taste
+Before expanding on dietary recommendations, I will reiterate that regular physical activity is one of the most valuable treatments for *Liver* disorders, and should not be neglected.
 
-> "In general, foods that are pungent have dispresing qualities, those that are sour have astringent qualities, sweet foods have harmonizing and decelerating qualities, bitter foods have a dispensing and drying effect, and salty foods have a softening effect."
->
-> "The five grains are used to nourish, the five fruits to assist, the five animals to fortify, the five vegetables to fulfill. These five types of food have specific effects and properties."
->
-> [@Ni_1995, pp. 94]
+## Properties of foods
 
-> "In the east, wind arises, there is movement that promotes green woody grouwth, and when unripe, gives off a sour taste. The sour taset stimulates the liver when ingested and nourishes the tendons and ligaments. When the wind is gentle it harmonizes all, but when it is extremem it can be destructive, just as in people, emotion turns into rage when the liver is out of control. Metal is the control element, so therefore grief counters anger while dryness lessens the wind and pungent neutralizes sour."
->
+Foods are classified in many ways, the most basic being flavor (sweet, sour, bitter, pungent, salty, bland)[^4] and nature (cold, cool, neutral, warm, hot). Other properties include direction of action and organ systems most affected. Like herbs, each food has specific functions, and these are taken into account in the clinic. In terms of maintaining health, we need not be so concerned about the details, however.
+
+[^4]: "In general, foods that are pungent have dispersing qualities, those that are sour have astringent qualities, sweet foods have harmonizing and decelerating qualities, bitter foods have a dispensing and drying effect, and salty foods have a softening effect." [@Ni_1995, pp. 94]
+
+The _nèi jīng_ gives some guidance on supporting the _Liver system_ in the spring: 
+
+> "In the east, wind arises, there is movement that promotes green woody grouwth, and when unripe, gives off a sour taste. The sour taset stimulates the liver when ingested and nourishes the tendons and ligaments. When the wind is gentle it harmonizes all, but when it is extreme it can be destructive, just as in people, emotion turns into rage when the liver is out of control. Metal is the control element, so therefore grief counters anger while dryness lessens the wind and pungent neutralizes sour."
 > [@Ni_1995, pp. 243]
 
-# Recipes
+One of the first pleasures of spring is the arrival of the many herbs that flourish at that time. The rapid, upward growth, pungent flavor, and bright green color are perfect for the *Liver System*. These can be easily incorporated in salads and soups, or be made into pesto for a light pasta dish.  
 
-Enjoyment of food is not only emotionally pleasing, but improves the absorption of the nutrition it contains. All flavors and colors are ideally included in any meal. Here I will give some ideas for some meals which are ideal for spring. They balance the pungent[^1] and the sour, while using foods that promote the upward energy[^2] appropriate for spring.
+I should note that Chinese medicine, and Chinese cuisine, strongly frown on raw food^[China was the first place I ever ate cooked lettuce]. In my clinic, I have certainly seen patients whose health issues were tied to over-consumption of raw food. However, at least in patients without a compromised digestive system, eating raw salads as part of a balanced diet seems not to have a deleterious affect.
 
-[^1]: Includes green onions, chives, parsley, coriander, but includes most every herb which thrives in the spring and all the onion family.[@Lu_1994]
+Sour foods in moderation are excellent, and so some fruit should be eaten regularly, as most are considered sour. Apricots and cherries are especially useful, but don't worry too much and buy what is freshest. Herbed vinaigrettes are perfect.
 
-[^2]: Such foods include apricots, beets, mushrooms, cabbach, carrot, celery, eggs, grapes, honey, kidney beans, milk, olives, peanuts, oysters, string beans, sweet potatoes, kohlrabi, figs.[@Lu_1994]
+As regards animal protein, shellfish is useful, such as crab, clams, oysters, and eel (_unagi_).
 
-::: {.callout-note title="Don't forget the salt"}
-Salt is necessary for the cooking process and critical for bringing out the flavor of food. In Asian foods, this is normally supplied by soy and/or fish sauce. In western foods, you must season food as you cook.
+On the other hand, sweet foods should be minimized (so no lemonade). This includes not only obviously sweet foods, but also starchy foods and root vegetables. Sweet foods can impede the "free flow" of the _Liver_. This means eating relatively smaller portions of the staple grains such as rice and pasta, and more vegetables. In theory, you have built up and conserved energy stores through the winter...now it's time to use that energy and get moving.
+
+
+## Goji berries
+
+A specific food related to the _Liver_ that I want to mention is goji berries since they have become common as a "superfood". This is, in fact, one of the most important herbs used in the clinic to treat *Liver System* disorders. In Chinese, it is *gǒu qǐ zǐ* 枸杞子, and it is used to nourish the *Liver*, more specifically blood and *yin*. There are numerous folk stories about the regular consumption of *gǒu qǐ zǐ* leading to unusually long lives. It is tasty, widely available, and a handful can be easily added to morning cereal, cold or cooked, or to salads, or can be mixed with nuts and dried apricots^[Apricots are specific to the Liver] for a snack mix.
+
+# Basic approach to cooking
+
+Cooking need not be complicated in order to create flavorful and healthy dishes. Cooking should be fun and creative, and every dish you make will teach you something about balance.
+
+In general, a dish should contain a variety of flavors and colors, and should please the eye as well as the palette. Dishes should contain sweet, bitter, salty and sour flavors, all of which have receptors on the tongue, and _pungency_, which is related to the sense of smell and actually provides most of what we call the taste of a food. Most foods, and in particular the staple grains, have natural sweetness, and many vegetables, especially the greens, are naturally bitter. Adding salt, sour^[vinegar, citrus], and sometimes additional sweet^[honey, palm sugar, maple syrup, cane sugar] elements will bring out the taste of all the other ingredients.
+
+Vegetables should be lightly cooked, and be firm, not mushy. 
+Try to have roughly equal quantities of each ingredient, with a variety of colors.  Keep tasting food and adjust the ingredients as desired. Experiment and be creative. Enjoyment of food is not only physical but alse emotional, and the enjoyment itself improves the absorption of the nutrition in the food.
+
+# Recipe ideas
+
+Most texts on Chinese food therapy provide recipes, but they tend to focus on foods common in the Chinese diet but unfamiliar or unavailable in parts of the US. With one exception, these recipes are not based in Asian cuisine, and use readily available ingredients.
+
+Here I will give some ideas for some meals which are ideal for spring. They balance the pungent[^2] and the sour, while using foods that promote the upward energy[^3] appropriate for spring.
+
+[^2]: Includes green onions, chives, parsley, coriander, but includes most every herb which thrives in the spring and all the onion family.[@Lu_1994]
+
+[^3]: Such foods include apricots, beets, mushrooms, cabbage, carrot, celery, eggs, grapes, honey, kidney beans, milk, olives, peanuts, oysters, string beans, sweet potatoes, kohlrabi, figs.[@Lu_1994]
+
+## Soup and Salad
+
+::: {.callout-tip collapse=true}
+## Beetroot and fennel salad with peppermint vinegrette
+
+Both beets and fennel are specific to the *Liver*. The fennel used is the vegetable, not the spice. It is a crisp and crunchy bulb with a mild licorice flavor.
+
+Boil a large beet, skin on, until it can be pierced with a fork and the skin slides off easily. After removing the skin, cut into bite-size cubes. Similarly, cut a fennel bulb, a bunch of spring onions, a red or yellow bell pepper, and a few celery stalks into pieces and add to the beets. Add a grated carrot, walnuts or peanuts, dried apricots and goji berries. If you like prunes, they are perfect for the Liver.
+
+Mix vinegar and oil together, roughly half-half, although different vinegars are different, so you'll need to taste and adjust. I like to use balsamic vinegar, but apple or wine vinegar is fine, too. Add fresh peppermint and a mix of whatever fresh herbs you have available, such as: parsley, cilantro, chives, tarragon, thyme, basil, oregano, etc. It is important that the herbs be fresh, not dried. Crush them with a mortar and pestle before adding, and don't forget the salt and pepper.
+
+Mix the dressing with the salad right away. Prepare it in advance, as it will taste better the longer it sits. It keeps well in the refrigerator for several days.
 :::
 
-## Salad
+::: {.callout-tip collapse=true}
+## Leek soup with white beans and chestnuts
 
-beetroot salad with peppermint vinegrette
+Leeks, along with their relatives from the onion/garlic family, must be cooked slowly to bring out the natural sweetness and eliminate the bitterness. They should be rinsed thoroughly after chopping because they can be dirty. The entire leek is edible, but avoid the ends if they are too tough.
 
-## Soup
+Gently heat some oil or butter with fennel seeds and a couple bay leaves until you start to smell the fennel, then add the leeks and some salt, stir to thoroughly coat the leeks in oil, adding a small amount if necessary. Keep them on low heat, stirring occasionally, until they are soft, translucent, and sweet to the taste.
 
-leek soup with chestnuts and grains
+Combine the leeks with chestnut or walnut pieces and a couple cups of cooked white beans (canned is fine). These are the large, flat beans, or butter beans. If you don't have them, any bean will do, or even a couple of cubed potatoes. Add enough vegetable broth to cover, and let it cook for 20 minutes or so. Personally, I don't have time to make vegetable broth, so I add a couple boullion cubes^[There are many high quality boullion cubes on the market these days, with many vegetarian and vegan choices. Experiment and find ones that you like.] and boiling water. Do not add cold water or broth, or it will stop the cooking process.
+
+It should be done in 20 minutes or so, and near the end add some fresh herbs like parsley, cilantro, thyme, rosemary...whatever is available and strikes your fancy. Add a splash of balsamic and/or apple vinegar, and additional salt if necessary. Garnish with some chopped chives. Avoid eating this with bread, especially if you used potatoes.
+
+:::
 
 ## Mains
 
-stir-fry with celery, shitakke, and plum sauce
+::: {.callout-tip collapse=true}
+## Tarragon pesto pasta
 
-lime-cilantro shrimp
+Take a large bunch of tarragon and remove any woody or tough stems. Place in a food processor or blender with a little salt, olive oil, and a couple handfuls of walnuts. If you eat cheese, add a small piece of parmesan or pecorino romano, if not you could add a tablespoon or so of nutritional yeast if you like. Both of these add considerable _umami_ to the dish. Just remember to start with a little of everything but the tarragon. As you blend, add more olive oil until the pesto looks and tastes moist, being careful not to make it "oily". You should adjust the seasoning as you go, and add more cheese or nuts if desired.
 
-## Drink
+This is best served with smaller pasta with lots of nooks and crannies for the pesto to get stuck in. Sometimes I'll add a _small_ squirt of lemon which gives it punch (and a little sour benefits the *Liver System*).
 
-Mint julep
+:::
+
+::: {.callout-tip collapse=true}
+## Stir-fry with tofu, snow peas, peanuts
+
+The technique here is more stir-steaming than stir-frying. Wok cooking is done at very high heat, with a small amount of liquid in the bottom which must be continually replenished so as to never dry out. The goal is to steam the vegetables, not boil them. Liquid should be added from the side of the wok, and there should always be visible steam. Vegetable broth is fine, although I like to use a mix of mirin or rice cooking wine, mushroom sauce, and fish sauce.
+
+For best results, cut a firm block of tofu into bite-size pieces, place on a tray with pieces not touching, and freeze for at least four hours. For vegetables, I suggest snow peas, carrots, and red bell pepper. These should all be cut into bite size pieces.
+
+Grate an inch or so of fresh ginger and fry in a little oil at medium heat until it softens and smells good. Add the tofu, some liquid, and some soy sauce. The best is Thai mushroom sauce, but any light soy sauce is ok. Add some fresh mushrooms, ideally shiitake. 
+
+When the tofu is softened, add a little oyster sauce, mix, and move the tofu to the side of the wok or remove it to a bowl. Make sure there is liquid in the bottom of the hot wok, and one by one cook the carrots, snow peas, and bell pepper for about one minute each, moving them to the side of the wok after they are slightly cooked. 
+
+Mix all the ingredients together, add additional soy sauce or oyster sauce as needed, and cook for another minute. Turn off the heat, and mix in some unsalted peanuts and chopped scallions. This is best served with Thai jasmine rice, but any will do. Remember to keep the rice portion small in the Spring. I like spicy foods, so I add some Sriracha.
+
+:::
+
+::: {.callout-tip collapse=true}
+## Lime-cilantro shrimp
+
+Chop some onions and garlic and cook them on low-medium heat with salt in some olive oil until they start to brown. Raise the heat a little and add a chopped tomato. Let the water cook off the tomato, then add a chopped carrot, celery stalk and red bell pepper. Add water as necessary to keep everything moist but not soupy. Once the vegetables are softened but still firm, add the shrimp. As soon as they start to curl and change color, remove from the heat as they will continue to cook and will become tough if overcooked.
+
+Stir in a generous amount of lime juice from fresh limes. Taste and juiciness of limes varies widely, but I find the small limes have the best flavor. Add a bunch of chopped cilantro and green onions. Serve with tortillas or rice.
+
+:::
+
