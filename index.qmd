@@ -20,6 +20,8 @@ Here you will find articles about things that interest me. Much of the site is d
 
 ## What's new
 
+[Eating in spring](posts/chinese-medicine/eating-in-spring/index.qmd) is about Chinese food therapy.
+
 [A new article](posts/linux/nix-docker-fhs/index.qmd) about the drawbacks of Docker and superiority of Nix for software development and management.
 
 A new [post](posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.qmd) comparing the use of R with Python for working with GPX data.

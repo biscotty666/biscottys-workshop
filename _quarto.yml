@@ -33,6 +33,10 @@ website:
             text: "Data Science" 
           - href: posts/linux/linux.qmd
             text: Linux
+      - text: "Humanities"
+        menu: 
+          - href: posts/chinese-medicine/index.qmd
+            text: Chinese Medicine
       - href: posts/posts.qmd
         text: "All posts"
     right:
