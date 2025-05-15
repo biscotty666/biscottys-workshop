@@ -38,7 +38,7 @@ website:
             text: Linux
       - text: "Humanities"
         menu: 
-          - href: posts/chinese-medicine/index.qmd
+          - href: posts/chinese-medicine/chinese-medicine.qmd
             text: Chinese Medicine
       - href: posts/posts.qmd
         text: "All posts"
@@ -71,6 +71,7 @@ website:
         - auto: posts/data-science
         - auto: posts/obsidian
         - auto: posts/linux
+        - auto: posts/chinese-medicine
 
     - title: "CV"
       id: cv-side

@@ -5,6 +5,7 @@ listing:
     - "obsidian/**/index.qmd"
     - "data-science/**/index.qmd"
     - "linux/**/index.qmd"
+    - "chinese-medicine/**/index.qmd"
   type: grid
   sort: "date desc"
   categories: true

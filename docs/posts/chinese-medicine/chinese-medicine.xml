@@ -6,8 +6,8 @@
       version="2.0">
 <channel>
 <title>biscotty&#39;s Workshop</title>
-<link>https://biscotty.online/posts/chinese-medicine/</link>
-<atom:link href="https://biscotty.online/posts/chinese-medicine/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://biscotty.online/posts/chinese-medicine/chinese-medicine.html</link>
+<atom:link href="https://biscotty.online/posts/chinese-medicine/chinese-medicine.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.7.30</generator>
 <lastBuildDate>Thu, 15 May 2025 06:00:00 GMT</lastBuildDate>

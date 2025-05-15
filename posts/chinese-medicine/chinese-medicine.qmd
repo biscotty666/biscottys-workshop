@@ -1,0 +1,20 @@
+gi 
+---
+title: "Chinese Medicine"
+listing:
+  contents: "*/index.qmd"
+  type: table
+  sort: "date desc"
+  categories: true
+  fields: 
+    - title
+    - description
+    - categories
+    - reading-time
+  feed:
+    items: 10
+    type: partial
+sidebar: posts-side
+comments: false
+---
+I practiced Chinese Medicine for over 20 years, and taught for over half that time. My specialty at the college was herbal medicine and diagnosis, and in practice I mixed acupuncture, herbal medicine, and food therapy. This is an occasional series on food, herbs, and Chinese medicine.
