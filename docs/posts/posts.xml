@@ -3920,7 +3920,7 @@ font-style: inherit;">"Stop points"</span>,</span>
 
 
 
-<p>NixOS is a Linux distribution with a radically different design from any other. The NixOS paradigm solves many problems in the design of other Linux systems. However, since the NixOS paradigm relies on ideas foreign to many people such as graphs and functional programming, it carries a particularly steep learning curve. Switching from Ubuntu to Fedora is painless. Switching to NixOS is not.</p>
+<p>NixOS is a Linux distribution with a radically different design from any other. The NixOS approach solves many problems in the design of other Linux systems. However, since the NixOS paradigm relies on ideas foreign to many people such as graphs and functional programming, it carries a particularly steep learning curve. Switching from Ubuntu to Fedora is painless. Switching to NixOS is not.</p>
 <p>I feel strongly that it is worth the learning curve, which in my experience isn’t really so bad. You can really use NixOS without understanding immutability, graphs or functional programming. But, to understand why NixOS is a cut above all the rest, some understanding of the design is helpful.</p>
 <p>Here is a first attempt at a general description of NixOS and why it is so different.</p>
 <section id="how-different-really-different." class="level2">
