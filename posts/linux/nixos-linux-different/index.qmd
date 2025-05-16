@@ -8,17 +8,6 @@ id: Linux Different
 author: Brian Carey
 image: NixosWinter.png
 Published: false
-Stage: beta
-action: true
-created: 2024-06-18
-fileClass:
-  - default
-  - article
-modified: 2024-11-01
-topic:
-  - "[[NixOS]]"
-related:
-  - "[[Articles]]"
 ---
 
 NixOS is a Linux distribution with a radically different design from any other. The NixOS approach solves many problems in the design of other Linux systems. However, since the NixOS paradigm relies on ideas foreign to many people such as graphs and functional programming, it carries a particularly steep learning curve. Switching from Ubuntu to Fedora is painless. Switching to NixOS is not.

@@ -1,0 +1,21 @@
+---
+title: The Magical Mulberry
+subtitle: Herbs around us
+description: This invasive tree provides many of the most commonly used medicinals in Chinese medicine.
+bibliography: ../../../references.bib
+image: "goji.png"
+date: 05-15-2025
+categories: [Chinese Medicine, Herbs]
+toc: true
+toc-depth: 4
+draft: true
+draft-mode: unlinked
+---
+
+-   Mulberry leaves *sāng yè* 桑葉 *Mori Folium* [@bensky_chinese_2004, pp. 54] [@chen_chinese_2004, pp. 74]
+-   Mulberries *sāng shèn* 桑葚 *Mori Fructus* [@bensky_chinese_2004, pp. 763] [@chen_chinese_2004, pp. 959]
+-   Mulberry mistletoe stems *sāng jì shēng* *Taxilli Herba* [@bensky_chinese_2004, pp. 335] [@chen_chinese_2004, pp. 345]
+-   Mulberry root bark *sāng bái pí* 桑白皮 *Mori Cortex* [@bensky_chinese_2004, pp. 450] [@chen_chinese_2004, pp. 741]
+-   Mulberry twigs *sāng zhī* 桑枝 *Mori Ramulus* [@bensky_chinese_2004, pp. 355] [@chen_chinese_2004, pp. 327]
+-   Sick silkworm *bái jiāng cán* 白僵蠶 *Bombyx Batryicatus* [@bensky_chinese_2004, pp. 984] [@chen_chinese_2004, pp. 792]
+-   Silkworm feces *cán shā* 蠶沙 *Bombycis Faeces* [@bensky_chinese_2004, pp. 334] [@chen_chinese_2004, pp. 312]
