@@ -12,10 +12,86 @@ draft: true
 draft-mode: unlinked
 ---
 
--   Mulberry leaves *sāng yè* 桑葉 *Mori Folium* [@bensky_chinese_2004, pp. 54] [@chen_chinese_2004, pp. 74]
--   Mulberries *sāng shèn* 桑葚 *Mori Fructus* [@bensky_chinese_2004, pp. 763] [@chen_chinese_2004, pp. 959]
--   Mulberry mistletoe stems *sāng jì shēng* *Taxilli Herba* [@bensky_chinese_2004, pp. 335] [@chen_chinese_2004, pp. 345]
--   Mulberry root bark *sāng bái pí* 桑白皮 *Mori Cortex* [@bensky_chinese_2004, pp. 450] [@chen_chinese_2004, pp. 741]
--   Mulberry twigs *sāng zhī* 桑枝 *Mori Ramulus* [@bensky_chinese_2004, pp. 355] [@chen_chinese_2004, pp. 327]
--   Sick silkworm *bái jiāng cán* 白僵蠶 *Bombyx Batryicatus* [@bensky_chinese_2004, pp. 984] [@chen_chinese_2004, pp. 792]
--   Silkworm feces *cán shā* 蠶沙 *Bombycis Faeces* [@bensky_chinese_2004, pp. 334] [@chen_chinese_2004, pp. 312]
+When I taught Chinese Materia Medica, a course in which students learn all of the properties of over 1,000 medicinal substances, one of the challenges was to make the subject more tangible beyond the pages of the texts. Many plants commonly used in Chinese Medicine (CM) grow all around us, sometimes in our own back yard. My students had a regular assignment to identify and report on such herbs which they identify around town. Making connections with plants they see every day helped them to memorize their properties.
+
+A perennial favorite was the mulberry tree, and for good reason. The mulberry tree originated in China, but spread throughout the globe, and is now considered an invasive species in many areas. It is a tree of tremendous historical importance, as it is the host of the silkworm. Silk production in China was so important that the primary inter-continental trade route for 1,500 years, up until the mid-15^th^ century: the [Silk Road](https://en.wikipedia.org/wiki/Silk_Road).
+
+This silkworm itself provides two medicinal substances, but the mulberry tree provides no less than five. It is not unusual for us to use different parts of a plant for different purposes, but such a range is unique. Depending on the part of the tree used, it may work on acute conditions like colds and flu, or chronic conditions like arthritis. It may work on the most superficial levels of the body, or the deepest levels. Some are used to address psychological/emotional issues, others explicitly physical. Some are nourishing, others are "dispersing"[^1].
+
+[^1]: dispersing refers to eliminating pathogens
+
+In this article, I will explore the variety of uses of the different parts of the tree. This does not constitute medical advice, and use of any herb should be approached with caution. Even those which are not toxic (none of these are) can produce unwanted side effects and be harmful to your health. Doctors of Chinese Medicine spend years of study before prescribing, for good reason.
+
+## The tree
+
+::: {.callout-note appearance="minimal"}
+
+[**Mulberry tree**]{style="font-size: 1.2em;"} *sāng shù* 桑樹 *Mori alba*
+
+:::
+
+I should specify that I am discussing the white mulberry. Despite the wide range of functions and indications attributed to the various parts, we can, never-the-less, identify some commonalities. CM classifies pharmacuticals in various ways including their nature^[hot, warm, neutral, cool, cold], flavor^[sour, sweet, salty, bitter, pungent], part(s) of the body affected, and pathogenic influences^[heat, cold, damp, phlegm, wind, etc.]. 
+
+The mulberry tree is cold in nature. All plants are placed on a spectrum from hot to cold, which is an indication of its ability to either increase or reduce body temperature. It primarily affects the *Lung System*[^2] and the *Liver System*[^3]. Most are bitter or pungent, flavors associated with clearing and dispersing pathogenic influences, and among these, the mulberry targets wind, dampness and phlegm. 
+
+[^2]: The Lung System includes much of the immune system. It controls the *exterior* of the body, and is responsible for resisting external pathogens which result in, eg. colds and flu.
+
+[^3]: The Liver System includes the muscles and joints. It plays an important role in emotional regulation, and poor function can result in irritability, anger, depression and poor sleep.
+
+## The leaves
+
+::: {.callout-note appearance="minimal"}
+
+[**Mulberry leaves**]{style="font-size: 1.2em;"} *sāng yè* 桑葉 *Mori Folium* [@bensky_chinese_2004, pp. 54] [@chen_chinese_2004, pp. 74]
+
+:::
+
+Mulberry leaves are one of the most commonly used herbs to treat certain types of cough: those associated with summertime colds and flu, and those with a lot of phlegm in the lungs. In CM, the *Lung System* controls the skin as well as the lungs themselves, and is responsible for temperature regulation. It is our primary defense against all airborne pathogens, including viruses and bacteria. *Sāng yè* is one of the main ingredients^[the other being chrysanthemum flowers] in the classical formula *sāng yè tāng*, which exemplifies the treatment of colds occurring in warm weather. 
+
+Among other things, the *Liver System* is responsible for vision and the eyes. The mulberry leaves are important in treating red, swollen eyes. Interestingly, in both these applications, *sāng yè* is most often combined with chrysanthemum flowers^[*jú huā* 菊花]. In Chinese medicine, herbs are (almost) always used in combinations, and certain pairings are recognized as particularly useful.
+
+## The fruit
+
+::: {.callout-note appearance="minimal"}
+
+[Mulberries]{style="font-size: 1.2em;"} *sāng shèn* 桑葚 *Mori Fructus* [@bensky_chinese_2004, pp. 763] [@chen_chinese_2004, pp. 959]
+
+:::
+
+While the leaves affect the most superficial parts of the body, the fruit affects some of the deepest levels. Unlike the others, the fruit has no affect on the Lungs, but does strongly affect the Liver^[and the Heart and Kidney]. Unlike the other parts of the tree which are primarily used to treat pathogens, the fruit is nourishing. More specifically, it nourishes the blood. The Chinese concept of blood is more expansive than the western definition, and "insufficiency of blood" is often the root of insomnia, depression, and other emotional disorders. Physical manifestations include hypotension, dizziness, and tinnitus.
+
+The mulberry fruit is also used in the treatment of diabetes.
+
+## The twigs
+
+::: {.callout-note appearance="minimal"}
+
+[Mulberry twigs]{style="font-size: 1.2em;"} *sāng zhī* 桑枝 *Mori Ramulus* [@bensky_chinese_2004, pp. 355] [@chen_chinese_2004, pp. 327]
+
+:::
+
+## The root bark
+
+::: {.callout-note appearance="minimal"}
+
+[Mulberry root bark]{style="font-size: 1.2em;"} *sāng bái pí* 桑白皮 *Mori Cortex* [@bensky_chinese_2004, pp. 450] [@chen_chinese_2004, pp. 741]
+
+:::
+
+## Mulberry Mistletoe
+
+::: {.callout-note appearance="minimal"}
+
+[Mulberry mistletoe stems]{style="font-size: 1.2em;"} *sāng jì shēng* 桑寄生 *Taxilli Herba* [@bensky_chinese_2004, pp. 335] [@chen_chinese_2004, pp. 345]
+
+:::
+
+## The silkworm
+
+::: {.callout-note appearance="minimal"}
+
+[Sick silkworm]{style="font-size: 1.2em;"} *bái jiāng cán* 白僵蠶 *Bombyx Batryicatus* [@bensky_chinese_2004, pp. 984] [@chen_chinese_2004, pp. 792]
+
+[Silkworm feces]{style="font-size: 1.2em;"} *cán shā* 蠶沙 *Bombycis Faeces* [@bensky_chinese_2004, pp. 334] [@chen_chinese_2004, pp. 312]
+
+:::
