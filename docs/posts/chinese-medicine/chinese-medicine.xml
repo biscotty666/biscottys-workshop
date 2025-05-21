@@ -10,7 +10,18 @@
 <atom:link href="https://biscotty.online/posts/chinese-medicine/chinese-medicine.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Thu, 15 May 2025 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 20 May 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>The Magical Mulberry</title>
+  <link>https://biscotty.online/posts/chinese-medicine/magical-mulberry/</link>
+  <description><![CDATA[ This invasive tree provides many of the most commonly used medicinals in Chinese medicine and shaped world history ]]></description>
+  <category>Chinese Medicine</category>
+  <category>Herbs</category>
+  <category>History</category>
+  <guid>https://biscotty.online/posts/chinese-medicine/magical-mulberry/</guid>
+  <pubDate>Tue, 20 May 2025 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/chinese-medicine/magical-mulberry/mulberrytree.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Eating in spring</title>
   <link>https://biscotty.online/posts/chinese-medicine/eating-in-spring/</link>
@@ -20,16 +31,6 @@
   <guid>https://biscotty.online/posts/chinese-medicine/eating-in-spring/</guid>
   <pubDate>Thu, 15 May 2025 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/posts/chinese-medicine/eating-in-spring/goji.png" medium="image" type="image/png" height="96" width="144"/>
-</item>
-<item>
-  <title>The Magical Mulberry</title>
-  <link>https://biscotty.online/posts/chinese-medicine/magical-mulberry/</link>
-  <description><![CDATA[ This invasive tree provides many of the most commonly used medicinals in Chinese medicine. ]]></description>
-  <category>Chinese Medicine</category>
-  <category>Herbs</category>
-  <guid>https://biscotty.online/posts/chinese-medicine/magical-mulberry/</guid>
-  <pubDate>Thu, 15 May 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/chinese-medicine/magical-mulberry/mulberrytree.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

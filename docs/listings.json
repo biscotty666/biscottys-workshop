@@ -2,8 +2,8 @@
   {
     "listing": "/posts/chinese-medicine/chinese-medicine.html",
     "items": [
-      "/posts/chinese-medicine/eating-in-spring/index.html",
-      "/posts/chinese-medicine/magical-mulberry/index.html"
+      "/posts/chinese-medicine/magical-mulberry/index.html",
+      "/posts/chinese-medicine/eating-in-spring/index.html"
     ]
   },
   {
@@ -28,8 +28,8 @@
   {
     "listing": "/posts/posts.html",
     "items": [
-      "/posts/chinese-medicine/eating-in-spring/index.html",
       "/posts/chinese-medicine/magical-mulberry/index.html",
+      "/posts/chinese-medicine/eating-in-spring/index.html",
       "/posts/linux/nix-docker-fhs/index.html",
       "/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.html",
       "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html",
