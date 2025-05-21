@@ -18,14 +18,124 @@
     "href": "index.html#whats-new",
     "title": "biscotty’s Workshop",
     "section": "What’s new",
-    "text": "What’s new\nEating in spring is about Chinese food therapy.\nA new article about the drawbacks of Docker and superiority of Nix for software development and management.\nA new post comparing the use of R with Python for working with GPX data.\nI have added, and am updating, a section about myself, for those who are interested in my background and experience.\nFor those returning, this third iteration of my website is built in Quatro. I hope you like the new layout. It now allows you to comment on posts, so I look forward to your feedback and ideas. You can still email me as before, of course. Thanks to Samantha Shanny-Csik (Sam Shanny-Csik 2022; Samantha Shanny-Csik 2022) and Albert Rapp (Rapp 2022).\nI just posted a new (old really) article about NixOS. NixOS is not generally understood in the Linux community, but it solves many problems inherent in the traditional Linux system structure. It is my first stab at explaining how NixOS does what it does, and why."
+    "text": "What’s new\nEating in spring and The Magical Mulberry are about Chinese medicine.\nA new article about the drawbacks of Docker and superiority of Nix for software development and management.\nA new post comparing the use of R with Python for working with GPX data.\nI have added, and am updating, a section about myself, for those who are interested in my background and experience."
   },
   {
     "objectID": "index.html#whats-here",
     "href": "index.html#whats-here",
     "title": "biscotty’s Workshop",
     "section": "What’s here",
-    "text": "What’s here\nIf this is your first time, you can see all the posts here, or use the search icon in the upper left. Or just start below.\n\nObsidianData ScienceLinuxChinese MedicineAbout me\n\n\nObsidian is Personal Knowledge Management PKM software. If you don’t know what Obsidian or PKM are, you could start with this article. I have many articles here about advanced usage, taking full advantage of Obsidian’s design. Freeing your thinking explains how to move beyond directory structures, taking advantage of the no-sql nature of Obsidian. There is also a series about the usage of dataviewjs, written for non-programmers, to create dashboards and interactive tables.\n\n\nMy current passion is data science, with particular interest in geospatial analyses (GIS). I enjoy working both in both R and Python. Some of articles will explicitly compare the two, as I think that data science Python programmers would find R delightful, such as showing how to do gps trail mappingin R instead of Python.\n\n\nI’ve used Linux almost exclusively for over three decades. The first 20 years or so I used Slackware, the oldest distribution still being developed. Since then I have extensively used Fedora, both mutable and immutable versions, as well as Debian and Ubuntu.\nMy current OS of choice is NixOS, which is unlike any other operating system I’m aware of, and very different conceptually. To get an idea of what I mean, read The Linux Different.\n\n\nI am a retired Doctor of Oriental Medicine, which I practiced for nearly two decades as well as teaching at Southwest Acupuncture College where I specialized in Chinese herbal medicine, medical theory, and diagnosis. I see Chinese herbs all around me when I walk, not to mention those growing in my own yard. Some of these articles will describe the health properties, from a Chinese perspective, of everyday plants.\nI also love to cook, and tried to stress food therapy to my patients as a key aspect of healing. Keeping a proper diet is the most important thing that anyone can do for their health. So I will occasionally post recipes, pointing out the health aspects of the meals.\n\n\nI have a background ranging from international finance and administration, programming, software translation and localization management. I’ve been a medical doctor, business owner and professor. You can find out more about me, my current work, and services here"
+    "text": "What’s here\nIf this is your first time, you can see all the posts here, or use the search icon in the upper left. Or just start below.\n\nObsidianData ScienceLinuxChinese Medicine\n\n\nObsidian is Personal Knowledge Management PKM software. If you don’t know what Obsidian or PKM are, you could start with this article. I have many articles here about advanced usage, taking full advantage of Obsidian’s design. Freeing your thinking explains how to move beyond directory structures, taking advantage of the no-sql nature of Obsidian. There is also a series about the usage of dataviewjs, written for non-programmers, to create dashboards and interactive tables.\n\n\nMy current passion is data science, with particular interest in geospatial analyses (GIS). I enjoy working both in both R and Python. Some of articles will explicitly compare the two, as I think that data science Python programmers would find R delightful, such as showing how to do gps trail mappingin R instead of Python.\n\n\nI’ve used Linux almost exclusively for over three decades. The first 20 years or so I used Slackware, the oldest distribution still being developed. Since then I have extensively used Fedora, both mutable and immutable versions, as well as Debian and Ubuntu.\nMy current OS of choice is NixOS, which is unlike any other operating system I’m aware of, and very different conceptually. To get an idea of what I mean, read The Linux Different.\n\n\nI am a retired Doctor of Oriental Medicine, which I practiced for nearly two decades as well as teaching at Southwest Acupuncture College where I specialized in Chinese herbal medicine, medical theory, and diagnosis. I see Chinese herbs all around me when I walk, not to mention those growing in my own yard. Some of these articles will describe the health properties, from a Chinese perspective, of everyday plants.\nI also love to cook, and tried to stress food therapy to my patients as a key aspect of healing. Keeping a proper diet is the most important thing that anyone can do for their health. So I will occasionally post recipes, pointing out the health aspects of the meals."
+  },
+  {
+    "objectID": "posts/chinese-medicine/magical-mulberry/index.html",
+    "href": "posts/chinese-medicine/magical-mulberry/index.html",
+    "title": "The Magical Mulberry",
+    "section": "",
+    "text": "Branch, fruit, leaves of the mulberry1\nThe much maligned mulberry, banned in many places such as the USA and Brazil for its highly invasive nature, is unique in two ways: 1) it provided, directly or indirectly, a greater variety of medicinal substances than any other plant, and; 2) it changed the course of human history. This article is primarily about the former, but I’ll look at the latter later.\nWhen I taught Chinese Materia Medica, a course in which students learn all of the properties of over 1,000 medicinal substances, one of the challenges was to make the subject tangible beyond the pages of the texts. At this stage in their studies, clinical experience was focused on acupuncture, and their only exposure to herbs was through books and lectures. Many plants commonly used in Chinese Medicine (CM) grow all around us, sometimes in our own back yard. In order to help them “get in touch” with the topic, my students had a regular assignment to identify and report on such herbs which they identified around town. Making connections with plants they see every day helped them to memorize their properties, functions and indications.\nA perennial favorite was the mulberry tree, and for good reason. The mulberry tree originated in China, but spread throughout the globe, and is now considered an invasive species in many areas. It is a tree of tremendous historical as well as medical importance, being the host of the silkworm. Silk production in China was so important that the primary inter-continental trade route for 1,500 years, up until the mid-15th century was named for it: the Silk Road. More on that later.\nThis silkworm itself provides two medicinal substances, but the mulberry tree provides no less than four, and another parasite of the tree, mistletoe, provides yet another. It is not unusual for CM to use different parts of a plant for different purposes, but such a range is unique. Depending on the part of the tree used, it may work on acute conditions like colds and flu, or chronic conditions like atrophy. It may work on the most superficial levels of the body, or the deepest levels. Some are used to address psychological/emotional issues, others explicitly physical. Some are nourishing, others are “dispersing”2.\nIn this article, I will explore the variety of uses of the different parts of the tree. This does not constitute medical advice, and use of any herb should be approached with caution. Even those which are not toxic (none of these are) can produce unwanted side effects and be harmful to your health. Doctors of Chinese Medicine spend years of study before prescribing, and for good reason. As regards the fruit…eat up!",
+    "crumbs": [
+      "Chinese Medicine",
+      "The Magical Mulberry"
+    ]
+  },
+  {
+    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#the-tree",
+    "href": "posts/chinese-medicine/magical-mulberry/index.html#the-tree",
+    "title": "The Magical Mulberry",
+    "section": "The tree",
+    "text": "The tree\n\n\n\n\n\n\nsāng shù 桑樹 Mori alba\n\n\n\n\n\n\n\nMulberry tree3\n\n\n\nI should specify that I am discussing the white mulberry. Despite the wide range of functions and indications attributed to the various parts, we can, never-the-less, identify some commonalities. CM classifies pharmacuticals in various ways including their nature4, flavor5, part(s) of the body affected, and pathogenic influences6.\nThe mulberry tree is cold in nature. All plants are placed on a spectrum from hot to cold, which is an indication of its ability to either increase or reduce body temperature, either systemically or locally. It primarily affects the Lung System7 and the Liver System8. Most parts are bitter or pungent, flavors associated with clearing and dispersing pathogenic influences, and among these, the mulberry targets wind, dampness and phlegm.",
+    "crumbs": [
+      "Chinese Medicine",
+      "The Magical Mulberry"
+    ]
+  },
+  {
+    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#the-leaves",
+    "href": "posts/chinese-medicine/magical-mulberry/index.html#the-leaves",
+    "title": "The Magical Mulberry",
+    "section": "The leaves",
+    "text": "The leaves\n\n\n\n\n\n\nsāng yè 桑葉 Mori Folium (Bensky 2004, 54) (Chen, Chen, and Crampton 2004, 74)\n\n\n\n\n\n\n\nMulberry leaves\n\n\n\nMulberry leaves are one of the most commonly used herbs to treat certain types of cough: those associated with warm weather colds and flu, and those with a lot of phlegm in the lungs. In CM, the Lung System controls the skin as well as the lungs themselves, and is responsible for temperature regulation. It is our primary defense against all airborne pathogens, including viruses and bacteria. Sāng yè is one of the main ingredients9 in the classical formula sāng yè tāng, which exemplifies the treatment of colds occurring in warm weather.\nAmong other things, the Liver System is responsible for vision and the eyes, and the leaves are important in treating red, swollen eyes. Interestingly, in both these applications, sāng yè is most often combined with chrysanthemum flowers10. In CM, herbs are (almost) always used in combinations, and certain pairings are recognized as particularly useful. (Herbal combinations11, usually pairings, constitute a separate course in the Chinese curriculum, but is sadly missing in the curriculum in the USA.)",
+    "crumbs": [
+      "Chinese Medicine",
+      "The Magical Mulberry"
+    ]
+  },
+  {
+    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#the-fruit",
+    "href": "posts/chinese-medicine/magical-mulberry/index.html#the-fruit",
+    "title": "The Magical Mulberry",
+    "section": "The fruit",
+    "text": "The fruit\n\n\n\n\n\n\nsāng shèn 桑葚 Mori Fructus (Bensky 2004, 763) (Chen, Chen, and Crampton 2004, 959)\n\n\n\n\n\n\n\nMulberries12\n\n\n\nMulberries are delicious. If you spot them around your neighborhood, pick a few and taste. If you are ambitious, pick a lot and make jam.\nWhile the leaves affect the most superficial parts of the body, the fruit affects some of the deepest levels. Unlike the other parts, the fruit has no affect on the Lungs, but does strongly affect the Liver. While the other parts of the tree are primarily used to treat pathogens, the fruit is nourishing, building the resources the body needs to heal itself. More specifically, it nourishes the blood. The Chinese concept of blood is more expansive than the western definition, and “insufficiency of blood” is often the root not only of anemia but also of insomnia, depression, and other emotional disorders. Physical manifestations include hypotension, dizziness, and tinnitus. The mulberry fruit is currently being used in China for the treatment of diabetes.",
+    "crumbs": [
+      "Chinese Medicine",
+      "The Magical Mulberry"
+    ]
+  },
+  {
+    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#the-twigs",
+    "href": "posts/chinese-medicine/magical-mulberry/index.html#the-twigs",
+    "title": "The Magical Mulberry",
+    "section": "The twigs",
+    "text": "The twigs\n\n\n\n\n\n\nsāng zhī 桑枝 Mori Ramulus (Bensky 2004, 355) (Chen, Chen, and Crampton 2004, 327)\n\n\n\n\n\n\n\nsāng zhī 桑枝 Mori Ramulus\n\n\n\nIf the pathogenic forces of wind, dampness and heat make it through the superficial levels of the body, they enter the joints, limbs, and what CM refers to as the “sinews”13. This can lead to symptoms such as swelling, pain, numbness, or even paralysis. Where the mulberry leaves focus on the superficial layers, the twig or branch penetrates deeper as well, expelling the pathogenic forces from those areas. This herb is targeted at the Liver.",
+    "crumbs": [
+      "Chinese Medicine",
+      "The Magical Mulberry"
+    ]
+  },
+  {
+    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#the-root-bark",
+    "href": "posts/chinese-medicine/magical-mulberry/index.html#the-root-bark",
+    "title": "The Magical Mulberry",
+    "section": "The root bark",
+    "text": "The root bark\n\n\n\n\n\n\nsāng bái pí 桑白皮 Mori Cortex (Bensky 2004, 450) (Chen, Chen, and Crampton 2004, 741)\n\n\n\n\n\n\n\nsāng bái pí 桑白皮 Mori Cortex\n\n\n\nOn the other hand, the root bark is focused on the Lungs, not the Liver. Sāng bái pí is commonly used to treat cough and asthma. Its ability to cool and expel phlegm makes it ideal for cough and asthma characterized by thick, viscous sputum, perhaps yellow.\nThe root bark is also a diuretic, and is used to treat edema, especially that occurring in the face or limbs. It may seem strange that a medicine which targets the Lung would have anything to do with urinary function. There is a saying that “the Lungs are the upper source of water”. While urination is primarily the responsibility of the kidneys and urinary bladder, the Lungs provide downward movement in the body, and obstruction of the Lungs can result in urinary difficulty and consequent edema.",
+    "crumbs": [
+      "Chinese Medicine",
+      "The Magical Mulberry"
+    ]
+  },
+  {
+    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#mistletoe",
+    "href": "posts/chinese-medicine/magical-mulberry/index.html#mistletoe",
+    "title": "The Magical Mulberry",
+    "section": "Mistletoe",
+    "text": "Mistletoe\n\n\n\n\n\n\nsāng jì shēng 桑寄生 Taxilli Herba(Bensky 2004, 335) (Chen, Chen, and Crampton 2004, 345)\n\n\n\n\n\n\n\nMistletoe on a mulberry tree\n\n\n\nMistletoe is, of course, an entirely different plant from the mulberry: it is a parasite which lives on the tree. Never-the-less, its uses are similarly to the uses of the mulberry itself. Sāng jì shēng combines the nourishing characteristics of the mulberry fruit with the pain and numbness relieving abilities of the root bark. It is used to treat more advanced conditions of limb disorders including pain, stiffness, numbness, and atrophy14.\nSāng jì shēng has another property which will seem odd to westerners. It is said to “calm the fetus”. It is one of about a dozen herbs that are used to treat a range of pregnancy-related issues from morning sickness to bleeding and threatened miscarriage. These herbs are even added to formulas for pregnant women when treating disorders unrelated to the pregnancy. Some, such as the mistletoe, also promote lactation post-partum. Doctors of Chinese Medicine in the USA rarely treat pregnant women due to insurance liability issues, but herbal medicine and acupuncture are very useful in treating many common problems which go along with being pregnant.",
+    "crumbs": [
+      "Chinese Medicine",
+      "The Magical Mulberry"
+    ]
+  },
+  {
+    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#the-silkworm",
+    "href": "posts/chinese-medicine/magical-mulberry/index.html#the-silkworm",
+    "title": "The Magical Mulberry",
+    "section": "The silkworm",
+    "text": "The silkworm\n\n\n\n\nA healthy, happy silkworm15\n\n\n\nFew plants can claim to have had a greater impact on human history than the mulberry. It is not for its medicinal power, rather for the fact that it is the sole host to the silkworm.\nUntil the Middle Ages, silk was only produced in Asia, mainly in China and India16. Chinese silk in particular was much desired throughout the ancient world, from Japan, whose need was insatiable, to the courts of western Europe where it was prized by the aristocracy and wealthy. It was a major factor in the relationship between China and Japan, and provided a foothold for eventual Western naval and trade dominance in the region.\nWhen the Portuguese arrived in Asia, China and Japan were in a state of conflict and had no trading relationship. Never-the-less, the silk trade was very important to both countries. The Portuguese were able to access the famously closed societies by acting as go-betweens, buying silks in China and selling them in Japan17.\nOf course, many other commodities were traded between Europe and China (and India), spices being of particular import, and the naval routes quickly surpassed in importance the overland Silk Road. The wealth accumulated by Europe as a result of this trade, and their focus on the naval and military technology needed to carry it out, ushered in the long era of western world dominance.\nAnd none of this would have happened if not for the mulberry tree.\nGetting back to medicine, it may come as a surprise, but, despite the name, Chinese Herbal Medicine includes more than just herbs. Beyond the plant kingdom, the Materia Medica includes animals and substances derived from them, fungi, and mineral substances.\n\n\n\n\n\n\nbái jiāng cán 白僵蠶 Bombyx Batryicatus (Bensky 2004, 984) (Chen, Chen, and Crampton 2004, 792)\n\n\n\nThis is an example of a medicinal substance that is both an animal and a fungus. These are silkworms which die after contracting a fungus called “Bombys bassiana*. (In CM terminolgy, this is considered an invasion of wind pathogen.) Similar to what we saw with the mistletoe, despite being an entirely different species, and even a different kingdom, the silkworm also works on the Lungs and Liver, where it treats relatively severed conditions of spasms, convulsions, and paralysis. (Usually animal substances have stronger effects compared to plants.)\nAs you may recall, the Lungs are responsible for the skin, and while the silkworm does not treat cough, it is commonly used to treat skin itching, rashes, and swelling of the throat, another part of the body belonging to the Lung system. The Lungs also control the voice, and this is used to treat loss of voice.\n\n\n\n\n\n\ncán shā 蠶沙 Bombycis Faeces (Bensky 2004, 334) (Chen, Chen, and Crampton 2004, 312)\n\n\n\n\n\n\n\nSilkworms with feces18\n\n\n\nIntroducing this herb always got a reaction from my students, ranging from nervous giggles to outright disgust, exacerbated when I told them cán shā has a sweet flavor. The Chinese name of this medicinal is quite pleasant, as it translates into English as “silkworm sand”.\nIn keeping with a major function of the medicinals so far discussed, cán shā expels wind and dampness, thereby treating pain and swelling in the limbs and itchy skin rashes. Unlike the other herbs however, which are cold, cán shā is warm. This is an example of how medicinals are chosen based on a range of criteria. Even though this herb and the root bark go to the same parts of the body and focus on the same pathogens, they are not interchangeable, and inappropriate choice due to misdiagnosis can lead to complications.\nCán shā is actually more important clinically to treat dampness in a different part of the body. It affects the abdomen and the digestive system (stomach and pancreas19). Symptoms include severe abdominal pain, vomiting, diarrhea and cramps. When used for this, it is always paired with another herb, Chinese flowering quince mù guā 木瓜 Chaenomeles Fructus.",
+    "crumbs": [
+      "Chinese Medicine",
+      "The Magical Mulberry"
+    ]
+  },
+  {
+    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#closing-thoughts",
+    "href": "posts/chinese-medicine/magical-mulberry/index.html#closing-thoughts",
+    "title": "The Magical Mulberry",
+    "section": "Closing thoughts",
+    "text": "Closing thoughts\nChinese herbal medicine is a complex and voluminous topic. It has evolved continuously over two thousand years, refining methods and understanding of the properties of thousands of medicinal substances. I hope that I have given you a flavor (no pun intended) of how herbs are used by doctors of oriental medicine, a way very different from that of western herbalists.\nAlways be cautious when taking any herbal medicine. It is a common misconception that taking “nutritional supplements”, as herbs are considered in the USA, can’t really hurt you, but they can. The person stocking the shelves may not be the best resource for good information, so do your homework.\nOn the other hand, sāng shēn, those delicious purple berries, can be enjoyed by the handful, and make for a delicious jam. Look around your neighborhood, or in green spaces around you. If you find mulberries, pick some and enjoy.",
+    "crumbs": [
+      "Chinese Medicine",
+      "The Magical Mulberry"
+    ]
+  },
+  {
+    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#footnotes",
+    "href": "posts/chinese-medicine/magical-mulberry/index.html#footnotes",
+    "title": "The Magical Mulberry",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nMulberry branch image by Ирина Кудрявцева from Pixabay↩︎\ndispersing refers to eliminating pathogens↩︎\nPhoto by Christopher Eden on Unsplash↩︎\nhot, warm, neutral, cool, cold↩︎\nsour, sweet, salty, bitter, pungent↩︎\nheat, cold, damp, phlegm, wind, etc.↩︎\nThe Lung System includes much of the immune system. It controls the exterior of the body, and is responsible for resisting external pathogens which result in, eg. colds and flu.↩︎\nThe Liver System includes the muscles and joints. It plays an important role in emotional regulation, and poor function can result in irritability, anger, depression and poor sleep.↩︎\nthe other being chrysanthemum flowers↩︎\njú huā 菊花 Chrysanthemi flos↩︎\nduì yào 對藥↩︎\nMulberries image by Анастасия Белоусова from Pixabay↩︎\nThis includes the tendons and ligaments↩︎\nMistletoe also goes to the Kindeys and is commonly used for lumbar pain↩︎\nSilkworm on hand by ivabalk from Pixabay↩︎\nIndia’s traditional Ayurvedic medicine is as old as China’s medical system, and shares a number of features.↩︎\nby means of the Black Ship↩︎\nSilkworms with feces image by Alexandre Lacerda de Almeida from Pixabay↩︎\nThis organ is, unfortunately, called the Spleen in Chinese medicine.↩︎",
+    "crumbs": [
+      "Chinese Medicine",
+      "The Magical Mulberry"
+    ]
   },
   {
     "objectID": "posts/chinese-medicine/chinese-medicine.html",
@@ -1996,124 +2106,17 @@
     "text": "Back to topReferences\n\nBensky, Dan, ed. 2004. Chinese Herbal Medicine: Materia Medica. 3. ed. Seattle, WA: Eastland Press.\n\n\nChen, John K., Tina T. Chen, and Laraine Crampton. 2004. Chinese Medical Herbology and Pharmacology. City of Industry, Calif: Art of Medicine Press.\n\n\nLu, Henry C. 1994. Chinese Natural Cures. Black Dog & Leventhal Publishers, Inc.\n\n\nNi, Maoshing. 1995. The Yellow Emperor’s Classic of Medicine: A New Translation of the Neijing Suwen with Commentary. Shambhala.\n\n\nRapp, Albert. 2022. “The Ultimate Guide to Starting a Quarto Blog – Albert Rapp.” July 2022. https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html#closing.\n\n\nShanny-Csik, Sam. 2022. “Creating Your Personal Website Using Quarto.” August 2022. https://ucsb-meds.github.io/creating-quarto-websites/.\n\n\nShanny-Csik, Samantha. 2022. “Adding a Blog to Your Existing Quarto Website.” October 24, 2022. https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/."
   },
   {
-    "objectID": "posts/chinese-medicine/magical-mulberry/index.html",
-    "href": "posts/chinese-medicine/magical-mulberry/index.html",
-    "title": "The Magical Mulberry",
-    "section": "",
-    "text": "Branch, fruit, leaves of the mulberry1\nThe much maligned mulberry, banned in many places such as the USA and Brazil for its highly invasive nature, is unique in two ways: 1) it provided, directly or indirectly, a greater variety of medicinal substances than any other plant, and; 2) it changed the course of human history. This article is primarily about the former, but I’ll look at the latter later.\nWhen I taught Chinese Materia Medica, a course in which students learn all of the properties of over 1,000 medicinal substances, one of the challenges was to make the subject tangible beyond the pages of the texts. At this stage in their studies, clinical experience was focused on acupuncture, and their only exposure to herbs was through books and lectures. Many plants commonly used in Chinese Medicine (CM) grow all around us, sometimes in our own back yard. In order to help them “get in touch” with the topic, my students had a regular assignment to identify and report on such herbs which they identified around town. Making connections with plants they see every day helped them to memorize their properties, functions and indications.\nA perennial favorite was the mulberry tree, and for good reason. The mulberry tree originated in China, but spread throughout the globe, and is now considered an invasive species in many areas. It is a tree of tremendous historical as well as medical importance, being the host of the silkworm. Silk production in China was so important that the primary inter-continental trade route for 1,500 years, up until the mid-15th century was named for it: the Silk Road. More on that later.\nThis silkworm itself provides two medicinal substances, but the mulberry tree provides no less than four, and another parasite of the tree, mistletoe, provides yet another. It is not unusual for CM to use different parts of a plant for different purposes, but such a range is unique. Depending on the part of the tree used, it may work on acute conditions like colds and flu, or chronic conditions like atrophy. It may work on the most superficial levels of the body, or the deepest levels. Some are used to address psychological/emotional issues, others explicitly physical. Some are nourishing, others are “dispersing”2.\nIn this article, I will explore the variety of uses of the different parts of the tree. This does not constitute medical advice, and use of any herb should be approached with caution. Even those which are not toxic (none of these are) can produce unwanted side effects and be harmful to your health. Doctors of Chinese Medicine spend years of study before prescribing, and for good reason. As regards the fruit…eat up!",
-    "crumbs": [
-      "Chinese Medicine",
-      "The Magical Mulberry"
-    ]
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "biscotty’s Workshop",
+    "section": "About me",
+    "text": "About me\nI have a background ranging from international finance and administration, programming, software translation and localization management. I’ve been a medical doctor, business owner and professor. You can find out more about me, my current work, and services here"
   },
   {
-    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#the-tree",
-    "href": "posts/chinese-medicine/magical-mulberry/index.html#the-tree",
-    "title": "The Magical Mulberry",
-    "section": "The tree",
-    "text": "The tree\n\n\n\n\n\n\nsāng shù 桑樹 Mori alba\n\n\n\n\n\n\n\nMulberry tree3\n\n\n\nI should specify that I am discussing the white mulberry. Despite the wide range of functions and indications attributed to the various parts, we can, never-the-less, identify some commonalities. CM classifies pharmacuticals in various ways including their nature4, flavor5, part(s) of the body affected, and pathogenic influences6.\nThe mulberry tree is cold in nature. All plants are placed on a spectrum from hot to cold, which is an indication of its ability to either increase or reduce body temperature, either systemically or locally. It primarily affects the Lung System7 and the Liver System8. Most parts are bitter or pungent, flavors associated with clearing and dispersing pathogenic influences, and among these, the mulberry targets wind, dampness and phlegm.",
-    "crumbs": [
-      "Chinese Medicine",
-      "The Magical Mulberry"
-    ]
-  },
-  {
-    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#the-leaves",
-    "href": "posts/chinese-medicine/magical-mulberry/index.html#the-leaves",
-    "title": "The Magical Mulberry",
-    "section": "The leaves",
-    "text": "The leaves\n\n\n\n\n\n\nsāng yè 桑葉 Mori Folium (Bensky 2004, 54) (Chen, Chen, and Crampton 2004, 74)\n\n\n\n\n\n\n\nMulberry leaves\n\n\n\nMulberry leaves are one of the most commonly used herbs to treat certain types of cough: those associated with warm weather colds and flu, and those with a lot of phlegm in the lungs. In CM, the Lung System controls the skin as well as the lungs themselves, and is responsible for temperature regulation. It is our primary defense against all airborne pathogens, including viruses and bacteria. Sāng yè is one of the main ingredients9 in the classical formula sāng yè tāng, which exemplifies the treatment of colds occurring in warm weather.\nAmong other things, the Liver System is responsible for vision and the eyes, and the leaves are important in treating red, swollen eyes. Interestingly, in both these applications, sāng yè is most often combined with chrysanthemum flowers10. In CM, herbs are (almost) always used in combinations, and certain pairings are recognized as particularly useful. (Herbal combinations11, usually pairings, constitute a separate course in the Chinese curriculum, but is sadly missing in the curriculum in the USA.)",
-    "crumbs": [
-      "Chinese Medicine",
-      "The Magical Mulberry"
-    ]
-  },
-  {
-    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#the-fruit",
-    "href": "posts/chinese-medicine/magical-mulberry/index.html#the-fruit",
-    "title": "The Magical Mulberry",
-    "section": "The fruit",
-    "text": "The fruit\n\n\n\n\n\n\nsāng shèn 桑葚 Mori Fructus (Bensky 2004, 763) (Chen, Chen, and Crampton 2004, 959)\n\n\n\n\n\n\n\nMulberries12\n\n\n\nMulberries are delicious. If you spot them around your neighborhood, pick a few and taste. If you are ambitious, pick a lot and make jam.\nWhile the leaves affect the most superficial parts of the body, the fruit affects some of the deepest levels. Unlike the other parts, the fruit has no affect on the Lungs, but does strongly affect the Liver. While the other parts of the tree are primarily used to treat pathogens, the fruit is nourishing, building the resources the body needs to heal itself. More specifically, it nourishes the blood. The Chinese concept of blood is more expansive than the western definition, and “insufficiency of blood” is often the root not only of anemia but also of insomnia, depression, and other emotional disorders. Physical manifestations include hypotension, dizziness, and tinnitus. The mulberry fruit is currently being used in China for the treatment of diabetes.",
-    "crumbs": [
-      "Chinese Medicine",
-      "The Magical Mulberry"
-    ]
-  },
-  {
-    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#the-twigs",
-    "href": "posts/chinese-medicine/magical-mulberry/index.html#the-twigs",
-    "title": "The Magical Mulberry",
-    "section": "The twigs",
-    "text": "The twigs\n\n\n\n\n\n\nsāng zhī 桑枝 Mori Ramulus (Bensky 2004, 355) (Chen, Chen, and Crampton 2004, 327)\n\n\n\n\n\n\n\nsāng zhī 桑枝 Mori Ramulus\n\n\n\nIf the pathogenic forces of wind, dampness and heat make it through the superficial levels of the body, they enter the joints, limbs, and what CM refers to as the “sinews”13. This can lead to symptoms such as swelling, pain, numbness, or even paralysis. Where the mulberry leaves focus on the superficial layers, the twig or branch penetrates deeper as well, expelling the pathogenic forces from those areas. This herb is targeted at the Liver.",
-    "crumbs": [
-      "Chinese Medicine",
-      "The Magical Mulberry"
-    ]
-  },
-  {
-    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#the-root-bark",
-    "href": "posts/chinese-medicine/magical-mulberry/index.html#the-root-bark",
-    "title": "The Magical Mulberry",
-    "section": "The root bark",
-    "text": "The root bark\n\n\n\n\n\n\nsāng bái pí 桑白皮 Mori Cortex (Bensky 2004, 450) (Chen, Chen, and Crampton 2004, 741)\n\n\n\n\n\n\n\nsāng bái pí 桑白皮 Mori Cortex\n\n\n\nOn the other hand, the root bark is focused on the Lungs, not the Liver. Sāng bái pí is commonly used to treat cough and asthma. Its ability to cool and expel phlegm makes it ideal for cough and asthma characterized by thick, viscous sputum, perhaps yellow.\nThe root bark is also a diuretic, and is used to treat edema, especially that occurring in the face or limbs. It may seem strange that a medicine which targets the Lung would have anything to do with urinary function. There is a saying that “the Lungs are the upper source of water”. While urination is primarily the responsibility of the kidneys and urinary bladder, the Lungs provide downward movement in the body, and obstruction of the Lungs can result in urinary difficulty and consequent edema.",
-    "crumbs": [
-      "Chinese Medicine",
-      "The Magical Mulberry"
-    ]
-  },
-  {
-    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#mulberry-mistletoe",
-    "href": "posts/chinese-medicine/magical-mulberry/index.html#mulberry-mistletoe",
-    "title": "The Magical Mulberry",
-    "section": "Mulberry Mistletoe",
-    "text": "Mulberry Mistletoe\n\n\n\n\n\n\nMulberry mistletoe stems sāng jì shēng 桑寄生 Taxilli Herba (Bensky 2004, 335) (Chen, Chen, and Crampton 2004, 345)\n\n\n\nMistletoe is, of course, an entirely different plant from the mulberry: it is a parasite which lives on the tree. Never-the-less, its uses are similarly to the uses of the mulberry itself. Sāng jì shēng combines the nourishing characteristics of the mulberry fruit with the pain and numbness relieving abilities of the root bark. It is used to treat more advanced conditions of limb disorders including pain, stiffness, numbness, and atrophy13.\nSāng jì shēng has another property which will seem odd to westerners. It is said to “calm the fetus”. It is one of about a dozen herbs that are used to treat a range of pregnancy-related issues from morning sickness to bleeding and threatened miscarriage. These herbs are even added to formulas for pregnant women when treating disorders unrelated to the pregnancy. Some, such as the mistletoe, also promote lactation post-partum. Doctors of Chinese Medicine in the USA rarely treat pregnant women due to insurance liability issues, but herbal medicine and acupuncture are very useful in treating many common problems which go along with being pregnant.",
-    "crumbs": [
-      "Chinese Medicine",
-      "The Magical Mulberry"
-    ]
-  },
-  {
-    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#the-silkworm",
-    "href": "posts/chinese-medicine/magical-mulberry/index.html#the-silkworm",
-    "title": "The Magical Mulberry",
-    "section": "The silkworm",
-    "text": "The silkworm\n\n\n\n\nA healthy, happy silkworm15\n\n\n\nFew plants can claim to have had a greater impact on human history than the mulberry. It is not for its medicinal power, rather for the fact that it is the sole host to the silkworm.\nUntil the Middle Ages, silk was only produced in Asia, mainly in China and India16. Chinese silk in particular was much desired throughout the ancient world, from Japan, whose need was insatiable, to the courts of western Europe where it was prized by the aristocracy and wealthy. It was a major factor in the relationship between China and Japan, and provided a foothold for eventual Western naval and trade dominance in the region.\nWhen the Portuguese arrived in Asia, China and Japan were in a state of conflict and had no trading relationship. Never-the-less, the silk trade was very important to both countries. The Portuguese were able to access the famously closed societies by acting as go-betweens, buying silks in China and selling them in Japan17.\nOf course, many other commodities were traded between Europe and China (and India), spices being of particular import, and the naval routes quickly surpassed in importance the overland Silk Road. The wealth accumulated by Europe as a result of this trade, and their focus on the naval and military technology needed to carry it out, ushered in the long era of western world dominance.\nAnd none of this would have happened if not for the mulberry tree.\nGetting back to medicine, it may come as a surprise, but, despite the name, Chinese Herbal Medicine includes more than just herbs. Beyond the plant kingdom, the Materia Medica includes animals and substances derived from them, fungi, and mineral substances.\n\n\n\n\n\n\nbái jiāng cán 白僵蠶 Bombyx Batryicatus (Bensky 2004, 984) (Chen, Chen, and Crampton 2004, 792)\n\n\n\nThis is an example of a medicinal substance that is both an animal and a fungus. These are silkworms which die after contracting a fungus called “Bombys bassiana*. (In CM terminolgy, this is considered an invasion of wind pathogen.) Similar to what we saw with the mistletoe, despite being an entirely different species, and even a different kingdom, the silkworm also works on the Lungs and Liver, where it treats relatively severed conditions of spasms, convulsions, and paralysis. (Usually animal substances have stronger effects compared to plants.)\nAs you may recall, the Lungs are responsible for the skin, and while the silkworm does not treat cough, it is commonly used to treat skin itching, rashes, and swelling of the throat, another part of the body belonging to the Lung system. The Lungs also control the voice, and this is used to treat loss of voice.\n\n\n\n\n\n\ncán shā 蠶沙 Bombycis Faeces (Bensky 2004, 334) (Chen, Chen, and Crampton 2004, 312)\n\n\n\n\n\n\n\nSilkworms with feces18\n\n\n\nIntroducing this herb always got a reaction from my students, ranging from nervous giggles to outright disgust, exacerbated when I told them cán shā has a sweet flavor. The Chinese name of this medicinal is quite pleasant, as it translates into English as “silkworm sand”.\nIn keeping with a major function of the medicinals so far discussed, cán shā expels wind and dampness, thereby treating pain and swelling in the limbs and itchy skin rashes. Unlike the other herbs however, which are cold, cán shā is warm. This is an example of how medicinals are chosen based on a range of criteria. Even though this herb and the root bark go to the same parts of the body and focus on the same pathogens, they are not interchangeable, and inappropriate choice due to misdiagnosis can lead to complications.\nCán shā is actually more important clinically to treat dampness in a different part of the body. It affects the abdomen and the digestive system (stomach and pancreas19). Symptoms include severe abdominal pain, vomiting, diarrhea and cramps. When used for this, it is always paired with another herb, Chinese flowering quince mù guā 木瓜 Chaenomeles Fructus.",
-    "crumbs": [
-      "Chinese Medicine",
-      "The Magical Mulberry"
-    ]
-  },
-  {
-    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#footnotes",
-    "href": "posts/chinese-medicine/magical-mulberry/index.html#footnotes",
-    "title": "The Magical Mulberry",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nMulberry branch image by Ирина Кудрявцева from Pixabay↩︎\ndispersing refers to eliminating pathogens↩︎\nPhoto by Christopher Eden on Unsplash↩︎\nhot, warm, neutral, cool, cold↩︎\nsour, sweet, salty, bitter, pungent↩︎\nheat, cold, damp, phlegm, wind, etc.↩︎\nThe Lung System includes much of the immune system. It controls the exterior of the body, and is responsible for resisting external pathogens which result in, eg. colds and flu.↩︎\nThe Liver System includes the muscles and joints. It plays an important role in emotional regulation, and poor function can result in irritability, anger, depression and poor sleep.↩︎\nthe other being chrysanthemum flowers↩︎\njú huā 菊花 Chrysanthemi flos↩︎\nduì yào 對藥↩︎\nMulberries image by Анастасия Белоусова from Pixabay↩︎\nThis includes the tendons and ligaments↩︎\nMistletoe also goes to the Kindeys and is commonly used for lumbar pain↩︎\nSilkworm on hand by ivabalk from Pixabay↩︎\nIndia’s traditional Ayurvedic medicine is as old as China’s medical system, and shares a number of features.↩︎\nby means of the Black Ship↩︎\nSilkworms with feces image by Alexandre Lacerda de Almeida from Pixabay↩︎\nThis organ is, unfortunately, called the Spleen in Chinese medicine.↩︎",
-    "crumbs": [
-      "Chinese Medicine",
-      "The Magical Mulberry"
-    ]
-  },
-  {
-    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#closing-thoughts",
-    "href": "posts/chinese-medicine/magical-mulberry/index.html#closing-thoughts",
-    "title": "The Magical Mulberry",
-    "section": "Closing thoughts",
-    "text": "Closing thoughts\nChinese herbal medicine is a complex and voluminous topic. It has evolved continuously over two thousand years, refining methods and understanding of the properties of thousands of medicinal substances. I hope that I have given you a flavor (no pun intended) of how herbs are used by doctors of oriental medicine, a way very different from that of western herbalists.\nAlways be cautious when taking any herbal medicine. It is a common misconception that taking “nutritional supplements”, as herbs are considered in the USA, can’t really hurt you, but they can. The person stocking the shelves may not be the best resource for good information, so do your homework.\nOn the other hand, sāng shēn, those delicious purple berries, can be enjoyed by the handful, and make for a delicious jam. Look around your neighborhood, or in green spaces around you. If you find mulberries, pick some and enjoy.",
-    "crumbs": [
-      "Chinese Medicine",
-      "The Magical Mulberry"
-    ]
-  },
-  {
-    "objectID": "posts/chinese-medicine/magical-mulberry/index.html#mistletoe",
-    "href": "posts/chinese-medicine/magical-mulberry/index.html#mistletoe",
-    "title": "The Magical Mulberry",
-    "section": "Mistletoe",
-    "text": "Mistletoe\n\n\n\n\n\n\nsāng jì shēng 桑寄生 Taxilli Herba(Bensky 2004, 335) (Chen, Chen, and Crampton 2004, 345)\n\n\n\n\n\n\n\nMistletoe on a mulberry tree\n\n\n\nMistletoe is, of course, an entirely different plant from the mulberry: it is a parasite which lives on the tree. Never-the-less, its uses are similarly to the uses of the mulberry itself. Sāng jì shēng combines the nourishing characteristics of the mulberry fruit with the pain and numbness relieving abilities of the root bark. It is used to treat more advanced conditions of limb disorders including pain, stiffness, numbness, and atrophy14.\nSāng jì shēng has another property which will seem odd to westerners. It is said to “calm the fetus”. It is one of about a dozen herbs that are used to treat a range of pregnancy-related issues from morning sickness to bleeding and threatened miscarriage. These herbs are even added to formulas for pregnant women when treating disorders unrelated to the pregnancy. Some, such as the mistletoe, also promote lactation post-partum. Doctors of Chinese Medicine in the USA rarely treat pregnant women due to insurance liability issues, but herbal medicine and acupuncture are very useful in treating many common problems which go along with being pregnant.",
-    "crumbs": [
-      "Chinese Medicine",
-      "The Magical Mulberry"
-    ]
+    "objectID": "index.html#changelog",
+    "href": "index.html#changelog",
+    "title": "biscotty’s Workshop",
+    "section": "Changelog",
+    "text": "Changelog\nFor those returning, this third iteration of my website is built in Quatro. I hope you like the new layout. It now allows you to comment on posts, so I look forward to your feedback and ideas. You can still email me as before, of course. Thanks to Samantha Shanny-Csik (Sam Shanny-Csik 2022; Samantha Shanny-Csik 2022) and Albert Rapp (Rapp 2022).\nI just posted a new (old really) article about NixOS. NixOS is not generally understood in the Linux community, but it solves many problems inherent in the traditional Linux system structure. It is my first stab at explaining how NixOS does what it does, and why."
   }
 ]

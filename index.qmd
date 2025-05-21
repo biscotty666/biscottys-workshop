@@ -20,17 +20,13 @@ Here you will find articles about things that interest me. Much of the site is d
 
 ## What's new
 
-[Eating in spring](posts/chinese-medicine/eating-in-spring/index.qmd) is about Chinese food therapy.
+[Eating in spring](posts/chinese-medicine/eating-in-spring/index.qmd)  and [The Magical Mulberry](posts/chinese-medicine/magical-mulberry/index.qmd) are about Chinese medicine.
 
 [A new article](posts/linux/nix-docker-fhs/index.qmd) about the drawbacks of Docker and superiority of Nix for software development and management.
 
 A new [post](posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.qmd) comparing the use of R with Python for working with GPX data.
 
 I have added, and am updating, a [section](cv/brian-carey.qmd) about myself, for those who are interested in my background and experience.
-
-For those returning, this third iteration of my website is built in Quatro. I hope you like the new layout. It now allows you to comment on posts, so I look forward to your feedback and ideas. You can still email me as before, of course. Thanks to Samantha Shanny-Csik [@shanny-csik_creating_2022; @shanny-csik2022] and Albert Rapp [@rapp_ultimate_2022].
-
-I just posted a new (old really) [article](posts/linux/nixos-linux-different/index.qmd) about NixOS. NixOS is not generally understood in the Linux community, but it solves many problems inherent in the traditional Linux system structure. It is my first stab at explaining how NixOS does what it does, and why.
 
 ## What's here
 
@@ -59,9 +55,14 @@ I am a retired Doctor of Oriental Medicine, which I practiced for nearly two dec
 
 I also love to cook, and tried to stress food therapy to my patients as a key aspect of healing. Keeping a proper diet is the most important thing that anyone can do for their health. So I will occasionally post recipes, pointing out the health aspects of the meals.
 
-### About me
+:::
+
+## About me
 
 I have a background ranging from international finance and administration, programming, software translation and localization management. I've been a medical doctor, business owner and professor. You can find out more about me, my current work, and services [here](about.qmd)
 
-:::
+## Changelog
 
+For those returning, this third iteration of my website is built in Quatro. I hope you like the new layout. It now allows you to comment on posts, so I look forward to your feedback and ideas. You can still email me as before, of course. Thanks to Samantha Shanny-Csik [@shanny-csik_creating_2022; @shanny-csik2022] and Albert Rapp [@rapp_ultimate_2022].
+
+I just posted a new (old really) [article](posts/linux/nixos-linux-different/index.qmd) about NixOS. NixOS is not generally understood in the Linux community, but it solves many problems inherent in the traditional Linux system structure. It is my first stab at explaining how NixOS does what it does, and why.

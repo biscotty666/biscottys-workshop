@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://biscotty.online/about.html</loc>
-    <lastmod>2025-05-21T05:52:38.866Z</lastmod>
+    <lastmod>2025-05-21T06:32:34.052Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/index.html</loc>
-    <lastmod>2025-05-15T17:58:23.446Z</lastmod>
+    <lastmod>2025-05-21T06:38:27.710Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/chinese-medicine/magical-mulberry/index.html</loc>
+    <lastmod>2025-05-21T06:32:34.093Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/chinese-medicine/chinese-medicine.html</loc>
@@ -218,7 +222,7 @@
   </url>
   <url>
     <loc>https://biscotty.online/posts/linux/nixos-linux-different/index.html</loc>
-    <lastmod>2025-05-19T13:55:31.336Z</lastmod>
+    <lastmod>2025-05-21T06:32:34.113Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/obsidian/optimal-notes-with-obsidian/index.html</loc>
@@ -275,9 +279,5 @@
   <url>
     <loc>https://biscotty.online/resources.html</loc>
     <lastmod>2025-04-10T15:47:42.662Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/posts/chinese-medicine/magical-mulberry/index.html</loc>
-    <lastmod>2025-05-21T06:28:23.510Z</lastmod>
   </url>
 </urlset>
