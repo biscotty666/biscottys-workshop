@@ -1,7 +1,7 @@
 ---
 title: The Magical Mulberry
 subtitle: Herbs around us
-description: This invasive tree provides many of the most commonly used medicinals in Chinese medicine and shaped world history
+description: This invasive tree provides many of the more commonly used medicinals in Chinese medicine and shaped world history
 bibliography: ../../../references.bib
 image: mulberrytree.jpg
 date: 05-20-2025
