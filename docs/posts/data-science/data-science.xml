@@ -10,7 +10,17 @@
 <atom:link href="https://biscotty.online/posts/data-science/data-science.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Sun, 30 Mar 2025 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 24 May 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Exporing New Mexico Demographics with TidyCensus</title>
+  <link>https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/</link>
+  <description><![CDATA[ Some description ]]></description>
+  <category>R</category>
+  <category>TidyCensus</category>
+  <category>Data Science</category>
+  <guid>https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/</guid>
+  <pubDate>Sat, 24 May 2025 06:00:00 GMT</pubDate>
+</item>
 <item>
   <title>GPS Mapping with R</title>
   <link>https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</link>
