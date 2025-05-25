@@ -8,6 +8,7 @@ output:
     keep_md: true
     self_contained: true
 date: 2025-05-24
+toc-depth: 2
 categories: [R, TidyCensus, Data Science]
 draft: false
 ---
@@ -23,7 +24,7 @@ New Mexico has relatively large Native American and Hispanic populations. Nearly
 ## Getting started
 
 ::: {.callout-tip collapse=true icon=false}
-## Code
+### Code
 
 ```{r message=FALSE}
 library(tidycensus)
@@ -105,7 +106,7 @@ hisp_us
 We can see how Latinos are spread across New Mexico:
 
 ::: {.callout-tip collapse=true icon=false}
-## Code
+### Code
 
 ```{r}
 nm_hisp_pct <- get_acs(
@@ -122,7 +123,6 @@ nm_hisp_pct <- get_acs(
   rename(County = "NAME", Total = "summary_est", 
          Non_Hispanic = "B03001_002", Hispanic = "B03001_003") |> 
   mutate(Hispanic_Pct = Hispanic / Total) |> 
-  left_join(nm_counties, by = "GEOID") |> 
   st_as_sf()
 ```
 
@@ -149,3 +149,286 @@ hisp_nm
 Not only is the Hispanic population of New Mexico uniquely large in percentage terms, it is also unusual in terms of the racial identity of the Hispanics. Unlike Latinos in most of the rest of the country, many Hispanics in New Mexico do not identify at all with Mexico or Central America, but directly with their European ancestry.
 
 The rest of this article will explore the Hispanic population in New Mexico and the historical context which explains this particular situation. Along the way, I will show how to use the R package `tidycensus` to access the wealth of data on <https://census.gov>.
+
+## A little history
+
+New Mexico has the oldest state capital in the United States, Santa Fe having been founded 10 years before Boston. While the British were exploring from the coast, the Spaniards were moving upwards from Mexico into the territory that would become New Mexico.
+
+Mexico won independence from Spain in 1821, and that included New Mexico. While the European residents gave nominal allegiance to Mexico, it was never very enthusiastic. After the Treaty of Hidalgo, in which the territory of New Mexico was ceded to the United States, Hispanics quickly dropped any pro-Mexican sentiment and were anxious to assert their identity as Americans with roots in Europe, not Latin America. This group is called _nuevomexicanos_ by many, but in New Mexico they are called Hispanos.
+
+## Racial identity of New Mexicans
+
+Before looking at Hispanics, let's get a sense of the racial identity of New Mexicans. Hispanic is not a racial category, so in this breakdown they can be spread across different races.
+
+As I said, there is an almost overwhelming amount of data available, and the biggest challenge is to figure out what data you need. Aside from the decennial census, the census department does regular surveys called the American Community Surveys, which exist in 1-year and 5-year versions. Within each datasets are hundreds or thousands of variables. To make things worse, variable names are not necessarily consistent from one year to another. Fortunately, `tidycensus` can download all of the variables for a particular year and set in the form of a table, which can be searched and filtered with `View()`. The `load_variables()` function takes a date, and I specify that I want the variables from the 5-year American Community Survey.
+
+```{r}
+#| eval: false
+
+v23 <- load_variables(2023, "acs5", cache = TRUE)
+View(v23)
+```
+
+From this, I will create a vector of the variables, giving them human-readable names. I'll only take the top 4 by population.
+
+```{r}
+race_vars = c(
+  White = "B02001_002",
+  Black = "B02001_003",
+  Native_American = "B02001_004",
+  Asian = "B02001_005"
+)
+```
+
+With that, I'm ready to get the data. There are different functions available, depending on the tables you want to query. For the 5-year ACS, the function is `get_acs()`. The function requires a geography, the variables you want returned, and a year. Many geographies are available, including "us", "state", "county" and "tract" (census tract). Some geographies can take an additional argument restricting the data retrieved, as shown in this example where I want county level data, but only for New Mexico.
+
+The `get_acs()` function also has a useful argument, `geometry = TRUE`, which adds the geometry and returns an `sf` object, which we need for mapping. Unfortunately, as of this writing I am unable to get it to work with county or state, although is does work for tract-level data. So we have to do a little extra processing, nothing terrible. I got the geometries from the `tigris` package like this:
+
+```{{r}}
+nm_counties <- counties("NM") |> 
+    select(GEOID, county = NAME, geometry)
+```
+The `GEOID` is what will allow us to join the geometries to the data frame returned by `get_acs()`. I also need to turn it into an `sf` object in order to map it.
+
+```{r}
+races <- get_acs(
+  geography = "county",
+  state = "NM",
+  variables = race_vars,
+  summary_var = "B02001_001",
+  year = 2023,
+  cache_table = TRUE) |> 
+  select(-moe, -summary_moe) |> 
+  pivot_wider(names_from = variable, values_from = estimate) |> 
+  left_join(nm_counties, by = "GEOID")  |> 
+  st_as_sf()
+```
+
+Let's see the overall picture. Since this is a histogram, I'll drop the geometry column. I'll use `transpose()` from `data.table` so I can feed it to `ggplot`.
+```{r}
+races |> 
+  summarise(
+    White = sum(White), 
+    Native = sum(Native_American),
+    Asian = sum(Asian),
+    Black = sum(Black)
+  ) |> 
+  st_drop_geometry() |> 
+  data.table::transpose(keep.names = "race") |> 
+  mutate(race = fct_reorder(race, desc(V1))) |> 
+  ggplot(aes(x = race, y = V1)) +
+  geom_col(fill = "cyan", color = "grey50") +
+  labs(
+    title = "Racial identities in New Mexico",
+    x = "Race", y = "Population",
+    caption = "Source: acs5 2023"
+  ) +
+  scale_y_continuous(labels = scales::comma) +
+  theme_gray()
+```
+
+```{r}
+counties_top_8 <- get_acs(
+  geography = "county",
+  state = "NM",
+  variables = "B03001_001",
+  year = 2023,
+  cache_table = TRUE) |> 
+  slice_max(order_by = estimate, n = 8) |> 
+  left_join(nm_counties, by = "GEOID") |> 
+  select(county)
+```
+
+
+```{r}
+races |> 
+  filter(county %in% counties_top_8$county) |> 
+  select(-GEOID, -NAME) |> 
+  pivot_longer(cols = White:Asian, names_to = "variable", values_to = "estimate", values_drop_na = T) |> 
+  mutate(county = fct_reorder(county, desc(estimate))) |> 
+  ggplot(aes(x = county, y = estimate, fill = variable)) +
+  geom_col() +
+  labs(x = "County",
+       y = "Population",
+       fill = "Race",
+       title = "New Mexico population by race",
+       subtitle = "Top 8 Counties by Population",
+       caption = "Source: census.gov acs5 2023") +
+  scale_y_continuous(labels = scales::comma) +
+  scale_fill_viridis_d(labels = c("Asian", "Black",
+                                  "Native American", "White")) +
+  theme_gray() +
+  theme(axis.text.x = element_text(angle = 30))
+```
+
+## Immigrants in New Mexico
+
+```{r}
+pob_vars = c(
+  Native = "B05002_002",
+  ForeignBorn = "B05002_013"
+)
+```
+
+
+```{r}
+immigration_23 <- get_acs(
+  geography = "county",
+  state = "NM",
+  variables = pob_vars,
+  summary_var = "B05002_001",
+  year = 2023,
+  cache_table = TRUE,
+) |> 
+left_join(
+  nm_counties,  by = "GEOID") |> 
+  select(variable, estimate, moe,
+         county, summary_est, geometry)
+
+ggplot(immigration_23, aes(x = variable, y = estimate, fill = county)) +
+  geom_col() +
+  labs(x = element_blank(),
+       y = "Population",
+       fill = "County",
+       title = "NM Native vs Foreign-born Population",
+       subtitle = "By County",
+       caption = "acs5 2023") +
+  scale_y_continuous(labels = scales::comma) +
+  theme_bw()
+```
+
+```{r}
+immigration_23 |>
+  st_as_sf() |> st_transform(32113) |>  
+  filter(variable == "ForeignBorn") |> 
+  ggplot(aes(fill = estimate)) +
+  geom_sf(aes(geometry = geometry)) +
+  scale_fill_viridis_c(labels = scales::comma) +
+  labs(title = "Immigrant population by county") +
+  theme_void()
+```
+
+```{r}
+immigration_us <- get_acs(
+  geography = "state",
+  variables = pob_vars,
+  summary_var = "B05002_001",
+  year = 2023,
+  cache_table = TRUE,
+) |> 
+  left_join(states,  by = "GEOID") |> 
+  select(variable, estimate, moe,
+         state, summary_est, geometry) |> 
+  st_as_sf()
+
+immigration_us
+```
+
+
+```{r}
+ggplot(immigration_us, aes(x = variable, y = estimate, fill = state)) +
+  geom_col() +
+  labs(x = element_blank(),
+       y = "Population",
+       title = "US Native vs Foreign-born Population",
+       subtitle = "By State",
+       caption = "acs5 2023") +
+  scale_y_continuous(labels = scales::comma) +
+  theme_bw()
+```
+
+
+
+```{r}
+orig_vars_23 = c(
+  Europe = "B05006_002",
+  Asia = "B05006_047",
+  Eastern_Asia = "B05006_048",
+  China = "B05006_049",
+  Asia_SC = "B05006_056",
+  Asia_SE = "B05006_068",
+  Vietnam = "B05006_077",
+  Asia_W = "B05006_079",
+  Africa = "B05006_095",
+  Oceania = "B05006_130",
+  Latin_America = "B05006_139",
+  Caribbean = "B05006_140",
+  Central_America = "B05006_154",
+  Mexico = "B05006_160",
+  South_America = "B05006_164",
+  Canada = "B05006_177"
+)
+```
+
+```{r}
+foreign_origin <- get_acs(
+  geography = "county",
+  state = "NM",
+  variables = orig_vars_23,
+  summary_var = "B05006_001",
+  year = 2023,
+  cache_table = TRUE
+) |> 
+  left_join(nm_counties, by = "GEOID") |> 
+  select(variable, estimate, moe,
+            county, total = summary_est, 
+            geometry)
+foreign_origin
+```
+
+
+
+
+orig_vars_23 = c(
+  Europe = "B05006_002",
+  Asia = "B05006_047",
+  Eastern_Asia = "B05006_048",
+  China = "B05006_049",
+  Asia_SC = "B05006_056",
+  Asia_SE = "B05006_068",
+  Vietnam = "B05006_077",
+  Asia_W = "B05006_079",
+  Africa = "B05006_095",
+  Oceania = "B05006_130",
+  Latin_America = "B05006_139",
+  Caribbean = "B05006_140",
+  Central_America = "B05006_154",
+  Mexico = "B05006_160",
+  South_America = "B05006_164",
+  Canada = "B05006_177"
+)
+
+
+orig_vars_19 = c(
+  Europe = "B05006_002",
+  Asia = "B05006_047",
+  Eastern_Asia = "B05006_048",
+  China = "B05006_049",
+  Asia_SC = "B05006_056",
+  Asia_SE = "B05006_067",
+  Vietnam = "B05006_076",
+  Asia_W = "B05006_078",
+  Africa = "B05006_091",
+  Oceania = "B05006_117",
+  Latin_America = "B05006_124",
+  Caribbean = "B05006_125",
+  Central_America = "B05006_138",
+  Mexico = "B05006_139",
+  South_America = "B05006_148",
+  Canada = "B05006_161"
+)
+
+hisp_vars = c(
+  Non_Hispanic = "B03001_002",
+  Hispanic = "B03001_003",
+  Hispanic_Mexican  = "B03001_004",
+  Hispanic_PR = "B03001_005",
+  Hispanic_Cuba = "B03001_006",
+  Hispanic_DR = "B03001_007",
+  Hispanic_CA = "B03001_008",
+  Hispanic_SA = "B03001_016",
+  Hispanic_Spaniard = "B03001_028",
+  Hispanic_Spanish = "B03001_029",
+  Hispanic_Spanish_American = "B03001_030",
+  Hispanic_White = "B03002_013"
+)
