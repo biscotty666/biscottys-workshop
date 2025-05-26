@@ -27,8 +27,8 @@
 <p>The rest of this article will explore the Hispanic population in New Mexico and the historical context which explains this particular situation. Along the way, I will show how to use the R package <code>tidycensus</code> to access the wealth of data on <a href="https://census.gov" class="uri">https://census.gov</a>.</p>
 <section id="a-little-history" class="level2">
 <h2 class="anchored" data-anchor-id="a-little-history">A little history</h2>
-<p>New Mexico has the oldest state capital in the United States, Santa Fe having been founded 10 years before Boston. While the British were exploring from the coast, the Spaniards were moving upwards from Mexico into the territory that would become New Mexico.</p>
-<p>Mexico won independence from Spain in 1821, and that included New Mexico. While the European residents gave nominal allegiance to Mexico, it was never very enthusiastic. After the Treaty of Hidalgo, in which the territory of New Mexico was ceded to the United States, Hispanics quickly dropped any pro-Mexican sentiment and were anxious to assert their identity as Americans with roots in Europe, not Latin America. This group is called <em>nuevomexicanos</em> by many, but in New Mexico they are called Hispanos.</p>
+<p>New Mexico has the oldest state capital in the United States, Santa Fe having been founded 10 years before Boston. While the British were exploring from the coast, the Spaniards were moving upwards from what was to be Mexico into the territory that would become New Mexico.</p>
+<p>Mexico won independence from Spain in 1821, and that included New Mexico. While the Spanixh residents gave nominal allegiance to Mexico, it was never very enthusiastic. After the Treaty of Hidalgo, in which the territory of New Mexico was ceded to the United States, Hispanics quickly dropped any pro-Mexican sentiment, they might have had and were anxious to assert their identity as Americans with roots in Europe, not Latin America. This group is called <em>nuevomexicanos</em> by many, but in New Mexico they are called Hispanos.</p>
 </section>
 <section id="immigrants-in-new-mexico" class="level2">
 <h2 class="anchored" data-anchor-id="immigrants-in-new-mexico">Immigrants in New Mexico</h2>
@@ -285,30 +285,32 @@ font-style: inherit;">$</span>summary_est</span></code></pre></div>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">with</span>(immigration_23, </span>
-<span id="cb13-2">                  <span class="fu" style="color: #4758AB;
+font-style: inherit;">with</span>(</span>
+<span id="cb13-2">  immigration_23, </span>
+<span id="cb13-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mean</span>(pct_foreign[variable <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"ForeignBorn"</span>]))</span>
-<span id="cb13-3">pct_fb_us <span class="ot" style="color: #003B4F;
+<span id="cb13-4">pct_fb_us <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">with</span>(immigration_us, </span>
-<span id="cb13-4">                  <span class="fu" style="color: #4758AB;
+font-style: inherit;">with</span>(</span>
+<span id="cb13-5">  immigration_us, </span>
+<span id="cb13-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mean</span>(pct_foreign[variable <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"ForeignBorn"</span>]))</span>
-<span id="cb13-5"><span class="fu" style="color: #4758AB;
+<span id="cb13-7"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">data.frame</span>(</span>
-<span id="cb13-6">  <span class="at" style="color: #657422;
+<span id="cb13-8">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Area =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -317,12 +319,12 @@ background-color: null;
 font-style: inherit;">"New Mexico"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"US"</span>),</span>
-<span id="cb13-7">  <span class="at" style="color: #657422;
+<span id="cb13-9">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Average =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(pct_fb_nm, pct_fb_us)</span>
-<span id="cb13-8">)</span></code></pre></div>
+<span id="cb13-10">)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        Area    Average
 1 New Mexico 0.06774040
@@ -333,13 +335,14 @@ font-style: inherit;">c</span>(pct_fb_nm, pct_fb_us)</span>
 </section>
 <section id="visualizing-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="visualizing-the-data">Visualizing the data</h3>
-<p>Now I would like to visualize the data. Explaining <code>ggplot</code> is beyond the scope of this article.)</p>
+<p>Now I would like to visualize the data. (Explaining <code>ggplot</code> is beyond the scope of this article.)</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1">p1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">ggplot</span>(immigration_23, <span class="fu" style="color: #4758AB;
+font-style: inherit;">ggplot</span>(immigration_23, </span>
+<span id="cb15-2">             <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -348,7 +351,7 @@ background-color: null;
 font-style: inherit;">y =</span> estimate)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb15-2">  <span class="fu" style="color: #4758AB;
+<span id="cb15-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_col</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -357,36 +360,36 @@ background-color: null;
 font-style: inherit;">"navy"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb15-3">  <span class="fu" style="color: #4758AB;
+<span id="cb15-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">element_blank</span>(),</span>
-<span id="cb15-4">       <span class="at" style="color: #657422;
+<span id="cb15-5">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Population"</span>,</span>
-<span id="cb15-5">       <span class="at" style="color: #657422;
+<span id="cb15-6">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"County"</span>,</span>
-<span id="cb15-6">       <span class="at" style="color: #657422;
+<span id="cb15-7">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"New Mexico"</span>,</span>
-<span id="cb15-7">       <span class="at" style="color: #657422;
+<span id="cb15-8">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"acs5 2023"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb15-8">  <span class="fu" style="color: #4758AB;
+<span id="cb15-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_y_continuous</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -395,11 +398,11 @@ background-color: null;
 font-style: inherit;">::</span>comma) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb15-9">  <span class="fu" style="color: #4758AB;
+<span id="cb15-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme_bw</span>()</span>
-<span id="cb15-10"></span>
-<span id="cb15-11">p2 <span class="ot" style="color: #003B4F;
+<span id="cb15-11"></span>
+<span id="cb15-12">p2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -412,7 +415,7 @@ background-color: null;
 font-style: inherit;">y =</span> estimate)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb15-12">  <span class="fu" style="color: #4758AB;
+<span id="cb15-13">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_col</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -421,31 +424,31 @@ background-color: null;
 font-style: inherit;">"navy"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb15-13">  <span class="fu" style="color: #4758AB;
+<span id="cb15-14">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">element_blank</span>(),</span>
-<span id="cb15-14">       <span class="at" style="color: #657422;
+<span id="cb15-15">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Population"</span>,</span>
-<span id="cb15-15">       <span class="at" style="color: #657422;
+<span id="cb15-16">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"US"</span>,</span>
-<span id="cb15-16">       <span class="at" style="color: #657422;
+<span id="cb15-17">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"acs5 2023"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb15-17">  <span class="fu" style="color: #4758AB;
+<span id="cb15-18">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_y_continuous</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -454,7 +457,7 @@ background-color: null;
 font-style: inherit;">::</span>comma) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb15-18">  <span class="fu" style="color: #4758AB;
+<span id="cb15-19">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -463,11 +466,11 @@ background-color: null;
 font-style: inherit;">element_blank</span>()) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb15-19">  <span class="fu" style="color: #4758AB;
+<span id="cb15-20">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme_bw</span>()</span>
-<span id="cb15-20"></span>
-<span id="cb15-21">p1 <span class="sc" style="color: #5E5E5E;
+<span id="cb15-21"></span>
+<span id="cb15-22">p1 <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> p2</span></code></pre></div>
 <div class="cell-output-display">
@@ -483,8 +486,8 @@ Figure&nbsp;1: Foreign vs.&nbsp;Native Populations
 </div>
 </div>
 </div>
-<p>We can see on a map where the largest immigrant groups are.</p>
-<div class="cell">
+<p>We can see on a map where the largest concentration of immigrant groups are.</p>
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1">immigration_us<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>percent <span class="ot" style="color: #003B4F;
@@ -542,21 +545,50 @@ font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Immigrant population by state"</span>) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">"Immigrant population by state"</span>,</span>
+<span id="cb16-9">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"acs5 2023"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb16-9">  <span class="fu" style="color: #4758AB;
+<span id="cb16-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">theme_void</span>()</span></code></pre></div>
+font-style: inherit;">theme_void</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb16-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.margin =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">margin</span>(.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-imm-pop-state" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-imm-pop-state-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-imm-pop-state-1.png" id="fig-imm-pop-state" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-imm-pop-state-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">immigration_23 <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
@@ -593,7 +625,7 @@ font-style: inherit;">scale_fill_viridis_c</span>(<span class="at" style="color:
 background-color: null;
 font-style: inherit;">labels =</span> scales<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">::</span>comma) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">::</span>percent) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
 <span id="cb17-6">  <span class="fu" style="color: #4758AB;
@@ -602,20 +634,55 @@ font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Immigrant population by county"</span>) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">"NM Immigrant population by county"</span>,</span>
+<span id="cb17-7">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"acs5 2023"</span>, </span>
+<span id="cb17-8">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"percent"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb17-7">  <span class="fu" style="color: #4758AB;
+<span id="cb17-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">theme_void</span>()</span></code></pre></div>
+font-style: inherit;">theme_void</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb17-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.margin =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">margin</span>(.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-imm-pop-county" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-imm-pop-county-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-imm-pop-county-1.png" id="fig-imm-pop-county" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-imm-pop-county-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
+<p>Not surprisingly, the highest percentage is near the Mexican border.</p>
 </section>
 <section id="origins-of-immigrants" class="level3">
 <h3 class="anchored" data-anchor-id="origins-of-immigrants">Origins of immigrants</h3>
@@ -799,7 +866,7 @@ background-color: null;
 font-style: inherit;">"Canada"</span></span>
 <span id="cb21-9">)</span></code></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">foreign_origin_nm <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
@@ -897,15 +964,31 @@ font-style: inherit;">element_text</span>(<span class="at" style="color: #657422
 background-color: null;
 font-style: inherit;">angle =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">30</span>))</span></code></pre></div>
+font-style: inherit;">30</span>),</span>
+<span id="cb22-15">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.margin =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">margin</span>(.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fb-nm-bar-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>The largest group of immigrants is from Central America, which includes Mexico in these tables. Zooming in on the eight most populated counties is interesting, showing a sizeable number of Asian immigrants, especially around Albuquerque (Bernalillo County).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1">counties_top_8 <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -941,7 +1024,7 @@ font-style: inherit;">|&gt;</span></span>
 background-color: null;
 font-style: inherit;">ungroup</span>()</span></code></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1">foreign_origin_nm <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
@@ -1066,83 +1149,17 @@ font-style: inherit;">angle =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">30</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-fb-nm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fb-nm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-fb-nm-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fb-nm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Continents of origin for New Mexican Immigrants
+</figcaption>
 </figure>
 </div>
 </div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">orig_vars_19 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>( <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Europe =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_002"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Asia =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_047"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Eastern_Asia =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_048"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">China =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_049"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Asia_SC =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_056"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Asia_SE =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_067"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Vietnam =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_076"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Asia_W =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_078"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Africa =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_091"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Oceania =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_117"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Latin_America =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_124"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Caribbean =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_125"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Central_America =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_138"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Mexico =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_139"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">South_America =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_148"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">Canada =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"B05006_161"</span> )</span></code></pre></div>
 </div>
 </section>
 </section>
@@ -1150,17 +1167,17 @@ font-style: inherit;">"B05006_161"</span> )</span></code></pre></div>
 <h2 class="anchored" data-anchor-id="hispanics">Hispanics</h2>
 <p>Let’s look at where most Latinos live in the country.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1">us_hisp_pct <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">us_hisp_pct <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">get_acs</span>(</span>
-<span id="cb26-2">  <span class="at" style="color: #657422;
+<span id="cb25-2">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">geography =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"state"</span>,</span>
-<span id="cb26-3">  <span class="at" style="color: #657422;
+<span id="cb25-3">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">variables =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1169,25 +1186,25 @@ background-color: null;
 font-style: inherit;">"B03001_002"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_003"</span>),</span>
-<span id="cb26-4">  <span class="at" style="color: #657422;
+<span id="cb25-4">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">summary_var =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_001"</span>,</span>
-<span id="cb26-5">  <span class="at" style="color: #657422;
+<span id="cb25-5">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">year =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2023</span>,</span>
-<span id="cb26-6">  <span class="at" style="color: #657422;
+<span id="cb25-6">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">cache_table =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span></span>
-<span id="cb26-7">) <span class="sc" style="color: #5E5E5E;
+<span id="cb25-7">) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span></span>
-<span id="cb26-8">  <span class="fu" style="color: #4758AB;
+<span id="cb25-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1196,38 +1213,41 @@ background-color: null;
 font-style: inherit;">-</span>summary_moe) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb26-9">  <span class="fu" style="color: #4758AB;
+<span id="cb25-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pivot_wider</span>(<span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">names_from =</span> variable, <span class="at" style="color: #657422;
+font-style: inherit;">names_from =</span> variable, </span>
+<span id="cb25-10">              <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">values_from =</span> estimate) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb26-10">  <span class="fu" style="color: #4758AB;
+<span id="cb25-11">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">rename</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">State =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"NAME"</span>, <span class="at" style="color: #657422;
+font-style: inherit;">"NAME"</span>, </span>
+<span id="cb25-12">         <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Total =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"summary_est"</span>, </span>
-<span id="cb26-11">         <span class="at" style="color: #657422;
+<span id="cb25-13">         <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Non_Hispanic =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"B03001_002"</span>, <span class="at" style="color: #657422;
+font-style: inherit;">"B03001_002"</span>, </span>
+<span id="cb25-14">         <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Hispanic =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_003"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb26-12">  <span class="fu" style="color: #4758AB;
+<span id="cb25-15">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1236,7 +1256,7 @@ background-color: null;
 font-style: inherit;">/</span> Total) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb26-13">  <span class="fu" style="color: #4758AB;
+<span id="cb25-16">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">left_join</span>(states, <span class="at" style="color: #657422;
 background-color: null;
@@ -1245,12 +1265,12 @@ background-color: null;
 font-style: inherit;">"GEOID"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb26-14">  <span class="fu" style="color: #4758AB;
+<span id="cb25-17">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">st_as_sf</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb26-15">  <span class="fu" style="color: #4758AB;
+<span id="cb25-18">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">shift_geometry</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1261,11 +1281,11 @@ font-style: inherit;">shift_geometry</span>()</span></code></pre></div>
 Transforming your object's CRS to 'ESRI:102003'</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1">us_hisp_pct <span class="sc" style="color: #5E5E5E;
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">us_hisp_pct <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb29-2">  <span class="fu" style="color: #4758AB;
+<span id="cb28-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(state <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1274,7 +1294,7 @@ background-color: null;
 font-style: inherit;">"Puerto Rico"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb29-3">  <span class="fu" style="color: #4758AB;
+<span id="cb28-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1283,33 +1303,34 @@ background-color: null;
 font-style: inherit;">fill =</span> Hispanic_Pct)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb29-4">  <span class="fu" style="color: #4758AB;
+<span id="cb28-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_sf</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb29-5">  <span class="fu" style="color: #4758AB;
+<span id="cb28-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Hispanic Population by State"</span>,</span>
-<span id="cb29-6">       <span class="at" style="color: #657422;
+<span id="cb28-6">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Percent"</span>,</span>
-<span id="cb29-7">       ) <span class="sc" style="color: #5E5E5E;
+<span id="cb28-7">       ) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb29-8">  <span class="fu" style="color: #4758AB;
+<span id="cb28-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_fill_viridis_c</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">labels =</span> scales<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">::</span>percent, <span class="at" style="color: #657422;
+font-style: inherit;">::</span>percent, </span>
+<span id="cb28-9">                       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">limits =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1320,12 +1341,12 @@ background-color: null;
 font-style: inherit;">5</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb29-9">  <span class="fu" style="color: #4758AB;
+<span id="cb28-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme_void</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb29-10">  <span class="fu" style="color: #4758AB;
+<span id="cb28-11">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1343,24 +1364,29 @@ font-style: inherit;">5</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-his-state-map" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-his-state-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-his-state-map-1.png" id="fig-his-state-map" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-his-state-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>Let’s see the top 5 states by total Latinos. Not surprisingly, the largest states have the largest population of Hispanics, and New Mexico doesn’t even make the list.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1">us_hisp_pct <span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1">us_hisp_pct <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb30-2">  <span class="fu" style="color: #4758AB;
+<span id="cb29-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">st_drop_geometry</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb30-3">  <span class="fu" style="color: #4758AB;
+<span id="cb29-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">slice_max</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1371,7 +1397,7 @@ background-color: null;
 font-style: inherit;">8</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb30-4">  <span class="fu" style="color: #4758AB;
+<span id="cb29-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(State, Hispanic)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1390,15 +1416,15 @@ font-style: inherit;">select</span>(State, Hispanic)</span></code></pre></div>
 </div>
 <p>On the other hand, looking by percentage tells a different story:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1">us_hisp_pct <span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1">us_hisp_pct <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb32-2">  <span class="fu" style="color: #4758AB;
+<span id="cb31-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">st_drop_geometry</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb32-3">  <span class="fu" style="color: #4758AB;
+<span id="cb31-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">slice_max</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1409,7 +1435,7 @@ background-color: null;
 font-style: inherit;">8</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb32-4">  <span class="fu" style="color: #4758AB;
+<span id="cb31-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(State, Hispanic_Pct)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1429,22 +1455,22 @@ font-style: inherit;">select</span>(State, Hispanic_Pct)</span></code></pre></di
 <p>As you can see, New Mexico is the state with the highest proportion of Latinos, nearly half, and almost 10% higher than the next highest states.</p>
 <p>We can see how Latinos are spread across New Mexico:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1">nm_hisp_pct <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1">nm_hisp_pct <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">get_acs</span>(</span>
-<span id="cb34-2">  <span class="at" style="color: #657422;
+<span id="cb33-2">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">geography =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"county"</span>,</span>
-<span id="cb34-3">  <span class="at" style="color: #657422;
+<span id="cb33-3">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">state =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"NM"</span>,</span>
-<span id="cb34-4">  <span class="at" style="color: #657422;
+<span id="cb33-4">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">variables =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1453,34 +1479,34 @@ background-color: null;
 font-style: inherit;">"B03001_002"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_003"</span>),</span>
-<span id="cb34-5">  <span class="at" style="color: #657422;
+<span id="cb33-5">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">summary_var =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_001"</span>,</span>
-<span id="cb34-6">  <span class="at" style="color: #657422;
+<span id="cb33-6">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">year =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2023</span>,</span>
-<span id="cb34-7">  <span class="at" style="color: #657422;
+<span id="cb33-7">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">cache_table =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb34-8">  <span class="fu" style="color: #4758AB;
+<span id="cb33-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">left_join</span>(nm_counties,</span>
-<span id="cb34-9">            <span class="at" style="color: #657422;
+<span id="cb33-9">            <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">by =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"GEOID"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb34-10">  <span class="fu" style="color: #4758AB;
+<span id="cb33-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1489,7 +1515,7 @@ background-color: null;
 font-style: inherit;">-</span>summary_moe) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb34-11">  <span class="fu" style="color: #4758AB;
+<span id="cb33-11">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pivot_wider</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1498,7 +1524,7 @@ background-color: null;
 font-style: inherit;">values_from =</span> estimate) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb34-12">  <span class="fu" style="color: #4758AB;
+<span id="cb33-12">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">rename</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1509,7 +1535,7 @@ background-color: null;
 font-style: inherit;">Total =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"summary_est"</span>, </span>
-<span id="cb34-13">         <span class="at" style="color: #657422;
+<span id="cb33-13">         <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Non_Hispanic =</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -1520,7 +1546,7 @@ background-color: null;
 font-style: inherit;">"B03001_003"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb34-14">  <span class="fu" style="color: #4758AB;
+<span id="cb33-14">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1529,15 +1555,15 @@ background-color: null;
 font-style: inherit;">/</span> Total) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb34-15">  <span class="fu" style="color: #4758AB;
+<span id="cb33-15">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">st_as_sf</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Getting data from the 2019-2023 5-year ACS</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><span class="fu" style="color: #4758AB;
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(nm_hisp_pct, <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1546,27 +1572,27 @@ background-color: null;
 font-style: inherit;">fill =</span> Hispanic_Pct)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb36-2">  <span class="fu" style="color: #4758AB;
+<span id="cb35-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_sf</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb36-3">  <span class="fu" style="color: #4758AB;
+<span id="cb35-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Hispanic Population in New Mexico"</span>,</span>
-<span id="cb36-4">       <span class="at" style="color: #657422;
+<span id="cb35-4">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Percent"</span>,</span>
-<span id="cb36-5">       ) <span class="sc" style="color: #5E5E5E;
+<span id="cb35-5">       ) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb36-6">  <span class="fu" style="color: #4758AB;
+<span id="cb35-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_fill_viridis_c</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1583,23 +1609,47 @@ background-color: null;
 font-style: inherit;">8</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb36-7">  <span class="fu" style="color: #4758AB;
+<span id="cb35-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">theme_void</span>()</span></code></pre></div>
+font-style: inherit;">theme_void</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb35-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.margin =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">margin</span>(.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-his-pop-pct" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-his-pop-pct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-his-pop-pct-1.png" id="fig-his-pop-pct" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-his-pop-pct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The counties with the largest percentage of Hispanics:</p>
+<p>The highest concentrations are not along the border, but in the Northern counties. These are the counties with the largest percentage of Hispanics, followed by the percentages in New Mexico’s most populated counties.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1">nm_hisp_pct <span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1">nm_hisp_pct <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb37-2">  <span class="fu" style="color: #4758AB;
+<span id="cb36-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">slice_max</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1610,12 +1660,12 @@ background-color: null;
 font-style: inherit;">8</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb37-3">  <span class="fu" style="color: #4758AB;
+<span id="cb36-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">st_drop_geometry</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb37-4">  <span class="fu" style="color: #4758AB;
+<span id="cb36-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(county, Hispanic_Pct)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1632,12 +1682,11 @@ font-style: inherit;">select</span>(county, Hispanic_Pct)</span></code></pre></d
 8 Lea               0.616</code></pre>
 </div>
 </div>
-<p>Hispanic percentage in the most populous counties:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1">nm_hisp_pct <span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb38" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1">nm_hisp_pct <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb39-2">  <span class="fu" style="color: #4758AB;
+<span id="cb38-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(county <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1646,12 +1695,12 @@ background-color: null;
 font-style: inherit;">$</span>county) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb39-3">  <span class="fu" style="color: #4758AB;
+<span id="cb38-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">st_drop_geometry</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb39-4">  <span class="fu" style="color: #4758AB;
+<span id="cb38-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(county, Hispanic_Pct)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1673,109 +1722,109 @@ font-style: inherit;">select</span>(county, Hispanic_Pct)</span></code></pre></d
 <h1>Hispanic origins</h1>
 <p>Now let’s look at the national origins of Latinos in New Mexico.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1">hisp_vars <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb40" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1">hisp_vars <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(</span>
-<span id="cb41-2">  <span class="at" style="color: #657422;
+<span id="cb40-2">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Non_Hispanic =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_002"</span>,</span>
-<span id="cb41-3">  <span class="at" style="color: #657422;
+<span id="cb40-3">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Hispanic =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_003"</span>,</span>
-<span id="cb41-4">  <span class="at" style="color: #657422;
+<span id="cb40-4">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Hispanic_Mexican  =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_004"</span>,</span>
-<span id="cb41-5">  <span class="at" style="color: #657422;
+<span id="cb40-5">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Hispanic_PR =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_005"</span>, </span>
-<span id="cb41-6">  <span class="at" style="color: #657422;
+<span id="cb40-6">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Hispanic_Cuba =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_006"</span>, </span>
-<span id="cb41-7">  <span class="at" style="color: #657422;
+<span id="cb40-7">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Hispanic_DR =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_007"</span>, </span>
-<span id="cb41-8">  <span class="at" style="color: #657422;
+<span id="cb40-8">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Hispanic_CA =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_008"</span>, </span>
-<span id="cb41-9">  <span class="at" style="color: #657422;
+<span id="cb40-9">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Hispanic_SA =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_016"</span>, </span>
-<span id="cb41-10">  <span class="at" style="color: #657422;
+<span id="cb40-10">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Hispanic_Spaniard =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_028"</span>,</span>
-<span id="cb41-11">  <span class="at" style="color: #657422;
+<span id="cb40-11">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Hispanic_Spanish =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_029"</span>,</span>
-<span id="cb41-12">  <span class="at" style="color: #657422;
+<span id="cb40-12">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Hispanic_Spanish_American =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_030"</span>,</span>
-<span id="cb41-13">  <span class="at" style="color: #657422;
+<span id="cb40-13">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">Hispanic_White =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03002_013"</span></span>
-<span id="cb41-14">)</span>
-<span id="cb41-15"></span>
-<span id="cb41-16">hispanic_nm <span class="ot" style="color: #003B4F;
+<span id="cb40-14">)</span>
+<span id="cb40-15"></span>
+<span id="cb40-16">hispanic_nm <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">get_acs</span>(</span>
-<span id="cb41-17">  <span class="at" style="color: #657422;
+<span id="cb40-17">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">geography =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"county"</span>,</span>
-<span id="cb41-18">  <span class="at" style="color: #657422;
+<span id="cb40-18">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">state =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"NM"</span>,</span>
-<span id="cb41-19">  <span class="at" style="color: #657422;
+<span id="cb40-19">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">variables =</span> hisp_vars,</span>
-<span id="cb41-20">  <span class="at" style="color: #657422;
+<span id="cb40-20">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">summary_var =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_001"</span>,</span>
-<span id="cb41-21">  <span class="at" style="color: #657422;
+<span id="cb40-21">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">year =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2023</span>,</span>
-<span id="cb41-22">  <span class="at" style="color: #657422;
+<span id="cb40-22">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">cache_table =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb41-23">  <span class="fu" style="color: #4758AB;
+<span id="cb40-23">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">left_join</span>(nm_counties, <span class="at" style="color: #657422;
 background-color: null;
@@ -1784,14 +1833,14 @@ background-color: null;
 font-style: inherit;">"GEOID"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb41-24">  <span class="fu" style="color: #4758AB;
+<span id="cb40-24">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(GEOID, variable, estimate, moe,</span>
-<span id="cb41-25">            county, summary_est, </span>
-<span id="cb41-26">            geometry) <span class="sc" style="color: #5E5E5E;
+<span id="cb40-25">            county, summary_est, </span>
+<span id="cb40-26">            geometry) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb41-27">  <span class="fu" style="color: #4758AB;
+<span id="cb40-27">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">st_as_sf</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1799,37 +1848,37 @@ font-style: inherit;">st_as_sf</span>()</span></code></pre></div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1">hispanic_us <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb42" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1">hispanic_us <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">get_acs</span>(</span>
-<span id="cb43-2">  <span class="at" style="color: #657422;
+<span id="cb42-2">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">geography =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"state"</span>,</span>
-<span id="cb43-3">  <span class="at" style="color: #657422;
+<span id="cb42-3">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">variables =</span> hisp_vars,</span>
-<span id="cb43-4">  <span class="at" style="color: #657422;
+<span id="cb42-4">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">summary_var =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_001"</span>,</span>
-<span id="cb43-5">  <span class="at" style="color: #657422;
+<span id="cb42-5">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">year =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2023</span>,</span>
-<span id="cb43-6">  <span class="at" style="color: #657422;
+<span id="cb42-6">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">cache_table =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb43-7">  <span class="fu" style="color: #4758AB;
+<span id="cb42-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">left_join</span>(states, <span class="at" style="color: #657422;
 background-color: null;
@@ -1838,14 +1887,14 @@ background-color: null;
 font-style: inherit;">"GEOID"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb43-8">  <span class="fu" style="color: #4758AB;
+<span id="cb42-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(GEOID, variable, estimate, moe,</span>
-<span id="cb43-9">            state, summary_est, </span>
-<span id="cb43-10">            geometry) <span class="sc" style="color: #5E5E5E;
+<span id="cb42-9">            state, summary_est, </span>
+<span id="cb42-10">            geometry) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb43-11">  <span class="fu" style="color: #4758AB;
+<span id="cb42-11">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">st_as_sf</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1853,12 +1902,12 @@ font-style: inherit;">st_as_sf</span>()</span></code></pre></div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1">hispanic_nm <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb44" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1">hispanic_nm <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> hispanic_nm <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb45-2">  <span class="fu" style="color: #4758AB;
+<span id="cb44-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pivot_wider</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1867,12 +1916,12 @@ background-color: null;
 font-style: inherit;">values_from =</span> estimate) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb45-3">  <span class="fu" style="color: #4758AB;
+<span id="cb44-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">rowwise</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb45-4">  <span class="fu" style="color: #4758AB;
+<span id="cb44-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1889,7 +1938,7 @@ background-color: null;
 font-style: inherit;">TRUE</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb45-5">  <span class="fu" style="color: #4758AB;
+<span id="cb44-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1904,7 +1953,7 @@ background-color: null;
 font-style: inherit;">"Hispanic_Spanish_American"</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb45-6">  <span class="fu" style="color: #4758AB;
+<span id="cb44-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pivot_longer</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1923,12 +1972,12 @@ background-color: null;
 font-style: inherit;">values_drop_na =</span> T) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb45-7">  <span class="fu" style="color: #4758AB;
+<span id="cb44-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">group_by</span>(county, variable) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb45-8">  <span class="fu" style="color: #4758AB;
+<span id="cb44-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1937,7 +1986,7 @@ background-color: null;
 font-style: inherit;">sum</span>(estimate)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb45-9">  <span class="fu" style="color: #4758AB;
+<span id="cb44-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">distinct</span>(county, variable, <span class="at" style="color: #657422;
 background-color: null;
@@ -1945,11 +1994,12 @@ font-style: inherit;">.keep_all =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>)</span></code></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb46" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1">hispanic_nm <span class="sc" style="color: #5E5E5E;
+<p>First, here are the proportions of Hispanic to Non-Hispanic in the biggest counties.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb45" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1">hispanic_nm <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb46-2">  <span class="fu" style="color: #4758AB;
+<span id="cb45-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(county <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1968,7 +2018,7 @@ background-color: null;
 font-style: inherit;">"Non_Hispanic"</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb46-3">  <span class="fu" style="color: #4758AB;
+<span id="cb45-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1979,7 +2029,7 @@ background-color: null;
 font-style: inherit;">desc</span>(estimate))) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb46-4">  <span class="fu" style="color: #4758AB;
+<span id="cb45-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1992,7 +2042,7 @@ background-color: null;
 font-style: inherit;">fill =</span> variable)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb46-5">  <span class="fu" style="color: #4758AB;
+<span id="cb45-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_col</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2001,41 +2051,41 @@ background-color: null;
 font-style: inherit;">"dodge"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb46-6">  <span class="fu" style="color: #4758AB;
+<span id="cb45-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"County"</span>,</span>
-<span id="cb46-7">       <span class="at" style="color: #657422;
+<span id="cb45-7">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Population"</span>,</span>
-<span id="cb46-8">       <span class="at" style="color: #657422;
+<span id="cb45-8">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Continent"</span>,</span>
-<span id="cb46-9">       <span class="at" style="color: #657422;
+<span id="cb45-9">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Hispanic vs Non-Hispanic population in New Mexico"</span>,</span>
-<span id="cb46-10">       <span class="at" style="color: #657422;
+<span id="cb45-10">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">subtitle =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Top 10 Counties by Population"</span>,</span>
-<span id="cb46-11">       <span class="at" style="color: #657422;
+<span id="cb45-11">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Source: census.gov acs5 2023"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb46-12">  <span class="fu" style="color: #4758AB;
+<span id="cb45-12">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_y_continuous</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2044,7 +2094,7 @@ background-color: null;
 font-style: inherit;">::</span>comma) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb46-13">  <span class="fu" style="color: #4758AB;
+<span id="cb45-13">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_fill_viridis_d</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2057,12 +2107,12 @@ background-color: null;
 font-style: inherit;">"Non Hispanic"</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb46-14">  <span class="fu" style="color: #4758AB;
+<span id="cb45-14">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme_gray</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb46-15">  <span class="fu" style="color: #4758AB;
+<span id="cb45-15">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2072,54 +2122,78 @@ font-style: inherit;">element_text</span>(<span class="at" style="color: #657422
 background-color: null;
 font-style: inherit;">angle =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">30</span>))</span></code></pre></div>
+font-style: inherit;">30</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb45-16">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.margin =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">margin</span>(.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-hvnv-bar" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hvnv-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hvnv-bar-1.png" id="fig-hvnv-bar" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-hvnv-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1">hispanic_us <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb46" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1">hispanic_us <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">get_acs</span>(</span>
-<span id="cb47-2">  <span class="at" style="color: #657422;
+<span id="cb46-2">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">geography =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"state"</span>,</span>
-<span id="cb47-3">  <span class="at" style="color: #657422;
+<span id="cb46-3">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">variables =</span> hisp_vars,</span>
-<span id="cb47-4">  <span class="at" style="color: #657422;
+<span id="cb46-4">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">summary_var =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"B03001_001"</span>,</span>
-<span id="cb47-5">  <span class="at" style="color: #657422;
+<span id="cb46-5">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">year =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2023</span>,</span>
-<span id="cb47-6">  <span class="at" style="color: #657422;
+<span id="cb46-6">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">cache_table =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb47-7">  <span class="fu" style="color: #4758AB;
+<span id="cb46-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">rename</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">state =</span> NAME) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb47-8">  <span class="fu" style="color: #4758AB;
+<span id="cb46-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pivot_wider</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2128,12 +2202,12 @@ background-color: null;
 font-style: inherit;">values_from =</span> estimate) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb47-9">  <span class="fu" style="color: #4758AB;
+<span id="cb46-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">rowwise</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb47-10">  <span class="fu" style="color: #4758AB;
+<span id="cb46-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2150,7 +2224,7 @@ background-color: null;
 font-style: inherit;">TRUE</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb47-11">  <span class="fu" style="color: #4758AB;
+<span id="cb46-11">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2165,7 +2239,7 @@ background-color: null;
 font-style: inherit;">"Hispanic_Spanish_American"</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb47-12">  <span class="fu" style="color: #4758AB;
+<span id="cb46-12">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pivot_longer</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2184,12 +2258,12 @@ background-color: null;
 font-style: inherit;">values_drop_na =</span> T)<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb47-13">  <span class="fu" style="color: #4758AB;
+<span id="cb46-13">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">group_by</span>(state, variable) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb47-14">  <span class="fu" style="color: #4758AB;
+<span id="cb46-14">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2198,7 +2272,7 @@ background-color: null;
 font-style: inherit;">sum</span>(estimate)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb47-15">  <span class="fu" style="color: #4758AB;
+<span id="cb46-15">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">distinct</span>(variable, <span class="at" style="color: #657422;
 background-color: null;
@@ -2207,7 +2281,7 @@ background-color: null;
 font-style: inherit;">TRUE</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb47-16">  <span class="fu" style="color: #4758AB;
+<span id="cb46-16">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2216,7 +2290,7 @@ background-color: null;
 font-style: inherit;">/</span> summary_est) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb47-17">  <span class="fu" style="color: #4758AB;
+<span id="cb46-17">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">left_join</span>(states, <span class="at" style="color: #657422;
 background-color: null;
@@ -2225,26 +2299,27 @@ background-color: null;
 font-style: inherit;">"GEOID"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb47-18">  <span class="fu" style="color: #4758AB;
+<span id="cb46-18">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">select</span>(variable, pop, summary_est,</span>
-<span id="cb47-19">         <span class="at" style="color: #657422;
+<span id="cb46-19">         <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">state =</span> state.y, geometry) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb47-20">  <span class="fu" style="color: #4758AB;
+<span id="cb46-20">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">st_as_sf</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Getting data from the 2019-2023 5-year ACS</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1">hispanic_nm <span class="sc" style="color: #5E5E5E;
+<p>And then the national identities from the same counties.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1">hispanic_nm <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb49-2">  <span class="fu" style="color: #4758AB;
+<span id="cb48-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(county <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2265,7 +2340,7 @@ background-color: null;
 font-style: inherit;">"Non_Hispanic"</span>))) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb49-3">  <span class="fu" style="color: #4758AB;
+<span id="cb48-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2276,7 +2351,7 @@ background-color: null;
 font-style: inherit;">desc</span>(pop))) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb49-4">  <span class="fu" style="color: #4758AB;
+<span id="cb48-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2303,7 +2378,7 @@ background-color: null;
 font-style: inherit;">"Hispanic_CA"</span>)))) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb49-5">  <span class="fu" style="color: #4758AB;
+<span id="cb48-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_col</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2312,41 +2387,41 @@ background-color: null;
 font-style: inherit;">"dodge"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb49-6">  <span class="fu" style="color: #4758AB;
+<span id="cb48-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"County"</span>,</span>
-<span id="cb49-7">       <span class="at" style="color: #657422;
+<span id="cb48-7">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Population"</span>,</span>
-<span id="cb49-8">       <span class="at" style="color: #657422;
+<span id="cb48-8">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Race"</span>,</span>
-<span id="cb49-9">       <span class="at" style="color: #657422;
+<span id="cb48-9">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Racial Identification of Hispanic Population"</span>,</span>
-<span id="cb49-10">       <span class="at" style="color: #657422;
+font-style: inherit;">"Origin Identification of Hispanic Population"</span>,</span>
+<span id="cb48-10">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">subtitle =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Top 10 Counties by Population"</span>,</span>
-<span id="cb49-11">       <span class="at" style="color: #657422;
+<span id="cb48-11">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Source: census.gov acs5 2023"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb49-12">  <span class="fu" style="color: #4758AB;
+<span id="cb48-12">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_y_continuous</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2355,7 +2430,7 @@ background-color: null;
 font-style: inherit;">::</span>comma) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb49-13">  <span class="fu" style="color: #4758AB;
+<span id="cb48-13">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_fill_viridis_d</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2372,12 +2447,12 @@ background-color: null;
 font-style: inherit;">"Central American"</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb49-14">  <span class="fu" style="color: #4758AB;
+<span id="cb48-14">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme_gray</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb49-15">  <span class="fu" style="color: #4758AB;
+<span id="cb48-15">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2387,17 +2462,42 @@ font-style: inherit;">element_text</span>(<span class="at" style="color: #657422
 background-color: null;
 font-style: inherit;">angle =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">30</span>))</span></code></pre></div>
+font-style: inherit;">30</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb48-16">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.margin =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">margin</span>(.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-org-ident" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-org-ident-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-org-ident-1.png" id="fig-org-ident" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-org-ident-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1">hispanic_us<span class="sc" style="color: #5E5E5E;
+<p>Most Hispanics clearly identify with Mexico, as is true nationally, and White implies European, and therefore Spanish, heritage.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1">hispanic_us<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>percent <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -2408,10 +2508,10 @@ background-color: null;
 font-style: inherit;">/</span> hispanic_us<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>summary_est</span>
-<span id="cb50-2">hispanic_us <span class="sc" style="color: #5E5E5E;
+<span id="cb49-2">hispanic_us <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb50-3">  <span class="fu" style="color: #4758AB;
+<span id="cb49-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(state <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2432,28 +2532,28 @@ background-color: null;
 font-style: inherit;">"Non_Hispanic"</span>))) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb50-4">  <span class="fu" style="color: #4758AB;
+<span id="cb49-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">group_by</span>(variable) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb50-5">  <span class="fu" style="color: #4758AB;
+<span id="cb49-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summarise</span>(</span>
-<span id="cb50-6">    <span class="at" style="color: #657422;
+<span id="cb49-6">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">pop =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sum</span>(pop),</span>
-<span id="cb50-7">    <span class="at" style="color: #657422;
+<span id="cb49-7">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">percent =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mean</span>(percent)</span>
-<span id="cb50-8">  ) <span class="sc" style="color: #5E5E5E;
+<span id="cb49-8">  ) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb50-9">  <span class="fu" style="color: #4758AB;
+<span id="cb49-9">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2464,7 +2564,7 @@ background-color: null;
 font-style: inherit;">desc</span>(pop))) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb50-10">  <span class="fu" style="color: #4758AB;
+<span id="cb49-10">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2475,7 +2575,7 @@ background-color: null;
 font-style: inherit;">y =</span> pop)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb50-11">  <span class="fu" style="color: #4758AB;
+<span id="cb49-11">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_col</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2484,31 +2584,31 @@ background-color: null;
 font-style: inherit;">"cyan"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb50-12">  <span class="fu" style="color: #4758AB;
+<span id="cb49-12">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Nationality"</span>,</span>
-<span id="cb50-13">       <span class="at" style="color: #657422;
+<span id="cb49-13">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Population"</span>,</span>
-<span id="cb50-14">       <span class="at" style="color: #657422;
+<span id="cb49-14">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"National Identification of Hispanic Population in the US"</span>,</span>
-<span id="cb50-15">       <span class="at" style="color: #657422;
+font-style: inherit;">"National Identification Hispanics"</span>,</span>
+<span id="cb49-15">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Source: census.gov acs5 2023"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb50-16">  <span class="fu" style="color: #4758AB;
+<span id="cb49-16">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_y_continuous</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2517,7 +2617,7 @@ background-color: null;
 font-style: inherit;">::</span>comma) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb50-17">  <span class="fu" style="color: #4758AB;
+<span id="cb49-17">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_x_discrete</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2532,7 +2632,7 @@ background-color: null;
 font-style: inherit;">"Central America"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Puerto Rico"</span>, </span>
-<span id="cb50-18">                              <span class="st" style="color: #20794D;
+<span id="cb49-18">                              <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"South America"</span>, <span class="st" style="color: #20794D;
 background-color: null;
@@ -2543,18 +2643,20 @@ background-color: null;
 font-style: inherit;">"Spain"</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb50-19">  <span class="fu" style="color: #4758AB;
+<span id="cb49-19">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme_gray</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb50-20">  <span class="fu" style="color: #4758AB;
+<span id="cb49-20">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
+font-style: inherit;">theme</span>(</span>
+<span id="cb49-21">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">axis.text.x =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+font-style: inherit;">element_text</span>(</span>
+<span id="cb49-22">      <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">angle =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -2562,20 +2664,40 @@ font-style: inherit;">30</span>, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">hjust =</span> .<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">5</span>))</span></code></pre></div>
+font-style: inherit;">5</span>),</span>
+<span id="cb49-23">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.margin =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">margin</span>(.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-nat-ori" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nat-ori-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-nat-ori-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nat-ori-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: National Identification of Hispanic Population in the US
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1">hispanic_us <span class="sc" style="color: #5E5E5E;
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1">hispanic_us <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb51-2">  <span class="fu" style="color: #4758AB;
+<span id="cb50-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(variable <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -2584,7 +2706,7 @@ background-color: null;
 font-style: inherit;">"Hispanic_White"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span> </span>
-<span id="cb51-3">  <span class="fu" style="color: #4758AB;
+<span id="cb50-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2593,7 +2715,7 @@ background-color: null;
 font-style: inherit;">fill =</span> percent)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb51-4">  <span class="fu" style="color: #4758AB;
+<span id="cb50-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_sf</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2602,7 +2724,7 @@ background-color: null;
 font-style: inherit;">geometry =</span> geometry)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb51-5">  <span class="fu" style="color: #4758AB;
+<span id="cb50-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_fill_viridis_c</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2611,7 +2733,7 @@ background-color: null;
 font-style: inherit;">::</span>percent) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb51-6">  <span class="fu" style="color: #4758AB;
+<span id="cb50-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -2620,13 +2742,37 @@ background-color: null;
 font-style: inherit;">"Hispanics with White identity"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb51-7">  <span class="fu" style="color: #4758AB;
+<span id="cb50-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">theme_void</span>()</span></code></pre></div>
+font-style: inherit;">theme_void</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb50-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.margin =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">margin</span>(.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-hisp-white" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hisp-white-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-white-1.png" id="fig-hisp-white" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-hisp-white-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10
+</figcaption>
 </figure>
 </div>
 </div>
