@@ -21,7 +21,7 @@ This article will explore some interesting aspects of New Mexico's racial demogr
 
 New Mexico has relatively large Native American and Hispanic populations. Nearly half of New Mexico residents are Hispanic, compared to a national average of around 20% (we'll calculate it later). The profile of Latinos in New Mexico, however, is very different from the rest of the country, as we shall see.
 
-Not only is the Hispanic population of New Mexico uniquely large in percentage terms, it is also unusual in terms of the racial identity of the Hispanics. Unlike Latinos in most of the rest of the country, many Hispanics in New Mexico do not identify at all with Mexico or Central America, but directly with their European ancestry.
+Not only is the Hispanic population of New Mexico uniquely large in percentage terms, it is also unusual in terms of national identity of the Hispanics. Unlike Latinos in most of the rest of the country, many Hispanics in New Mexico do not identify at all with Latin America, but directly with their European ancestry.
 
 The rest of this article will explore the Hispanic population in New Mexico and the historical context which explains this particular situation. Along the way, I will show how to use the R package `tidycensus` to access the wealth of data on <https://census.gov>.
 
@@ -487,32 +487,26 @@ hispanic_nm |>
 ```
 
 ```{r}
-#| eval: false
-
 hispanic_us <- get_acs(
-  geography = "us",
+  geography = "state",
   variables = hisp_vars,
   summary_var = "B03001_001",
   year = 2023,
   cache_table = TRUE) |> 
+  rename(state = NAME) |> 
   pivot_wider(names_from = variable, values_from = estimate) |> 
   rowwise() |> 
   mutate(Hispanic_Spain = sum(c_across(Hispanic_Spaniard:Hispanic_Spanish_American), na.rm = TRUE)) |> 
   select(-c("Hispanic_Spaniard", "Hispanic_Spanish", "Hispanic_Spanish_American")) |> 
   pivot_longer(cols = Non_Hispanic:Hispanic_Spain, names_to = "variable", values_to = "estimate", values_drop_na = T)|> 
-  group_by(variable) |> 
+  group_by(state, variable) |> 
   mutate(pop = sum(estimate)) |> 
   distinct(variable, .keep_all = TRUE) |> 
-  mutate(percent = pop / summary_est)
-```
-
-```{r}
-#| eval: false
-saveRDS(hispanic_us, "data/hispanic_us.rds")
-```
-
-```{r}
-hispanic_us <- readRDS("data/hispanic_us.rds")
+  mutate(percent = pop / summary_est) |> 
+  left_join(states, by = "GEOID") |> 
+  select(variable, pop, summary_est,
+         state = state.y, geometry) |> 
+  st_as_sf()
 ```
 
 
@@ -534,4 +528,40 @@ hispanic_nm |>
   theme(axis.text.x = element_text(angle = 30))
 ```
 
+```{r}
+hispanic_us$percent = hispanic_us$pop / hispanic_us$summary_est
+hispanic_us |> 
+  filter(state != "Puerto Rico" & !(variable %in% c("Hispanic", "Non_Hispanic"))) |> 
+  group_by(variable) |> 
+  summarise(
+    pop = sum(pop),
+    percent = mean(percent)
+  ) |> 
+  mutate(variable = fct_reorder(variable, desc(pop))) |> 
+  ggplot(aes(x = variable, y = pop)) +
+  geom_col(fill = "cyan") +
+  labs(x = "Nationality",
+       y = "Population",
+       title = "National Identification of Hispanic Population in the US",
+       caption = "Source: census.gov acs5 2023") +
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_discrete(labels = c("Mexican", "White", "Central America", "Puerto Rico", 
+                              "South America", "Cuba", "Dominican Republic", "Spain")) +
+  theme_gray() +
+  theme(axis.text.x = element_text(angle = 30, hjust = .5))
+```
+
+
+
+```{r}
+hispanic_us |> 
+  filter(variable == "Hispanic_White") |> 
+  ggplot(aes(fill = percent)) +
+  geom_sf(aes(geometry = geometry)) +
+  scale_fill_viridis_c(labels = scales::percent) +
+  labs(title = "Hispanics with White identity") +
+  theme_void()
+```
+
+New Mexico has the highest proportion of Hispanics who identify as white after Puerto Rico.
 
