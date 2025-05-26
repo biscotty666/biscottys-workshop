@@ -21,6 +21,10 @@ This article will explore some interesting aspects of New Mexico's racial demogr
 
 New Mexico has relatively large Native American and Hispanic populations. Nearly half of New Mexico residents are Hispanic, compared to a national average of around 20% (we'll calculate it later). The profile of Latinos in New Mexico, however, is very different from the rest of the country, as we shall see.
 
+Not only is the Hispanic population of New Mexico uniquely large in percentage terms, it is also unusual in terms of the racial identity of the Hispanics. Unlike Latinos in most of the rest of the country, many Hispanics in New Mexico do not identify at all with Mexico or Central America, but directly with their European ancestry.
+
+The rest of this article will explore the Hispanic population in New Mexico and the historical context which explains this particular situation. Along the way, I will show how to use the R package `tidycensus` to access the wealth of data on <https://census.gov>.
+
 
 ## A little history
 
@@ -162,6 +166,10 @@ p2 <- ggplot(immigration_us, aes(x = variable, y = estimate)) +
 p1 + p2
 ```
 
+```{r}
+
+```
+
 We can see on a map where the largest immigrant groups are.
 
 
@@ -190,6 +198,8 @@ immigration_23 |>
 ```
 
 ### Origins of immigrants
+
+Since we are concerned with Hispanics, it is useful to have an idea about immigration from Latin America, and Mexico in particular given that NM is a border state.
 
 ```{r}
 orig_vars_23 = c(
@@ -283,26 +293,17 @@ foreign_origin_nm |>
   theme(axis.text.x = element_text(angle = 30))
 ```
 
-```{r}
 
+```{r}
+orig_vars_19 = c( Europe = "B05006_002", Asia = "B05006_047", Eastern_Asia = "B05006_048", China = "B05006_049", Asia_SC = "B05006_056", Asia_SE = "B05006_067", Vietnam = "B05006_076", Asia_W = "B05006_078", Africa = "B05006_091", Oceania = "B05006_117", Latin_America = "B05006_124", Caribbean = "B05006_125", Central_America = "B05006_138", Mexico = "B05006_139", South_America = "B05006_148", Canada = "B05006_161" )
 ```
 
-orig_vars_23 = c( Europe = "B05006_002", Asia = "B05006_047", Eastern_Asia = "B05006_048", China = "B05006_049", Asia_SC = "B05006_056", Asia_SE = "B05006_068", Vietnam = "B05006_077", Asia_W = "B05006_079", Africa = "B05006_095", Oceania = "B05006_130", Latin_America = "B05006_139", Caribbean = "B05006_140", Central_America = "B05006_154", Mexico = "B05006_160", South_America = "B05006_164", Canada = "B05006_177" )
 
-orig_vars_19 = c( Europe = "B05006_002", Asia = "B05006_047", Eastern_Asia = "B05006_048", China = "B05006_049", Asia_SC = "B05006_056", Asia_SE = "B05006_067", Vietnam = "B05006_076", Asia_W = "B05006_078", Africa = "B05006_091", Oceania = "B05006_117", Latin_America = "B05006_124", Caribbean = "B05006_125", Central_America = "B05006_138", Mexico = "B05006_139", South_America = "B05006_148", Canada = "B05006_161" )
 
 ## Hispanics
 
-::: {.callout-tip collapse="true" icon="false"}
-### Code
+Let's look at where most Latinos live in the country.
 
-```{r}
-states <- states() |> 
-  select(GEOID, state = NAME, geometry) |> 
-  shift_geometry()
-nm_counties <- counties("NM") |> 
-  select(GEOID, county = NAME, geometry)
-```
 
 ```{r}
 us_hisp_pct <- get_acs(
@@ -322,20 +323,21 @@ us_hisp_pct <- get_acs(
   shift_geometry()
 ```
 
+
 ```{r}
-hisp_us <- ggplot(us_hisp_pct, aes(fill = Hispanic_Pct)) +
+us_hisp_pct |> 
+  filter(state != "Puerto Rico") |> 
+  ggplot(aes(fill = Hispanic_Pct)) +
   geom_sf() +
   labs(title = "Hispanic Population by State",
        fill = "Percent",
        ) +
-  scale_fill_viridis_c(labels = scales::percent, limits = c(0,1)) +
+  scale_fill_viridis_c(labels = scales::percent, limits = c(0,.5)) +
   theme_void() +
   theme(plot.margin = margin(.5,.5,.5,.5, "cm"))
-
 ```
-:::
 
-Let's see the top 5 states by total Latinos. Not surprisingly, the largest states have the largest population of Hispanics.
+Let's see the top 5 states by total Latinos. Not surprisingly, the largest states have the largest population of Hispanics, and New Mexico doesn't even make the list.
 
 ```{r}
 us_hisp_pct |> 
@@ -353,20 +355,9 @@ us_hisp_pct |>
   select(State, Hispanic_Pct)
 ```
 
-As you can see, New Mexico is the state with the highest proportion of Latinos, nearly half, and almost 10% higher than the next highest states. Let's look at a map:
-
-```{r}
-#| out-width: "70%"
-#| fig-align: "center"
-#| echo: false
-
-hisp_us
-```
+As you can see, New Mexico is the state with the highest proportion of Latinos, nearly half, and almost 10% higher than the next highest states.
 
 We can see how Latinos are spread across New Mexico:
-
-::: {.callout-tip collapse="true" icon="false"}
-### Code
 
 ```{r}
 nm_hisp_pct <- get_acs(
@@ -387,31 +378,160 @@ nm_hisp_pct <- get_acs(
 ```
 
 ```{r}
-hisp_nm <- ggplot(nm_hisp_pct, aes(fill = Hispanic_Pct)) +
+ggplot(nm_hisp_pct, aes(fill = Hispanic_Pct)) +
   geom_sf() +
   labs(title = "Hispanic Population in New Mexico",
        fill = "Percent",
        ) +
-  scale_fill_viridis_c(labels = scales::percent, limits = c(0,1)) +
+  scale_fill_viridis_c(labels = scales::percent, limits = c(0,.8)) +
   theme_void()
 ```
-:::
+
+The counties with the largest percentage of Hispanics:
 
 ```{r}
-#| out-width: "70%"
-#| fig-align: "center"
-#| echo: false
-
-hisp_nm
+nm_hisp_pct |> 
+  slice_max(order_by = Hispanic_Pct, n = 8) |> 
+  st_drop_geometry() |> 
+  select(county, Hispanic_Pct)
 ```
 
-Not only is the Hispanic population of New Mexico uniquely large in percentage terms, it is also unusual in terms of the racial identity of the Hispanics. Unlike Latinos in most of the rest of the country, many Hispanics in New Mexico do not identify at all with Mexico or Central America, but directly with their European ancestry.
+Hispanic percentage in the most populous counties:
 
-The rest of this article will explore the Hispanic population in New Mexico and the historical context which explains this particular situation. Along the way, I will show how to use the R package `tidycensus` to access the wealth of data on <https://census.gov>.
+```{r}
+nm_hisp_pct |> 
+  filter(county %in% counties_top_8$county) |> 
+  st_drop_geometry() |> 
+  select(county, Hispanic_Pct)
+```
 
 
-### Demographics
+# Hispanic origins
 
-hisp_vars = c( Non_Hispanic = "B03001_002", Hispanic = "B03001_003", Hispanic_Mexican = "B03001_004", Hispanic_PR = "B03001_005", Hispanic_Cuba = "B03001_006", Hispanic_DR = "B03001_007", Hispanic_CA = "B03001_008", Hispanic_SA = "B03001_016", Hispanic_Spaniard = "B03001_028", Hispanic_Spanish = "B03001_029", Hispanic_Spanish_American = "B03001_030", Hispanic_White = "B03002_013" )
+Now let's look at the national origins of Latinos in New Mexico.
 
-### Hispanic/Non-hispanic Gini, Med Inc, PC Inc
+```{r}
+hisp_vars = c(
+  Non_Hispanic = "B03001_002",
+  Hispanic = "B03001_003",
+  Hispanic_Mexican  = "B03001_004",
+  Hispanic_PR = "B03001_005", 
+  Hispanic_Cuba = "B03001_006", 
+  Hispanic_DR = "B03001_007", 
+  Hispanic_CA = "B03001_008", 
+  Hispanic_SA = "B03001_016", 
+  Hispanic_Spaniard = "B03001_028",
+  Hispanic_Spanish = "B03001_029",
+  Hispanic_Spanish_American = "B03001_030",
+  Hispanic_White = "B03002_013"
+)
+
+hispanic_nm <- get_acs(
+  geography = "county",
+  state = "NM",
+  variables = hisp_vars,
+  summary_var = "B03001_001",
+  year = 2023,
+  cache_table = TRUE) |> 
+  left_join(nm_counties, by = "GEOID") |> 
+  select(GEOID, variable, estimate, moe,
+            county, summary_est, 
+            geometry) |> 
+  st_as_sf()
+```
+
+```{r}
+hispanic_us <- get_acs(
+  geography = "state",
+  variables = hisp_vars,
+  summary_var = "B03001_001",
+  year = 2023,
+  cache_table = TRUE) |> 
+  left_join(states, by = "GEOID") |> 
+  select(GEOID, variable, estimate, moe,
+            state, summary_est, 
+            geometry) |> 
+  st_as_sf()
+```
+
+
+
+```{r}
+hispanic_nm <- hispanic_nm |> 
+  pivot_wider(names_from = variable, values_from = estimate) |> 
+  rowwise() |> 
+  mutate(Hispanic_Spain = sum(c_across(Hispanic_Spaniard:Hispanic_Spanish_American), na.rm = TRUE)) |> 
+  select(-c("Hispanic_Spaniard", "Hispanic_Spanish", "Hispanic_Spanish_American")) |> 
+  pivot_longer(cols = Non_Hispanic:Hispanic_Spain, names_to = "variable", values_to = "estimate", values_drop_na = T) |> 
+  group_by(county, variable) |> 
+  mutate(pop = sum(estimate)) |> 
+  distinct(county, variable, .keep_all = TRUE)
+```
+
+```{r}
+hispanic_nm |> 
+  filter(county %in% counties_top_8$county & variable %in% c("Hispanic", "Non_Hispanic")) |> 
+  mutate(county = fct_reorder(county, desc(estimate))) |> 
+  ggplot(aes(x = county, y = estimate, fill = variable)) +
+  geom_col(position = "dodge") +
+  labs(x = "County",
+       y = "Population",
+       fill = "Continent",
+       title = "Hispanic vs Non-Hispanic population in New Mexico",
+       subtitle = "Top 10 Counties by Population",
+       caption = "Source: census.gov acs5 2023") +
+  scale_y_continuous(labels = scales::comma) +
+  scale_fill_viridis_d(labels = c("Hispanic", "Non Hispanic")) +
+  theme_gray() +
+  theme(axis.text.x = element_text(angle = 30))
+```
+
+```{r}
+#| eval: false
+
+hispanic_us <- get_acs(
+  geography = "us",
+  variables = hisp_vars,
+  summary_var = "B03001_001",
+  year = 2023,
+  cache_table = TRUE) |> 
+  pivot_wider(names_from = variable, values_from = estimate) |> 
+  rowwise() |> 
+  mutate(Hispanic_Spain = sum(c_across(Hispanic_Spaniard:Hispanic_Spanish_American), na.rm = TRUE)) |> 
+  select(-c("Hispanic_Spaniard", "Hispanic_Spanish", "Hispanic_Spanish_American")) |> 
+  pivot_longer(cols = Non_Hispanic:Hispanic_Spain, names_to = "variable", values_to = "estimate", values_drop_na = T)|> 
+  group_by(variable) |> 
+  mutate(pop = sum(estimate)) |> 
+  distinct(variable, .keep_all = TRUE) |> 
+  mutate(percent = pop / summary_est)
+```
+
+```{r}
+#| eval: false
+saveRDS(hispanic_us, "data/hispanic_us.rds")
+```
+
+```{r}
+hispanic_us <- readRDS("data/hispanic_us.rds")
+```
+
+
+```{r}
+hispanic_nm |> 
+  filter(county %in% counties_top_8$county & !(variable %in% c("Hispanic", "Non_Hispanic"))) |> 
+  mutate(county = fct_reorder(county, desc(pop))) |> 
+  ggplot(aes(x = county, y = pop, fill = factor(variable, levels = c("Hispanic_White", "Hispanic_Spain", "Hispanic_Mexican", "Hispanic_CA")))) +
+  geom_col(position = "dodge") +
+  labs(x = "County",
+       y = "Population",
+       fill = "Race",
+       title = "Racial Identification of Hispanic Population",
+       subtitle = "Top 10 Counties by Population",
+       caption = "Source: census.gov acs5 2023") +
+  scale_y_continuous(labels = scales::comma) +
+  scale_fill_viridis_d(labels = c("White", "Spanish", "Mexican", "Central American")) +
+  theme_gray() +
+  theme(axis.text.x = element_text(angle = 30))
+```
+
+
