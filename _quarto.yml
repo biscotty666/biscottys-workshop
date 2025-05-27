@@ -22,6 +22,7 @@ website:
   open-graph: 
     site-name: biscotty's Workshop
     image: images/trunks.png
+  google-analytics: "G-NTYWRS9WRE"
   navbar:
     left: 
       - text: "Home"
