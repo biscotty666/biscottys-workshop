@@ -1,6 +1,6 @@
 ---
 title: Hispanics in New Mexico
-subtitle: A A demographic study with R and TidyCensus
+subtitle: A demographic study with R and TidyCensus
 description: New Mexico has a Latino population unlike anywhere else in the US. This article shows how to use R and tidycensus to explore the data.
 output: 
   html_document:
@@ -486,7 +486,7 @@ p1 <- ggplot() +
 #| out-width: "90%"
 #| fig-align: "center"
 #| warning: false
-
+#| classes: preview-image
 
 p1
 ```
