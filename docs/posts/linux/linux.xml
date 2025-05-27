@@ -17,8 +17,9 @@
   <link>https://biscotty.online/posts/linux/nix-for-data-science/</link>
   <description><![CDATA[ Installing and maintaining multiple versions of libraries, whether in Python or R, is better managed with Nix than virtual environments ]]></description>
   <category>Linux</category>
-  <category>Distributions</category>
+  <category>Data Science</category>
   <category>Nix</category>
+  <category>Python</category>
   <guid>https://biscotty.online/posts/linux/nix-for-data-science/</guid>
   <pubDate>Wed, 21 May 2025 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/posts/linux/nix-for-data-science/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>

@@ -4290,14 +4290,19 @@ Figure&nbsp;13
 
 
 
-<hr>
+<section id="package-management" class="level1">
+<h1>Package Management</h1>
+<p>A typical environment for Data Science projects involves many inter-dependent libraries. Different projects may use different versions of the same library, leading to potential conflict on a given computer. In order to solve this problem, Python uses <em>virtual environments</em> to install the necessary packages in an environment isolated from the rest of the system.</p>
+<p>Package management in Python is not straight-forward.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>Linux</category>
-  <category>Distributions</category>
+  <category>Data Science</category>
   <category>Nix</category>
+  <category>Python</category>
   <guid>https://biscotty.online/posts/linux/nix-for-data-science/</guid>
   <pubDate>Wed, 21 May 2025 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/posts/linux/nix-for-data-science/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>

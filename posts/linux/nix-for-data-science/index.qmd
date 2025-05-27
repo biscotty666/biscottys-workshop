@@ -1,12 +1,15 @@
 ---
 title: Nix for Data Science
-subtitle: Nix vs pip, conda, and virtual environments
+subtitle: Nix your venvs and skip pip
 description: Installing and maintaining multiple versions of libraries, whether in Python or R, is better managed with Nix than virtual environments
 image: NixosWinter.png
 date: 05-21-2025
-categories: [Linux, Distributions, Nix]
+categories: [Linux, Data Science, Nix, Python]
 author: Brian Carey
 ---
+# Package Management
 
----
+A typical environment for Data Science projects involves many inter-dependent libraries. Different projects may use different versions of the same library, leading to potential conflict on a given computer. In order to solve this problem, Python uses *virtual environments* to install the necessary packages in an environment isolated from the rest of the system.
+
+Package management in Python is not straight-forward.
 

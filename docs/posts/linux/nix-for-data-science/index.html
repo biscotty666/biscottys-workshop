@@ -360,9 +360,9 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-right">
+    <div class="quarto-title column-body">
       <h1 class="title d-none d-lg-block">Nix for Data Science</h1>
-            <p class="subtitle lead">Nix vs pip, conda, and virtual environments</p>
+            <p class="subtitle lead">Nix your venvs and skip pip</p>
                   <div>
         <div class="description">
           Installing and maintaining multiple versions of libraries, whether in Python or R, is better managed with Nix than virtual environments
@@ -370,14 +370,15 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">Linux</div>
-                <div class="quarto-category">Distributions</div>
+                <div class="quarto-category">Data Science</div>
                 <div class="quarto-category">Nix</div>
+                <div class="quarto-category">Python</div>
               </div>
                   </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-right">
+  <div class="quarto-title-meta column-body">
 
       <div>
       <div class="quarto-title-meta-heading">Author</div>
@@ -770,20 +771,30 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#package-management" id="toc-package-management" class="nav-link active" data-scroll-target="#package-management">Package Management</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-right" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
 
 
 
 
 
 
-<hr>
+<section id="package-management" class="level1">
+<h1>Package Management</h1>
+<p>A typical environment for Data Science projects involves many inter-dependent libraries. Different projects may use different versions of the same library, leading to potential conflict on a given computer. In order to solve this problem, Python uses <em>virtual environments</em> to install the necessary packages in an environment isolated from the rest of the system.</p>
+<p>Package management in Python is not straight-forward.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1207,7 +1218,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
   </script>
 <script src="https://utteranc.es/client.js" repo="biscotty666/bw-comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../../posts/linux/nix-docker-fhs/index.html" class="pagination-link" aria-label="The FHS Problem">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The FHS Problem</span>
