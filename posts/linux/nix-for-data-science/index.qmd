@@ -1,0 +1,12 @@
+---
+title: Nix for Data Science
+subtitle: Nix vs pip, conda, and virtual environments
+description: Installing and maintaining multiple versions of libraries, whether in Python or R, is better managed with Nix than virtual environments
+image: NixosWinter.png
+date: 05-21-2025
+categories: [Linux, Distributions, Nix]
+author: Brian Carey
+---
+
+---
+

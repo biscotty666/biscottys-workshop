@@ -10,7 +10,19 @@
 <atom:link href="https://biscotty.online/posts/linux/linux.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Sun, 04 May 2025 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 21 May 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Nix for Data Science</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/linux/nix-for-data-science/</link>
+  <description><![CDATA[ Installing and maintaining multiple versions of libraries, whether in Python or R, is better managed with Nix than virtual environments ]]></description>
+  <category>Linux</category>
+  <category>Distributions</category>
+  <category>Nix</category>
+  <guid>https://biscotty.online/posts/linux/nix-for-data-science/</guid>
+  <pubDate>Wed, 21 May 2025 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/linux/nix-for-data-science/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
+</item>
 <item>
   <title>The FHS Problem</title>
   <dc:creator>Brian Carey</dc:creator>

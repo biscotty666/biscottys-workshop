@@ -436,5 +436,8 @@
   },
   "posts/data-science/r-census/nm-hispanic-demographics/index.qmd": {
     "index.html": "75815b60"
+  },
+  "posts/linux/nix-for-data-science/index.qmd": {
+    "index.html": "69040f2e"
   }
 }
