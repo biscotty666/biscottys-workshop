@@ -1,7 +1,7 @@
 ---
-title: Exporing New Mexico Demographics with TidyCensus
-subtitle: A subtitle
-description: Some description
+title: Hispanics in New Mexico
+subtitle: A A demographic study with R and TidyCensus
+description: New Mexico has a Latino population unlike anywhere else in the US. This article shows how to use R and tidycensus to explore the data.
 output: 
   html_document:
     toc: true
@@ -9,13 +9,14 @@ output:
     self_contained: true
 date: 2025-05-24
 code-overflow: wrap
-categories: [R, TidyCensus, Data Science]
+categories: [R, Data Science, GIS]
 draft: false
 ---
 
 ```{r setup, include=FALSE, paged.print=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+# Motivation
 
 This article will explore some interesting aspects of New Mexico's racial demographics using R and the TidyCensus package. The US Census Bureau makes an amazing amount of data available to the public on <https://census.gov>. The site allows you to easily search for and download demographic information with myriad variables and geographic subsets. The site also provides an API for programmatic access, and R is fortunate to have the TidyCensus package to easily grab data of interest to the programmer.
 
@@ -25,19 +26,17 @@ Not only is the Hispanic population of New Mexico uniquely large in percentage t
 
 The rest of this article will explore the Hispanic population in New Mexico and the historical context which explains this particular situation. Along the way, I will show how to use the R package `tidycensus` to access the wealth of data on <https://census.gov>.
 
-
-## A little history
+# A little history
 
 New Mexico has the oldest state capital in the United States, Santa Fe having been founded 10 years before Boston. While the British were exploring from the coast, the Spaniards were moving upwards from what was to be Mexico into the territory that would become New Mexico.
 
 Mexico won independence from Spain in 1821, and that included New Mexico. While the Spanixh residents gave nominal allegiance to Mexico, it was never very enthusiastic. After the Treaty of Hidalgo, in which the territory of New Mexico was ceded to the United States, Hispanics quickly dropped any pro-Mexican sentiment, they might have had and were anxious to assert their identity as Americans with roots in Europe, not Latin America. This group is called *nuevomexicanos* by many, but in New Mexico they are called Hispanos.
 
-## Immigrants in New Mexico
+# Immigrants in New Mexico
 
-### Getting ACS data
+## Getting ACS data
 
 Before looking at Latinos specifically, I would like to take a quick look at immigration to New Mexico, since many Hispanics are immigrants. Using `get_acs()` I can get data from the *American Community Survey* 5-year tables. The most time-consuming part is sifting through the thousands of variables to find the ones you want. Fortunately, `tidycensus` provides a function to download the variables, which can then be `View`ed and searched.
-
 
 ```{r message=FALSE}
 library(tidycensus)
@@ -67,7 +66,7 @@ Now I can use `get_acs()` to download the data. There are many possibilities for
 
 `get_acs()` has an optional argument which can be passed, `geometry = TRUE`. This handy method adds geometries from `tigris` and returns the `sf` object necessary for cartographic plotting. Unfortunately, I get errors using this for county and state data, so I need to manually perform the process.
 
-First, I'll grab shapes for the states and for the counties in New Mexico. The `shift_geometry()` function will put Alaska and Hawaii in a convenient place on the maps.
+First, I'll grab shapes for the states and for the counties in New Mexico. The `shift_geometry()` function will put Alaska and Hawaii in a convenient place on the maps. `GEOID` is standard across all datasets, and encodes the state, county, and census tract, depending on the level of data requested. There are many columns in the `tigris` datasets, but I only want the name and geometry.
 
 ```{r}
 library(tigris)
@@ -78,8 +77,7 @@ nm_counties <- counties("NM") |>
   select(GEOID, county = NAME, geometry)
 ```
 
-Now, with standard `dplyr` syntax, I can create the `sf` data frame. I want to do comparisons to the US in general, so I will also get data for all 50 states.
-
+Now, with standard `dplyr` syntax, I can create the `sf` data frame. I want to do comparisons to the US in general, so I will also get data for all 50 states. `left_join` allows me to add the geometry from `nm_counties` based on the invaluable `GEOID`. Once joined, though, I no longer need it, nor a number of other columns, so I select the ones I want.
 
 ```{r}
 immigration_23 <- get_acs(
@@ -97,6 +95,9 @@ immigration_23 <- get_acs(
 
 ```
 
+::: {.callout-note icon="false" collapse="true"}
+### Code
+
 ```{r}
 immigration_us <- get_acs(
   geography = "state",
@@ -111,7 +112,9 @@ immigration_us <- get_acs(
   st_as_sf()
 ```
 
-Percentages can be more interesting than raw numbers, so I will calculate them:
+:::
+
+Percentages can be more interesting than raw numbers, so I will calculate them. R makes it so easy to create new columns based on existing ones.
 
 ```{r}
 immigration_23$pct_foreign = immigration_23$estimate / immigration_23$summary_est
@@ -135,9 +138,9 @@ data.frame(
 
 Despite having a the largest Hispanic population in the country, New Mexico has a much smaller percentage of immigrants than the overall average.
 
-### Visualizing the data
+## Visualizing the data
 
-Now I would like to visualize the data. (Explaining `ggplot` is beyond the scope of this article.)
+I would like to visualize this data. Explaining `ggplot` is beyond the scope of this article, unfortunately. I highly recommend the [R Graphics Cookbook](https://r-graphics.org/). I use the `+` operator from the `patchwork` library to put the plots side by side.
 
 ```{r}
 #| label: fig-fvn-col
@@ -151,8 +154,7 @@ p1 <- ggplot(immigration_23,
   labs(x = element_blank(),
        y = "Population",
        fill = "County",
-       title = "New Mexico",
-       caption = "acs5 2023") +
+       title = "New Mexico") +
   scale_y_continuous(labels = scales::comma) +
   theme_bw()
 
@@ -163,14 +165,14 @@ p2 <- ggplot(immigration_us, aes(x = variable, y = estimate)) +
        title = "US",
        caption = "acs5 2023") +
   scale_y_continuous(labels = scales::comma) +
-  labs(y = element_blank()) +
+  labs(y = element_blank(),
+       caption = "Source: census.gov acs5 2023") +
   theme_bw()
 
 p1 + p2
 ```
 
 We can see on a map where the largest concentration of immigrant groups are.
-
 
 ```{r}
 #| label: fig-imm-pop-state
@@ -185,35 +187,60 @@ immigration_us |>
   geom_sf(aes(geometry = geometry)) +
   scale_fill_viridis_c(labels = scales::percent) +
   labs(title = "Immigrant population by state",
-       caption = "acs5 2023") +
+       caption = "Source: census.gov acs5 2023") +
   theme_void() +
   theme(plot.margin = margin(.3,.3,.3,.3, "cm"))
 
 ```
 
+I'd like to put some cities on the New Mexico map for orientation purposes. As of this writing, I am unable to use the standard `tigris::places("NM", year = 23)` command, as it says that the data is unavailable. So I needed to download the file from <https://www2.census.gov/geo/tiger/TIGER2023/PLACE/>. I'll extract a few cities in different parts of the state. The shapefiles are POLYGONs, but I need a single point, so I'll use `st_centroid()`.
+
+```{r}
+#| warning: false
+
+places <- read_sf("data/places/tl_2023_35_place.shp")
+cities <- c("Albuquerque", "Santa Fe", 
+            "Las Cruces", "Raton", "Roswell",
+            "Gallup", "Santa Rosa", "Farmington")
+city_pts <- places |> 
+  filter(NAME %in% cities) |> 
+  select(City = NAME, geometry) |> 
+  st_as_sf() |> 
+  st_centroid()
+```
 
 ```{r}
 #| label: fig-imm-pop-county
 #| out-width: "90%"
 #| fig-align: "center"
+#| warning: false
 
-immigration_23 |> 
-  filter(variable == "ForeignBorn") |> 
-  ggplot(aes(fill = pct_foreign)) +
-  geom_sf(aes(geometry = geometry)) +
+fb <- immigration_23 |> 
+  filter(variable == "ForeignBorn") 
+
+ggplot() +
+  geom_sf(data = fb, aes(fill = pct_foreign)) +
+  geom_sf(data = city_pts, size = .5, color = "red") +
+  geom_sf_text(data = city_pts, aes(label = City),
+               size = 3, color = "gold",
+               vjust = "top",hjust = "left",
+               nudge_y = -.1) +
   scale_fill_viridis_c(labels = scales::percent) +
   labs(title = "NM Immigrant population by county",
-       caption = "acs5 2023", 
+       caption = "Source: census.gov acs5 2023", 
        fill = "percent") +
   theme_void() +
   theme(plot.margin = margin(.3,.3,.3,.3, "cm"))
 ```
 
-Not surprisingly, the highest percentage is near the Mexican border.
+Not surprisingly, the highest percentage of immigrants is near the Mexican border.
 
-### Origins of immigrants
+# Origins of immigrants
 
-Since we are concerned with Hispanics, it is useful to have an idea about immigration from Latin America, and Mexico in particular given that NM is a border state.
+Since we are concerned with Hispanics, it is useful to have an idea about immigration from Latin America, and Mexico in particular given that NM is a border state. I will get the data associated with the birth place of foreign residents.
+
+::: {.callout-note icon="false" collapse="true"}
+### Code
 
 ```{r}
 orig_vars_23 = c(
@@ -236,6 +263,9 @@ orig_vars_23 = c(
 )
 ```
 
+:::
+
+
 ```{r}
 foreign_origin_nm <- get_acs(
   geography = "county",
@@ -252,6 +282,9 @@ foreign_origin_nm <- get_acs(
   st_as_sf()
 ```
 
+::: {.callout-note icon="false" collapse="true"}
+### Code
+
 ```{r}
 continents <- c(
   "Europe",
@@ -264,12 +297,9 @@ continents <- c(
 )
 ```
 
-```{r}
-#| label: fb-nm-bar
-#| out-width: "90%"
-#| fig-align: "center"
 
-foreign_origin_nm |> 
+```{r}
+p1 <- foreign_origin_nm |> 
   filter(variable %in% continents) |> 
   mutate(variable = fct_reorder(variable, desc(estimate))) |> 
   ggplot(aes(x = variable, y = estimate, fill = county)) +
@@ -279,11 +309,20 @@ foreign_origin_nm |>
        fill = "County",
        title = "Origins of foreign-born New Mexico population",
        subtitle = "By Continent",
-       caption = "acs5 2023") +
+       caption = "Source: census.gov acs5 2023") +
   scale_y_continuous(labels = scales::comma) +
   theme_gray() +
   theme(axis.text.x = element_text(angle = 30),
         plot.margin = margin(.3,.3,.3,.3, "cm"))
+```
+:::
+
+```{r}
+#| label: fb-nm-bar
+#| out-width: "90%"
+#| fig-align: "center"
+
+p1
 ```
 
 The largest group of immigrants is from Central America, which includes Mexico in these tables. Zooming in on the eight most populated counties is interesting, showing a sizeable number of Asian immigrants, especially around Albuquerque (Bernalillo County).
@@ -311,7 +350,8 @@ foreign_origin_nm |>
        y = "Population",
        fill = "Continent",
        title = "Origins of foreign-born New Mexico population",
-       subtitle = "Top 10 Counties by Population") +
+       subtitle = "Top 10 Counties by Population",
+       caption = "Source: census.gov acs5 2023") +
   scale_y_continuous(labels = scales::comma) +
   scale_fill_viridis_d(labels = c("Africa", "Asia", "Canada", "Central America",
                                "Europe", "Oceania", "South America")) +
@@ -319,21 +359,21 @@ foreign_origin_nm |>
   theme(axis.text.x = element_text(angle = 30))
 ```
 
-
 ```{r}
 #| echo: false
 
 orig_vars_19 = c( Europe = "B05006_002", Asia = "B05006_047", Eastern_Asia = "B05006_048", China = "B05006_049", Asia_SC = "B05006_056", Asia_SE = "B05006_067", Vietnam = "B05006_076", Asia_W = "B05006_078", Africa = "B05006_091", Oceania = "B05006_117", Latin_America = "B05006_124", Caribbean = "B05006_125", Central_America = "B05006_138", Mexico = "B05006_139", South_America = "B05006_148", Canada = "B05006_161" )
 ```
 
-
-
-## Hispanics
+# Hispanics
 
 Let's look at where most Latinos live in the country.
 
+::: {.callout-note icon="false" collapse="true"}
 
 ```{r}
+#| warning: false
+
 us_hisp_pct <- get_acs(
   geography = "state",
   variables = c("B03001_002", "B03001_003"),
@@ -354,18 +394,14 @@ us_hisp_pct <- get_acs(
   shift_geometry()
 ```
 
-
 ```{r}
-#| label: fig-his-state-map
-#| out-width: "90%"
-#| fig-align: "center"
-
-us_hisp_pct |> 
+p1 <- us_hisp_pct |> 
   filter(state != "Puerto Rico") |> 
   ggplot(aes(fill = Hispanic_Pct)) +
   geom_sf() +
   labs(title = "Hispanic Population by State",
        fill = "Percent",
+       caption = "Source: census.gov acs5 2023"
        ) +
   scale_fill_viridis_c(labels = scales::percent, 
                        limits = c(0,.5)) +
@@ -373,7 +409,18 @@ us_hisp_pct |>
   theme(plot.margin = margin(.5,.5,.5,.5, "cm"))
 ```
 
-Let's see the top 5 states by total Latinos. Not surprisingly, the largest states have the largest population of Hispanics, and New Mexico doesn't even make the list.
+:::
+
+```{r}
+#| label: fig-his-state-map
+#| out-width: "90%"
+#| fig-align: "center"
+
+p1
+```
+
+
+How about the top 5 states by total Latinos? Not surprisingly, the largest states have the largest population of Hispanics, and New Mexico doesn't even make the list.
 
 ```{r}
 us_hisp_pct |> 
@@ -393,7 +440,7 @@ us_hisp_pct |>
 
 As you can see, New Mexico is the state with the highest proportion of Latinos, nearly half, and almost 10% higher than the next highest states.
 
-We can see how Latinos are spread across New Mexico:
+We can see how Latinos are spread across New Mexico. For easy plotting, I will make columns from the two variables using `pivot_wider()` and add a column with percentages.
 
 ```{r}
 nm_hisp_pct <- get_acs(
@@ -413,19 +460,35 @@ nm_hisp_pct <- get_acs(
   st_as_sf()
 ```
 
-```{r}
-#| label: fig-his-pop-pct
-#| out-width: "90%"
-#| fig-align: "center"
+::: {.callout-note icon="false" collapse="true"}
 
-ggplot(nm_hisp_pct, aes(fill = Hispanic_Pct)) +
-  geom_sf() +
+```{r}
+p1 <- ggplot() +
+  geom_sf(data = nm_hisp_pct, aes(fill = Hispanic_Pct)) +
+  geom_sf(data = city_pts, size = .5, color = "red") +
+  geom_sf_text(data = city_pts, aes(label = City),
+               size = 3, color = "gold",
+               vjust = "top",hjust = "left",
+               nudge_y = -.1) +
   labs(title = "Hispanic Population in New Mexico",
        fill = "Percent",
+       caption = "Source: census.gov acs5 2023"
        ) +
   scale_fill_viridis_c(labels = scales::percent, limits = c(0,.8)) +
   theme_void() +
   theme(plot.margin = margin(.3,.3,.3,.3, "cm"))
+```
+
+:::
+
+```{r}
+#| label: fig-his-pop-pct
+#| out-width: "90%"
+#| fig-align: "center"
+#| warning: false
+
+
+p1
 ```
 
 The highest concentrations are not along the border, but in the Northern counties. These are the counties with the largest percentage of Hispanics, followed by the percentages in New Mexico's most populated counties.
@@ -444,10 +507,12 @@ nm_hisp_pct |>
   select(county, Hispanic_Pct)
 ```
 
-
 # Hispanic origins
 
 Now let's look at the national origins of Latinos in New Mexico.
+
+::: {.callout-note icon="false" collapse="true"}
+### Code
 
 ```{r}
 hisp_vars = c(
@@ -464,6 +529,13 @@ hisp_vars = c(
   Hispanic_Spanish_American = "B03001_030",
   Hispanic_White = "B03002_013"
 )
+
+```
+
+
+
+
+```{r}
 
 hispanic_nm <- get_acs(
   geography = "county",
@@ -493,8 +565,6 @@ hispanic_us <- get_acs(
   st_as_sf()
 ```
 
-
-
 ```{r}
 hispanic_nm <- hispanic_nm |> 
   pivot_wider(names_from = variable, values_from = estimate) |> 
@@ -507,14 +577,15 @@ hispanic_nm <- hispanic_nm |>
   distinct(county, variable, .keep_all = TRUE)
 ```
 
+:::
+
 First, here are the proportions of Hispanic to Non-Hispanic in the biggest counties.
 
-```{r}
-#| label: fig-hvnv-bar
-#| out-width: "90%"
-#| fig-align: "center"
+::: {.callout-note icon="false" collapse="true"}
+### Code
 
-hispanic_nm |> 
+```{r}
+p1 <- hispanic_nm |> 
   filter(county %in% counties_top_8$county & variable %in% c("Hispanic", "Non_Hispanic")) |> 
   mutate(county = fct_reorder(county, desc(estimate))) |> 
   ggplot(aes(x = county, y = estimate, fill = variable)) +
@@ -531,6 +602,59 @@ hispanic_nm |>
   theme(axis.text.x = element_text(angle = 30)) +
   theme(plot.margin = margin(.3,.3,.3,.3, "cm"))
 ```
+
+:::
+
+```{r}
+#| label: fig-hvnv-bar
+#| out-width: "90%"
+#| fig-align: "center"
+
+p1
+```
+
+
+And then the national identities from the same counties.
+
+::: {.callout-note icon="false" collapse="true"}
+### Code
+
+```{r}
+p1 <- hispanic_nm |> 
+  filter(county %in% counties_top_8$county & !(variable %in% c("Hispanic", "Non_Hispanic"))) |> 
+  mutate(county = fct_reorder(county, desc(pop))) |> 
+  ggplot(aes(x = county, y = pop, fill = factor(variable, levels = c("Hispanic_White", "Hispanic_Spain", "Hispanic_Mexican", "Hispanic_CA")))) +
+  geom_col(position = "dodge") +
+  labs(x = "County",
+       y = "Population",
+       fill = "Race",
+       title = "Origin Identification of Hispanic Population",
+       subtitle = "Top 10 Counties by Population",
+       caption = "Source: census.gov acs5 2023") +
+  scale_y_continuous(labels = scales::comma) +
+  scale_fill_viridis_d(labels = c("White", "Spanish", "Mexican", "Central American")) +
+  theme_gray() +
+  theme(axis.text.x = element_text(angle = 30)) +
+  theme(plot.margin = margin(.3,.3,.3,.3, "cm"))
+```
+
+:::
+
+```{r}
+#| label: fig-org-ident
+#| out-width: "90%"
+#| fig-align: "center"
+
+p1
+```
+
+
+Most Hispanics clearly identify with Mexico, as is true nationally, and White implies European, and therefore Spanish, heritage.
+
+::: {.callout-note icon="false" collapse="true"}
+### Code
+
+This is a good example of building an extended workflow which obtains the data
 
 ```{r}
 hispanic_us <- get_acs(
@@ -555,41 +679,11 @@ hispanic_us <- get_acs(
   st_as_sf()
 ```
 
-And then the national identities from the same counties.
+
 
 ```{r}
-#| label: fig-org-ident
-#| out-width: "90%"
-#| fig-align: "center"
-
-hispanic_nm |> 
-  filter(county %in% counties_top_8$county & !(variable %in% c("Hispanic", "Non_Hispanic"))) |> 
-  mutate(county = fct_reorder(county, desc(pop))) |> 
-  ggplot(aes(x = county, y = pop, fill = factor(variable, levels = c("Hispanic_White", "Hispanic_Spain", "Hispanic_Mexican", "Hispanic_CA")))) +
-  geom_col(position = "dodge") +
-  labs(x = "County",
-       y = "Population",
-       fill = "Race",
-       title = "Origin Identification of Hispanic Population",
-       subtitle = "Top 10 Counties by Population",
-       caption = "Source: census.gov acs5 2023") +
-  scale_y_continuous(labels = scales::comma) +
-  scale_fill_viridis_d(labels = c("White", "Spanish", "Mexican", "Central American")) +
-  theme_gray() +
-  theme(axis.text.x = element_text(angle = 30)) +
-  theme(plot.margin = margin(.3,.3,.3,.3, "cm"))
-```
-
-Most Hispanics clearly identify with Mexico, as is true nationally, and White implies European, and therefore Spanish, heritage.
-
-```{r}
-#| label: fig-nat-ori
-#| out-width: "90%"
-#| fig-align: "center"
-#| fig-cap: "National Identification of Hispanic Population in the US"
-
 hispanic_us$percent = hispanic_us$pop / hispanic_us$summary_est
-hispanic_us |> 
+p1 <- hispanic_us |> 
   filter(state != "Puerto Rico" & !(variable %in% c("Hispanic", "Non_Hispanic"))) |> 
   group_by(variable) |> 
   summarise(
@@ -601,11 +695,13 @@ hispanic_us |>
   geom_col(fill = "cyan") +
   labs(x = "Nationality",
        y = "Population",
-       title = "National Identification Hispanics",
+       title = "National Identification of\nHispanic Population in the US",
        caption = "Source: census.gov acs5 2023") +
   scale_y_continuous(labels = scales::comma) +
-  scale_x_discrete(labels = c("Mexican", "White", "Central America", "Puerto Rico", 
-                              "South America", "Cuba", "Dominican Republic", "Spain")) +
+  scale_x_discrete(
+    labels = c("Mexican", "White", "Central America", 
+               "Puerto Rico", "South America", "Cuba", 
+               "Dominican Republic", "Spain")) +
   theme_gray() +
   theme(
     axis.text.x = element_text(
@@ -613,22 +709,246 @@ hispanic_us |>
     plot.margin = margin(.3,.3,.3,.3, "cm"))
 ```
 
+:::
 
+```{r}
+#| label: fig-nat-ori
+#| out-width: "90%"
+#| fig-align: "center"
+#| fig-cap: "National Identification of Hispanic Population in the US"
+
+p1
+```
+
+Before moving on, I want to highlight the code that produced this dataset, as it demonstrates how easily obtaining and wrangling data can be done with a chained workflow in R thanks to the pipe (`|>`). In this case, I want to combine the values of three variables into one. The data downloaded has three variables for Hispanics of Spanish descent (Spanish, Spaniard and Spanish American), which I want to combine into a single value. In this code, I `pivod_wider` to have the variables in columns. Then I sum the three columns to create a new column, drop the now unneeded ones, and pivot back to the long form which `ggplot` likes. I further calculate percents, and then add geometries for mapping, select only the columns I need, and creating an `sf` object.
+
+All of that with one command! (Well, a long one.)
+
+```{{r}}
+hispanic_us <- get_acs(
+  geography = "state",
+  variables = hisp_vars,
+  summary_var = "B03001_001",
+  year = 2023,
+  cache_table = TRUE) |>
+  rename(state = NAME) |> 
+  pivot_wider(names_from = variable, values_from = estimate) |> 
+  rowwise() |> 
+  mutate(Hispanic_Spain = sum(c_across(Hispanic_Spaniard:Hispanic_Spanish_American), na.rm = TRUE)) |> 
+  select(-c("Hispanic_Spaniard", "Hispanic_Spanish", "Hispanic_Spanish_American")) |> 
+  pivot_longer(cols = Non_Hispanic:Hispanic_Spain, names_to = "variable", values_to = "estimate", values_drop_na = T)|> 
+  group_by(state, variable) |> 
+  mutate(pop = sum(estimate)) |> 
+  distinct(variable, .keep_all = TRUE) |> 
+  mutate(percent = pop / summary_est) |> 
+  left_join(states, by = "GEOID") |> 
+  select(variable, pop, summary_est,
+         state = state.y, geometry) |> 
+  st_as_sf()
+```
+
+
+New Mexico has the highest proportion of Hispanics who identify as white after Puerto Rico.
+
+::: {.callout-note icon="false" collapse="true"}
+### Code
+
+```{r}
+p1 <- hispanic_us |> 
+  filter(variable == "Hispanic_White") |> 
+  ggplot(aes(fill = percent)) +
+  geom_sf(aes(geometry = geometry)) +
+  scale_fill_viridis_c(labels = scales::percent) +
+  labs(title = "Hispanics with White identity",
+       caption = "Source: census.gov acs5 2023") +
+  theme_void() +
+  theme(plot.margin = margin(.3,.3,.3,.3, "cm"))
+```
+
+:::
 
 ```{r}
 #| label: fig-hisp-white
 #| out-width: "90%"
 #| fig-align: "center"
 
-hispanic_us |> 
-  filter(variable == "Hispanic_White") |> 
-  ggplot(aes(fill = percent)) +
-  geom_sf(aes(geometry = geometry)) +
-  scale_fill_viridis_c(labels = scales::percent) +
-  labs(title = "Hispanics with White identity") +
-  theme_void() +
-  theme(plot.margin = margin(.3,.3,.3,.3, "cm"))
+p1
 ```
 
-New Mexico has the highest proportion of Hispanics who identify as white after Puerto Rico.
+Now let's see how the various groups of Hispanics are distributed in the state. First, for all Hispanics:
 
+```{r}
+hispanic_nm$percent <- hispanic_nm$pop / hispanic_nm$summary_est
+```
+
+::: {.callout-note icon="false" collapse="true"}
+### Code
+
+```{r}
+
+hisp <- hispanic_nm |> filter(variable == "Hispanic")
+p1 <- ggplot() +
+  geom_sf(data = hisp, aes(fill = percent)) +
+  geom_sf(data = city_pts, size = .5, color = "red") +
+  geom_sf_text(data = city_pts, aes(label = City),
+               size = 3, color = "gold",
+               vjust = "top",hjust = "left",
+               nudge_y = -.1) +
+  labs(title = "Hispanic Population in New Mexico",
+       fill = "Percent") +
+  scale_fill_viridis_c(labels = scales::percent) +
+  theme_void()
+p2 <- ggplot() +
+  geom_sf(data = hisp, aes(fill = pop)) +
+  geom_sf(data = city_pts, size = .5, color = "red") +
+  geom_sf_text(data = city_pts, aes(label = City),
+               size = 3, color = "gold",
+               vjust = "top",hjust = "left",
+               nudge_y = -.1) +
+  labs(fill = "Population",
+       caption = "Source: census.gov acs5 2023") +
+  scale_fill_viridis_c(labels = scales::comma) +
+  theme_void()
+
+p1 + p2
+```
+
+:::
+
+```{r}
+#| label: fig-hisp-nm
+#| out-width: "90%"
+#| fig-align: "center"
+#| warning: false
+
+p1 + p2
+```
+
+Now let's look at where Spanish Hispanics live in the state. In the second set of maps, I combine the Spanish and White Hispanic populations.
+
+::: {.callout-note icon="false" collapse="true"}
+### Code
+
+```{r}
+hisp_spain <- hispanic_nm |> filter(variable == "Hispanic_Spain")
+p1 <- ggplot() +
+  geom_sf(data = hisp_spain, aes(fill = percent)) +
+  geom_sf(data = city_pts, size = .5, color = "red") +
+  geom_sf_text(data = city_pts, aes(label = City),
+               size = 3, color = "gold",
+               vjust = "top",hjust = "left",
+               nudge_y = -.1) +
+  labs(title = "Spanish Population in New Mexico",
+       fill = "Percent",
+       ) +
+  scale_fill_viridis_c(labels = scales::percent) +
+  theme_void()
+p2 <- ggplot() +
+  geom_sf(data = hisp_spain, aes(fill = pop)) +
+  geom_sf(data = city_pts, size = .5, color = "red") +
+  geom_sf_text(data = city_pts, aes(label = City),
+               size = 3, color = "gold",
+               vjust = "top",hjust = "left",
+               nudge_y = -.1) +
+  labs(fill = "Population") +
+  scale_fill_viridis_c(labels = scales::comma) +
+  theme_void()
+
+```
+
+
+```{r}
+hisp_spain_white <- hispanic_nm |> 
+  filter(variable == "Hispanic_Spain" | variable == "Hispanic_White")
+p3 <- ggplot() +
+  geom_sf(data = hisp_spain_white, aes(fill = percent)) +
+  geom_sf(data = city_pts, size = .5, color = "red") +
+  geom_sf_text(data = city_pts, aes(label = City),
+               size = 3, color = "gold",
+               vjust = "top",hjust = "left",
+               nudge_y = -.1) +
+  labs(title = "Spanish & Hispanic-White Population in New Mexico",
+       fill = "Percent",
+       ) +
+  scale_fill_viridis_c(labels = scales::percent) +
+  theme_void()
+p4 <- ggplot() +
+  geom_sf(data = hisp_spain_white, aes(fill = pop)) +
+  geom_sf(data = city_pts, size = .5, color = "red") +
+  geom_sf_text(data = city_pts, aes(label = City),
+               size = 3, color = "gold",
+               vjust = "top",hjust = "left",
+               nudge_y = -.1) +
+  labs(fill = "Population",
+       caption = "Source: census.gov acs5 2023") +
+  scale_fill_viridis_c(labels = scales::comma) +
+  theme_void()
+
+
+```
+
+:::
+
+```{r}
+#| warning: false
+#| label: fig-hisp-nm3
+#| out-width: "90%"
+#| fig-align: "center"
+
+
+(p1 + p2) / (p3 + p4)
+```
+
+The Hispanos are clearly concentrated in the north-eastern part of the state. Let's see about the Mexican Hispanics.
+
+::: {.callout-note icon="false" collapse="true"}
+### Code
+
+```{r}
+#| warning: false
+
+hisp_mex <- hispanic_nm |> 
+  filter(variable == "Hispanic_Mexican")
+p1 <- ggplot() +
+  geom_sf(data = hisp_mex, aes(fill = percent)) +
+  geom_sf(data = city_pts, size = .5, color = "red") +
+  geom_sf_text(data = city_pts, aes(label = City),
+               size = 3, color = "gold",
+               vjust = "top",hjust = "left",
+               nudge_y = -.1) +
+  labs(title = "Mexican Immigrant Population in New Mexico",
+       fill = "Percent"
+       ) +
+  scale_fill_viridis_c(labels = scales::percent) +
+  theme_void()
+p2 <- ggplot() +
+  geom_sf(data = hisp_mex, aes(fill = pop)) +
+  geom_sf(data = city_pts, size = .5, color = "red") +
+  geom_sf_text(data = city_pts, aes(label = City),
+               size = 3, color = "gold",
+               vjust = "top",hjust = "left",
+               nudge_y = -.1) +
+  labs(fill = "Population",
+       caption = "Source: census.gov acs5 2023") +
+  scale_fill_viridis_c(labels = scales::comma) +
+  theme_void()
+```
+
+:::
+
+```{r}
+#| warning: false
+#| label: fig-hisp-nm4
+#| out-width: "90%"
+#| fig-align: "center"
+
+p1 + p2
+```
+
+The Mexican Hispanics are concentrated in the southern part of the state. It is clear from the maps that these two groups, Spanish and Mexican, are largely distinct geographically. In all cases, unsurprisingly, the largest number of people in each group live in the primary urban center of the state.
+
+# Next steps
+
+In Bernalillo County, home of Albuquerque, the largest city by far in New Mexico, there are large numbers of all ethnicities represented in the state. It will be interesting to drill down on the county to see whether the geographic sepearation persists in an urban setting. Additionally, spatial modeling could be used to verify that the apparent geographic separation between the two groups is not random. Such an analysis would probably be more interesting in the context of the urban melting pot of Albuquerque. Thirdly, a time series analysis regarding the increase or decrease in the Mexican population to understand how the situation is evolving. Finally, correlation of the geographic distribution with statistics such as income, housing value, or the GINI statistic could be elucidating.
+
+This notebook with all the code is available in my [GitHub repository](http://localhost:4326/posts/data-science/r-census/nm-hispanic-demographics/index.qmd). Happy coding. And if you have pointers to improve my code, I would be grateful for comments. Happy coding!

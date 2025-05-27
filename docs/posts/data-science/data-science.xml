@@ -12,12 +12,12 @@
 <generator>quarto-1.7.31</generator>
 <lastBuildDate>Sat, 24 May 2025 06:00:00 GMT</lastBuildDate>
 <item>
-  <title>Exporing New Mexico Demographics with TidyCensus</title>
+  <title>Hispanics in New Mexico</title>
   <link>https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/</link>
-  <description><![CDATA[ Some description ]]></description>
+  <description><![CDATA[ New Mexico has a Latino population unlike anywhere else in the US. This article shows how to use R and tidycensus to explore the data. ]]></description>
   <category>R</category>
-  <category>TidyCensus</category>
   <category>Data Science</category>
+  <category>GIS</category>
   <guid>https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/</guid>
   <pubDate>Sat, 24 May 2025 06:00:00 GMT</pubDate>
 </item>
