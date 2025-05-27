@@ -30,7 +30,7 @@ The rest of this article will explore the Hispanic population in New Mexico and 
 
 New Mexico has the oldest state capital in the United States, Santa Fe having been founded 10 years before Boston. While the British were exploring from the coast, the Spaniards were moving upwards from what was to be Mexico into the territory that would become New Mexico.
 
-Mexico won independence from Spain in 1821, and that included New Mexico. While the Spanish residents gave nominal allegiance to Mexico, it was never very enthusiastic. After the Treaty of Hidalgo, in which the territory of New Mexico was ceded to the United States, Hispanics quickly dropped any pro-Mexican sentiment, they might have had and were anxious to assert their identity as Americans with roots in Europe, not Latin America. This group is called *nuevomexicanos* by many, but in New Mexico they are called Hispanos.
+Mexico won independence from Spain in 1821, and that included New Mexico. While the Spanixh residents gave nominal allegiance to Mexico, it was never very enthusiastic. After the Treaty of Hidalgo, in which the territory of New Mexico was ceded to the United States, Hispanics quickly dropped any pro-Mexican sentiment, they might have had and were anxious to assert their identity as Americans with roots in Europe, not Latin America. This group is called *nuevomexicanos* by many, but in New Mexico they are called Hispanos.
 
 # Immigrants in New Mexico
 
@@ -325,7 +325,7 @@ p1 <- foreign_origin_nm |>
 p1
 ```
 
-The largest group of immigrants is from Central America, which includes Mexico in these tables. Zooming in on the eight most populated counties is interesting, showing a sizable number of Asian immigrants, especially around Albuquerque (Bernalillo County).
+The largest group of immigrants is from Central America, which includes Mexico in these tables. Zooming in on the eight most populated counties is interesting, showing a sizeable number of Asian immigrants, especially around Albuquerque (Bernalillo County).
 
 ```{r}
 counties_top_8 <- foreign_origin_nm |> 
@@ -720,7 +720,7 @@ p1 <- hispanic_us |>
 p1
 ```
 
-Before moving on, I want to highlight the code that produced this dataset, as it demonstrates how easily obtaining and wrangling data can be done with a chained workflow in R thanks to the pipe (`|>`). In this case, I want to combine the values of three variables into one. The data downloaded has three variables for Hispanics of Spanish descent (Spanish, Spaniard and Spanish American), which I want to combine into a single value. In this code, I `pivot_wider` to have the variables in columns. Then I sum the three columns to create a new column, drop the now unneeded ones, and pivot back to the long form which `ggplot` likes. I further calculate percents, and then add geometries for mapping, select only the columns I need, and creating an `sf` object.
+Before moving on, I want to highlight the code that produced this dataset, as it demonstrates how easily obtaining and wrangling data can be done with a chained workflow in R thanks to the pipe (`|>`). In this case, I want to combine the values of three variables into one. The data downloaded has three variables for Hispanics of Spanish descent (Spanish, Spaniard and Spanish American), which I want to combine into a single value. In this code, I `pivod_wider` to have the variables in columns. Then I sum the three columns to create a new column, drop the now unneeded ones, and pivot back to the long form which `ggplot` likes. I further calculate percents, and then add geometries for mapping, select only the columns I need, and creating an `sf` object.
 
 All of that with one command! (Well, a long one.)
 
@@ -949,6 +949,6 @@ The Mexican Hispanics are concentrated in the southern part of the state. It is 
 
 # Next steps
 
-In Bernalillo County, home of Albuquerque, the largest city by far in New Mexico, there are large numbers of all ethnicities represented in the state. It will be interesting to drill down on the county to see whether the geographic separation persists in an urban setting. Additionally, spatial modeling could be used to verify that the apparent geographic separation between the two groups is not random. Such an analysis would probably be more interesting in the context of the urban melting pot of Albuquerque. Thirdly, a time series analysis regarding the increase or decrease in the Mexican population to understand how the situation is evolving. Finally, correlation of the geographic distribution with statistics such as income, housing value, or the GINI statistic could be elucidating.
+In Bernalillo County, home of Albuquerque, the largest city by far in New Mexico, there are large numbers of all ethnicities represented in the state. It will be interesting to drill down on the county to see whether the geographic sepearation persists in an urban setting. Additionally, spatial modeling could be used to verify that the apparent geographic separation between the two groups is not random. Such an analysis would probably be more interesting in the context of the urban melting pot of Albuquerque. Thirdly, a time series analysis regarding the increase or decrease in the Mexican population to understand how the situation is evolving. Finally, correlation of the geographic distribution with statistics such as income, housing value, or the GINI statistic could be elucidating.
 
 This notebook with all the code is available in my [GitHub repository](http://localhost:4326/posts/data-science/r-census/nm-hispanic-demographics/index.qmd). Happy coding. And if you have pointers to improve my code, I would be grateful for comments. Happy coding!
