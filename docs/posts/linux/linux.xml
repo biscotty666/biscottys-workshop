@@ -12,7 +12,7 @@
 <generator>quarto-1.7.31</generator>
 <lastBuildDate>Wed, 21 May 2025 06:00:00 GMT</lastBuildDate>
 <item>
-  <title>Nix for Data Science</title>
+  <title>Nix for Data Scientists</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/posts/linux/nix-for-data-science/</link>
   <description><![CDATA[ Installing and maintaining multiple versions of libraries, whether in Python or R, is better managed with Nix than virtual environments ]]></description>

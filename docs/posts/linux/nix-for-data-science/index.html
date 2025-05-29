@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2025-05-21">
 <meta name="description" content="Installing and maintaining multiple versions of libraries, whether in Python or R, is better managed with Nix than virtual environments">
 
-<title>Nix for Data Science – biscotty’s Workshop</title>
+<title>Nix for Data Scientists – biscotty’s Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,9 +82,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-e18cef941fd190dab04110aa6f47cb1f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-a88414352ea11f778eeddc4fb536d350.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/bootstrap/bootstrap-dark-c343624b50610d041040204e26a3b111.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-e18cef941fd190dab04110aa6f47cb1f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-a88414352ea11f778eeddc4fb536d350.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -125,7 +125,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<meta property="og:title" content="Nix for Data Science – biscotty’s Workshop">
+<meta property="og:title" content="Nix for Data Scientists – biscotty’s Workshop">
 <meta property="og:description" content="Installing and maintaining multiple versions of libraries, whether in Python or R, is better managed with Nix than virtual environments">
 <meta property="og:image" content="https://biscotty.online/posts/linux/nix-for-data-science/NixosWinter.png">
 <meta property="og:site_name" content="biscotty's Workshop">
@@ -387,7 +387,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Nix for Data Science</h1>
+          <h1 class="quarto-secondary-nav-title">Nix for Data Scientists</h1>
         </a>     
     </div>
   </nav>
@@ -396,7 +396,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Nix for Data Science</h1>
+      <h1 class="title d-none d-lg-block">Nix for Data Scientists</h1>
             <p class="subtitle lead">Nix your venvs and skip pip</p>
                   <div>
         <div class="description">
@@ -578,7 +578,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../posts/linux/nix-for-data-science/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Nix for Data Science</span></a>
+ <span class="menu-text">Nix for Data Scientists</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -825,14 +825,14 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 
 <section id="package-management" class="level1">
 <h1>Package Management</h1>
-<p>Package management for data scientists working in Python has been notoriously difficult. Pip, Conda, Miniconda, Mamba, ux, poetry, venvwrapper, Docker … the list goes on of the different package managers available for Python. They all work, mostly. But they all break, occasionally. None are truly reproducible, and they are all prone to the eventual library conflicts, when one library upgrades its own dependencies, and the upgraded dependency is incompatible with another library. Then you get notified that the package manager can’t figure out a proper set of packages to meet all requirements. Then the fun begins.</p>
-<p>With Nix, a fully provisioned development environment is declared in a text file, which is basically a list of packages you want. This file can create the development environment automatically when you enter the directory. Within this directory, and any sub-directories, you have access to all the libraries and tools you have declared, even IDEs such as jupyter or vscode. Nothing is installed system-wide, and outside of the directory you do not have access to the packages in the directory. Another directory can have an entirely different set of packages, with potentially entirely different version numbers for packages, and there is no conflict.</p>
-<p>To be fair, package management is a complex problem when dozens of packages, often with dependencies shared with other packages, need to be installed <em>and maintained</em>. Furthermore, work done must be “portable” to other computers, which must have all of the same dependencies available. I should say, it is a complex problem <em>using the traditional FHS paradigm</em>. I have <a href="../../../posts/linux/nix-docker-fhs/index.html">written about</a> the problems caused by the FHS, and the gymnastics required to work around its limitations. Nix simply sidesteps these problems.</p>
-<p>Virtual environments go some way to resolve these problems. Instead of installing packages system-wide, it installs them in a hidden subdirectory. When the virtual environment is active, all relevant environment variables are set to point to these local packages. This way there are no version conflicts between different projects on the same machine. But many problems still remain. Firstly, it doesn’t solve the problem of version conflicts among packages within the project itself. Even with an accompanying <code>requirements.txt</code>, there is no guarantee that someone else will get the exact same libraries as were used in the original project.</p>
+<p>Imagine all you needed to do to have a fully provisioned data science environment with all dependencies and a configured IDE from scratch was to place a single file in a directory and run a single command. Even better, all you had to do was to enter the directory. Imagine you could add, remove, and upgrade libraries without saying a little prayer that you don’t get the dreaded message that a compatible set of dependencies could not be found. That’s Nix.</p>
+<p>My computer is very clean. I don’t have any IDEs installed, nor any data science libraries. Well, that’s not really true. Actually I have many versions of each of these installed on my system. But they are only accessible in the directories to which they pertain. Even though Python is installed system-wide on my computer, each directory has its own version.</p>
+<p>Package management for data scientists working in Python has been notoriously difficult. Pip, Conda, Miniconda, Mamba, ux, poetry, venvwrapper, Docker … the list goes on of the different package managers available. They all work, mostly. But they all break, occasionally. None are truly reproducible, and they are all prone to the eventual library conflicts, when one library upgrades its own dependencies, and the upgraded dependency is incompatible with another library. Then you get notified that the package manager can’t figure out a proper set of packages to meet all requirements. Then the fun begins.</p>
+<p>To be fair, package management is a complex problem when dozens of packages, often with dependencies shared with other packages, need to be installed <em>and maintained</em>. Furthermore, work done must be “portable” to other computers, which must have all of the same dependencies available. I should say, it is a complex problem <em>using the traditional FHS paradigm</em>. I have <a href="../../../posts/linux/nix-docker-fhs/index.html">written about</a> the problems caused by the FHS, and the gymnastics required to work around its limitations. The basic problem is that the FHS does not easily accommodate multiple versions of the same package, and packages rely heavily on shared libraries. Nix simply sidesteps these problems by installing everything needed by a package, not relying on anything else being installed elsewhere.</p>
+<p>Virtual environments go some way to resolve these problems. Instead of installing packages system-wide, it installs them in a subdirectory in the project folder. When the virtual environment is active, all relevant environment variables are set to point to these local packages. This way there are no version conflicts between different projects on the same machine. But many problems still remain. Firstly, it doesn’t solve the problem of version conflicts among packages within the project itself. Even with an accompanying <code>requirements.txt</code>, there is no guarantee that someone else will get the exact same libraries as were used in the original project.</p>
+<p>With Nix, a fully provisioned development environment is declared in a text file, which is basically a list of packages you want, although it is actually a functional program(!). It defines a graph. This file can create the development environment automatically when you enter the directory. Within this directory, and any sub-directories, you have access to all the libraries and tools you have declared, even IDEs such as jupyter or vscode. Nothing is installed system-wide, and outside of the directory you do not have access to the packages in the directory. Another directory can have an entirely different set of packages, with potentially entirely different version numbers for packages, and there is no conflict.</p>
 <p>Nix works very differently. Everything in Nix gets placed in a single <code>/nix/store</code> directory. Nix prepends the hash value of the package/library (called derivations) to the filenames, ensuring no collisions between different versions of any particular library. Nix defines a graph of dependencies for each package, and installs all requirements, not relying on shared libraries (although it does use hard links to reduce storage requirements).</p>
 <p>Below, I provide an example of a flake for Python. By placing this file in a directory and running <code>nix develop</code>, you will have Jupyter Lab, VS Code with relevant extensions, and some basic data science libraries. To “install” more packages, just add them to the list and run <code>nix develop</code> again. Even better, install <a href="https://direnv.net/docs/installation.html">direnv</a>, and the environment will automatically load when you enter the directory and unload when you leave it.</p>
-<p>A typical environment for Data Science projects involves many inter-dependent libraries. Different projects may use different versions of the same library, leading to potential conflict on a given computer. In order to solve this problem, Python uses <em>virtual environments</em> to install the necessary packages in an environment isolated from the rest of the system.</p>
-<p>Package management in Python is not straight-forward.</p>
 <p>While R libraries have proven significantly less problematic historically, backward-compatibility is not guaranteed across major releases. And there is still the question of portability.</p>
 <p>Nix can be installed on Linux, Mac, or Windows with WSL. Official installation instructions can be found <a href="https://nixos.org/download/">here</a>, but I recommend using <a href="https://zero-to-nix.com/start/install/">Zero to Nix</a> to install Nix because it will configure the flakes feature for you. Installation boils down to running a simple command.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode flake.nix code-with-copy"><code class="sourceCode nix"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
