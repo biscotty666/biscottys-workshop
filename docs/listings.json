@@ -19,6 +19,7 @@
     "listing": "/posts/data-science/data-science.html",
     "items": [
       "/posts/data-science/r-census/nm-hispanic-demographics/index.html",
+      "/posts/data-science/r-gpx-mapping/points-to-paths/index.html",
       "/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.html",
       "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html",
       "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",

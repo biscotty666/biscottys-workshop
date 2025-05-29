@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -790,8 +825,89 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 
 <section id="package-management" class="level1">
 <h1>Package Management</h1>
+<p>Package management for data scientists working in Python has been notoriously difficult. Pip, Conda, Miniconda, Mamba, ux, poetry, venvwrapper, Docker … the list goes on of the different package managers available for Python. They all work, mostly. But they all break, occasionally. None are truly reproducible, and they are all prone to the eventual library conflicts, when one library upgrades its own dependencies, and the upgraded dependency is incompatible with another library. Then you get notified that the package manager can’t figure out a proper set of packages to meet all requirements. Then the fun begins.</p>
+<p>With Nix, a fully provisioned development environment is declared in a text file, which is basically a list of packages you want. This file can create the development environment automatically when you enter the directory. Within this directory, and any sub-directories, you have access to all the libraries and tools you have declared, even IDEs such as jupyter or vscode. Nothing is installed system-wide, and outside of the directory you do not have access to the packages in the directory. Another directory can have an entirely different set of packages, with potentially entirely different version numbers for packages, and there is no conflict.</p>
+<p>To be fair, package management is a complex problem when dozens of packages, often with dependencies shared with other packages, need to be installed <em>and maintained</em>. Furthermore, work done must be “portable” to other computers, which must have all of the same dependencies available. I should say, it is a complex problem <em>using the traditional FHS paradigm</em>. I have <a href="../../../posts/linux/nix-docker-fhs/index.html">written about</a> the problems caused by the FHS, and the gymnastics required to work around its limitations. Nix simply sidesteps these problems.</p>
+<p>Virtual environments go some way to resolve these problems. Instead of installing packages system-wide, it installs them in a hidden subdirectory. When the virtual environment is active, all relevant environment variables are set to point to these local packages. This way there are no version conflicts between different projects on the same machine. But many problems still remain. Firstly, it doesn’t solve the problem of version conflicts among packages within the project itself. Even with an accompanying <code>requirements.txt</code>, there is no guarantee that someone else will get the exact same libraries as were used in the original project.</p>
+<p>Nix works very differently. Everything in Nix gets placed in a single <code>/nix/store</code> directory. Nix prepends the hash value of the package/library (called derivations) to the filenames, ensuring no collisions between different versions of any particular library. Nix defines a graph of dependencies for each package, and installs all requirements, not relying on shared libraries (although it does use hard links to reduce storage requirements).</p>
+<p>Below, I provide an example of a flake for Python. By placing this file in a directory and running <code>nix develop</code>, you will have Jupyter Lab, VS Code with relevant extensions, and some basic data science libraries. To “install” more packages, just add them to the list and run <code>nix develop</code> again. Even better, install <a href="https://direnv.net/docs/installation.html">direnv</a>, and the environment will automatically load when you enter the directory and unload when you leave it.</p>
 <p>A typical environment for Data Science projects involves many inter-dependent libraries. Different projects may use different versions of the same library, leading to potential conflict on a given computer. In order to solve this problem, Python uses <em>virtual environments</em> to install the necessary packages in an environment isolated from the rest of the system.</p>
 <p>Package management in Python is not straight-forward.</p>
+<p>While R libraries have proven significantly less problematic historically, backward-compatibility is not guaranteed across major releases. And there is still the question of portability.</p>
+<p>Nix can be installed on Linux, Mac, or Windows with WSL. Official installation instructions can be found <a href="https://nixos.org/download/">here</a>, but I recommend using <a href="https://zero-to-nix.com/start/install/">Zero to Nix</a> to install Nix because it will configure the flakes feature for you. Installation boils down to running a simple command.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode flake.nix code-with-copy"><code class="sourceCode nix"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">description</span> <span class="op">=</span> <span class="st">"Python Data Science"</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">inputs</span> <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">nixpkgs</span> <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="va">url</span> <span class="op">=</span> <span class="st">"github:nixos/nixpkgs/nixos-unstable"</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">};</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">flake-utils</span> <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="va">url</span> <span class="op">=</span> <span class="st">"github:numtide/flake-utils"</span><span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">};</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">};</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="va">outputs</span> <span class="op">=</span> <span class="op">{</span> <span class="va">nixpkgs</span><span class="op">,</span> <span class="va">flake-utils</span><span class="op">,</span> <span class="op">...</span> <span class="op">}</span>: flake<span class="op">-</span>utils<span class="op">.</span>lib<span class="op">.</span>eachDefaultSystem <span class="op">(</span><span class="va">system</span><span class="op">:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="va">pkgs</span> <span class="op">=</span> <span class="bu">import</span> nixpkgs <span class="op">{</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">inherit</span> <span class="va">system</span><span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">config</span>.<span class="va">allowUnfree</span> <span class="op">=</span> <span class="cn">true</span><span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="op">};</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>      <span class="va">myvscode</span> <span class="op">=</span> pkgs<span class="op">.</span>vscode<span class="op">-</span><span class="kw">with</span><span class="op">-</span>extensions<span class="op">.</span>override <span class="op">{</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">vscodeExtensions</span> <span class="op">=</span> <span class="op">(</span><span class="kw">with</span> pkgs<span class="op">.</span>vscode<span class="op">-</span>extensions<span class="op">;</span> <span class="op">[</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        equinusocio<span class="op">.</span>vsc-material-theme</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        equinusocio<span class="op">.</span>vsc-material-theme-icons</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        vscodevim<span class="op">.</span>vim</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        ms-python<span class="op">.</span>python</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        ms-python<span class="op">.</span>vscode-pylance</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        ms-toolsai<span class="op">.</span>jupyter</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        ms-toolsai<span class="op">.</span>jupyter-renderers</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">]);</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>      <span class="op">};</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    in <span class="op">{</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>      <span class="va">devShell</span> <span class="op">=</span> pkgs<span class="op">.</span>mkShell <span class="op">{</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">name</span> <span class="op">=</span> <span class="st">"python-venv"</span><span class="op">;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">venvDir</span> <span class="op">=</span> <span class="st">"./.venv"</span><span class="op">;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">buildInputs</span> <span class="op">=</span> <span class="kw">with</span> pkgs<span class="op">;</span> <span class="op">[</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>          tmux</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>          myvscode</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>          <span class="op">(</span>python3<span class="op">.</span>withPackages<span class="op">(</span><span class="va">ps</span><span class="op">:</span> <span class="kw">with</span> ps<span class="op">;</span> <span class="op">[</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>            ipython</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>            pip</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>            jupyter</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>            widgetsnbextension</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>            jupyter-nbextensions-configurator</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>            jedi-language-server</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>            ipywidgets</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>            mypy</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>            notebook</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>            pandas</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>            numpy</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>            matplotlib</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>            seaborn</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>          <span class="op">]))</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>        <span class="op">];</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>        <span class="va">postVenvCreation</span> <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="st">          unset SOURCE_DATE_EPOCH</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="st">          pip install -r requirements.txt</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="st">        ''</span><span class="op">;</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>        <span class="va">shellHook</span> <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="st">            # export BROWSER=brave</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="st">            # Tells pip to put packages into $PIP_PREFIX instead of the usual locations.</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="st">            export PIP_PREFIX=$(pwd)/_build/pip_packages</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="st">            export PYTHONPATH="$PIP_PREFIX/</span><span class="sc">${</span>pkgs<span class="op">.</span>python3<span class="op">.</span>sitePackages<span class="sc">}</span><span class="st">:$PYTHONPATH"</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="st">            export PATH="$PIP_PREFIX/bin:$PATH"</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="st">            unset SOURCE_DATE_EPOCH</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="st">            # jupyter lab  # uncomment to automatically launch jupyter</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="st">        ''</span><span class="op">;</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>        <span class="va">postShellHook</span> <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="st">          # allow pip to install wheels</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="st">          unset SOURCE_DATE_EPOCH</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="st">        ''</span><span class="op">;</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>      <span class="op">};</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
