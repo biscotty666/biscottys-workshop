@@ -15,7 +15,7 @@
   <title>Nix for Data Scientists</title>
   <dc:creator>Brian Carey</dc:creator>
   <link>https://biscotty.online/posts/linux/nix-for-data-science/</link>
-  <description><![CDATA[ Installing and maintaining multiple versions of libraries, whether in Python or R, is better managed with Nix than virtual environments ]]></description>
+  <description><![CDATA[ Installing and maintaining multiple versions of libraries, whether in Python or R, is best managed with Nix ]]></description>
   <category>Linux</category>
   <category>Data Science</category>
   <category>Nix</category>
