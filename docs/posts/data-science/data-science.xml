@@ -10,7 +10,20 @@
 <atom:link href="https://biscotty.online/posts/data-science/data-science.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Sat, 24 May 2025 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 29 May 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Nix for Data Scientists</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://biscotty.online/posts/linux/nix-for-data-science/</link>
+  <description><![CDATA[ Installing and maintaining multiple versions of libraries, whether in Python or R, is best managed with Nix ]]></description>
+  <category>Linux</category>
+  <category>Data Science</category>
+  <category>Nix</category>
+  <category>Python</category>
+  <guid>https://biscotty.online/posts/linux/nix-for-data-science/</guid>
+  <pubDate>Thu, 29 May 2025 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/linux/nix-for-data-science/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
+</item>
 <item>
   <title>Hispanics in New Mexico</title>
   <link>https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/</link>

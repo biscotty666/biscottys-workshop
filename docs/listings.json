@@ -16,36 +16,11 @@
     ]
   },
   {
-    "listing": "/posts/data-science/data-science.html",
+    "listing": "/posts/linux/linux.html",
     "items": [
-      "/posts/data-science/r-census/nm-hispanic-demographics/index.html",
-      "/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.html",
-      "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html",
-      "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
-      "/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
-      "/posts/data-science/obsidian-jupyter/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/data-science/python-gpx-mapping.html",
-    "items": [
-      "/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
-      "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
-      "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html"
-    ]
-  },
-  {
-    "listing": "/cv/brian-carey.html",
-    "items": [
-      "/cv/vignettes/swiss-business-plan/index.html",
-      "/cv/vignettes/closing-the-books/index.html",
-      "/cv/vignettes/collective-forecasting/index.html",
-      "/cv/vignettes/win-win-negotiation/index.html",
-      "/cv/vignettes/vendor-management/index.html",
-      "/cv/vignettes/motivating-change/index.html",
-      "/cv/vignettes/paradox/index.html",
-      "/cv/vignettes/clinic/index.html",
-      "/cv/vignettes/chinese-herb-class/index.html"
+      "/posts/linux/nix-for-data-science/index.html",
+      "/posts/linux/nix-docker-fhs/index.html",
+      "/posts/linux/nixos-linux-different/index.html"
     ]
   },
   {
@@ -86,11 +61,37 @@
     ]
   },
   {
-    "listing": "/posts/linux/linux.html",
+    "listing": "/cv/brian-carey.html",
+    "items": [
+      "/cv/vignettes/swiss-business-plan/index.html",
+      "/cv/vignettes/closing-the-books/index.html",
+      "/cv/vignettes/collective-forecasting/index.html",
+      "/cv/vignettes/win-win-negotiation/index.html",
+      "/cv/vignettes/vendor-management/index.html",
+      "/cv/vignettes/motivating-change/index.html",
+      "/cv/vignettes/paradox/index.html",
+      "/cv/vignettes/clinic/index.html",
+      "/cv/vignettes/chinese-herb-class/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/data-science/python-gpx-mapping.html",
+    "items": [
+      "/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
+      "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
+      "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/data-science/data-science.html",
     "items": [
       "/posts/linux/nix-for-data-science/index.html",
-      "/posts/linux/nix-docker-fhs/index.html",
-      "/posts/linux/nixos-linux-different/index.html"
+      "/posts/data-science/r-census/nm-hispanic-demographics/index.html",
+      "/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.html",
+      "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html",
+      "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
+      "/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
+      "/posts/data-science/obsidian-jupyter/index.html"
     ]
   },
   {

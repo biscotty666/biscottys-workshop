@@ -1,7 +1,9 @@
 ---
 title: "Data Science"
 listing:
-  contents: "*/index.qmd"
+  contents: 
+    - "*/index.qmd"
+    - "../linux/nix-for-data-science/index.qmd"
   type: default
   sort: "date desc"
   categories: true

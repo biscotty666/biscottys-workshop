@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://biscotty.online/posts/chinese-medicine/magical-mulberry/index.html</loc>
-    <lastmod>2025-05-22T02:37:16.617Z</lastmod>
+    <lastmod>2025-05-27T05:47:44.586Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/chinese-medicine/chinese-medicine.html</loc>
@@ -65,127 +65,39 @@
     <lastmod>2025-04-12T16:53:51.199Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/posts/linux/nix-docker-fhs/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.157Z</lastmod>
+    <loc>https://biscotty.online/posts/linux/nix-for-data-science/index.html</loc>
+    <lastmod>2025-05-29T14:17:26.873Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html</loc>
-    <lastmod>2025-04-12T16:53:51.163Z</lastmod>
+    <loc>https://biscotty.online/posts/linux/linux.html</loc>
+    <lastmod>2025-04-12T16:53:51.166Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html</loc>
-    <lastmod>2025-04-12T16:53:51.157Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/posts/data-science/data-science.html</loc>
-    <lastmod>2025-05-09T15:20:36.126Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.136Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/posts/data-science/python-gpx-mapping.html</loc>
+    <loc>https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html</loc>
     <lastmod>2025-04-12T16:53:51.153Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/dataviewjs-interactive-dynamic-tables/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.075Z</lastmod>
+    <loc>https://biscotty.online/posts/data-science/obsidian-jupyter/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.128Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/regex-search-in-line-metadata/index.html</loc>
+    <loc>https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index.html</loc>
+    <lastmod>2025-05-27T05:47:44.586Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/posts.html</loc>
+    <lastmod>2025-05-22T02:37:16.641Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/syncing-your-thinking-syncthing/index.html</loc>
     <lastmod>2025-05-09T15:20:36.077Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/pretty-canvas/index.html</loc>
+    <loc>https://biscotty.online/blogs/second-brain/index.html</loc>
     <lastmod>2025-05-09T15:20:36.077Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/git-github-obsidian/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/graph-view-deets/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.076Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/metadata-menu/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.076Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian-bookmarks/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.076Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/gpx-gps-data/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.076Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/optimal-notes-with-obsidian/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.077Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/cv/brian-carey.html</loc>
-    <lastmod>2025-05-09T15:20:36.078Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/cv/vignettes/win-win-negotiation/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/cv/vignettes/vendor-management/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/cv/vignettes/motivating-change/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/cv/vignettes/swiss-business-plan/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/cv/vignettes/collective-forecasting/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/cv/vignettes/closing-the-books/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/cv/vignettes/paradox/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/cv/vignettes/chinese-herb-class/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.078Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/cv/vignettes/clinic/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.078Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian-headers/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.076Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/python-movingpandas-points-paths/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.077Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian-whiteboards/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.076Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/python-movingpandas-speed-segments/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.077Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/visual-mocs-with-canvas/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.077Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/blogs/obsidian-no-sql-database/index.html</loc>
+    <loc>https://biscotty.online/blogs/obsidian-jupyter/index.html</loc>
     <lastmod>2025-05-09T15:20:36.076Z</lastmod>
   </url>
   <url>
@@ -193,36 +105,128 @@
     <lastmod>2025-05-09T15:20:36.075Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/obsidian-jupyter/index.html</loc>
+    <loc>https://biscotty.online/blogs/obsidian-no-sql-database/index.html</loc>
     <lastmod>2025-05-09T15:20:36.076Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/second-brain/index.html</loc>
+    <loc>https://biscotty.online/blogs/visual-mocs-with-canvas/index.html</loc>
     <lastmod>2025-05-09T15:20:36.077Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/blogs/syncing-your-thinking-syncthing/index.html</loc>
+    <loc>https://biscotty.online/blogs/python-movingpandas-speed-segments/index.html</loc>
     <lastmod>2025-05-09T15:20:36.077Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/posts/posts.html</loc>
-    <lastmod>2025-05-22T02:37:16.641Z</lastmod>
+    <loc>https://biscotty.online/blogs/obsidian-whiteboards/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.076Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index.html</loc>
-    <lastmod>2025-05-27T05:47:44.586Z</lastmod>
+    <loc>https://biscotty.online/blogs/python-movingpandas-points-paths/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.077Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/posts/data-science/obsidian-jupyter/index.html</loc>
-    <lastmod>2025-05-09T15:20:36.128Z</lastmod>
+    <loc>https://biscotty.online/blogs/obsidian-headers/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.076Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html</loc>
+    <loc>https://biscotty.online/cv/vignettes/clinic/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.078Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/cv/vignettes/chinese-herb-class/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.078Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/cv/vignettes/paradox/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/cv/vignettes/closing-the-books/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/cv/vignettes/collective-forecasting/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/cv/vignettes/swiss-business-plan/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/cv/vignettes/motivating-change/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/cv/vignettes/vendor-management/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/cv/vignettes/win-win-negotiation/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/cv/brian-carey.html</loc>
+    <lastmod>2025-05-09T15:20:36.078Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/optimal-notes-with-obsidian/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.077Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/gpx-gps-data/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.076Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/obsidian-bookmarks/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.076Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/metadata-menu/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.076Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/graph-view-deets/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.076Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/git-github-obsidian/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.075Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/pretty-canvas/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.077Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/regex-search-in-line-metadata/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.077Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/blogs/dataviewjs-interactive-dynamic-tables/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.075Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/data-science/python-gpx-mapping.html</loc>
     <lastmod>2025-04-12T16:53:51.153Z</lastmod>
   </url>
   <url>
-    <loc>https://biscotty.online/posts/linux/linux.html</loc>
-    <lastmod>2025-04-12T16:53:51.166Z</lastmod>
+    <loc>https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.136Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/data-science/data-science.html</loc>
+    <lastmod>2025-05-29T14:23:40.808Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.157Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html</loc>
+    <lastmod>2025-04-12T16:53:51.163Z</lastmod>
+  </url>
+  <url>
+    <loc>https://biscotty.online/posts/linux/nix-docker-fhs/index.html</loc>
+    <lastmod>2025-05-09T15:20:36.157Z</lastmod>
   </url>
   <url>
     <loc>https://biscotty.online/posts/linux/nixos-linux-different/index.html</loc>
@@ -283,9 +287,5 @@
   <url>
     <loc>https://biscotty.online/resources.html</loc>
     <lastmod>2025-04-10T15:47:42.662Z</lastmod>
-  </url>
-  <url>
-    <loc>https://biscotty.online/posts/linux/nix-for-data-science/index.html</loc>
-    <lastmod>2025-05-29T14:16:21.734Z</lastmod>
   </url>
 </urlset>
