@@ -21,49 +21,51 @@
         venvDir = "./.venv";
         buildInputs = with pkgs; [
             R
-            rPackages.pagedown
-            rPackages.tidyverse
-            rPackages.sf
-            rPackages.terra
-            rPackages.leaflet
-            rPackages.leaflet_extras
-            rPackages.leaflet_extras2
-            rPackages.maps
-            rPackages.leafsync
-            rPackages.elevatr
-            rPackages.trackeR
-            rPackages.zoo
-            rPackages.patchwork
-            rPackages.postcards
-            rPackages.XML
-            rPackages.xml2
-            rPackages.gpx
-            rPackages.tidygeocoder
-            rPackages.crsuggest
-            rPackages.stplanr
-            rPackages.rnaturalearth
-            rPackages.rnaturalearthdata
-            rPackages.quarto
-            rPackages.osmdata
-            rPackages.viridis
-            rPackages.usethis
-            rPackages.tmap
-            rPackages.tidycensus
-            rPackages.plotly
-            rPackages.geodata
-            rPackages.prettymapr
-            rPackages.ggspatial
-            rPackages.tidyterra
-            rPackages.htmlwidgets
-            rPackages.basemaps
-            rPackages.trajr
-            rPackages.webshot
-            rPackages.reticulate
             chromium
             pandoc
             texlive.combined.scheme-full
             rstudio
             quarto
+          (with rPackages; [
+            pagedown
+            tidyverse
+            sf
+            terra
+            leaflet
+            leaflet_extras
+            leaflet_extras2
+            maps
+            leafsync
+            elevatr
+            trackeR
+            zoo
+            patchwork
+            postcards
+            XML
+            xml2
+            gpx
+            tidygeocoder
+            crsuggest
+            stplanr
+            rnaturalearth
+            rnaturalearthdata
+            quarto
+            osmdata
+            viridis
+            usethis
+            tmap
+            tidycensus
+            plotly
+            geodata
+            prettymapr
+            ggspatial
+            tidyterra
+            htmlwidgets
+            basemaps
+            trajr
+            webshot
+            reticulate
+          ])
           (python3.withPackages(ps: with ps; [
             ipython
             pip
