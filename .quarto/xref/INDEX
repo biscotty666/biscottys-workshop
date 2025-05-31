@@ -439,5 +439,8 @@
   },
   "posts/linux/nix-for-data-science/index.qmd": {
     "index.html": "69040f2e"
+  },
+  "posts/data-science/r-census/bernalillo-county-demogrphics/index.qmd": {
+    "index.html": "bb268531"
   }
 }
