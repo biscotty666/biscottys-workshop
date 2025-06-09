@@ -10,7 +10,18 @@
 <atom:link href="https://biscotty.online/posts/chinese-medicine/chinese-medicine.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
 <generator>quarto-1.7.31</generator>
-<lastBuildDate>Tue, 20 May 2025 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 09 Jun 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Shiso Fine</title>
+  <link>https://biscotty.online/posts/chinese-medicine/shiso-fine/</link>
+  <description><![CDATA[ The famous leaves served with sushi have myriad functions in Traditional Chinese Medicine ]]></description>
+  <category>Chinese Medicine</category>
+  <category>Herbs</category>
+  <category>Food</category>
+  <guid>https://biscotty.online/posts/chinese-medicine/shiso-fine/</guid>
+  <pubDate>Mon, 09 Jun 2025 06:00:00 GMT</pubDate>
+  <media:content url="https://biscotty.online/posts/chinese-medicine/shiso-fine/salmon-shiso.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>The Magical Mulberry</title>
   <link>https://biscotty.online/posts/chinese-medicine/magical-mulberry/</link>
@@ -21,17 +32,6 @@
   <guid>https://biscotty.online/posts/chinese-medicine/magical-mulberry/</guid>
   <pubDate>Tue, 20 May 2025 06:00:00 GMT</pubDate>
   <media:content url="https://biscotty.online/posts/chinese-medicine/magical-mulberry/mulberrytree.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Shiso Fine</title>
-  <link>https://biscotty.online/posts/chinese-medicine/shiso-fine/</link>
-  <description><![CDATA[ The famous leaves served with sushi has myriad functions in Traditional Chinese Medicine ]]></description>
-  <category>Chinese Medicine</category>
-  <category>Herbs</category>
-  <category>Food</category>
-  <guid>https://biscotty.online/posts/chinese-medicine/shiso-fine/</guid>
-  <pubDate>Tue, 20 May 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/chinese-medicine/shiso-fine/salmon-shiso.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Eating in spring</title>
