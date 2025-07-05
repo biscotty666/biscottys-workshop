@@ -98,7 +98,7 @@
             networkx
             shapely
             xarray
-            rioxarray
+#            rioxarray
             dask
             intake
             intake-parquet
