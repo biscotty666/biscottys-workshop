@@ -6,46 +6,46 @@
       version="2.0">
 <channel>
 <title>biscotty&#39;s Workshop</title>
-<link>https://biscotty.online/posts/linux/linux.html</link>
-<atom:link href="https://biscotty.online/posts/linux/linux.xml" rel="self" type="application/rss+xml"/>
+<link>https://www.biscotty.net/posts/linux/linux.html</link>
+<atom:link href="https://www.biscotty.net/posts/linux/linux.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
-<generator>quarto-1.7.31</generator>
+<generator>quarto-1.7.30</generator>
 <lastBuildDate>Thu, 29 May 2025 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Nix for Data Scientists</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/linux/nix-for-data-science/</link>
+  <link>https://www.biscotty.net/posts/linux/nix-for-data-science/</link>
   <description><![CDATA[ Installing and maintaining multiple versions of libraries, whether in Python or R, is best managed with Nix ]]></description>
   <category>Linux</category>
   <category>Data Science</category>
   <category>Nix</category>
   <category>Python</category>
-  <guid>https://biscotty.online/posts/linux/nix-for-data-science/</guid>
+  <guid>https://www.biscotty.net/posts/linux/nix-for-data-science/</guid>
   <pubDate>Thu, 29 May 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/linux/nix-for-data-science/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/linux/nix-for-data-science/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 <item>
   <title>The FHS Problem</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/linux/nix-docker-fhs/</link>
+  <link>https://www.biscotty.net/posts/linux/nix-docker-fhs/</link>
   <description><![CDATA[ Two different approaches to the problem of the Filesystem Heirarchy Standard ]]></description>
   <category>Linux</category>
   <category>Distributions</category>
   <category>Nix</category>
-  <guid>https://biscotty.online/posts/linux/nix-docker-fhs/</guid>
+  <guid>https://www.biscotty.net/posts/linux/nix-docker-fhs/</guid>
   <pubDate>Sun, 04 May 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/linux/nix-docker-fhs/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/linux/nix-docker-fhs/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 <item>
   <title>NixOS: the Linux different</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/linux/nixos-linux-different/</link>
+  <link>https://www.biscotty.net/posts/linux/nixos-linux-different/</link>
   <description><![CDATA[ Exploring the concepts behind the unique Linux distribution ]]></description>
   <category>Linux</category>
   <category>Distributions</category>
-  <guid>https://biscotty.online/posts/linux/nixos-linux-different/</guid>
+  <guid>https://www.biscotty.net/posts/linux/nixos-linux-different/</guid>
   <pubDate>Mon, 10 Jun 2024 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/linux/nixos-linux-different/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/linux/nixos-linux-different/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 </channel>
 </rss>

@@ -6,42 +6,53 @@
       version="2.0">
 <channel>
 <title>biscotty&#39;s Workshop</title>
-<link>https://biscotty.online/posts/chinese-medicine/chinese-medicine.html</link>
-<atom:link href="https://biscotty.online/posts/chinese-medicine/chinese-medicine.xml" rel="self" type="application/rss+xml"/>
+<link>https://www.biscotty.net/posts/chinese-medicine/chinese-medicine.html</link>
+<atom:link href="https://www.biscotty.net/posts/chinese-medicine/chinese-medicine.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
-<generator>quarto-1.7.31</generator>
+<generator>quarto-1.7.30</generator>
 <lastBuildDate>Mon, 09 Jun 2025 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Shiso Fine</title>
-  <link>https://biscotty.online/posts/chinese-medicine/shiso-fine/</link>
+  <link>https://www.biscotty.net/posts/chinese-medicine/shiso-fine/</link>
   <description><![CDATA[ The famous leaves served with sushi have myriad functions in Traditional Chinese Medicine ]]></description>
   <category>Chinese Medicine</category>
   <category>Herbs</category>
   <category>Food</category>
-  <guid>https://biscotty.online/posts/chinese-medicine/shiso-fine/</guid>
+  <guid>https://www.biscotty.net/posts/chinese-medicine/shiso-fine/</guid>
   <pubDate>Mon, 09 Jun 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/chinese-medicine/shiso-fine/salmon-shiso.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.biscotty.net/posts/chinese-medicine/shiso-fine/salmon-shiso.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>The White Medicine from Yun Nan</title>
+  <link>https://www.biscotty.net/posts/chinese-medicine/white-medicine/</link>
+  <description><![CDATA[ The legendary and mysterious ]]></description>
+  <category>Chinese Medicine</category>
+  <category>Herbs</category>
+  <category>Food</category>
+  <guid>https://www.biscotty.net/posts/chinese-medicine/white-medicine/</guid>
+  <pubDate>Mon, 09 Jun 2025 06:00:00 GMT</pubDate>
+  <media:content url="https://www.biscotty.net/posts/chinese-medicine/white-medicine/sanqi.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>The Magical Mulberry</title>
-  <link>https://biscotty.online/posts/chinese-medicine/magical-mulberry/</link>
+  <link>https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/</link>
   <description><![CDATA[ This invasive tree provides many of the more commonly used medicinals in Chinese medicine and shaped world history ]]></description>
   <category>Chinese Medicine</category>
   <category>Herbs</category>
   <category>History</category>
-  <guid>https://biscotty.online/posts/chinese-medicine/magical-mulberry/</guid>
+  <guid>https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/</guid>
   <pubDate>Tue, 20 May 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/chinese-medicine/magical-mulberry/mulberrytree.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/mulberrytree.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Eating in spring</title>
-  <link>https://biscotty.online/posts/chinese-medicine/eating-in-spring/</link>
+  <link>https://www.biscotty.net/posts/chinese-medicine/eating-in-spring/</link>
   <description><![CDATA[ Foods and recipes appropriate for the spring season ]]></description>
   <category>Chinese Medicine</category>
   <category>Food</category>
-  <guid>https://biscotty.online/posts/chinese-medicine/eating-in-spring/</guid>
+  <guid>https://www.biscotty.net/posts/chinese-medicine/eating-in-spring/</guid>
   <pubDate>Thu, 15 May 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/chinese-medicine/eating-in-spring/goji.png" medium="image" type="image/png" height="96" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/chinese-medicine/eating-in-spring/goji.png" medium="image" type="image/png" height="96" width="144"/>
 </item>
 </channel>
 </rss>

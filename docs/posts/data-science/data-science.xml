@@ -6,92 +6,92 @@
       version="2.0">
 <channel>
 <title>biscotty&#39;s Workshop</title>
-<link>https://biscotty.online/posts/data-science/data-science.html</link>
-<atom:link href="https://biscotty.online/posts/data-science/data-science.xml" rel="self" type="application/rss+xml"/>
+<link>https://www.biscotty.net/posts/data-science/data-science.html</link>
+<atom:link href="https://www.biscotty.net/posts/data-science/data-science.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
-<generator>quarto-1.7.31</generator>
+<generator>quarto-1.7.30</generator>
 <lastBuildDate>Thu, 29 May 2025 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Nix for Data Scientists</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/linux/nix-for-data-science/</link>
+  <link>https://www.biscotty.net/posts/linux/nix-for-data-science/</link>
   <description><![CDATA[ Installing and maintaining multiple versions of libraries, whether in Python or R, is best managed with Nix ]]></description>
   <category>Linux</category>
   <category>Data Science</category>
   <category>Nix</category>
   <category>Python</category>
-  <guid>https://biscotty.online/posts/linux/nix-for-data-science/</guid>
+  <guid>https://www.biscotty.net/posts/linux/nix-for-data-science/</guid>
   <pubDate>Thu, 29 May 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/linux/nix-for-data-science/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/linux/nix-for-data-science/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 <item>
   <title>Hispanics in New Mexico</title>
-  <link>https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/</link>
+  <link>https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/</link>
   <description><![CDATA[ New Mexico has a Latino population unlike anywhere else in the US. This article shows how to use R and tidycensus to explore the data. ]]></description>
   <category>R</category>
   <category>Data Science</category>
   <category>GIS</category>
-  <guid>https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/</guid>
+  <guid>https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/</guid>
   <pubDate>Sat, 24 May 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>GPS Mapping with R</title>
-  <link>https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</link>
+  <link>https://www.biscotty.net/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</link>
   <description><![CDATA[ A Comparison with Python ]]></description>
   <category>GIS</category>
   <category>R</category>
   <category>Python</category>
   <category>Data Science</category>
-  <guid>https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</guid>
+  <guid>https://www.biscotty.net/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</guid>
   <pubDate>Sun, 30 Mar 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Speed, Simplification and Segments</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/</link>
+  <link>https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/</link>
   <description><![CDATA[ Working with MovingPandas ]]></description>
   <category>GIS</category>
   <category>Python</category>
   <category>Data Science</category>
-  <guid>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/</guid>
+  <guid>https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/</guid>
   <pubDate>Tue, 25 Feb 2025 07:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_3.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_3.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>Points to Paths in Python</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/</link>
+  <link>https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/</link>
   <description><![CDATA[ Creating trajectories in MovingPandas ]]></description>
   <category>Data Science</category>
   <category>GIS</category>
   <category>Python</category>
-  <guid>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/</guid>
+  <guid>https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/</guid>
   <pubDate>Mon, 03 Feb 2025 07:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny6.png" medium="image" type="image/png" height="87" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny6.png" medium="image" type="image/png" height="87" width="144"/>
 </item>
 <item>
   <title>Trail Mapping with Python</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/</link>
+  <link>https://www.biscotty.net/posts/data-science/python-gpx-mapping/gpx-gps-data/</link>
   <description><![CDATA[ Using your GPX data with geopandas ]]></description>
   <category>GIS</category>
   <category>Python</category>
   <category>Data Science</category>
-  <guid>https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/</guid>
+  <guid>https://www.biscotty.net/posts/data-science/python-gpx-mapping/gpx-gps-data/</guid>
   <pubDate>Wed, 28 Feb 2024 07:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/pr2.png" medium="image" type="image/png" height="93" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/data-science/python-gpx-mapping/gpx-gps-data/pr2.png" medium="image" type="image/png" height="93" width="144"/>
 </item>
 <item>
   <title>Obsidian and Jupyter Notebooks</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/data-science/obsidian-jupyter/</link>
+  <link>https://www.biscotty.net/posts/data-science/obsidian-jupyter/</link>
   <description><![CDATA[ Personal Knowledge Management for Data Science ]]></description>
   <category>Obsidian</category>
   <category>Python</category>
   <category>Data Science</category>
-  <guid>https://biscotty.online/posts/data-science/obsidian-jupyter/</guid>
+  <guid>https://www.biscotty.net/posts/data-science/obsidian-jupyter/</guid>
   <pubDate>Mon, 20 Mar 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/data-science/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/data-science/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

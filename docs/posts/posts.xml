@@ -6,14 +6,14 @@
       version="2.0">
 <channel>
 <title>biscotty&#39;s Workshop</title>
-<link>https://biscotty.online/posts/posts.html</link>
-<atom:link href="https://biscotty.online/posts/posts.xml" rel="self" type="application/rss+xml"/>
+<link>https://www.biscotty.net/posts/posts.html</link>
+<atom:link href="https://www.biscotty.net/posts/posts.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
-<generator>quarto-1.7.31</generator>
+<generator>quarto-1.7.30</generator>
 <lastBuildDate>Mon, 09 Jun 2025 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Shiso Fine</title>
-  <link>https://biscotty.online/posts/chinese-medicine/shiso-fine/</link>
+  <link>https://www.biscotty.net/posts/chinese-medicine/shiso-fine/</link>
   <description><![CDATA[ 
 
 
@@ -24,7 +24,7 @@
 <div style="float: right; width: 40%; margin-left: 10px;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="salmon-shiso.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Shiso with salmon"><img src="https://biscotty.online/posts/chinese-medicine/shiso-fine/salmon-shiso.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of raw salmon with shiso leaves"></a></p>
+<p><a href="salmon-shiso.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Shiso with salmon"><img src="https://www.biscotty.net/posts/chinese-medicine/shiso-fine/salmon-shiso.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of raw salmon with shiso leaves"></a></p>
 <figcaption>Shiso with salmon<sup>1</sup></figcaption>
 </figure>
 </div>
@@ -51,7 +51,7 @@
 <div style="float: left; width: 40%; margin-right: 10px;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="pretty-shiso.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Perilla plant"><img src="https://biscotty.online/posts/chinese-medicine/shiso-fine/pretty-shiso.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of Perilla plant"></a></p>
+<p><a href="pretty-shiso.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Perilla plant"><img src="https://www.biscotty.net/posts/chinese-medicine/shiso-fine/pretty-shiso.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of Perilla plant"></a></p>
 <figcaption>Perilla plant<sup>3</sup></figcaption>
 </figure>
 </div>
@@ -71,7 +71,7 @@
 <div style="float: right; width: 40%; margin-left: 10px;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="purple-perilla.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Purple perilla leaves"><img src="https://biscotty.online/posts/chinese-medicine/shiso-fine/purple-perilla.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of purple perilla leaves"></a></p>
+<p><a href="purple-perilla.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Purple perilla leaves"><img src="https://www.biscotty.net/posts/chinese-medicine/shiso-fine/purple-perilla.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of purple perilla leaves"></a></p>
 <figcaption>Purple perilla leaves<sup>5</sup></figcaption>
 </figure>
 </div>
@@ -101,7 +101,7 @@
 <div style="float: left; width: 40%; margin-right: 10px;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="su-zi.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Purple seeds"><img src="https://biscotty.online/posts/chinese-medicine/shiso-fine/su-zi.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of perilla seeds"></a></p>
+<p><a href="su-zi.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Purple seeds"><img src="https://www.biscotty.net/posts/chinese-medicine/shiso-fine/su-zi.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of perilla seeds"></a></p>
 <figcaption>Purple seeds<sup>6</sup></figcaption>
 </figure>
 </div>
@@ -167,14 +167,75 @@ Chen, John K., Tina T. Chen, and Laraine Crampton. 2004. <em>Chinese <span>Medic
   <category>Chinese Medicine</category>
   <category>Herbs</category>
   <category>Food</category>
-  <guid>https://biscotty.online/posts/chinese-medicine/shiso-fine/</guid>
+  <guid>https://www.biscotty.net/posts/chinese-medicine/shiso-fine/</guid>
   <pubDate>Mon, 09 Jun 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/chinese-medicine/shiso-fine/salmon-shiso.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.biscotty.net/posts/chinese-medicine/shiso-fine/salmon-shiso.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>The White Medicine from Yun Nan</title>
+  <link>https://www.biscotty.net/posts/chinese-medicine/white-medicine/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<div style="float: right; width: 40%; margin-left: 10px;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="sanqi.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="San qi"><img src="https://www.biscotty.net/posts/chinese-medicine/white-medicine/sanqi.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of raw sān qī"></a></p>
+<figcaption>San qi<sup>1</sup></figcaption>
+</figure>
+</div>
+</div>
+<p>云南白药 <em>Yùn nán bái yào</em></p>
+<p>三七 <em>sān qī</em> <em>Panax pseudoginseng</em></p>
+<section id="patent-medicine" class="level1">
+<h1>Patent Medicine</h1>
+<p>In the West, patent medicine conjures images of “quacks” selling elixirs for “all that ails you”. They often contained ingredients such as coca and poppy (cocaine and heroine), and were remarkably effective at making their patients feel good. In Chinese Medicine, patent medicine simply refers to prepared medicine. The vast majority of these are variations of classical formulas. The traditional way of administering herbal medicine is through decotions, but this is not practical for many people, and so prepared medicines in the form of pills, powders, or tablets are used.</p>
+</section>
+<section id="三七-sān-qī-panax-pseudoginseng" class="level1">
+<h1>三七 <em>sān qī</em> <em>Panax pseudoginseng</em></h1>
+<p>This information is not meant to substitute for standard first aid protocols, and in the case of significant bleeding, contacting emergency services is receommended.</p>
+</section>
+<section id="traumatic-injury" class="level1">
+<h1>Traumatic Injury</h1>
+<p>When someone experiences physical injury, blood vessels are crushed and broken, resulting in bleeding and bruising. Of course, the immediate concern is stopping bleeding. The secondary concern is to promote circulation through the injured area to both reduce swelling and promote the regeneration of tissues.</p>
+</section>
+<section id="blood-stagnation" class="level1">
+<h1>Blood stagnation</h1>
+<p>Blood, of course, should flow freely and unimpeded through the vessels. Within the context of Chinese Medicine, there are many reasons why blood might not flow freely, and many symptoms which may develop as a result. In the case of traumatic injury, however, the cause is clear.</p>
+
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-bensky_chinese_2004" class="csl-entry">
+Bensky, Dan, ed. 2004. <em>Chinese Herbal Medicine: Materia Medica</em>. 3. ed. Seattle, WA: Eastland Press.
+</div>
+<div id="ref-chen_chinese_2004" class="csl-entry">
+Chen, John K., Tina T. Chen, and Laraine Crampton. 2004. <em>Chinese <span>Medical</span> <span>Herbology</span> and <span>Pharmacology</span></em>. City of Industry, Calif: Art of Medicine Press.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://www.shutterstock.com/image-photo/panax-notoginseng-on-white-background-1411251977">Photo</a> by &lt;a https://www.shutterstock.com/g/zhengchengbao&gt;zhengchengbao↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>Chinese Medicine</category>
+  <category>Herbs</category>
+  <category>Food</category>
+  <guid>https://www.biscotty.net/posts/chinese-medicine/white-medicine/</guid>
+  <pubDate>Mon, 09 Jun 2025 06:00:00 GMT</pubDate>
+  <media:content url="https://www.biscotty.net/posts/chinese-medicine/white-medicine/sanqi.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Nix for Data Scientists</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/linux/nix-for-data-science/</link>
+  <link>https://www.biscotty.net/posts/linux/nix-for-data-science/</link>
   <description><![CDATA[ 
 
 
@@ -578,13 +639,13 @@ font-style: inherit;">```</span></span></code></pre></div>
   <category>Data Science</category>
   <category>Nix</category>
   <category>Python</category>
-  <guid>https://biscotty.online/posts/linux/nix-for-data-science/</guid>
+  <guid>https://www.biscotty.net/posts/linux/nix-for-data-science/</guid>
   <pubDate>Thu, 29 May 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/linux/nix-for-data-science/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/linux/nix-for-data-science/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 <item>
   <title>Hispanics in New Mexico</title>
-  <link>https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/</link>
+  <link>https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/</link>
   <description><![CDATA[ 
 
 
@@ -1066,7 +1127,7 @@ font-style: inherit;">+</span> p2</span></code></pre></div>
 <div id="fig-fvn-col" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fvn-col-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-fvn-col-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+<img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-fvn-col-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fvn-col-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Foreign vs.&nbsp;Native Populations
@@ -1168,7 +1229,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div id="fig-imm-pop-state" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-imm-pop-state-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-imm-pop-state-1.png" id="fig-imm-pop-state" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+<img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-imm-pop-state-1.png" id="fig-imm-pop-state" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-imm-pop-state-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2
@@ -1372,7 +1433,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div id="fig-imm-pop-county" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-imm-pop-county-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-imm-pop-county-1.png" id="fig-imm-pop-county" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+<img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-imm-pop-county-1.png" id="fig-imm-pop-county" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-imm-pop-county-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3
@@ -1718,7 +1779,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fb-nm-bar-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fb-nm-bar-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
 </figure>
 </div>
 </div>
@@ -1892,7 +1953,7 @@ font-style: inherit;">30</span>))</span></code></pre></div>
 <div id="fig-fb-nm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fb-nm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-fb-nm-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
+<img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-fb-nm-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fb-nm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: Continents of origin for New Mexican Immigrants
@@ -2124,7 +2185,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div id="fig-his-state-map" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-his-state-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-his-state-map-1.png" id="fig-his-state-map" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+<img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-his-state-map-1.png" id="fig-his-state-map" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-his-state-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5
@@ -2470,7 +2531,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div id="fig-his-pop-pct" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-his-pop-pct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-his-pop-pct-1.png" id="fig-his-pop-pct" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+<img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-his-pop-pct-1.png" id="fig-his-pop-pct" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-his-pop-pct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6
@@ -3017,7 +3078,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div id="fig-hvnv-bar" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hvnv-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hvnv-bar-1.png" id="fig-hvnv-bar" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+<img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hvnv-bar-1.png" id="fig-hvnv-bar" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-hvnv-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7
@@ -3218,7 +3279,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div id="fig-org-ident" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-org-ident-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-org-ident-1.png" id="fig-org-ident" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+<img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-org-ident-1.png" id="fig-org-ident" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-org-ident-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8
@@ -3601,7 +3662,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div id="fig-nat-ori" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-nat-ori-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-nat-ori-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
+<img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-nat-ori-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nat-ori-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9: National Identification of Hispanic Population in the US
@@ -3873,7 +3934,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div id="fig-hisp-white" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-white-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-white-1.png" id="fig-hisp-white" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+<img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-white-1.png" id="fig-hisp-white" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-hisp-white-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;10
@@ -4123,7 +4184,7 @@ give correct results for longitude/latitude data</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -4139,7 +4200,7 @@ font-style: inherit;">+</span> p2</span></code></pre></div>
 <div id="fig-hisp-nm" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-nm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm-1.png" id="fig-hisp-nm" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+<img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm-1.png" id="fig-hisp-nm" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-hisp-nm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;11
@@ -4586,7 +4647,7 @@ font-style: inherit;">+</span> p4)</span></code></pre></div>
 <div id="fig-hisp-nm3" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-nm3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm3-1.png" id="fig-hisp-nm3" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+<img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm3-1.png" id="fig-hisp-nm3" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-hisp-nm3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;12
@@ -4824,7 +4885,7 @@ font-style: inherit;">+</span> p2</span></code></pre></div>
 <div id="fig-hisp-nm4" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-nm4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm4-1.png" id="fig-hisp-nm4" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
+<img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm4-1.png" id="fig-hisp-nm4" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-hisp-nm4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;13
@@ -4847,12 +4908,12 @@ Figure&nbsp;13
   <category>R</category>
   <category>Data Science</category>
   <category>GIS</category>
-  <guid>https://biscotty.online/posts/data-science/r-census/nm-hispanic-demographics/</guid>
+  <guid>https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/</guid>
   <pubDate>Sat, 24 May 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>The Magical Mulberry</title>
-  <link>https://biscotty.online/posts/chinese-medicine/magical-mulberry/</link>
+  <link>https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/</link>
   <description><![CDATA[ 
 
 
@@ -4863,7 +4924,7 @@ Figure&nbsp;13
 <div style="float: right; width: 40%; margin-left: 10px;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="mulberry1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Branch, fruit, leaves of the mulberry"><img src="https://biscotty.online/posts/chinese-medicine/magical-mulberry/mulberry1.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of mulberry branch with leaves and fruit"></a></p>
+<p><a href="mulberry1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Branch, fruit, leaves of the mulberry"><img src="https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/mulberry1.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of mulberry branch with leaves and fruit"></a></p>
 <figcaption>Branch, fruit, leaves of the mulberry<sup>1</sup></figcaption>
 </figure>
 </div>
@@ -4888,7 +4949,7 @@ Figure&nbsp;13
 <div style="float: right; width: 40%; margin-left: 10px;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="mulberrytree.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Mulberry tree"><img src="https://biscotty.online/posts/chinese-medicine/magical-mulberry/mulberrytree.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of a mulberry tree"></a></p>
+<p><a href="mulberrytree.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Mulberry tree"><img src="https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/mulberrytree.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of a mulberry tree"></a></p>
 <figcaption>Mulberry tree<sup>3</sup></figcaption>
 </figure>
 </div>
@@ -4911,7 +4972,7 @@ Figure&nbsp;13
 <div style="float: right; width: 40%; margin: 5px;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="mulberry-leaves.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Mulberry leaves"><img src="https://biscotty.online/posts/chinese-medicine/magical-mulberry/mulberry-leaves.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of dried mulberry leaves"></a></p>
+<p><a href="mulberry-leaves.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Mulberry leaves"><img src="https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/mulberry-leaves.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of dried mulberry leaves"></a></p>
 <figcaption>Mulberry leaves</figcaption>
 </figure>
 </div>
@@ -4934,7 +4995,7 @@ Figure&nbsp;13
 <div style="float: right; width: 30%; margin-left: 10px;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="mulberries.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Mulberries"><img src="https://biscotty.online/posts/chinese-medicine/magical-mulberry/mulberries.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of mulberries in a bowl"></a></p>
+<p><a href="mulberries.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Mulberries"><img src="https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/mulberries.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of mulberries in a bowl"></a></p>
 <figcaption>Mulberries<sup>12</sup></figcaption>
 </figure>
 </div>
@@ -4957,7 +5018,7 @@ Figure&nbsp;13
 <div style="float: right; width: 40%; margin-left: 10px;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="sangzhi.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="sāng zhī 桑枝 Mori Ramulus"><img src="https://biscotty.online/posts/chinese-medicine/magical-mulberry/sangzhi.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of sliced, dried mulberry twigs"></a></p>
+<p><a href="sangzhi.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="sāng zhī 桑枝 Mori Ramulus"><img src="https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/sangzhi.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of sliced, dried mulberry twigs"></a></p>
 <figcaption><em>sāng zhī</em> 桑枝 <em>Mori Ramulus</em></figcaption>
 </figure>
 </div>
@@ -4979,7 +5040,7 @@ Figure&nbsp;13
 <div style="float: right; width: 40%; margin-left: 10px;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="sangbaipi.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="sāng bái pí 桑白皮 Mori Cortex"><img src="https://biscotty.online/posts/chinese-medicine/magical-mulberry/sangbaipi.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of sliced, dried mulberry twigs"></a></p>
+<p><a href="sangbaipi.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="sāng bái pí 桑白皮 Mori Cortex"><img src="https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/sangbaipi.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of sliced, dried mulberry twigs"></a></p>
 <figcaption><em>sāng bái pí</em> 桑白皮 <em>Mori Cortex</em></figcaption>
 </figure>
 </div>
@@ -5002,7 +5063,7 @@ Figure&nbsp;13
 <div style="float: right; width: 40%; margin-left: 10px;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="sangjisheng.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Mistletoe on a mulberry tree"><img src="https://biscotty.online/posts/chinese-medicine/magical-mulberry/sangjisheng.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of mistletoe on a mulberry tree"></a></p>
+<p><a href="sangjisheng.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Mistletoe on a mulberry tree"><img src="https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/sangjisheng.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of mistletoe on a mulberry tree"></a></p>
 <figcaption>Mistletoe on a mulberry tree</figcaption>
 </figure>
 </div>
@@ -5015,7 +5076,7 @@ Figure&nbsp;13
 <div style="float: right; width: 40%; margin-left: 10px;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="silkworm2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="A healthy, happy silkworm"><img src="https://biscotty.online/posts/chinese-medicine/magical-mulberry/silkworm2.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of a silkworm"></a></p>
+<p><a href="silkworm2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="A healthy, happy silkworm"><img src="https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/silkworm2.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of a silkworm"></a></p>
 <figcaption>A healthy, happy silkworm<sup>15</sup></figcaption>
 </figure>
 </div>
@@ -5051,7 +5112,7 @@ Figure&nbsp;13
 <div style="float: right; width: 40%; margin-left: 10px;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="silkworm.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Silkworms with feces"><img src="https://biscotty.online/posts/chinese-medicine/magical-mulberry/silkworm.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of silkworms with feces"></a></p>
+<p><a href="silkworm.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Silkworms with feces"><img src="https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/silkworm.jpg" class="img-fluid figure-img" style="border-radius: 5%;" alt="Picture of silkworms with feces"></a></p>
 <figcaption>Silkworms with feces<sup>18</sup></figcaption>
 </figure>
 </div>
@@ -5105,13 +5166,13 @@ Chen, John K., Tina T. Chen, and Laraine Crampton. 2004. <em>Chinese <span>Medic
   <category>Chinese Medicine</category>
   <category>Herbs</category>
   <category>History</category>
-  <guid>https://biscotty.online/posts/chinese-medicine/magical-mulberry/</guid>
+  <guid>https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/</guid>
   <pubDate>Tue, 20 May 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/chinese-medicine/magical-mulberry/mulberrytree.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.biscotty.net/posts/chinese-medicine/magical-mulberry/mulberrytree.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Eating in spring</title>
-  <link>https://biscotty.online/posts/chinese-medicine/eating-in-spring/</link>
+  <link>https://www.biscotty.net/posts/chinese-medicine/eating-in-spring/</link>
   <description><![CDATA[ 
 
 
@@ -5305,14 +5366,14 @@ Ni, Maoshing. 1995. <em>The Yellow Emperor’s Classic of Medicine: A New Transl
 </section></div> ]]></description>
   <category>Chinese Medicine</category>
   <category>Food</category>
-  <guid>https://biscotty.online/posts/chinese-medicine/eating-in-spring/</guid>
+  <guid>https://www.biscotty.net/posts/chinese-medicine/eating-in-spring/</guid>
   <pubDate>Thu, 15 May 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/chinese-medicine/eating-in-spring/goji.png" medium="image" type="image/png" height="96" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/chinese-medicine/eating-in-spring/goji.png" medium="image" type="image/png" height="96" width="144"/>
 </item>
 <item>
   <title>The FHS Problem</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/linux/nix-docker-fhs/</link>
+  <link>https://www.biscotty.net/posts/linux/nix-docker-fhs/</link>
   <description><![CDATA[ 
 
 
@@ -5355,13 +5416,13 @@ Ni, Maoshing. 1995. <em>The Yellow Emperor’s Classic of Medicine: A New Transl
   <category>Linux</category>
   <category>Distributions</category>
   <category>Nix</category>
-  <guid>https://biscotty.online/posts/linux/nix-docker-fhs/</guid>
+  <guid>https://www.biscotty.net/posts/linux/nix-docker-fhs/</guid>
   <pubDate>Sun, 04 May 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/linux/nix-docker-fhs/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/linux/nix-docker-fhs/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 <item>
   <title>GPS Mapping with R</title>
-  <link>https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</link>
+  <link>https://www.biscotty.net/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</link>
   <description><![CDATA[ 
 
 
@@ -5759,7 +5820,7 @@ font-style: inherit;">"Tiles © OpenStreetMap (ODBL license)"</span></span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -5957,7 +6018,7 @@ font-style: inherit;">$</span>Time)))</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6055,7 +6116,7 @@ font-style: inherit;">|</span> loess_plot</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/r-gpx-mapping/trail-mapping-with-r/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6074,13 +6135,13 @@ font-style: inherit;">|</span> loess_plot</span></code></pre></div>
   <category>R</category>
   <category>Python</category>
   <category>Data Science</category>
-  <guid>https://biscotty.online/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</guid>
+  <guid>https://www.biscotty.net/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</guid>
   <pubDate>Sun, 30 Mar 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Speed, Simplification and Segments</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/</link>
+  <link>https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/</link>
   <description><![CDATA[ 
 
 
@@ -6213,7 +6274,7 @@ background-color: null;
 font-style: inherit;">=</span>ctx.providers.Esri.NatGeoWorldMap)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_1.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_1.png" class="img-fluid"></p>
 <p>Here are the total number of records, and the average time between readings:</p>
 <div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -6411,7 +6472,7 @@ font-style: inherit;">'Effect of Generalization to 30 Seconds'</span>)</span>
 <span id="cb13-18">f.tight_layout()<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_2.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_2.png" class="img-fluid"></p>
 </section>
 <section id="speed-and-sundry" class="level2">
 <h2 class="anchored" data-anchor-id="speed-and-sundry">Speed and sundry</h2>
@@ -6423,7 +6484,7 @@ background-color: null;
 font-style: inherit;">'speed'</span>)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_3.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_3.png" class="img-fluid"></p>
 <p>I just plotted the speed column, but a quick check will show there is no speed column.</p>
 <div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1">traj_bike_gen.df.columns</span></code></pre></div>
 <pre><code>Index(['Id', 'Name', 'Lat', 'Lon', 'Elev', 'Temp', 'Weather', 'Sport',
@@ -6871,7 +6932,7 @@ font-style: inherit;">'Elevation Change'</span>)</span>
 <span id="cb26-14">f.tight_layout()<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_4.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_4.png" class="img-fluid"></p>
 </section>
 <section id="segmentation" class="level2">
 <h2 class="anchored" data-anchor-id="segmentation">Segmentation</h2>
@@ -6956,7 +7017,7 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'b'</span>)</span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_5.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_5.png" class="img-fluid"></p>
 <p>I can use the <code>TemporalSplitter</code> to divide my trek into hour-long segments:</p>
 <div class="sourceCode" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1">split_time <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -6966,7 +7027,7 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'hour'</span>))</span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_8.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_8.png" class="img-fluid"></p>
 <p>I can also extract a single segment based on an arbitrary time range using <code>get_segment_between</code>. I’ll create two <code>datatime</code> variables to see where I was between 4:00 and 5:00 local time.</p>
 <div class="sourceCode" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1">t1 <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -6996,7 +7057,7 @@ font-style: inherit;">=</span> ny_walk.get_segment_between(t1,t2)</span>
 <span id="cb31-4">t_plot(segment)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_6.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_6.png" class="img-fluid"></p>
 <p>Finally, I can extract the portion of the path which lies in a specific geographical area by using <code>clip</code> and intersecting the path with a POLYGON or bounding box. Here is an example:</p>
 <div class="sourceCode" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1">xmin, xmax, ymin, ymax <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -7042,7 +7103,7 @@ background-color: null;
 font-style: inherit;">'r'</span>)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_7.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_7.png" class="img-fluid"></p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
@@ -7607,14 +7668,14 @@ font-style: inherit;">    '''</span>)</span></code></pre></div>
   <category>GIS</category>
   <category>Python</category>
   <category>Data Science</category>
-  <guid>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/</guid>
+  <guid>https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/</guid>
   <pubDate>Tue, 25 Feb 2025 07:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_3.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_3.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>Points to Paths in Python</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/</link>
+  <link>https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/</link>
   <description><![CDATA[ 
 
 
@@ -7964,7 +8025,7 @@ background-color: null;
 font-style: inherit;">=</span>ctx.providers.Esri.WorldTopoMap)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/nj1.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/nj1.png" class="img-fluid"></p>
 <p>I can extract a single trajectory and its underlying data frame.</p>
 <div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">traj_nj1 <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -8003,7 +8064,7 @@ background-color: null;
 font-style: inherit;">=</span>ctx.providers.OpenStreetMap.HOT)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/nj2.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/nj2.png" class="img-fluid"></p>
 <p>Another way to extract a specific trajectory is using MovingPandas’ <code>filter</code> function, as so:</p>
 <div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">t_plot(</span>
 <span id="cb14-2">tc_nj.<span class="bu" style="color: null;
@@ -8019,7 +8080,7 @@ font-style: inherit;">0</span>]</span>
 <span id="cb14-4">)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/nj3.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/nj3.png" class="img-fluid"></p>
 <p>For the rest of the article I’ll use the longest trek I have in this data set, the one in New York. I’ll create the Trajectory Collection, extract the single trajectory and find the start and end times and locations.</p>
 <div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1">tc_ny <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -8185,7 +8246,7 @@ font-style: inherit;">'''</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1">t_plot(traj_ny)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny1.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny1.png" class="img-fluid"></p>
 </section>
 <section id="right-place-right-time" class="level2">
 <h2 class="anchored" data-anchor-id="right-place-right-time">Right place, right time</h2>
@@ -8429,7 +8490,7 @@ background-color: null;
 font-style: inherit;">192500</span>)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny2.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny2.png" class="img-fluid"></p>
 <p>It might be more interesting to plot my location at regular intervals along the walk. What about plotting my location every 30 minutes?</p>
 <div class="sourceCode" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1">int_count <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -8580,7 +8641,7 @@ background-color: null;
 font-style: inherit;">Every 30 minutes'</span>)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny3.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny3.png" class="img-fluid"></p>
 </section>
 <section id="i-was-so-close" class="level2">
 <h2 class="anchored" data-anchor-id="i-was-so-close">I was so close</h2>
@@ -8770,7 +8831,7 @@ background-color: null;
 font-style: inherit;">=</span>(x,y), <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">**</span>annot_props)</span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny4.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny4.png" class="img-fluid"></p>
 </section>
 <section id="stop-detection" class="level2">
 <h2 class="anchored" data-anchor-id="stop-detection">Stop detection</h2>
@@ -8920,7 +8981,7 @@ background-color: null;
 font-style: inherit;">Stop Points'</span>)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny5.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny5.png" class="img-fluid"></p>
 </section>
 <section id="interactive-graphing" class="level2">
 <h2 class="anchored" data-anchor-id="interactive-graphing">Interactive graphing</h2>
@@ -8989,7 +9050,7 @@ font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Stop points"</span>,</span>
 <span id="cb32-16">)</span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny6.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny6.png" class="img-fluid"></p>
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
@@ -9003,14 +9064,14 @@ font-style: inherit;">"Stop points"</span>,</span>
   <category>Data Science</category>
   <category>GIS</category>
   <category>Python</category>
-  <guid>https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/</guid>
+  <guid>https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/</guid>
   <pubDate>Mon, 03 Feb 2025 07:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny6.png" medium="image" type="image/png" height="87" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny6.png" medium="image" type="image/png" height="87" width="144"/>
 </item>
 <item>
   <title>NixOS: the Linux different</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/linux/nixos-linux-different/</link>
+  <link>https://www.biscotty.net/posts/linux/nixos-linux-different/</link>
   <description><![CDATA[ 
 
 
@@ -9054,14 +9115,14 @@ font-style: inherit;">"Stop points"</span>,</span>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>Linux</category>
   <category>Distributions</category>
-  <guid>https://biscotty.online/posts/linux/nixos-linux-different/</guid>
+  <guid>https://www.biscotty.net/posts/linux/nixos-linux-different/</guid>
   <pubDate>Mon, 10 Jun 2024 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/linux/nixos-linux-different/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/linux/nixos-linux-different/NixosWinter.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 <item>
   <title>Obsidian and Jupyter Notebooks</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/obsidian-jupyter/</link>
+  <link>https://www.biscotty.net/posts/obsidian/obsidian-jupyter/</link>
   <description><![CDATA[ 
 
 
@@ -9144,14 +9205,14 @@ font-style: inherit;">--to</span> Markdown your_notebook.ipynb</span></code></pr
   <category>Obsidian</category>
   <category>Python</category>
   <category>Data Science</category>
-  <guid>https://biscotty.online/posts/obsidian/obsidian-jupyter/</guid>
+  <guid>https://www.biscotty.net/posts/obsidian/obsidian-jupyter/</guid>
   <pubDate>Wed, 20 Mar 2024 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/obsidian/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Trail Mapping with Python</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/</link>
+  <link>https://www.biscotty.net/posts/data-science/python-gpx-mapping/gpx-gps-data/</link>
   <description><![CDATA[ 
 
 
@@ -9482,7 +9543,7 @@ background-color: null;
 font-style: inherit;">=</span>ctx.providers.OpenStreetMap.Mapnik)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/pr3.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/gpx-gps-data/pr3.png" class="img-fluid"></p>
 <p>Sweet. In order to do calculations, however, I’ll need to project the data to a crs appropriate for the location, which is New Jersey. A quick visit to <code>epsg.io</code> suggests <code>EPSG:32111</code>, so I’ll use that. It’s in meters, not feet, which I personally prefer anyway.:</p>
 <div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">trek_proj <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -9520,7 +9581,7 @@ background-color: null;
 font-style: inherit;">=</span>ctx.providers.CartoDB.Voyager)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/pr4.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/gpx-gps-data/pr4.png" class="img-fluid"></p>
 </section>
 <section id="elevations" class="level1">
 <h1>Elevations</h1>
@@ -9675,7 +9736,7 @@ background-color: null;
 font-style: inherit;">'meters'</span>)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/pr5.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/gpx-gps-data/pr5.png" class="img-fluid"></p>
 <p>Using Seaborn, I can use regression to smooth this out as much or as little as I want:</p>
 <div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1">sns.set_theme()</span>
 <span id="cb18-2">plot <span class="op" style="color: #5E5E5E;
@@ -9758,7 +9819,7 @@ background-color: null;
 font-style: inherit;">18</span>)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/pr6.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/gpx-gps-data/pr6.png" class="img-fluid"></p>
 <p>And here’s smoothing with <code>lowess</code>:</p>
 <div class="sourceCode" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1">sns.set_theme(rc<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -9849,7 +9910,7 @@ background-color: null;
 font-style: inherit;">18</span>)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div>
-<p><img src="https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/pr7.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/data-science/python-gpx-mapping/gpx-gps-data/pr7.png" class="img-fluid"></p>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
 <p>I naturally want to be able to make calculations of speed and distance, identify pauses, and do other exploration. Starting from discrete points, the steps to do so manually would be simple but exceedingly tedious. Fortunately there is a wonderful library called <code>movingpandas</code> which makes these things all very simple. I’ll explore that in the next articles.</p>
@@ -10172,14 +10233,14 @@ Carey, Brian. 2024. <span>“Trail Mapping with Python.”</span> February
   <category>GIS</category>
   <category>Python</category>
   <category>Data Science</category>
-  <guid>https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/</guid>
+  <guid>https://www.biscotty.net/posts/data-science/python-gpx-mapping/gpx-gps-data/</guid>
   <pubDate>Wed, 28 Feb 2024 07:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/data-science/python-gpx-mapping/gpx-gps-data/pr2.png" medium="image" type="image/png" height="93" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/data-science/python-gpx-mapping/gpx-gps-data/pr2.png" medium="image" type="image/png" height="93" width="144"/>
 </item>
 <item>
   <title>Obsidian Canvas Work Spaces</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/obsidian-whiteboards/</link>
+  <link>https://www.biscotty.net/posts/obsidian/obsidian-whiteboards/</link>
   <description><![CDATA[ 
 
 
@@ -10190,7 +10251,7 @@ Carey, Brian. 2024. <span>“Trail Mapping with Python.”</span> February
 <section id="obsidian-canvas-work-spaces" class="level1">
 <h1>Obsidian Canvas Work Spaces</h1>
 <blockquote class="blockquote">
-<p>Visual MOCery <img src="https://biscotty.online/posts/obsidian/obsidian-whiteboards/VMocery.png" class="img-fluid"></p>
+<p>Visual MOCery <img src="https://www.biscotty.net/posts/obsidian/obsidian-whiteboards/VMocery.png" class="img-fluid"></p>
 </blockquote>
 <section id="organization-and-productivity" class="level2">
 <h2 class="anchored" data-anchor-id="organization-and-productivity">Organization and Productivity</h2>
@@ -10499,14 +10560,14 @@ font-style: inherit;">;</span></span></code></pre></div>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>Obsidian</category>
-  <guid>https://biscotty.online/posts/obsidian/obsidian-whiteboards/</guid>
+  <guid>https://www.biscotty.net/posts/obsidian/obsidian-whiteboards/</guid>
   <pubDate>Sat, 20 Jan 2024 07:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/obsidian-whiteboards/VMocery.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/obsidian/obsidian-whiteboards/VMocery.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Git and GitHub for Obsidian Users</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/git-github-obsidian/</link>
+  <link>https://www.biscotty.net/posts/obsidian/git-github-obsidian/</link>
   <description><![CDATA[ 
 
 
@@ -10599,14 +10660,14 @@ font-style: inherit;">git</span> push</span></code></pre></div>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>Obsidian</category>
   <category>Linux</category>
-  <guid>https://biscotty.online/posts/obsidian/git-github-obsidian/</guid>
+  <guid>https://www.biscotty.net/posts/obsidian/git-github-obsidian/</guid>
   <pubDate>Fri, 19 Jan 2024 07:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/git-github-obsidian/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/obsidian/git-github-obsidian/tn-metadata-menu.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Summarizing Information with DataviewJS</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</link>
+  <link>https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</link>
   <description><![CDATA[ 
 
 
@@ -10616,12 +10677,12 @@ font-style: inherit;">git</span> push</span></code></pre></div>
 
 <section id="summarizing-information-with-dataviewjs" class="level1">
 <h1>Summarizing Information with DataviewJS</h1>
-<p><img src="https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" class="img-fluid"></p>
 <p>This article follows up on <a href="https://biscotty.online/blogs/gentle-introduction-to-dataviewjs">earlier articles</a> in which I showed how to create interactive tables which are automatically updated and can be edited directly in the table. This article will describe how to create summary statistics for data. The statistics on the dashboard update based on the current day.</p>
 <p>As you can see, I’ve done a bit of rearranging since the last article to make things even more readable. The statistics tables have been re-sized and reformatted for a cleaner display, and I’ve added more information. There are still some tweaks I want to do, but this is a very useful dashboard.</p>
 <p>A quick comment on canvases: since I started working on canvases it’s hard to go back to the 80 characters wide format of a note. Sure, when I’m writing an article or focusing on a bit of code, that format feels very natural. But when doing pretty much anything else, well, it’s just nice to be able to spread out, and not have to open and close files, or page up and down through documents. Using a canvas is like putting all of your current work on your desk, with everything open to the pages you are interested in. In a future article I will show how a dashboard can be used in place of a Daily Note to manage your day.</p>
 <p>Here is the table I will show how to create in this article. As before, you can just skip to the bottom and grab the code if you want. This article explains everything rather thoroughly and introduces some general programming concepts. I think that, if you spend a little time with the material you will find that it is not, as they say, rocket science.</p>
-<p><img src="https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-stats.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-stats.png" class="img-fluid"></p>
 <p>That’s 22 numbers to calculate! The process isn’t too complicated, but we need to keep track of a lot of things. To avoid a lot of repetition, we will create some custom functions, and you need to learn how to “push” lists into lists.</p>
 <p>Let’s start by writing down what we need to do.</p>
 <ul>
@@ -11911,14 +11972,14 @@ font-style: inherit;">,</span> rows)</span></code></pre></div>
   <category>Obsidian</category>
   <category>PKM</category>
   <category>DataviewJS</category>
-  <guid>https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</guid>
+  <guid>https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</guid>
   <pubDate>Mon, 16 Oct 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Interactive Tables with DataviewJS</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/dataview/dataviewjs-summaries-statistics/</link>
+  <link>https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-summaries-statistics/</link>
   <description><![CDATA[ 
 
 
@@ -11928,7 +11989,7 @@ font-style: inherit;">,</span> rows)</span></code></pre></div>
 
 <section id="interactive-tables-with-dataviewjs" class="level1">
 <h1>Interactive Tables with DataviewJS</h1>
-<p><img src="https://biscotty.online/posts/obsidian/dataview/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" class="img-fluid"></p>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>This article is a follow-up to my <a href="http://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs">Gentle Introduction to DataviewJS</a> articles, and assumes that you have read them. It is written for anglers, but if you just want the fish you can Tldr; your way to the bottom an just grab the code. Even if you are here to learn how to fish, depending on your learning style, you may want to take a look at the complete code first before this walk-through.</p>
@@ -11943,7 +12004,7 @@ font-style: inherit;">,</span> rows)</span></code></pre></div>
 <p>I have optional fields for notes and, as you can see, for images. Summary tables are generated using calculated values. The entire canvas updates automatically to the current day.</p>
 <p>This example could easily be extended for tracking anything which includes numerical data and images. Imagine a research project, for example, where observations are taken combining numerical data, textual observations, and photos. Actually creating the log entries, thanks to Metadata Menu and Unique Notes, takes almost no time. You can read about how to do this here.</p>
 <p>In this article, I’ll focus on creating this dynamic table.</p>
-<p><img src="https://biscotty.online/posts/obsidian/dataview/dataviewjs-summaries-statistics/djs-d-cv.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-summaries-statistics/djs-d-cv.png" class="img-fluid"></p>
 <p>Appropriate widgets are provided allowing for direct editing or the use of popup modals for multi-select fields and dates. The list will display all logs over the last 7 days, so different logs will appear depending on the day.</p>
 <p>To do this, we will use the excellent JavaScript functionality provided by Metadata Menu. It would be more interesting were you to create a bunch of logs (notes) covering a date range of at least three months and follow along. They should all contain the following fields:</p>
 <ul>
@@ -12428,14 +12489,14 @@ font-style: inherit;">,</span></span>
   <category>Javascript</category>
   <category>Obsidian</category>
   <category>DataviewJS</category>
-  <guid>https://biscotty.online/posts/obsidian/dataview/dataviewjs-summaries-statistics/</guid>
+  <guid>https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-summaries-statistics/</guid>
   <pubDate>Sat, 14 Oct 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/dataview/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>DataviewJS: A Gentle Introduction</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/</link>
+  <link>https://www.biscotty.net/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/</link>
   <description><![CDATA[ 
 
 
@@ -12496,7 +12557,7 @@ font-style: inherit;">'"Hi, my name is DataviewJS"'</span>)</span></code></pre><
 <h2 class="anchored" data-anchor-id="introduction-to-dataviewjs">Introduction to DataviewJS</h2>
 <p>Hi, my name is DataviewJS</p>
 <p>Since it’s hard to show the result naturally, I’ve included screenshots from my vault with the code on the right and the results on the left.</p>
-<p><img src="https://biscotty.online/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-1.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-1.png" class="img-fluid"></p>
 <p>Here I’m displaying 2 elements. Headers require two arguments, the first indicating the header level. This example is the same as writing <code>## Introduction to DataviewJS</code>. Note that we don’t use quotations around numbers (usually). The <code>dv</code> object also allows us to display lists, like this:</p>
 <div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1">dv<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -12715,7 +12776,7 @@ font-style: inherit;">list</span>(learnings)</span></code></pre></div>
 <li>Displaying elements with JavaScript</li>
 <li>JavaScript variables</li>
 </ul>
-<p><img src="https://biscotty.online/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-2.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-2.png" class="img-fluid"></p>
 </section>
 </section>
 <section id="next-steps" class="level2">
@@ -12730,14 +12791,14 @@ font-style: inherit;">list</span>(learnings)</span></code></pre></div>
   <category>Javascript</category>
   <category>Obsidian</category>
   <category>DataviewJS</category>
-  <guid>https://biscotty.online/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/</guid>
+  <guid>https://www.biscotty.net/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/</guid>
   <pubDate>Wed, 11 Oct 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-2.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-2.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Obsidian: Pretty Canvas</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/pretty-canvas/</link>
+  <link>https://www.biscotty.net/posts/obsidian/pretty-canvas/</link>
   <description><![CDATA[ 
 
 
@@ -12750,10 +12811,10 @@ font-style: inherit;">list</span>(learnings)</span></code></pre></div>
 <p>Going visual has really helped free my thinking, and pretty much all of my time in Obsidian is now spent on canvases. Other than when I am making fleeting notes on an article, book or video, I do pretty much everything from a canvas. I process and edit my notes, list questions which guide my research, maintain tasks associated with the effort, and perhaps develop an article on the topic, all from the canvas.</p>
 <p>Naturally I want my canvases to be pretty. It’s not just a question of aesthetics either. Changing simple things like the color or size of elements makes the canvas much more use-able, drawing your eyes quickly to more important information and removing extraneous stuff. Obsidian fortunately allows us to use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a> to do this.</p>
 <p>Here’s an example of a Visual Dashboard I’m just getting started with for a new article. The first image is with default styling. It is usable, and has some pretty colors, but it’s visually confusing.</p>
-<p><img src="https://biscotty.online/posts/obsidian/pretty-canvas/canvas-plain.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/obsidian/pretty-canvas/canvas-plain.png" class="img-fluid"></p>
 <p>There are too many colors for one. The title of the canvas doesn’t stand out, and the group headings don’t either. There is also a bunch of stuff that I don’t need to see, like the links after every task.</p>
 <p>Here is the same with CSS applied. Notice how some useless clutter has been removed, task descriptions have a standardized color which is easy to read, group headings stand out better to guide your eyes, and titles look good.</p>
-<p><img src="https://biscotty.online/posts/obsidian/pretty-canvas/canvas-pretty.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/obsidian/pretty-canvas/canvas-pretty.png" class="img-fluid"></p>
 </section>
 <section id="implementation" class="level1">
 <h1>Implementation</h1>
@@ -12762,7 +12823,7 @@ font-style: inherit;">list</span>(learnings)</span></code></pre></div>
 <p>Using CSS is pretty straight-forward in principle, but figuring out how to apply it can take a bit of work, as there seems to be no good documentation for automatically generated classes. Also, CSS is simply unfamiliar to many people. Never the less, a little can go a long way. So I wanted to share some of the styling I’m using for my canvases as a jumping-off point for you to personalize your canvases and be more efficient in working with them.</p>
 <p>To get started, you need to create a <code>snippets</code> directory in the hidden <code>obsidian</code> directory of your vault. Any files placed here with the extension <code>css</code> will be available to Obsidian. You can name the files anything you want, so choose a descriptive name. With obvious irony, these files can only be edited with an external editor, but any editor will do, like vim, nano or Notepad. I suggest you create a file called <code>canvas-fyt.css</code> and copy the contents below into the file. In Obsidian, you will be able to “activate” whichever files you want to use, so you can have multiple styles of canvases.</p>
 <p>Once you have created a <code>css</code> file in the correct directory you can go to the Appearance section and toggle on the new file to make it active. You may need to press the reload button to re-scan the directory.</p>
-<p><img src="https://biscotty.online/posts/obsidian/pretty-canvas/enable-css.png" class="img-fluid"></p>
+<p><img src="https://www.biscotty.net/posts/obsidian/pretty-canvas/enable-css.png" class="img-fluid"></p>
 </section>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
@@ -13343,14 +13404,14 @@ font-style: inherit;">;</span></span>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>Obsidian</category>
   <category>CSS</category>
-  <guid>https://biscotty.online/posts/obsidian/pretty-canvas/</guid>
+  <guid>https://www.biscotty.net/posts/obsidian/pretty-canvas/</guid>
   <pubDate>Thu, 05 Oct 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/pretty-canvas/canvas-pretty-css-composite.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/obsidian/pretty-canvas/canvas-pretty-css-composite.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Obsidian: Freeing Your Thinking Workflow</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/</link>
+  <link>https://www.biscotty.net/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/</link>
   <description><![CDATA[ 
 
 
@@ -13381,84 +13442,9 @@ font-style: inherit;">;</span></span>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>Obsidian</category>
   <category>PKM</category>
-  <guid>https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/</guid>
+  <guid>https://www.biscotty.net/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/</guid>
   <pubDate>Thu, 21 Sep 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/fyt-walkthrough.png" medium="image" type="image/png" height="81" width="144"/>
-</item>
-<item>
-  <title>Obsidian Canvas Dashboards</title>
-  <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<section id="motivation" class="level1">
-<h1>Motivation</h1>
-<p>This is the last in a series of articles, including <a href="https://biscotty.online/blogs/obsidian/freeing-your-thinking">Freeing Your Thinking</a> and <a href="https://biscotty.online/blogs/obsidian/bookmarks">Building a Knowledge Tree</a>, where I talk about using Obsidian as a non-relational database. The main idea is to interact with information, not files, and Obsidian’s core plugins facilitate this approach. I have talked about Search, Bookmarks, Unique Notes and Graph View. This article will describe how to use Canvas to create visual maps of content which not only present information in a clear, attractive and flexible way, but also allow you to explore and interact with your information. As usual, our goal is to obviate the need to open files.</p>
-<p>In data science there is a motto “visualize, visualize, visualize.” In the business world, information is commonly presented in the form of a dashboard to allow for visualizing data. A dashboard is a graphical user interface containing views of information. Aside from providing graphical elements and views, a dashboard will typically provide navigational tools and other ways to interact with information and even edit information directly from the dashboard.</p>
-<p>Before discussing canvas, I want to mention <a href="https://github.com/zsviczian/obsidian-excalidraw-plugin">Excalidraw</a>, an excellent Community Plugin by Zsolt Viczián. It is great for creating visual maps of content with many graphical elements easily available. I highly recommend it. Nevertheless, one of the purposes of this series is to highlight Obsidian’s native tools, and Canvas is quite powerful in its own right.</p>
-</section>
-<section id="canvas" class="level1">
-<h1>Canvas</h1>
-<p>Canvas in Obsidian provides all we need to create dashboards. It allows for the following elements:</p>
-<ul>
-<li>Notes, but more importantly sections and blocks from notes</li>
-<li>Cards, virtual notes which can contain any elements that an ordinary note can and can be converted to an actual note with a mouse click</li>
-<li>Graphics, which can be incorporated independently or as an embed in a Card or Note. They can even be used as backgrounds for groups</li>
-<li>Groups, which provide visual structure and facilitate navigation</li>
-<li>Connectors, which can be directional and annotated, especially good for KanBan style canvases</li>
-</ul>
-</section>
-<section id="visual-maps-of-content" class="level1">
-<h1>Visual Maps of Content</h1>
-<p>Map of Content is a somewhat generic term to refer to a note which includes information from other notes. They can be simple indices of links to related notes, or complete research articles or books, or something in between. The type of MOC depends upon the purpose.</p>
-<p>Here I will demonstrate two different types of Visual MOCs. First, an informational dashboard of an academic topic, which could be used by a student or teacher for study or lesson planning. Secondly, a fully interactive dashboard for managing all aspects of my writing and publications. Without leaving the canvas, I can edit both metadata and content of notes.</p>
-<p>This workflow relies on three community plugins: Dataview, Metadata Menu and Hover Editor.</p>
-<section id="topical-dashboard" class="level2">
-<h2 class="anchored" data-anchor-id="topical-dashboard">Topical Dashboard</h2>
-<p>Canvases are ideal for pulling together information on a given topic and presenting it in a visually interesting way. As a student, I can accumulate information (not files) on a topic and add it to my canvas. This makes review of the topic easy. As a teacher, such a MOC could provide the basis of a lesson plan, and could even be distributed as course material.</p>
-<p>As an example, this is a canvas covering the Normal Distribution, an important topic in probability and statistics. <img src="https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/canvas-nd-overview.png" class="img-fluid"></p>
-<p>All of my information is grouped in categories. The information itself is drawn from specific sections or blocks within notes, not entire notes. I can navigate the canvas with a convenient drop down, allowing me to jump to a particular section. This is especially convenient on large canvases. <img src="https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/canvas-command-menu.png" class="img-fluid"></p>
-<p>Otherwise I can simply use the mouse to move around the canvas and zoom in and out as I review my information. <img src="https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/canvas-nd-detail.png" class="img-fluid"></p>
-</section>
-<section id="interactive-dashboard" class="level2">
-<h2 class="anchored" data-anchor-id="interactive-dashboard">Interactive Dashboard</h2>
-<p>This is an example of using a visual MOC to both present information and also manage information. It includes interactive tables, previews of documents in progress, and graphics to identify the stage of development of each project.</p>
-<p><img src="https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/canvas-publications.png" class="img-fluid"></p>
-<p>Thanks to Metadata Menu, I can edit the metadata for any document without opening it. <img src="https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/canvas-mm-table.png" class="img-fluid"></p>
-<p><img src="https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/canvas-mm-modal.png" class="img-fluid"></p>
-<p>Using Hover editor, I can even edit a document without leaving the dashboard.</p>
-<p><img src="https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/canvas-hover-editor.png" class="img-fluid"></p>
-</section>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>This series of articles was meant to introduce the concept of using Obsidian as a database rather than a traditional file editor, with emphasis on Core Plugins. In the first article, I covered creating information without worrying about file names and directories (Unique Notes), and then accessing that information without navigating to or even opening files (Search). In the second, I discussed interacting with Obsidian to organize and analyze information (Graph View and Bookmarks). Most recently, I showed how Bookmarks can be used to create a useful Knowledge Tree using views of information rather than files.</p>
-<p>Here I finish with a way to create visually interesting and useful maps of content using Canvas, together with the Community Plugins Dataview, Metadata Menu, and Hover Edge. Again, this allows you to interact with your information as one would a database, without opening files.</p>
-<p>I hope you are intrigued enough to try this method. Thank you for reading this, and constructive criticism is always welcome.</p>
-</section>
-<section id="gratitude" class="level1">
-<h1>Gratitude</h1>
-<p>I would like to thank some people who have been my muses as I’ve learned Obsidian. They are all good sources of experience and insight.</p>
-<ul>
-<li>Zsolt Viczián</li>
-<li>Sergio (From Sergio)</li>
-<li>Nicole van der Hoeven</li>
-<li>Nick Milo</li>
-</ul>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>Obsidian</category>
-  <guid>https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/</guid>
-  <pubDate>Thu, 14 Sep 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/visual-mocs-with-canvas/canvas-publications.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/obsidian/freeing-your-thinking/freeing-your-thinking-workflow/fyt-walkthrough.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>

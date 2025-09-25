@@ -6,59 +6,59 @@
       version="2.0">
 <channel>
 <title>biscotty&#39;s Workshop</title>
-<link>https://biscotty.online/posts/obsidian/dataview.html</link>
-<atom:link href="https://biscotty.online/posts/obsidian/dataview.xml" rel="self" type="application/rss+xml"/>
+<link>https://www.biscotty.net/posts/obsidian/dataview.html</link>
+<atom:link href="https://www.biscotty.net/posts/obsidian/dataview.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
-<generator>quarto-1.7.31</generator>
+<generator>quarto-1.7.30</generator>
 <lastBuildDate>Mon, 16 Oct 2023 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Summarizing Information with DataviewJS</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</link>
+  <link>https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</link>
   <description><![CDATA[ Presenting and analyzing information in Obsidian ]]></description>
   <category>Javascript</category>
   <category>Obsidian</category>
   <category>PKM</category>
   <category>DataviewJS</category>
-  <guid>https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</guid>
+  <guid>https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/</guid>
   <pubDate>Mon, 16 Oct 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Interactive Tables with DataviewJS</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/dataview/dataviewjs-summaries-statistics/</link>
+  <link>https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-summaries-statistics/</link>
   <description><![CDATA[ Selecting Files, Working with Dates ]]></description>
   <category>Javascript</category>
   <category>Obsidian</category>
   <category>DataviewJS</category>
-  <guid>https://biscotty.online/posts/obsidian/dataview/dataviewjs-summaries-statistics/</guid>
+  <guid>https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-summaries-statistics/</guid>
   <pubDate>Sat, 14 Oct 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/dataview/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>DataviewJS: A Gentle Introduction</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/</link>
+  <link>https://www.biscotty.net/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/</link>
   <description><![CDATA[ For Obsidian users who are not programmers ]]></description>
   <category>Javascript</category>
   <category>Obsidian</category>
   <category>DataviewJS</category>
-  <guid>https://biscotty.online/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/</guid>
+  <guid>https://www.biscotty.net/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/</guid>
   <pubDate>Wed, 11 Oct 2023 06:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-2.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/obsidian/dataview/gentle-introduction-to-dataviewjs/djs-intro-2.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>DataviewJS: A Gentle Introduction Part 2</title>
   <dc:creator>Brian Carey</dc:creator>
-  <link>https://biscotty.online/posts/obsidian/dataview/dataviewjs-files-dates/</link>
+  <link>https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-files-dates/</link>
   <description><![CDATA[ Selecting Files, Working with Dates ]]></description>
   <category>Javascript</category>
   <category>Obsidian</category>
   <category>DataviewJS</category>
-  <guid>https://biscotty.online/posts/obsidian/dataview/dataviewjs-files-dates/</guid>
+  <guid>https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-files-dates/</guid>
   <pubDate>Tue, 28 Feb 2023 07:00:00 GMT</pubDate>
-  <media:content url="https://biscotty.online/posts/obsidian/dataview/dataviewjs-files-dates/djs-part-2.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-files-dates/djs-part-2.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>
