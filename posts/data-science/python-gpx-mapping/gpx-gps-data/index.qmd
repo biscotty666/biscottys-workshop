@@ -3,7 +3,7 @@ title: "Trail Mapping with Python"
 description: "Using your GPX data with geopandas"
 author:
  - name: Brian Carey
-   url: https://biscotty.online
+   url: https://www.biscotty.net
 date: 02-28-2024
 categories: [GIS, Python, Data Science]
 aliases: 

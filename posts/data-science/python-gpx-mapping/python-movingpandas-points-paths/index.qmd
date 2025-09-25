@@ -15,7 +15,7 @@ tags:
 ---
 # From Points to Paths
 ## Introduction
-In the [prior article](https://biscotty.online/blogs/gpx-gps-data), I showed how to use raw GPS data generated from a sport tracker to create maps and profile elevations along the path. The GeoDataFrames created were just a collection of point geometries with time, location and elevation data. To  profile, for example, speed, requires converting the point geometries to line geometries, calculating distances and time deltas between each point, and converting between coordinate systems and units of measurement. If we were concerned with bearing, we would need  to also calculate angles between the line segments we create. None of this is overly complicated, just awfully tedious. But this being Python, there is a dedicated library that makes all of this easy peasy. 
+In the [prior article](https://www.biscotty.net/blogs/gpx-gps-data), I showed how to use raw GPS data generated from a sport tracker to create maps and profile elevations along the path. The GeoDataFrames created were just a collection of point geometries with time, location and elevation data. To  profile, for example, speed, requires converting the point geometries to line geometries, calculating distances and time deltas between each point, and converting between coordinate systems and units of measurement. If we were concerned with bearing, we would need  to also calculate angles between the line segments we create. None of this is overly complicated, just awfully tedious. But this being Python, there is a dedicated library that makes all of this easy peasy. 
 
 MovingPandas is a library that extends Pandas/Geopandas by taking the list of point geometries and turning them into "trajectories". It generates directed lines between consecutive points, and provides functions for all of the calculations I mentioned above and more.
 
@@ -409,4 +409,4 @@ stop_points.explore(
 
 ## Next steps
 
-In the third article, I will address issues of generalization and simplification which can be important when working with large data sets. I'll show how to generate speed, duration and distance information, and how to segment the trajectories based on geometries, stops, and other criteria. I hope that these articles are proving interesting and useful. Please visit my [website](https://biscotty.online) and [repository](https://github.com/biscotty666/GPX) for more code, articles and updates.
+In the third article, I will address issues of generalization and simplification which can be important when working with large data sets. I'll show how to generate speed, duration and distance information, and how to segment the trajectories based on geometries, stops, and other criteria. I hope that these articles are proving interesting and useful. Please visit my [website](https://ww.biscotty.net) and [repository](https://github.com/biscotty666/GPX) for more code, articles and updates.

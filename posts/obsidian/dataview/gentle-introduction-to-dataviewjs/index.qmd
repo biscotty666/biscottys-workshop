@@ -18,7 +18,7 @@ tags:
 
 This article is intended for people who are new to programming, but can serve as a jumping off point for experienced programmers new to JavaScript in general or DataviewJS in particular. The documentation can be found <a href="https://blacksmithgu.github.io/obsidian-dataview/">here</a>.
 
-You may be asking yourself, "Why learn JavaScript since I have Dataview queries to make lists and tables with my data"? You need JavaScript if, for example, you want interactive tables which allow you to edit data directly from the table without opening the associated note (very important in an  <a href="http://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/">information-first, NoSQL style</a>). Or if you want to work with relative dates, eg. "last week", without needing to update your queries every week. JavaScript allows you to show things like totals, counts and averages together with your tables.  And since you are writing JavaScript anyway, you can fully customize the way everything is displayed.
+You may be asking yourself, "Why learn JavaScript since I have Dataview queries to make lists and tables with my data"? You need JavaScript if, for example, you want interactive tables which allow you to edit data directly from the table without opening the associated note (very important in an  <a href="http://www.biscotty.net/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/">information-first, NoSQL style</a>). Or if you want to work with relative dates, eg. "last week", without needing to update your queries every week. JavaScript allows you to show things like totals, counts and averages together with your tables.  And since you are writing JavaScript anyway, you can fully customize the way everything is displayed.
 
 JavaScript may seem intimidating, but it’s really not too complex or complicated for what we need to do in Obsidian. The basic examples I start with here won't display any tables, but will get you comfortable with some of the basic concepts and how to write simple JavaScript code. It is very important that you do these examples yourself in your own vault. Like any language, the only way to learn it is to use it (and make mistakes).
 
@@ -138,6 +138,6 @@ to produce
 
 ## Next steps
 
-In the [next article](http://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/) I'll start looking at using DataviewJS to make lists and tables and otherwise use the information in your vault. Meanwhile, if you want to learn more about working with dates, you can visit the [Moment.js website](https://momentjs.com/). And the DataviewJS documentation can be found [here](https://blacksmithgu.github.io/obsidian-dataview/). Happy coding!
+In the [next article](http://www.biscotty.net/blogs/obsidian/dataview/dataviewjs-summaries-statistics/) I'll start looking at using DataviewJS to make lists and tables and otherwise use the information in your vault. Meanwhile, if you want to learn more about working with dates, you can visit the [Moment.js website](https://momentjs.com/). And the DataviewJS documentation can be found [here](https://blacksmithgu.github.io/obsidian-dataview/). Happy coding!
 
 

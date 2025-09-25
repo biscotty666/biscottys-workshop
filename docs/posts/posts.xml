@@ -1226,7 +1226,7 @@ font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<div id="fig-imm-pop-state" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-imm-pop-state" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-imm-pop-state-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-imm-pop-state-1.png" id="fig-imm-pop-state" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -1430,7 +1430,7 @@ font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<div id="fig-imm-pop-county" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-imm-pop-county" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-imm-pop-county-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-imm-pop-county-1.png" id="fig-imm-pop-county" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -2182,7 +2182,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1">p1</span></code></pre></div>
 <div class="cell-output-display">
-<div id="fig-his-state-map" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-his-state-map" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-his-state-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-his-state-map-1.png" id="fig-his-state-map" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -2528,7 +2528,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell preview-image" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1">p1</span></code></pre></div>
 <div class="cell-output-display">
-<div id="fig-his-pop-pct" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-his-pop-pct" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-his-pop-pct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-his-pop-pct-1.png" id="fig-his-pop-pct" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -3075,7 +3075,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1">p1</span></code></pre></div>
 <div class="cell-output-display">
-<div id="fig-hvnv-bar" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-hvnv-bar" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hvnv-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hvnv-bar-1.png" id="fig-hvnv-bar" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -3276,7 +3276,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1">p1</span></code></pre></div>
 <div class="cell-output-display">
-<div id="fig-org-ident" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-org-ident" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-org-ident-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-org-ident-1.png" id="fig-org-ident" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -3931,7 +3931,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1">p1</span></code></pre></div>
 <div class="cell-output-display">
-<div id="fig-hisp-white" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-hisp-white" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-white-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-white-1.png" id="fig-hisp-white" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -4197,7 +4197,7 @@ give correct results for longitude/latitude data</code></pre>
 background-color: null;
 font-style: inherit;">+</span> p2</span></code></pre></div>
 <div class="cell-output-display">
-<div id="fig-hisp-nm" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-hisp-nm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-nm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm-1.png" id="fig-hisp-nm" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -4644,7 +4644,7 @@ font-style: inherit;">/</span> (p3 <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> p4)</span></code></pre></div>
 <div class="cell-output-display">
-<div id="fig-hisp-nm3" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-hisp-nm3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-nm3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm3-1.png" id="fig-hisp-nm3" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -4882,7 +4882,7 @@ font-style: inherit;">theme_void</span>()</span></code></pre></div>
 background-color: null;
 font-style: inherit;">+</span> p2</span></code></pre></div>
 <div class="cell-output-display">
-<div id="fig-hisp-nm4" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-hisp-nm4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-nm4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm4-1.png" id="fig-hisp-nm4" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -7687,7 +7687,7 @@ font-style: inherit;">    '''</span>)</span></code></pre></div>
 <h1>From Points to Paths</h1>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In the <a href="https://biscotty.online/blogs/gpx-gps-data">prior article</a>, I showed how to use raw GPS data generated from a sport tracker to create maps and profile elevations along the path. The GeoDataFrames created were just a collection of point geometries with time, location and elevation data. To profile, for example, speed, requires converting the point geometries to line geometries, calculating distances and time deltas between each point, and converting between coordinate systems and units of measurement. If we were concerned with bearing, we would need to also calculate angles between the line segments we create. None of this is overly complicated, just awfully tedious. But this being Python, there is a dedicated library that makes all of this easy peasy.</p>
+<p>In the <a href="https://www.biscotty.net/blogs/gpx-gps-data">prior article</a>, I showed how to use raw GPS data generated from a sport tracker to create maps and profile elevations along the path. The GeoDataFrames created were just a collection of point geometries with time, location and elevation data. To profile, for example, speed, requires converting the point geometries to line geometries, calculating distances and time deltas between each point, and converting between coordinate systems and units of measurement. If we were concerned with bearing, we would need to also calculate angles between the line segments we create. None of this is overly complicated, just awfully tedious. But this being Python, there is a dedicated library that makes all of this easy peasy.</p>
 <p>MovingPandas is a library that extends Pandas/Geopandas by taking the list of point geometries and turning them into “trajectories”. It generates directed lines between consecutive points, and provides functions for all of the calculations I mentioned above and more.</p>
 <p>In this article I will show how to create and work with trajectories. I’ll then show how to use MovingPandas to find locations along the path based on time, find the distance from the path to nearby locations, and finally how to identify locations where I paused or stopped. In the next article, I will show how to simplify and smooth paths, profile speed, and segment the trajectories based on various criteria. As before, an expanded version of the code in this article is available in my <a href="https://github.com/biscotty666/GPX">repository</a>.</p>
 </section>
@@ -9054,7 +9054,7 @@ font-style: inherit;">"Stop points"</span>,</span>
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
-<p>In the third article, I will address issues of generalization and simplification which can be important when working with large data sets. I’ll show how to generate speed, duration and distance information, and how to segment the trajectories based on geometries, stops, and other criteria. I hope that these articles are proving interesting and useful. Please visit my <a href="https://biscotty.online">website</a> and <a href="https://github.com/biscotty666/GPX">repository</a> for more code, articles and updates.</p>
+<p>In the third article, I will address issues of generalization and simplification which can be important when working with large data sets. I’ll show how to generate speed, duration and distance information, and how to segment the trajectories based on geometries, stops, and other criteria. I hope that these articles are proving interesting and useful. Please visit my <a href="https://ww.biscotty.net">website</a> and <a href="https://github.com/biscotty666/GPX">repository</a> for more code, articles and updates.</p>
 
 
 </section>
@@ -10255,7 +10255,7 @@ Carey, Brian. 2024. <span>“Trail Mapping with Python.”</span> February
 </blockquote>
 <section id="organization-and-productivity" class="level2">
 <h2 class="anchored" data-anchor-id="organization-and-productivity">Organization and Productivity</h2>
-<p>My <a href="http://biscotty.online/blogs/freeing-your-thinking-part-1">Freeing Your Thinking</a> series of articles has had a primary theme: focus on information, not files. My first articles explained how time spent organizing files into folders and naming fleeting notes is essentially wasted time. Worse, maintaining such a system is a daily drain on productivity. Even worse, you will probably decide one day that a different structure is better and, to re-arrange everything, you need to invest yet more time. And what if you want a different structure, but still maintain the current structure at the same time? You can’t do that with folders, but you can with bookmarks. With bookmarks you can build a tree of the <em>information</em>, regardless of files and file locations. Specific information is not limited to one location.</p>
+<p>My <a href="http://www.biscotty.net/blogs/freeing-your-thinking-part-1">Freeing Your Thinking</a> series of articles has had a primary theme: focus on information, not files. My first articles explained how time spent organizing files into folders and naming fleeting notes is essentially wasted time. Worse, maintaining such a system is a daily drain on productivity. Even worse, you will probably decide one day that a different structure is better and, to re-arrange everything, you need to invest yet more time. And what if you want a different structure, but still maintain the current structure at the same time? You can’t do that with folders, but you can with bookmarks. With bookmarks you can build a tree of the <em>information</em>, regardless of files and file locations. Specific information is not limited to one location.</p>
 <p>The point of this system is to be as productive as possible. Organization is a tool, not a goal, and should only be used if it adds value (increases productivity). I want to avoid the loss of focus and efficiency entailed in opening files and switching between notes. Time spent organizing and working with files is inefficient given the many options available in Obsidian. Time spent organizing and working with information, on the other hand, is what it’s all about.</p>
 <p>In this article I’ll look at the popular Map of Content and consider it’s virtues with respect to productivity. At least as I have seen it described, I find it an unwieldy tool for working with the information in my vault. It is inefficient, steals focus, and does not promote creativity. I will propose an approach based on Canvas. With Canvas, I can construct a rich work environment for developing my knowledge on a subject, with information displayed and structured visually. From my canvas I have direct access to all of the files implicated, and don’t need to leave the canvas to review or edit them. Tasks, goals, questions, even the narrative, are on the canvas. I will post a link at the end to my repository with this example vault.</p>
 </section>
@@ -10678,7 +10678,7 @@ font-style: inherit;">git</span> push</span></code></pre></div>
 <section id="summarizing-information-with-dataviewjs" class="level1">
 <h1>Summarizing Information with DataviewJS</h1>
 <p><img src="https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-exc.png" class="img-fluid"></p>
-<p>This article follows up on <a href="https://biscotty.online/blogs/gentle-introduction-to-dataviewjs">earlier articles</a> in which I showed how to create interactive tables which are automatically updated and can be edited directly in the table. This article will describe how to create summary statistics for data. The statistics on the dashboard update based on the current day.</p>
+<p>This article follows up on <a href="https://www.biscotty.net/blogs/gentle-introduction-to-dataviewjs">earlier articles</a> in which I showed how to create interactive tables which are automatically updated and can be edited directly in the table. This article will describe how to create summary statistics for data. The statistics on the dashboard update based on the current day.</p>
 <p>As you can see, I’ve done a bit of rearranging since the last article to make things even more readable. The statistics tables have been re-sized and reformatted for a cleaner display, and I’ve added more information. There are still some tweaks I want to do, but this is a very useful dashboard.</p>
 <p>A quick comment on canvases: since I started working on canvases it’s hard to go back to the 80 characters wide format of a note. Sure, when I’m writing an article or focusing on a bit of code, that format feels very natural. But when doing pretty much anything else, well, it’s just nice to be able to spread out, and not have to open and close files, or page up and down through documents. Using a canvas is like putting all of your current work on your desk, with everything open to the pages you are interested in. In a future article I will show how a dashboard can be used in place of a Daily Note to manage your day.</p>
 <p>Here is the table I will show how to create in this article. As before, you can just skip to the bottom and grab the code if you want. This article explains everything rather thoroughly and introduces some general programming concepts. I think that, if you spend a little time with the material you will find that it is not, as they say, rocket science.</p>
@@ -11992,7 +11992,7 @@ font-style: inherit;">,</span> rows)</span></code></pre></div>
 <p><img src="https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-summaries-statistics/djs-exercise-dashboard.png" class="img-fluid"></p>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>This article is a follow-up to my <a href="http://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs">Gentle Introduction to DataviewJS</a> articles, and assumes that you have read them. It is written for anglers, but if you just want the fish you can Tldr; your way to the bottom an just grab the code. Even if you are here to learn how to fish, depending on your learning style, you may want to take a look at the complete code first before this walk-through.</p>
+<p>This article is a follow-up to my <a href="http://www.biscotty.net/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs">Gentle Introduction to DataviewJS</a> articles, and assumes that you have read them. It is written for anglers, but if you just want the fish you can Tldr; your way to the bottom an just grab the code. Even if you are here to learn how to fish, depending on your learning style, you may want to take a look at the complete code first before this walk-through.</p>
 <p>We are now ready to start building a fully dynamic and interactive dashboard to manage the exercise logs. In this case, I’m tracking the following:</p>
 <ul>
 <li>type of activity</li>
@@ -12472,7 +12472,7 @@ font-style: inherit;">,</span></span>
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
-<p>In the <a href="https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/">next article</a> I will explain how to generate summary information like totals and averages for display on the dashboard. In the mean time I strongly suggest that you do two things:</p>
+<p>In the <a href="https://www.biscotty.net/blogs/obsidian/dataview/dataviewjs-summaries-statistics/">next article</a> I will explain how to generate summary information like totals and averages for display on the dashboard. In the mean time I strongly suggest that you do two things:</p>
 <ol type="1">
 <li>Add images to some of your logs and create the table for the Gallery section of the dashboard</li>
 <li>Turn some of your existing Dataview tables into DataviewJS tables. Or, at least, make some new ones from your own information</li>
@@ -12507,7 +12507,7 @@ font-style: inherit;">,</span></span>
 <section id="dataviewjs-a-gentle-introduction" class="level1">
 <h1>DataviewJS: A Gentle Introduction</h1>
 <p>This article is intended for people who are new to programming, but can serve as a jumping off point for experienced programmers new to JavaScript in general or DataviewJS in particular. The documentation can be found <a href="https://blacksmithgu.github.io/obsidian-dataview/">here</a>.</p>
-<p>You may be asking yourself, “Why learn JavaScript since I have Dataview queries to make lists and tables with my data”? You need JavaScript if, for example, you want interactive tables which allow you to edit data directly from the table without opening the associated note (very important in an <a href="http://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/">information-first, NoSQL style</a>). Or if you want to work with relative dates, eg. “last week”, without needing to update your queries every week. JavaScript allows you to show things like totals, counts and averages together with your tables. And since you are writing JavaScript anyway, you can fully customize the way everything is displayed.</p>
+<p>You may be asking yourself, “Why learn JavaScript since I have Dataview queries to make lists and tables with my data”? You need JavaScript if, for example, you want interactive tables which allow you to edit data directly from the table without opening the associated note (very important in an <a href="http://www.biscotty.net/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1/">information-first, NoSQL style</a>). Or if you want to work with relative dates, eg. “last week”, without needing to update your queries every week. JavaScript allows you to show things like totals, counts and averages together with your tables. And since you are writing JavaScript anyway, you can fully customize the way everything is displayed.</p>
 <p>JavaScript may seem intimidating, but it’s really not too complex or complicated for what we need to do in Obsidian. The basic examples I start with here won’t display any tables, but will get you comfortable with some of the basic concepts and how to write simple JavaScript code. It is very important that you do these examples yourself in your own vault. Like any language, the only way to learn it is to use it (and make mistakes).</p>
 <section id="javascript" class="level2">
 <h2 class="anchored" data-anchor-id="javascript">JavaScript</h2>
@@ -12781,7 +12781,7 @@ font-style: inherit;">list</span>(learnings)</span></code></pre></div>
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
-<p>In the <a href="http://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/">next article</a> I’ll start looking at using DataviewJS to make lists and tables and otherwise use the information in your vault. Meanwhile, if you want to learn more about working with dates, you can visit the <a href="https://momentjs.com/">Moment.js website</a>. And the DataviewJS documentation can be found <a href="https://blacksmithgu.github.io/obsidian-dataview/">here</a>. Happy coding!</p>
+<p>In the <a href="http://www.biscotty.net/blogs/obsidian/dataview/dataviewjs-summaries-statistics/">next article</a> I’ll start looking at using DataviewJS to make lists and tables and otherwise use the information in your vault. Meanwhile, if you want to learn more about working with dates, you can visit the <a href="https://momentjs.com/">Moment.js website</a>. And the DataviewJS documentation can be found <a href="https://blacksmithgu.github.io/obsidian-dataview/">here</a>. Happy coding!</p>
 
 
 </section>
@@ -13419,7 +13419,7 @@ font-style: inherit;">;</span></span>
 
 
 
-<p>I recently published <a href="https://biscotty.online/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1">several articles</a> on using Obsidian’s native database functionality to increase focus and efficiency when working with the information in our vaults. Rather than using Obsidian as a souped-up word processor, we can abandon the file paradigm altogether and use Bookmark and Canvas for accessing, editing, analyzing and organizing our information.</p>
+<p>I recently published <a href="https://www.biscotty.net/blogs/obsidian/freeing-your-thinking/freeing-your-thinking-part-1">several articles</a> on using Obsidian’s native database functionality to increase focus and efficiency when working with the information in our vaults. Rather than using Obsidian as a souped-up word processor, we can abandon the file paradigm altogether and use Bookmark and Canvas for accessing, editing, analyzing and organizing our information.</p>
 <p>Given the interest that the articles have generated, and the fact that the concepts may be unfamiliar to some, I thought it would be helpful to make a video demonstrating how it works in practice. It ended up being somewhat long, so this is the second part.</p>
 <p>If you haven’t read the articles, this may be confusing as I don’t go into depth on the concepts. This isn’t really a how-to video, so it assumes you know your way around Obsidian.</p>
 <hr>

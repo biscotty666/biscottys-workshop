@@ -16,7 +16,7 @@ about:
       target: _blank
     - icon: globe
       text: Other Workshop
-      href: https://biscotty.online
+      href: https://biscotty.net
       target: _blank
     - icon: envelope
       text: Email

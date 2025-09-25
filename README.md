@@ -1,3 +1,3 @@
 # Biscotty's workshop
 
-[Code for my website](https://biscotty.online)
+[Code for my website](https://www.biscotty.net)

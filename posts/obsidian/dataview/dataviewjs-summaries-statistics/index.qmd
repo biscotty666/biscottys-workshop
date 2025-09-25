@@ -25,7 +25,7 @@ editor:
 ## Introduction
 
 This article is a follow-up to my
-<a href="http://biscotty.online/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs">Gentle
+<a href="http://www.biscotty.net/blogs/obsidian/dataview/gentle-introduction-to-dataviewjs">Gentle
 Introduction to DataviewJS</a> articles, and assumes that you have read
 them. It is written for anglers, but if you just want the fish you can
 Tldr; your way to the bottom an just grab the code. Even if you are here
@@ -250,7 +250,7 @@ await Promise.all(dv.pages()
 
 ## Next Steps
 
-In the [next article](https://biscotty.online/blogs/obsidian/dataview/dataviewjs-summaries-statistics/) I will explain how to generate summary information
+In the [next article](https://www.biscotty.net/blogs/obsidian/dataview/dataviewjs-summaries-statistics/) I will explain how to generate summary information
 like totals and averages for display on the dashboard. In the mean time
 I strongly suggest that you do two things:
 

@@ -9,7 +9,7 @@ publishedAt: "2024-02-28"
 updatedAt: "2024-02-28"
 author:
  - name: Brian Carey
-   url: https://biscotty.online
+   url: https://www.biscotty.net
 isPublished: true
 categories: [Javascript, Obsidian, DataviewJS]
 citation: 
@@ -25,7 +25,7 @@ draft: false
 
 ## Selecting files 
 
-This article follows an <a href="http://biscotty.online/blogs/gentle-introduction-to-dataviewjs">earlier article</a> introducing DataviewJS, which I strongly encourage you to read first. In that article, we learned how to display basic lists with Dataview. In this article, I will cover displaying lists of files in your vault and information in those files. I will also discuss using date ranges in queries and sorting results. Finally I will show how to make a table with multiple fields. 
+This article follows an <a href="http://www.biscotty.net/blogs/gentle-introduction-to-dataviewjs">earlier article</a> introducing DataviewJS, which I strongly encourage you to read first. In that article, we learned how to display basic lists with Dataview. In this article, I will cover displaying lists of files in your vault and information in those files. I will also discuss using date ranges in queries and sorting results. Finally I will show how to make a table with multiple fields. 
 
 As a refresher, to show a list with a header you typed something like
 

@@ -1,0 +1,59 @@
+---
+title: The White Medicine from Yun Nan
+subtitle: Chinese Medicine and Traumatic Injury
+description: The legendary and mysterious 
+bibliography: ../../../references.bib
+image: sanqi.jpg
+date: 06-09-2025
+categories: [Chinese Medicine, Herbs, Food]
+toc: true
+toc-depth: 4
+no-cite: |
+  @bensky_chinese_2004, 
+  @chen_chinese_2004
+---
+
+::: {style="float: right; width: 40%; margin-left: 10px;"}
+![San qi[^1]](sanqi.jpg){.lightbox fig-alt="Picture of raw sān qī" style="border-radius: 5%;"}
+:::
+
+[^1]: <a href="https://www.shutterstock.com/image-photo/panax-notoginseng-on-white-background-1411251977">Photo</a> by <a https://www.shutterstock.com/g/zhengchengbao>zhengchengbao</a>
+
+云南白药 *Yùn nán bái yào*
+
+三七 *sān qī* *Panax pseudoginseng*
+
+
+# Patent Medicine
+
+In the West, patent medicine conjures images of "quacks" selling elixirs for "all that ails you". They often contained ingredients such as coca and poppy (cocaine and heroine), and were remarkably effective at making their patients feel good. In Chinese Medicine, patent medicine simply refers to prepared medicine. The vast majority of these are variations of classical formulas. The traditional way of administering herbal medicine is through decotions, but this is not practical for many people, and so prepared medicines in the form of pills, powders, or tablets are used.
+
+# 三七 *sān qī* *Panax pseudoginseng*
+
+This information is not meant to substitute for standard first aid protocols, and in the case of significant bleeding, contacting emergency services is receommended.
+
+# Traumatic Injury
+
+When someone experiences physical injury, blood vessels are crushed and broken, resulting in bleeding and bruising. Of course, the immediate concern is stopping bleeding. The secondary concern is to promote circulation through the injured area to both reduce swelling and promote the regeneration of tissues.
+
+
+
+# Blood stagnation
+
+Blood, of course, should flow freely and unimpeded through the vessels. Within the context of Chinese Medicine, there are many reasons why blood might not flow freely, and many symptoms which may develop as a result. In the case of traumatic injury, however, the cause is clear. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

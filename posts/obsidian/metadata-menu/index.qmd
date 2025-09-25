@@ -14,7 +14,7 @@ tags:
 
 # Metadata Menu
 
-With the release of Obsidian 1.4.5, many people’s focus has been on metadata, which Obsidian calls Properties. I have written a series of articles (see [Freeing Your Thinking](https://biscotty.online/obsidian/concepts/freeing-your-thinking)) on using Obsidian’s natural database features, and my entire workflow depends heavily on metadata. Naturally, I was anticipating this release with some excitement, having seen some previews on YouTube.
+With the release of Obsidian 1.4.5, many people’s focus has been on metadata, which Obsidian calls Properties. I have written a series of articles (see [Freeing Your Thinking](https://www.biscotty.net/obsidian/concepts/freeing-your-thinking)) on using Obsidian’s natural database features, and my entire workflow depends heavily on metadata. Naturally, I was anticipating this release with some excitement, having seen some previews on YouTube.
 
 I was frankly disappointed. It is movement in a positive direction, and has some very nice features for managing metadata. However, its insistence on YAML for properties when many users such as myself prefer in-line metadata for its flexibility, makes some of its features useless to me.
 

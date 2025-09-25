@@ -17,7 +17,7 @@ tags:
 
 ![](djs-db-exc.png)
 
-This article follows up on <a href="https://biscotty.online/blogs/gentle-introduction-to-dataviewjs">earlier articles</a> in which I showed how to create interactive tables which are automatically updated and can be edited directly in the table. This article will describe how to create summary statistics for data. The statistics on the dashboard update based on the current day.
+This article follows up on <a href="https://www.biscotty.net/blogs/gentle-introduction-to-dataviewjs">earlier articles</a> in which I showed how to create interactive tables which are automatically updated and can be edited directly in the table. This article will describe how to create summary statistics for data. The statistics on the dashboard update based on the current day.
 
 As you can see, I've done a bit of rearranging since the last article to make things even more readable.  The statistics tables have been re-sized and reformatted for a cleaner display, and I've added more information.  There are still some tweaks I want to do, but this is a very useful dashboard. 
 
