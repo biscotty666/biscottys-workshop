@@ -19,6 +19,7 @@
   {
     "listing": "/posts/posts.html",
     "items": [
+      "/posts/chinese-medicine/eating-in-winter/index.html",
       "/posts/chinese-medicine/shiso-fine/index.html",
       "/posts/chinese-medicine/white-medicine/index.html",
       "/posts/linux/nix-for-data-science/index.html",
@@ -126,6 +127,7 @@
   {
     "listing": "/posts/chinese-medicine/chinese-medicine.html",
     "items": [
+      "/posts/chinese-medicine/eating-in-winter/index.html",
       "/posts/chinese-medicine/shiso-fine/index.html",
       "/posts/chinese-medicine/white-medicine/index.html",
       "/posts/chinese-medicine/magical-mulberry/index.html",
