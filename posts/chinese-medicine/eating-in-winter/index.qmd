@@ -12,6 +12,11 @@ toc-depth: 4
 
 FIX:nei jing quotation about Kidneys, salt, water, winter
 
+水 shuǐ water 
+氣	qì
+陰陽	yīn yáng	yin and yang
+
+
 # Of Salt and Water
 
 FIX:Find quotes from other religions
@@ -23,21 +28,21 @@ The amniotic fluid in early preganancy is almost entirely water filled with elec
 
 # The Kidney
 
-The element associated with the Kidney is water, and the taste is salt. Given the Kidneys role as the physiological root of the body, these associations are ideal. Between 50-75% of body weight is water, and a further 12-15% is from bones. More interestingly, we can said to be primarily composed of salt water! Salt in the diet promotes the retention of fluids.
-
-This is the image of the Kidneys. The Kidneys are the foundation, the origin or an individuals existence. The element of the Kidney is water, and the flavor is salt. Unique among the internal organs, the Kidneys are, in a sense, two organs in one, because the Kidneys are also associated with fire. Fire is the natural element of the Heart, but there is a special fire, called the ming men fire, which is contained in the Kidney. Life can only begin when yang enters yin. The fire of ming men reacts with yin of the Kidney to create what is sometimes called the moving qi between the Kidneys.
+This is the image of the Kidneys (腎	shèn). The Kidneys are the foundation, the origin of an individual's existence. The element of the Kidney is water, and the flavor is salt. Unique among the internal organs, the Kidneys are two organs in one, because the Kidneys are also associated with fire. Fire is the natural element of the Heart and its fire is the _imperial fire_. But there is a special fire associated with the Kidneys, called the _ministerial fire_, or the the _mìng mén_ (命門) fire, which is contained in the Kidney. Life can only begin when yang enters yin, when fire steams water. The _yang_ of _ming men_ reacts with _yin_ salt water of the Kidney to create what is sometimes called the moving qi between the Kidneys, or simply life.
 
 The Kidney System is said to be the root of the bodies *yin* and *yang*. It is also said to be two organs, not one. It contains the *jing*, the essence, which is inherited from our parents, and can be represented by our DNA and RNA. It also contains the *ming men* fire, the active principle which interacts with the essence to create our beings. The Kindeys govern pre-natal and post-natal development from infancy to death. The Kidneys are responsible for bones, and the marrow within, giving it a role in the production of blood. Like the physiological kidney, the Kidney controls the electrolyte balance in our bodies.
 
 While the last point seems natural, from a Western perspective, most of the others seem odd. The Kidneys should be understood to comprise the adrenal glands as well. The concept of marrow extends to both the spine and the cranium, therefore encompassing the brain and the central nervous system. With all of these in hand, the Kidney controls many of the body's hormones.
 
-Physiologically, winter is associated with the _Kidney_ system. In Chinese Medicine we have only five organ systems, and the _Kidney_ system incorporates not only the urinary system and adrenal glands, but the reproductive system and neurological systems as well. The _Kidney_ governs the life cycle from conception to death. It is called the "physiological root of the body's _yin_ and _yang_", and when these are exhausted, death occurs.
+Given the Kidneys role as the physiological root of the body, these associations are ideal. Between 50-75% of body weight is water, and a further 12-15% is from bones. More interestingly, we can said to be primarily composed of salt water! Salt in the diet promotes the retention of fluids.
+
+In Chinese Medicine we have only five organ systems, and the _Kidney_ system incorporates not only the urinary system and adrenal glands, but the reproductive system and neurological systems as well. The _Kidney_ governs the life cycle from conception to death. It is called the "physiological root of the body's _yin_ and _yang_", and when these are exhausted, death occurs.
 
 The _Kidneys_ are associated with the bones, the "deepest" structural part of the body. It is associated with the bone marrow, and therefore important in the production of blood. It is also associated with something simply called _marrow_, which essentially denotes neurological tissue and nerve cells. The brain is referred to as the _Sea of Marrow_.
 
 The _Kidney_ stores something which is called the _jing_, which is usually translated as "essence". Your _jing_ originally comes from your parents, and certainly encompasses DNA. The _yang_ counterpart of the _jing_ is called _yuan qi_, or source _qi_. This will be important when we consider the psychology later on. 
 
-The fire, the _yang_ (_yang_ within _yin_) of the _Kidneys_, is called the _ming men_ fire, which translates somewhat unhelpfully as the fire of the "life gate". It is the animating force, the RNA, enzymes, and membranes which make use of the DNA "library" to generate life from inanimate substance. Critically, all of this activity happens in water, and modern challenges to the gene-centric approach of standard biology such as those proposed by Denis Noble, who emphasizes the importance of these other substances. In this environment, a living organism is capable of generating novel proteins not encoded for in the DNA. Chinese Medicine allows that the _jing_ be supplemented through life.
+The fire, the _yang_ (_yang_ within _yin_) of the _Kidneys_, is called the _ming men_ fire, which translates somewhat unhelpfully as the fire of the "life gate". It is the animating force, the RNA, enzymes, and membranes which make use of the DNA "library" to generate life from inanimate substance. Critically, all of this activity happens in water, and modern challenges to the gene-centric approach of standard biology such as those proposed by Denis Noble, who emphasizes the importance of these other substances. In this environment, a living organism is capable of generating novel proteins not encoded for in the DNA. Chinese Medicine allows that the _jing_ 精	jīng	essence be supplemented through life.
 
 From a psychological or spiritual perspective, the _Kidneys_ contain the _zhi_, which is usually translated as the "will". This can be understood as the "will to live", and is related to one's sense of purpose, and to one's ability to create and construct new things, ideas, and even one's own _self_. This foundational sense will be "activated" the energy of the _Liver_ and expressed through the _Heart_. A weak _zhi_ can lead to depression, poor health, and even self-destructive activity.
 
@@ -51,7 +56,10 @@ _Qi_ in this sense is best understood as simply the "nature" of winter. As alway
 
 A lot of human activities are naturally oriented towards the _qi_ of winter. In business it is the time of doing inventory, taking stock of your situation. Further, it is the time of setting out a budget, the plans for the future year. For an individual, it is time to take stock of the past year, and consider their "purpose" for the coming year.
 
+
+::: {style="float: right; width: 40%; margin-left: 10px;"}
 ![](taiji.jpg)
+:::
 
 ., and the beginning of analysis is identifying and describing those relationships. Winter is the most _yin_ time of the year. It is the coldest and darkest time of the year, both _yin_ qualities. The sun is weakest, providing the earth with little energy. The earth rests, holding the seeds, absorbing and preserving moisture, all aspects of _yin_. But there is _yang_ within, for even in deep winter there is activity. In fact, according to Chinese Medicine, death itself is the separation of _yin_ and _yang_. And, being at it's weakest, it is particularly important that it be tended and kept warm, in the same sense that drinking fluids is important in the hot summer.
 
@@ -70,35 +78,33 @@ The _qi_ of winter is, of course, cold. But that's only the beginning. The word 
 
 # Eating in Winter
 
-As always, excess is to be avoided. Absolutely salt your food, but always in moderation. Salt brings out the flavors in foods, and is indispensible in cooking. But food should (almost) never taste "salty". Salt should be added to cooking from the very beginning, not at the end. Especially when sauteeing onions and garlic, salt is critical to remove the bitterness and bring out the sweetness.
-
-(As an aside, this is consitent with the Theory of Five Elements, wherein water "controls" fire, as salt moderates bitterness.)
-
-Everything I've talked about so far, with the possible exception of making babies, is _yin_ in nature. In Chinese philosophy, _yin_, and its counterpart _yang_, represent a type of duality, which would need a long article to fully explain. For now, think of _yin_ and _yang_ as two depend on each ot
-
-Let's stop a moment and reflect on this. I used the word "transform" deliberately. The stores that were laid away for winter were the _yang_ energy of summer transformed into the _yin_ nourishment which sustains us through the winter. And, conversely, the rest, reflection, and social interactions of winter provide the resources which will be transformed into _yang_ energy which causes growth, whose flourishing is a directly related to the _yin_ nourishing of winter.
+## Specific Foods
 
 Of course, nature being what it is, the best foods are those which we naturally store for the winter. This includes root crops, but perhaps more importantly nuts and seeds. For those in coastal areas, it includes seaweed. The most mineral-rich food is seaweed, although it is not a common part of the Western diet. Other foods high in mineral content are in fact seeds, beans. Meat and fish consumed in winter were often preserved in salt. Seafood, another great source of minerals, is abundant in winter. Cruciferous vegetables are another excellent source of minerals, and certain ones like kale do well in cold weather.
 
-Just as important as the food itself is the preparation method. All food must be cooked. The best method of cooking in winter is soup, of course, which feeds and warms the body's water.
+While certainly not necessary, meat is also generally warming and strongly nourishing of both _yin_ and _yang_. Beef and mutton in particular, but pork as well, are strong tonics, and should consequently be consumed in small portions. (Portions sizes in the U.S. tend to be two or three times normal). Traditionally, animals were slaughtered and processed with the arrival of cold weather, as a lack of refrigeration made this difficult at other times. The meat was then available for consumption throughout the winter.
 
-It is a time to eat root vegetables which can be preserved through the winter. Root vegetables are _yin_ in nature as they grow downward and provide the nourishment required for the plant to grow.
+Everyone loves their pumpkin spice latte, or maybe even an old-fashioned pumpkin pie. The taste and aroma of these spices connects people almost viscerally with the approach of winter. The pumpkin spice blends are all based on three primary ingredients: cinnamon (肉桂	_ròu guì_), ginger (乾薑	_gān jiāng_), clove (丁香	_dīng xiāng_), and nutmeg (肉豆蔻	_ròu dòu kòu_). All of these spices are hot, and have the medicinal property which we call "warming the _yang_". In Chinese medicine, herbs also target specific organs, and the first two herbs I mentioned target the _Kidney_, and are two of the most important herbs in the pharmacopia which perform this function. (The most important is aconite, which is toxic when taken internally without proper preparation.)
 
-While not necessary, meat is also generally warming and strongly nourishing of both _yin_ and _yang_. Beef and mutton in particular, but pork as well, are strong tonics, and should consequently be consumed in small portions. (Portions sizes in the U.S. tend to be two or three times normal). Traditionally, animals were slaughtered and processed with the arrival of cold weather, as a lack of refrigeration made this difficult at other times. The meat was then available for consumption throughout the winter.
+Cinnamon is called _rou gui_ 肉桂	ròu guì	Chinese cinnamon (Cinnamomum cassia) in Chinese, and ginger, in its dried form, is called _gan jiang_. When prescribing, we use these herbs in doses much larger than would be typically consumed in a meal, but regular consumption has a marked cumulative effect. Indeed _food therapy_ is very important, and considered one of the five branches of Chinese medicine, the others being acupuncture, herbal therapy, massage, and _qi gong_.
 
-Everyone loves their pumpkin spice latte, or maybe even an old-fashioned pumpkin pie. The taste and aroma of these spices connects people almost viscerally with the approach of winter. The pumpkin spice blends are all based on three primary ingredients: cinnamon, ginger and clove. The often contain nutmeg, mace (the peel of the nutmeg), and allspice, a type of pepper. All of these spices are hot, and have the medicinal property which we call "warming the _yang_". In Chinese medicine, herbs also target specific organs, and the first two herbs I mentioned target the _Kidney_, and are two of the most important herbs in the pharmacopia which perform this function. (The most important is aconite, which is toxic when taken internally without proper preparation.)
-
-In winter, soups are the best manner of food preparation. While a valuable part of the diet at any time, it is especially important in winter. Water is the element associated with the _Kidneys_, and allowing the nourishment from the food to "work" in the water is important.
-
-Cinnamon is called _rou gui_ in Chinese, and ginger, in its dried form, is called _gan jiang_. When prescribing, we use these herbs in doses much larger than would be typically consumed in a meal, but regular consumption has a marked cumulative effect. Indeed _food therapy_ is very important, and considered one of the five branches of Chinese medicine, the others being acupuncture, herbal therapy, massage, and _qi gong_.
+Walnuts.
 
 Because of the cold, and the importance of keeping the _Kidneys_ warm, warming spices like cinnamon, clove, and peppers are used. Cinnamon peel, that which is used in cooking, is called _rou gui_ and is actually one of the most important _yang_ and _Kidney_ tonics in the entire _Materia Medica_, when used at the appropriate dosage. Many of the common culinary spices (as opposed to herbs) are very warming, even if not directly related to the kidneys.
 
 The food of winter is nuts, seeds, dried beans and root vegetables. Many of the "herbs" used in Chinese medicine are indeed seeds and nuts, like sesame seeds and walnuts. These substances are all high in fat and protein, and relatively low in carbohydrates. Carbs are very yang, and your body needs them for sustained activity of a relatively high intensity. Fats provide more sustained energy, which can be stored up in the winter. Root vegetables are the most _yin_, because they grow downward, below the soil, rather than upward, reaching toward the sun.
 
-One may reflect that the foods that are beneficial from a health perspective are also the foods naturally saved by not only humans but other animals as well.
+## Preparation
+
+As always, excess is to be avoided. Absolutely salt your food, but always in moderation. Salt brings out the flavors in foods, and is indispensible in cooking. But food should (almost) never taste "salty". Salt should be added to cooking from the very beginning, not at the end. Especially when sauteeing onions and garlic, salt is critical to remove the bitterness and bring out the sweetness. (As an aside, this is consitent with the Theory of Five Elements, wherein water "controls" fire, as salt moderates bitterness.)
+
+Just as important as the food itself is the preparation method. All food must be cooked. The best method of cooking in winter is soup, of course, which feeds and warms the body's water.
+
+In winter, soups are the best manner of food preparation. While a valuable part of the diet at any time, it is especially important in winter. Water is the element associated with the _Kidneys_, and allowing the nourishment from the food to "work" in the water is important.
 
 # Lifestyle
+
+Let's stop a moment and reflect on this. I used the word "transform" deliberately. The stores that were laid away for winter were the _yang_ energy of summer transformed into the _yin_ nourishment which sustains us through the winter. And, conversely, the rest, reflection, and social interactions of winter provide the resources which will be transformed into _yang_ energy which causes growth, whose flourishing is a directly related to the _yin_ nourishing of winter.
 
 From a social perspective, energetic activities were limited. The crops were harvested and processed, and stores laid for winter. It was a time for reflection on the past year, taking of inventory, and planning for the spring, when activity would burst forth again. It was a time to interact with family and friends, and to ponder the experiences of life. And, to make babies.
 
