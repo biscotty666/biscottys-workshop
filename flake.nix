@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/25.11";
+      url = "github:nixos/nixpkgs/25.05";
 
     };
     flake-utils = {
@@ -43,6 +43,12 @@
             postcards
             XML
             xml2
+            gt 
+            gtExtras
+            janitor
+            nngeo
+            ggtext
+            zeallot
             gpx
             tidygeocoder
             crsuggest
