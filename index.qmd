@@ -20,6 +20,8 @@ Here you will find articles about things that interest me. Much of the site is d
 
 ## What's new
 
+[Another census article](posts/data-science/r-census/abq-demographics/index.qmd) about demographics in Albuquerque and efficient coding in R.
+
 [An article](posts/chinese-medicine/shiso-fine/index.qmd) about the medicinal properties of *shiso* and its use in Chinese Medicine.
 
 [An analysis](posts/data-science/r-census/nm-hispanic-demographics/index.qmd) of the Hispanic population of New Mexico using R and TidyCensus.

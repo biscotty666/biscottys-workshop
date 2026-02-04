@@ -5,3 +5,5 @@ posts/data-science/r-census/nm-hispanic-demographics/data
 .ipynb_checkpoints
 .direnv
 .worktrees
+
+/.quarto/
