@@ -445,5 +445,9 @@
   },
   "posts/chinese-medicine/white-medicine/index.qmd": {
     "index.html": "c59784e4"
+  },
+  "posts/data-science/r-census/abq-demographics/index.qmd": {
+    "index.html": "2da3e50b",
+    "index.md": "21505221"
   }
 }
