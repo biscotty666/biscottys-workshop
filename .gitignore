@@ -1,7 +1,6 @@
-/.quarto/
+/data
 .quarto/
 .Rhistory
 .ipynb_checkpoints
-data
 .direnv
 .worktrees
