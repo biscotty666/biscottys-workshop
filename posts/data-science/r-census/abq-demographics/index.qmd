@@ -1,16 +1,18 @@
 ---
 title: "Albuquerque Demographics"
-description: "Exploring census data with R"
-date: 2026-02-04
-categories: [GIS, R, Data Science]
+subtitle: "Exploring census data with R"
 format: 
   html:
     code-overflow: wrap
     toc: true
     toc-depth: 2
+  gfm: default
 execute: 
   freeze: auto
 number-sections: true
+theme: 
+  light: cosmo
+  dark: darkly
 ---
 
 ```{r setup, include=FALSE}
@@ -475,11 +477,11 @@ We can see that, in fact, only small portions of the tract are in each of the tw
 ```{r}
 age_sex_dist_sf <- age_sex_bern %>%
   split_dists() %>%
-  select(district, sex, agegroup, value = "new_value") %>%
+  select(geoid, district, sex, agegroup, value = "new_value") %>%
   mutate(agegroup = factor(agegroup, unique(agegroup)))
 
 age_sex_dist <- st_drop_geometry(age_sex_dist_sf) %>%
-  as.tibble()
+  as_tibble()
 ```
 
 :::
@@ -702,7 +704,7 @@ race_bern <-
 race_dist_sf <-
   race_bern %>%
   split_dists() %>%
-  select(district, hisp, race, value = "new_value") %>%
+  select(geoid, district, hisp, race, value = "new_value") %>%
   mutate(region = "Albuquerque")
 
 race_dist <- st_drop_geometry(race_dist_sf)
@@ -900,7 +902,7 @@ c(edu_us, edu_nm) %<-%
 
 edu_dist_sf <- edu_bern %>%
   split_dists() %>%
-  select(district, sex, education, value = "new_value") %>%
+  select(geoid, district, sex, education, value = "new_value") %>%
   mutate(region = "Albuquerque")
 
 edu_dist <- st_drop_geometry(edu_dist_sf)
@@ -1113,17 +1115,13 @@ I have many data sets that I want to save into two files for future use. For the
 
 ```{r}
 #| output: false
-walk(
-  list(
-    age_sex_us, edu_us, race_us,
-    age_sex_nm, edu_nm, race_nm
-  ),
-  \(df) save(df, file = "data/us_nm_demographics.rda")
-)
+save(age_sex_us, edu_us, race_us,
+    age_sex_nm, edu_nm, race_nm,
+    file = "data/us_nm_demographics.rda")
 
 data_sets <- c(
   "age_sex_bern", "edu_bern", "race_bern",
-  "age_sex_dist", "edu_dist", "race_dist", "council_dists"
+  "age_sex_dist_sf", "edu_dist_sf", "race_dist_sf", "council_dists"
 )
 
 walk2(
