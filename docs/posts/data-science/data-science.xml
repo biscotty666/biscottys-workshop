@@ -9,7 +9,7 @@
 <link>https://www.biscotty.net/posts/data-science/data-science.html</link>
 <atom:link href="https://www.biscotty.net/posts/data-science/data-science.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
-<generator>quarto-1.7.30</generator>
+<generator>quarto-1.7.34</generator>
 <lastBuildDate>Thu, 29 May 2025 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Nix for Data Scientists</title>
@@ -98,7 +98,7 @@
   <link>https://www.biscotty.net/posts/data-science/r-census/abq-demographics/</link>
   <description><![CDATA[ I am interested in the differences in economic conditions across different parts of Albuquerque. More specifically, I want to see how they vary between city council districts. Before doing so, I want to get a sense of the basic demographics of the city, both how they compare the the state and country, and how the districts compare demographically. To do so, I will access data from <a href="https://data.census.gov/all">census.gov</a> using the <code>tidycensus</code> package. I will need to get the district lines from a local government website and, since census tracts do not line up with council districts, the census data will need to be apportioned between the council districts. ]]></description>
   <guid>https://www.biscotty.net/posts/data-science/r-census/abq-demographics/</guid>
-  <pubDate>Sun, 15 Feb 2026 19:09:20 GMT</pubDate>
+  <pubDate>Wed, 18 Feb 2026 14:28:54 GMT</pubDate>
 </item>
 </channel>
 </rss>

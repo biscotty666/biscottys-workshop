@@ -9,7 +9,7 @@
 <link>https://www.biscotty.net/posts/posts.html</link>
 <atom:link href="https://www.biscotty.net/posts/posts.xml" rel="self" type="application/rss+xml"/>
 <description>For the love of learning</description>
-<generator>quarto-1.7.30</generator>
+<generator>quarto-1.7.34</generator>
 <lastBuildDate>Mon, 09 Jun 2025 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Shiso Fine</title>
@@ -9235,13 +9235,13 @@ font-style: inherit;">--to</span> Markdown your_notebook.ipynb</span></code></pr
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1">&lt;<span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">trkpt</span><span class="ot" style="color: #003B4F;
+font-style: inherit;">trkpt</span> <span class="ot" style="color: #003B4F;
 background-color: null;
-font-style: inherit;"> lat=</span><span class="st" style="color: #20794D;
+font-style: inherit;">lat=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"41.043858"</span><span class="ot" style="color: #003B4F;
+font-style: inherit;">"41.043858"</span> <span class="ot" style="color: #003B4F;
 background-color: null;
-font-style: inherit;"> lon=</span><span class="st" style="color: #20794D;
+font-style: inherit;">lon=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"-74.063712"</span>&gt;</span>
 <span id="cb1-2">    &lt;<span class="kw" style="color: #003B4F;

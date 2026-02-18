@@ -1180,25 +1180,183 @@ age_sex_compare %>%
 }
 </style>
 
-| <strong>Comparison of Agegroups</strong> |             |            |       |
-|------------------------------------------|-------------|------------|-------|
-|                                          |             |            |       |
-|                                          | Albuquerque | New Mexico | US    |
-| Under 5 years                            | 4.6%        | 4.7%       | 4.9%  |
-| 5 to 9 years                             | 4.6%        | 5.3%       | 5.3%  |
-| 10 to 14 years                           | 4.9%        | 5.6%       | 5.7%  |
-| 15 to 17 years                           | 2.9%        | 3.3%       | 3.5%  |
-| 18 and 19 years                          | 2.1%        | 2.3%       | 2.4%  |
-| 20 to 24 years                           | 5.7%        | 5.8%       | 6.0%  |
-| 25 to 29 years                           | 7.1%        | 6.0%       | 6.3%  |
-| 30 to 34 years                           | 7.3%        | 6.3%       | 6.5%  |
-| 35 to 44 years                           | 13.3%       | 12.0%      | 12.5% |
-| 45 to 54 years                           | 11.6%       | 11.0%      | 12.3% |
-| 55 to 64 years                           | 14.2%       | 14.0%      | 14.2% |
-| 65 to 74 years                           | 12.6%       | 14.0%      | 11.9% |
-| 75 to 84 years                           | 6.3%        | 7.1%       | 6.1%  |
-| 85 years and over                        | 2.8%        | 2.5%       | 2.4%  |
-| Source: census.gov, acs5, 2023           |             |            |       |
+<table class="gt_table" data-quarto-postprocess="true"
+style="table-layout:fixed;width:0px;"
+data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<th colspan="4"
+class="gt_heading gt_title gt_font_normal"><strong>Comparison of
+Agegroups</strong></th>
+</tr>
+<tr class="gt_heading">
+<th colspan="4"
+class="gt_heading gt_subtitle gt_font_normal gt_bottom_border"></th>
+</tr>
+<tr class="gt_col_headings">
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left"
+data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Albuquerque"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Albuquerque</th>
+<th id="New-Mexico"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">New Mexico</th>
+<th id="US" class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">US</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td id="stub_1_1" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">Under 5 years</td>
+<td class="gt_row gt_center" headers="stub_1_1 Albuquerque"
+style="background-color: #67001F; color: #FFFFFF">4.6%</td>
+<td class="gt_row gt_center" headers="stub_1_1 New Mexico"
+style="background-color: #F09B7A; color: #000000">4.7%</td>
+<td class="gt_row gt_center" headers="stub_1_1 US"
+style="background-color: #053061; color: #FFFFFF">4.9%</td>
+</tr>
+<tr>
+<td id="stub_1_2" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">5 to 9 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Albuquerque"
+style="background-color: #67001F; color: #FFFFFF">4.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 New Mexico"
+style="background-color: #053061; color: #FFFFFF">5.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 US"
+style="background-color: #053061; color: #FFFFFF">5.3%</td>
+</tr>
+<tr>
+<td id="stub_1_3" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">10 to 14 years</td>
+<td class="gt_row gt_center" headers="stub_1_3 Albuquerque"
+style="background-color: #67001F; color: #FFFFFF">4.9%</td>
+<td class="gt_row gt_center" headers="stub_1_3 New Mexico"
+style="background-color: #053061; color: #FFFFFF">5.6%</td>
+<td class="gt_row gt_center" headers="stub_1_3 US"
+style="background-color: #053061; color: #FFFFFF">5.7%</td>
+</tr>
+<tr>
+<td id="stub_1_4" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">15 to 17 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Albuquerque"
+style="background-color: #67001F; color: #FFFFFF">2.9%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 New Mexico"
+style="background-color: #88BEDA; color: #000000">3.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 US"
+style="background-color: #053061; color: #FFFFFF">3.5%</td>
+</tr>
+<tr>
+<td id="stub_1_5" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">18 and 19 years</td>
+<td class="gt_row gt_center" headers="stub_1_5 Albuquerque"
+style="background-color: #67001F; color: #FFFFFF">2.1%</td>
+<td class="gt_row gt_center" headers="stub_1_5 New Mexico"
+style="background-color: #DCEAF2; color: #000000">2.3%</td>
+<td class="gt_row gt_center" headers="stub_1_5 US"
+style="background-color: #053061; color: #FFFFFF">2.4%</td>
+</tr>
+<tr>
+<td id="stub_1_6" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">20 to 24 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Albuquerque"
+style="background-color: #67001F; color: #FFFFFF">5.7%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 New Mexico"
+style="background-color: #FCE3D5; color: #000000">5.8%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 US"
+style="background-color: #053061; color: #FFFFFF">6.0%</td>
+</tr>
+<tr>
+<td id="stub_1_7" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">25 to 29 years</td>
+<td class="gt_row gt_center" headers="stub_1_7 Albuquerque"
+style="background-color: #053061; color: #FFFFFF">7.1%</td>
+<td class="gt_row gt_center" headers="stub_1_7 New Mexico"
+style="background-color: #67001F; color: #FFFFFF">6.0%</td>
+<td class="gt_row gt_center" headers="stub_1_7 US"
+style="background-color: #F09B7A; color: #000000">6.3%</td>
+</tr>
+<tr>
+<td id="stub_1_8" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">30 to 34 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Albuquerque"
+style="background-color: #053061; color: #FFFFFF">7.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 New Mexico"
+style="background-color: #67001F; color: #FFFFFF">6.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 US"
+style="background-color: #C23C39; color: #FFFFFF">6.5%</td>
+</tr>
+<tr>
+<td id="stub_1_9" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">35 to 44 years</td>
+<td class="gt_row gt_center" headers="stub_1_9 Albuquerque"
+style="background-color: #053061; color: #FFFFFF">13.3%</td>
+<td class="gt_row gt_center" headers="stub_1_9 New Mexico"
+style="background-color: #67001F; color: #FFFFFF">12.0%</td>
+<td class="gt_row gt_center" headers="stub_1_9 US"
+style="background-color: #FCE3D5; color: #000000">12.5%</td>
+</tr>
+<tr>
+<td id="stub_1_10" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">45 to 54 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Albuquerque"
+style="background-color: #FCE3D5; color: #000000">11.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 New Mexico"
+style="background-color: #67001F; color: #FFFFFF">11.0%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 US"
+style="background-color: #053061; color: #FFFFFF">12.3%</td>
+</tr>
+<tr>
+<td id="stub_1_11" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">55 to 64 years</td>
+<td class="gt_row gt_center" headers="stub_1_11 Albuquerque"
+style="background-color: #3279B6; color: #FFFFFF">14.2%</td>
+<td class="gt_row gt_center" headers="stub_1_11 New Mexico"
+style="background-color: #67001F; color: #FFFFFF">14.0%</td>
+<td class="gt_row gt_center" headers="stub_1_11 US"
+style="background-color: #053061; color: #FFFFFF">14.2%</td>
+</tr>
+<tr>
+<td id="stub_1_12" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">65 to 74 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Albuquerque"
+style="background-color: #F09B7A; color: #000000">12.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 New Mexico"
+style="background-color: #053061; color: #FFFFFF">14.0%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 US"
+style="background-color: #67001F; color: #FFFFFF">11.9%</td>
+</tr>
+<tr>
+<td id="stub_1_13" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">75 to 84 years</td>
+<td class="gt_row gt_center" headers="stub_1_13 Albuquerque"
+style="background-color: #C23C39; color: #FFFFFF">6.3%</td>
+<td class="gt_row gt_center" headers="stub_1_13 New Mexico"
+style="background-color: #053061; color: #FFFFFF">7.1%</td>
+<td class="gt_row gt_center" headers="stub_1_13 US"
+style="background-color: #67001F; color: #FFFFFF">6.1%</td>
+</tr>
+<tr>
+<td id="stub_1_14" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">85 years and over</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Albuquerque"
+style="background-color: #053061; color: #FFFFFF">2.8%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 New Mexico"
+style="background-color: #F09B7A; color: #000000">2.5%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 US"
+style="background-color: #67001F; color: #FFFFFF">2.4%</td>
+</tr>
+</tbody><tfoot class="gt_sourcenotes">
+<tr>
+<td colspan="4" class="gt_sourcenote" style="text-align: right;">Source:
+census.gov, acs5, 2023</td>
+</tr>
+</tfoot>
+&#10;</table>
 
 </div>
 
@@ -1624,25 +1782,376 @@ age_sex_dist %>%
 }
 </style>
 
-| <strong>Comparison of Agegroups</strong> |  |  |  |  |  |  |  |  |  |
-|----|----|----|----|----|----|----|----|----|----|
-| Percent by District |  |  |  |  |  |  |  |  |  |
-|  | Dist 1 | Dist 2 | Dist 3 | Dist 4 | Dist 5 | Dist 6 | Dist 7 | Dist 8 | Dist 9 |
-| Under 5 years | 5.3% | 4.7% | 6.9% | 4.1% | 3.8% | 4.2% | 5.8% | 3.7% | 4.2% |
-| 5 to 9 years | 5.7% | 2.8% | 8.0% | 3.8% | 6.3% | 4.4% | 3.8% | 4.0% | 4.4% |
-| 10 to 14 years | 6.0% | 4.5% | 9.3% | 4.7% | 5.8% | 3.5% | 3.9% | 4.0% | 4.7% |
-| 15 to 17 years | 2.9% | 3.6% | 4.8% | 2.7% | 4.9% | 2.1% | 1.5% | 2.6% | 2.1% |
-| 18 and 19 years | 1.7% | 2.8% | 3.7% | 1.2% | 2.0% | 3.9% | 1.9% | 1.4% | 1.7% |
-| 20 to 24 years | 4.3% | 6.5% | 6.0% | 5.4% | 4.7% | 8.9% | 6.7% | 4.0% | 5.4% |
-| 25 to 29 years | 6.9% | 8.4% | 7.8% | 5.1% | 6.8% | 8.1% | 7.5% | 7.2% | 7.0% |
-| 30 to 34 years | 7.3% | 6.9% | 7.8% | 5.1% | 7.6% | 8.4% | 8.0% | 7.0% | 7.6% |
-| 35 to 44 years | 14.5% | 11.8% | 16.7% | 12.9% | 14.3% | 11.8% | 12.3% | 13.6% | 13.0% |
-| 45 to 54 years | 10.3% | 11.5% | 11.2% | 12.0% | 13.1% | 9.5% | 12.6% | 10.6% | 12.9% |
-| 55 to 64 years | 13.7% | 15.1% | 8.7% | 16.7% | 12.2% | 14.0% | 14.8% | 15.8% | 13.7% |
-| 65 to 74 years | 14.0% | 13.2% | 7.0% | 14.5% | 10.4% | 12.8% | 12.2% | 13.4% | 13.3% |
-| 75 to 84 years | 5.3% | 6.3% | 1.5% | 7.9% | 6.3% | 5.4% | 6.2% | 8.1% | 6.7% |
-| 85 years and over | 2.1% | 1.9% | 0.6% | 3.9% | 1.8% | 3.0% | 2.7% | 4.6% | 3.2% |
-| Source: census.gov, acs5, 2023 |  |  |  |  |  |  |  |  |  |
+<table class="gt_table" data-quarto-postprocess="true"
+data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<th colspan="10"
+class="gt_heading gt_title gt_font_normal"><strong>Comparison of
+Agegroups</strong></th>
+</tr>
+<tr class="gt_heading">
+<th colspan="10"
+class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Percent
+by District</th>
+</tr>
+<tr class="gt_col_headings">
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left"
+data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Dist-1"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 1</th>
+<th id="Dist-2"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 2</th>
+<th id="Dist-3"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 3</th>
+<th id="Dist-4"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 4</th>
+<th id="Dist-5"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 5</th>
+<th id="Dist-6"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 6</th>
+<th id="Dist-7"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 7</th>
+<th id="Dist-8"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 8</th>
+<th id="Dist-9"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 9</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td id="stub_1_1" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">Under 5 years</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 1"
+style="background-color: #FCE3D5; color: #000000">5.3%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 2"
+style="background-color: #F09B7A; color: #000000">4.7%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 3"
+style="background-color: #053061; color: #FFFFFF">6.9%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 4"
+style="background-color: #67001F; color: #FFFFFF">4.1%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 5"
+style="background-color: #67001F; color: #FFFFFF">3.8%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 6"
+style="background-color: #C23C39; color: #FFFFFF">4.2%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 7"
+style="background-color: #88BEDA; color: #000000">5.8%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 8"
+style="background-color: #67001F; color: #FFFFFF">3.7%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 9"
+style="background-color: #C23C39; color: #FFFFFF">4.2%</td>
+</tr>
+<tr>
+<td id="stub_1_2" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">5 to 9 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 1"
+style="background-color: #DCEAF2; color: #000000">5.7%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 2"
+style="background-color: #67001F; color: #FFFFFF">2.8%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 3"
+style="background-color: #053061; color: #FFFFFF">8.0%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 4"
+style="background-color: #C23C39; color: #FFFFFF">3.8%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 5"
+style="background-color: #88BEDA; color: #000000">6.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 6"
+style="background-color: #F09B7A; color: #000000">4.4%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 7"
+style="background-color: #C23C39; color: #FFFFFF">3.8%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 8"
+style="background-color: #C23C39; color: #FFFFFF">4.0%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 9"
+style="background-color: #F09B7A; color: #000000">4.4%</td>
+</tr>
+<tr>
+<td id="stub_1_3" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">10 to 14 years</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 1"
+style="background-color: #FCE3D5; color: #000000">6.0%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 2"
+style="background-color: #C23C39; color: #FFFFFF">4.5%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 3"
+style="background-color: #053061; color: #FFFFFF">9.3%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 4"
+style="background-color: #C23C39; color: #FFFFFF">4.7%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 5"
+style="background-color: #FCE3D5; color: #000000">5.8%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 6"
+style="background-color: #67001F; color: #FFFFFF">3.5%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 7"
+style="background-color: #67001F; color: #FFFFFF">3.9%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 8"
+style="background-color: #67001F; color: #FFFFFF">4.0%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 9"
+style="background-color: #C23C39; color: #FFFFFF">4.7%</td>
+</tr>
+<tr>
+<td id="stub_1_4" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">15 to 17 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 1"
+style="background-color: #FCE3D5; color: #000000">2.9%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 2"
+style="background-color: #DCEAF2; color: #000000">3.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 3"
+style="background-color: #053061; color: #FFFFFF">4.8%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 4"
+style="background-color: #F09B7A; color: #000000">2.7%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 5"
+style="background-color: #053061; color: #FFFFFF">4.9%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 6"
+style="background-color: #C23C39; color: #FFFFFF">2.1%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 7"
+style="background-color: #67001F; color: #FFFFFF">1.5%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 8"
+style="background-color: #F09B7A; color: #000000">2.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 9"
+style="background-color: #C23C39; color: #FFFFFF">2.1%</td>
+</tr>
+<tr>
+<td id="stub_1_5" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">18 and 19 years</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 1"
+style="background-color: #C23C39; color: #FFFFFF">1.7%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 2"
+style="background-color: #DCEAF2; color: #000000">2.8%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 3"
+style="background-color: #053061; color: #FFFFFF">3.7%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 4"
+style="background-color: #67001F; color: #FFFFFF">1.2%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 5"
+style="background-color: #F09B7A; color: #000000">2.0%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 6"
+style="background-color: #053061; color: #FFFFFF">3.9%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 7"
+style="background-color: #F09B7A; color: #000000">1.9%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 8"
+style="background-color: #67001F; color: #FFFFFF">1.4%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 9"
+style="background-color: #C23C39; color: #FFFFFF">1.7%</td>
+</tr>
+<tr>
+<td id="stub_1_6" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">20 to 24 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 1"
+style="background-color: #67001F; color: #FFFFFF">4.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 2"
+style="background-color: #DCEAF2; color: #000000">6.5%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 3"
+style="background-color: #FCE3D5; color: #000000">6.0%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 4"
+style="background-color: #F09B7A; color: #000000">5.4%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 5"
+style="background-color: #C23C39; color: #FFFFFF">4.7%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 6"
+style="background-color: #053061; color: #FFFFFF">8.9%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 7"
+style="background-color: #DCEAF2; color: #000000">6.7%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 8"
+style="background-color: #67001F; color: #FFFFFF">4.0%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 9"
+style="background-color: #F09B7A; color: #000000">5.4%</td>
+</tr>
+<tr>
+<td id="stub_1_7" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">25 to 29 years</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 1"
+style="background-color: #DCEAF2; color: #000000">6.9%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 2"
+style="background-color: #053061; color: #FFFFFF">8.4%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 3"
+style="background-color: #3279B6; color: #FFFFFF">7.8%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 4"
+style="background-color: #67001F; color: #FFFFFF">5.1%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 5"
+style="background-color: #DCEAF2; color: #000000">6.8%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 6"
+style="background-color: #053061; color: #FFFFFF">8.1%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 7"
+style="background-color: #88BEDA; color: #000000">7.5%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 8"
+style="background-color: #88BEDA; color: #000000">7.2%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 9"
+style="background-color: #DCEAF2; color: #000000">7.0%</td>
+</tr>
+<tr>
+<td id="stub_1_8" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">30 to 34 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 1"
+style="background-color: #88BEDA; color: #000000">7.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 2"
+style="background-color: #DCEAF2; color: #000000">6.9%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 3"
+style="background-color: #3279B6; color: #FFFFFF">7.8%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 4"
+style="background-color: #67001F; color: #FFFFFF">5.1%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 5"
+style="background-color: #88BEDA; color: #000000">7.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 6"
+style="background-color: #053061; color: #FFFFFF">8.4%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 7"
+style="background-color: #3279B6; color: #FFFFFF">8.0%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 8"
+style="background-color: #DCEAF2; color: #000000">7.0%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 9"
+style="background-color: #3279B6; color: #FFFFFF">7.6%</td>
+</tr>
+<tr>
+<td id="stub_1_9" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">35 to 44 years</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 1"
+style="background-color: #DCEAF2; color: #000000">14.5%</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 2"
+style="background-color: #67001F; color: #FFFFFF">11.8%</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 3"
+style="background-color: #053061; color: #FFFFFF">16.7%</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 4"
+style="background-color: #C23C39; color: #FFFFFF">12.9%</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 5"
+style="background-color: #DCEAF2; color: #000000">14.3%</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 6"
+style="background-color: #67001F; color: #FFFFFF">11.8%</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 7"
+style="background-color: #67001F; color: #FFFFFF">12.3%</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 8"
+style="background-color: #F09B7A; color: #000000">13.6%</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 9"
+style="background-color: #F09B7A; color: #000000">13.0%</td>
+</tr>
+<tr>
+<td id="stub_1_10" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">45 to 54 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 1"
+style="background-color: #C23C39; color: #FFFFFF">10.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 2"
+style="background-color: #DCEAF2; color: #000000">11.5%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 3"
+style="background-color: #FCE3D5; color: #000000">11.2%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 4"
+style="background-color: #88BEDA; color: #000000">12.0%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 5"
+style="background-color: #053061; color: #FFFFFF">13.1%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 6"
+style="background-color: #67001F; color: #FFFFFF">9.5%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 7"
+style="background-color: #053061; color: #FFFFFF">12.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 8"
+style="background-color: #F09B7A; color: #000000">10.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 9"
+style="background-color: #053061; color: #FFFFFF">12.9%</td>
+</tr>
+<tr>
+<td id="stub_1_11" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">55 to 64 years</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 1"
+style="background-color: #DCEAF2; color: #000000">13.7%</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 2"
+style="background-color: #3279B6; color: #FFFFFF">15.1%</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">8.7%</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 4"
+style="background-color: #053061; color: #FFFFFF">16.7%</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 5"
+style="background-color: #FCE3D5; color: #000000">12.2%</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 6"
+style="background-color: #88BEDA; color: #000000">14.0%</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 7"
+style="background-color: #3279B6; color: #FFFFFF">14.8%</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 8"
+style="background-color: #053061; color: #FFFFFF">15.8%</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 9"
+style="background-color: #88BEDA; color: #000000">13.7%</td>
+</tr>
+<tr>
+<td id="stub_1_12" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">65 to 74 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 1"
+style="background-color: #053061; color: #FFFFFF">14.0%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 2"
+style="background-color: #3279B6; color: #FFFFFF">13.2%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">7.0%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 4"
+style="background-color: #053061; color: #FFFFFF">14.5%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 5"
+style="background-color: #FCE3D5; color: #000000">10.4%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 6"
+style="background-color: #3279B6; color: #FFFFFF">12.8%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 7"
+style="background-color: #88BEDA; color: #000000">12.2%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 8"
+style="background-color: #3279B6; color: #FFFFFF">13.4%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 9"
+style="background-color: #3279B6; color: #FFFFFF">13.3%</td>
+</tr>
+<tr>
+<td id="stub_1_13" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">75 to 84 years</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 1"
+style="background-color: #DCEAF2; color: #000000">5.3%</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 2"
+style="background-color: #88BEDA; color: #000000">6.3%</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">1.5%</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 4"
+style="background-color: #053061; color: #FFFFFF">7.9%</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 5"
+style="background-color: #88BEDA; color: #000000">6.3%</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 6"
+style="background-color: #DCEAF2; color: #000000">5.4%</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 7"
+style="background-color: #88BEDA; color: #000000">6.2%</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 8"
+style="background-color: #053061; color: #FFFFFF">8.1%</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 9"
+style="background-color: #3279B6; color: #FFFFFF">6.7%</td>
+</tr>
+<tr>
+<td id="stub_1_14" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">85 years and over</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 1"
+style="background-color: #F09B7A; color: #000000">2.1%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 2"
+style="background-color: #F09B7A; color: #000000">1.9%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">0.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 4"
+style="background-color: #3279B6; color: #FFFFFF">3.9%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 5"
+style="background-color: #F09B7A; color: #000000">1.8%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 6"
+style="background-color: #DCEAF2; color: #000000">3.0%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 7"
+style="background-color: #DCEAF2; color: #000000">2.7%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 8"
+style="background-color: #053061; color: #FFFFFF">4.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 9"
+style="background-color: #88BEDA; color: #000000">3.2%</td>
+</tr>
+</tbody><tfoot class="gt_sourcenotes">
+<tr>
+<td colspan="10" class="gt_sourcenote"
+style="text-align: right;">Source: census.gov, acs5, 2023</td>
+</tr>
+</tfoot>
+&#10;</table>
 
 </div>
 
@@ -2076,25 +2585,376 @@ age_sex_dist %>%
 }
 </style>
 
-| <strong>Comparison of Agegroups</strong> |  |  |  |  |  |  |  |  |  |
-|----|----|----|----|----|----|----|----|----|----|
-| Population totals |  |  |  |  |  |  |  |  |  |
-|  | Dist 1 | Dist 2 | Dist 3 | Dist 4 | Dist 5 | Dist 6 | Dist 7 | Dist 8 | Dist 9 |
-| Under 5 years | 1,507 | 1,311 | 1,296 | 1,437 | 1,409 | 1,392 | 2,286 | 1,450 | 1,505 |
-| 5 to 9 years | 1,642 | 780 | 1,488 | 1,350 | 2,313 | 1,441 | 1,509 | 1,530 | 1,583 |
-| 10 to 14 years | 1,714 | 1,279 | 1,744 | 1,665 | 2,163 | 1,155 | 1,524 | 1,534 | 1,687 |
-| 15 to 17 years | 817 | 1,022 | 898 | 953 | 1,817 | 703 | 598 | 1,020 | 735 |
-| 18 and 19 years | 498 | 781 | 690 | 415 | 744 | 1,268 | 748 | 558 | 613 |
-| 20 to 24 years | 1,242 | 1,822 | 1,121 | 1,878 | 1,726 | 2,915 | 2,644 | 1,561 | 1,921 |
-| 25 to 29 years | 1,980 | 2,364 | 1,453 | 1,806 | 2,530 | 2,655 | 2,954 | 2,780 | 2,492 |
-| 30 to 34 years | 2,094 | 1,929 | 1,465 | 1,802 | 2,803 | 2,771 | 3,153 | 2,697 | 2,726 |
-| 35 to 44 years | 4,158 | 3,325 | 3,118 | 4,511 | 5,274 | 3,880 | 4,838 | 5,265 | 4,648 |
-| 45 to 54 years | 2,936 | 3,247 | 2,096 | 4,214 | 4,840 | 3,102 | 4,973 | 4,110 | 4,585 |
-| 55 to 64 years | 3,908 | 4,258 | 1,625 | 5,849 | 4,522 | 4,593 | 5,820 | 6,106 | 4,885 |
-| 65 to 74 years | 4,007 | 3,715 | 1,302 | 5,077 | 3,864 | 4,192 | 4,786 | 5,173 | 4,749 |
-| 75 to 84 years | 1,514 | 1,784 | 279 | 2,756 | 2,316 | 1,766 | 2,429 | 3,132 | 2,383 |
-| 85 years and over | 596 | 522 | 116 | 1,363 | 658 | 992 | 1,052 | 1,782 | 1,145 |
-| Source: census.gov, acs5, 2023 |  |  |  |  |  |  |  |  |  |
+<table class="gt_table" data-quarto-postprocess="true"
+data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<th colspan="10"
+class="gt_heading gt_title gt_font_normal"><strong>Comparison of
+Agegroups</strong></th>
+</tr>
+<tr class="gt_heading">
+<th colspan="10"
+class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Population
+totals</th>
+</tr>
+<tr class="gt_col_headings">
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left"
+data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Dist-1"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 1</th>
+<th id="Dist-2"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 2</th>
+<th id="Dist-3"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 3</th>
+<th id="Dist-4"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 4</th>
+<th id="Dist-5"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 5</th>
+<th id="Dist-6"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 6</th>
+<th id="Dist-7"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 7</th>
+<th id="Dist-8"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 8</th>
+<th id="Dist-9"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 9</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td id="stub_1_1" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">Under 5 years</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 1"
+style="background-color: #C23C39; color: #FFFFFF">1,507</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 2"
+style="background-color: #67001F; color: #FFFFFF">1,311</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">1,296</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 4"
+style="background-color: #C23C39; color: #FFFFFF">1,437</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 5"
+style="background-color: #67001F; color: #FFFFFF">1,409</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 6"
+style="background-color: #67001F; color: #FFFFFF">1,392</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 7"
+style="background-color: #053061; color: #FFFFFF">2,286</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 8"
+style="background-color: #C23C39; color: #FFFFFF">1,450</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 9"
+style="background-color: #C23C39; color: #FFFFFF">1,505</td>
+</tr>
+<tr>
+<td id="stub_1_2" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">5 to 9 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 1"
+style="background-color: #DCEAF2; color: #000000">1,642</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 2"
+style="background-color: #67001F; color: #FFFFFF">780</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 3"
+style="background-color: #FCE3D5; color: #000000">1,488</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 4"
+style="background-color: #F09B7A; color: #000000">1,350</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 5"
+style="background-color: #053061; color: #FFFFFF">2,313</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 6"
+style="background-color: #FCE3D5; color: #000000">1,441</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 7"
+style="background-color: #FCE3D5; color: #000000">1,509</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 8"
+style="background-color: #FCE3D5; color: #000000">1,530</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 9"
+style="background-color: #DCEAF2; color: #000000">1,583</td>
+</tr>
+<tr>
+<td id="stub_1_3" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">10 to 14 years</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 1"
+style="background-color: #DCEAF2; color: #000000">1,714</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 2"
+style="background-color: #67001F; color: #FFFFFF">1,279</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 3"
+style="background-color: #DCEAF2; color: #000000">1,744</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 4"
+style="background-color: #DCEAF2; color: #000000">1,665</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 5"
+style="background-color: #053061; color: #FFFFFF">2,163</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 6"
+style="background-color: #67001F; color: #FFFFFF">1,155</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 7"
+style="background-color: #F09B7A; color: #000000">1,524</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 8"
+style="background-color: #FCE3D5; color: #000000">1,534</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 9"
+style="background-color: #DCEAF2; color: #000000">1,687</td>
+</tr>
+<tr>
+<td id="stub_1_4" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">15 to 17 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 1"
+style="background-color: #C23C39; color: #FFFFFF">817</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 2"
+style="background-color: #F09B7A; color: #000000">1,022</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 3"
+style="background-color: #C23C39; color: #FFFFFF">898</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 4"
+style="background-color: #F09B7A; color: #000000">953</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 5"
+style="background-color: #053061; color: #FFFFFF">1,817</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 6"
+style="background-color: #67001F; color: #FFFFFF">703</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 7"
+style="background-color: #67001F; color: #FFFFFF">598</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 8"
+style="background-color: #F09B7A; color: #000000">1,020</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 9"
+style="background-color: #67001F; color: #FFFFFF">735</td>
+</tr>
+<tr>
+<td id="stub_1_5" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">18 and 19 years</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 1"
+style="background-color: #67001F; color: #FFFFFF">498</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 2"
+style="background-color: #FCE3D5; color: #000000">781</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 3"
+style="background-color: #F09B7A; color: #000000">690</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 4"
+style="background-color: #67001F; color: #FFFFFF">415</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 5"
+style="background-color: #FCE3D5; color: #000000">744</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 6"
+style="background-color: #053061; color: #FFFFFF">1,268</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 7"
+style="background-color: #FCE3D5; color: #000000">748</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 8"
+style="background-color: #C23C39; color: #FFFFFF">558</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 9"
+style="background-color: #C23C39; color: #FFFFFF">613</td>
+</tr>
+<tr>
+<td id="stub_1_6" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">20 to 24 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 1"
+style="background-color: #67001F; color: #FFFFFF">1,242</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 2"
+style="background-color: #FCE3D5; color: #000000">1,822</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">1,121</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 4"
+style="background-color: #FCE3D5; color: #000000">1,878</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 5"
+style="background-color: #F09B7A; color: #000000">1,726</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 6"
+style="background-color: #053061; color: #FFFFFF">2,915</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 7"
+style="background-color: #3279B6; color: #FFFFFF">2,644</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 8"
+style="background-color: #C23C39; color: #FFFFFF">1,561</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 9"
+style="background-color: #FCE3D5; color: #000000">1,921</td>
+</tr>
+<tr>
+<td id="stub_1_7" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">25 to 29 years</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 1"
+style="background-color: #F09B7A; color: #000000">1,980</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 2"
+style="background-color: #DCEAF2; color: #000000">2,364</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">1,453</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 4"
+style="background-color: #C23C39; color: #FFFFFF">1,806</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 5"
+style="background-color: #88BEDA; color: #000000">2,530</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 6"
+style="background-color: #3279B6; color: #FFFFFF">2,655</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 7"
+style="background-color: #053061; color: #FFFFFF">2,954</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 8"
+style="background-color: #053061; color: #FFFFFF">2,780</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 9"
+style="background-color: #88BEDA; color: #000000">2,492</td>
+</tr>
+<tr>
+<td id="stub_1_8" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">30 to 34 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 1"
+style="background-color: #F09B7A; color: #000000">2,094</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 2"
+style="background-color: #F09B7A; color: #000000">1,929</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">1,465</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 4"
+style="background-color: #C23C39; color: #FFFFFF">1,802</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 5"
+style="background-color: #3279B6; color: #FFFFFF">2,803</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 6"
+style="background-color: #3279B6; color: #FFFFFF">2,771</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 7"
+style="background-color: #053061; color: #FFFFFF">3,153</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 8"
+style="background-color: #88BEDA; color: #000000">2,697</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_8 Dist 9"
+style="background-color: #88BEDA; color: #000000">2,726</td>
+</tr>
+<tr>
+<td id="stub_1_9" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">35 to 44 years</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 1"
+style="background-color: #FCE3D5; color: #000000">4,158</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 2"
+style="background-color: #67001F; color: #FFFFFF">3,325</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">3,118</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 4"
+style="background-color: #88BEDA; color: #000000">4,511</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 5"
+style="background-color: #053061; color: #FFFFFF">5,274</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 6"
+style="background-color: #F09B7A; color: #000000">3,880</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 7"
+style="background-color: #3279B6; color: #FFFFFF">4,838</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 8"
+style="background-color: #053061; color: #FFFFFF">5,265</td>
+<td class="gt_row gt_center" headers="stub_1_9 Dist 9"
+style="background-color: #88BEDA; color: #000000">4,648</td>
+</tr>
+<tr>
+<td id="stub_1_10" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">45 to 54 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 1"
+style="background-color: #F09B7A; color: #000000">2,936</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 2"
+style="background-color: #FCE3D5; color: #000000">3,247</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">2,096</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 4"
+style="background-color: #88BEDA; color: #000000">4,214</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 5"
+style="background-color: #053061; color: #FFFFFF">4,840</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 6"
+style="background-color: #F09B7A; color: #000000">3,102</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 7"
+style="background-color: #053061; color: #FFFFFF">4,973</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 8"
+style="background-color: #88BEDA; color: #000000">4,110</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_10 Dist 9"
+style="background-color: #3279B6; color: #FFFFFF">4,585</td>
+</tr>
+<tr>
+<td id="stub_1_11" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">55 to 64 years</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 1"
+style="background-color: #DCEAF2; color: #000000">3,908</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 2"
+style="background-color: #DCEAF2; color: #000000">4,258</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">1,625</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 4"
+style="background-color: #053061; color: #FFFFFF">5,849</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 5"
+style="background-color: #88BEDA; color: #000000">4,522</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 6"
+style="background-color: #88BEDA; color: #000000">4,593</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 7"
+style="background-color: #053061; color: #FFFFFF">5,820</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 8"
+style="background-color: #053061; color: #FFFFFF">6,106</td>
+<td class="gt_row gt_center" headers="stub_1_11 Dist 9"
+style="background-color: #88BEDA; color: #000000">4,885</td>
+</tr>
+<tr>
+<td id="stub_1_12" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">65 to 74 years</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 1"
+style="background-color: #88BEDA; color: #000000">4,007</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 2"
+style="background-color: #DCEAF2; color: #000000">3,715</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">1,302</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 4"
+style="background-color: #053061; color: #FFFFFF">5,077</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 5"
+style="background-color: #88BEDA; color: #000000">3,864</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 6"
+style="background-color: #88BEDA; color: #000000">4,192</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 7"
+style="background-color: #053061; color: #FFFFFF">4,786</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 8"
+style="background-color: #053061; color: #FFFFFF">5,173</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_12 Dist 9"
+style="background-color: #053061; color: #FFFFFF">4,749</td>
+</tr>
+<tr>
+<td id="stub_1_13" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">75 to 84 years</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 1"
+style="background-color: #FCE3D5; color: #000000">1,514</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 2"
+style="background-color: #DCEAF2; color: #000000">1,784</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">279</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 4"
+style="background-color: #3279B6; color: #FFFFFF">2,756</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 5"
+style="background-color: #88BEDA; color: #000000">2,316</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 6"
+style="background-color: #DCEAF2; color: #000000">1,766</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 7"
+style="background-color: #3279B6; color: #FFFFFF">2,429</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 8"
+style="background-color: #053061; color: #FFFFFF">3,132</td>
+<td class="gt_row gt_center" headers="stub_1_13 Dist 9"
+style="background-color: #88BEDA; color: #000000">2,383</td>
+</tr>
+<tr>
+<td id="stub_1_14" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">85 years and over</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 1"
+style="background-color: #F09B7A; color: #000000">596</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 2"
+style="background-color: #C23C39; color: #FFFFFF">522</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">116</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 4"
+style="background-color: #88BEDA; color: #000000">1,363</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 5"
+style="background-color: #F09B7A; color: #000000">658</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 6"
+style="background-color: #DCEAF2; color: #000000">992</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 7"
+style="background-color: #DCEAF2; color: #000000">1,052</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 8"
+style="background-color: #053061; color: #FFFFFF">1,782</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_14 Dist 9"
+style="background-color: #DCEAF2; color: #000000">1,145</td>
+</tr>
+</tbody><tfoot class="gt_sourcenotes">
+<tr>
+<td colspan="10" class="gt_sourcenote"
+style="text-align: right;">Source: census.gov, acs5, 2023</td>
+</tr>
+</tfoot>
+&#10;</table>
 
 </div>
 
@@ -2938,18 +3798,115 @@ edu_compare_table %>%
 }
 </style>
 
-| <strong>Comparison of Educational Attainment</strong> |  |  |  |
-|----|----|----|----|
-| Age 25 or older |  |  |  |
-|  | Albuquerque | New Mexico | US |
-| No HS Diploma | 9.2% | 12.3% | 10.6% |
-| High school graduate | 43.4% | 48.3% | 45.6% |
-| Associate's degree | 9.3% | 9.2% | 8.8% |
-| Bachelor's degree | 20.7% | 16.6% | 21.3% |
-| Master's degree | 11.9% | 9.6% | 9.8% |
-| Professional school degree | 2.7% | 2.0% | 2.3% |
-| Doctorate degree | 2.8% | 2.1% | 1.6% |
-| Source: census.gov, acs5, 2023 |  |  |  |
+<table class="gt_table" data-quarto-postprocess="true"
+style="table-layout:fixed;width:0px;"
+data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<th colspan="4"
+class="gt_heading gt_title gt_font_normal"><strong>Comparison of
+Educational Attainment</strong></th>
+</tr>
+<tr class="gt_heading">
+<th colspan="4"
+class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Age 25 or
+older</th>
+</tr>
+<tr class="gt_col_headings">
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left"
+data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Albuquerque"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Albuquerque</th>
+<th id="New-Mexico"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">New Mexico</th>
+<th id="US" class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">US</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td id="stub_1_1" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">No HS Diploma</td>
+<td class="gt_row gt_center" headers="stub_1_1 Albuquerque"
+style="background-color: #67001F; color: #FFFFFF">9.2%</td>
+<td class="gt_row gt_center" headers="stub_1_1 New Mexico"
+style="background-color: #053061; color: #FFFFFF">12.3%</td>
+<td class="gt_row gt_center" headers="stub_1_1 US"
+style="background-color: #FCE3D5; color: #000000">10.6%</td>
+</tr>
+<tr>
+<td id="stub_1_2" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">High school graduate</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Albuquerque"
+style="background-color: #67001F; color: #FFFFFF">43.4%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 New Mexico"
+style="background-color: #053061; color: #FFFFFF">48.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 US"
+style="background-color: #FCE3D5; color: #000000">45.6%</td>
+</tr>
+<tr>
+<td id="stub_1_3" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">Associate's degree</td>
+<td class="gt_row gt_center" headers="stub_1_3 Albuquerque"
+style="background-color: #053061; color: #FFFFFF">9.3%</td>
+<td class="gt_row gt_center" headers="stub_1_3 New Mexico"
+style="background-color: #3279B6; color: #FFFFFF">9.2%</td>
+<td class="gt_row gt_center" headers="stub_1_3 US"
+style="background-color: #67001F; color: #FFFFFF">8.8%</td>
+</tr>
+<tr>
+<td id="stub_1_4" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">Bachelor's degree</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Albuquerque"
+style="background-color: #053061; color: #FFFFFF">20.7%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 New Mexico"
+style="background-color: #67001F; color: #FFFFFF">16.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 US"
+style="background-color: #053061; color: #FFFFFF">21.3%</td>
+</tr>
+<tr>
+<td id="stub_1_5" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">Master's degree</td>
+<td class="gt_row gt_center" headers="stub_1_5 Albuquerque"
+style="background-color: #053061; color: #FFFFFF">11.9%</td>
+<td class="gt_row gt_center" headers="stub_1_5 New Mexico"
+style="background-color: #67001F; color: #FFFFFF">9.6%</td>
+<td class="gt_row gt_center" headers="stub_1_5 US"
+style="background-color: #67001F; color: #FFFFFF">9.8%</td>
+</tr>
+<tr>
+<td id="stub_1_6" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">Professional school
+degree</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Albuquerque"
+style="background-color: #053061; color: #FFFFFF">2.7%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 New Mexico"
+style="background-color: #67001F; color: #FFFFFF">2.0%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 US"
+style="background-color: #FCE3D5; color: #000000">2.3%</td>
+</tr>
+<tr>
+<td id="stub_1_7" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">Doctorate degree</td>
+<td class="gt_row gt_center" headers="stub_1_7 Albuquerque"
+style="background-color: #053061; color: #FFFFFF">2.8%</td>
+<td class="gt_row gt_center" headers="stub_1_7 New Mexico"
+style="background-color: #F09B7A; color: #000000">2.1%</td>
+<td class="gt_row gt_center" headers="stub_1_7 US"
+style="background-color: #67001F; color: #FFFFFF">1.6%</td>
+</tr>
+</tbody><tfoot class="gt_sourcenotes">
+<tr>
+<td colspan="4" class="gt_sourcenote" style="text-align: right;">Source:
+census.gov, acs5, 2023</td>
+</tr>
+</tfoot>
+&#10;</table>
 
 </div>
 
@@ -3441,18 +4398,223 @@ edu_dist_table %>%
 }
 </style>
 
-| <strong>Comparison of Educational Attainment</strong> |  |  |  |  |  |  |  |  |  |
-|----|----|----|----|----|----|----|----|----|----|
-| Age 25 or older |  |  |  |  |  |  |  |  |  |
-|  | Dist 1 | Dist 2 | Dist 3 | Dist 4 | Dist 5 | Dist 6 | Dist 7 | Dist 8 | Dist 9 |
-| No HS Diploma | 8.9% | 13.2% | 19.1% | 6.2% | 4.8% | 14.9% | 7.3% | 2.9% | 8.2% |
-| High school graduate | 47.5% | 42.8% | 57.6% | 38.3% | 42.3% | 42.6% | 45.6% | 33.4% | 43.7% |
-| Associate's degree | 9.6% | 6.6% | 10.3% | 7.6% | 11.8% | 6.9% | 9.3% | 10.3% | 11.7% |
-| Bachelor's degree | 20.5% | 20.9% | 9.1% | 24.3% | 24.4% | 18.7% | 18.9% | 27.3% | 19.8% |
-| Master's degree | 9.9% | 10.9% | 3.3% | 15.5% | 13.0% | 11.0% | 13.1% | 16.8% | 11.3% |
-| Professional school degree | 1.9% | 3.1% | 0.2% | 4.3% | 1.8% | 2.4% | 2.8% | 4.4% | 2.6% |
-| Doctorate degree | 1.8% | 2.5% | 0.4% | 3.8% | 1.9% | 3.6% | 3.1% | 5.1% | 2.7% |
-| Source: census.gov, acs5, 2023 |  |  |  |  |  |  |  |  |  |
+<table class="gt_table" data-quarto-postprocess="true"
+data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<th colspan="10"
+class="gt_heading gt_title gt_font_normal"><strong>Comparison of
+Educational Attainment</strong></th>
+</tr>
+<tr class="gt_heading">
+<th colspan="10"
+class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Age 25 or
+older</th>
+</tr>
+<tr class="gt_col_headings">
+<th id="a::stub" class="gt_col_heading gt_columns_bottom_border gt_left"
+data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Dist-1"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 1</th>
+<th id="Dist-2"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 2</th>
+<th id="Dist-3"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 3</th>
+<th id="Dist-4"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 4</th>
+<th id="Dist-5"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 5</th>
+<th id="Dist-6"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 6</th>
+<th id="Dist-7"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 7</th>
+<th id="Dist-8"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 8</th>
+<th id="Dist-9"
+class="gt_col_heading gt_columns_bottom_border gt_center"
+style="text-align: center;" data-quarto-table-cell-role="th"
+scope="col">Dist 9</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td id="stub_1_1" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">No HS Diploma</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 1"
+style="background-color: #F09B7A; color: #000000">8.9%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 2"
+style="background-color: #88BEDA; color: #000000">13.2%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 3"
+style="background-color: #053061; color: #FFFFFF">19.1%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 4"
+style="background-color: #C23C39; color: #FFFFFF">6.2%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 5"
+style="background-color: #67001F; color: #FFFFFF">4.8%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 6"
+style="background-color: #88BEDA; color: #000000">14.9%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 7"
+style="background-color: #F09B7A; color: #000000">7.3%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 8"
+style="background-color: #67001F; color: #FFFFFF">2.9%</td>
+<td class="gt_row gt_center" headers="stub_1_1 Dist 9"
+style="background-color: #F09B7A; color: #000000">8.2%</td>
+</tr>
+<tr>
+<td id="stub_1_2" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">High school graduate</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 1"
+style="background-color: #DCEAF2; color: #000000">47.5%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 2"
+style="background-color: #FCE3D5; color: #000000">42.8%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 3"
+style="background-color: #053061; color: #FFFFFF">57.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 4"
+style="background-color: #C23C39; color: #FFFFFF">38.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 5"
+style="background-color: #F09B7A; color: #000000">42.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 6"
+style="background-color: #FCE3D5; color: #000000">42.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 7"
+style="background-color: #DCEAF2; color: #000000">45.6%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 8"
+style="background-color: #67001F; color: #FFFFFF">33.4%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_2 Dist 9"
+style="background-color: #FCE3D5; color: #000000">43.7%</td>
+</tr>
+<tr>
+<td id="stub_1_3" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">Associate's degree</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 1"
+style="background-color: #DCEAF2; color: #000000">9.6%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 2"
+style="background-color: #67001F; color: #FFFFFF">6.6%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 3"
+style="background-color: #88BEDA; color: #000000">10.3%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 4"
+style="background-color: #C23C39; color: #FFFFFF">7.6%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 5"
+style="background-color: #053061; color: #FFFFFF">11.8%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 6"
+style="background-color: #67001F; color: #FFFFFF">6.9%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 7"
+style="background-color: #DCEAF2; color: #000000">9.3%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 8"
+style="background-color: #88BEDA; color: #000000">10.3%</td>
+<td class="gt_row gt_center" headers="stub_1_3 Dist 9"
+style="background-color: #053061; color: #FFFFFF">11.7%</td>
+</tr>
+<tr>
+<td id="stub_1_4" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">Bachelor's degree</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 1"
+style="background-color: #88BEDA; color: #000000">20.5%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 2"
+style="background-color: #88BEDA; color: #000000">20.9%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">9.1%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 4"
+style="background-color: #3279B6; color: #FFFFFF">24.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 5"
+style="background-color: #3279B6; color: #FFFFFF">24.4%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 6"
+style="background-color: #DCEAF2; color: #000000">18.7%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 7"
+style="background-color: #DCEAF2; color: #000000">18.9%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 8"
+style="background-color: #053061; color: #FFFFFF">27.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_4 Dist 9"
+style="background-color: #DCEAF2; color: #000000">19.8%</td>
+</tr>
+<tr>
+<td id="stub_1_5" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">Master's degree</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 1"
+style="background-color: #FCE3D5; color: #000000">9.9%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 2"
+style="background-color: #DCEAF2; color: #000000">10.9%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">3.3%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 4"
+style="background-color: #053061; color: #FFFFFF">15.5%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 5"
+style="background-color: #88BEDA; color: #000000">13.0%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 6"
+style="background-color: #DCEAF2; color: #000000">11.0%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 7"
+style="background-color: #88BEDA; color: #000000">13.1%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 8"
+style="background-color: #053061; color: #FFFFFF">16.8%</td>
+<td class="gt_row gt_center" headers="stub_1_5 Dist 9"
+style="background-color: #DCEAF2; color: #000000">11.3%</td>
+</tr>
+<tr>
+<td id="stub_1_6" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">Professional school
+degree</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 1"
+style="background-color: #FCE3D5; color: #000000">1.9%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 2"
+style="background-color: #88BEDA; color: #000000">3.1%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">0.2%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 4"
+style="background-color: #053061; color: #FFFFFF">4.3%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 5"
+style="background-color: #F09B7A; color: #000000">1.8%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 6"
+style="background-color: #DCEAF2; color: #000000">2.4%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 7"
+style="background-color: #DCEAF2; color: #000000">2.8%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 8"
+style="background-color: #053061; color: #FFFFFF">4.4%</td>
+<td class="gt_row gt_center gt_striped" headers="stub_1_6 Dist 9"
+style="background-color: #DCEAF2; color: #000000">2.6%</td>
+</tr>
+<tr>
+<td id="stub_1_7" class="gt_row gt_center gt_stub"
+data-quarto-table-cell-role="th" scope="row">Doctorate degree</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 1"
+style="background-color: #F09B7A; color: #000000">1.8%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 2"
+style="background-color: #FCE3D5; color: #000000">2.5%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 3"
+style="background-color: #67001F; color: #FFFFFF">0.4%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 4"
+style="background-color: #88BEDA; color: #000000">3.8%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 5"
+style="background-color: #F09B7A; color: #000000">1.9%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 6"
+style="background-color: #88BEDA; color: #000000">3.6%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 7"
+style="background-color: #DCEAF2; color: #000000">3.1%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 8"
+style="background-color: #053061; color: #FFFFFF">5.1%</td>
+<td class="gt_row gt_center" headers="stub_1_7 Dist 9"
+style="background-color: #FCE3D5; color: #000000">2.7%</td>
+</tr>
+</tbody><tfoot class="gt_sourcenotes">
+<tr>
+<td colspan="10" class="gt_sourcenote"
+style="text-align: right;">Source: census.gov, acs5, 2023</td>
+</tr>
+</tfoot>
+&#10;</table>
 
 </div>
 
