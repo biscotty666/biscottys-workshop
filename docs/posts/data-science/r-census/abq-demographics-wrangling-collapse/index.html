@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2026-08-12">
-<meta name="description" content="Something better here">
+<meta name="description" content="This article shows how to use the collapse package for super-fast data processing while preparing the data for the next part.">
 
-<title>Demographic and Economic Variance in Albuquerque – biscotty’s Workshop</title>
+<title>Demographic and Economic Variance in Albuquerque Part 1 – biscotty’s Workshop</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -127,8 +127,8 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<meta property="og:title" content="Demographic and Economic Variance in Albuquerque – biscotty’s Workshop">
-<meta property="og:description" content="Something better here">
+<meta property="og:title" content="Demographic and Economic Variance in Albuquerque Part 1 – biscotty’s Workshop">
+<meta property="og:description" content="This article shows how to use the collapse package for super-fast data processing while preparing the data for the next part.">
 <meta property="og:image" content="https://www.biscotty.net/posts/data-science/r-census/abq-demographics-wrangling-collapse/images/trunks.png">
 <meta property="og:site_name" content="biscotty’s Workshop">
 </head>
@@ -387,7 +387,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Demographic and Economic Variance in Albuquerque</h1>
+          <h1 class="quarto-secondary-nav-title">Demographic and Economic Variance in Albuquerque Part 1</h1>
         </a>     
     </div>
   </nav>
@@ -396,11 +396,11 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Demographic and Economic Variance in Albuquerque</h1>
+      <h1 class="title d-none d-lg-block">Demographic and Economic Variance in Albuquerque Part 1</h1>
             <p class="subtitle lead">Rapid wrangling with the collapse package</p>
                   <div>
         <div class="description">
-          Something better here
+          This article shows how to use the collapse package for super-fast data processing while preparing the data for the next part.
         </div>
       </div>
                           <div class="quarto-categories">
@@ -541,7 +541,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../posts/data-science/r-census/abq-demographics-wrangling-collapse/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Demographic and Economic Variance in Albuquerque</span></a>
+ <span class="menu-text">Demographic and Economic Variance in Albuquerque Part 1</span></a>
   </div>
 </li>
       </ul>
@@ -1046,9 +1046,9 @@ Projected CRS: NAD83(2011) / New Mexico Central
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
- expr     min       lq      mean   median        uq      max neval cld
-   dp 731.505 800.4565 980.19689 851.4435 1157.7950 1781.813   100  a 
-   co   7.556   9.8570  17.66332  14.2310   21.6835   54.672   100   b</code></pre>
+ expr     min      lq     mean   median      uq      max neval cld
+   dp 717.505 781.281 810.2432 798.9535 816.940 1718.021   100  a 
+   co   7.440   8.680  13.1376  14.8245  16.775   28.091   100   b</code></pre>
 </div>
 </div>
 <p>The <code>collapse</code> version of this very common operation is over 50 times faster than <code>dplyr</code>’s! Now, let’s see where the tract is.</p>
@@ -1133,9 +1133,9 @@ Projected CRS: NAD83(2011) / New Mexico Central
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
- expr      min       lq       mean   median       uq      max neval cld
-   dp 1762.084 1885.564 2065.48855 1966.330 2141.372 3564.045   100  a 
-   co   12.552   15.039   25.47022   26.276   31.268   94.920   100   b</code></pre>
+ expr      min        lq       mean    median        uq      max neval cld
+   dp 1731.926 1862.6745 1920.10228 1905.8450 1946.4185 3283.916   100  a 
+   co   12.568   15.3535   21.21638   24.4515   26.0035   36.994   100   b</code></pre>
 </div>
 </div>
 <p><code>collapse</code> is nearly 100 times faster.</p>

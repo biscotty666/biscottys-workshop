@@ -1,4 +1,4 @@
-# Demographic and Economic Variance in Albuquerque
+# Demographic and Economic Variance in Albuquerque Part 1
 
 2026-08-12
 
@@ -309,9 +309,9 @@ microbenchmark(
 ```
 
     Unit: microseconds
-     expr     min       lq      mean  median       uq      max neval cld
-       dp 730.802 781.8320 806.40727 798.659 816.2945 1655.325   100  a 
-       co   7.200   8.4285  12.60105  10.821  16.8040   41.665   100   b
+     expr     min       lq     mean  median       uq      max neval cld
+       dp 721.457 771.4975 793.3044 784.741 798.3185 1719.389   100  a 
+       co   7.535   9.5300  13.2151  13.599  16.4315   32.156   100   b
 
 The `collapse` version of this very common operation is over 50 times
 faster than `dplyr`’s! Now, let’s see where the tract is.
@@ -406,9 +406,9 @@ microbenchmark(
 ```
 
     Unit: microseconds
-     expr      min        lq       mean    median       uq      max neval cld
-       dp 1752.918 1871.3285 1977.08450 1920.7970 1989.271 3565.264   100  a 
-       co   12.671   14.7325   22.47754   19.9335   28.752   58.270   100   b
+     expr      min        lq       mean    median        uq      max neval cld
+       dp 1699.787 1809.2585 1858.60414 1824.5970 1866.7255 3590.456   100  a 
+       co   12.733   14.7245   20.82312   23.9425   25.5125   38.577   100   b
 
 `collapse` is nearly 100 times faster.
 

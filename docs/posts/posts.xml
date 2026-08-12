@@ -12,7 +12,7 @@
 <generator>quarto-1.9.37</generator>
 <lastBuildDate>Wed, 12 Aug 2026 06:00:00 GMT</lastBuildDate>
 <item>
-  <title>Demographic and Economic Variance in Albuquerque</title>
+  <title>Demographic and Economic Variance in Albuquerque Part 1</title>
   <link>https://www.biscotty.net/posts/data-science/r-census/abq-demographics-wrangling-collapse/</link>
   <description><![CDATA[ 
 
@@ -678,9 +678,9 @@ font-style: inherit;">0</span>)</span>
 <span id="cb11-4">)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
- expr     min       lq      mean   median        uq      max neval cld
-   dp 731.505 800.4565 980.19689 851.4435 1157.7950 1781.813   100  a 
-   co   7.556   9.8570  17.66332  14.2310   21.6835   54.672   100   b</code></pre>
+ expr     min      lq     mean   median      uq      max neval cld
+   dp 717.505 781.281 810.2432 798.9535 816.940 1718.021   100  a 
+   co   7.440   8.680  13.1376  14.8245  16.775   28.091   100   b</code></pre>
 </div>
 </div>
 <p>The <code>collapse</code> version of this very common operation is over 50 times faster than <code>dplyr</code>’s! Now, let’s see where the tract is.</p>
@@ -923,9 +923,9 @@ font-style: inherit;">missing_cases</span>(bern_data))</span>
 <span id="cb21-6">)</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
- expr      min       lq       mean   median       uq      max neval cld
-   dp 1762.084 1885.564 2065.48855 1966.330 2141.372 3564.045   100  a 
-   co   12.552   15.039   25.47022   26.276   31.268   94.920   100   b</code></pre>
+ expr      min        lq       mean    median        uq      max neval cld
+   dp 1731.926 1862.6745 1920.10228 1905.8450 1946.4185 3283.916   100  a 
+   co   12.568   15.3535   21.21638   24.4515   26.0035   36.994   100   b</code></pre>
 </div>
 </div>
 <p><code>collapse</code> is nearly 100 times faster.</p>
@@ -10169,7 +10169,7 @@ font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-imm-pop-state" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-imm-pop-state" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-imm-pop-state-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-imm-pop-state-1.png" id="fig-imm-pop-state" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -10373,7 +10373,7 @@ font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-imm-pop-county" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-imm-pop-county" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-imm-pop-county-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-imm-pop-county-1.png" id="fig-imm-pop-county" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -11125,7 +11125,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1">p1</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-his-state-map" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-his-state-map" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-his-state-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-his-state-map-1.png" id="fig-his-state-map" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -11471,7 +11471,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell preview-image" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1">p1</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-his-pop-pct" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-his-pop-pct" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-his-pop-pct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-his-pop-pct-1.png" id="fig-his-pop-pct" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -12018,7 +12018,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1">p1</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-hvnv-bar" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-hvnv-bar" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hvnv-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hvnv-bar-1.png" id="fig-hvnv-bar" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -12219,7 +12219,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1">p1</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-org-ident" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-org-ident" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-org-ident-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-org-ident-1.png" id="fig-org-ident" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -12874,7 +12874,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1">p1</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-hisp-white" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-hisp-white" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-white-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-white-1.png" id="fig-hisp-white" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -13140,7 +13140,7 @@ give correct results for longitude/latitude data</code></pre>
 background-color: null;
 font-style: inherit;">+</span> p2</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-hisp-nm" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-hisp-nm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-nm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm-1.png" id="fig-hisp-nm" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -13587,7 +13587,7 @@ font-style: inherit;">/</span> (p3 <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> p4)</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-hisp-nm3" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-hisp-nm3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-nm3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm3-1.png" id="fig-hisp-nm3" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -13825,7 +13825,7 @@ font-style: inherit;">theme_void</span>()</span></code></pre></div></div>
 background-color: null;
 font-style: inherit;">+</span> p2</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-hisp-nm4" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
+<div id="fig-hisp-nm4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-nm4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm4-1.png" id="fig-hisp-nm4" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">

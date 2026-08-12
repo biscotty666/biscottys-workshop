@@ -1,7 +1,7 @@
 ---
-title: "Demographic and Economic Variance in Albuquerque"
+title: "Demographic and Economic Variance in Albuquerque Part 1"
 subtitle: "Rapid wrangling with the collapse package"
-description: "Something better here"
+description: "This article shows how to use the collapse package for super-fast data processing while preparing the data for the next part."
 format: 
   html:
     toc: true

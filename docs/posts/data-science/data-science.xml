@@ -12,9 +12,9 @@
 <generator>quarto-1.9.37</generator>
 <lastBuildDate>Wed, 12 Aug 2026 06:00:00 GMT</lastBuildDate>
 <item>
-  <title>Demographic and Economic Variance in Albuquerque</title>
+  <title>Demographic and Economic Variance in Albuquerque Part 1</title>
   <link>https://www.biscotty.net/posts/data-science/r-census/abq-demographics-wrangling-collapse/</link>
-  <description><![CDATA[ Something better here ]]></description>
+  <description><![CDATA[ This article shows how to use the collapse package for super-fast data processing while preparing the data for the next part. ]]></description>
   <category>R</category>
   <category>Data Science</category>
   <category>GIS</category>
