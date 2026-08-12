@@ -9,7 +9,8 @@ format:
   gfm: default
 execute: 
   freeze: auto
-number-sections: true
+date: 2026-01-12
+categories: [R, Data Science, GIS]
 theme: 
   light: cosmo
   dark: darkly

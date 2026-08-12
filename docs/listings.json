@@ -17,30 +17,9 @@
     ]
   },
   {
-    "listing": "/posts/data-science/python-gpx-mapping.html",
-    "items": [
-      "/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
-      "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
-      "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html"
-    ]
-  },
-  {
-    "listing": "/cv/brian-carey.html",
-    "items": [
-      "/cv/vignettes/swiss-business-plan/index.html",
-      "/cv/vignettes/closing-the-books/index.html",
-      "/cv/vignettes/collective-forecasting/index.html",
-      "/cv/vignettes/win-win-negotiation/index.html",
-      "/cv/vignettes/vendor-management/index.html",
-      "/cv/vignettes/motivating-change/index.html",
-      "/cv/vignettes/paradox/index.html",
-      "/cv/vignettes/clinic/index.html",
-      "/cv/vignettes/chinese-herb-class/index.html"
-    ]
-  },
-  {
     "listing": "/posts/posts.html",
     "items": [
+      "/posts/data-science/r-census/abq-demographics-wrangling-collapse/index.html",
       "/posts/data-science/r-census/abq-demographics/index.html",
       "/posts/chinese-medicine/shiso-fine/index.html",
       "/posts/chinese-medicine/white-medicine/index.html",
@@ -79,8 +58,31 @@
     ]
   },
   {
+    "listing": "/cv/brian-carey.html",
+    "items": [
+      "/cv/vignettes/swiss-business-plan/index.html",
+      "/cv/vignettes/closing-the-books/index.html",
+      "/cv/vignettes/collective-forecasting/index.html",
+      "/cv/vignettes/win-win-negotiation/index.html",
+      "/cv/vignettes/vendor-management/index.html",
+      "/cv/vignettes/motivating-change/index.html",
+      "/cv/vignettes/paradox/index.html",
+      "/cv/vignettes/clinic/index.html",
+      "/cv/vignettes/chinese-herb-class/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/data-science/python-gpx-mapping.html",
+    "items": [
+      "/posts/data-science/python-gpx-mapping/gpx-gps-data/index.html",
+      "/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/index.html",
+      "/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/index.html"
+    ]
+  },
+  {
     "listing": "/posts/data-science/data-science.html",
     "items": [
+      "/posts/data-science/r-census/abq-demographics-wrangling-collapse/index.html",
       "/posts/data-science/r-census/abq-demographics/index.html",
       "/posts/linux/nix-for-data-science/index.html",
       "/posts/data-science/r-census/nm-hispanic-demographics/index.html",

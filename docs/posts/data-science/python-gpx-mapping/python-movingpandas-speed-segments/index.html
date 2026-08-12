@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>Speed, Simplification and Segments – biscotty’s Workshop</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -77,14 +80,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-highlight-style-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-7a59f54fab44f1acc0c61d7da176608d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark-1af427c0a0f7a2b45f6f437b1a9001d9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../../site_libs/bootstrap/bootstrap-7a59f54fab44f1acc0c61d7da176608d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-19823a2933a8990bf2dd1e082d8e3bb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-f5fc6150343a47f6af1ea3298606343d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-19823a2933a8990bf2dd1e082d8e3bb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -128,7 +131,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <meta property="og:title" content="Speed, Simplification and Segments – biscotty’s Workshop">
 <meta property="og:description" content="Working with MovingPandas">
 <meta property="og:image" content="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-speed-segments/tda3_3.png">
-<meta property="og:site_name" content="biscotty's Workshop">
+<meta property="og:site_name" content="biscotty’s Workshop">
 <meta property="og:image:height" content="417">
 <meta property="og:image:width" content="584">
 </head>
@@ -543,6 +546,12 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
  <span class="menu-text">Hispanics in New Mexico</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../posts/data-science/r-census/abq-demographics-wrangling-collapse/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Demographic and Economic Variance in Albuquerque</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -857,7 +866,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="simplification">Simplification</h2>
 <p>The raw data contains a level of granularity that is not necessarily needed, and can have a significant computational cost. The data can be simplified in different ways such as combining short time periods into longer ones, or smoothing by combining multiple paths within a certain area into a single, straight path. In this article, I’ll look at generalizing, down-sampling the time.</p>
 <p>GPS trackers take frequent readings, seconds apart. Let’s look at the average time between readings in one of our treks. I’ll start by importing a GeoDataFrame with walks and bike rides in New Mexico, using the method described in the prior articles.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data/b4/combined.csv'</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data/b4/combined.csv'</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> gpd.GeoDataFrame(</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    df, </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    geometry<span class="op">=</span>gpd.points_from_xy(x<span class="op">=</span>df.Lon, y<span class="op">=</span>df.Lat), </span>
@@ -871,9 +880,9 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    gdf, <span class="st">'trajectory_id'</span>, </span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    t<span class="op">=</span><span class="st">'Time'</span>, x<span class="op">=</span><span class="st">'Lon'</span>, y<span class="op">=</span><span class="st">'Lat'</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>TrajectoryCollection with 130 trajectories</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> tc.plot(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> tc.plot(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'trajectory_id'</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>), </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'inferno'</span>, </span>
@@ -882,25 +891,25 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Walks and Rides in NM'</span>)</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>ctx.add_basemap(ax, crs<span class="op">=</span>gdf.crs,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                source<span class="op">=</span>ctx.providers.Esri.NatGeoWorldMap)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                source<span class="op">=</span>ctx.providers.Esri.NatGeoWorldMap)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="tda3_1.png" class="img-fluid"></p>
 <p>Here are the total number of records, and the average time between readings:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_intervals_size(tc):</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_intervals_size(tc):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'''</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    Avg sampling interval: </span><span class="sc">{</span>(<span class="bu">round</span>((np.mean(</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        [t.get_sampling_interval().seconds <span class="cf">for</span> t <span class="kw">in</span> tc.trajectories]</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>     )), <span class="dv">2</span>))<span class="sc">}</span><span class="ss"> seconds</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    Total records: </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">sum</span>([t.size() <span class="cf">for</span> t <span class="kw">in</span> tc.trajectories])<span class="sc">}</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ss">     '''</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>print_intervals_size(tc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>print_intervals_size(tc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>Avg sampling interval: 5.92 seconds
 Total records: 84319</code></pre>
 <p>That’s way more than I need. A reading every 30 seconds is more than enough. I can use the <code>generalize()</code> function from MovingPandas to easily do so using the <code>tolerance</code> parameter:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tc_generalized <span class="op">=</span> (</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tc_generalized <span class="op">=</span> (</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    mpd.MinTimeDeltaGeneralizer(tc)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        .generalize(tolerance<span class="op">=</span>timedelta(seconds<span class="op">=</span><span class="dv">30</span>))</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>print_intervals_size(tc_generalized)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>print_intervals_size(tc_generalized)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>Avg sampling interval: 33.28 seconds
 Total records: 17258</code></pre>
 <p>I’ll extract a single trajectory from before and after so we can see what happens with simplification. First I’ll print some basic information about the trek. Moving pandas provides functions such as <code>get_duration</code> and <code>get_length</code> to obtain information. I’ll include the print code here to demonstrate how to access the values and what functions are available. To access columns in the underlying DataFrame, you can use <code>tc.df.SomeColumn</code>. Python’s f-strings make it easy to generate these reports. ```python def trek_info(traj): print(f’’’ Date: {traj.get_start_time().strftime(‘%x’)} Activity: {‘Bike Ride’ if traj.df.Sport[0] == 1 else ‘Walk’} Duration: {traj.get_duration().seconds/60:.0f} minutes Distance: {traj.get_length(units=‘mi’):.1f} miles Avg Speed: {((traj.get_length(units=‘mi’)) /<br>
@@ -944,11 +953,11 @@ trek_info(traj_bike)</code></pre>
                 Time         Location (Lon/Lat)
         Start: 18:41:12  (-106.708, 35.147) degrees
         End:   19:44:04  (-106.708, 35.148) degrees</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>trek_info(traj_bike_gen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>trek_info(traj_bike_gen)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code># Difference from `traj_bike`
         Points:    105</code></pre>
 <p>Here is a before and after plot:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> chain</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> chain</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>f, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, traj <span class="kw">in</span> <span class="bu">enumerate</span>([traj_bike, traj_bike_gen]):</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    traj.plot(ax<span class="op">=</span>ax1[i])</span>
@@ -965,28 +974,28 @@ trek_info(traj_bike)</code></pre>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>ax1[<span class="dv">0</span>].set_title(<span class="st">'Raw'</span>)</span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>ax1[<span class="dv">1</span>].set_title(<span class="st">'Generalized'</span>)</span>
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>f.suptitle(<span class="st">'Effect of Generalization to 30 Seconds'</span>)</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>f.tight_layout()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>f.tight_layout()<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="tda3_2.png" class="img-fluid"></p>
 </section>
 <section id="speed-and-sundry" class="level2">
 <h2 class="anchored" data-anchor-id="speed-and-sundry">Speed and sundry</h2>
 <p>Before moving to speed calculations, let’s make a quick plot:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>t_plot(traj_bike_gen, column<span class="op">=</span><span class="st">'speed'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>t_plot(traj_bike_gen, column<span class="op">=</span><span class="st">'speed'</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="tda3_3.png" class="img-fluid"></p>
 <p>I just plotted the speed column, but a quick check will show there is no speed column.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>traj_bike_gen.df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>traj_bike_gen.df.columns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>Index(['Id', 'Name', 'Lat', 'Lon', 'Elev', 'Temp', 'Weather', 'Sport',
        'Sport_s', 'trajectory_id', 'geometry'],
       dtype='object')</code></pre>
 <p>Like Dorothy in Oz, you had the speed all along. MovingPandas does the calculation in the background for you. If you want an actual speed column, that’s easy enough:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>tc_generalized.add_speed()</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>tc_generalized.trajectories[<span class="dv">52</span>].df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>tc_generalized.add_speed()</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>tc_generalized.trajectories[<span class="dv">52</span>].df.columns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>Index(['Id', 'Name', 'Lat', 'Lon', 'Elev', 'Temp', 'Weather', 'Sport',
        'Sport_s', 'trajectory_id', 'geometry', 'mi/h', 'speed'],
       dtype='object')</code></pre>
 <p>Since my CRS is in meters, so is the speed. If I’d prefer miles per hour, I can specify the units:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tc_generalized.add_speed(overwrite<span class="op">=</span><span class="va">True</span>, name<span class="op">=</span><span class="st">'mi/h'</span>, units<span class="op">=</span>(<span class="st">'mi'</span>, <span class="st">'h'</span>))</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>tc_generalized.trajectories[<span class="dv">52</span>].df.iloc[<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tc_generalized.add_speed(overwrite<span class="op">=</span><span class="va">True</span>, name<span class="op">=</span><span class="st">'mi/h'</span>, units<span class="op">=</span>(<span class="st">'mi'</span>, <span class="st">'h'</span>))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>tc_generalized.trajectories[<span class="dv">52</span>].df.iloc[<span class="dv">5</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>Id                                Workout-2024-05-30-18-41-12
 Name                                              Albuquerque
 Lat                                                 35.150019
@@ -1002,7 +1011,7 @@ mi/h                                                13.109903
 speed                                                5.860651
 Name: 2024-05-30 18:43:54.251000, dtype: object</code></pre>
 <p>In fact, we can automagically create distance, acceleration, direction, and time delta columns as well, all with arbitrary units. Here I’ll add a number of metrics in both metric and imperial units, by supplying the units and column names as parameters.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>tc_generalized.add_distance(overwrite<span class="op">=</span><span class="va">True</span>, name<span class="op">=</span><span class="st">"distance (km)"</span>, units<span class="op">=</span><span class="st">"km"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>tc_generalized.add_distance(overwrite<span class="op">=</span><span class="va">True</span>, name<span class="op">=</span><span class="st">"distance (km)"</span>, units<span class="op">=</span><span class="st">"km"</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tc_generalized.add_distance(overwrite<span class="op">=</span><span class="va">True</span>, name<span class="op">=</span><span class="st">"distance (mi)"</span>, units<span class="op">=</span><span class="st">"mi"</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>tc_generalized.add_distance(overwrite<span class="op">=</span><span class="va">True</span>, name<span class="op">=</span><span class="st">"distance (meters)"</span>, units<span class="op">=</span><span class="st">"m"</span>)</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>tc_generalized.add_distance(overwrite<span class="op">=</span><span class="va">True</span>, name<span class="op">=</span><span class="st">"distance (feet)"</span>, units<span class="op">=</span><span class="st">"ft"</span>)</span>
@@ -1020,7 +1029,7 @@ Name: 2024-05-30 18:43:54.251000, dtype: object</code></pre>
 <span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>tc_generalized.add_angular_difference(overwrite<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>(tc_generalized.trajectories[<span class="dv">52</span>]</span>
 <span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a> .df.reset_index()</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a> .loc[<span class="dv">5</span>, <span class="st">'speed'</span>:<span class="st">'angular_difference'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a> .loc[<span class="dv">5</span>, <span class="st">'speed'</span>:<span class="st">'angular_difference'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>speed                                  5.860651
 mi/h                                  13.109903
 distance (km)                          0.175855
@@ -1037,7 +1046,7 @@ direction                            349.062474
 angular_difference                    70.594237
 Name: 5, dtype: object</code></pre>
 <p>And now, I can generate summaries somewhat easier:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>traj_bike_gen <span class="op">=</span> tc_generalized.trajectories[<span class="dv">52</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>traj_bike_gen <span class="op">=</span> tc_generalized.trajectories[<span class="dv">52</span>]</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'''</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    Total Distance: </span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="ss">        </span><span class="sc">{</span>traj_bike_gen<span class="sc">.</span>df[<span class="st">'distance (meters)'</span>]</span>
@@ -1049,7 +1058,7 @@ Name: 5, dtype: object</code></pre>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>            <span class="sc">.</span>mean()<span class="sc">.</span>item()<span class="sc">:&gt;4.1f}</span><span class="ss"> kilometers per hour</span></span>
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="ss">        </span><span class="sc">{</span>traj_bike_gen<span class="sc">.</span>df[<span class="st">'speed (mi/hour)'</span>]</span>
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>            <span class="sc">.</span>mean()<span class="sc">.</span>item()<span class="sc">:&gt;4.1f}</span><span class="ss"> miles per hour</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="ss">'''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="ss">'''</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>    Total Distance: 
         18.5 kilometers
         11.5 miles
@@ -1057,12 +1066,12 @@ Name: 5, dtype: object</code></pre>
         19.2 kilometers per hour
         11.9 miles per hour</code></pre>
 <p>I’m going to also add an elevation delta. I’d like to plot the speed next to the change in elevation. So I’ll add the column.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>traj_bike_gen.df[<span class="st">'ElevD'</span>] <span class="op">=</span> (</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>traj_bike_gen.df[<span class="st">'ElevD'</span>] <span class="op">=</span> (</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    [traj_bike_gen.df.iloc[i].Elev <span class="op">-</span> traj_bike_gen.df.iloc[i<span class="op">-</span><span class="dv">1</span>].Elev </span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>     <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(traj_bike_gen.df))]</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Here is a plot of speed next to the elevation changes.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>))</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>traj_bike_gen.plot(ax<span class="op">=</span>ax[<span class="dv">0</span>], column<span class="op">=</span><span class="st">'speed'</span>, </span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                   cmap<span class="op">=</span><span class="st">'inferno'</span>, legend<span class="op">=</span><span class="va">True</span>, </span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                  linewidth<span class="op">=</span><span class="dv">4</span>)</span>
@@ -1075,14 +1084,14 @@ Name: 5, dtype: object</code></pre>
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    ax[i].set_axis_off()</span>
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'Speed'</span>)</span>
 <span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'Elevation Change'</span>)</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>f.tight_layout()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>f.tight_layout()<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="tda3_4.png" class="img-fluid"></p>
 </section>
 <section id="segmentation" class="level2">
 <h2 class="anchored" data-anchor-id="segmentation">Segmentation</h2>
 <p>The final topic I want to cover is route segmentation. This includes splitting the entire route by logical segments such as every 15 minutes or at stop points. It can also mean extracting a specific segment based on time or geographic location. MovingPandas has a variety of <code>Splitter</code> classes, depending on the purpose.</p>
 <p>To demonstrate the split on stops, I’ll use the NYC walk from the last article, since I actually paused occasionally. In fact, the stop detector we used in that exercise could have given us the segments directly with it’s <code>get_stop_segments()</code> method, but here I’ll use the <code>StopSplitter</code>.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df_ny <span class="op">=</span> gpd.read_file(<span class="st">'data/ny_trek.gpkg'</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df_ny <span class="op">=</span> gpd.read_file(<span class="st">'data/ny_trek.gpkg'</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df_ny[<span class="st">'Sport'</span>] <span class="op">=</span> <span class="dv">17</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>ny_walk <span class="op">=</span> (</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    mpd.TrajectoryCollection(</span>
@@ -1094,24 +1103,24 @@ Name: 5, dtype: object</code></pre>
 <span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>              .split(</span>
 <span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>                min_duration <span class="op">=</span> timedelta(seconds<span class="op">=</span><span class="dv">120</span>), </span>
 <span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>                max_diameter <span class="op">=</span> <span class="dv">100</span>))</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>split_stop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>split_stop</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>TrajectoryCollection with 18 trajectories</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> t_plot(ny_walk)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> t_plot(ny_walk)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">18</span>,<span class="dv">2</span>): </span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    split_stop.trajectories[i].plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'b'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    split_stop.trajectories[i].plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'b'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="tda3_5.png" class="img-fluid"></p>
 <p>I can use the <code>TemporalSplitter</code> to divide my trek into hour-long segments:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>split_time <span class="op">=</span> (mpd.TemporalSplitter(ny_walk)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>             .split(mode<span class="op">=</span><span class="st">'hour'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>split_time <span class="op">=</span> (mpd.TemporalSplitter(ny_walk)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>             .split(mode<span class="op">=</span><span class="st">'hour'</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="tda3_8.png" class="img-fluid"></p>
 <p>I can also extract a single segment based on an arbitrary time range using <code>get_segment_between</code>. I’ll create two <code>datatime</code> variables to see where I was between 4:00 and 5:00 local time.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> datetime(<span class="dv">2024</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">19</span>) <span class="co"># UTC Time</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> datetime(<span class="dv">2024</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">19</span>) <span class="co"># UTC Time</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>t2 <span class="op">=</span> t1 <span class="op">+</span> timedelta(minutes<span class="op">=</span><span class="dv">60</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>segment <span class="op">=</span> ny_walk.get_segment_between(t1,t2)</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>t_plot(segment)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>t_plot(segment)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="tda3_6.png" class="img-fluid"></p>
 <p>Finally, I can extract the portion of the path which lies in a specific geographical area by using <code>clip</code> and intersecting the path with a POLYGON or bounding box. Here is an example:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>xmin, xmax, ymin, ymax <span class="op">=</span> <span class="dv">191000</span>, <span class="dv">192500</span>, <span class="dv">210000</span>, <span class="dv">211000</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>xmin, xmax, ymin, ymax <span class="op">=</span> <span class="dv">191000</span>, <span class="dv">192500</span>, <span class="dv">210000</span>, <span class="dv">211000</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>polygon <span class="op">=</span> Polygon(</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    [(xmin, ymin), (xmin, ymax), (xmax, ymax), (xmax, ymin), (xmin, ymin)]</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -1120,7 +1129,7 @@ Name: 5, dtype: object</code></pre>
 <span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> t_plot(ny_walk)</span>
 <span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>gpd.GeoSeries(polygon).plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'lightblue'</span>, </span>
 <span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>                           alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>intersections.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'r'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>intersections.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'r'</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="tda3_7.png" class="img-fluid"></p>
 </section>
 <section id="conclusion" class="level2">
@@ -1128,7 +1137,7 @@ Name: 5, dtype: object</code></pre>
 <p>I hope you had fun with these articles, and were able to harness your own GPS data to create some lovely maps of your excursions. If you subscribe to one of the apps like Strava or AllTrails you can get get their maps to underlay with your routes. MovingPandas has many more functions such as the <code>Smoother</code> referred to earlier, the <code>Cleaner</code> to identify and remove outliers, an <code>Aggregator</code> which generalizes across trajectories within a collection, and it can track multiple people in a single trajectory collection.</p>
 <p>If you are already comfortable in Python’s data science space, but haven’t yet worked with geospatial data, I hope you were intrigued enough to look into it more, as explicitly including geospatial dimensions in your analyses is enriching without being terribly difficult. If you are a Pythonista without any DS experience, maybe this will help you jump in. I find that Python is such a simple, expressive language, and the libraries of Pandas, GeoPandas, and MovingPandas are such a joy to work with.</p>
 <p>Happy Coding ## Additional Code To make the article easier to read, I have put code here which would need to be run before trying any of the code examples in the article. This includes the required libraries and the helper function I use when making the graphs. All code can be found on my <a href="https://github.com/biscotty666">GitHub repo</a>.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd </span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> movingpandas <span class="im">as</span> mpd </span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1199,7 +1208,7 @@ Name: 5, dtype: object</code></pre>
 <span id="cb33-69"><a href="#cb33-69" aria-hidden="true" tabindex="-1"></a>          <span class="bu">tuple</span>([<span class="bu">round</span>(x,<span class="dv">3</span>) <span class="cf">for</span> x <span class="kw">in</span></span>
 <span id="cb33-70"><a href="#cb33-70" aria-hidden="true" tabindex="-1"></a>          traj.to_crs(<span class="dv">4269</span>).get_end_location().coords[<span class="dv">0</span>]])</span>
 <span id="cb33-71"><a href="#cb33-71" aria-hidden="true" tabindex="-1"></a>          <span class="sc">}</span><span class="ss"> degrees</span></span>
-<span id="cb33-72"><a href="#cb33-72" aria-hidden="true" tabindex="-1"></a><span class="ss">    '''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-72"><a href="#cb33-72" aria-hidden="true" tabindex="-1"></a><span class="ss">    '''</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -1270,13 +1279,14 @@ Name: 5, dtype: object</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

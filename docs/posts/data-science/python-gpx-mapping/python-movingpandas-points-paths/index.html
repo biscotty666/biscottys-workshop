@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>Points to Paths in Python – biscotty’s Workshop</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -77,14 +80,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-highlight-style-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-7a59f54fab44f1acc0c61d7da176608d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark-1af427c0a0f7a2b45f6f437b1a9001d9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../../site_libs/bootstrap/bootstrap-7a59f54fab44f1acc0c61d7da176608d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-19823a2933a8990bf2dd1e082d8e3bb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-f5fc6150343a47f6af1ea3298606343d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-19823a2933a8990bf2dd1e082d8e3bb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -128,7 +131,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <meta property="og:title" content="Points to Paths in Python – biscotty’s Workshop">
 <meta property="og:description" content="Creating trajectories in MovingPandas">
 <meta property="og:image" content="https://www.biscotty.net/posts/data-science/python-gpx-mapping/python-movingpandas-points-paths/ny6.png">
-<meta property="og:site_name" content="biscotty's Workshop">
+<meta property="og:site_name" content="biscotty’s Workshop">
 <meta property="og:image:height" content="436">
 <meta property="og:image:width" content="719">
 </head>
@@ -543,6 +546,12 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
  <span class="menu-text">Hispanics in New Mexico</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../posts/data-science/r-census/abq-demographics-wrangling-collapse/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Demographic and Economic Variance in Albuquerque</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -860,7 +869,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <section id="getting-ready-for-movingpandas" class="level2">
 <h2 class="anchored" data-anchor-id="getting-ready-for-movingpandas">Getting ready for MovingPandas</h2>
 <p>I’ll start by loading the necessary libraries and creating a helper function for mapping as well as some defaults for annotating points on the maps. Then i will load some data converted from raw GPS data as described in the previous article.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> movingpandas <span class="im">as</span> mpd </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -899,13 +908,13 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    df, </span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    geometry<span class="op">=</span>gpd.points_from_xy(x<span class="op">=</span>df.Lon, y<span class="op">=</span>df.Lat), </span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    crs<span class="op">=</span><span class="dv">4269</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>).to_crs(<span class="dv">32111</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>).to_crs(<span class="dv">32111</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>MovingPandas requires an integer id for each walk, which I don’t have, so I’ll create one based on the string id. I’ll also convert the <code>Time</code> from a generic object to <code>datetime64</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>idList <span class="op">=</span> <span class="bu">list</span>(gdf.groupby([<span class="st">'Id'</span>]).nunique().reset_index().Id)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>idList <span class="op">=</span> <span class="bu">list</span>(gdf.groupby([<span class="st">'Id'</span>]).nunique().reset_index().Id)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, track <span class="kw">in</span> <span class="bu">enumerate</span>(idList):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    gdf.loc[gdf.Id <span class="op">==</span> track, <span class="st">'trajectory_id'</span>] <span class="op">=</span> i</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>gdf[<span class="st">'Time'</span>] <span class="op">=</span> pd.to_datetime(gdf.Time)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>gdf.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>gdf.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;
 RangeIndex: 3044 entries, 0 to 3043
 Data columns (total 10 columns):
@@ -924,36 +933,36 @@ Data columns (total 10 columns):
 dtypes: datetime64[ns, UTC](1), float64(4), geometry(1), int64(2), object(2)
 memory usage: 237.9+ KB</code></pre>
 <p>One of the walks in the collection was in New York City, and the rest in New Jersey. Since the locations are pretty far apart, I’ll split out the NYC walk from the others.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gdf_nj <span class="op">=</span> gdf.loc[gdf.Name <span class="op">!=</span> <span class="st">'New York'</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gdf_nj <span class="op">=</span> gdf.loc[gdf.Name <span class="op">!=</span> <span class="st">'New York'</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>gdf_ny <span class="op">=</span> gdf.loc[gdf.Name <span class="op">==</span> <span class="st">'New York'</span>]</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>gdf_nj.shape, gdf_ny.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>gdf_nj.shape, gdf_ny.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>((2063, 10), (981, 10))</code></pre>
 </section>
 <section id="getting-going-with-movingpandas" class="level2">
 <h2 class="anchored" data-anchor-id="getting-going-with-movingpandas">Getting going with MovingPandas</h2>
 <p>Now I’m ready to create the trajectories. The data will be imported as a <em>Trajectory Collection</em> which will contain the individual <em>Trajectories</em>. I’ll first create one from the NJ group, which contains several walks.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tc_nj <span class="op">=</span> mpd.TrajectoryCollection(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tc_nj <span class="op">=</span> mpd.TrajectoryCollection(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    gdf_nj, <span class="st">'trajectory_id'</span>, </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    t<span class="op">=</span><span class="st">'Time'</span>, x<span class="op">=</span><span class="st">'Lon'</span>, y<span class="op">=</span><span class="st">'Lat'</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tc_nj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tc_nj)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>TrajectoryCollection with 6 trajectories</code></pre>
 <p>Let’s see what this looks like.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> traj_collection.plot(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> traj_collection.plot(</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'trajectory_id'</span>, </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span>, figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">5</span>), cmap<span class="op">=</span><span class="st">'Set1'</span>)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Walks in NJ, September 2024'</span>)</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>ctx.add_basemap(ax, crs<span class="op">=</span>gdf_proj.crs,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                source<span class="op">=</span>ctx.providers.Esri.WorldTopoMap)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                source<span class="op">=</span>ctx.providers.Esri.WorldTopoMap)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="nj1.png" class="img-fluid"></p>
 <p>I can extract a single trajectory and its underlying data frame.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>traj_nj1 <span class="op">=</span> tc_nj.trajectories[<span class="dv">2</span>]</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(traj_nj1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>traj_nj1 <span class="op">=</span> tc_nj.trajectories[<span class="dv">2</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(traj_nj1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>Trajectory 2.0 (2024-09-07 21:20:23.975000 to 2024-09-07 22:03:42.022000) | Size: 267 | Length: 5173.1m
 Bounds: (177912.1946985984, 243124.49067874879, 179216.17084672116, 245408.85808260852)
 LINESTRING (178912.27991325516 244815.1747420021, 178912.27991325516 244815.1747420021, 178903.67850</code></pre>
 <p>The associated data is stored in the <code>df</code> attribute:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(traj_nj1.df.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(traj_nj1.df.info())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;
 DatetimeIndex: 267 entries, 2024-09-07 21:20:23.975000 to 2024-09-07 22:03:42.022000
 Data columns (total 9 columns):
@@ -971,16 +980,16 @@ Data columns (total 9 columns):
 dtypes: float64(4), geometry(1), int64(2), object(2)
 memory usage: 29.0+ KB
 None</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>t_plot(traj_nj1, source<span class="op">=</span>ctx.providers.OpenStreetMap.HOT)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>t_plot(traj_nj1, source<span class="op">=</span>ctx.providers.OpenStreetMap.HOT)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="nj2.png" class="img-fluid"></p>
 <p>Another way to extract a specific trajectory is using MovingPandas’ <code>filter</code> function, as so:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>t_plot(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>t_plot(</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>tc_nj.<span class="bu">filter</span>(<span class="st">"Name"</span>, [<span class="st">"Park Ridge"</span>])</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>     .trajectories[<span class="dv">0</span>]</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="nj3.png" class="img-fluid"></p>
 <p>For the rest of the article I’ll use the longest trek I have in this data set, the one in New York. I’ll create the Trajectory Collection, extract the single trajectory and find the start and end times and locations.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tc_ny <span class="op">=</span> mpd.TrajectoryCollection(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tc_ny <span class="op">=</span> mpd.TrajectoryCollection(</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    gdf_ny, <span class="st">'trajectory_id'</span>, </span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    t<span class="op">=</span><span class="st">'Time'</span>, x<span class="op">=</span><span class="st">'Lon'</span>, y<span class="op">=</span><span class="st">'Lat'</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -998,7 +1007,7 @@ None</code></pre>
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="ss">    Duration:  </span><span class="sc">{</span>traj_ny<span class="sc">.</span>get_duration()<span class="sc">.</span>seconds<span class="op">/</span><span class="dv">60</span><span class="sc">:.0f}</span><span class="ss"> minutes</span></span>
 <span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    Distance:  </span><span class="sc">{</span>traj_ny<span class="sc">.</span>get_length(units<span class="op">=</span><span class="st">'mi'</span>)<span class="sc">:.2f}</span><span class="ss"> miles</span></span>
 <span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="ss">    Direction: </span><span class="sc">{</span>traj_ny<span class="sc">.</span>get_direction()<span class="sc">:.0f}</span><span class="ss"> degrees</span></span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="ss">'''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="ss">'''</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>            Time         Location (Lon/Lat)
             
     Start: 17:43:42   (-73.991157, 40.752025) degrees
@@ -1007,13 +1016,13 @@ None</code></pre>
     Duration:  185 minutes
     Distance:  6.69 miles
     Direction: 176 degrees</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>t_plot(traj_ny)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>t_plot(traj_ny)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="ny1.png" class="img-fluid"></p>
 </section>
 <section id="right-place-right-time" class="level2">
 <h2 class="anchored" data-anchor-id="right-place-right-time">Right place, right time</h2>
 <p>First, let me find my position at an arbitrary time, and then 30 minutes later. Where was I, for example, at 18:00, and then 45 minutes later?</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> datetime(<span class="dv">2024</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">18</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> datetime(<span class="dv">2024</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">18</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>t2 <span class="op">=</span> t <span class="op">+</span> timedelta(minutes<span class="op">=</span><span class="dv">45</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'''</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    Nearest:      </span><span class="sc">{</span>traj_ny<span class="sc">.</span>to_crs(<span class="dv">4269</span>)</span>
@@ -1024,13 +1033,13 @@ None</code></pre>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>                    <span class="sc">.</span>get_position_at(t, method<span class="op">=</span><span class="st">'ffill'</span>)<span class="sc">}</span></span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="ss">    Next row:     </span><span class="sc">{</span>traj_ny<span class="sc">.</span>to_crs(<span class="dv">4269</span>)</span>
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>                    <span class="sc">.</span>get_position_at(t, method<span class="op">=</span><span class="st">'bfill'</span>)<span class="sc">}</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="ss">'''</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="ss">'''</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>    Nearest:      POINT (-74.003574 40.756368)
     Interpolated: POINT (-74.00361304734385 40.75638409846633)
     Previous row: POINT (-74.003688 40.756415)
     Next row:     POINT (-74.003574 40.756368)</code></pre>
 <p>I can use the <code>geocode</code> tool provided by geopandas to get the nearest addresses at these points so I can show them on the map. Pay attention to crs, since nominatim expects lat/lon coordinates and we currently have projected coordinates.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> traj_ny.get_position_at(t, method<span class="op">=</span><span class="st">'interpolated'</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> traj_ny.get_position_at(t, method<span class="op">=</span><span class="st">'interpolated'</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>point_up <span class="op">=</span> traj_ny.to_crs(<span class="dv">4269</span>).get_position_at(t, method<span class="op">=</span><span class="st">'interpolated'</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>point2 <span class="op">=</span> traj_ny.get_position_at(t2, method<span class="op">=</span><span class="st">'interpolated'</span>)</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>point2_up <span class="op">=</span> traj_ny.to_crs(<span class="dv">4269</span>).get_position_at(t2, method<span class="op">=</span><span class="st">'interpolated'</span>)</span>
@@ -1049,10 +1058,10 @@ None</code></pre>
 <span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    ax.annotate(<span class="ss">f'</span><span class="sc">{</span>label<span class="sc">.</span>split(<span class="st">','</span>)[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>label<span class="sc">.</span>split(<span class="st">','</span>)[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'</span>, </span>
 <span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>                xy<span class="op">=</span>(x, y), <span class="op">**</span>annot_props)</span>
 <span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">211500</span>, <span class="dv">214500</span>)</span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">191400</span>, <span class="dv">192500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">191400</span>, <span class="dv">192500</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="ny2.png" class="img-fluid"></p>
 <p>It might be more interesting to plot my location at regular intervals along the walk. What about plotting my location every 30 minutes?</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>int_count <span class="op">=</span> (et <span class="op">-</span> st) <span class="op">//</span> timedelta(seconds<span class="op">=</span>(<span class="dv">60</span><span class="op">*</span><span class="dv">30</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>int_count <span class="op">=</span> (et <span class="op">-</span> st) <span class="op">//</span> timedelta(seconds<span class="op">=</span>(<span class="dv">60</span><span class="op">*</span><span class="dv">30</span>))</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>int_length <span class="op">=</span> (et <span class="op">-</span> st) <span class="op">/</span> int_count</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>intervals <span class="op">=</span> [st <span class="op">+</span> (i<span class="op">*</span>int_length) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(int_count)]</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>interval_points <span class="op">=</span> [traj_ny.to_crs(<span class="dv">4269</span>).get_position_at(</span>
@@ -1070,13 +1079,13 @@ None</code></pre>
 <span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x, y, label <span class="kw">in</span> <span class="bu">zip</span>(rg.geometry.x, rg.geometry.y, rg.address):</span>
 <span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    ax.annotate(<span class="ss">f'</span><span class="sc">{</span>label<span class="sc">.</span>split(<span class="st">','</span>)[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>label<span class="sc">.</span>split(<span class="st">','</span>)[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'</span>, </span>
 <span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>                xy<span class="op">=</span>(x, y), <span class="op">**</span>annot_props)</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>ax.set_title(ax.get_title() <span class="op">+</span> <span class="ss">f'</span><span class="ch">\n</span><span class="ss">Every 30 minutes'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>ax.set_title(ax.get_title() <span class="op">+</span> <span class="ss">f'</span><span class="ch">\n</span><span class="ss">Every 30 minutes'</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="ny3.png" class="img-fluid"></p>
 </section>
 <section id="i-was-so-close" class="level2">
 <h2 class="anchored" data-anchor-id="i-was-so-close">I was so close</h2>
 <p>Not only can you calculate distances along the path, which we will look at more in the next article, but you can calculate the distance from points along the trajectory to other locations not on the path. It will determine the closest you came to other points, lines or polygons, including, of course, other trajectories. For example, when I’m in New York, I love to visit the Strand and the huge Barnes and Noble on Union Square. I didn’t have time this trip, sadly, but I’m curious how close I was from those stores.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>addresses <span class="op">=</span> [{</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>addresses <span class="op">=</span> [{</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                <span class="st">'id'</span>: <span class="dv">1</span>,</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">'name'</span>: <span class="st">"The Strand"</span>, </span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">'addr'</span>: <span class="st">"828 Broadway, New York, NY 10003"</span></span>
@@ -1094,7 +1103,7 @@ None</code></pre>
 <span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    timeout<span class="op">=</span><span class="dv">10</span></span>
 <span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>book_stores <span class="op">=</span> geo.join(add_df).to_crs(<span class="dv">32111</span>)</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(book_stores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(book_stores)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>                        geometry  \
 0  POINT (192997.822 211055.516)   
 1  POINT (193108.568 211461.041)   
@@ -1106,41 +1115,41 @@ None</code></pre>
                                    addr  
 0      828 Broadway, New York, NY 10003  
 1  33 East 17th Street, 10003, New York</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dists_to <span class="op">=</span> [traj_ny.distance(book_stores.loc[i, [<span class="st">'geometry'</span>]], </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dists_to <span class="op">=</span> [traj_ny.distance(book_stores.loc[i, [<span class="st">'geometry'</span>]], </span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                            units<span class="op">=</span><span class="st">'mi'</span>)[<span class="dv">0</span>] </span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(book_stores))]</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>store_names <span class="op">=</span> [book_stores.loc[i, <span class="st">'name'</span>] </span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>               <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(book_stores))]</span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(book_stores)):</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Closest distance to </span><span class="sc">{</span>store_names[i]<span class="sc">}</span><span class="ss"> was </span><span class="sc">{</span>dists_to[i]<span class="sc">:.1f}</span><span class="ss"> miles'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Closest distance to </span><span class="sc">{</span>store_names[i]<span class="sc">}</span><span class="ss"> was </span><span class="sc">{</span>dists_to[i]<span class="sc">:.1f}</span><span class="ss"> miles'</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>Closest distance to The Strand was 0.4 miles
 Closest distance to Barnes and Noble was 0.6 miles</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> t_plot(traj_ny, figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">11</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> t_plot(traj_ny, figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">11</span>))</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>book_stores.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'red'</span>, markersize<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x, y, label <span class="kw">in</span> <span class="bu">zip</span>(book_stores.geometry.x, </span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                       book_stores.geometry.y, </span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                       book_stores.name):</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    ax.annotate(label, xy<span class="op">=</span>(x,y), <span class="op">**</span>annot_props)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    ax.annotate(label, xy<span class="op">=</span>(x,y), <span class="op">**</span>annot_props)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="ny4.png" class="img-fluid"></p>
 </section>
 <section id="stop-detection" class="level2">
 <h2 class="anchored" data-anchor-id="stop-detection">Stop detection</h2>
 <p>In this final section I’ll look at stop detection. Here I’ll just be considering stop locations. In the next article, I’ll show how to use the same approach as one method for segmenting the trajectories. Stop detection requires instantiation of a stop detector which will provide the functions needed.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>detector <span class="op">=</span> mpd.TrajectoryStopDetector(traj_ny)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>detector <span class="op">=</span> mpd.TrajectoryStopDetector(traj_ny)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The detector takes parameters to determine how long a pause constitutes a <code>stop</code>, and how far you need to move to constitute movement.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>stop_points <span class="op">=</span> detector.get_stop_points(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>stop_points <span class="op">=</span> detector.get_stop_points(</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    min_duration<span class="op">=</span>timedelta(seconds<span class="op">=</span><span class="dv">120</span>), max_diameter<span class="op">=</span><span class="dv">100</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(stop_points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(stop_points)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>18</code></pre>
 <p>We can look up the addresses nearest to the stop points, and plot some of them on the map.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>stop_points <span class="op">=</span> stop_points.set_crs(<span class="dv">32111</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>stop_points <span class="op">=</span> stop_points.set_crs(<span class="dv">32111</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>rg <span class="op">=</span> reverse_geocode(</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    stop_points.to_crs(<span class="dv">4269</span>).geometry, </span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    provider<span class="op">=</span><span class="st">"nominatim"</span>, </span>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    user_agent<span class="op">=</span><span class="st">"your_project"</span>, timeout<span class="op">=</span><span class="dv">10</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>).to_crs(<span class="dv">32111</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> t_plot(traj_ny)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>).to_crs(<span class="dv">32111</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> t_plot(traj_ny)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>stop_points.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'none'</span>, markersize<span class="op">=</span><span class="dv">100</span>, ec<span class="op">=</span><span class="st">'r'</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>point_labels <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">17</span>]</span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x, y), label <span class="kw">in</span> <span class="bu">zip</span>(</span>
@@ -1149,13 +1158,13 @@ Closest distance to Barnes and Noble was 0.6 miles</code></pre>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>                    rg.iloc[point_labels].address):</span>
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    ax.annotate(<span class="ss">f'</span><span class="sc">{</span>label<span class="sc">.</span>split(<span class="st">','</span>)[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>label<span class="sc">.</span>split(<span class="st">','</span>)[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'</span>, </span>
 <span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>                xy<span class="op">=</span>(x, y), <span class="op">**</span>annot_props)</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(ax.get_title() <span class="op">+</span> <span class="ss">f'</span><span class="ch">\n</span><span class="ss">Stop Points'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(ax.get_title() <span class="op">+</span> <span class="ss">f'</span><span class="ch">\n</span><span class="ss">Stop Points'</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="ny5.png" class="img-fluid"></p>
 </section>
 <section id="interactive-graphing" class="level2">
 <h2 class="anchored" data-anchor-id="interactive-graphing">Interactive graphing</h2>
 <p>Showing interactive graphing in the context of a published article is not very useful, but I should point out that MovingPandas supports both <code>hvplot</code> with <code>folium</code> as well as GeoPandas’ <code>explore()</code>, both of which can be useful tools for identifying areas of interest. This is an example with <code>explore()</code>.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> traj_ny.explore(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> traj_ny.explore(</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"trajectory_id"</span>,</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span><span class="st">"t"</span>,</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    popup<span class="op">=</span><span class="va">True</span>,</span>
@@ -1170,7 +1179,7 @@ Closest distance to Barnes and Noble was 0.6 miles</code></pre>
 <span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    popup<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    marker_kwds<span class="op">=</span>{<span class="st">"radius"</span>: <span class="dv">10</span>},</span>
 <span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Stop points"</span>,</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="ny6.png" class="img-fluid"></p>
 </section>
 <section id="next-steps" class="level2">
@@ -1246,13 +1255,14 @@ Closest distance to Barnes and Noble was 0.6 miles</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

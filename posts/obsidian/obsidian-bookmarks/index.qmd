@@ -30,11 +30,11 @@ The following table shows the bookmarks commands with suggested Hotkeys which ar
 
 | Command                  | Description                   | Hotkey           |
 | ------------------------ | ----------------------------- | ---------------- |
-| Bookmark...              | Bookmark current file         | `Ctrl-Cmd-Alt-M` |
-| Show Bookmarks           | Open bookmarks panel          | `Ctrl-B`         |
-| Bookmark Current Search  |                               | `Ctrl-Cmd-Alt-S` |
-| Bookmark Current Block   | Bookmark Block Under Cursor   | `Ctrl-Cmd-Alt-B` |
-| Bookmark Current Heading | Bookmark Heading Under Cursor | `Ctrl-Cmd-Alt-H` |
+| Bookmark...              | Bookmark current file         | Ctrl-Cmd-Alt-M |
+| Show Bookmarks           | Open bookmarks panel          | Ctrl-B         |
+| Bookmark Current Search  |                               | Ctrl-Cmd-Alt-S |
+| Bookmark Current Block   | Bookmark Block Under Cursor   | Ctrl-Cmd-Alt-B |
+| Bookmark Current Heading | Bookmark Heading Under Cursor | Ctrl-Cmd-Alt-H |
 
 ## Bookmarks Panel
 

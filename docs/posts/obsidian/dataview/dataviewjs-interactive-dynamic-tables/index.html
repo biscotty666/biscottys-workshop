@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>Summarizing Information with DataviewJS – biscotty’s Workshop</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -77,14 +80,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-highlight-style-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-7a59f54fab44f1acc0c61d7da176608d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark-1af427c0a0f7a2b45f6f437b1a9001d9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../../site_libs/bootstrap/bootstrap-7a59f54fab44f1acc0c61d7da176608d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-19823a2933a8990bf2dd1e082d8e3bb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-f5fc6150343a47f6af1ea3298606343d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-19823a2933a8990bf2dd1e082d8e3bb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -128,7 +131,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <meta property="og:title" content="Summarizing Information with DataviewJS – biscotty’s Workshop">
 <meta property="og:description" content="Presenting and analyzing information in Obsidian">
 <meta property="og:image" content="https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-interactive-dynamic-tables/djs-db-exc.png">
-<meta property="og:site_name" content="biscotty's Workshop">
+<meta property="og:site_name" content="biscotty’s Workshop">
 <meta property="og:image:height" content="1080">
 <meta property="og:image:width" content="1920">
 </head>
@@ -544,6 +547,12 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
  <span class="menu-text">Hispanics in New Mexico</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../posts/data-science/r-census/abq-demographics-wrangling-collapse/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Demographic and Economic Variance in Albuquerque</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -884,13 +893,13 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <section id="the-data" class="level2">
 <h2 class="anchored" data-anchor-id="the-data">The data</h2>
 <p>First, let’s grab the data for the current and prior seven day periods. In the last article I showed how to get the current period. Did you figure out how to get the prior period? One way is to first take the data from the last 14 days, and then remove the most recent 7 days. So we’ll do it like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> priorPages <span class="op">=</span> dv<span class="op">.</span><span class="fu">pages</span>() </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> priorPages <span class="op">=</span> dv<span class="op">.</span><span class="fu">pages</span>() </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">where</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">type</span> <span class="op">==</span> <span class="st">"log"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">where</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">ActivityDate</span> <span class="op">&gt;=</span> <span class="fu">moment</span>()<span class="op">.</span><span class="fu">subtract</span>(<span class="dv">14</span><span class="op">,</span> <span class="st">"days"</span>))</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">where</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">ActivityDate</span> <span class="op">&lt;=</span> <span class="fu">moment</span>()<span class="op">.</span><span class="fu">subtract</span>(<span class="dv">7</span><span class="op">,</span> <span class="st">"days"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">where</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">ActivityDate</span> <span class="op">&lt;=</span> <span class="fu">moment</span>()<span class="op">.</span><span class="fu">subtract</span>(<span class="dv">7</span><span class="op">,</span> <span class="st">"days"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Create the <code>currentPages</code> data set as well. Then each needs to be separated by walking and biking. You can do it like this:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> currentWalkPages <span class="op">=</span> currentPages</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">where</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">Activity</span> <span class="op">==</span> <span class="st">"🚶"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> currentWalkPages <span class="op">=</span> currentPages</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span><span class="fu">where</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">Activity</span> <span class="op">==</span> <span class="st">"🚶"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Go ahead and create the rest of the datasets. You need <code>currentBikePages</code>, <code>priorWalkPages</code> and <code>priorBikePages</code>.</p>
 </section>
 <section id="calculations" class="level2">
@@ -900,19 +909,19 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <h3 class="anchored" data-anchor-id="functions">Functions</h3>
 <p>Here is an example of a function we can use. It is arguably overkill to make this a function, but it will provide a good example. A function starts with the keyword <code>function</code> followed by the name you want to use. The name is followed by parentheses which are required, but may be empty. They are used to pass arguments to the function. The function itself is then placed in curly braces. After the function does it’s work, it needs to <code>return</code> some value.</p>
 <p>I have a bunch of numbers in minutes which I want to convert to hours. This is just a matter of dividing by 60 of course, but I also want to round off to one decimal. There is a function <code>toFixed()</code> which can be used on strings. It takes one argument, the number of decimal places you want to round it to. This is the function:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">toHours</span> (time) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">toHours</span> (time) {</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> <span class="cf">return</span> (time <span class="op">/</span> <span class="dv">60</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>and I use it like this.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> totalCurrentTime <span class="op">=</span> <span class="fu">toHours</span>( <span class="fu">sumStat</span>(<span class="st">"duration"</span><span class="op">,</span> pages) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> totalCurrentTime <span class="op">=</span> <span class="fu">toHours</span>( <span class="fu">sumStat</span>(<span class="st">"duration"</span><span class="op">,</span> pages) )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Of course, I haven’t created <code>sumStat()</code> yet. To calculate the sum there is a JavaScript function called <code>reduce()</code>. It is used like this:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reduce</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reduce</span>(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    (sum<span class="op">,</span> b) <span class="kw">=&gt;</span> sum <span class="op">+</span> b<span class="op">.</span><span class="at">Distance</span><span class="op">,</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="dv">0</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The syntax looks a little complicated, but it’s not so bad if you break it down. <code>reduce()</code> takes two arguments. The first argument is <code>(sum, b) =&gt; sum + b.Distance</code>, which is itself a function with two arguments. The second argument here is our old friend <code>b</code>. In this case, we also need temporary variable called an <em>accumulator</em>. The name of this variable is arbitrary, like <code>b</code>. <code>reduce()</code> will go through each log, adding the value of the <code>Distance</code> field to the accumulator. The second argument to <code>reduce()</code> is just the initial value for the accumulator, which is almost always 0.</p>
 <p>Now I can write the function like this</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sumStat</span> (stat<span class="op">,</span> thePages) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sumStat</span> (stat<span class="op">,</span> thePages) {</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> pageValues <span class="op">=</span> thePages<span class="op">.</span><span class="at">values</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (stat <span class="op">==</span> <span class="st">"duration"</span>) {</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> pageValues</span>
@@ -923,19 +932,19 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> pageValues</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">reduce</span>((sum<span class="op">,</span> b) <span class="kw">=&gt;</span> sum <span class="op">+</span> b<span class="op">.</span><span class="at">Distance</span><span class="op">,</span> <span class="dv">0</span>)</span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>I didn’t want to write two separate functions for calculating the sums, instead I use a <em>conditional</em> <code>if</code> statement, which works as you might expect. Notice a few things about this. First, <code>pageValues</code> just saves us adding <code>.values</code> to each <code>if</code> statement. <code>if</code> statements require a condition in parentheses. It must be something that evaluates to a <em>boolean</em> value (true or false, remember). Then, as usual, the block of code you want to execute must be in curly braces. Finally, you almost always want to <code>return</code> something. Once you hit a <code>return</code> statement, nothing else gets executed in the function.</p>
 </section>
 <section id="maths" class="level3">
 <h3 class="anchored" data-anchor-id="maths">Maths</h3>
 <p>Now we can create all of our time and distance variables like this:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> totalCurrentTime <span class="op">=</span> <span class="fu">toHours</span>( <span class="fu">sumStat</span>( <span class="st">"duration"</span><span class="op">,</span> currentPages ) )</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> totalCurrentDistance <span class="op">=</span> <span class="fu">sumStat</span>( <span class="st">"distance"</span><span class="op">,</span> currentPages )<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> totalCurrentTime <span class="op">=</span> <span class="fu">toHours</span>( <span class="fu">sumStat</span>( <span class="st">"duration"</span><span class="op">,</span> currentPages ) )</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> totalCurrentDistance <span class="op">=</span> <span class="fu">sumStat</span>( <span class="st">"distance"</span><span class="op">,</span> currentPages )<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Speed is just distance over time, so.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> currentWalkSpeed <span class="op">=</span> (</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> currentWalkSpeed <span class="op">=</span> (</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    totalCurrentWalkDistance <span class="op">/</span> totalCurrentWalkTime</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Notice that I specified to round to one decimal point. To find the total number of workouts it is necessary merely to count the number of pages in each category, since each represents one workout. <code>pages()</code> is a list, or array. Arrays all have an attribute/property called <code>length</code>. So to count all workouts in the last seven days I can just write <code>const currentCount = currentPages.length</code>.</p>
 <p>Everything else is just repetition, since we need 22 values at the end of the day. Any repetitive activity cries out for a new function to encapsulate this repetition, but I’ll leave that for another day. (This is called <em>refactoring</em>.)</p>
 </section>
@@ -943,8 +952,8 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <section id="generate-the-output" class="level2">
 <h2 class="anchored" data-anchor-id="generate-the-output">Generate the output</h2>
 <p>The tables from the last article used a <code>dv.pages()</code> object for the table rows. This time I need to create each table row myself. Each table row is itself a list. So I need a list of lists. It is easy to do this with the <code>push()</code> command, which just adds an item to a list. The item being added can be anything, including a list. I will build the table rows like this:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> rows <span class="op">=</span> []</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>rows<span class="op">.</span><span class="fu">push</span>([<span class="st">"Miles"</span><span class="op">,</span> totalCurrentDistance<span class="op">,</span> totalPriorDistance])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> rows <span class="op">=</span> []</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>rows<span class="op">.</span><span class="fu">push</span>([<span class="st">"Miles"</span><span class="op">,</span> totalCurrentDistance<span class="op">,</span> totalPriorDistance])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>I have to <em>initialize</em> the variable, because I can’t <code>push</code> anything onto a non-existent list. I used <code>let</code> instead of <code>const</code>. The difference is that a <code>const</code> variable cannot change after it has been created, while one declared with <code>var</code> can. (In older code you will see <code>var</code> instead of <code>let</code>. This still works but <code>let</code> is preferred.)</p>
 <p>So all that remains is to <code>push</code> each row of the table into the <code>rows</code> variable, create the <code>headers</code> for the table, and use <code>dv.table()</code> to display it. The final code is at the bottom. I strongly suggest, having reached this point, that you try to do this on your own and don’t simply copy and paste my code.</p>
 </section>
@@ -952,7 +961,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="final-thoughts">Final thoughts</h2>
 <p>If you read through both articles, congratulations. Give yourself a pat on the back. You are doing object-oriented programming in the most widely-used language on the internet. And you have all of the knowledge you need to create rich, useful dashboards.</p>
 <p>Happy coding!</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Create data sets  */</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Create data sets  */</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> currentPages <span class="op">=</span> dv<span class="op">.</span><span class="fu">pages</span>() </span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">where</span>(b <span class="kw">=&gt;</span> b<span class="op">.</span><span class="at">type</span> <span class="op">==</span> <span class="st">"log"</span>)</span>
@@ -1057,7 +1066,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a><span class="co">/* Display the table */</span></span>
 <span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">header</span>(<span class="dv">3</span><span class="op">,</span> <span class="st">"7 Day Stats"</span>)</span>
-<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">table</span>(tableHeader<span class="op">,</span> rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">table</span>(tableHeader<span class="op">,</span> rows)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -1128,13 +1137,14 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

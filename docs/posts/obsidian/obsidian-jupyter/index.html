@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>Obsidian and Jupyter Notebooks – biscotty’s Workshop</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -77,14 +80,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-highlight-style-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-7a59f54fab44f1acc0c61d7da176608d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-1af427c0a0f7a2b45f6f437b1a9001d9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-7a59f54fab44f1acc0c61d7da176608d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-19823a2933a8990bf2dd1e082d8e3bb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-f5fc6150343a47f6af1ea3298606343d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-19823a2933a8990bf2dd1e082d8e3bb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -128,7 +131,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <meta property="og:title" content="Obsidian and Jupyter Notebooks – biscotty’s Workshop">
 <meta property="og:description" content="Personal Knowledge Management for Data Science">
 <meta property="og:image" content="https://www.biscotty.net/posts/obsidian/obsidian-jupyter/Jupyter-Obsidian.png">
-<meta property="og:site_name" content="biscotty's Workshop">
+<meta property="og:site_name" content="biscotty’s Workshop">
 <meta property="og:image:height" content="1080">
 <meta property="og:image:width" content="1920">
 </head>
@@ -543,6 +546,12 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
  <span class="menu-text">Hispanics in New Mexico</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/data-science/r-census/abq-demographics-wrangling-collapse/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Demographic and Economic Variance in Albuquerque</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -858,11 +867,11 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <section id="setting-up-obsidian" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-obsidian">Setting up Obsidian</h2>
 <p>The community plugin needed to accomplish this is called <a href="https://github.com/twibiral/obsidian-execute-code">Execute Code</a>, written by Tim Wibiral together with Jupyter and a library called <code>nbconvert</code>. The latter will convert the notebooks to markdown, and the plugin allows you to execute the code directly within a note. To get started, create a virtual environment for Obsidian to use. If you aren’t using virtual environments, please start now! It’s simple, and you will avoid future problems. From the command line, do:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="va">$HOME</span>/.config/venvs <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> <span class="st">"</span><span class="va">$_</span><span class="st">"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="va">$HOME</span>/.config/venvs <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> <span class="st">"</span><span class="va">$_</span><span class="st">"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> venv obsidian_venv</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> obsidian_venv/bin/activate</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--upgrade</span> pip</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyterlab nbconvert </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install jupyterlab nbconvert </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can install other libraries like Pandas and Matplotlib as well into the virtual environment with pip install. Jupyter lab and nbconvert will be necessary to convert the notebooks to markdown. At this point, you could launch <code>jupyter lab</code>, but there is no need to. After installing packages, you can exit the virtual environment with <code>deactivate</code>. Should you need to install more packages later, you can type <code>source $HOME/.config/venvs/obsidian_venv/bin/activate</code> to re-enter the virtual environment and <code>pip install</code> other packages.</p>
 <p>In Obsidian, install the Execute Code plugin. After installing the plugin you must point it to the version of Python you want to use, in this case the one we made in the virtual environment above. In the settings for the plugin, under the language-specific settings, choose Python from the drop down list. For <em>Python Path</em>, enter <code>/home/directory/.config/venvs/obsidian_venv/bin/python</code>.</p>
 <p>With that done, any code block with the keyword <code>python</code> added directly after the opening back ticks of the block can be run in the Note. In Read view, a <em>Run</em> button will appear by each code block, allowing you to execute the code in the block. After execution, there will be a <em>Clear</em> button to clear up output that you want removed from the note. Code can also be executed from Edit view by using the keyword <code>run-python</code> rather than simply <code>python</code>. The plugin offers a command to run all the code in the note, as well as a command to view and kill any active runtimes.</p>
@@ -871,7 +880,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="processing-a-notebook">Processing a notebook</h2>
 <p>Jupyter Lab can export an <code>ipynb</code> file directly to markdown! As of writing, VS Code can only export to <code>py</code>, <code>pdf</code> or <code>html</code>. From the file menu, select <em>Export</em> and choose <em>Markdown</em>. This will generate a zipped archive containing a markdown page, along with any image files in the notebook. The problem with this approach is that you will find all of the image files named <code>output</code> something, and so after exporting a few notebooks, there will be name conflicts in your vault.</p>
 <p>Using the command line avoids this problem, and is in any case much more efficient. You will need to activate your virtual environment with <code>source</code> as described above. Then type</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> Markdown your_notebook.ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> nbconvert <span class="at">--to</span> Markdown your_notebook.ipynb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This will generate an <code>md</code> file which can be copied into your vault. If there are images from generated by the output, like graphs and other visuals, these will be put in a directory created by the above command. If you copy this directory, with all the image files into the vault directory that you use for attachments, the new <code>md</code> file will find them. (It is important to copy the directory itself and not just the files, since the new note will expect to find them there.)</p>
 <p>Once in Obsidian you can process your Notebooks as any other file, breaking them into bite-size chunks of information. I rely heavily on “Extract this heading”, available with a right-click on any heading in a note. This replaces the section with a link to a newly-created note containing the section’s content. I find it useful to use a template that loads common libraries, since they will need to be added them at the top of the new files.</p>
 <p>When converting your notebooks to notes, be aware that different notes do not share the same runtime. Be sure to include all the variables/calculations necessary for the part of the code you extracted in the new file, as this will not be available from another file’s state. Also, any images that you link to in the markdown sections of the original notebook will need to be manually copied into the vault, as only images generated from code in the file will be exported. ## Closing Thoughts</p>
@@ -947,13 +956,14 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

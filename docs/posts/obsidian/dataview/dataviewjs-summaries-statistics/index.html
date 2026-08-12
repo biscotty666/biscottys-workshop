@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>Interactive Tables with DataviewJS – biscotty’s Workshop</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -77,14 +80,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-highlight-style-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-7a59f54fab44f1acc0c61d7da176608d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark-1af427c0a0f7a2b45f6f437b1a9001d9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../../site_libs/bootstrap/bootstrap-7a59f54fab44f1acc0c61d7da176608d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-19823a2933a8990bf2dd1e082d8e3bb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-f5fc6150343a47f6af1ea3298606343d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-19823a2933a8990bf2dd1e082d8e3bb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -128,7 +131,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <meta property="og:title" content="Interactive Tables with DataviewJS – biscotty’s Workshop">
 <meta property="og:description" content="Selecting Files, Working with Dates">
 <meta property="og:image" content="https://www.biscotty.net/posts/obsidian/dataview/dataviewjs-summaries-statistics/djs-exercise-dashboard.png">
-<meta property="og:site_name" content="biscotty's Workshop">
+<meta property="og:site_name" content="biscotty’s Workshop">
 <meta property="og:image:height" content="1080">
 <meta property="og:image:width" content="1920">
 </head>
@@ -543,6 +546,12 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
  <span class="menu-text">Hispanics in New Mexico</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../posts/data-science/r-census/abq-demographics-wrangling-collapse/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Demographic and Economic Variance in Albuquerque</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -886,12 +895,12 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <p>In the first article I introduced <code>moment()</code>, an object provided by Dataview (by MomentJS actually). This makes time math easy. <code>moment()</code> itself means today, now, this very second. If you want the date/time two days ago, you can subtract two days with <code>moment().subtract(2, "days")</code>. I’ll leave it as an exercise to the reader to figure out how to find the date two months ago.</p>
 <p>In order to use <code>moment()</code> for any date other than now, you need to write, eg., <code>moment(new Date("2023-10-20")</code>. We will do this so that we can format the date differently using the <code>format()</code> function in <code>moment()</code>. <code>format()</code> wants an argument, a date format string. I don’t need to see the year, and a 2-digit month is fine and shorter. On the other hand, seeing the day of the week would be useful. The format string to produce “10/10 Tue” is “MM/DD ddd”. ### Challenge As an exercise, you might pause here and think about how to display “two days ago” in the format “10/10 Tue”. You have all the knowledge you need. Think about chaining commands together with the period. ### Solution</p>
 <p>Here is a solution:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> dateFormat <span class="op">=</span> <span class="st">"MM/DD ddd"</span> <span class="kw">const</span> twoDaysAgo <span class="op">=</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> dateFormat <span class="op">=</span> <span class="st">"MM/DD ddd"</span> <span class="kw">const</span> twoDaysAgo <span class="op">=</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">moment</span>() <span class="op">.</span><span class="fu">subtract</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">"days"</span>) <span class="op">.</span><span class="fu">format</span>(dateFormat)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">paragraph</span>(twoDaysAgo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>dv<span class="op">.</span><span class="fu">paragraph</span>(twoDaysAgo)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>When writing, and especially reading, code, formatting is important. I could have written</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> twoDaysAgo <span class="op">=</span> <span class="fu">moment</span>()<span class="op">.</span><span class="fu">subtract</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">"days"</span>)<span class="op">.</span><span class="fu">format</span>(dateFormat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> twoDaysAgo <span class="op">=</span> <span class="fu">moment</span>()<span class="op">.</span><span class="fu">subtract</span>(<span class="dv">2</span><span class="op">,</span> <span class="st">"days"</span>)<span class="op">.</span><span class="fu">format</span>(dateFormat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>but it is much less clear what is going on. If you are trying to understand a piece of code, start by reformatting. ## Asynchronous Functions</p>
 <p>Most computer programs execute line by line, with each line completing before moving on to the next line. Normally this is what you want. However, as the quantity of data commonly worked with increases geometrically, and the fact that it is often distributed widely across the internet, applications which require <em>fetching</em> data can easily grind to a halt due to a slow internet connection, slow servers, large quantities, etc. To overcome this problems, some functions are executed <em>asynchronously</em>. When an asynchronous function is executed, it doesn’t return the actual data. Instead, it returns what is called a <em>promise</em>. That allows the program to continue executing while the data is being fetched. It will continue execution until the data is actually required, at which point it will wait (not freeze).</p>
 <p>In practice this is quite easy, involving the use of two new key words: <code>async</code> and <code>await</code>. The first, <code>async</code>, is added to the function definition, and the second, <code>await</code>, is added before any data fetching. That’s all you need to know so that you will understand the words when you see them.</p>
@@ -899,31 +908,31 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <section id="metadata-menu" class="level2">
 <h2 class="anchored" data-anchor-id="metadata-menu">Metadata Menu</h2>
 <p>Metadata Menu provides an asynchronous function for making the tables interactive. To use the function, you must import it with</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode fs code-with-copy"><code class="sourceCode fsharp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>const <span class="op">{</span>fieldModifier: f<span class="op">}</span> = this.app.plugins.plugins<span class="op">[</span><span class="st">"metadata-menu"</span><span class="op">]</span>.api</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode fs code-with-copy"><code class="sourceCode fsharp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>const <span class="op">{</span>fieldModifier: f<span class="op">}</span> = this.app.plugins.plugins<span class="op">[</span><span class="st">"metadata-menu"</span><span class="op">]</span>.api</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Using the curly braces like this is called deconstructing a variable or function. This means that somewhere there is a function called <code>fieldModifier</code>. The <code>: f</code> is just an alias, so that every time you use the function you don’t need to write out <code>fieldModifier</code>, you can just write <code>f</code>.</p>
 <p>The other part is interesting. Take it step by step. <code>this</code> is the root directory of your vault. <code>app</code> is the hidden <code>obsidian</code> directory, inside of which there is, you guessed it, a <code>plugins</code> directory with an entry called <code>metadata-menu</code>. The rest, <code>plugins["metadata-menu"].api</code> says to look in the <code>metadata-menu</code> directory for something called <code>api</code>. This object will contain a function called <code>fieldModifier</code>, which we can now refer to simply as <code>f</code>.</p>
 <p><code>fieldModifier()</code>, which is <code>f()</code> to us now, is used in <code>map()</code> and takes three arguments: the <code>dv</code> object, whatever temporary variable you are using in <code>map()</code> (we have been using <code>b</code>), and the name of the field we want. Were it a normal function you would write</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dataviewjs dv<span class="op">.</span><span class="fu">pages</span>()     </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dataviewjs dv<span class="op">.</span><span class="fu">pages</span>()     </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">map</span>(b<span class="kw">=&gt;</span>[p<span class="op">.</span><span class="at">ActivityDate</span><span class="op">,</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">f</span>(dv<span class="op">,</span> b<span class="op">,</span> <span class="st">"Activity"</span>)<span class="op">,</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Since this fetching of date is asynchronous, you have to use the key words <code>async/await</code> here, so</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dataviewjs dv<span class="op">.</span><span class="fu">pages</span>()     </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dataviewjs dv<span class="op">.</span><span class="fu">pages</span>()     </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">map</span>(<span class="kw">async</span> b<span class="kw">=&gt;</span>[</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    p<span class="op">.</span><span class="at">ActivityDate</span><span class="op">,</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> <span class="fu">f</span>(dv<span class="op">,</span> b<span class="op">,</span> <span class="st">"Activity"</span>)<span class="op">,</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The entire section containing <code>pages().map</code> needs to be wrapped in an asynchronous function called <code>Promise.all()</code>, which must be (a)waited for and returns, unsurprisingly, a promise.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> <span class="bu">Promise</span><span class="op">.</span><span class="fu">all</span>(dv<span class="op">.</span><span class="fu">pages</span>()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">await</span> <span class="bu">Promise</span><span class="op">.</span><span class="fu">all</span>(dv<span class="op">.</span><span class="fu">pages</span>()</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">map</span>(<span class="kw">async</span> b<span class="kw">=&gt;</span>[</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    p<span class="op">.</span><span class="at">ActivityDate</span><span class="op">,</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> <span class="fu">f</span>(dv<span class="op">,</span> b<span class="op">,</span> <span class="st">"Activity"</span>)<span class="op">,</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    ])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="the-table" class="level2">
 <h2 class="anchored" data-anchor-id="the-table">The Table</h2>
 <p>Now, lets finally take a look at the entire code that creates the dashboard. Take some time to read through it. Everything should be understandable at this point.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> {<span class="dt">fieldModifier</span><span class="op">:</span> f} <span class="op">=</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> {<span class="dt">fieldModifier</span><span class="op">:</span> f} <span class="op">=</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">app</span><span class="op">.</span><span class="at">plugins</span><span class="op">.</span><span class="at">plugins</span>\[<span class="st">"metadata-menu"</span>\]<span class="op">.</span><span class="at">api</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> dateFormat <span class="op">=</span> <span class="st">"MM/DD ddd"</span></span>
@@ -944,7 +953,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> <span class="fu">f</span>(dv<span class="op">,</span> b<span class="op">,</span> <span class="st">"Route"</span>)<span class="op">,</span></span>
 <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    ]</span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
@@ -1026,13 +1035,14 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

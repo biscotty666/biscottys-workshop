@@ -125,6 +125,7 @@
               scales
               classInt
               spdep
+              styler
               nngeo
               ggtext
               zeallot
