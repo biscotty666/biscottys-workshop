@@ -1,13 +1,13 @@
 project:
   type: website
   output-dir: docs
-  preview: 
+  preview:
     port: 4326
     browser: false
 
-execute: 
+execute:
   freeze: auto
-  
+
 website:
   title: "biscotty's Workshop"
   favicon: images/BWLogo.png
@@ -16,15 +16,15 @@ website:
   site-url: https://www.biscotty.net
   description: "For the love of learning"
   bread-crumbs: false
-  search: 
+  search:
     location: navbar
     type: overlay
-  open-graph: 
+  open-graph:
     site-name: biscotty's Workshop
     image: images/trunks.png
   google-analytics: "G-NTYWRS9WRE"
   navbar:
-    left: 
+    left:
       - text: "Home"
         href: index.qmd
       - href: about.qmd
@@ -34,11 +34,11 @@ website:
           - href: posts/obsidian/obsidian.qmd
             text: "Obsidian"
           - href: posts/data-science/data-science.qmd
-            text: "Data Science" 
+            text: "Data Science"
           - href: posts/linux/linux.qmd
             text: Linux
       - text: "Humanities"
-        menu: 
+        menu:
           - href: posts/chinese-medicine/chinese-medicine.qmd
             text: Chinese Medicine
       - href: posts/posts.qmd
@@ -53,17 +53,17 @@ website:
       - icon: rss
         href: posts/posts.xml
 
-  page-footer: 
+  page-footer:
     background: dark
     left: Copyright 2025, Brian Carey
-    right: powered by [Quarto](https://quarto.org/){target=_blank}, [{{< fa brands github title="GitHub octocat logo" >}}](https://github.com/biscotty666/biscottys-workshop){target=_blank}, [{{< fa brands r-project title="R Project" >}}](https://www.r-project.org/about.html){target=_blank}, [NixOS](https://nixos.org), [NGINX](https://nginx.org) 
+    right: powered by [Quarto](https://quarto.org/){target=_blank}, [{{< fa brands github title="GitHub octocat logo" >}}](https://github.com/biscotty666/biscottys-workshop){target=_blank}, [{{< fa brands r-project title="R Project" >}}](https://www.r-project.org/about.html){target=_blank}, [NixOS](https://nixos.org), [NGINX](https://nginx.org)
     center: built with FOSS
-    
-  sidebar: 
+
+  sidebar:
     - title: "Posts"
       id: posts-side
       style: "docked"
-      contents: 
+      contents:
         - posts/data-science/data-science.qmd
         - posts/linux/linux.qmd
         - posts/obsidian/obsidian.qmd
@@ -77,22 +77,22 @@ website:
     - title: "CV"
       id: cv-side
       style: "docked"
-      contents: 
+      contents:
         - cv/brian-carey.qmd
         - auto: cv/vignettes
-      
-  comments: 
-    utterances: 
+
+  comments:
+    utterances:
       repo: biscotty666/bw-comments
 
 format:
   html:
-    theme:
-      light: 
-        - litera
+    theme: 
+      light:
+        - cerulean
         - styles.scss
-      dark: 
-        - superhero
+      dark:
+        - darkly
     mainfont: Nunito
     toc: true
     page-layout: full
@@ -103,4 +103,3 @@ format:
     image-lazy-loading: true
 
 editor: visual
-

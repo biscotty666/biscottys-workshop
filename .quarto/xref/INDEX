@@ -449,5 +449,9 @@
   "posts/data-science/r-census/abq-demographics/index.qmd": {
     "index.html": "2da3e50b",
     "index.md": "21505221"
+  },
+  "posts/data-science/r-census/abq-demo-collapse/index.qmd": {
+    "index.md": "d1b348a1",
+    "index.html": "3396935f"
   }
 }

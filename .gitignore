@@ -7,3 +7,5 @@ posts/data-science/r-census/nm-hispanic-demographics/data
 .worktrees
 
 /.quarto/
+
+**/*.quarto_ipynb
