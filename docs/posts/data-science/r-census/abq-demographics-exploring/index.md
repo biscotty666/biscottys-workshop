@@ -349,9 +349,8 @@ in specifying contiguous regions.
 Once the neighbors are defined, a weights list must by generated. There
 are a number of options here. A binary list simply contains ones and
 zeros, depending on whether and area is contiguous or not. The binary
-style is preferred with $G^*$. On the other hand, a weighted list uses
-an average of neighborhood values. The `style` argument is used to
-specify the type of list desired.
+style is preferred with $G^*$. For others, weighted lists are used. The
+`style` argument is used to specify the type of list desired.
 
 ``` r
 nbw <- nb2listw(nb, style = "W")
@@ -492,8 +491,8 @@ mplots <- map2(var_vals[-5], var_names[-5],
 ![](index_files/figure-commonmark/dve-6-1.png)
 
 The spatial lag plots show spatial autocorrelation of the variables, as
-they are generally gathered near the mean line. The lower left quadrant
-contains tracts with low values clustered with other low values
+they are generally gathered near the diagonal line. The lower left
+quadrant contains tracts with low values clustered with other low values
 (low-low), while the upper right quadrant contains observations with
 spatially autocorrelated high values (high-high). Later we will
 visualize these areas on a map. The Hispanic percentage variable has a
@@ -531,11 +530,11 @@ moran_map <- function(cut) {
 }
 ```
 
-I will create one map which shows which areas show positive, negative,
-or lack of SA. A second map will show in which regions the correlation
-values are statistically significant. Because the data is in matrix
-form, I can use the `ss` function, which is even faster than the already
-fast `fselect` used on data frames.
+I will create one map showing areas of positive, negative, or lack of
+SA. A second map will show in which regions the correlation values are
+statistically significant. Because the data is in matrix form, I can use
+the `ss` function, which is even faster than the already fast `fselect`
+used on data frames.
 
 ``` r
 mmaps <- map(seq_len(length(var_names)), \(x) {
@@ -585,12 +584,6 @@ identifying whether they represent clusters of high values or low
 values. We can also map the “high-high” and “low-low” observations we
 saw earlier in the upper right and lower left of the Moran plots we made
 earlier.
-
-Now I’ll create the mapping function. Note that I’m using
-`scale_fill_discrete`, which will misbehave in the case that some of the
-factor levels have no data. For it to work, it is not enough to add
-`drop=FALSE` as an argument to the scale function, but the associated
-`geom_sf` function must specify `show.legend=TRUE`.
 
 First I will run local moran tests for each variable. The `sfdep`
 version of the test returns a p-value as well as the quadrant
@@ -734,20 +727,20 @@ table_gt <- function(table) table %>% qDF %>% rownames_to_column("district") %>%
 table_gt(lg_tables$Hisp.Pct)
 ```
 
-<div id="azjybmymds" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#azjybmymds table {
+<div id="wyadgcmopd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wyadgcmopd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-&#10;#azjybmymds thead, #azjybmymds tbody, #azjybmymds tfoot, #azjybmymds tr, #azjybmymds td, #azjybmymds th {
+&#10;#wyadgcmopd thead, #wyadgcmopd tbody, #wyadgcmopd tfoot, #wyadgcmopd tr, #wyadgcmopd td, #wyadgcmopd th {
   border-style: none;
 }
-&#10;#azjybmymds p {
+&#10;#wyadgcmopd p {
   margin: 0;
   padding: 0;
 }
-&#10;#azjybmymds .gt_table {
+&#10;#wyadgcmopd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -772,11 +765,11 @@ table_gt(lg_tables$Hisp.Pct)
   border-left-width: 2px;
   border-left-color: #D3D3D3;
 }
-&#10;#azjybmymds .gt_caption {
+&#10;#wyadgcmopd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
-&#10;#azjybmymds .gt_title {
+&#10;#wyadgcmopd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -787,7 +780,7 @@ table_gt(lg_tables$Hisp.Pct)
   border-bottom-color: #FFFFFF;
   border-bottom-width: 0;
 }
-&#10;#azjybmymds .gt_subtitle {
+&#10;#wyadgcmopd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -798,7 +791,7 @@ table_gt(lg_tables$Hisp.Pct)
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
-&#10;#azjybmymds .gt_heading {
+&#10;#wyadgcmopd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -809,12 +802,12 @@ table_gt(lg_tables$Hisp.Pct)
   border-right-width: 1px;
   border-right-color: #D3D3D3;
 }
-&#10;#azjybmymds .gt_bottom_border {
+&#10;#wyadgcmopd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#azjybmymds .gt_col_headings {
+&#10;#wyadgcmopd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -828,7 +821,7 @@ table_gt(lg_tables$Hisp.Pct)
   border-right-width: 1px;
   border-right-color: #D3D3D3;
 }
-&#10;#azjybmymds .gt_col_heading {
+&#10;#wyadgcmopd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -847,7 +840,7 @@ table_gt(lg_tables$Hisp.Pct)
   padding-right: 5px;
   overflow-x: hidden;
 }
-&#10;#azjybmymds .gt_column_spanner_outer {
+&#10;#wyadgcmopd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -858,13 +851,13 @@ table_gt(lg_tables$Hisp.Pct)
   padding-left: 4px;
   padding-right: 4px;
 }
-&#10;#azjybmymds .gt_column_spanner_outer:first-child {
+&#10;#wyadgcmopd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
-&#10;#azjybmymds .gt_column_spanner_outer:last-child {
+&#10;#wyadgcmopd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
-&#10;#azjybmymds .gt_column_spanner {
+&#10;#wyadgcmopd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -875,10 +868,10 @@ table_gt(lg_tables$Hisp.Pct)
   display: inline-block;
   width: 100%;
 }
-&#10;#azjybmymds .gt_spanner_row {
+&#10;#wyadgcmopd .gt_spanner_row {
   border-bottom-style: hidden;
 }
-&#10;#azjybmymds .gt_group_heading {
+&#10;#wyadgcmopd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -903,7 +896,7 @@ table_gt(lg_tables$Hisp.Pct)
   vertical-align: middle;
   text-align: left;
 }
-&#10;#azjybmymds .gt_empty_group_heading {
+&#10;#wyadgcmopd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -917,13 +910,13 @@ table_gt(lg_tables$Hisp.Pct)
   border-bottom-color: #D3D3D3;
   vertical-align: middle;
 }
-&#10;#azjybmymds .gt_from_md > :first-child {
+&#10;#wyadgcmopd .gt_from_md > :first-child {
   margin-top: 0;
 }
-&#10;#azjybmymds .gt_from_md > :last-child {
+&#10;#wyadgcmopd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
-&#10;#azjybmymds .gt_row {
+&#10;#wyadgcmopd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -941,7 +934,7 @@ table_gt(lg_tables$Hisp.Pct)
   vertical-align: middle;
   overflow-x: hidden;
 }
-&#10;#azjybmymds .gt_stub {
+&#10;#wyadgcmopd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -953,7 +946,7 @@ table_gt(lg_tables$Hisp.Pct)
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#azjybmymds .gt_stub_row_group {
+&#10;#wyadgcmopd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -966,13 +959,13 @@ table_gt(lg_tables$Hisp.Pct)
   padding-right: 5px;
   vertical-align: top;
 }
-&#10;#azjybmymds .gt_row_group_first td {
+&#10;#wyadgcmopd .gt_row_group_first td {
   border-top-width: 2px;
 }
-&#10;#azjybmymds .gt_row_group_first th {
+&#10;#wyadgcmopd .gt_row_group_first th {
   border-top-width: 2px;
 }
-&#10;#azjybmymds .gt_summary_row {
+&#10;#wyadgcmopd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -981,14 +974,14 @@ table_gt(lg_tables$Hisp.Pct)
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#azjybmymds .gt_first_summary_row {
+&#10;#wyadgcmopd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
-&#10;#azjybmymds .gt_first_summary_row.thick {
+&#10;#wyadgcmopd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
-&#10;#azjybmymds .gt_last_summary_row {
+&#10;#wyadgcmopd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -997,7 +990,7 @@ table_gt(lg_tables$Hisp.Pct)
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#azjybmymds .gt_grand_summary_row {
+&#10;#wyadgcmopd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1006,7 +999,7 @@ table_gt(lg_tables$Hisp.Pct)
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#azjybmymds .gt_first_grand_summary_row {
+&#10;#wyadgcmopd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1015,7 +1008,7 @@ table_gt(lg_tables$Hisp.Pct)
   border-top-width: 6px;
   border-top-color: #D3D3D3;
 }
-&#10;#azjybmymds .gt_last_grand_summary_row_top {
+&#10;#wyadgcmopd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1024,10 +1017,10 @@ table_gt(lg_tables$Hisp.Pct)
   border-bottom-width: 6px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#azjybmymds .gt_striped {
+&#10;#wyadgcmopd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
-&#10;#azjybmymds .gt_table_body {
+&#10;#wyadgcmopd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1035,7 +1028,7 @@ table_gt(lg_tables$Hisp.Pct)
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#azjybmymds .gt_footnotes {
+&#10;#wyadgcmopd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1048,7 +1041,7 @@ table_gt(lg_tables$Hisp.Pct)
   border-right-width: 2px;
   border-right-color: #D3D3D3;
 }
-&#10;#azjybmymds .gt_footnote {
+&#10;#wyadgcmopd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1056,7 +1049,7 @@ table_gt(lg_tables$Hisp.Pct)
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#azjybmymds .gt_sourcenotes {
+&#10;#wyadgcmopd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1069,79 +1062,79 @@ table_gt(lg_tables$Hisp.Pct)
   border-right-width: 2px;
   border-right-color: #D3D3D3;
 }
-&#10;#azjybmymds .gt_sourcenote {
+&#10;#wyadgcmopd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#azjybmymds .gt_left {
+&#10;#wyadgcmopd .gt_left {
   text-align: left;
 }
-&#10;#azjybmymds .gt_center {
+&#10;#wyadgcmopd .gt_center {
   text-align: center;
 }
-&#10;#azjybmymds .gt_right {
+&#10;#wyadgcmopd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
-&#10;#azjybmymds .gt_font_normal {
+&#10;#wyadgcmopd .gt_font_normal {
   font-weight: normal;
 }
-&#10;#azjybmymds .gt_font_bold {
+&#10;#wyadgcmopd .gt_font_bold {
   font-weight: bold;
 }
-&#10;#azjybmymds .gt_font_italic {
+&#10;#wyadgcmopd .gt_font_italic {
   font-style: italic;
 }
-&#10;#azjybmymds .gt_super {
+&#10;#wyadgcmopd .gt_super {
   font-size: 65%;
 }
-&#10;#azjybmymds .gt_footnote_marks {
+&#10;#wyadgcmopd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
-&#10;#azjybmymds .gt_asterisk {
+&#10;#wyadgcmopd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
-&#10;#azjybmymds .gt_indent_1 {
+&#10;#wyadgcmopd .gt_indent_1 {
   text-indent: 5px;
 }
-&#10;#azjybmymds .gt_indent_2 {
+&#10;#wyadgcmopd .gt_indent_2 {
   text-indent: 10px;
 }
-&#10;#azjybmymds .gt_indent_3 {
+&#10;#wyadgcmopd .gt_indent_3 {
   text-indent: 15px;
 }
-&#10;#azjybmymds .gt_indent_4 {
+&#10;#wyadgcmopd .gt_indent_4 {
   text-indent: 20px;
 }
-&#10;#azjybmymds .gt_indent_5 {
+&#10;#wyadgcmopd .gt_indent_5 {
   text-indent: 25px;
 }
-&#10;#azjybmymds .katex-display {
+&#10;#wyadgcmopd .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
-&#10;#azjybmymds div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+&#10;#wyadgcmopd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 | district | High-High | Low-Low | Negative | Other Positive | Not Significant |
 |----------|-----------|---------|----------|----------------|-----------------|
-| 1        | 10        | 1       | 0        | 1              | 5               |
-| 2        | 11        | 0       | 0        | 2              | 8               |
-| 3        | 18        | 0       | 0        | 0              | 1               |
-| 4        | 0         | 9       | 0        | 0              | 9               |
+| 1        | 11        | 1       | 0        | 1              | 4               |
+| 2        | 11        | 0       | 0        | 1              | 9               |
+| 3        | 17        | 0       | 0        | 0              | 2               |
+| 4        | 0         | 10      | 0        | 0              | 8               |
 | 5        | 3         | 6       | 3        | 1              | 3               |
-| 6        | 1         | 7       | 0        | 0              | 16              |
-| 7        | 1         | 10      | 2        | 0              | 8               |
+| 6        | 2         | 6       | 0        | 0              | 16              |
+| 7        | 1         | 9       | 2        | 0              | 9               |
 | 8        | 0         | 18      | 0        | 0              | 1               |
-| 9        | 0         | 5       | 0        | 0              | 13              |
+| 9        | 0         | 7       | 0        | 0              | 11              |
 
 </div>
 
@@ -1157,20 +1150,20 @@ names(lm_tables) <- var_names
 table_gt(lm_tables$Hisp.Pct)
 ```
 
-<div id="erctypycmx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#erctypycmx table {
+<div id="vajojmctfo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vajojmctfo table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-&#10;#erctypycmx thead, #erctypycmx tbody, #erctypycmx tfoot, #erctypycmx tr, #erctypycmx td, #erctypycmx th {
+&#10;#vajojmctfo thead, #vajojmctfo tbody, #vajojmctfo tfoot, #vajojmctfo tr, #vajojmctfo td, #vajojmctfo th {
   border-style: none;
 }
-&#10;#erctypycmx p {
+&#10;#vajojmctfo p {
   margin: 0;
   padding: 0;
 }
-&#10;#erctypycmx .gt_table {
+&#10;#vajojmctfo .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1195,11 +1188,11 @@ table_gt(lm_tables$Hisp.Pct)
   border-left-width: 2px;
   border-left-color: #D3D3D3;
 }
-&#10;#erctypycmx .gt_caption {
+&#10;#vajojmctfo .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
-&#10;#erctypycmx .gt_title {
+&#10;#vajojmctfo .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1210,7 +1203,7 @@ table_gt(lm_tables$Hisp.Pct)
   border-bottom-color: #FFFFFF;
   border-bottom-width: 0;
 }
-&#10;#erctypycmx .gt_subtitle {
+&#10;#vajojmctfo .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1221,7 +1214,7 @@ table_gt(lm_tables$Hisp.Pct)
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
-&#10;#erctypycmx .gt_heading {
+&#10;#vajojmctfo .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1232,12 +1225,12 @@ table_gt(lm_tables$Hisp.Pct)
   border-right-width: 1px;
   border-right-color: #D3D3D3;
 }
-&#10;#erctypycmx .gt_bottom_border {
+&#10;#vajojmctfo .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#erctypycmx .gt_col_headings {
+&#10;#vajojmctfo .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1251,7 +1244,7 @@ table_gt(lm_tables$Hisp.Pct)
   border-right-width: 1px;
   border-right-color: #D3D3D3;
 }
-&#10;#erctypycmx .gt_col_heading {
+&#10;#vajojmctfo .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1270,7 +1263,7 @@ table_gt(lm_tables$Hisp.Pct)
   padding-right: 5px;
   overflow-x: hidden;
 }
-&#10;#erctypycmx .gt_column_spanner_outer {
+&#10;#vajojmctfo .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1281,13 +1274,13 @@ table_gt(lm_tables$Hisp.Pct)
   padding-left: 4px;
   padding-right: 4px;
 }
-&#10;#erctypycmx .gt_column_spanner_outer:first-child {
+&#10;#vajojmctfo .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
-&#10;#erctypycmx .gt_column_spanner_outer:last-child {
+&#10;#vajojmctfo .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
-&#10;#erctypycmx .gt_column_spanner {
+&#10;#vajojmctfo .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1298,10 +1291,10 @@ table_gt(lm_tables$Hisp.Pct)
   display: inline-block;
   width: 100%;
 }
-&#10;#erctypycmx .gt_spanner_row {
+&#10;#vajojmctfo .gt_spanner_row {
   border-bottom-style: hidden;
 }
-&#10;#erctypycmx .gt_group_heading {
+&#10;#vajojmctfo .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1326,7 +1319,7 @@ table_gt(lm_tables$Hisp.Pct)
   vertical-align: middle;
   text-align: left;
 }
-&#10;#erctypycmx .gt_empty_group_heading {
+&#10;#vajojmctfo .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1340,13 +1333,13 @@ table_gt(lm_tables$Hisp.Pct)
   border-bottom-color: #D3D3D3;
   vertical-align: middle;
 }
-&#10;#erctypycmx .gt_from_md > :first-child {
+&#10;#vajojmctfo .gt_from_md > :first-child {
   margin-top: 0;
 }
-&#10;#erctypycmx .gt_from_md > :last-child {
+&#10;#vajojmctfo .gt_from_md > :last-child {
   margin-bottom: 0;
 }
-&#10;#erctypycmx .gt_row {
+&#10;#vajojmctfo .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1364,7 +1357,7 @@ table_gt(lm_tables$Hisp.Pct)
   vertical-align: middle;
   overflow-x: hidden;
 }
-&#10;#erctypycmx .gt_stub {
+&#10;#vajojmctfo .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1376,7 +1369,7 @@ table_gt(lm_tables$Hisp.Pct)
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#erctypycmx .gt_stub_row_group {
+&#10;#vajojmctfo .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1389,13 +1382,13 @@ table_gt(lm_tables$Hisp.Pct)
   padding-right: 5px;
   vertical-align: top;
 }
-&#10;#erctypycmx .gt_row_group_first td {
+&#10;#vajojmctfo .gt_row_group_first td {
   border-top-width: 2px;
 }
-&#10;#erctypycmx .gt_row_group_first th {
+&#10;#vajojmctfo .gt_row_group_first th {
   border-top-width: 2px;
 }
-&#10;#erctypycmx .gt_summary_row {
+&#10;#vajojmctfo .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1404,14 +1397,14 @@ table_gt(lm_tables$Hisp.Pct)
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#erctypycmx .gt_first_summary_row {
+&#10;#vajojmctfo .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
-&#10;#erctypycmx .gt_first_summary_row.thick {
+&#10;#vajojmctfo .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
-&#10;#erctypycmx .gt_last_summary_row {
+&#10;#vajojmctfo .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1420,7 +1413,7 @@ table_gt(lm_tables$Hisp.Pct)
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#erctypycmx .gt_grand_summary_row {
+&#10;#vajojmctfo .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1429,7 +1422,7 @@ table_gt(lm_tables$Hisp.Pct)
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#erctypycmx .gt_first_grand_summary_row {
+&#10;#vajojmctfo .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1438,7 +1431,7 @@ table_gt(lm_tables$Hisp.Pct)
   border-top-width: 6px;
   border-top-color: #D3D3D3;
 }
-&#10;#erctypycmx .gt_last_grand_summary_row_top {
+&#10;#vajojmctfo .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1447,10 +1440,10 @@ table_gt(lm_tables$Hisp.Pct)
   border-bottom-width: 6px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#erctypycmx .gt_striped {
+&#10;#vajojmctfo .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
-&#10;#erctypycmx .gt_table_body {
+&#10;#vajojmctfo .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1458,7 +1451,7 @@ table_gt(lm_tables$Hisp.Pct)
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
-&#10;#erctypycmx .gt_footnotes {
+&#10;#vajojmctfo .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1471,7 +1464,7 @@ table_gt(lm_tables$Hisp.Pct)
   border-right-width: 2px;
   border-right-color: #D3D3D3;
 }
-&#10;#erctypycmx .gt_footnote {
+&#10;#vajojmctfo .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1479,7 +1472,7 @@ table_gt(lm_tables$Hisp.Pct)
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#erctypycmx .gt_sourcenotes {
+&#10;#vajojmctfo .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1492,64 +1485,64 @@ table_gt(lm_tables$Hisp.Pct)
   border-right-width: 2px;
   border-right-color: #D3D3D3;
 }
-&#10;#erctypycmx .gt_sourcenote {
+&#10;#vajojmctfo .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
-&#10;#erctypycmx .gt_left {
+&#10;#vajojmctfo .gt_left {
   text-align: left;
 }
-&#10;#erctypycmx .gt_center {
+&#10;#vajojmctfo .gt_center {
   text-align: center;
 }
-&#10;#erctypycmx .gt_right {
+&#10;#vajojmctfo .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
-&#10;#erctypycmx .gt_font_normal {
+&#10;#vajojmctfo .gt_font_normal {
   font-weight: normal;
 }
-&#10;#erctypycmx .gt_font_bold {
+&#10;#vajojmctfo .gt_font_bold {
   font-weight: bold;
 }
-&#10;#erctypycmx .gt_font_italic {
+&#10;#vajojmctfo .gt_font_italic {
   font-style: italic;
 }
-&#10;#erctypycmx .gt_super {
+&#10;#vajojmctfo .gt_super {
   font-size: 65%;
 }
-&#10;#erctypycmx .gt_footnote_marks {
+&#10;#vajojmctfo .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
-&#10;#erctypycmx .gt_asterisk {
+&#10;#vajojmctfo .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
-&#10;#erctypycmx .gt_indent_1 {
+&#10;#vajojmctfo .gt_indent_1 {
   text-indent: 5px;
 }
-&#10;#erctypycmx .gt_indent_2 {
+&#10;#vajojmctfo .gt_indent_2 {
   text-indent: 10px;
 }
-&#10;#erctypycmx .gt_indent_3 {
+&#10;#vajojmctfo .gt_indent_3 {
   text-indent: 15px;
 }
-&#10;#erctypycmx .gt_indent_4 {
+&#10;#vajojmctfo .gt_indent_4 {
   text-indent: 20px;
 }
-&#10;#erctypycmx .gt_indent_5 {
+&#10;#vajojmctfo .gt_indent_5 {
   text-indent: 25px;
 }
-&#10;#erctypycmx .katex-display {
+&#10;#vajojmctfo .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
-&#10;#erctypycmx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+&#10;#vajojmctfo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1558,10 +1551,10 @@ table_gt(lm_tables$Hisp.Pct)
 |----------|-----------|----------|----------|---------|-----------------|
 | 1        | 6         | 0        | 0        | 0       | 11              |
 | 2        | 7         | 0        | 1        | 0       | 13              |
-| 3        | 17        | 0        | 0        | 0       | 2               |
-| 4        | 0         | 0        | 0        | 10      | 8               |
+| 3        | 18        | 0        | 0        | 0       | 1               |
+| 4        | 0         | 0        | 0        | 11      | 7               |
 | 5        | 0         | 0        | 0        | 0       | 16              |
-| 6        | 0         | 0        | 0        | 7       | 17              |
+| 6        | 0         | 0        | 0        | 8       | 16              |
 | 7        | 0         | 0        | 0        | 5       | 16              |
 | 8        | 0         | 0        | 0        | 19      | 0               |
 | 9        | 0         | 0        | 0        | 6       | 12              |

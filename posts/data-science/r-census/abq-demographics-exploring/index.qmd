@@ -233,7 +233,7 @@ Here I'll define the neighbors as queen-contiguous. I will first use functions f
 
 The `ploy2nb` function defaults to queen, so adding it here is redundant. The `snap` argument allows for some flexibility in distance in specifying contiguous regions.
 
-Once the neighbors are defined, a weights list must by generated. There are a number of options here. A binary list simply contains ones and zeros, depending on whether and area is contiguous or not. The binary style is preferred with $G^*$. On the other hand, a weighted list uses an average of neighborhood values. The `style` argument is used to specify the type of list desired.
+Once the neighbors are defined, a weights list must by generated. There are a number of options here. A binary list simply contains ones and zeros, depending on whether and area is contiguous or not. The binary style is preferred with $G^*$. For others, weighted lists are used. The `style` argument is used to specify the type of list desired.
 
 ```{r}
 nbw <- nb2listw(nb, style = "W")
@@ -302,7 +302,7 @@ mplots <- map2(var_vals[-5], var_names[-5],
                \(x, y) moran.plot(x, nbw, xlab = y))
 ```
 
-The spatial lag plots show spatial autocorrelation of the variables, as they are generally gathered near the mean line. The lower left quadrant contains tracts with low values clustered with other low values (low-low), while the upper right quadrant contains observations with spatially autocorrelated high values (high-high). Later we will visualize these areas on a map. The Hispanic percentage variable has a high statistic value, and the plot shows most observations tightly grouped along the diagonal. Gini, on the other hand, has a relatively low value, and the graph displays how much wider spread the lagged observations are.
+The spatial lag plots show spatial autocorrelation of the variables, as they are generally gathered near the diagonal line. The lower left quadrant contains tracts with low values clustered with other low values (low-low), while the upper right quadrant contains observations with spatially autocorrelated high values (high-high). Later we will visualize these areas on a map. The Hispanic percentage variable has a high statistic value, and the plot shows most observations tightly grouped along the diagonal. Gini, on the other hand, has a relatively low value, and the graph displays how much wider spread the lagged observations are.
 
 ## Local Indicators of Spatial Autocorrelation (LISA)
 
@@ -323,7 +323,7 @@ moran_map <- function(cut) {
 }
 ```
 
-I will create one map which shows which areas show positive, negative, or lack of SA. A second map will show in which regions the correlation values are statistically significant. Because the data is in matrix form, I can use the `ss` function, which is even faster than the already fast `fselect` used on data frames.
+I will create one map showing areas of positive, negative, or lack of SA. A second map will show in which regions the correlation values are statistically significant. Because the data is in matrix form, I can use the `ss` function, which is even faster than the already fast `fselect` used on data frames.
 
 ```{r dve-7}
 mmaps <- map(seq_len(length(var_names)), \(x) {
@@ -351,8 +351,6 @@ map2(mmaps[c(1,4)], var_names[c(1,4)], \(x, y) {
 Most of the areas showing positive (or negative) SA also have p-values showing statistical significance. On the other hand, the statistical significance of the "No SA" designation only holds for a minority of these tracts.
 
 Going down one further level, we can map the nature of the SA, identifying whether they represent clusters of high values or low values. We can also map the "high-high" and "low-low" observations we saw earlier in the upper right and lower left of the Moran plots we made earlier.
-
-Now I'll create the mapping function. Note that I'm using `scale_fill_discrete`, which will misbehave in the case that some of the factor levels have no data. For it to work, it is not enough to add `drop=FALSE` as an argument to the scale function, but the associated `geom_sf` function must specify `show.legend=TRUE`.
 
 First I will run local moran tests for each variable. The `sfdep` version of the test returns a p-value as well as the quadrant description in the `pysal` variable.
 
