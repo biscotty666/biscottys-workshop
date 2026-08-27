@@ -15,8 +15,7 @@
 
 # Introduction
 
-This article follows on from an [earlier
-article](https://biscotty.net/posts/data-science/r-census/abq-demographics)
+This article follows on from an [earlier article](../abq-demographics)
 in which I used data from the US Census Bureau to see how age, race, and
 education vary between city council districts in Albuquerque, New
 Mexico. In some cases, the variations appeared striking. Now I would
@@ -309,9 +308,9 @@ microbenchmark(
 ```
 
     Unit: microseconds
-     expr     min       lq      mean   median       uq      max neval cld
-       dp 755.860 855.1780 885.02534 878.0110 895.4065 1736.645   100  a 
-       co   7.582   9.5215  15.11265  16.6055  18.8935   47.624   100   b
+     expr     min      lq      mean   median      uq      max neval cld
+       dp 737.977 783.734 813.25702 802.4645 819.240 1721.146   100  a 
+       co   7.814   9.482  13.77559  15.7975  16.825   29.104   100   b
 
 The `collapse` version of this very common operation is over 50 times
 faster than `dplyr`’s! Now, let’s see where the tract is.
@@ -406,9 +405,9 @@ microbenchmark(
 ```
 
     Unit: microseconds
-     expr      min       lq       mean   median       uq      max neval cld
-       dp 1864.961 2035.497 2106.21880 2076.825 2159.189 3648.592   100  a 
-       co   13.928   16.495   24.56251   21.833   31.754   57.326   100   b
+     expr      min        lq       mean   median        uq      max neval cld
+       dp 1744.775 1870.6410 1919.06767 1903.714 1936.1355 3419.092   100  a 
+       co   12.934   15.0485   21.57675   18.109   26.2875   56.323   100   b
 
 `collapse` is nearly 100 times faster.
 

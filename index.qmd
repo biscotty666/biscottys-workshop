@@ -20,7 +20,7 @@ Here you will find articles about things that interest me. Much of the site is d
 
 ## What's new
 
-[The second part](posts/data-science/r-census/abq-demographics-wrangling-collapse/) explores the variables through visualization, mapping. Much of the article is concerned with Spatial Autocorrelation.
+[The second part](posts/data-science/r-census/abq-demographics-exploring/) explores the variables through visualization, mapping. Much of the article is concerned with Spatial Autocorrelation.
 
 [The first part](posts/data-science/r-census/abq-demographics-wrangling-collapse/) of an analysis of the economic and demographic variance between Albuquerque's city council districts. This part is concerned with data wrangling, and shows how the `collapse` package can be used in place of `dplyr` for much faster data processing.
 

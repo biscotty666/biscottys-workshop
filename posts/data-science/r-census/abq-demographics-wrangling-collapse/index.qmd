@@ -8,6 +8,8 @@ format:
   gfm:
     toc: true
 date: 2026-08-12
+execute: 
+  freeze: auto
 categories: [R, Data Science, GIS]
 draft: false
 ---

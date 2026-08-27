@@ -567,12 +567,6 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
  <span class="menu-text">GPS Mapping with R</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../posts/data-science/r-gpx-mapping/points-to-paths/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GPS Mapping with R Part 2</span></a>
-  </div>
-</li>
       </ul>
   </li>
       </ul>
@@ -828,12 +822,6 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
  <span class="menu-text">The Magical Mulberry</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../posts/chinese-medicine/chinese-herbal-language/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The Languag of Chinese Herbal Medicine</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -1064,9 +1052,9 @@ Projected CRS: NAD83(2011) / New Mexico Central
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
- expr     min      lq      mean   median       uq      max neval cld
-   dp 719.045 787.844 857.73893 812.6685 846.0125 2048.184   100  a 
-   co   7.105   8.843  14.73182  14.5595  19.6555   30.398   100   b</code></pre>
+ expr     min       lq      mean   median      uq      max neval cld
+   dp 731.088 781.7965 829.47367 803.6655 820.590 1775.027   100  a 
+   co   8.052   9.0280  13.58078  11.7695  16.926   32.873   100   b</code></pre>
 </div>
 </div>
 <p>The <code>collapse</code> version of this very common operation is over 50 times faster than <code>dplyr</code>’s! Now, let’s see where the tract is.</p>
@@ -1151,9 +1139,9 @@ Projected CRS: NAD83(2011) / New Mexico Central
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
- expr      min       lq       mean    median       uq      max neval cld
-   dp 1718.248 1894.594 2054.43475 1982.5660 2135.566 3701.349   100  a 
-   co   12.822   14.608   24.92414   25.6125   31.495   78.753   100   b</code></pre>
+ expr      min       lq      mean    median       uq      max neval cld
+   dp 1720.422 1852.959 1899.2806 1872.2290 1921.066 3435.528   100  a 
+   co   12.788   14.257   20.7576   15.6045   26.732   56.841   100   b</code></pre>
 </div>
 </div>
 <p><code>collapse</code> is nearly 100 times faster.</p>

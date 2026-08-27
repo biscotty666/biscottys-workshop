@@ -66,17 +66,6 @@
   <pubDate>Sat, 24 May 2025 06:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>GPS Mapping with R Part 2</title>
-  <link>https://www.biscotty.net/posts/data-science/r-gpx-mapping/points-to-paths/</link>
-  <description><![CDATA[ A Comparison with Python ]]></description>
-  <category>GIS</category>
-  <category>R</category>
-  <category>Python</category>
-  <category>Data Science</category>
-  <guid>https://www.biscotty.net/posts/data-science/r-gpx-mapping/points-to-paths/</guid>
-  <pubDate>Sun, 30 Mar 2025 06:00:00 GMT</pubDate>
-</item>
-<item>
   <title>GPS Mapping with R</title>
   <link>https://www.biscotty.net/posts/data-science/r-gpx-mapping/trail-mapping-with-r/</link>
   <description><![CDATA[ A Comparison with Python ]]></description>
@@ -122,6 +111,18 @@
   <guid>https://www.biscotty.net/posts/data-science/python-gpx-mapping/gpx-gps-data/</guid>
   <pubDate>Wed, 28 Feb 2024 07:00:00 GMT</pubDate>
   <media:content url="https://www.biscotty.net/posts/data-science/python-gpx-mapping/gpx-gps-data/pr2.png" medium="image" type="image/png" height="93" width="144"/>
+</item>
+<item>
+  <title>Obsidian and Jupyter Notebooks</title>
+  <dc:creator>Brian Carey</dc:creator>
+  <link>https://www.biscotty.net/posts/data-science/obsidian-jupyter/</link>
+  <description><![CDATA[ Personal Knowledge Management for Data Science ]]></description>
+  <category>Obsidian</category>
+  <category>Python</category>
+  <category>Data Science</category>
+  <guid>https://www.biscotty.net/posts/data-science/obsidian-jupyter/</guid>
+  <pubDate>Mon, 20 Mar 2023 06:00:00 GMT</pubDate>
+  <media:content url="https://www.biscotty.net/posts/data-science/obsidian-jupyter/Jupyter-Obsidian.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 </channel>
 </rss>
