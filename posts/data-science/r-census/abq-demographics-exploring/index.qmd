@@ -416,21 +416,6 @@ lg_plots <- map(lg_lisas, \(x)
       scale_fill_discrete("Local Geary's C", 
         palette = c("blue", "red", "green", "orange", "#FFF"), 
         drop = F) + labs(title = ""))
-     
-lg_plots <- map(var_names, \(x) {
-  lisa <- abq_data %>% to_sf %>% 
-     transmute(local_c = local_c_perm(abq_data[[x]], nb, wt, nsim = 199)) %>%
-      unnest(local_c) %>%
-      mutate(cluster = factor(
-        ifelse(p_folded_sim <= 0.05, as.character(cluster), "Not Significant"),
-        levels = c("High-High", "Low-Low", "Negative",
-                   "Other Positive", "Not Significant")))
-  base_plot +
-      geom_sf(data = lisa, aes(fill = cluster),
-              alpha = 0.4, show.legend = T) +
-      scale_fill_discrete("Local Geary's C", 
-        palette = c("blue", "red", "green", "orange", "#FFF"), 
-        drop = F) + labs(title = "")})
 ```
 
 ```{r}
