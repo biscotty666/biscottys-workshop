@@ -125,7 +125,10 @@
               scales
               classInt
               spdep
+              sfdep
               styler
+              GGally
+              reshape2
               nngeo
               ggtext
               zeallot

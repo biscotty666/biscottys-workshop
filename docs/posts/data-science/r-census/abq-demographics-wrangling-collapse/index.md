@@ -187,7 +187,7 @@ council_dists %<>%
 dist_plot(labels = FALSE)
 ```
 
-![](index_files/figure-commonmark/unnamed-chunk-4-1.png)
+![](index_files/figure-commonmark/abq-wrangle-1-1.png)
 
 I will save the council district definitions for future use.
 
@@ -309,9 +309,9 @@ microbenchmark(
 ```
 
     Unit: microseconds
-     expr     min       lq     mean  median       uq      max neval cld
-       dp 721.457 771.4975 793.3044 784.741 798.3185 1719.389   100  a 
-       co   7.535   9.5300  13.2151  13.599  16.4315   32.156   100   b
+     expr     min       lq      mean   median       uq      max neval cld
+       dp 755.860 855.1780 885.02534 878.0110 895.4065 1736.645   100  a 
+       co   7.582   9.5215  15.11265  16.6055  18.8935   47.624   100   b
 
 The `collapse` version of this very common operation is over 50 times
 faster than `dplyr`’s! Now, let’s see where the tract is.
@@ -326,7 +326,7 @@ dist_plot() +
 
     Zoom: 11
 
-![](index_files/figure-commonmark/unnamed-chunk-10-1.png)
+![](index_files/figure-commonmark/abq-wrangle-2-1.png)
 
 This tract is the state fairgrounds. The other must be outside the study
 area. I’ll remove both.
@@ -349,7 +349,7 @@ dist_plot() +
 
     Zoom: 11
 
-![](index_files/figure-commonmark/unnamed-chunk-12-1.png)
+![](index_files/figure-commonmark/abq-wrangle-3-1.png)
 
 This is the Petroglyph National Monument, and the 16 people must be park
 rangers. I’ll remove this as well.
@@ -406,9 +406,9 @@ microbenchmark(
 ```
 
     Unit: microseconds
-     expr      min        lq       mean    median        uq      max neval cld
-       dp 1699.787 1809.2585 1858.60414 1824.5970 1866.7255 3590.456   100  a 
-       co   12.733   14.7245   20.82312   23.9425   25.5125   38.577   100   b
+     expr      min       lq       mean   median       uq      max neval cld
+       dp 1864.961 2035.497 2106.21880 2076.825 2159.189 3648.592   100  a 
+       co   13.928   16.495   24.56251   21.833   31.754   57.326   100   b
 
 `collapse` is nearly 100 times faster.
 
@@ -645,22 +645,22 @@ map(
 
     [[1]]
 
-![](index_files/figure-commonmark/unnamed-chunk-23-1.png)
+![](index_files/figure-commonmark/abq-wrangle-4-1.png)
 
 
     [[2]]
 
-![](index_files/figure-commonmark/unnamed-chunk-23-2.png)
+![](index_files/figure-commonmark/abq-wrangle-4-2.png)
 
 
     [[3]]
 
-![](index_files/figure-commonmark/unnamed-chunk-23-3.png)
+![](index_files/figure-commonmark/abq-wrangle-4-3.png)
 
 
     [[4]]
 
-![](index_files/figure-commonmark/unnamed-chunk-23-4.png)
+![](index_files/figure-commonmark/abq-wrangle-4-4.png)
 
 Some of the variables surely look quite different when compared across
 districts. Finally, I will save the data for use in the next article.

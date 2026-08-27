@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../../">
 <link href="../../../../posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.html" rel="next">
-<link href="../../../../posts/data-science/r-census/nm-hispanic-demographics/index.html" rel="prev">
+<link href="../../../../posts/data-science/r-census/abq-demographics-exploring/index.html" rel="prev">
 <link href="../../../../images/BWLogo.png" rel="icon" type="image/png">
 <script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-html/quarto-highlight-style-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap-b9c2578487a79cb14872d942c6999a34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../../site_libs/bootstrap/bootstrap-dark-b1a9fb8c462eb9d237e5d751133e45bc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../../site_libs/bootstrap/bootstrap-b9c2578487a79cb14872d942c6999a34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-19823a2933a8990bf2dd1e082d8e3bb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/bootstrap/bootstrap-dark-f5fc6150343a47f6af1ea3298606343d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../../site_libs/bootstrap/bootstrap-19823a2933a8990bf2dd1e082d8e3bb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -540,6 +540,12 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../../posts/data-science/r-census/abq-demographics-exploring/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Demographic and Economic Variance in Albuquerque Pt 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../../posts/data-science/r-census/abq-demographics-wrangling-collapse/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Demographic and Economic Variance in Albuquerque Part 1</span></a>
   </div>
@@ -559,6 +565,12 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
   <div class="sidebar-item-container"> 
   <a href="../../../../posts/data-science/r-gpx-mapping/trail-mapping-with-r/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GPS Mapping with R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../posts/data-science/r-gpx-mapping/points-to-paths/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GPS Mapping with R Part 2</span></a>
   </div>
 </li>
       </ul>
@@ -816,6 +828,12 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
  <span class="menu-text">The Magical Mulberry</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../posts/chinese-medicine/chinese-herbal-language/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Languag of Chinese Herbal Medicine</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -855,7 +873,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>This article follows on from an <a href="https://biscotty.net/posts/data-science/r-census/abq-demographics">earlier article</a> in which I used data from the US Census Bureau to see how age, race, and education vary between city council districts in Albuquerque, New Mexico. In some cases, the variations appeared striking. Now I would like to apply some formal testing to see if this impression of variance is backed up statistically. As in the prior article, I will use data from the US Census American Community Survey. In addition to the demographic variables of education and race, I will add a number of economic indicators such as income levels, housing values, and inequality measurements. Before being able to run the tests, and eventual models, a significant amount of data wrangling will be necessary in order to get the data in an appropriate form,with appropriate variables, from the raw data.</p>
+<p>This article follows on from an <a href="../abq-demographics">earlier article</a> in which I used data from the US Census Bureau to see how age, race, and education vary between city council districts in Albuquerque, New Mexico. In some cases, the variations appeared striking. Now I would like to apply some formal testing to see if this impression of variance is backed up statistically. As in the prior article, I will use data from the US Census American Community Survey. In addition to the demographic variables of education and race, I will add a number of economic indicators such as income levels, housing values, and inequality measurements. Before being able to run the tests, and eventual models, a significant amount of data wrangling will be necessary in order to get the data in an appropriate form,with appropriate variables, from the raw data.</p>
 <p>Having obtained the data, I will need clean out bad data, fill in missing values, engineer new variables of interest, and divide the spatial dataset by council districts. I will then explore correlation and <em>spatial autocorrelation</em> between the chosen variables. Next I will perform an analysis of variance, but since almost none of the variables will turn out to be normally distributed, some more work will be necessary to transform the data. I will also need to address issues of homogeneity of variance among the districts. Finally, I will do some regression modeling. Since my primary target variable is the county districts, this will require multinomial logistic regression models.</p>
 <p>This would be far too much for one article, so I will split the excercise into four parts. The current article will be concerned with preparing the data. I have another purpose here, which is to highlight how data analysis and transformation can be significantly sped up by using the <code>collapse</code> package instead of the ubiquitous <code>dplyr</code> library. <code>dplyr</code> is without doubt wonderfully expressive and, as a key part of the popular <code>tidyverse</code>, sets a syntactical approach which has been widely adopted, and justifiably so. While the syntactic standard is excellent, it is not, unfortunately, a particularly fast library. <code>collapse</code>, on the other hand, while embracing the syntactical conventions of <code>dplyr</code> (unlike <code>data.table</code>), focuses on speed. It is orders of magitude faster, and it is even much faster than <code>data.table</code>. Written in C/C++, it has “fast” versions of many commonly-used <code>dplyr</code> functions, simply with a prepended “f”, eg. <code>fmutate</code> rather than <code>mutate</code>. It provides many new fast statistical functions, transformations, and convenience functions. Throughout, I will show speed comparisons between <code>dplyr</code> and <code>collapse</code> using the <code>microbenchmark</code> package.</p>
 </section>
@@ -945,7 +963,7 @@ gtag('config', 'G-NTYWRS9WRE', { 'anonymize_ip': true});
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/abq-wrangle-1-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1046,9 +1064,9 @@ Projected CRS: NAD83(2011) / New Mexico Central
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
- expr     min      lq     mean   median      uq      max neval cld
-   dp 717.505 781.281 810.2432 798.9535 816.940 1718.021   100  a 
-   co   7.440   8.680  13.1376  14.8245  16.775   28.091   100   b</code></pre>
+ expr     min      lq      mean   median       uq      max neval cld
+   dp 719.045 787.844 857.73893 812.6685 846.0125 2048.184   100  a 
+   co   7.105   8.843  14.73182  14.5595  19.6555   30.398   100   b</code></pre>
 </div>
 </div>
 <p>The <code>collapse</code> version of this very common operation is over 50 times faster than <code>dplyr</code>’s! Now, let’s see where the tract is.</p>
@@ -1064,7 +1082,7 @@ Projected CRS: NAD83(2011) / New Mexico Central
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/abq-wrangle-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1088,7 +1106,7 @@ Projected CRS: NAD83(2011) / New Mexico Central
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/abq-wrangle-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1133,9 +1151,9 @@ Projected CRS: NAD83(2011) / New Mexico Central
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
- expr      min        lq       mean    median        uq      max neval cld
-   dp 1731.926 1862.6745 1920.10228 1905.8450 1946.4185 3283.916   100  a 
-   co   12.568   15.3535   21.21638   24.4515   26.0035   36.994   100   b</code></pre>
+ expr      min       lq       mean    median       uq      max neval cld
+   dp 1718.248 1894.594 2054.43475 1982.5660 2135.566 3701.349   100  a 
+   co   12.822   14.608   24.92414   25.6125   31.495   78.753   100   b</code></pre>
 </div>
 </div>
 <p><code>collapse</code> is nearly 100 times faster.</p>
@@ -1315,7 +1333,7 @@ Housing.Density      173    704.6709    513.5183  0.2002  2575.2589</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/abq-wrangle-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1326,7 +1344,7 @@ Housing.Density      173    704.6709    513.5183  0.2002  2575.2589</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-23-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/abq-wrangle-4-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1337,7 +1355,7 @@ Housing.Density      173    704.6709    513.5183  0.2002  2575.2589</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-23-3.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/abq-wrangle-4-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1348,7 +1366,7 @@ Housing.Density      173    704.6709    513.5183  0.2002  2575.2589</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-23-4.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/abq-wrangle-4-4.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1788,8 +1806,8 @@ Housing.Density      173    704.6709    513.5183  0.2002  2575.2589</code></pre>
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../../../posts/data-science/r-census/nm-hispanic-demographics/index.html" class="pagination-link" aria-label="Hispanics in New Mexico">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Hispanics in New Mexico</span>
+      <a href="../../../../posts/data-science/r-census/abq-demographics-exploring/index.html" class="pagination-link" aria-label="Demographic and Economic Variance in Albuquerque Pt 2">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Demographic and Economic Variance in Albuquerque Pt 2</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

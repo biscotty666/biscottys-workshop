@@ -8,16 +8,13 @@ format:
   gfm:
     toc: true
 date: 2026-08-12
-code-overflow: wrap
-execute: 
-  freeze: auto
 categories: [R, Data Science, GIS]
 draft: false
 ---
 
 # Introduction
 
-This article follows on from an [earlier article](https://biscotty.net/posts/data-science/r-census/abq-demographics) in which I used data from the US Census Bureau to see how age, race, and education vary between city council districts in Albuquerque, New Mexico. In some cases, the variations appeared striking. Now I would like to apply some formal testing to see if this impression of variance is backed up statistically. As in the prior article, I will use data from the US Census American Community Survey. In addition to the demographic variables of education and race, I will add a number of economic indicators such as income levels, housing values, and inequality measurements. Before being able to run the tests, and eventual models, a significant amount of data wrangling will be necessary in order to get the data in an appropriate form,with appropriate variables, from the raw data. 
+This article follows on from an [earlier article](../abq-demographics) in which I used data from the US Census Bureau to see how age, race, and education vary between city council districts in Albuquerque, New Mexico. In some cases, the variations appeared striking. Now I would like to apply some formal testing to see if this impression of variance is backed up statistically. As in the prior article, I will use data from the US Census American Community Survey. In addition to the demographic variables of education and race, I will add a number of economic indicators such as income levels, housing values, and inequality measurements. Before being able to run the tests, and eventual models, a significant amount of data wrangling will be necessary in order to get the data in an appropriate form,with appropriate variables, from the raw data. 
 
 Having obtained the data, I will need clean out bad data, fill in missing values, engineer new variables of interest, and divide the spatial dataset by council districts. I will then explore correlation and _spatial autocorrelation_ between the chosen variables. Next I will perform an analysis of variance, but since almost none of the variables will turn out to be normally distributed, some more work will be necessary to transform the data. I will also need to address issues of homogeneity of variance among the districts. Finally, I will do some regression modeling. Since my primary target variable is the county districts, this will require multinomial logistic regression models.
 
@@ -98,7 +95,7 @@ council_dists <- rowbind(difference_sf, council_dists)
 
 I have used `%<>%`, a lesser-used function from `magrittr`, which replaces the tedious yet ubiquitous idiom `data <- data %>%` with the simpler and shorter `data %<>%`. It is similar to modifiying by reference. I have also, again, needed to recast the geometries after the cropping operation. Now I will create a base plot for the rest of the study which shows the district boundaries.
 
-```{r}
+```{r abq-wrangle-1}
 #| warning: false
 dist_plot <- function(df = council_dists, labels = TRUE) {
   p <- ggplot(df) +
@@ -196,7 +193,7 @@ microbenchmark(
 
 The `collapse` version of this very common operation is over 50 times faster than `dplyr`'s! Now, let's see where the tract is.
 
-```{r}
+```{r abq-wrangle-2}
 dist_plot() +
   geom_sf(data = bern_data, color = "red") +
   geom_sf(data = fsubset(bern_data, Population %==% 0),
@@ -212,7 +209,7 @@ bern_data %<>% fsubset(Population %!=% 0)
 
 The population of 16 is somewhat suspicious. 
 
-```{r}
+```{r abq-wrangle-3}
 dist_plot() +
   geom_sf(data = bern_data, color = "red") +
   geom_sf(
@@ -364,7 +361,7 @@ qsu(abq_data)
 
 While data exploration will be the subject of the next article, I will make some quick plots of a few of the variables, using the `qsu` function.
 
-```{r}
+```{r abq-wrangle-4}
 plot_simple <- function(df, var) {
   ggplot(data = df, aes(x = district, y = Mean)) +
     geom_col(aes(fill = district)) +

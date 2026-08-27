@@ -457,5 +457,12 @@
   "posts/data-science/r-census/abq-demographics-wrangling-collapse/index.qmd": {
     "index.html": "9d4fcb2f",
     "index.md": "4f828630"
+  },
+  "posts/data-science/r-census/abq-demographics-exploring/index.qmd": {
+    "index.html": "001103cb",
+    "index.md": "a8d13f46"
+  },
+  "posts/data-science/r-census/abq-demographics/index.md": {
+    "index.html": "65c55645"
   }
 }
