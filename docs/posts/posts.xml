@@ -141,26 +141,31 @@ background-color: null;
 font-style: inherit;">&lt;-</span> gt<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span>gt</span>
-<span id="cb1-22"></span>
-<span id="cb1-23">year <span class="ot" style="color: #003B4F;
+<span id="cb1-22">iif <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> kit<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span>iif</span>
+<span id="cb1-23"></span>
+<span id="cb1-24">year <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2024</span></span>
-<span id="cb1-24">crs <span class="ot" style="color: #003B4F;
+<span id="cb1-25">crs <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">6528</span></span>
-<span id="cb1-25">caption <span class="ot" style="color: #003B4F;
+<span id="cb1-26">caption <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">glue</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Source: census.gov, acs5, {year}"</span>)</span>
-<span id="cb1-26"></span>
-<span id="cb1-27">abq_data <span class="ot" style="color: #003B4F;
+<span id="cb1-27"></span>
+<span id="cb1-28">abq_data <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -171,14 +176,14 @@ background-color: null;
 font-style: inherit;">layer =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"abq_data"</span>)</span>
-<span id="cb1-28">council_dists <span class="ot" style="color: #003B4F;
+<span id="cb1-29">council_dists <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">st_read</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"../data/district_variance.gpkg"</span>, </span>
-<span id="cb1-29">                         <span class="at" style="color: #657422;
+<span id="cb1-30">                         <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">layer =</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -1430,7 +1435,7 @@ background-color: null;
 font-style: inherit;">factor</span>(</span>
 <span id="cb34-7">        <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">ifelse</span>(p_folded_sim <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">iif</span>(p_folded_sim <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
@@ -1456,7 +1461,7 @@ font-style: inherit;">"Low-Low"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Not Significant"</span>)))})</span></code></pre></div></div>
 </div>
-<p>Now I’ll create the mapping function. Note that I’m using <code>scale_fill_discrete</code>, which will misbehave in the case that some of the factor levels have no data. For it to work, it is not enough to add <code>drop=FALSE</code> as an argument to the scale function, but the associated <code>geom_sf</code> function must specify <code>show.legend=TRUE</code>.</p>
+<p>Now I’ll create the mapping function. Note that I’m using <code>scale_fill_discrete</code>, which will misbehave in the case that some of the factor levels have no data. For it to work, it is not enough to add <code>drop=FALSE</code> as an argument to the scale function, but the associated <code>geom_sf</code> function must specify <code>show.legend=TRUE</code>. I’ve also used the fast version of <code>ifelse</code> provided by the <code>kit</code> package.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1">lm_plots <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1685,7 +1690,7 @@ background-color: null;
 font-style: inherit;">factor</span>(</span>
 <span id="cb37-5">        <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">ifelse</span>(p_folded_sim <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">iif</span>(p_folded_sim <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
@@ -1912,23 +1917,23 @@ font-style: inherit;">table_gt</span>(lg_tables<span class="sc" style="color: #5
 background-color: null;
 font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="zxseajzwbd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zxseajzwbd table {
+<div id="ztzwdoizvv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ztzwdoizvv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zxseajzwbd thead, #zxseajzwbd tbody, #zxseajzwbd tfoot, #zxseajzwbd tr, #zxseajzwbd td, #zxseajzwbd th {
+#ztzwdoizvv thead, #ztzwdoizvv tbody, #ztzwdoizvv tfoot, #ztzwdoizvv tr, #ztzwdoizvv td, #ztzwdoizvv th {
   border-style: none;
 }
 
-#zxseajzwbd p {
+#ztzwdoizvv p {
   margin: 0;
   padding: 0;
 }
 
-#zxseajzwbd .gt_table {
+#ztzwdoizvv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1954,12 +1959,12 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-left-color: #D3D3D3;
 }
 
-#zxseajzwbd .gt_caption {
+#ztzwdoizvv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zxseajzwbd .gt_title {
+#ztzwdoizvv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1971,7 +1976,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-bottom-width: 0;
 }
 
-#zxseajzwbd .gt_subtitle {
+#ztzwdoizvv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1983,7 +1988,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-top-width: 0;
 }
 
-#zxseajzwbd .gt_heading {
+#ztzwdoizvv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1995,13 +2000,13 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-right-color: #D3D3D3;
 }
 
-#zxseajzwbd .gt_bottom_border {
+#ztzwdoizvv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zxseajzwbd .gt_col_headings {
+#ztzwdoizvv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2016,7 +2021,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-right-color: #D3D3D3;
 }
 
-#zxseajzwbd .gt_col_heading {
+#ztzwdoizvv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2036,7 +2041,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   overflow-x: hidden;
 }
 
-#zxseajzwbd .gt_column_spanner_outer {
+#ztzwdoizvv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2048,15 +2053,15 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   padding-right: 4px;
 }
 
-#zxseajzwbd .gt_column_spanner_outer:first-child {
+#ztzwdoizvv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zxseajzwbd .gt_column_spanner_outer:last-child {
+#ztzwdoizvv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zxseajzwbd .gt_column_spanner {
+#ztzwdoizvv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2068,11 +2073,11 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   width: 100%;
 }
 
-#zxseajzwbd .gt_spanner_row {
+#ztzwdoizvv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zxseajzwbd .gt_group_heading {
+#ztzwdoizvv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2098,7 +2103,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   text-align: left;
 }
 
-#zxseajzwbd .gt_empty_group_heading {
+#ztzwdoizvv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2113,15 +2118,15 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   vertical-align: middle;
 }
 
-#zxseajzwbd .gt_from_md > :first-child {
+#ztzwdoizvv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zxseajzwbd .gt_from_md > :last-child {
+#ztzwdoizvv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zxseajzwbd .gt_row {
+#ztzwdoizvv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2140,7 +2145,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   overflow-x: hidden;
 }
 
-#zxseajzwbd .gt_stub {
+#ztzwdoizvv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2153,7 +2158,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   padding-right: 5px;
 }
 
-#zxseajzwbd .gt_stub_row_group {
+#ztzwdoizvv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2167,15 +2172,15 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   vertical-align: top;
 }
 
-#zxseajzwbd .gt_row_group_first td {
+#ztzwdoizvv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zxseajzwbd .gt_row_group_first th {
+#ztzwdoizvv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zxseajzwbd .gt_summary_row {
+#ztzwdoizvv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2185,16 +2190,16 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   padding-right: 5px;
 }
 
-#zxseajzwbd .gt_first_summary_row {
+#ztzwdoizvv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zxseajzwbd .gt_first_summary_row.thick {
+#ztzwdoizvv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zxseajzwbd .gt_last_summary_row {
+#ztzwdoizvv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2204,7 +2209,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-bottom-color: #D3D3D3;
 }
 
-#zxseajzwbd .gt_grand_summary_row {
+#ztzwdoizvv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2214,7 +2219,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   padding-right: 5px;
 }
 
-#zxseajzwbd .gt_first_grand_summary_row {
+#ztzwdoizvv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2224,7 +2229,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-top-color: #D3D3D3;
 }
 
-#zxseajzwbd .gt_last_grand_summary_row_top {
+#ztzwdoizvv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2234,11 +2239,11 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-bottom-color: #D3D3D3;
 }
 
-#zxseajzwbd .gt_striped {
+#ztzwdoizvv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zxseajzwbd .gt_table_body {
+#ztzwdoizvv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2247,7 +2252,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-bottom-color: #D3D3D3;
 }
 
-#zxseajzwbd .gt_footnotes {
+#ztzwdoizvv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2261,7 +2266,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-right-color: #D3D3D3;
 }
 
-#zxseajzwbd .gt_footnote {
+#ztzwdoizvv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2270,7 +2275,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   padding-right: 5px;
 }
 
-#zxseajzwbd .gt_sourcenotes {
+#ztzwdoizvv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2284,7 +2289,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-right-color: #D3D3D3;
 }
 
-#zxseajzwbd .gt_sourcenote {
+#ztzwdoizvv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2292,72 +2297,72 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   padding-right: 5px;
 }
 
-#zxseajzwbd .gt_left {
+#ztzwdoizvv .gt_left {
   text-align: left;
 }
 
-#zxseajzwbd .gt_center {
+#ztzwdoizvv .gt_center {
   text-align: center;
 }
 
-#zxseajzwbd .gt_right {
+#ztzwdoizvv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zxseajzwbd .gt_font_normal {
+#ztzwdoizvv .gt_font_normal {
   font-weight: normal;
 }
 
-#zxseajzwbd .gt_font_bold {
+#ztzwdoizvv .gt_font_bold {
   font-weight: bold;
 }
 
-#zxseajzwbd .gt_font_italic {
+#ztzwdoizvv .gt_font_italic {
   font-style: italic;
 }
 
-#zxseajzwbd .gt_super {
+#ztzwdoizvv .gt_super {
   font-size: 65%;
 }
 
-#zxseajzwbd .gt_footnote_marks {
+#ztzwdoizvv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zxseajzwbd .gt_asterisk {
+#ztzwdoizvv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zxseajzwbd .gt_indent_1 {
+#ztzwdoizvv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zxseajzwbd .gt_indent_2 {
+#ztzwdoizvv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zxseajzwbd .gt_indent_3 {
+#ztzwdoizvv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zxseajzwbd .gt_indent_4 {
+#ztzwdoizvv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zxseajzwbd .gt_indent_5 {
+#ztzwdoizvv .gt_indent_5 {
   text-indent: 25px;
 }
 
-#zxseajzwbd .katex-display {
+#ztzwdoizvv .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#zxseajzwbd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ztzwdoizvv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2376,19 +2381,19 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_right" headers="district">1</td>
-<td class="gt_row gt_right" headers="High-High">12</td>
+<td class="gt_row gt_right" headers="High-High">11</td>
 <td class="gt_row gt_right" headers="Low-Low">1</td>
 <td class="gt_row gt_right" headers="Negative">0</td>
-<td class="gt_row gt_right" headers="Other Positive">1</td>
-<td class="gt_row gt_right" headers="Not Significant">3</td>
+<td class="gt_row gt_right" headers="Other Positive">0</td>
+<td class="gt_row gt_right" headers="Not Significant">5</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_right" headers="district">2</td>
-<td class="gt_row gt_right" headers="High-High">11</td>
+<td class="gt_row gt_right" headers="High-High">10</td>
 <td class="gt_row gt_right" headers="Low-Low">0</td>
 <td class="gt_row gt_right" headers="Negative">0</td>
 <td class="gt_row gt_right" headers="Other Positive">2</td>
-<td class="gt_row gt_right" headers="Not Significant">8</td>
+<td class="gt_row gt_right" headers="Not Significant">9</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="district">3</td>
@@ -2401,10 +2406,10 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
 <tr class="even">
 <td class="gt_row gt_right" headers="district">4</td>
 <td class="gt_row gt_right" headers="High-High">0</td>
-<td class="gt_row gt_right" headers="Low-Low">9</td>
+<td class="gt_row gt_right" headers="Low-Low">10</td>
 <td class="gt_row gt_right" headers="Negative">0</td>
 <td class="gt_row gt_right" headers="Other Positive">0</td>
-<td class="gt_row gt_right" headers="Not Significant">9</td>
+<td class="gt_row gt_right" headers="Not Significant">8</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="district">5</td>
@@ -2417,10 +2422,10 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
 <tr class="even">
 <td class="gt_row gt_right" headers="district">6</td>
 <td class="gt_row gt_right" headers="High-High">1</td>
-<td class="gt_row gt_right" headers="Low-Low">7</td>
+<td class="gt_row gt_right" headers="Low-Low">8</td>
 <td class="gt_row gt_right" headers="Negative">0</td>
 <td class="gt_row gt_right" headers="Other Positive">0</td>
-<td class="gt_row gt_right" headers="Not Significant">16</td>
+<td class="gt_row gt_right" headers="Not Significant">15</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="district">7</td>
@@ -2441,10 +2446,10 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
 <tr class="odd">
 <td class="gt_row gt_right" headers="district">9</td>
 <td class="gt_row gt_right" headers="High-High">0</td>
-<td class="gt_row gt_right" headers="Low-Low">5</td>
+<td class="gt_row gt_right" headers="Low-Low">7</td>
 <td class="gt_row gt_right" headers="Negative">0</td>
 <td class="gt_row gt_right" headers="Other Positive">0</td>
-<td class="gt_row gt_right" headers="Not Significant">13</td>
+<td class="gt_row gt_right" headers="Not Significant">11</td>
 </tr>
 </tbody>
 </table>
@@ -2488,23 +2493,23 @@ font-style: inherit;">table_gt</span>(lm_tables<span class="sc" style="color: #5
 background-color: null;
 font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="ujsvenipfl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ujsvenipfl table {
+<div id="uyzsgvseuq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#uyzsgvseuq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ujsvenipfl thead, #ujsvenipfl tbody, #ujsvenipfl tfoot, #ujsvenipfl tr, #ujsvenipfl td, #ujsvenipfl th {
+#uyzsgvseuq thead, #uyzsgvseuq tbody, #uyzsgvseuq tfoot, #uyzsgvseuq tr, #uyzsgvseuq td, #uyzsgvseuq th {
   border-style: none;
 }
 
-#ujsvenipfl p {
+#uyzsgvseuq p {
   margin: 0;
   padding: 0;
 }
 
-#ujsvenipfl .gt_table {
+#uyzsgvseuq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2530,12 +2535,12 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-left-color: #D3D3D3;
 }
 
-#ujsvenipfl .gt_caption {
+#uyzsgvseuq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ujsvenipfl .gt_title {
+#uyzsgvseuq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2547,7 +2552,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-bottom-width: 0;
 }
 
-#ujsvenipfl .gt_subtitle {
+#uyzsgvseuq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2559,7 +2564,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-top-width: 0;
 }
 
-#ujsvenipfl .gt_heading {
+#uyzsgvseuq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2571,13 +2576,13 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-right-color: #D3D3D3;
 }
 
-#ujsvenipfl .gt_bottom_border {
+#uyzsgvseuq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ujsvenipfl .gt_col_headings {
+#uyzsgvseuq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2592,7 +2597,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-right-color: #D3D3D3;
 }
 
-#ujsvenipfl .gt_col_heading {
+#uyzsgvseuq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2612,7 +2617,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   overflow-x: hidden;
 }
 
-#ujsvenipfl .gt_column_spanner_outer {
+#uyzsgvseuq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2624,15 +2629,15 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   padding-right: 4px;
 }
 
-#ujsvenipfl .gt_column_spanner_outer:first-child {
+#uyzsgvseuq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ujsvenipfl .gt_column_spanner_outer:last-child {
+#uyzsgvseuq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ujsvenipfl .gt_column_spanner {
+#uyzsgvseuq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2644,11 +2649,11 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   width: 100%;
 }
 
-#ujsvenipfl .gt_spanner_row {
+#uyzsgvseuq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ujsvenipfl .gt_group_heading {
+#uyzsgvseuq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2674,7 +2679,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   text-align: left;
 }
 
-#ujsvenipfl .gt_empty_group_heading {
+#uyzsgvseuq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2689,15 +2694,15 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   vertical-align: middle;
 }
 
-#ujsvenipfl .gt_from_md > :first-child {
+#uyzsgvseuq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ujsvenipfl .gt_from_md > :last-child {
+#uyzsgvseuq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ujsvenipfl .gt_row {
+#uyzsgvseuq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2716,7 +2721,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   overflow-x: hidden;
 }
 
-#ujsvenipfl .gt_stub {
+#uyzsgvseuq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2729,7 +2734,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   padding-right: 5px;
 }
 
-#ujsvenipfl .gt_stub_row_group {
+#uyzsgvseuq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2743,15 +2748,15 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   vertical-align: top;
 }
 
-#ujsvenipfl .gt_row_group_first td {
+#uyzsgvseuq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ujsvenipfl .gt_row_group_first th {
+#uyzsgvseuq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ujsvenipfl .gt_summary_row {
+#uyzsgvseuq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2761,16 +2766,16 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   padding-right: 5px;
 }
 
-#ujsvenipfl .gt_first_summary_row {
+#uyzsgvseuq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ujsvenipfl .gt_first_summary_row.thick {
+#uyzsgvseuq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ujsvenipfl .gt_last_summary_row {
+#uyzsgvseuq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2780,7 +2785,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-bottom-color: #D3D3D3;
 }
 
-#ujsvenipfl .gt_grand_summary_row {
+#uyzsgvseuq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2790,7 +2795,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   padding-right: 5px;
 }
 
-#ujsvenipfl .gt_first_grand_summary_row {
+#uyzsgvseuq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2800,7 +2805,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-top-color: #D3D3D3;
 }
 
-#ujsvenipfl .gt_last_grand_summary_row_top {
+#uyzsgvseuq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2810,11 +2815,11 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-bottom-color: #D3D3D3;
 }
 
-#ujsvenipfl .gt_striped {
+#uyzsgvseuq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ujsvenipfl .gt_table_body {
+#uyzsgvseuq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2823,7 +2828,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-bottom-color: #D3D3D3;
 }
 
-#ujsvenipfl .gt_footnotes {
+#uyzsgvseuq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2837,7 +2842,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-right-color: #D3D3D3;
 }
 
-#ujsvenipfl .gt_footnote {
+#uyzsgvseuq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2846,7 +2851,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   padding-right: 5px;
 }
 
-#ujsvenipfl .gt_sourcenotes {
+#uyzsgvseuq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2860,7 +2865,7 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   border-right-color: #D3D3D3;
 }
 
-#ujsvenipfl .gt_sourcenote {
+#uyzsgvseuq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2868,72 +2873,72 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
   padding-right: 5px;
 }
 
-#ujsvenipfl .gt_left {
+#uyzsgvseuq .gt_left {
   text-align: left;
 }
 
-#ujsvenipfl .gt_center {
+#uyzsgvseuq .gt_center {
   text-align: center;
 }
 
-#ujsvenipfl .gt_right {
+#uyzsgvseuq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ujsvenipfl .gt_font_normal {
+#uyzsgvseuq .gt_font_normal {
   font-weight: normal;
 }
 
-#ujsvenipfl .gt_font_bold {
+#uyzsgvseuq .gt_font_bold {
   font-weight: bold;
 }
 
-#ujsvenipfl .gt_font_italic {
+#uyzsgvseuq .gt_font_italic {
   font-style: italic;
 }
 
-#ujsvenipfl .gt_super {
+#uyzsgvseuq .gt_super {
   font-size: 65%;
 }
 
-#ujsvenipfl .gt_footnote_marks {
+#uyzsgvseuq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ujsvenipfl .gt_asterisk {
+#uyzsgvseuq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ujsvenipfl .gt_indent_1 {
+#uyzsgvseuq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ujsvenipfl .gt_indent_2 {
+#uyzsgvseuq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ujsvenipfl .gt_indent_3 {
+#uyzsgvseuq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ujsvenipfl .gt_indent_4 {
+#uyzsgvseuq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ujsvenipfl .gt_indent_5 {
+#uyzsgvseuq .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ujsvenipfl .katex-display {
+#uyzsgvseuq .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ujsvenipfl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#uyzsgvseuq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2968,19 +2973,19 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="district">3</td>
-<td class="gt_row gt_right" headers="High-High">18</td>
+<td class="gt_row gt_right" headers="High-High">17</td>
 <td class="gt_row gt_right" headers="High-Low">0</td>
 <td class="gt_row gt_right" headers="Low-High">0</td>
 <td class="gt_row gt_right" headers="Low-Low">0</td>
-<td class="gt_row gt_right" headers="Not Significant">1</td>
+<td class="gt_row gt_right" headers="Not Significant">2</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_right" headers="district">4</td>
 <td class="gt_row gt_right" headers="High-High">0</td>
 <td class="gt_row gt_right" headers="High-Low">0</td>
 <td class="gt_row gt_right" headers="Low-High">0</td>
-<td class="gt_row gt_right" headers="Low-Low">10</td>
-<td class="gt_row gt_right" headers="Not Significant">8</td>
+<td class="gt_row gt_right" headers="Low-Low">11</td>
+<td class="gt_row gt_right" headers="Not Significant">7</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="district">5</td>
@@ -2992,11 +2997,11 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
 </tr>
 <tr class="even">
 <td class="gt_row gt_right" headers="district">6</td>
-<td class="gt_row gt_right" headers="High-High">1</td>
+<td class="gt_row gt_right" headers="High-High">0</td>
 <td class="gt_row gt_right" headers="High-Low">0</td>
 <td class="gt_row gt_right" headers="Low-High">0</td>
 <td class="gt_row gt_right" headers="Low-Low">7</td>
-<td class="gt_row gt_right" headers="Not Significant">16</td>
+<td class="gt_row gt_right" headers="Not Significant">17</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="district">7</td>
@@ -3019,8 +3024,8 @@ font-style: inherit;">$</span>Hisp.Pct)</span></code></pre></div></div>
 <td class="gt_row gt_right" headers="High-High">0</td>
 <td class="gt_row gt_right" headers="High-Low">0</td>
 <td class="gt_row gt_right" headers="Low-High">0</td>
-<td class="gt_row gt_right" headers="Low-Low">6</td>
-<td class="gt_row gt_right" headers="Not Significant">12</td>
+<td class="gt_row gt_right" headers="Low-Low">5</td>
+<td class="gt_row gt_right" headers="Not Significant">13</td>
 </tr>
 </tbody>
 </table>
@@ -3071,7 +3076,7 @@ background-color: null;
 font-style: inherit;">factor</span>(</span>
 <span id="cb46-7">        <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">ifelse</span>(p_folded_sim <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">iif</span>(p_folded_sim <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&lt;=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
@@ -13390,7 +13395,7 @@ font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-imm-pop-state" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<div id="fig-imm-pop-state" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-imm-pop-state-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-imm-pop-state-1.png" id="fig-imm-pop-state" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -13594,7 +13599,7 @@ font-style: inherit;">3</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-imm-pop-county" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<div id="fig-imm-pop-county" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-imm-pop-county-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-imm-pop-county-1.png" id="fig-imm-pop-county" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -14346,7 +14351,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1">p1</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-his-state-map" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<div id="fig-his-state-map" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-his-state-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-his-state-map-1.png" id="fig-his-state-map" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -14692,7 +14697,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell preview-image" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1">p1</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-his-pop-pct" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<div id="fig-his-pop-pct" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-his-pop-pct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-his-pop-pct-1.png" id="fig-his-pop-pct" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -15239,7 +15244,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1">p1</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-hvnv-bar" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<div id="fig-hvnv-bar" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hvnv-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hvnv-bar-1.png" id="fig-hvnv-bar" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -15440,7 +15445,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1">p1</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-org-ident" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<div id="fig-org-ident" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-org-ident-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-org-ident-1.png" id="fig-org-ident" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -16095,7 +16100,7 @@ font-style: inherit;">"cm"</span>))</span></code></pre></div></div>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1">p1</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-hisp-white" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<div id="fig-hisp-white" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-white-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-white-1.png" id="fig-hisp-white" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -16361,7 +16366,7 @@ give correct results for longitude/latitude data</code></pre>
 background-color: null;
 font-style: inherit;">+</span> p2</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-hisp-nm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<div id="fig-hisp-nm" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-nm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm-1.png" id="fig-hisp-nm" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -16808,7 +16813,7 @@ font-style: inherit;">/</span> (p3 <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> p4)</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-hisp-nm3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<div id="fig-hisp-nm3" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-nm3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm3-1.png" id="fig-hisp-nm3" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">
@@ -17046,7 +17051,7 @@ font-style: inherit;">theme_void</span>()</span></code></pre></div></div>
 background-color: null;
 font-style: inherit;">+</span> p2</span></code></pre></div></div>
 <div class="cell-output-display">
-<div id="fig-hisp-nm4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="90%">
+<div id="fig-hisp-nm4" class="quarto-float quarto-figure quarto-figure-center anchored" width="90%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-hisp-nm4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://www.biscotty.net/posts/data-science/r-census/nm-hispanic-demographics/index_files/figure-html/fig-hisp-nm4-1.png" id="fig-hisp-nm4" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:90.0%">

@@ -51,6 +51,7 @@ tidy <- broom::tidy
 unnest <- tidyr::unnest
 rownames_to_column <- tibble::rowid_to_column
 gt <- gt::gt
+iif <- kit::iif
 
 year <- 2024
 crs <- 6528
@@ -361,12 +362,12 @@ lm_lisas <- map(var_names, \(x) {
         moran = local_moran(abq_data[[x]], nb, wt),
       ) %>% unnest(moran) %>%
       fmutate(quadrant = factor(
-        ifelse(p_folded_sim <= 0.05, as.character(pysal), "Not Significant"),
+        iif(p_folded_sim <= 0.05, as.character(pysal), "Not Significant"),
         levels = c("High-High", "High-Low", "Low-High",
                    "Low-Low", "Not Significant")))})
 ```
 
-Now I'll create the mapping function. Note that I'm using `scale_fill_discrete`, which will misbehave in the case that some of the factor levels have no data. For it to work, it is not enough to add `drop=FALSE` as an argument to the scale function, but the associated `geom_sf` function must specify `show.legend=TRUE`.
+Now I'll create the mapping function. Note that I'm using `scale_fill_discrete`, which will misbehave in the case that some of the factor levels have no data. For it to work, it is not enough to add `drop=FALSE` as an argument to the scale function, but the associated `geom_sf` function must specify `show.legend=TRUE`. I've also used the fast version of `ifelse` provided by the `kit` package.
 
 ```{r}
 lm_plots <- map(
@@ -405,7 +406,7 @@ lg_lisas <- map(var_names, \(x) abq_data %>% to_sf %>%
      transmute(local_c = local_c_perm(abq_data[[x]], nb, wt, nsim = 199)) %>%
       unnest(local_c) %>%
       mutate(cluster = factor(
-        ifelse(p_folded_sim <= 0.05, as.character(cluster), "Not Significant"),
+        iif(p_folded_sim <= 0.05, as.character(cluster), "Not Significant"),
         levels = c("High-High", "Low-Low", "Negative",
                    "Other Positive", "Not Significant"))))
 
@@ -475,7 +476,7 @@ lg_k5_plots <- map(var_names, \(x) {
       local_c = local_c_perm(abq_data[[x]], nb_k5, wt_k5, nsim = 199)) %>%
       unnest(local_c) %>%
       mutate(cluster = factor(
-        ifelse(p_folded_sim <= 0.05, as.character(cluster), "Not Significant"),
+        iif(p_folded_sim <= 0.05, as.character(cluster), "Not Significant"),
         levels = c("High-High", "Low-Low", "Negative",
                    "Other Positive", "Not Significant")))
 
