@@ -464,5 +464,9 @@
   },
   "posts/data-science/r-census/abq-demographics/index.md": {
     "index.html": "65c55645"
+  },
+  "posts/data-science/r-census/abq-demographics-ANOVA/index.qmd": {
+    "index.html": "7eeb760b",
+    "index.md": "a532d6e0"
   }
 }
